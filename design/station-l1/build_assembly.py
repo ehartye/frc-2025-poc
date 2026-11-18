@@ -10,10 +10,10 @@ from pathlib import Path
 from OCP.Bnd import Bnd_Box
 from OCP.BRepAlgoAPI import BRepAlgoAPI_Common, BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse
 from OCP.BRepBndLib import BRepBndLib
-from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
+from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform, BRepBuilderAPI_MakePolygon, BRepBuilderAPI_MakeFace
 from OCP.BRepCheck import BRepCheck_Analyzer
 from OCP.BRepGProp import BRepGProp
-from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox,BRepPrimAPI_MakeCylinder
+from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox,BRepPrimAPI_MakeCylinder,BRepPrimAPI_MakePrism
 from OCP.GProp import GProp_GProps
 from OCP.IFSelect import IFSelect_RetDone
 from OCP.Quantity import Quantity_Color,Quantity_TOC_RGB
@@ -60,8 +60,17 @@ def brep(spec):
         return BRepPrimAPI_MakeBox(gp_Pnt(*vals[:3]),*vals[3:]).Shape()
     if op=="cyl":
         return BRepPrimAPI_MakeCylinder(gp_Ax2(gp_Pnt(*vals[:3]),gp_Dir(*vals[3:6])),*vals[6:]).Shape()
+    if op=="hex":
+        x,y,z,af,length=vals
+        wire=BRepBuilderAPI_MakePolygon()
+        r=af/math.sqrt(3)
+        for i in range(6):
+            a=i*math.pi/3
+            wire.Add(gp_Pnt(x+r*math.cos(a),y,z+r*math.sin(a)))
+        wire.Close()
+        return BRepPrimAPI_MakePrism(BRepBuilderAPI_MakeFace(wire.Wire()).Face(),gp_Vec(0,length,0)).Shape()
     result=brep(vals[0])
-    operation={"cut":BRepAlgoAPI_Cut,"union":BRepAlgoAPI_Fuse}[op]
+    operation={"cut":BRepAlgoAPI_Cut,"union":BRepAlgoAPI_Fuse,"intersect":BRepAlgoAPI_Common}[op]
     for form in vals[1:]:
         boolean=operation(result,brep(form))
         if not boolean.IsDone():
@@ -98,10 +107,10 @@ def xcaf_doc():
     return doc,XCAFDoc_DocumentTool.ShapeTool_s(doc.Main())
 
 
-def write_named(path,shapes):
+def write_named(path,shapes,parts=PARTS):
     doc,table=xcaf_doc()
     colors=XCAFDoc_DocumentTool.ColorTool_s(doc.Main())
-    for p,shape in zip(PARTS,shapes):
+    for p,shape in zip(parts,shapes):
         label=table.AddShape(shape,False)
         TDataStd_Name.Set_s(label,TCollection_ExtendedString(p["id"]))
         rgb=bytes.fromhex(COLORS[p["group"]][1:])
@@ -113,7 +122,7 @@ def write_named(path,shapes):
     path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="ascii").splitlines())+"\n",encoding="ascii",newline="\n")
 
 
-def read_named(path):
+def read_named(path,parts=PARTS):
     reader=STEPCAFControl_Reader()
     doc,table=xcaf_doc()
     if reader.ReadFile(str(path))!=IFSelect_RetDone or not reader.Transfer(doc):
@@ -131,7 +140,7 @@ def read_named(path):
         if key in result or solid_count(shape)!=1:
             raise ValueError("Duplicate ID or disconnected/invalid part: "+key)
         result[key]=shape
-    if set(result)!={p["id"] for p in PARTS}:
+    if set(result)!={p["id"] for p in parts}:
         raise ValueError("STEP identity inventory differs from design input")
     return result
 
@@ -176,9 +185,9 @@ def check_pose(name,shapes):
             "boundsMm":[round(f(limits[k][i] for k in shapes),3) for i,f in enumerate([min]*3+[max]*3)]}
 
 
-def mass_rows(shapes):
+def mass_rows(shapes,parts=PARTS):
     rows=[]
-    for p in PARTS:
+    for p in parts:
         vol,center=volume(shapes[p["id"]])
         kg=[vol*DENSITY[p["material"]]]*2 if p["material"] else list(p["mass"])
         rows.append([p["id"],p["group"],p["frame"],p["material"] or "equipment envelope",*kg,*p["costs"],*center,p["basis"]])
@@ -200,18 +209,20 @@ def budget(rows,pose):
             "estimatedUsd":[round(sum(r[i] for r in rows),2) for i in (6,7)]}
 
 
-def write_scad(path):
+def write_scad(path,parts=PARTS):
     def scad(spec):
         op,v=spec
         if op=="box":
             return f"translate({v[:3]}) cube({v[3:]});"
         if op=="cyl":
             axis=v[3:6]
-            rotation={(0,0,1):"[0,0,0]",(0,1,0):"[-90,0,0]"}[tuple(axis)]
+            rotation={(0,0,1):"[0,0,0]",(0,1,0):"[-90,0,0]",(1,0,0):"[0,90,0]"}[tuple(axis)]
             return f"translate({v[:3]}) rotate({rotation}) cylinder(r={v[6]}, h={v[7]});"
+        if op=="hex":
+            return f"translate({v[:3]}) rotate([-90,0,0]) cylinder(r={v[3]/math.sqrt(3)}, h={v[4]}, $fn=6);"
         if op=="shelf":
             return "shelf_stock();"
-        return {"union":"union() {","cut":"difference() {"}[op]+" "+" ".join(scad(x) for x in v)+" }"
+        return {"union":"union() {","cut":"difference() {","intersect":"intersection() {"}[op]+" "+" ".join(scad(x) for x in v)+" }"
     # Quarter-circle entrance, supplied shelf stock oriented with rounded nose at robot +X.
     header="""// Editable original assembly, millimetres. Preview selected pose (F5); render (F6).
 // Generated from mechanical.py. Set selected_part to its CAD ID for individual review.
@@ -224,7 +235,7 @@ $fn=72;
     header+='p=pose=="receive"?1:pose=="transport"?2:pose=="place"?3:0;\nheight=heights[p]; stroke=strokes[p];\n'
     header+='module shelf_stock(){ translate([0,210,0]) rotate([90,0,0]) linear_extrude(420) polygon(concat([[-100,-75],[165,-75],[165,-66]],[for(a=[0:1:90]) [159+6*cos(a),-66+6*sin(a)]],[[-100,-60]])); }\n'
     lines=[header]
-    for p in PARTS:
+    for p in parts:
         frame=p["frame"]
         shift={"base":"[0,0,0]","lift":"[0,0,height]","middle":"[stroke/2,0,height]","slide":"[stroke,0,height]"}[frame]
         key=json.dumps(p["id"])
@@ -232,19 +243,19 @@ $fn=72;
     path.write_text("\n".join(lines)+"\n",encoding="utf-8")
 
 
-def build(out,poses):
+def build(out,poses,parts=PARTS):
     out.mkdir(parents=True,exist_ok=True)
-    shapes=[brep(p["form"]) for p in PARTS]
-    write_scad(out/"station-l1.scad")
+    shapes=[brep(p["form"]) for p in parts]
+    write_scad(out/"station-l1.scad",parts)
     receipt={"basis":"Named STEP reopen, B-Rep solid volumes and finite 3D poses; equipment and costs remain allocations.",
              "shelfSourceSha256":MODEL["source"]["shelfSha256"],"poses":{}}
     for name in poses:
         pose=MODEL["poses"][name]
         dest=out/(name+".step")
-        write_named(dest,[translated(s,offset(p,pose)) for p,s in zip(PARTS,shapes)])
-        seen=read_named(dest)
+        write_named(dest,[translated(s,offset(p,pose)) for p,s in zip(parts,shapes)],parts)
+        seen=read_named(dest,parts)
         info=check_pose(name,seen)
-        rows=mass_rows(seen)
+        rows=mass_rows(seen,parts)
         receipt["poses"][name]={**info,**budget(rows,pose),"stepSha256":hashlib.sha256(dest.read_bytes()).hexdigest()}
         if name=="stowed":
             with (out/"bom.csv").open("w",newline="",encoding="utf-8") as f:
