@@ -28,3 +28,5 @@ python scripts/station_edge_contact.py --speeds 0.5 1 2
 | 2.0 | Immediate separation | 35.0° | 32.8, 46.8 | +1.638, −1.147 |
 
 The transition is 0.678 m/s in this geometry. At 0.5 m/s, starting free flight at the tangent would place departure about 8.3 mm too early horizontally and 7.1 mm too high. Use the respective separation states in the next receiver experiment. Sweep the tube against the registered station surface and receiver entrance from approach through first receiver contact. A penetration before separation rejects the sharp-edge geometry for that case. A clear transition gives a candidate first impact for a separate bounce and capture study.
+
+The [receiver-contact screen](RECEIVER-CONTACT.md) follows all three departure states through their first shelf-top crossing and retains the premature-flight control.
