@@ -136,12 +136,12 @@ def motion_bound(w):
     return abs((w[0]+w[1])/2)+RADIUS*abs((w[1]-w[0])/f.DRIVE["trackM"])
 
 
-def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02,mission_record=INPUT,focal_routes=f.routes):
+def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02,mission_record=INPUT,focal_routes=f.routes,prepared=None):
     if (not math.isfinite(start_hold) or start_hold<0 or not math.isfinite(deadline) or not 0<deadline<=135
             or not math.isfinite(step) or not .005<=step<=.05 or len(stock)!=2
             or any(t is not None and (not math.isfinite(t) or t<0) for t in stock)):
         raise ValueError("Use finite nonnegative times, two stock arrivals and a 5–50 ms collision step")
-    team,feeds,pipes=programs(start_hold,stock,mission_record,focal_routes)
+    team,feeds,pipes=prepared if prepared is not None else programs(start_hold,stock,mission_record,focal_routes)
     for key in ("red3","blue3"):
         for _,_,_,route in team[key].intervals:
             if route:
