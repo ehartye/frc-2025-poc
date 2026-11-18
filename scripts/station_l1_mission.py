@@ -117,7 +117,7 @@ def free_contacts(x,y,z,yaw,front,top):
 
 
 def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-001", target_y=0.0,
-        sample_every_step=False, trajectory=None):
+        sample_every_step=False, trajectory=None, grip_law=None):
     if case not in {"reference","weak-grip","sensor-timeout","slow-release","occupied-target","light-pipe"}:
         raise ValueError("Unknown experiment")
     if not math.isfinite(dt) or not .00025 <= dt <= .005:
@@ -236,13 +236,23 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
             fy = mass*(acc[1]+kp*(q[1]-y)+kd*(vel[1]-vy))
             longitudinal = fx*co+fy*si
             transverse = -fx*si+fy*co
-            if phase=="place":
-                release_speed=.35 if case=="slow-release" else M["releaseSpeed_mps"]
-                longitudinal = mass*kd*(release_speed-(vx*co+vy*si))
             torque = inertia*(acc[2]+kp*error+kd*(vel[2]-omega))
             n_a = (limit+clip(transverse,limit))/2
             n_b = limit-n_a
             mu = M["tractionCoefficient"]
+            shelf_friction=0.
+            if grip_law is not None:
+                n_a,n_b,mu,speed_limit,shelf_mu=grip_law(u-slide,v,error,phase,time)
+                if not all(math.isfinite(q) and q>=0 for q in (n_a,n_b,mu,speed_limit,shelf_mu)):
+                    raise ValueError("invalid contact, drag or speed from grip model")
+                if n_a+n_b==0:
+                    relative_speed=(vx-vel[0])*co+(vy-vel[1])*si
+                    shelf_friction=-clip(mass*relative_speed/dt,shelf_mu*normal)
+            if phase=="place":
+                release_speed=.35 if case=="slow-release" else M["releaseSpeed_mps"]
+                if grip_law is not None:
+                    release_speed=min(release_speed,speed_limit)
+                longitudinal=mass*kd*(release_speed-(vx*co+vy*si))
             arm = M["pipeLength_m"]/2
             f_a = clip(longitudinal/2+torque/(2*arm),mu*n_a)
             f_b = clip(longitudinal/2-torque/(2*arm),mu*n_b)
@@ -250,8 +260,8 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
             peak["centering_force_N"] = max(peak["centering_force_N"],abs(n_a-n_b))
             peak["yaw_error_deg"] = max(peak["yaw_error_deg"],abs(math.degrees(error)))
             peak["lateral_error_mm"] = max(peak["lateral_error_mm"],abs(v)*1000)
-            ax = ((f_a+f_b)*co-(n_a-n_b)*si)/mass
-            ay = ((f_a+f_b)*si+(n_a-n_b)*co)/mass
+            ax = ((f_a+f_b+shelf_friction)*co-(n_a-n_b)*si)/mass
+            ay = ((f_a+f_b+shelf_friction)*si+(n_a-n_b)*co)/mass
             alpha = (f_a-f_b)*arm/inertia
             x += vx*dt+ax*dt*dt/2
             y += vy*dt+ay*dt*dt/2
