@@ -6,6 +6,8 @@
 
 ## Design highlights
 
+For a fresh kickoff exercise, start with the [release-day field model and opportunity study](kickoff/README.md). It compares two candidate roles from the V0 rules and times every loaded trip and empty return before proposing a design requirement.
+
 - **Low-level, low-speed CORAL placement** with one preloaded CORAL.
 - 0 degree guide, 0.15 m powered travel, 0.0005 kg m2 inertia per roller, refined duty 0.04.
 - Ideal differential-drive approach, 200 ms stopped handoff, virtual pregrip/gate interlocks and powered roller model using WPILib DCMotor/shared supply.
