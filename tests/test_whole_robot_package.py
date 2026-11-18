@@ -13,6 +13,11 @@ from mechanical import MODEL,assembly
 
 
 class PackageTests(unittest.TestCase):
+    def test_archived_b4_input_matches_its_original_git_object(self):
+        source=(PKG/"b4-source.json").read_bytes()
+        git_header=f"blob {len(source)}\0".encode("ascii")
+        self.assertEqual(hashlib.sha1(git_header+source).hexdigest(),MODEL["source"]["gitBlob"])
+
     def test_four_pose_artifact_identities_and_load_budget(self):
         review=json.loads((PKG/"review.json").read_text())
         initial=json.loads((PKG/"first-fit.json").read_text())
