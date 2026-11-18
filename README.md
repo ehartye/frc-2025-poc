@@ -6,6 +6,8 @@
 
 ## Design highlights
 
+The [station-to-L1 candidate mission](mission/README.md) follows an identified pipe from a station feed through the moving receiver and into first contact with a registered reef trough. It includes custody losses, timing limits and a conditional second trip. The [CORAL assessment](scoring/README.md) applies edition-specific criteria to observations, using the [release-day rules register](kickoff/rule-register-v0.json) as a separate kickoff record.
+
 For a fresh kickoff exercise, start with the [release-day field model and opportunity study](kickoff/README.md). It compares two candidate roles from the V0 rules and times every loaded trip and empty return before proposing a design requirement.
 
 - **Low-level, low-speed CORAL placement** with one preloaded CORAL.

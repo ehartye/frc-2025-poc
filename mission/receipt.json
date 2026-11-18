@@ -1,0 +1,743 @@
+{
+  "schema": "station-l1-mission-receipt/1",
+  "source_sha256": {
+    "mission/candidate.json": "77f93fe2366935c0008682bb7ddc16465d4676e228b1c6871978070313d621dd",
+    "mission/target.json": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37",
+    "cad/station-receiver/design.json": "a633f075d1fac96331ed3a4941c53ed66c7ba67c6957ff5b483db07aa6736f6e",
+    "scripts/station_edge_contact.py": "dc15605199f7695e55894867c3e230954b30caae6eb25a5a60c15a29259c69ac",
+    "scripts/receiver_contact.py": "2bf1c4f54a79ab612299fad4ccde21f0610999273b0e7a1b9185aa6ad16b403d",
+    "scripts/station_receiver_impact.py": "3b97aec3ba42dfea70e96eb1ff398446e140e1a089888fce7cdbe569374c7b91",
+    "scripts/station_l1_mission.py": "1024ee20398edb1c2005235c09f452a2706dfe92eabce32e4b051c158f6bd823",
+    "scripts/station_l1_phase.py": "c471c6d9dbef4bb6184f09a7e17533730667cc77ce2a40e0956a0e978528dd21",
+    "scripts/assess_coral.py": "03d8ce8eff16a3682b4dec759e3085cabf350ec3fad4cbf31d3586d89998d701",
+    "scripts/station_l1_receipt.py": "2ee0c82ed5239b92d8f0e44d2934aa4774101ba38f8559aa1235ba42b2c375c4"
+  },
+  "runs": [
+    {
+      "case": "reference",
+      "dt_s": 0.002,
+      "mass_kg": 0.816466266,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.93631019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.636913162,
+          -0.0,
+          0.50205624
+        ]
+      },
+      "events": [
+        {
+          "time_s": 0.06831019,
+          "event": "first-top-contact",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            0.067233238,
+            0.0,
+            0.93715
+          ]
+        },
+        {
+          "time_s": 0.06831019,
+          "event": "seat",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            0.067233238,
+            0.0,
+            0.93715
+          ]
+        },
+        {
+          "time_s": 1.16831019,
+          "event": "retract",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            0.11452298,
+            0.0,
+            0.93715
+          ]
+        },
+        {
+          "time_s": 3.17031019,
+          "event": "lower",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            0.354516273,
+            0.0,
+            0.937149997
+          ]
+        },
+        {
+          "time_s": 5.17031019,
+          "event": "drive-and-turn",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            0.354525001,
+            0.0,
+            0.66715
+          ]
+        },
+        {
+          "time_s": 10.16831019,
+          "event": "lower-at-target",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.079990613,
+            9.14e-07,
+            0.66715
+          ]
+        },
+        {
+          "time_s": 11.66831019,
+          "event": "extend-at-target",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.08,
+            0.0,
+            0.55715
+          ]
+        },
+        {
+          "time_s": 14.66831019,
+          "event": "place",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.449994843,
+            -0.0,
+            0.55715
+          ]
+        },
+        {
+          "time_s": 14.83031019,
+          "event": "left-powered-shelf-with-same-piece",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.536537875,
+            -0.0,
+            0.55715
+          ]
+        },
+        {
+          "time_s": 14.84631019,
+          "event": "finite-pipe-envelope-clear-of-shelf-by-1mm",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.551688862,
+            -0.0,
+            0.555894749
+          ],
+          "conservative_separation_m": 0.0011830184733550783
+        },
+        {
+          "time_s": 14.93631019,
+          "event": "paired-trough-first-contact",
+          "piece_id": "station-coral-001",
+          "xyz_m": [
+            3.636913162,
+            -0.0,
+            0.50205624
+          ]
+        }
+      ],
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.2656990218584738,
+        "yaw_error_deg": 0.0006620970307506738,
+        "lateral_error_mm": 0.007587864164868008
+      },
+      "samples": 746,
+      "trace_digest": "72e8d52d9ed9790c57d8eba1c4bd59e0abf67ba60e2e2d4cf0b3e4297107ba9f"
+    },
+    {
+      "case": "reference",
+      "dt_s": 0.001,
+      "mass_kg": 0.816466266,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.93631019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.635559099,
+          -0.0,
+          0.50205624
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.26553619855848254,
+        "yaw_error_deg": 0.00033422968859511107,
+        "lateral_error_mm": 0.0038325967043981862
+      },
+      "samples": 746,
+      "trace_digest": "2f85b0d17feafcb9894fd9d2208d65e5843d92bcfd9ddbfc9a3a1a75a2fd6b64"
+    },
+    {
+      "case": "reference",
+      "dt_s": 0.0005,
+      "mass_kg": 0.816466266,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.93431019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.634409803,
+          -0.0,
+          0.502574767
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.26545475244212113,
+        "yaw_error_deg": 0.00016790668289669728,
+        "lateral_error_mm": 0.001925964255198101
+      },
+      "samples": 746,
+      "trace_digest": "0f9d6f0fe715291f5fbfb2bd4f0d57b09a8a2229119bd44f56fcde8173f5114e"
+    },
+    {
+      "case": "light-pipe",
+      "dt_s": 0.002,
+      "mass_kg": 0.498951607,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.91231019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.638951721,
+          -0.0,
+          0.50205624
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.16237162446906694,
+        "yaw_error_deg": 0.0006620970307506167,
+        "lateral_error_mm": 0.007587864164868008
+      },
+      "samples": 745,
+      "trace_digest": "c6786d7918fc995122584244999101a8569bfb7cfbb31643d1b76b2bd96ee054"
+    },
+    {
+      "case": "light-pipe",
+      "dt_s": 0.001,
+      "mass_kg": 0.498951607,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.91131019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.636515495,
+          -0.0,
+          0.503090842
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.1622721213412941,
+        "yaw_error_deg": 0.00033422968859511844,
+        "lateral_error_mm": 0.0038325967043981862
+      },
+      "samples": 745,
+      "trace_digest": "a6f102566dfccb2b75d950e63c62b2a09fc4d97da70ae1c071fec37d0ef76168"
+    },
+    {
+      "case": "light-pipe",
+      "dt_s": 0.0005,
+      "mass_kg": 0.498951607,
+      "outcome": "paired-trough-first-contact",
+      "last": {
+        "time_s": 14.91031019,
+        "event": "paired-trough-first-contact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.636354575,
+          -0.0,
+          0.503090842
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.1622223487146286,
+        "yaw_error_deg": 0.0001679066828967016,
+        "lateral_error_mm": 0.001925964255198101
+      },
+      "samples": 745,
+      "trace_digest": "6d13af78a79aeaac61a963df5efa033f5510592a51a9abe04937be473015e721"
+    },
+    {
+      "case": "weak-grip",
+      "dt_s": 0.002,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-rear-edge-departure",
+      "last": {
+        "time_s": 0.60031019,
+        "event": "recover-rear-edge-departure",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.29511447,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 0.00800000000000056,
+        "centering_force_N": 2.8033131371785203e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 29,
+      "trace_digest": "6de986307c836f729fee0b6723ca963482e9d2db05144628da32a9298bbebcd3"
+    },
+    {
+      "case": "weak-grip",
+      "dt_s": 0.001,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-rear-edge-departure",
+      "last": {
+        "time_s": 0.59931019,
+        "event": "recover-rear-edge-departure",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.294691325,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 0.00800000000000056,
+        "centering_force_N": 2.8033131371785203e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 29,
+      "trace_digest": "885078e90df6cdbdba50a44d67ab601b72da54a0b87addc6b4d6f579d1b69d49"
+    },
+    {
+      "case": "weak-grip",
+      "dt_s": 0.0005,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-rear-edge-departure",
+      "last": {
+        "time_s": 0.59931019,
+        "event": "recover-rear-edge-departure",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.294691325,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 0.00800000000000056,
+        "centering_force_N": 2.8033131371785203e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 29,
+      "trace_digest": "885078e90df6cdbdba50a44d67ab601b72da54a0b87addc6b4d6f579d1b69d49"
+    },
+    {
+      "case": "slow-release",
+      "dt_s": 0.002,
+      "mass_kg": 0.816466266,
+      "outcome": "receiver-recontact",
+      "last": {
+        "time_s": 14.96231019,
+        "event": "receiver-recontact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.535772476,
+          -0.0,
+          0.557130387
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.2656990218584738,
+        "yaw_error_deg": 0.0006620970307506738,
+        "lateral_error_mm": 0.007587864164868008
+      },
+      "samples": 747,
+      "trace_digest": "7888af3c8c9989a7a9890cb7db1f96240524c4ff8cc5064c75611407189e3dba"
+    },
+    {
+      "case": "slow-release",
+      "dt_s": 0.001,
+      "mass_kg": 0.816466266,
+      "outcome": "receiver-recontact",
+      "last": {
+        "time_s": 14.96331019,
+        "event": "receiver-recontact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.535610406,
+          -0.0,
+          0.557145097
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.26553619855848254,
+        "yaw_error_deg": 0.00033422968859511107,
+        "lateral_error_mm": 0.0038325967043981862
+      },
+      "samples": 747,
+      "trace_digest": "2634d31dc85179a705406ce3c99951cd0c635f56078d003c41055242ad397f28"
+    },
+    {
+      "case": "slow-release",
+      "dt_s": 0.0005,
+      "mass_kg": 0.816466266,
+      "outcome": "receiver-recontact",
+      "last": {
+        "time_s": 14.96181019,
+        "event": "receiver-recontact",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.535353292,
+          -0.0,
+          0.557145097
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 2.8000000000000003,
+        "centering_force_N": 0.26545475244212113,
+        "yaw_error_deg": 0.00016790668289669728,
+        "lateral_error_mm": 0.001925964255198101
+      },
+      "samples": 747,
+      "trace_digest": "ab65eed14ca7c639186fc09bee564e8ee24a04e2ae7de6b0e29da71f54f33edc"
+    },
+    {
+      "case": "sensor-timeout",
+      "dt_s": 0.002,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-at-station-unconfirmed-seat",
+      "last": {
+        "time_s": 1.16831019,
+        "event": "recover-at-station-unconfirmed-seat",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.11452298,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 3.552713678800501e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 57,
+      "trace_digest": "dd7dcea02089cf94b1d37a6334040e36175df2d652efcb6f5f63f9165fcaa8db"
+    },
+    {
+      "case": "sensor-timeout",
+      "dt_s": 0.001,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-at-station-unconfirmed-seat",
+      "last": {
+        "time_s": 1.16931019,
+        "event": "recover-at-station-unconfirmed-seat",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.114523251,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 3.552713678800501e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 58,
+      "trace_digest": "f3cc918255493d5b266df09246000786f857ecc26be7fc7963174f0bebbeffb0"
+    },
+    {
+      "case": "sensor-timeout",
+      "dt_s": 0.0005,
+      "mass_kg": 0.816466266,
+      "outcome": "recover-at-station-unconfirmed-seat",
+      "last": {
+        "time_s": 1.16881019,
+        "event": "recover-at-station-unconfirmed-seat",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          0.114523369,
+          0.0,
+          0.93715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 3.552713678800501e-15,
+        "yaw_error_deg": 0.0,
+        "lateral_error_mm": 4.498026812245149e-14
+      },
+      "samples": 58,
+      "trace_digest": "109f3f24c89cd08366a8ed38ee94d5a9018eb640e8563abf085a5575552a1e03"
+    },
+    {
+      "case": "occupied-target",
+      "dt_s": 0.002,
+      "mass_kg": 0.816466266,
+      "outcome": "hold-and-recover-target-occupied",
+      "last": {
+        "time_s": 11.66831019,
+        "event": "hold-and-recover-target-occupied",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.08,
+          0.0,
+          0.55715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 0.2656990218584738,
+        "yaw_error_deg": 0.0006620970307506738,
+        "lateral_error_mm": 0.007587864164868008
+      },
+      "samples": 582,
+      "trace_digest": "6b4f52d0ed8886895a44135d60886ac9f1e1ac0ce15f287ea410580cbbefbe03"
+    },
+    {
+      "case": "occupied-target",
+      "dt_s": 0.001,
+      "mass_kg": 0.816466266,
+      "outcome": "hold-and-recover-target-occupied",
+      "last": {
+        "time_s": 11.66931019,
+        "event": "hold-and-recover-target-occupied",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.08,
+          0.0,
+          0.55715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 0.26553619855848254,
+        "yaw_error_deg": 0.00033422968859511107,
+        "lateral_error_mm": 0.0038325967043981862
+      },
+      "samples": 583,
+      "trace_digest": "fba0304586d8c497a24d51046681c3f2cc481d4db0280fbc40a5097619d462be"
+    },
+    {
+      "case": "occupied-target",
+      "dt_s": 0.0005,
+      "mass_kg": 0.816466266,
+      "outcome": "hold-and-recover-target-occupied",
+      "last": {
+        "time_s": 11.66831019,
+        "event": "hold-and-recover-target-occupied",
+        "piece_id": "station-coral-001",
+        "xyz_m": [
+          3.08,
+          0.0,
+          0.55715
+        ]
+      },
+      "events": null,
+      "peak_supported": {
+        "belt_force_N": 1.6092719657098642,
+        "centering_force_N": 0.26545475244212113,
+        "yaw_error_deg": 0.00016790668289669728,
+        "lateral_error_mm": 0.001925964255198101
+      },
+      "samples": 582,
+      "trace_digest": "ca35ae92789be383cad830677f38d21f60e27a5e8c585944a37f9a89433da830"
+    }
+  ],
+  "clock_results": [
+    {
+      "stop": "await-empty-robot-and-separate-target-observations",
+      "phase": "TELEOP",
+      "elapsed_s": 18.93631019,
+      "synthetic_clear": false,
+      "pieces": {
+        "coral-A": {
+          "sector_y_m": -0.18,
+          "release_time_s": 4.0,
+          "state": "paired-trough-first-contact",
+          "first_contact_time_s": 18.93631019
+        }
+      },
+      "assessments": {
+        "kickoff-v0": {
+          "edition": "kickoff-v0",
+          "phase": "TELEOP",
+          "basis": "Model first contact; remaining robot and level observations stay unknown.",
+          "samples": [
+            {
+              "timeMs": 18936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        },
+        "archive-compiled": {
+          "edition": "archive-compiled",
+          "phase": "TELEOP",
+          "basis": "Model first contact; remaining robot and level observations stay unknown.",
+          "samples": [
+            {
+              "timeMs": 18936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        }
+      }
+    },
+    {
+      "stop": "allocated-supply-exhausted",
+      "phase": "TELEOP",
+      "elapsed_s": 62.13631019,
+      "synthetic_clear": true,
+      "pieces": {
+        "coral-A": {
+          "sector_y_m": -0.18,
+          "release_time_s": 4.0,
+          "state": "paired-trough-first-contact",
+          "first_contact_time_s": 18.93631019
+        },
+        "coral-B": {
+          "sector_y_m": 0.18,
+          "release_time_s": 35.0,
+          "state": "paired-trough-first-contact",
+          "first_contact_time_s": 49.93631019
+        }
+      },
+      "assessments": {
+        "kickoff-v0": {
+          "edition": "kickoff-v0",
+          "phase": "TELEOP",
+          "basis": "Model first contact; remaining robot and level observations stay unknown.",
+          "samples": [
+            {
+              "timeMs": 18936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            },
+            {
+              "timeMs": 49936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-B",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        },
+        "archive-compiled": {
+          "edition": "archive-compiled",
+          "phase": "TELEOP",
+          "basis": "Model first contact; remaining robot and level observations stay unknown.",
+          "samples": [
+            {
+              "timeMs": 18936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            },
+            {
+              "timeMs": 49936,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-B",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "unknown"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        }
+      }
+    },
+    {
+      "stop": "clock",
+      "phase": "AUTO",
+      "elapsed_s": 15,
+      "synthetic_clear": true,
+      "pieces": {
+        "coral-A": {
+          "sector_y_m": -0.18,
+          "release_time_s": 4.0,
+          "state": "in-progress"
+        }
+      },
+      "assessments": {}
+    }
+  ]
+}
