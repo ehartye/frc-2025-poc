@@ -18,12 +18,16 @@ def incoming(case, sector, piece_id, upstream=None):
         raise ValueError("The upstream case lacks registered paired trough contact")
     edge = next(e for e in result["events"] if e["event"]=="left-powered-shelf-with-same-piece")
     x0,y,z0 = edge["xyz_m"]
-    vx,vy = result["trace"][-1]["vx_vy_mps"]
-    if abs(vy)>1e-5 or abs(result["trace"][-1]["yaw_rad"])>1e-3:
+    last=result["trace"][-1]
+    vx,vy = last.get("target_vxvy_mps",last["vx_vy_mps"])
+    if abs(vy)>1e-5 or abs(last.get("robot_relative_yaw_rad",last["yaw_rad"]))>1e-3:
         raise ValueError("Transverse source geometry or trajectory is outside this 2-D continuation")
     source = mission.TARGET
     slope = source["floor_slope"]
-    x0 -= mission.M["targetLipX_m"]
+    if "target_xyz_m" in edge:
+        x0,y,z0=edge["target_xyz_m"]
+    else:
+        x0 -= mission.M["targetLipX_m"]
     gap = z0 - source["floor_intercept_m"] - slope*x0 - mission.R*math.hypot(1,slope)
     # Positive root at first exact gravity/circle-plane tangency, vz starts at 0 at release.
     turn = (math.sqrt((slope*vx)**2+2*mission.G*gap) - slope*vx)/mission.G
@@ -53,14 +57,17 @@ def shelf_gap(x,z,front,top):
 
 
 def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt=.0001, duration=2.0,
-                     withdrawal="fixed", initial_roll=0.0, piece_id="station-coral-001", upstream=None):
+                     withdrawal="fixed", initial_roll=0.0, piece_id="station-coral-001", upstream=None,
+                     wait_after_true_separation_s=.05):
     if not all(math.isfinite(v) for v in (mu,damping_ratio,dt,duration,initial_roll)) or abs(initial_roll)>40:
         raise ValueError("Contact and time inputs must be finite")
-    if not 0<=mu<=1 or not 0<=damping_ratio<=1 or not .000025<=dt<=.00025 or not 0<duration<=5:
+    if not 0<=mu<=1 or not 0<=damping_ratio<=1 or not .000025<=dt<=.00025 or not 0<duration<=135:
         raise ValueError("Outside the explored contact or integration range")
     source = mission.TARGET
     if withdrawal not in ("fixed","late","after-separation"):
         raise ValueError("Unknown withdrawal schedule")
+    if not math.isfinite(wait_after_true_separation_s) or wait_after_true_separation_s<0:
+        raise ValueError("Separation-to-motion delay must be finite and nonnegative")
     key,mass,clock,state,y,clear_clock = incoming(case,sector,piece_id,upstream)
     x,z,vx,vz = state
     omega=initial_roll # Axial roll was unobserved in the upstream mission.
@@ -72,6 +79,7 @@ def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt
     inertia=mass*r*r
     base_energy=.5*mass*(vx*vx+vz*vz)+.5*inertia*omega**2+mass*mission.G*z
     peak_energy_gain=0.0
+    peak_speed=math.hypot(vx,vz)
     stiffness=60000.0
     damping=2*damping_ratio*math.sqrt(stiffness*mass)
     friction_speed=.01
@@ -114,7 +122,8 @@ def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt
                 break
         if stop!="time-window-ended":
             break
-        start_retract = {"fixed":math.inf,"late":clock+1.2,"after-separation":clear_clock+.05}[withdrawal]
+        start_retract = {"fixed":math.inf,"late":clock+1.2,
+                         "after-separation":clear_clock+wait_after_true_separation_s}[withdrawal]
         stroke = min(.37, max(0,clock+t-start_retract)*.15)
         gap_shelf = shelf_gap(x,z,shelf_front-stroke,shelf_top)
         min_shelf=min(min_shelf,gap_shelf)
@@ -152,6 +161,7 @@ def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt
             still_dwell=0.0
         vx+=fx/mass*dt
         vz+=fz/mass*dt
+        peak_speed=max(peak_speed,math.hypot(vx,vz))
         omega+=torque/inertia*dt
         x+=vx*dt
         z+=vz*dt
@@ -164,6 +174,7 @@ def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt
             "first_lip_after_s":first_lip,"max_compression_mm":1000*peak_overlap,
             "withdrawal":withdrawal,"clear_witness_from_station_s":clear_clock,
             "ending_still_double_contact_s":still_dwell,"peak_total_energy_gain_J":peak_energy_gain,
+            "peak_planar_speed_mps":peak_speed,
             "min_shelf_clearance_mm":1000*min_shelf if math.isfinite(min_shelf) else None,
             "trace":trace,"official_score":None}
 
@@ -177,10 +188,12 @@ if __name__=="__main__":
     p.add_argument("--sector",type=float,default=-.18)
     p.add_argument("--withdrawal",choices=["fixed","late","after-separation"],default="fixed")
     p.add_argument("--initial-roll",type=float,default=0)
+    p.add_argument("--wait-after-separation-ms",type=float,default=50)
     p.add_argument("--full",action="store_true")
     a=p.parse_args()
     out=continue_contact(mu=a.mu,damping_ratio=a.damping_ratio,dt=a.dt,duration=a.duration,
-                         sector=a.sector,withdrawal=a.withdrawal,initial_roll=a.initial_roll)
+                         sector=a.sector,withdrawal=a.withdrawal,initial_roll=a.initial_roll,
+                         wait_after_true_separation_s=a.wait_after_separation_ms/1000)
     if not a.full:
         out.pop("trace")
     print(json.dumps(out,indent=2,allow_nan=False))

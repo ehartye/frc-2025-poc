@@ -1,0 +1,64 @@
+{
+  "schema": "reefscape-registered-transfer/1",
+  "source": "https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025Field-STEP.zip",
+  "firstStepSha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "basis": "January native field centered in XZ, +native X toward red, +native Y up, -native Z to field +Y. Compare the resulting corner and red reef lip with independently published January game layout. January native model postdates V0.",
+  "redStation": {
+    "occurrence": "FE-2025/NAUO34 (GE-25000_Red 3 Corner)",
+    "nativeOriginIn": [
+      312.09447463290115,
+      0,
+      -132.92659942273244
+    ],
+    "humanSideNativeBasis": [
+      0.5876243855652814,
+      0,
+      -0.8091338464611559
+    ],
+    "bumperFaceRobotwardM": 0.009525,
+    "upperDatumM": 0,
+    "extraStandOffM": 0.01
+  },
+  "redReef": {
+    "occurrence": "FE-2025/NAUO36/NAUO1039 (GE-25310) and NAUO1053 (GE-25302)",
+    "lipOriginNativeMm": [
+      3453.050980729168,
+      0,
+      0
+    ],
+    "inwardFieldHeadingDeg": 0,
+    "sectorOffsetsM": [
+      -0.18,
+      0.18
+    ]
+  },
+  "drive": {
+    "trackM": 0.58,
+    "maximumWheelMps": 1.25,
+    "maximumWheelAccelMps2": 1.2,
+    "maximumTurnRadS": 1.25,
+    "turnWheelAccelMps2": 0.7,
+    "loopS": 0.02
+  },
+  "waypointsIn": {
+    "northTransit": [
+      440,
+      245
+    ],
+    "westApproachX": 425
+  },
+  "startSlot": {
+    "basis": "Mirror the profile's central red opening slot and begin with a stowed empty robot. Start alignment, game-piece preload and a guaranteed availability at this station are study assumptions.",
+    "slot": 2
+  },
+  "supply": [
+    {
+      "id": "coral-A",
+      "readyS": 0
+    },
+    {
+      "id": "coral-B",
+      "readyS": 35
+    }
+  ]
+}
