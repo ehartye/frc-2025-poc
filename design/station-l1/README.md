@@ -55,3 +55,5 @@ python design/station-l1/check_package.py artifacts/robot-review --plugin <insta
 ```
 
 The CAD builder and independent reopen use OCP 8.0.1. The plugin check uses Node.js. Use the actual OpenSCAD CLI executable for the last option. Keep changed outputs alongside the prior run for review. B-Rep geometry and identity, rather than timestamped STEP byte equality across separate exports, are the intended reproduction checks.
+
+The [receiver lift design](../receiver-lift/README.md) replaces the lift-drive reserve in a separate four-pose assembly. It checks a synchronized twin-drum route, available motor voltage and service clearance.

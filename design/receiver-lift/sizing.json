@@ -1,0 +1,131 @@
+{
+  "basis": "Engineering envelope; no commissioned device, physical load or holding test",
+  "input_sha256": {
+    "design/station-l1/bom.csv": "c72360d7d92b1bf1815ed61bfa4fdb7ea00b3fb15d83669f6c638716c380f1e2",
+    "mission/candidate.json": "77f93fe2366935c0008682bb7ddc16465d4676e228b1c6871978070313d621dd"
+  },
+  "motion_schedule_source": "1578434f5e3c20468ccdea51fca300dc27687777 scripts/station_l1_mission.py and scripts/station_l1_phase.py",
+  "moving_upper_kg": 10.7682,
+  "additional_allowance_kg": 1.0,
+  "loaded_design_kg": 12.584666266000001,
+  "candidate": "NEO V1.1 + 16:1 Sport + synchronized twin 1:1 drums",
+  "winch": {
+    "loaded_receive_to_carry": [
+      {
+        "peak_rpm": 3480.283569973505,
+        "peak_motor_phase_A": 8.712388415527156,
+        "peak_needed_V": 8.021913410994392,
+        "peak_lift_mps": 0.25312500000000004,
+        "minimum_line_tension_per_side_N": 49.254519224841594,
+        "within_9p5V_35A_envelope": true
+      },
+      {
+        "peak_rpm": 3339.0878549636154,
+        "peak_motor_phase_A": 8.866281964552991,
+        "peak_needed_V": 7.7528855770592155,
+        "peak_lift_mps": 0.25312500000000004,
+        "minimum_line_tension_per_side_N": 49.254519224841594,
+        "within_9p5V_35A_envelope": true
+      }
+    ],
+    "loaded_carry_to_place": [
+      {
+        "peak_rpm": 1890.5244083806692,
+        "peak_motor_phase_A": 8.204035836494391,
+        "peak_needed_V": 4.718345121987432,
+        "peak_lift_mps": 0.13749999999999998,
+        "minimum_line_tension_per_side_N": 49.930637315750324,
+        "within_9p5V_35A_envelope": true
+      },
+      {
+        "peak_rpm": 1813.8255014617164,
+        "peak_motor_phase_A": 8.37459348208633,
+        "peak_needed_V": 4.583343545644352,
+        "peak_lift_mps": 0.13749999999999998,
+        "minimum_line_tension_per_side_N": 49.930637315750324,
+        "within_9p5V_35A_envelope": true
+      }
+    ],
+    "empty_place_to_carry": [
+      {
+        "peak_rpm": 2835.786612571004,
+        "peak_motor_phase_A": 9.57194265841167,
+        "peak_needed_V": 6.66183275034226,
+        "peak_lift_mps": 0.20625,
+        "minimum_line_tension_per_side_N": 43.966410975738285,
+        "within_9p5V_35A_envelope": true
+      },
+      {
+        "peak_rpm": 2720.738252192575,
+        "peak_motor_phase_A": 9.675041240962765,
+        "peak_needed_V": 6.445470228575992,
+        "peak_lift_mps": 0.20625,
+        "minimum_line_tension_per_side_N": 43.966410975738285,
+        "within_9p5V_35A_envelope": true
+      }
+    ],
+    "empty_carry_to_receive": [
+      {
+        "peak_rpm": 3480.283569973505,
+        "peak_motor_phase_A": 8.418158400715582,
+        "peak_needed_V": 7.989512255137212,
+        "peak_lift_mps": 0.25312500000000004,
+        "minimum_line_tension_per_side_N": 45.41021258749849,
+        "within_9p5V_35A_envelope": true
+      },
+      {
+        "peak_rpm": 3339.0878549636154,
+        "peak_motor_phase_A": 8.559610223400812,
+        "peak_needed_V": 7.719110712258895,
+        "peak_lift_mps": 0.25312500000000004,
+        "minimum_line_tension_per_side_N": 45.41021258749849,
+        "within_9p5V_35A_envelope": true
+      }
+    ],
+    "rejected_one_second_return": [
+      {
+        "peak_rpm": 6960.56713994701,
+        "peak_motor_phase_A": 13.915601040326344,
+        "peak_needed_V": 15.257009318803467,
+        "peak_lift_mps": 0.5062500000000001,
+        "minimum_line_tension_per_side_N": 38.53092255499396,
+        "within_9p5V_35A_envelope": false
+      },
+      {
+        "peak_rpm": 6678.175709927231,
+        "peak_motor_phase_A": 13.874310954137167,
+        "peak_needed_V": 14.692297646655511,
+        "peak_lift_mps": 0.5062500000000001,
+        "minimum_line_tension_per_side_N": 38.53092255499396,
+        "within_9p5V_35A_envelope": false
+      }
+    ]
+  },
+  "single_layer": {
+    "total_turns_with_tail": 7.442418751398897,
+    "width_needed_mm": 23.629679535691494,
+    "width_available_mm": 26.924,
+    "margin_mm": 3.2943204643085044
+  },
+  "holding": {
+    "gravity_torque_at_output_Nm": 1.42942356612774,
+    "two_times_static_design_Nm": 2.85884713225548,
+    "energy_to_arrest_J_at_10mm_drop": 1.6372982142732537,
+    "actual_ratchet_catch_rating": null,
+    "power_loss_during_descent_verified": false
+  },
+  "acme_alternative": {
+    "motor": {
+      "peak_rpm": 3587.5984251968516,
+      "peak_motor_phase_A": 17.041584320922208,
+      "peak_needed_V": 8.97277573509106,
+      "peak_lift_mps": 0.25312500000000004,
+      "minimum_line_tension_per_side_N": 49.254519224841594,
+      "within_9p5V_35A_envelope": true
+    },
+    "critical_safe_rpm_fixed_supported": 4726.54380133136,
+    "thread_surface_ft_per_min": 705.5610236220475,
+    "vendor_allowable_at_duty": null,
+    "power_off_hold_verified": false
+  }
+}
