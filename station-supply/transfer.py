@@ -50,7 +50,7 @@ def hits(shapes,boxes,x,z,yaw=0,y=0):
     return results
 
 
-def corridor(shapes,boxes,p0,p1,extra_radius=0):
+def chord_solids(p0,p1,extra_radius=0):
     """A transverse filled cylinder swept along a chord is two caps and a prism."""
     x,z=p0
     ex,ez=p1
@@ -63,10 +63,13 @@ def corridor(shapes,boxes,p0,p1,extra_radius=0):
         polygon.Add(gp_Pnt(xx,-H,zz))
     polygon.Close()
     prism=BRepPrimAPI_MakePrism(BRepBuilderAPI_MakeFace(polygon.Wire()).Face(),gp_Vec(0,2*H,0)).Shape()
-    solids=[prism]+[BRepPrimAPI_MakeCylinder(gp_Ax2(gp_Pnt(xx,-H,zz),gp_Dir(0,1,0)),radius,2*H).Shape()
+    return [prism]+[BRepPrimAPI_MakeCylinder(gp_Ax2(gp_Pnt(xx,-H,zz),gp_Dir(0,1,0)),radius,2*H).Shape()
                     for xx,zz in (p0,p1)]
+
+
+def corridor(shapes,boxes,p0,p1,extra_radius=0):
     overlaps={}
-    for solid in solids:
+    for solid in chord_solids(p0,p1,extra_radius):
         bounds=cad.bounds(solid)
         for key,box in boxes.items():
             if cad.occupied(bounds,box):
@@ -95,11 +98,11 @@ def rolling(start_x,zrelease):
                 minimum_static_rolling_friction=K/(1+K)*math.tan(A))
 
 
-def seat(speed,dt=.001):
-    first=impact.first_impact(speed,10,240,6,json.loads(impact.DESIGN.read_bytes()))
+def seat(speed,dt=.001,*,extra_standoff_mm=10,extension_mm=240):
+    first=impact.first_impact(speed,extra_standoff_mm,extension_mm,6,json.loads(impact.DESIGN.read_bytes()))
     if first["surface"]!="top":
         return {"result":"hold-first-contact-unmodeled","impact":first}
-    u=.444525-first["center_m"][0]-.240
+    u=.434525+extra_standoff_mm/1000-first["center_m"][0]-extension_mm/1000
     velocity=-first["velocity_in_mps"][0]
     law=Cartridge()
     mass=mission.M["pipeMass_kg"]

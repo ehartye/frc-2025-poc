@@ -1,5 +1,7 @@
 # From an actual station opening to a seated pipe
 
+Explore how parking error changes bumper and receiver clearance in the [student docking lab](dock-lab.html). The [545-body docking study](DOCKING.md) traces the issued approach and two alternate receiving positions.
+
 The complete match currently assumes CORAL A and B arrive at the receiver at 0.50 m/s. That speed follows from releasing a transverse pipe from rest only 42.1 mm before the chute lip. The actual ramp is 419.1 mm long. In the later competition manual G431 restricts a person’s reach into the chute and G433 requires CORAL to enter through the station via a driver or human player. The earlier start state alone cannot establish how the pipe got there. [Issued full match](../full-match/README.md) · [Official manual, §§5.7, 7.4.5](https://firstfrc.blob.core.windows.net/frc2025/Manual/HTML/2025GameManual.htm) · [Official field drawings, GE-25010 and GE-25014, PDF sheets 75 and 80](https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025FieldDrawings.pdf)
 
 ![Plan view of the station entry and original side section of the centered drop](handoff.svg)
