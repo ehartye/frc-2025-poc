@@ -1,0 +1,2431 @@
+{
+  "schema": "station-sourced-match/1",
+  "model": "shop-545",
+  "robot_bodies": 545,
+  "pose_sha256": {
+    "stowed": "193c7976d115fcc2f437f24b437ef3bac0b6aa4720125ca799a5abe67a60f6d4",
+    "receive": "6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73",
+    "transport": "27b8181e635de5c605e5ec3af2e8c3a337dbae593b42b22e80fbdaaf99b509e4",
+    "place": "bb3d42bb18b57de7900b636e83ba2d46bc7d85e51ed18402f1aa0c5d37cebd7e"
+  },
+  "robot_inventory_sha256": "0777cfaa052e25b02ff40bb8a328f50387b41cbff662ce73eb0f770190706843",
+  "source_receipt_sha256": "25a342eec25913ea422a734e649c4b55f25b591c432a2350d17579877e617796",
+  "issued_predecessor_sha256": {
+    "source": "19c14207324a2ee9d0b7b0ab48095f206fa1b1c4fcc1fe5f1275d6b0213e67e7",
+    "match": "5cf57314c6cd699d56e711737c85df21fef78d39ff978a9f2b04c19b9b416350"
+  },
+  "hulls_mm": {
+    "stowed": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1059.0
+    ],
+    "receive": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1059.0
+    ],
+    "transport": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1059.0
+    ],
+    "place": [
+      -425.0,
+      -425.0,
+      0.0,
+      535.0,
+      425.0,
+      1059.0
+    ]
+  },
+  "case_studies": [
+    {
+      "state": {
+        "piece_id": "coral-A",
+        "status": "within-modeled-seat-window",
+        "mass_kg": 0.816466266,
+        "lip_teleop_s": 3.671672635314282,
+        "seat_teleop_s": 4.821483894157266,
+        "first_contact_from_lip_s": 0.049811258842983666,
+        "seat_elapsed_s": 1.1,
+        "xyz_m": [
+          0.1245803620498358,
+          -8.212409264074936e-16,
+          0.93715
+        ],
+        "vxyz_mps": [
+          -0.0004957787354192191,
+          6.071538414164693e-20,
+          0
+        ],
+        "yaw_rad": 3.141592653589793,
+        "pitch_rad": 0,
+        "yaw_rate_rad_s": 0,
+        "tube_axial_phase": "unobserved; circular section",
+        "axial_spin_at_seat_rad_s": null,
+        "chute_lip_rolling_speed_magnitude_rad_s": 29.690655456963764
+      },
+      "station_source": {
+        "id": "coral-A",
+        "available_teleop_s": 0,
+        "human_release_teleop_s": 3.1,
+        "ramp_lip_teleop_s": 3.671672635314282,
+        "ideal_seat_check_teleop_s": 4.821483894157266,
+        "cumulative_extra_s": 0.38471968209755386,
+        "alliance_stock_remaining_if_taken": 59,
+        "five_other_programs": {
+          "lower_bound_m": 4.61369277663511,
+          "nearest_program": "red3",
+          "other_robot_count": 5,
+          "max_interval_s": 0.02
+        }
+      },
+      "resume_first_sample": {
+        "time_s": 1.14981126,
+        "piece_id": "coral-A",
+        "phase": "resume-from-source-seat",
+        "state": "supported",
+        "xyz_m": [
+          0.124580362,
+          -0.0,
+          0.93715
+        ],
+        "vx_vy_mps": [
+          -0.000495779,
+          0.0
+        ],
+        "yaw_rad": 3.141592654,
+        "yaw_rate_rad_s": 0,
+        "chassis_xy_heading": [
+          0.4445250000000005,
+          -8.604228440844963e-16,
+          3.141592653589793
+        ],
+        "shelf_top_m": 0.88,
+        "slide_m": 0.24,
+        "target_xyz_m": [
+          4.400942216243486,
+          3.2755334377984973,
+          0.93715
+        ],
+        "target_vxvy_mps": [
+          0.00029133167477705084,
+          0.00040115135518340047
+        ],
+        "robot_relative_yaw_rad": 0.0,
+        "shelf_front_robot_u_m": 0.405,
+        "pipe_pitch_rad": 0.0,
+        "pipe_pitch_basis": "fixed transverse hypothesis; axial roll unobserved"
+      },
+      "events_teleop_s": {
+        "resume-from-source-seat": 4.821483895314282,
+        "retract": 4.821483895314282,
+        "lower": 6.8224838953142815,
+        "drive-and-turn": 8.821483895314282,
+        "lower-at-target": 25.29948389531428,
+        "extend-at-target": 26.79948389531428,
+        "place": 29.79948389531428,
+        "left-powered-shelf-with-same-piece": 29.953483895314285,
+        "finite-pipe-envelope-clear-of-shelf-by-1mm": 29.97148389531428,
+        "paired-trough-first-contact": 30.05948389531428
+      },
+      "release_trajectory_outcome": "paired-trough-first-contact",
+      "actuator_onset_after_shelf_ms": [
+        62,
+        119
+      ],
+      "native_clearance_samples": [
+        {
+          "after_shelf_ms": 0.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 20.987858,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 20.987858,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 2.741581,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 5.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 25.349681,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 25.349681,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 3.607415,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 10.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 29.757047,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 29.757047,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 4.575232,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 15.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 34.216646,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 34.216646,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 6.285253,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 6.285253,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 6.285253,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 5.654097,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 20.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 38.710432,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.357834,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 38.710432,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.357834,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 7.796343,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 7.796343,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 7.796343,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 6.854587,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 25.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 43.23722,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 6.703514,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 43.23722,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 6.703514,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 8.18851,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 30.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 47.810145,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 8.959083,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 47.810145,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 8.959083,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 11.294509,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 11.294509,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 11.294509,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 9.668593,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 35.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 52.444532,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 11.729149,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 52.444532,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 11.729149,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 13.301977,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 13.301977,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 13.301977,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 11.308158,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 40.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 57.155634,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 14.83247,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 57.155634,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 14.83247,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 15.49567,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 15.49567,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 15.49567,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 13.120799,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 45.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 61.949821,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 18.193034,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 61.949821,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 18.193034,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 17.88593,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 17.88593,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 17.88593,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 15.120067,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 47.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 63.892318,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 19.601146,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 63.892318,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 19.601146,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 18.89932,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 18.89932,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 18.89932,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 15.975005,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        }
+      ],
+      "front_bound_mm": 537.0,
+      "last_possible_contact_ms": 47.0,
+      "min_tail_gap_mm": 36.32991596213193,
+      "neighbor": {
+        "sector_m": 0.22,
+        "min_swept_bound_gap_mm": 39.16749999999997,
+        "candidate_bodies": [],
+        "native_place_witnesses": [],
+        "clear_all_modeled_poses": true
+      },
+      "images": {
+        "0.1": {
+          "0": {
+            "source_phase_mod17": 0,
+            "whole_front_lower_gap_mm": 12.578702355454631,
+            "capture_from_lip_ms": 26366.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 67.0,
+            "onset_after_shelf_ms": [
+              74,
+              106
+            ],
+            "upper_onset_since_prior_contact_ms": 136.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "1": {
+            "source_phase_mod17": 1,
+            "whole_front_lower_gap_mm": 13.48709297817161,
+            "capture_from_lip_ms": 26367.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 68.0,
+            "onset_after_shelf_ms": [
+              75,
+              107
+            ],
+            "upper_onset_since_prior_contact_ms": 137.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "2": {
+            "source_phase_mod17": 2,
+            "whole_front_lower_gap_mm": 14.395446076322152,
+            "capture_from_lip_ms": 26368.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 69.0,
+            "onset_after_shelf_ms": [
+              76,
+              108
+            ],
+            "upper_onset_since_prior_contact_ms": 138.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "3": {
+            "source_phase_mod17": 3,
+            "whole_front_lower_gap_mm": 15.303760995576205,
+            "capture_from_lip_ms": 26369.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 70.0,
+            "onset_after_shelf_ms": [
+              77,
+              109
+            ],
+            "upper_onset_since_prior_contact_ms": 139.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "4": {
+            "source_phase_mod17": 4,
+            "whole_front_lower_gap_mm": 16.21203766753056,
+            "capture_from_lip_ms": 26370.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 71.0,
+            "onset_after_shelf_ms": [
+              78,
+              110
+            ],
+            "upper_onset_since_prior_contact_ms": 140.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "5": {
+            "source_phase_mod17": 5,
+            "whole_front_lower_gap_mm": 1.6750641420982006,
+            "capture_from_lip_ms": 26354.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 55.0,
+            "onset_after_shelf_ms": [
+              62,
+              94
+            ],
+            "upper_onset_since_prior_contact_ms": 124.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "6": {
+            "source_phase_mod17": 6,
+            "whole_front_lower_gap_mm": 2.5839070948382883,
+            "capture_from_lip_ms": 26355.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 56.0,
+            "onset_after_shelf_ms": [
+              63,
+              95
+            ],
+            "upper_onset_since_prior_contact_ms": 125.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "7": {
+            "source_phase_mod17": 7,
+            "whole_front_lower_gap_mm": 3.492711994098819,
+            "capture_from_lip_ms": 26356.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 57.0,
+            "onset_after_shelf_ms": [
+              64,
+              96
+            ],
+            "upper_onset_since_prior_contact_ms": 126.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "8": {
+            "source_phase_mod17": 8,
+            "whole_front_lower_gap_mm": 4.401480366216312,
+            "capture_from_lip_ms": 26357.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 58.0,
+            "onset_after_shelf_ms": [
+              65,
+              97
+            ],
+            "upper_onset_since_prior_contact_ms": 127.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "9": {
+            "source_phase_mod17": 9,
+            "whole_front_lower_gap_mm": 5.310210759293774,
+            "capture_from_lip_ms": 26358.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 59.0,
+            "onset_after_shelf_ms": [
+              66,
+              98
+            ],
+            "upper_onset_since_prior_contact_ms": 128.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "10": {
+            "source_phase_mod17": 10,
+            "whole_front_lower_gap_mm": 6.218904266675146,
+            "capture_from_lip_ms": 26359.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 60.0,
+            "onset_after_shelf_ms": [
+              67,
+              99
+            ],
+            "upper_onset_since_prior_contact_ms": 129.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "11": {
+            "source_phase_mod17": 11,
+            "whole_front_lower_gap_mm": 7.127560233912028,
+            "capture_from_lip_ms": 26360.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 61.0,
+            "onset_after_shelf_ms": [
+              68,
+              100
+            ],
+            "upper_onset_since_prior_contact_ms": 130.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "12": {
+            "source_phase_mod17": 12,
+            "whole_front_lower_gap_mm": 8.036178589995963,
+            "capture_from_lip_ms": 26361.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 62.0,
+            "onset_after_shelf_ms": [
+              69,
+              101
+            ],
+            "upper_onset_since_prior_contact_ms": 131.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "13": {
+            "source_phase_mod17": 13,
+            "whole_front_lower_gap_mm": 8.944758685548187,
+            "capture_from_lip_ms": 26362.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 63.0,
+            "onset_after_shelf_ms": [
+              70,
+              102
+            ],
+            "upper_onset_since_prior_contact_ms": 132.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "14": {
+            "source_phase_mod17": 14,
+            "whole_front_lower_gap_mm": 9.853301608869948,
+            "capture_from_lip_ms": 26363.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 64.0,
+            "onset_after_shelf_ms": [
+              71,
+              103
+            ],
+            "upper_onset_since_prior_contact_ms": 133.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "15": {
+            "source_phase_mod17": 15,
+            "whole_front_lower_gap_mm": 10.761806708073074,
+            "capture_from_lip_ms": 26364.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 65.0,
+            "onset_after_shelf_ms": [
+              72,
+              104
+            ],
+            "upper_onset_since_prior_contact_ms": 134.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "16": {
+            "source_phase_mod17": 16,
+            "whole_front_lower_gap_mm": 11.67027311486445,
+            "capture_from_lip_ms": 26365.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 66.0,
+            "onset_after_shelf_ms": [
+              73,
+              105
+            ],
+            "upper_onset_since_prior_contact_ms": 135.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          }
+        },
+        "0.25": {
+          "0": {
+            "source_phase_mod17": 0,
+            "whole_front_lower_gap_mm": 3.752292835384857,
+            "capture_from_lip_ms": 26366.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 67.0,
+            "onset_after_shelf_ms": [
+              74,
+              106
+            ],
+            "upper_onset_since_prior_contact_ms": 136.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "1": {
+            "source_phase_mod17": 1,
+            "whole_front_lower_gap_mm": 4.642073910483397,
+            "capture_from_lip_ms": 26367.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 68.0,
+            "onset_after_shelf_ms": [
+              75,
+              107
+            ],
+            "upper_onset_since_prior_contact_ms": 137.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "2": {
+            "source_phase_mod17": 2,
+            "whole_front_lower_gap_mm": 5.531762443124968,
+            "capture_from_lip_ms": 26368.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 69.0,
+            "onset_after_shelf_ms": [
+              76,
+              108
+            ],
+            "upper_onset_since_prior_contact_ms": 138.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "3": {
+            "source_phase_mod17": 3,
+            "whole_front_lower_gap_mm": 6.4213576871307865,
+            "capture_from_lip_ms": 26369.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 70.0,
+            "onset_after_shelf_ms": [
+              77,
+              109
+            ],
+            "upper_onset_since_prior_contact_ms": 139.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "4": {
+            "source_phase_mod17": 4,
+            "whole_front_lower_gap_mm": 7.310859479735861,
+            "capture_from_lip_ms": 26370.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 71.0,
+            "onset_after_shelf_ms": [
+              78,
+              110
+            ],
+            "upper_onset_since_prior_contact_ms": 140.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "5": {
+            "source_phase_mod17": 5,
+            "whole_front_lower_gap_mm": 8.200267639588084,
+            "capture_from_lip_ms": 26371.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 72.0,
+            "onset_after_shelf_ms": [
+              79,
+              111
+            ],
+            "upper_onset_since_prior_contact_ms": 141.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "6": {
+            "source_phase_mod17": 6,
+            "whole_front_lower_gap_mm": 9.089581445609475,
+            "capture_from_lip_ms": 26372.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 73.0,
+            "onset_after_shelf_ms": [
+              80,
+              112
+            ],
+            "upper_onset_since_prior_contact_ms": 142.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "7": {
+            "source_phase_mod17": 7,
+            "whole_front_lower_gap_mm": 9.97880185204722,
+            "capture_from_lip_ms": 26373.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 74.0,
+            "onset_after_shelf_ms": [
+              81,
+              113
+            ],
+            "upper_onset_since_prior_contact_ms": 143.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "8": {
+            "source_phase_mod17": 8,
+            "whole_front_lower_gap_mm": 10.86792734569881,
+            "capture_from_lip_ms": 26374.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 75.0,
+            "onset_after_shelf_ms": [
+              82,
+              114
+            ],
+            "upper_onset_since_prior_contact_ms": 144.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "9": {
+            "source_phase_mod17": 9,
+            "whole_front_lower_gap_mm": 11.75695932362985,
+            "capture_from_lip_ms": 26375.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 76.0,
+            "onset_after_shelf_ms": [
+              83,
+              115
+            ],
+            "upper_onset_since_prior_contact_ms": 145.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "10": {
+            "source_phase_mod17": 10,
+            "whole_front_lower_gap_mm": 12.6458962665997,
+            "capture_from_lip_ms": 26376.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 77.0,
+            "onset_after_shelf_ms": [
+              84,
+              116
+            ],
+            "upper_onset_since_prior_contact_ms": 146.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "11": {
+            "source_phase_mod17": 11,
+            "whole_front_lower_gap_mm": 13.534739141324941,
+            "capture_from_lip_ms": 26377.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 78.0,
+            "onset_after_shelf_ms": [
+              85,
+              117
+            ],
+            "upper_onset_since_prior_contact_ms": 147.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "12": {
+            "source_phase_mod17": 12,
+            "whole_front_lower_gap_mm": 14.423487208424582,
+            "capture_from_lip_ms": 26378.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 79.0,
+            "onset_after_shelf_ms": [
+              86,
+              118
+            ],
+            "upper_onset_since_prior_contact_ms": 148.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "13": {
+            "source_phase_mod17": 13,
+            "whole_front_lower_gap_mm": 15.312140305627373,
+            "capture_from_lip_ms": 26379.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 80.0,
+            "onset_after_shelf_ms": [
+              87,
+              119
+            ],
+            "upper_onset_since_prior_contact_ms": 149.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "14": {
+            "source_phase_mod17": 14,
+            "whole_front_lower_gap_mm": 1.0823916629443389,
+            "capture_from_lip_ms": 26363.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 64.0,
+            "onset_after_shelf_ms": [
+              71,
+              103
+            ],
+            "upper_onset_since_prior_contact_ms": 133.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "15": {
+            "source_phase_mod17": 15,
+            "whole_front_lower_gap_mm": 1.9724516470152835,
+            "capture_from_lip_ms": 26364.81126,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 65.0,
+            "onset_after_shelf_ms": [
+              72,
+              104
+            ],
+            "upper_onset_since_prior_contact_ms": 134.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "16": {
+            "source_phase_mod17": 16,
+            "whole_front_lower_gap_mm": 2.8624182387908164,
+            "capture_from_lip_ms": 26365.811260000002,
+            "prior_pad_from_lip_ms": 26272.811260000002,
+            "exposure_after_shelf_ms": 66.0,
+            "onset_after_shelf_ms": [
+              73,
+              105
+            ],
+            "upper_onset_since_prior_contact_ms": 135.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          }
+        }
+      },
+      "number_50ms_wait_eligible": {
+        "0.1": 0,
+        "0.25": 0
+      },
+      "zero_spin": {
+        "selected_worst_tight_onset_ms": 110,
+        "support_teleop_s": 32.05910670547638,
+        "settled_xz_m": [
+          0.06451141525439441,
+          0.48123525982770654
+        ],
+        "through_teleop_s": 138,
+        "last_paired_still_s": 107.15980000131027
+      },
+      "axial_spin_at_target_sensitivity_rad_s": {
+        "-29.690655": {
+          "stop": "inner-riser-bound",
+          "elapsed_s": 0.046400000000000004,
+          "min_shelf_gap_mm": 41.39416140395396
+        },
+        "0": {
+          "stop": "sustained-paired-floor-and-lip",
+          "elapsed_s": 2.0,
+          "min_shelf_gap_mm": 41.39416140395396
+        },
+        "29.690655": {
+          "stop": "receiver-recontact",
+          "elapsed_s": 0.19140000000000001,
+          "min_shelf_gap_mm": -0.04349509552178249
+        }
+      },
+      "delayed_600ms": {
+        "stop": "receiver-recontact",
+        "minimum_shelf_gap_mm": -0.015763792711100122
+      }
+    },
+    {
+      "state": {
+        "piece_id": "coral-B",
+        "status": "within-modeled-seat-window",
+        "mass_kg": 0.816466266,
+        "lip_teleop_s": 54.073030102640885,
+        "seat_teleop_s": 55.22284136148387,
+        "first_contact_from_lip_s": 0.049811258842983666,
+        "seat_elapsed_s": 1.1,
+        "xyz_m": [
+          0.1245803620498358,
+          -8.212409264074936e-16,
+          0.93715
+        ],
+        "vxyz_mps": [
+          -0.0004957787354192191,
+          6.071538414164693e-20,
+          0
+        ],
+        "yaw_rad": 3.141592653589793,
+        "pitch_rad": 0,
+        "yaw_rate_rad_s": 0,
+        "tube_axial_phase": "unobserved; circular section",
+        "axial_spin_at_seat_rad_s": null,
+        "chute_lip_rolling_speed_magnitude_rad_s": 29.690655456963764
+      },
+      "station_source": {
+        "id": "coral-B",
+        "available_teleop_s": 35,
+        "human_release_teleop_s": 53.501357467326606,
+        "ramp_lip_teleop_s": 54.073030102640885,
+        "ideal_seat_check_teleop_s": 55.22284136148387,
+        "cumulative_extra_s": 0.7694393641951047,
+        "alliance_stock_remaining_if_taken": 58,
+        "five_other_programs": {
+          "lower_bound_m": 2.584811096103146,
+          "nearest_program": "red3",
+          "other_robot_count": 5,
+          "max_interval_s": 0.02
+        }
+      },
+      "resume_first_sample": {
+        "time_s": 1.14981126,
+        "piece_id": "coral-B",
+        "phase": "resume-from-source-seat",
+        "state": "supported",
+        "xyz_m": [
+          0.124580362,
+          -0.0,
+          0.93715
+        ],
+        "vx_vy_mps": [
+          -0.000495779,
+          0.0
+        ],
+        "yaw_rad": 3.141592654,
+        "yaw_rate_rad_s": 0,
+        "chassis_xy_heading": [
+          0.4445250000000005,
+          -8.604228440844963e-16,
+          3.141592653589793
+        ],
+        "shelf_top_m": 0.88,
+        "slide_m": 0.24,
+        "target_xyz_m": [
+          4.400942216243486,
+          3.2755334377984973,
+          0.93715
+        ],
+        "target_vxvy_mps": [
+          0.00029133167477705084,
+          0.00040115135518340047
+        ],
+        "robot_relative_yaw_rad": 0.0,
+        "shelf_front_robot_u_m": 0.405,
+        "pipe_pitch_rad": 0.0,
+        "pipe_pitch_basis": "fixed transverse hypothesis; axial roll unobserved"
+      },
+      "events_teleop_s": {
+        "resume-from-source-seat": 55.222841362640885,
+        "retract": 55.222841362640885,
+        "lower": 57.22384136264088,
+        "drive-and-turn": 59.222841362640885,
+        "lower-at-target": 75.38784136264088,
+        "extend-at-target": 76.88784136264088,
+        "place": 79.88784136264088,
+        "left-powered-shelf-with-same-piece": 80.04184136264088,
+        "finite-pipe-envelope-clear-of-shelf-by-1mm": 80.05984136264088,
+        "paired-trough-first-contact": 80.14784136264089
+      },
+      "release_trajectory_outcome": "paired-trough-first-contact",
+      "actuator_onset_after_shelf_ms": [
+        62,
+        119
+      ],
+      "native_clearance_samples": [
+        {
+          "after_shelf_ms": 0.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 20.987857,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 20.987857,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 2.596636,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 2.74158,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 5.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 25.34968,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 25.34968,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 3.692973,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 3.607414,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 10.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 29.757046,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 29.757046,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 4.920212,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 4.575232,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 15.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 34.216646,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 34.216646,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.1875,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 6.285252,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 6.285252,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 6.285252,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 5.654096,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 20.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 38.710431,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 5.357833,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 38.710431,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 5.357833,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 7.796342,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 7.796342,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 7.796342,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 6.854587,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 25.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 43.237219,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 6.703513,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 43.237219,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 6.703513,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 9.462763,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 8.18851,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 30.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 47.810144,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 8.959082,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 47.810144,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 8.959082,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 11.294508,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 11.294508,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 11.294508,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 9.668592,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 35.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 52.444531,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 11.729149,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 52.444531,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 11.729149,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 13.301976,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 13.301976,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 13.301976,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 11.308157,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 40.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 57.155633,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 14.832469,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 57.155633,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 14.832469,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 15.495669,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 15.495669,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 15.495669,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 13.120799,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 45.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 61.94982,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 18.193033,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 61.94982,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 18.193033,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 17.885929,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 17.885929,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 17.885929,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 15.120066,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 47.0,
+          "bodies": {
+            "grip-L-420-3M-15": {
+              "gap_mm": 63.892318,
+              "overlap_mm3": 0
+            },
+            "grip-L-front-riser": {
+              "gap_mm": 19.601145,
+              "overlap_mm3": 0
+            },
+            "grip-R-420-3M-15": {
+              "gap_mm": 63.892318,
+              "overlap_mm3": 0
+            },
+            "grip-R-front-riser": {
+              "gap_mm": 19.601145,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-0": {
+              "gap_mm": 18.899319,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-1": {
+              "gap_mm": 18.899319,
+              "overlap_mm3": 0
+            },
+            "observer-moving-pad-2": {
+              "gap_mm": 18.899319,
+              "overlap_mm3": 0
+            },
+            "receiver-R6-ported": {
+              "gap_mm": 15.975004,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        }
+      ],
+      "front_bound_mm": 537.0,
+      "last_possible_contact_ms": 47.0,
+      "min_tail_gap_mm": 36.347653308970834,
+      "neighbor": {
+        "sector_m": 0.22,
+        "min_swept_bound_gap_mm": 0.0,
+        "candidate_bodies": [
+          "receiver-R6-ported",
+          "observer-moving-pad-0",
+          "observer-moving-pad-1",
+          "observer-moving-pad-2",
+          "slide-inner-rack"
+        ],
+        "native_place_witnesses": [
+          {
+            "body": "receiver-R6-ported",
+            "gap_mm": 0.0,
+            "volume_mm3": 162097.94990062836
+          },
+          {
+            "body": "observer-moving-pad-0",
+            "gap_mm": 0.0,
+            "volume_mm3": 116.74776600335802
+          },
+          {
+            "body": "observer-moving-pad-1",
+            "gap_mm": 0.0,
+            "volume_mm3": 116.74776600335804
+          },
+          {
+            "body": "observer-moving-pad-2",
+            "gap_mm": 0.0,
+            "volume_mm3": 116.74776600335802
+          },
+          {
+            "body": "slide-inner-rack",
+            "gap_mm": 2.306536935314038,
+            "volume_mm3": 0.0
+          }
+        ],
+        "clear_all_modeled_poses": false
+      },
+      "images": {
+        "0.1": {
+          "0": {
+            "source_phase_mod17": 0,
+            "whole_front_lower_gap_mm": 3.492711835436559,
+            "capture_from_lip_ms": 26043.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 57.0,
+            "onset_after_shelf_ms": [
+              64,
+              96
+            ],
+            "upper_onset_since_prior_contact_ms": 126.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "1": {
+            "source_phase_mod17": 1,
+            "whole_front_lower_gap_mm": 4.401479407634817,
+            "capture_from_lip_ms": 26044.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 58.0,
+            "onset_after_shelf_ms": [
+              65,
+              97
+            ],
+            "upper_onset_since_prior_contact_ms": 127.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "2": {
+            "source_phase_mod17": 2,
+            "whole_front_lower_gap_mm": 5.310209800722625,
+            "capture_from_lip_ms": 26045.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 59.0,
+            "onset_after_shelf_ms": [
+              66,
+              98
+            ],
+            "upper_onset_since_prior_contact_ms": 128.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "3": {
+            "source_phase_mod17": 3,
+            "whole_front_lower_gap_mm": 6.218903308116616,
+            "capture_from_lip_ms": 26046.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 60.0,
+            "onset_after_shelf_ms": [
+              67,
+              99
+            ],
+            "upper_onset_since_prior_contact_ms": 129.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "4": {
+            "source_phase_mod17": 4,
+            "whole_front_lower_gap_mm": 7.127559275364526,
+            "capture_from_lip_ms": 26047.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 61.0,
+            "onset_after_shelf_ms": [
+              68,
+              100
+            ],
+            "upper_onset_since_prior_contact_ms": 130.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "5": {
+            "source_phase_mod17": 5,
+            "whole_front_lower_gap_mm": 8.036177631461648,
+            "capture_from_lip_ms": 26048.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 62.0,
+            "onset_after_shelf_ms": [
+              69,
+              101
+            ],
+            "upper_onset_since_prior_contact_ms": 131.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "6": {
+            "source_phase_mod17": 6,
+            "whole_front_lower_gap_mm": 8.944758307923486,
+            "capture_from_lip_ms": 26049.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 63.0,
+            "onset_after_shelf_ms": [
+              70,
+              102
+            ],
+            "upper_onset_since_prior_contact_ms": 132.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "7": {
+            "source_phase_mod17": 7,
+            "whole_front_lower_gap_mm": 9.853300650357689,
+            "capture_from_lip_ms": 26050.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 64.0,
+            "onset_after_shelf_ms": [
+              71,
+              103
+            ],
+            "upper_onset_since_prior_contact_ms": 133.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "8": {
+            "source_phase_mod17": 8,
+            "whole_front_lower_gap_mm": 10.761805749574457,
+            "capture_from_lip_ms": 26051.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 65.0,
+            "onset_after_shelf_ms": [
+              72,
+              104
+            ],
+            "upper_onset_since_prior_contact_ms": 134.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "9": {
+            "source_phase_mod17": 9,
+            "whole_front_lower_gap_mm": 11.670272956218447,
+            "capture_from_lip_ms": 26052.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 66.0,
+            "onset_after_shelf_ms": [
+              73,
+              105
+            ],
+            "upper_onset_since_prior_contact_ms": 135.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "10": {
+            "source_phase_mod17": 10,
+            "whole_front_lower_gap_mm": 12.57870139697841,
+            "capture_from_lip_ms": 26053.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 67.0,
+            "onset_after_shelf_ms": [
+              74,
+              106
+            ],
+            "upper_onset_since_prior_contact_ms": 136.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "11": {
+            "source_phase_mod17": 11,
+            "whole_front_lower_gap_mm": 13.487092019707553,
+            "capture_from_lip_ms": 26054.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 68.0,
+            "onset_after_shelf_ms": [
+              75,
+              107
+            ],
+            "upper_onset_since_prior_contact_ms": 137.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "12": {
+            "source_phase_mod17": 12,
+            "whole_front_lower_gap_mm": 14.395445117871851,
+            "capture_from_lip_ms": 26055.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 69.0,
+            "onset_after_shelf_ms": [
+              76,
+              108
+            ],
+            "upper_onset_since_prior_contact_ms": 138.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "13": {
+            "source_phase_mod17": 13,
+            "whole_front_lower_gap_mm": 15.303760037137614,
+            "capture_from_lip_ms": 26056.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 70.0,
+            "onset_after_shelf_ms": [
+              77,
+              109
+            ],
+            "upper_onset_since_prior_contact_ms": 139.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "14": {
+            "source_phase_mod17": 14,
+            "whole_front_lower_gap_mm": 16.212036709102883,
+            "capture_from_lip_ms": 26057.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 71.0,
+            "onset_after_shelf_ms": [
+              78,
+              110
+            ],
+            "upper_onset_since_prior_contact_ms": 140.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "15": {
+            "source_phase_mod17": 15,
+            "whole_front_lower_gap_mm": 1.6750631834806669,
+            "capture_from_lip_ms": 26041.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 55.0,
+            "onset_after_shelf_ms": [
+              62,
+              94
+            ],
+            "upper_onset_since_prior_contact_ms": 124.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "16": {
+            "source_phase_mod17": 16,
+            "whole_front_lower_gap_mm": 2.583906136233942,
+            "capture_from_lip_ms": 26042.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 56.0,
+            "onset_after_shelf_ms": [
+              63,
+              95
+            ],
+            "upper_onset_since_prior_contact_ms": 125.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          }
+        },
+        "0.25": {
+          "0": {
+            "source_phase_mod17": 0,
+            "whole_front_lower_gap_mm": 9.978800910116185,
+            "capture_from_lip_ms": 26060.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 74.0,
+            "onset_after_shelf_ms": [
+              81,
+              113
+            ],
+            "upper_onset_since_prior_contact_ms": 143.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "1": {
+            "source_phase_mod17": 1,
+            "whole_front_lower_gap_mm": 10.867926403797789,
+            "capture_from_lip_ms": 26061.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 75.0,
+            "onset_after_shelf_ms": [
+              82,
+              114
+            ],
+            "upper_onset_since_prior_contact_ms": 144.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "2": {
+            "source_phase_mod17": 2,
+            "whole_front_lower_gap_mm": 11.75695838175782,
+            "capture_from_lip_ms": 26062.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 76.0,
+            "onset_after_shelf_ms": [
+              83,
+              115
+            ],
+            "upper_onset_since_prior_contact_ms": 145.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "3": {
+            "source_phase_mod17": 3,
+            "whole_front_lower_gap_mm": 12.645895895544506,
+            "capture_from_lip_ms": 26063.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 77.0,
+            "onset_after_shelf_ms": [
+              84,
+              116
+            ],
+            "upper_onset_since_prior_contact_ms": 146.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "4": {
+            "source_phase_mod17": 4,
+            "whole_front_lower_gap_mm": 13.534738199513619,
+            "capture_from_lip_ms": 26064.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 78.0,
+            "onset_after_shelf_ms": [
+              85,
+              117
+            ],
+            "upper_onset_since_prior_contact_ms": 147.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "5": {
+            "source_phase_mod17": 5,
+            "whole_front_lower_gap_mm": 14.423486266641909,
+            "capture_from_lip_ms": 26065.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 79.0,
+            "onset_after_shelf_ms": [
+              86,
+              118
+            ],
+            "upper_onset_since_prior_contact_ms": 148.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "6": {
+            "source_phase_mod17": 6,
+            "whole_front_lower_gap_mm": 15.312139363873577,
+            "capture_from_lip_ms": 26066.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 80.0,
+            "onset_after_shelf_ms": [
+              87,
+              119
+            ],
+            "upper_onset_since_prior_contact_ms": 149.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "7": {
+            "source_phase_mod17": 7,
+            "whole_front_lower_gap_mm": 1.082390720723403,
+            "capture_from_lip_ms": 26050.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 64.0,
+            "onset_after_shelf_ms": [
+              71,
+              103
+            ],
+            "upper_onset_since_prior_contact_ms": 133.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "8": {
+            "source_phase_mod17": 8,
+            "whole_front_lower_gap_mm": 1.9724507048251567,
+            "capture_from_lip_ms": 26051.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 65.0,
+            "onset_after_shelf_ms": [
+              72,
+              104
+            ],
+            "upper_onset_since_prior_contact_ms": 134.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "9": {
+            "source_phase_mod17": 9,
+            "whole_front_lower_gap_mm": 2.862418082846922,
+            "capture_from_lip_ms": 26052.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 66.0,
+            "onset_after_shelf_ms": [
+              73,
+              105
+            ],
+            "upper_onset_since_prior_contact_ms": 135.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "10": {
+            "source_phase_mod17": 10,
+            "whole_front_lower_gap_mm": 3.752291893251005,
+            "capture_from_lip_ms": 26053.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 67.0,
+            "onset_after_shelf_ms": [
+              74,
+              106
+            ],
+            "upper_onset_since_prior_contact_ms": 136.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "11": {
+            "source_phase_mod17": 11,
+            "whole_front_lower_gap_mm": 4.642072968378649,
+            "capture_from_lip_ms": 26054.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 68.0,
+            "onset_after_shelf_ms": [
+              75,
+              107
+            ],
+            "upper_onset_since_prior_contact_ms": 137.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "12": {
+            "source_phase_mod17": 12,
+            "whole_front_lower_gap_mm": 5.531761501050802,
+            "capture_from_lip_ms": 26055.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 69.0,
+            "onset_after_shelf_ms": [
+              76,
+              108
+            ],
+            "upper_onset_since_prior_contact_ms": 138.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "13": {
+            "source_phase_mod17": 13,
+            "whole_front_lower_gap_mm": 6.421356745085497,
+            "capture_from_lip_ms": 26056.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 70.0,
+            "onset_after_shelf_ms": [
+              77,
+              109
+            ],
+            "upper_onset_since_prior_contact_ms": 139.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "14": {
+            "source_phase_mod17": 14,
+            "whole_front_lower_gap_mm": 7.3108585377186515,
+            "capture_from_lip_ms": 26057.811260000002,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 71.0,
+            "onset_after_shelf_ms": [
+              78,
+              110
+            ],
+            "upper_onset_since_prior_contact_ms": 140.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "15": {
+            "source_phase_mod17": 15,
+            "whole_front_lower_gap_mm": 8.200266697598728,
+            "capture_from_lip_ms": 26058.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 72.0,
+            "onset_after_shelf_ms": [
+              79,
+              111
+            ],
+            "upper_onset_since_prior_contact_ms": 141.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          },
+          "16": {
+            "source_phase_mod17": 16,
+            "whole_front_lower_gap_mm": 9.089580503650701,
+            "capture_from_lip_ms": 26059.81126,
+            "prior_pad_from_lip_ms": 25959.81126,
+            "exposure_after_shelf_ms": 73.0,
+            "onset_after_shelf_ms": [
+              80,
+              112
+            ],
+            "upper_onset_since_prior_contact_ms": 142.0,
+            "within_150ms": true,
+            "nominal_ray_hits": [],
+            "eligible": true
+          }
+        }
+      },
+      "number_50ms_wait_eligible": {
+        "0.1": 0,
+        "0.25": 0
+      },
+      "zero_spin": {
+        "selected_worst_tight_onset_ms": 110,
+        "support_teleop_s": 82.1474641729894,
+        "settled_xz_m": [
+          0.06451141525439441,
+          0.48123525982770654
+        ],
+        "through_teleop_s": 138,
+        "last_paired_still_s": 57.07119999989367
+      },
+      "axial_spin_at_target_sensitivity_rad_s": {
+        "-29.690655": {
+          "stop": "inner-riser-bound",
+          "elapsed_s": 0.046200000000000005,
+          "min_shelf_gap_mm": 41.394160670058525
+        },
+        "0": {
+          "stop": "sustained-paired-floor-and-lip",
+          "elapsed_s": 2.0,
+          "min_shelf_gap_mm": 41.394160670058525
+        },
+        "29.690655": {
+          "stop": "receiver-recontact",
+          "elapsed_s": 0.19140000000000001,
+          "min_shelf_gap_mm": -0.04349629497541613
+        }
+      },
+      "delayed_600ms": {
+        "stop": "receiver-recontact",
+        "minimum_shelf_gap_mm": -0.009063023196712039
+      }
+    }
+  ],
+  "scenarios": {
+    "centered": {
+      "support": [
+        {
+          "id": "coral-A",
+          "support_s": 32.05910670547638,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 82.1474641729894,
+          "sector_m": 0.22
+        }
+      ],
+      "lip_arrivals": [
+        3.671672635314282,
+        54.073030102640885
+      ],
+      "scheduled_end_s": 94.01537625603031,
+      "park_overlap_m": 0.7663125000000015,
+      "first_body_pair": null,
+      "min_interrobot_gap_m": 0.10550422873272979,
+      "model_conditional_point_ceiling": 9
+    },
+    "partner-holds-start": {
+      "support": [],
+      "lip_arrivals": [
+        3.671672635314282,
+        54.073030102640885
+      ],
+      "scheduled_end_s": 94.01537625603031,
+      "park_overlap_m": 0.7663125000000015,
+      "first_body_pair": [
+        "red2",
+        "red1",
+        89.39,
+        -0.00506
+      ],
+      "min_interrobot_gap_m": -0.0865812065230382,
+      "model_conditional_point_ceiling": null
+    },
+    "return-to-station": {
+      "support": [
+        {
+          "id": "coral-A",
+          "support_s": 32.05910670547638,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 82.1474641729894,
+          "sector_m": 0.22
+        }
+      ],
+      "lip_arrivals": [
+        3.671672635314282,
+        54.073030102640885
+      ],
+      "scheduled_end_s": 100.10361194948402,
+      "park_overlap_m": 0,
+      "first_body_pair": null,
+      "min_interrobot_gap_m": 0.10550422873272912,
+      "model_conditional_point_ceiling": 7
+    },
+    "second-stock-late": {
+      "support": [
+        {
+          "id": "coral-A",
+          "support_s": 32.05910670547638,
+          "sector_m": -0.18
+        }
+      ],
+      "lip_arrivals": [
+        3.671672635314282
+      ],
+      "scheduled_end_s": 52.40135746710645,
+      "park_overlap_m": 0,
+      "first_body_pair": null,
+      "min_interrobot_gap_m": 0.10550422873272979,
+      "model_conditional_point_ceiling": 5
+    }
+  },
+  "end_assessment": {
+    "kickoff-v0": {
+      "edition": "kickoff-v0",
+      "phase": "TELEOP",
+      "basis": "Centered no-rebound source, zero target spin, native robot clearance, branch exclusions and scheduled six-robot traffic.",
+      "samples": [
+        {
+          "timeMs": 138000,
+          "clock": "assessment-window",
+          "controlledCoralCountScreen": "within",
+          "pieces": [
+            {
+              "id": "coral-A",
+              "controlledByFocalRobot": "no",
+              "countsTowardCoralLimit": "no",
+              "l1CriteriaAtInstant": "yes"
+            },
+            {
+              "id": "coral-B",
+              "controlledByFocalRobot": "no",
+              "countsTowardCoralLimit": "no",
+              "l1CriteriaAtInstant": "yes"
+            }
+          ]
+        }
+      ],
+      "officialEarnedPoints": null
+    },
+    "archive-compiled": {
+      "edition": "archive-compiled",
+      "phase": "TELEOP",
+      "basis": "Centered no-rebound source, zero target spin, native robot clearance, branch exclusions and scheduled six-robot traffic.",
+      "samples": [
+        {
+          "timeMs": 138000,
+          "clock": "assessment-window",
+          "controlledCoralCountScreen": "within",
+          "pieces": [
+            {
+              "id": "coral-A",
+              "controlledByFocalRobot": "no",
+              "countsTowardCoralLimit": "no",
+              "l1CriteriaAtInstant": "yes"
+            },
+            {
+              "id": "coral-B",
+              "controlledByFocalRobot": "no",
+              "countsTowardCoralLimit": "no",
+              "l1CriteriaAtInstant": "yes"
+            }
+          ]
+        }
+      ],
+      "officialEarnedPoints": null
+    }
+  },
+  "min_other_robot_to_settled_piece_m": 1.342198894904296,
+  "rejected_upstream_bounce": [
+    {
+      "assumed_normal_restitution": 0.2,
+      "sampled_before_return_s": 0.10401739553663013,
+      "first_material_witness": {
+        "elapsed_after_impact_s": 0.035,
+        "center_mm": [
+          -255.28112148609415,
+          1208.9009385330603
+        ],
+        "material_mm3": {
+          "NAUO1490/GE-25015": 218.8207
+        }
+      }
+    },
+    {
+      "assumed_normal_restitution": 0.4,
+      "sampled_before_return_s": 0.20803479107326026,
+      "first_material_witness": {
+        "elapsed_after_impact_s": 0.02,
+        "center_mm": [
+          -263.5669148635396,
+          1221.298112120844
+        ],
+        "material_mm3": {
+          "NAUO1490/GE-25015": 7436.9155,
+          "NAUO1496/GE-25021": 2860.5942
+        }
+      }
+    },
+    {
+      "assumed_normal_restitution": 0.6,
+      "sampled_before_return_s": 0.3120521866098904,
+      "first_material_witness": {
+        "elapsed_after_impact_s": 0.015,
+        "center_mm": [
+          -265.53005856059804,
+          1226.0809574909615
+        ],
+        "material_mm3": {
+          "NAUO1490/GE-25015": 8939.1833,
+          "NAUO1496/GE-25021": 5294.1887
+        }
+      }
+    }
+  ],
+  "public_hal_authorization": false,
+  "physical_mission": "pending",
+  "limits": [
+    "No measurement of axial spin after seating or at target, bounce, tracking, human transfer, or friction.",
+    "Drive schedule uses the reference 67 kg limits and level carpet. No current official score or as-built qualification.",
+    "Camera end-rim extraction, physical pressure and actuation remain simulated. Existing HAL cases have distinct source identities."
+  ]
+}

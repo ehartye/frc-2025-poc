@@ -2,6 +2,8 @@
 
 [Open the full match replay](replay.html) and scrub the clock. Red 2 starts empty on its starting line, drives to the station in AUTO, waits through the disabled transition and places two individually identified pipes in TELEOP. Toggle **Earlier AUTO route** to compare station approaches. Toggle **Reef starting pieces** to see which mounted balls the robot passes at each scoring face.
 
+The table below uses the earlier 0.50 m/s source. Open the [station-fed timeline](../sourced-match/replay.html) for the 1.697 m/s handoffs on the 545-body robot and the [updated support and park times](../sourced-match/README.md).
+
 ## What the route supports
 
 | Scenario | Two-second support confirmations in TELEOP | End of motion in TELEOP | Geometric result |

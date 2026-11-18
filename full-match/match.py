@@ -66,7 +66,7 @@ def basis(f):
     return record,sources
 
 
-def trial(f,record,sources,hold=0,park=True,stock=(0,35),vacate_lane=True):
+def trial(f,record,sources,hold=0,park=True,stock=(0,35),vacate_lane=True,station_feeder=traffic.feeder):
     team,_,_=traffic.programs()
     focal=traffic.Program(2,"red")
     auto=f.routes(-.18)[0]
@@ -90,7 +90,7 @@ def trial(f,record,sources,hold=0,park=True,stock=(0,35),vacate_lane=True):
         if math.dist(focal.pose[:2],loaded.start[:2])>1e-7 or abs(f.short(focal.pose[2]-loaded.start[2]))>1e-7:
             raise ValueError("Discontinuous station handoff")
         focal.append(2,"extend empty receiver")
-        feed=traffic.feeder(focal.clock,stock[i],feeds[-1]["lip_arrival_s"] if feeds else 0,key,prior)
+        feed=station_feeder(focal.clock,stock[i],feeds[-1]["lip_arrival_s"] if feeds else 0,key,prior)
         if not feed:
             break
         feeds.append(feed)

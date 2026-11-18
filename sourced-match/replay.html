@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two pipes, one match · REEFSCAPE 2025</title>
+<style>
+:root{color-scheme:light;--ink:#1c302b;--dark:#143c33;--muted:#526761;--paper:#f6f5ed;--rule:#cbd4c9;--accent:#b5462d}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 system-ui,sans-serif}main{max-width:940px;margin:0 auto;padding:32px 22px 54px}nav a,footer a{color:var(--dark);text-underline-offset:.2em}h1{font:clamp(36px,7vw,72px)/1.04 Georgia,serif;letter-spacing:-.055em;margin:25px 0 12px}h2{font:30px/1.15 Georgia,serif;margin:30px 0 12px}p{max-width:76ch}.eyebrow{margin:28px 0 -13px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;font-size:.79em;font-weight:700}.inputs{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;margin:24px 0 16px}.inputs label{font-weight:650}.inputs select{display:block;margin-top:5px;background:white;color:var(--ink);padding:9px 12px;border:1px solid #83988d;border-radius:3px;font:inherit;max-width:100%}.clock{background:var(--dark);color:white;padding:20px 22px}.clock label{display:flex;align-items:baseline;justify-content:space-between}.clock output{font-weight:700;font-size:1.3rem;font-variant-numeric:tabular-nums}.clock input{width:100%;margin:16px 0 2px;accent-color:#f2cba0}.lane{padding:16px 0;border-bottom:1px solid var(--rule)}.lane h3{margin:0}.track{position:relative;height:14px;background:#dce5d8;margin:7px 0}.tick{position:absolute;top:1px;height:12px;width:2px;background:#4c6e63}.now{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--accent)}.lane small{font-variant-numeric:tabular-nums;color:var(--muted)}#status{padding:9px 13px;border-left:3px solid var(--accent)}table{border-collapse:collapse}th,td{padding:7px 14px 7px 0;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}footer{margin-top:30px}
+</style></head><body><main><nav><a href="../full-match/replay.html">Open the full-field map</a></nav>
+<p class="eyebrow">REEFSCAPE 2025 · 545-body design</p><h1>Two pipes, one match</h1>
+<p>Follow two individually identified pipes from the station into the red reef trough. The clock starts at TELEOP. Each delivery uses the mass, position, velocity and heading reached in its own feeder run.</p>
+<div class="inputs"><label>Field and stock scenario<select id="scenario"><option value="centered">Clear lane and park</option><option value="return-to-station">Return to station</option><option value="second-stock-late">Second feed late</option><option value="partner-holds-start">Partner blocks park</option></select></label>
+<label>Axial spin at target contact<select id="spin"></select></label></div>
+<section class="clock"><label for="time">TELEOP elapsed <output id="stamp">0.00 s</output></label><input type="range" id="time" min="0" max="138" step=".05" value="0"></section>
+<div id="lanes"></div><p id="status" aria-live="polite"></p><h2>Compare the handoffs</h2>
+<table><thead><tr><th scope="col">Modeled event</th><th scope="col">Pipe A</th><th scope="col">Pipe B</th></tr></thead><tbody id="events"></tbody></table>
+<p id="scope"></p><footer><a href="README.md">Model assumptions and reproduction</a></footer></main>
+<script src="timeline-data.js"></script><script>
+const data=window.sourceMatch, byId=id=>document.getElementById(id);
+const scenario=byId('scenario'), spin=byId('spin'), time=byId('time');
+const fmt=n=>n.toFixed(2)+' s';
+const outcome={'sustained-paired-floor-and-lip':'Two-second trough support','inner-riser-bound':'Inner-riser limit reached','receiver-recontact':'Pipe reaches receiver again'};
+for(const rate of Object.keys(data.pipes[0].spin).map(Number).sort((a,b)=>a-b)){
+ const option=document.createElement('option');option.value=String(rate);option.textContent=rate.toFixed(2)+' rad/s';spin.add(option);
+}
+spin.value='0';
+function update(){
+ const now=Number(time.value), policy=data.scenarios[scenario.value], stopped=scenario.value==='partner-holds-start',late=scenario.value==='second-stock-late';
+ byId('stamp').textContent=fmt(now);byId('lanes').replaceChildren();byId('events').replaceChildren();
+ const rate=spin.value, reference=Number(rate)===0;
+ for(const [i,pipe] of data.pipes.entries()){
+  const missing=late&&i===1, events=pipe.clock;
+  const at=events.filter(([,t])=>t<=now).at(-1);
+  const [end,duration]=pipe.spin[rate];
+  const afterContact=now>=events[5][1];
+  let state=at?at[0]:'Stock waiting';
+  if(missing)state='Second feed unavailable at its scheduled time';
+  else if(!reference&&afterContact)state='Spin case · '+(outcome[end]||end.replaceAll('-',' '));
+  else if(now>=135)state=stopped?'Partner collision invalidates this route':'Game stopped; assessment window';
+  const row=document.createElement('section');row.className='lane';const title=document.createElement('h3');
+  title.textContent='Pipe '+String.fromCharCode(65+i)+' · '+state;row.append(title);
+  const track=document.createElement('div');track.className='track';
+  if(!missing)for(const [name,t] of events){
+   if(!reference&&name==='Sustained support')continue;
+   const mark=document.createElement('span');mark.className='tick';mark.style.left=(t/138*100)+'%';mark.title=name+' '+fmt(t);track.append(mark);
+  }
+  const cursor=document.createElement('span');cursor.className='now';cursor.style.left=(now/138*100)+'%';track.append(cursor);row.append(track);
+  const hint=document.createElement('small');hint.textContent='Station stock ID '+pipe.id;row.append(hint);byId('lanes').append(row);
+ }
+ for(let i=0;i<data.pipes[0].clock.length;i++){
+  const tr=document.createElement('tr');[data.pipes[0].clock[i][0],...data.pipes.map((p,j)=>late&&j===1?'Withheld':!reference&&i===6?'See spin case':fmt(p.clock[i][1]))].forEach(text=>{const td=document.createElement('td');td.textContent=text;tr.append(td)});byId('events').append(tr);
+ }
+ const status=stopped?'Partner contact at '+fmt(policy.first_body_pair[2])+' invalidates the planned match.':
+ !reference?'The spin sensitivity changes target behavior. The full-match points and assessment were rerun only for zero target spin.':
+ 'Modeled opportunity: '+policy.model_conditional_point_ceiling+' points. Scheduled motion ends at '+fmt(policy.scheduled_end_s)+'.';
+ byId('status').textContent=status;
+ byId('scope').textContent='The centered transfer assumes no rebound at the ramp. The 0.20, 0.40 and 0.60 rebound cases hit station material after '+data.rebounds.map(r=>Math.round(r[1]*1000)).join(', ')+' ms respectively. Physical pipe spin, human release, docking and carpet grip still need measurements.';
+}
+for(const el of [scenario,spin,time])el.addEventListener('input',update);update();
+</script></body></html>
