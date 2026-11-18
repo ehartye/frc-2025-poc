@@ -116,7 +116,8 @@ def free_contacts(x,y,z,yaw,front,top):
     return None,None
 
 
-def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-001", target_y=0.0):
+def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-001", target_y=0.0,
+        sample_every_step=False, trajectory=None):
     if case not in {"reference","weak-grip","sensor-timeout","slow-release","occupied-target","light-pipe"}:
         raise ValueError("Unknown experiment")
     if not math.isfinite(dt) or not .00025 <= dt <= .005:
@@ -125,7 +126,8 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
         raise ValueError("Provide one identified pipe and an explicit finite target offset")
     mass = M["pipeMass_kg"] if high_mass and case!="light-pipe" else .498951607
     speed = .5
-    first = rx.first_impact(speed,0,240,6,json.loads(rx.DESIGN.read_text()))
+    stand_off_mm=0 if trajectory is None else trajectory.additional_stand_off_mm
+    first = rx.first_impact(speed,stand_off_mm,240,6,json.loads(rx.DESIGN.read_text()))
     if first["surface"] != "top":
         raise ValueError("This hold model requires flat first contact")
     id_ = piece_id
@@ -140,16 +142,38 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
     trace = []
     events = []
     peak = {"belt_force_N":0.0,"centering_force_N":0.0,"yaw_error_deg":0.0,"lateral_error_mm":0.0}
+    def robot(t):
+        if trajectory is not None:
+            return trajectory.pose(t)
+        name,cx,heading,top,slide=mount(t)
+        return name,cx,lateral(t,target_y),heading,top,slide
+    def goal(t):
+        if trajectory is None:
+            return aim(t,target_y)
+        _,cx,cy,heading,top,slide=robot(t)
+        u=M["seatU_m"]+slide
+        return cx+u*math.cos(heading),cy+u*math.sin(heading),heading,top+R
     def record(label, offset=0.0):
         events.append({"time_s":round(start+time+offset,8),"event":label,"piece_id":id_,
                        "xyz_m":[round(a,9) for a in (x,y,z)]})
+        if trajectory is not None:
+            events[-1]["target_xyz_m"]=trajectory.target_position(x,y,z)
     def row(phase):
-        _,cx,heading,height,stroke = mount(time)
-        return {"time_s":round(start+time,8),"piece_id":id_,"phase":phase,"state":mode,
+        _,cx,cy,heading,height,stroke = robot(time)
+        sample = {"time_s":round(start+time,8),"piece_id":id_,"phase":phase,"state":mode,
                 "xyz_m":[round(a,9) for a in (x,y,z)],"vx_vy_mps":[round(vx,9),round(vy,9)],
                 "yaw_rad":round(yaw,9),"yaw_rate_rad_s":round(omega,9),
-                "chassis_xy_heading":[cx,lateral(time,target_y),heading],
+                "chassis_xy_heading":[cx,cy,heading],
                 "shelf_top_m":height,"slide_m":stroke}
+        if trajectory is not None:
+            sample["target_xyz_m"]=trajectory.target_position(x,y,z)
+            sample["target_vxvy_mps"]=trajectory.target_velocity(vx,vy)
+            sample["robot_relative_yaw_rad"]=angle_delta(yaw,heading)
+        if sample_every_step:
+            sample["shelf_front_robot_u_m"] = M["shelfRearU_m"]+M["shelfLength_m"]+stroke
+            sample["pipe_pitch_rad"] = 0.0
+            sample["pipe_pitch_basis"] = "fixed transverse hypothesis; axial roll unobserved"
+        return sample
     def finish(reason):
         record(reason)
         trace.append(row(reason))
@@ -169,10 +193,11 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
     shelf_half = .210
     ticks = 0
     separated = False
-    while time < 17:
-        phase,cx,heading,top,slide = mount(time)
+    deadline = 17 if trajectory is None else trajectory.terminal_time+1
+    while time < deadline:
+        phase,cx,cy,heading,top,slide = robot(time)
         co,si = math.cos(heading), math.sin(heading)
-        dy = y-lateral(time,target_y)
+        dy = y-cy
         u = (x-cx)*co+dy*si
         v = -(x-cx)*si+dy*co
         error = angle_delta(heading,yaw)
@@ -185,7 +210,7 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
             if phase=="extend-at-target" and case=="occupied-target":
                 return finish("hold-and-recover-target-occupied")
             last_phase = phase
-        if ticks % max(1,round(.02/dt)) == 0:
+        if sample_every_step or ticks % max(1,round(.02/dt)) == 0:
             trace.append(row(phase))
         if mode=="supported":
             if abs(error)>.15 or abs(v) + M["pipeLength_m"]/2 > shelf_half:
@@ -194,9 +219,9 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
                 return finish("recover-rear-edge-departure")
             if phase!="place" and u > high:
                 return finish("recover-front-edge-departure")
-            q = aim(time,target_y)
-            qa = aim(time+dt,target_y)
-            qb = aim(time-dt,target_y)
+            q = goal(time)
+            qa = goal(time+dt)
+            qb = goal(time-dt)
             vz = (qa[3]-qb[3])/(2*dt)
             normal = mass*(G+(qa[3]-2*q[3]+qb[3])/dt**2)
             if normal <= 0:
@@ -233,21 +258,26 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
             yaw += omega*dt+alpha*dt*dt/2
             vx,vy,omega = vx+ax*dt,vy+ay*dt,omega+alpha*dt
             z = qa[3]
-            if phase=="place" and x-cx>=high:
+            if phase=="place" and (x-cx)*co+(y-cy)*si>=high:
                 mode="free"
                 record("left-powered-shelf-with-same-piece",dt)
-                front = cx+high
+                front = cx+high if trajectory is None else M["targetLipX_m"]-.49+high
                 vz=0.0
         else:
             x,y,z = x+vx*dt,y+vy*dt,z+vz*dt-G*dt*dt/2
             vz -= G*dt
             yaw += omega*dt
-            gap = shelf_separation(x,z,yaw,front,top)
+            if trajectory is None:
+                tx,ty,relative_yaw=x,y,yaw
+            else:
+                point=trajectory.target_position(x,y,z)
+                tx,ty,relative_yaw=M["targetLipX_m"]+point[0],point[1],angle_delta(yaw,heading)
+            gap = shelf_separation(tx,z,relative_yaw,front,top)
             if gap >= .001 and not separated:
                 record("finite-pipe-envelope-clear-of-shelf-by-1mm",dt)
                 events[-1]["conservative_separation_m"] = gap
                 separated = True
-            reason,foot = free_contacts(x,y,z,yaw,front,top)
+            reason,foot = free_contacts(tx,ty,z,relative_yaw,front,top)
             if reason:
                 time += dt
                 return finish(reason)
@@ -261,8 +291,9 @@ if __name__ == "__main__":
     p.add_argument("--case",default="reference")
     p.add_argument("--dt",type=float,default=.002)
     p.add_argument("--full",action="store_true")
+    p.add_argument("--sample-every-step",action="store_true",help="Include every integration sample and registered shelf-front data")
     args = p.parse_args()
-    result = run(args.case,args.dt)
-    if not args.full:
+    result = run(args.case,args.dt,sample_every_step=args.sample_every_step)
+    if not args.full and not args.sample_every_step:
         result.pop("trace")
     print(json.dumps(result,indent=2,allow_nan=False))

@@ -1,0 +1,557 @@
+{
+  "schema": "registered-station-l1-field/1",
+  "phase": "TELEOP",
+  "deadline_s": 135,
+  "elapsed_s": 114.21341105577471,
+  "stop": "allocated-supply-exhausted",
+  "events": [
+    {
+      "seconds": 14.3186019,
+      "event": "empty-first-approach",
+      "elapsed_s": 14.318601879283914,
+      "closest": {
+        "kind": "drive",
+        "seconds": 1.6385715323618522,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      },
+      "centerline_m": 8.095142915149273
+    },
+    {
+      "seconds": 16.3186019,
+      "event": "extend-empty-receiver",
+      "elapsed_s": 2
+    },
+    {
+      "seconds": 16.3186019,
+      "event": "wait-for-distinct-feed",
+      "elapsed_s": 0
+    },
+    {
+      "seconds": 16.3186019,
+      "event": "identified-station-feed",
+      "piece_id": "coral-A",
+      "sector_m": -0.18
+    },
+    {
+      "seconds": 21.4869121,
+      "event": "acquire-retract-lower",
+      "elapsed_s": 5.16831019
+    },
+    {
+      "seconds": 38.5678813,
+      "event": "loaded-coral-A",
+      "elapsed_s": 17.0809692380562,
+      "closest": {
+        "kind": "drive",
+        "seconds": 1.6385715323618513,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      },
+      "centerline_m": 8.948798139066927
+    },
+    {
+      "seconds": 43.3349121,
+      "event": "lower-extend-release-first-contact",
+      "elapsed_s": 4.767030761943797
+    },
+    {
+      "seconds": 45.3341182,
+      "event": "observe-floor-lip-and-retract",
+      "elapsed_s": 1.999206104102452
+    },
+    {
+      "seconds": 45.3341182,
+      "event": "modeled-whole-robot-and-sector-observations-qualified",
+      "piece_id": "coral-A"
+    },
+    {
+      "seconds": 45.8405787,
+      "event": "finish-slide-retraction",
+      "elapsed_s": 0.5064605625642101
+    },
+    {
+      "seconds": 46.8405787,
+      "event": "raise-empty-to-travel",
+      "elapsed_s": 1
+    },
+    {
+      "seconds": 62.6062481,
+      "event": "empty-return-coral-A",
+      "elapsed_s": 15.76566936856678,
+      "closest": {
+        "kind": "drive",
+        "seconds": 1.6385715323618508,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.010000000000001064
+      },
+      "centerline_m": 8.948798139066923
+    },
+    {
+      "seconds": 64.6062481,
+      "event": "raise-station-receiver",
+      "elapsed_s": 2
+    },
+    {
+      "seconds": 64.6062481,
+      "event": "next-sector-swept-clear",
+      "gap_mm": 39.16749999999997
+    },
+    {
+      "seconds": 66.6062481,
+      "event": "extend-empty-receiver",
+      "elapsed_s": 2
+    },
+    {
+      "seconds": 66.6062481,
+      "event": "wait-for-distinct-feed",
+      "elapsed_s": 0
+    },
+    {
+      "seconds": 66.6062481,
+      "event": "identified-station-feed",
+      "piece_id": "coral-B",
+      "sector_m": 0.22
+    },
+    {
+      "seconds": 71.7745583,
+      "event": "acquire-retract-lower",
+      "elapsed_s": 5.16831019
+    },
+    {
+      "seconds": 88.5403566,
+      "event": "loaded-coral-B",
+      "elapsed_s": 16.765798322731047,
+      "closest": {
+        "kind": "drive",
+        "seconds": 1.6385715323618513,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      },
+      "centerline_m": 8.554834494910487
+    },
+    {
+      "seconds": 93.3075583,
+      "event": "lower-extend-release-first-contact",
+      "elapsed_s": 4.767201677268957
+    },
+    {
+      "seconds": 95.3067644,
+      "event": "observe-floor-lip-and-retract",
+      "elapsed_s": 1.9992061038451467
+    },
+    {
+      "seconds": 95.3067644,
+      "event": "modeled-whole-robot-and-sector-observations-qualified",
+      "piece_id": "coral-B"
+    },
+    {
+      "seconds": 95.813225,
+      "event": "finish-slide-retraction",
+      "elapsed_s": 0.5064605628215262
+    },
+    {
+      "seconds": 96.813225,
+      "event": "raise-empty-to-travel",
+      "elapsed_s": 1
+    },
+    {
+      "seconds": 112.2134111,
+      "event": "empty-return-coral-B",
+      "elapsed_s": 15.400186094590685,
+      "closest": {
+        "kind": "drive",
+        "seconds": 1.6385715323618537,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.010000000000000286
+      },
+      "centerline_m": 8.554834494910489
+    },
+    {
+      "seconds": 114.2134111,
+      "event": "raise-station-receiver",
+      "elapsed_s": 2
+    }
+  ],
+  "trips": [
+    {
+      "piece_id": "coral-A",
+      "sector_m": -0.18,
+      "feed_s": 16.318601879283914,
+      "sampled_floor_s": 43.33491206928392,
+      "support_confirmation_s": 45.33411817338637,
+      "departure": {
+        "piece_id": "coral-A",
+        "sector_m": -0.18,
+        "floor_time_s": 27.01551629410245,
+        "first_shelf_witness_s": 26.92831019,
+        "body_count": 96,
+        "last_possible_contact_s": 26.97131019,
+        "last_possible_by_body": {
+          "belt-cartridge-R": 26.97131019,
+          "belt-riser-R-136": 26.95031019,
+          "belt-cartridge-L": 26.97131019,
+          "belt-riser-L-136": 26.95031019
+        },
+        "min_tail_gap_mm": 52.97744486911285,
+        "post_observation_s": 29.01551629410245,
+        "settled_target_xz_m": [
+          0.0645114152543947,
+          0.4812352598277075
+        ],
+        "checks_next": [
+          {
+            "sector_m": 0.18,
+            "min_swept_bound_gap_mm": 0.0,
+            "candidate_bodies": [
+              "receiver-R6-ported"
+            ],
+            "native_place_witnesses": [
+              {
+                "body": "receiver-R6-ported",
+                "gap_mm": 0.0,
+                "volume_mm3": 436.6500929772454
+              }
+            ],
+            "clear_all_modeled_poses": false
+          },
+          {
+            "sector_m": 0.22,
+            "min_swept_bound_gap_mm": 39.16749999999997,
+            "candidate_bodies": [],
+            "native_place_witnesses": [],
+            "clear_all_modeled_poses": true
+          }
+        ]
+      },
+      "hold_to_s": 135,
+      "hold_max_drift_mm": 4.748731867669435e-06,
+      "source_peak": {
+        "belt_force_N": 2.8000000000195344,
+        "centering_force_N": 0.15929053514092573,
+        "yaw_error_deg": 0.002577128844816171,
+        "lateral_error_mm": 0.004294762510220068
+      }
+    },
+    {
+      "piece_id": "coral-B",
+      "sector_m": 0.22,
+      "feed_s": 66.60624810451736,
+      "sampled_floor_s": 93.30755829451736,
+      "support_confirmation_s": 95.3067643983625,
+      "departure": {
+        "piece_id": "coral-B",
+        "sector_m": 0.22,
+        "floor_time_s": 26.700516293845148,
+        "first_shelf_witness_s": 26.61331019,
+        "body_count": 96,
+        "last_possible_contact_s": 26.65631019,
+        "last_possible_by_body": {
+          "belt-cartridge-R": 26.65631019,
+          "belt-riser-R-136": 26.63531019,
+          "belt-cartridge-L": 26.65631019,
+          "belt-riser-L-136": 26.63531019
+        },
+        "min_tail_gap_mm": 52.977444824622836,
+        "post_observation_s": 28.700516293845148,
+        "settled_target_xz_m": [
+          0.0645114152543947,
+          0.4812352598277075
+        ],
+        "checks_next": [
+          {
+            "sector_m": 0.18,
+            "min_swept_bound_gap_mm": 0.0,
+            "candidate_bodies": [
+              "slide-L-inner",
+              "shelf-spacer-L",
+              "anchor-block-L-140",
+              "shelf-screw-L-140",
+              "receiver-R6-ported",
+              "belt-cartridge-L",
+              "belt-riser-L-136"
+            ],
+            "native_place_witnesses": [
+              {
+                "body": "slide-L-inner",
+                "gap_mm": 0.0,
+                "volume_mm3": 6553.697138222715
+              },
+              {
+                "body": "shelf-spacer-L",
+                "gap_mm": 0.0,
+                "volume_mm3": 3180.493386056365
+              },
+              {
+                "body": "anchor-block-L-140",
+                "gap_mm": 0.0,
+                "volume_mm3": 1413.567159131154
+              },
+              {
+                "body": "shelf-screw-L-140",
+                "gap_mm": 0.0,
+                "volume_mm3": 641.47394995486
+              },
+              {
+                "body": "receiver-R6-ported",
+                "gap_mm": 0.0,
+                "volume_mm3": 161633.7795860606
+              },
+              {
+                "body": "belt-cartridge-L",
+                "gap_mm": 0.0,
+                "volume_mm3": 4880.266154371582
+              },
+              {
+                "body": "belt-riser-L-136",
+                "gap_mm": 0.0,
+                "volume_mm3": 6183.812529421843
+              }
+            ],
+            "clear_all_modeled_poses": false
+          },
+          {
+            "sector_m": 0.22,
+            "min_swept_bound_gap_mm": 0.0,
+            "candidate_bodies": [
+              "receiver-R6-ported",
+              "belt-cartridge-R",
+              "belt-riser-R-136",
+              "belt-cartridge-L",
+              "belt-riser-L-136"
+            ],
+            "native_place_witnesses": [
+              {
+                "body": "receiver-R6-ported",
+                "gap_mm": 0.0,
+                "volume_mm3": 162097.94990062836
+              },
+              {
+                "body": "belt-cartridge-R",
+                "gap_mm": 0.0,
+                "volume_mm3": 0.0
+              },
+              {
+                "body": "belt-riser-R-136",
+                "gap_mm": 0.0,
+                "volume_mm3": 0.0
+              },
+              {
+                "body": "belt-cartridge-L",
+                "gap_mm": 0.0,
+                "volume_mm3": 0.0
+              },
+              {
+                "body": "belt-riser-L-136",
+                "gap_mm": 0.0,
+                "volume_mm3": 0.0
+              }
+            ],
+            "clear_all_modeled_poses": false
+          }
+        ]
+      },
+      "hold_to_s": 135,
+      "hold_max_drift_mm": 4.748731867669435e-06,
+      "source_peak": {
+        "belt_force_N": 2.8000000000551255,
+        "centering_force_N": 0.15928654350528682,
+        "yaw_error_deg": 0.0025891250696215454,
+        "lateral_error_mm": 0.004304472058076769
+      }
+    }
+  ],
+  "scores": {
+    "kickoff-v0": {
+      "edition": "kickoff-v0",
+      "phase": "TELEOP",
+      "basis": "Six registered model robots, finite-support witnesses and bounded hulls; referee and other scoring levels unobserved.",
+      "samples": [
+        {
+          "timeMs": 45334,
+          "clock": "active",
+          "controlledCoralCountScreen": "unknown",
+          "pieces": [
+            {
+              "id": "coral-A",
+              "controlledByFocalRobot": "unknown",
+              "countsTowardCoralLimit": "unknown",
+              "l1CriteriaAtInstant": "yes"
+            }
+          ]
+        },
+        {
+          "timeMs": 95307,
+          "clock": "active",
+          "controlledCoralCountScreen": "unknown",
+          "pieces": [
+            {
+              "id": "coral-B",
+              "controlledByFocalRobot": "unknown",
+              "countsTowardCoralLimit": "unknown",
+              "l1CriteriaAtInstant": "yes"
+            }
+          ]
+        }
+      ],
+      "officialEarnedPoints": null
+    },
+    "archive-compiled": {
+      "edition": "archive-compiled",
+      "phase": "TELEOP",
+      "basis": "Six registered model robots, finite-support witnesses and bounded hulls; referee and other scoring levels unobserved.",
+      "samples": [
+        {
+          "timeMs": 45334,
+          "clock": "active",
+          "controlledCoralCountScreen": "unknown",
+          "pieces": [
+            {
+              "id": "coral-A",
+              "controlledByFocalRobot": "unknown",
+              "countsTowardCoralLimit": "unknown",
+              "l1CriteriaAtInstant": "unknown"
+            }
+          ]
+        },
+        {
+          "timeMs": 95307,
+          "clock": "active",
+          "controlledCoralCountScreen": "unknown",
+          "pieces": [
+            {
+              "id": "coral-B",
+              "controlledByFocalRobot": "unknown",
+              "countsTowardCoralLimit": "unknown",
+              "l1CriteriaAtInstant": "unknown"
+            }
+          ]
+        }
+      ],
+      "officialEarnedPoints": null
+    }
+  },
+  "parked": [
+    [
+      "blue 1",
+      [
+        [
+          7.1315,
+          1.226
+        ],
+        [
+          7.9815,
+          1.226
+        ],
+        [
+          7.9815,
+          2.076
+        ],
+        [
+          7.1315,
+          2.076
+        ]
+      ]
+    ],
+    [
+      "blue 2",
+      [
+        [
+          7.1315,
+          3.6009
+        ],
+        [
+          7.9815,
+          3.6009
+        ],
+        [
+          7.9815,
+          4.4509
+        ],
+        [
+          7.1315,
+          4.4509
+        ]
+      ]
+    ],
+    [
+      "blue 3",
+      [
+        [
+          7.1315,
+          5.9758
+        ],
+        [
+          7.9815,
+          5.9758
+        ],
+        [
+          7.9815,
+          6.825799999999999
+        ],
+        [
+          7.1315,
+          6.825799999999999
+        ]
+      ]
+    ],
+    [
+      "red 1",
+      [
+        [
+          9.566724999999998,
+          1.226
+        ],
+        [
+          10.416725,
+          1.226
+        ],
+        [
+          10.416725,
+          2.076
+        ],
+        [
+          9.566724999999998,
+          2.076
+        ]
+      ]
+    ],
+    [
+      "red 3",
+      [
+        [
+          9.566724999999998,
+          5.9758
+        ],
+        [
+          10.416725,
+          5.9758
+        ],
+        [
+          10.416725,
+          6.825799999999999
+        ],
+        [
+          9.566724999999998,
+          6.825799999999999
+        ]
+      ]
+    ]
+  ],
+  "transport_step_sha256": "b11095be3a88e80e5df5d8defe11709e053f728a244e627214bdbd6d4aecab83",
+  "place_step_sha256": "603dc4dc91dd1d681114e6b2b4db8f1f314eac6b67b974940f54f6a17d4590cb",
+  "source_sha256": {
+    "mission/field-registration.json": "b652c3f62805eba1351c920b9fdfc8dbfa09799099f96afee728a77b872525ef",
+    "mission/candidate.json": "77f93fe2366935c0008682bb7ddc16465d4676e228b1c6871978070313d621dd",
+    "mission/target.json": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37",
+    "kickoff/season-profile.json": "19d62c8e5b5ceb6ec9bd1502eb0fb060d0734b387afd5a5cea47002a64ba2d17",
+    "scripts/registered_transit.py": "7da80bfff88386d49d958fefa9241fac8dd7ae6a1ed6d449280acae618153350",
+    "scripts/kickoff_route_clearance.py": "4d4c218464e6081ec73a694615e6d04082fb3c39382882a8b6381e7f9d5645fa",
+    "scripts/station_l1_mission.py": "fa9a69ad85a6395782d0e283474aa3a2a741679ce8279b1df7b612a402a27b53",
+    "scripts/station_l1_settle.py": "554fe92ec05be5eec687b6df5def9acd28a7bdc1919b3c40f0085d6455c3a304",
+    "scripts/assess_coral.py": "03d8ce8eff16a3682b4dec759e3085cabf350ec3fad4cbf31d3586d89998d701",
+    "mission/field_body_clearance.py": "1880f7faea830226a2f0cdcabe2454bc65cf8f3de8f0c30ab6c46af1b4a8da6a",
+    "mission/replay_registered_field.py": "bcd58e0868020c692f042041ac026c14ac0531fbe30cb591e40b7d901ccc7905",
+    "design/station-l1/review.json": "e7230b3058b248472e5c5a439a2212e69e1d20ae9500a330da04e7940ee3c73f"
+  }
+}
