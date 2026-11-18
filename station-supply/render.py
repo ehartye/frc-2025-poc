@@ -38,6 +38,12 @@ arc=[st.flight_center(state,tf*i/60) for i in range(61)]
 side.plot([v[0]*1000 for v in arc],[v[1]*1000 for v in arc],color="#12817f",lw=2)
 for x,z in ((x0,1450),(x0,z0),(arc[-1][0]*1000,arc[-1][1]*1000)):
     side.add_patch(Circle((x,z),57.15,facecolor="#76aaaa",alpha=.4,edgecolor="#136663"))
+hit=feed["first_rebound_alternatives"][0]["first_material_witness"]
+hx,hz=hit["center_mm"]
+side.plot([x0,hx],[z0,hz],linestyle=":",color="#a34635",linewidth=2)
+side.scatter([hx],[hz],marker="x",s=45,color="#a34635",zorder=4)
+side.annotate("Upper guard contact\n35 ms after rebound",(hx,hz),xytext=(-95,1350),
+              arrowprops=dict(arrowstyle="->",color="#a34635"),color="#8e382e",fontsize=9)
 side.annotate("1.697 m/s at lip",(29.3,997.8),xytext=(-170,895),arrowprops=dict(arrowstyle="->",color="#345b5b"),fontsize=9)
 side.annotate("Receiver shelf",(180,880),xytext=(90,808),arrowprops=dict(arrowstyle="->",color="#345b5b"),fontsize=9)
 side.set_title("Centered drop and first contact",loc="left",fontweight="bold");side.set_xlabel("Robotward X (mm)");side.set_ylabel("Above field floor (mm)");side.set_xlim(-405,325);side.set_ylim(770,1605)
