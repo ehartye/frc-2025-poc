@@ -13,7 +13,8 @@ def write(path,data):
 
 
 def run(poses,folder):
-    configuration=folder/"field-trial.json"
+    folder.mkdir(parents=True,exist_ok=True)
+    configuration=ROOT/"full-match/field-trial.json"
     actual=json.loads((poses/"review.json").read_text())
     paths={k:poses/(k+".step") for k in POSES}
     robot=SuppliedRobot(poses/"part-frames.json",paths,hashes={k:actual[k]["export_sha256"] for k in POSES},

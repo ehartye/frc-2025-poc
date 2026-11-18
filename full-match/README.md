@@ -32,14 +32,14 @@ Use the dated release-day register for a kickoff exercise. The competition trial
 
 ## Reproduce
 
-Use the project's existing Python/OpenCascade environment and supply the installed plugin root where indicated. The STEP reconstruction authenticates all four project-owned blue inputs, applies line changes for the independently exported red assembly and verifies each original red SHA-256 before writing. The historical issued receipts stay available under their original paths.
+Use the project's existing Python/OpenCascade environment and supply the installed plugin root where indicated. The STEP reconstruction authenticates all four project-owned blue inputs, applies line changes for the independently exported red assembly and verifies each original red SHA-256 before writing. The historical issued receipts stay available under their original paths. The issued field trial retains the Windows-decoded station wall separator. An independent UTF-8 rerun differs only in that printed separator; all numeric values and identities are identical. Source-bound consumers use the issued bytes.
 
 ```powershell
 python full-match/materialize_red.py --output artifacts/red-401
 python full-match/match.py --output artifacts/field-trial.json
 python full-match/compare_kits.py --red artifacts/red-401 --blue design/competition-package/poses --output artifacts/kit-comparison.json
 python full-match/stack_witness.py --poses artifacts/red-401 --output artifacts/stack-negative.json
-python full-match/qualify.py --poses artifacts/red-401 --output full-match
+python full-match/qualify.py --poses artifacts/red-401 --output artifacts/replayed-release
 python full-match/observer_extent.py --poses artifacts/red-401 --output artifacts/observer-extent.json
 python full-match/plugin_field_check.py --poses artifacts/red-401 --plugin $env:AGENT_FRC_PLUGIN_ROOT --working artifacts/field-route-check --output artifacts/plugin-review.json
 python full-match/build_replay.py
