@@ -26,6 +26,8 @@ The errors are independent and refer to the center of the incoming pipe at nomin
 
 The [student lab](dock-lab.html) converts two sideways readings 200 mm apart plus an independent depth reading into bounds at the receiver. Enter the total uncertainty of each reading, including registration of the measuring device. The two simple stops still require an attachment detail, an as-built survey and a check that the belt on the far side can reach a short or off-center pipe. The entry window covers flight through shelf height. The seated state, later slide travel, and subsequent scoring need rechecking with the changed grip limits and the actual pipe spin.
 
+The [robot-mounted station survey](../station-localization/README.md) checks which landmarks the robot can see, how much image error the entry tolerances allow, and how the team can independently register the chute.
+
 ## Reproduce the geometry studies
 
 Supply the January field STEP used in the [source receipt](transfer.json). From the project root, use the CAD Python environment that can import OCP.
