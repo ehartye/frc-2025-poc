@@ -1,5 +1,7 @@
 # Moving traffic and finite station stock
 
+The [integrated robot review](COMBINED-DEPARTURE.md) repeats this trial at the higher 67 kg drive sizing, with the shorter compliant receiver and updated field-return margin.
+
 Open [the offline field rehearsal](moving-field.html). Select a departure, play it, or jump to the next conflict, feed or supported pipe. Red 2 is the station-to-L1 candidate. Red 3 and Blue 3 follow independent differential-drive programs across its route. The other three robots hold their prescribed starting poses.
 
 | Candidate | Predicted intersection or minimum separation | Supported by 135 s | Empty recovery |

@@ -1,0 +1,971 @@
+{
+  "schema": "supplied-robot-registered-clearance/1",
+  "source_trajectory_sha256": "144ea1131c4bb65e57a5d9a865c1234430b6eaa928953921a3a65e25e804f5c5",
+  "pose_step_sha256": {
+    "stowed": "f77b9f12a870034526b8e532842ad1c5ab72e517011732b32fcc4a8997dd1f62",
+    "receive": "c28e87f0209e2b24f870501c103a155eb13c539cf245f49943408b08d1233a2f",
+    "transport": "d7a33cc2cc06a3a3a9f7cd1a37ec61e3d7a81d2d7264c43002dacb64fb92d752",
+    "place": "2bb87baa257d4f906fa1946afb33c4abda9511fbf7bcac53195e03ca4fa17c59"
+  },
+  "inventory_sha256": "2e800f0408b5452b919169b621f304d002d2d893325150d883a4d09a8e05cb78",
+  "body_count": 203,
+  "part_ids": [
+    "anchor-block-L--80",
+    "anchor-block-L-140",
+    "anchor-block-R--80",
+    "anchor-block-R-140",
+    "anchor-tab-L",
+    "anchor-tab-R",
+    "axle-center-L",
+    "axle-center-R",
+    "axle-front-L",
+    "axle-front-R",
+    "axle-rear-L",
+    "axle-rear-R",
+    "battery",
+    "battery-anchor-L",
+    "battery-anchor-R",
+    "battery-restraint",
+    "battery-tray",
+    "bearing-arm-L",
+    "bearing-arm-R",
+    "bearing-center-inner-L",
+    "bearing-center-inner-R",
+    "bearing-center-outer-L",
+    "bearing-center-outer-R",
+    "bearing-envelope-L",
+    "bearing-envelope-R",
+    "bearing-front-inner-L",
+    "bearing-front-inner-R",
+    "bearing-front-outer-L",
+    "bearing-front-outer-R",
+    "bearing-rear-inner-L",
+    "bearing-rear-inner-R",
+    "bearing-rear-outer-L",
+    "bearing-rear-outer-R",
+    "belt-cartridge-L",
+    "belt-cartridge-R",
+    "belt-riser-L--90",
+    "belt-riser-L-136",
+    "belt-riser-R--90",
+    "belt-riser-R-136",
+    "bumper-end-front",
+    "bumper-end-rear",
+    "bumper-side-L",
+    "bumper-side-R",
+    "carrier-center-inner-L",
+    "carrier-center-inner-R",
+    "carrier-center-outer-L",
+    "carrier-center-outer-R",
+    "carrier-front-inner-L",
+    "carrier-front-inner-R",
+    "carrier-front-outer-L",
+    "carrier-front-outer-R",
+    "carrier-rear-inner-L",
+    "carrier-rear-inner-R",
+    "carrier-rear-outer-L",
+    "carrier-rear-outer-R",
+    "chain-0-L",
+    "chain-0-R",
+    "chain-1-L",
+    "chain-1-R",
+    "common-shaft-round-envelope",
+    "controller-radio",
+    "cross-front",
+    "cross-rear",
+    "deck-main",
+    "drive-controller-L",
+    "drive-controller-R",
+    "drive-pulley-reserve",
+    "drive-rail-inner-L",
+    "drive-rail-inner-R",
+    "drive-rail-outer-L",
+    "drive-rail-outer-R",
+    "driven-pulley-reserve",
+    "drum-core-L",
+    "drum-core-R",
+    "drum-flange-0-L",
+    "drum-flange-0-R",
+    "drum-flange-1-L",
+    "drum-flange-1-R",
+    "electrical-backplate",
+    "gearbox-L",
+    "gearbox-R",
+    "gearbox-face-screw-high-L",
+    "gearbox-face-screw-high-R",
+    "gearbox-face-screw-low-L",
+    "gearbox-face-screw-low-R",
+    "gearbox-faceplate-L",
+    "gearbox-faceplate-R",
+    "hub-center-L",
+    "hub-center-R",
+    "hub-front-L",
+    "hub-front-R",
+    "hub-rear-L",
+    "hub-rear-R",
+    "jack-front-inner-L",
+    "jack-front-inner-R",
+    "jack-front-outer-L",
+    "jack-front-outer-R",
+    "jack-rear-inner-L",
+    "jack-rear-inner-R",
+    "jack-rear-outer-L",
+    "jack-rear-outer-R",
+    "lift-crossbar",
+    "lift-shoe--235",
+    "lift-shoe-210",
+    "mast--235",
+    "mast-210",
+    "motor-L",
+    "motor-R",
+    "motor-body",
+    "mount-riser",
+    "observer-cable-trunk-reserve",
+    "observer-camera-5v-reserve",
+    "observer-camera-proxy",
+    "observer-host-5v-reserve",
+    "observer-moving-pad-0",
+    "observer-moving-pad-1",
+    "observer-moving-pad-2",
+    "observer-perforated-foot",
+    "observer-pi-and-converter-backplate",
+    "observer-pi4-service-envelope",
+    "observer-rear-cable-raceway",
+    "observer-slotted-cradle-weldment",
+    "observer-upright",
+    "observer-usb-service-reserve",
+    "optical-entry",
+    "optical-mount-entry",
+    "optical-mount-seat",
+    "optical-seat",
+    "protected-distribution",
+    "receiver-R6-ported",
+    "return-line-L",
+    "return-line-R",
+    "running-line-L",
+    "running-line-R",
+    "sheave-core-L",
+    "sheave-core-R",
+    "sheave-flange-0-L",
+    "sheave-flange-0-R",
+    "sheave-flange-1-L",
+    "sheave-flange-1-R",
+    "sheave-support-L",
+    "sheave-support-R",
+    "shelf-screw-L--80",
+    "shelf-screw-L-140",
+    "shelf-screw-R--80",
+    "shelf-screw-R-140",
+    "shelf-spacer-L",
+    "shelf-spacer-R",
+    "slide-L-inner",
+    "slide-L-middle",
+    "slide-L-outer",
+    "slide-R-inner",
+    "slide-R-middle",
+    "slide-R-outer",
+    "slide-base-bridge",
+    "slide-drive",
+    "spacer-center-0-L",
+    "spacer-center-0-R",
+    "spacer-center-1-L",
+    "spacer-center-1-R",
+    "spacer-center-2-L",
+    "spacer-center-2-R",
+    "spacer-center-3-L",
+    "spacer-center-3-R",
+    "spacer-front-0-L",
+    "spacer-front-0-R",
+    "spacer-front-1-L",
+    "spacer-front-1-R",
+    "spacer-front-2-L",
+    "spacer-front-2-R",
+    "spacer-rear-0-L",
+    "spacer-rear-0-R",
+    "spacer-rear-1-L",
+    "spacer-rear-1-R",
+    "spacer-rear-2-L",
+    "spacer-rear-2-R",
+    "sport-ratchet-and-mount-reserve",
+    "sprocket-0-a-L",
+    "sprocket-0-a-R",
+    "sprocket-0-b-L",
+    "sprocket-0-b-R",
+    "sprocket-1-a-L",
+    "sprocket-1-a-R",
+    "sprocket-1-b-L",
+    "sprocket-1-b-R",
+    "takeup-tab-front-inner-L",
+    "takeup-tab-front-inner-R",
+    "takeup-tab-front-outer-L",
+    "takeup-tab-front-outer-R",
+    "takeup-tab-rear-inner-L",
+    "takeup-tab-rear-inner-R",
+    "takeup-tab-rear-outer-L",
+    "takeup-tab-rear-outer-R",
+    "transfer-reach--1",
+    "transfer-reach-1",
+    "upper-pin-L",
+    "upper-pin-R",
+    "wheel-center-L",
+    "wheel-center-R",
+    "wheel-front-L",
+    "wheel-front-R",
+    "wheel-rear-L",
+    "wheel-rear-R"
+  ],
+  "pose_bounds_mm": {
+    "stowed": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1020.0
+    ],
+    "receive": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1020.0
+    ],
+    "transport": [
+      -425.0,
+      -425.0,
+      0.0,
+      425.0,
+      425.0,
+      1020.0
+    ],
+    "place": [
+      -425.0,
+      -425.0,
+      0.0,
+      535.0,
+      425.0,
+      1020.0
+    ]
+  },
+  "registered_receiver_difference_volumes_mm3": [
+    0.0,
+    0.0
+  ],
+  "clearance_error_allowances_mm": {
+    "outer_slide_x_mm": 0,
+    "grip_independent_y_mm": 0
+  },
+  "continuous_envelope_exceptions": {
+    "return-line-R": "straight fixed-top return line, bounded by longest STEP pose",
+    "return-line-L": "straight fixed-top return line, bounded by longest STEP pose"
+  },
+  "retreat_delay_after_true_separation_s": 0.127,
+  "fits_previously_tested_roster_rectangles_by_pose": {
+    "stowed": true,
+    "receive": true,
+    "transport": true,
+    "place": true
+  },
+  "route_checks": [
+    {
+      "leg": "starting-line-to-station",
+      "pose": "stowed",
+      "extra_height_obstacles": [],
+      "min_clearance": {
+        "kind": "drive",
+        "seconds": 1.6385715323618522,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      }
+    },
+    {
+      "leg": "loaded-coral-A",
+      "pose": "transport",
+      "extra_height_obstacles": [],
+      "min_clearance": {
+        "kind": "drive",
+        "seconds": 1.6385715323618513,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      }
+    },
+    {
+      "leg": "return-coral-A",
+      "pose": "transport",
+      "extra_height_obstacles": [],
+      "min_clearance": {
+        "kind": "drive",
+        "seconds": 1.6385715323618508,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.010000000000001064
+      }
+    },
+    {
+      "leg": "loaded-coral-B",
+      "pose": "transport",
+      "extra_height_obstacles": [],
+      "min_clearance": {
+        "kind": "drive",
+        "seconds": 1.6385715323618513,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.01000000000000073
+      }
+    },
+    {
+      "leg": "return-coral-B",
+      "pose": "transport",
+      "extra_height_obstacles": [],
+      "min_clearance": {
+        "kind": "drive",
+        "seconds": 1.6385715323618537,
+        "closest": "Station wall \u00c2\u00b7 tag 2",
+        "gap_m": 0.010000000000000286
+      }
+    }
+  ],
+  "departures": [
+    {
+      "piece_id": "coral-A",
+      "sector_m": -0.18,
+      "floor_time_s": 27.01551629410245,
+      "first_shelf_witness_s": 26.92831019,
+      "body_count": 203,
+      "last_possible_contact_s": 26.97131019,
+      "last_possible_by_body": {
+        "belt-cartridge-R": 26.97131019,
+        "belt-riser-R-136": 26.95031019,
+        "belt-cartridge-L": 26.97131019,
+        "belt-riser-L-136": 26.95031019
+      },
+      "min_tail_gap_mm": 52.97744486911285,
+      "post_observation_s": 29.01551629410245,
+      "settled_target_xz_m": [
+        0.0645114152543947,
+        0.4812352598277075
+      ],
+      "checks_next": [
+        {
+          "sector_m": 0.18,
+          "min_swept_bound_gap_mm": 0.0,
+          "candidate_bodies": [
+            "receiver-R6-ported"
+          ],
+          "native_place_witnesses": [
+            {
+              "body": "receiver-R6-ported",
+              "gap_mm": 0.0,
+              "volume_mm3": 436.6500929772454
+            }
+          ],
+          "clear_all_modeled_poses": false
+        },
+        {
+          "sector_m": 0.22,
+          "min_swept_bound_gap_mm": 39.16749999999997,
+          "candidate_bodies": [],
+          "native_place_witnesses": [],
+          "clear_all_modeled_poses": true
+        }
+      ],
+      "last_possible_after_shelf_ms": 42.99999999999926,
+      "clear_at_support": true,
+      "early_native_pipe_wall_snapshots": [
+        {
+          "after_shelf_ms": 0.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 5.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 10.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 15.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 20.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.077177,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.077177,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 25.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 3.024743,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 3.024743,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 30.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 6.140872,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 6.140872,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 35.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 9.426544,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 9.426544,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 40.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 12.8839,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 12.8839,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 43.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.948978,
+              "overlap_mm3": 0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 15.041941,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.948978,
+              "overlap_mm3": 0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 15.041941,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        }
+      ]
+    },
+    {
+      "piece_id": "coral-B",
+      "sector_m": 0.22,
+      "floor_time_s": 26.700516293845148,
+      "first_shelf_witness_s": 26.61331019,
+      "body_count": 203,
+      "last_possible_contact_s": 26.65631019,
+      "last_possible_by_body": {
+        "belt-cartridge-R": 26.65631019,
+        "belt-riser-R-136": 26.63531019,
+        "belt-cartridge-L": 26.65631019,
+        "belt-riser-L-136": 26.63531019
+      },
+      "min_tail_gap_mm": 52.977444824622836,
+      "post_observation_s": 28.700516293845148,
+      "settled_target_xz_m": [
+        0.0645114152543947,
+        0.4812352598277075
+      ],
+      "checks_next": [
+        {
+          "sector_m": 0.18,
+          "min_swept_bound_gap_mm": 0.0,
+          "candidate_bodies": [
+            "slide-L-inner",
+            "shelf-spacer-L",
+            "anchor-block-L-140",
+            "shelf-screw-L-140",
+            "receiver-R6-ported",
+            "belt-cartridge-L",
+            "belt-riser-L-136",
+            "observer-moving-pad-0",
+            "observer-moving-pad-1",
+            "observer-moving-pad-2"
+          ],
+          "native_place_witnesses": [
+            {
+              "body": "slide-L-inner",
+              "gap_mm": 0.0,
+              "volume_mm3": 6553.697138222715
+            },
+            {
+              "body": "shelf-spacer-L",
+              "gap_mm": 0.0,
+              "volume_mm3": 3180.493386056366
+            },
+            {
+              "body": "anchor-block-L-140",
+              "gap_mm": 0.0,
+              "volume_mm3": 1413.5671591311552
+            },
+            {
+              "body": "shelf-screw-L-140",
+              "gap_mm": 0.0,
+              "volume_mm3": 641.4739499548597
+            },
+            {
+              "body": "receiver-R6-ported",
+              "gap_mm": 0.0,
+              "volume_mm3": 161633.7795860606
+            },
+            {
+              "body": "belt-cartridge-L",
+              "gap_mm": 0.0,
+              "volume_mm3": 4880.266154371582
+            },
+            {
+              "body": "belt-riser-L-136",
+              "gap_mm": 0.0,
+              "volume_mm3": 6183.812529421843
+            },
+            {
+              "body": "observer-moving-pad-0",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335802
+            },
+            {
+              "body": "observer-moving-pad-1",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335804
+            },
+            {
+              "body": "observer-moving-pad-2",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335802
+            }
+          ],
+          "clear_all_modeled_poses": false
+        },
+        {
+          "sector_m": 0.22,
+          "min_swept_bound_gap_mm": 0.0,
+          "candidate_bodies": [
+            "receiver-R6-ported",
+            "belt-cartridge-R",
+            "belt-riser-R-136",
+            "belt-cartridge-L",
+            "belt-riser-L-136",
+            "observer-moving-pad-0",
+            "observer-moving-pad-1",
+            "observer-moving-pad-2"
+          ],
+          "native_place_witnesses": [
+            {
+              "body": "receiver-R6-ported",
+              "gap_mm": 0.0,
+              "volume_mm3": 162097.94990062836
+            },
+            {
+              "body": "belt-cartridge-R",
+              "gap_mm": 0.0,
+              "volume_mm3": 0.0
+            },
+            {
+              "body": "belt-riser-R-136",
+              "gap_mm": 0.0,
+              "volume_mm3": 0.0
+            },
+            {
+              "body": "belt-cartridge-L",
+              "gap_mm": 0.0,
+              "volume_mm3": 0.0
+            },
+            {
+              "body": "belt-riser-L-136",
+              "gap_mm": 0.0,
+              "volume_mm3": 0.0
+            },
+            {
+              "body": "observer-moving-pad-0",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335802
+            },
+            {
+              "body": "observer-moving-pad-1",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335804
+            },
+            {
+              "body": "observer-moving-pad-2",
+              "gap_mm": 0.0,
+              "volume_mm3": 116.74776600335802
+            }
+          ],
+          "clear_all_modeled_poses": false
+        }
+      ],
+      "last_possible_after_shelf_ms": 42.99999999999926,
+      "clear_at_support": true,
+      "early_native_pipe_wall_snapshots": [
+        {
+          "after_shelf_ms": 0.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 5.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 10.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 15.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 20.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 0.077178,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 0.077178,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 25.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 3.024743,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 3.024743,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 30.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 6.140873,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 6.140873,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 35.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 9.426545,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 9.426545,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 40.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 12.883901,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.0,
+              "overlap_mm3": 0.0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 12.883901,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        },
+        {
+          "after_shelf_ms": 43.0,
+          "bodies": {
+            "belt-cartridge-R": {
+              "gap_mm": 0.948979,
+              "overlap_mm3": 0
+            },
+            "belt-riser-R-136": {
+              "gap_mm": 15.041942,
+              "overlap_mm3": 0
+            },
+            "belt-cartridge-L": {
+              "gap_mm": 0.948979,
+              "overlap_mm3": 0
+            },
+            "belt-riser-L-136": {
+              "gap_mm": 15.041942,
+              "overlap_mm3": 0
+            }
+          },
+          "forward_endpoint_inward_grip_overlap_mm3": {}
+        }
+      ]
+    }
+  ],
+  "automatic_release_at_shelf_witness_qualified": false,
+  "qualifies_registered_departure_and_travel": true
+}

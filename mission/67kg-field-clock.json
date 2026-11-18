@@ -1,0 +1,144 @@
+{
+  "schema": "registered-67kg-cycle-clock/1",
+  "design_mass_kg": 67,
+  "focal_drive": {
+    "trackM": 0.58,
+    "maximumWheelMps": 1.25,
+    "maximumWheelAccelMps2": 1.2,
+    "maximumTurnRadS": 1.25,
+    "turnWheelAccelMps2": 0.64,
+    "loopS": 0.02
+  },
+  "other_motion": {
+    "trackM": 0.58,
+    "maximumWheelMps": 1.25,
+    "maximumWheelAccelMps2": 1.2,
+    "maximumTurnRadS": 1.25,
+    "turnWheelAccelMps2": 0.7,
+    "loopS": 0.02
+  },
+  "trips": [
+    {
+      "piece": "coral-A",
+      "loaded_travel_s": 17.22661655948477,
+      "empty_return_s": 15.91131668999535,
+      "seconds_after_lip_until_support": 29.161516292825066,
+      "settled_target_xz_m": [
+        0.0645114152543947,
+        0.4812352598277075
+      ],
+      "recovery_until_transport_s": 1.506460563841599
+    },
+    {
+      "piece": "coral-B",
+      "loaded_travel_s": 16.91144564415962,
+      "empty_return_s": 15.545833416019256,
+      "seconds_after_lip_until_support": 28.846516291319187,
+      "settled_target_xz_m": [
+        0.0645114152543947,
+        0.4812352598277075
+      ],
+      "recovery_until_transport_s": 1.5064605653474807
+    }
+  ],
+  "scenarios": {
+    "immediate": {
+      "hold_before_start_s": 0,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "first_sampled_overlap": [
+        "red3",
+        "red2",
+        3.93,
+        -0.02061
+      ],
+      "min_separating_bound_m": -1.0339201934278779,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "support_observations": [],
+      "planned_empty_finish_s": 117.47926106693419,
+      "empty_finish_available": false
+    },
+    "opponent": {
+      "hold_before_start_s": 10,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "first_sampled_overlap": [
+        "blue3",
+        "red2",
+        15.77,
+        -0.00955
+      ],
+      "min_separating_bound_m": -0.17634959112479934,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "support_observations": [],
+      "planned_empty_finish_s": 127.47926106693419,
+      "empty_finish_available": false
+    },
+    "reserved": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "first_sampled_overlap": null,
+      "min_separating_bound_m": 0.10563984962795049,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.89421951697443,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 114.42696708556744,
+          "sector_m": 0.22
+        }
+      ],
+      "planned_empty_finish_s": 133.47926106693419,
+      "empty_finish_available": true
+    },
+    "late": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        111
+      ],
+      "first_sampled_overlap": null,
+      "min_separating_bound_m": 0.10563984962795049,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.89421951697443,
+          "sector_m": -0.18
+        }
+      ],
+      "planned_empty_finish_s": 160.16726429612282,
+      "empty_finish_available": false
+    },
+    "depleted": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        null
+      ],
+      "first_sampled_overlap": null,
+      "min_separating_bound_m": 0.10563984962795049,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.89421951697443,
+          "sector_m": -0.18
+        }
+      ],
+      "planned_empty_finish_s": null,
+      "empty_finish_available": false
+    }
+  }
+}
