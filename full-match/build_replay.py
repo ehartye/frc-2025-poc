@@ -34,5 +34,12 @@ data={"scenarios":scenarios,"stacks":COORDS,"solids":[[name,[[round(x/f.IN,2),ro
 old=heavy.revised_motion().routes(-.18)[0]
 data["legacy"]=[[round(v/f.IN,2) for v in old.at(i/50)[0][:2]] for i in range(int(old.duration*50)+1)]
 data["hit"]=COORDS[-1]
+installed=json.loads((HERE/"installed-stock.json").read_text())
+data["reefBalls"]=[]
+for key,obj in installed["stock"].items():
+    if obj["group"]=="reef-ball":
+        x,up,z=obj["native_center_mm"]
+        fx,fy=f.field_from_native(x/25.4,z/25.4)
+        data["reefBalls"].append([key,round(fx/f.IN,3),round(fy/f.IN,3),round(up),installed["ball_radius_mm"]/25.4])
 template=(HERE/"replay-template.html").read_text(encoding="utf8")
 (HERE/"replay.html").write_text(template.replace("__DATA__",json.dumps(data,separators=(",",":"))),encoding="utf8",newline="\n")
