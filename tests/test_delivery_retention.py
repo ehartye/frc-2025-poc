@@ -22,7 +22,7 @@ class DeliveryRetentionTest(unittest.TestCase):
     def test_native_layer_reopened_against_each_complete_pose(self):
         fit=json.loads((HERE/"duplex-fit.json").read_bytes())
         for pose,r in fit.items():
-            self.assertFalse(r["externalOverlapMm3"] or r["internalOverlapMm3"] or r.get("installedServicePinOverlaps"))
+            self.assertFalse(r["externalOverlapMm3"] or r["internalOverlapMm3"] or r["servicePinInsertionSweepOverlaps"])
             self.assertEqual(hashlib.sha256((ROOT/"design/competition-package/poses"/(pose+".step")).read_bytes()).hexdigest(),r["sourceSha256"])
         self.assertEqual(fit["place"]["uniqueReopenedLayerBodies"],fit["place"]["addedBodies"])
         self.assertEqual(fit["place"]["layerStepSha256"],hashlib.sha256((HERE/"duplex-place.step").read_bytes()).hexdigest())

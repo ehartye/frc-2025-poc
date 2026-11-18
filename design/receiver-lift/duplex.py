@@ -136,10 +136,10 @@ def check(step=None,only=None):
         hits=clashes(shapes,base)
         result[pose]={"sourceSha256":sha,"baseBodies":len(frames),"addedBodies":len(shapes),
                       "externalOverlapMm3":hits,"internalOverlapMm3":pairs}
-        if pose!="stowed":
-            pins={"service-pin-"+str(side):brep(cylinder(-131,side*282,values["height"]-165,[1,0,0],4,65))
-                  for side in (-1,1)}
-            result[pose]["installedServicePinOverlaps"]=clashes(pins,base|shapes)
+        # A pin is withdrawn 65 mm toward robot rear from its inserted -131..-66 mm interval.
+        pins={"service-pin-"+str(side):brep(cylinder(-196,side*282,values["height"]-165,[1,0,0],4,130))
+              for side in (-1,1)}
+        result[pose]["servicePinInsertionSweepOverlaps"]=clashes(pins,base|shapes)
         if step and pose=="place":
             write_step(step,shapes)
             finalize_step(step)
@@ -159,5 +159,5 @@ if __name__ == "__main__":
     text=json.dumps(report,indent=2)+"\n"
     if a.report: a.report.write_text(text,encoding="utf-8",newline="\n")
     else: print(text)
-    if any(r["externalOverlapMm3"] or r["internalOverlapMm3"] or r.get("installedServicePinOverlaps") for r in report.values()):
+    if any(r["externalOverlapMm3"] or r["internalOverlapMm3"] or r["servicePinInsertionSweepOverlaps"] for r in report.values()):
         raise ValueError("positive material overlap in candidate geometry")
