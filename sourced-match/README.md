@@ -9,6 +9,8 @@
 | Return to station after B | A 32.06 s, B 82.15 s | 100.10 s | 7 |
 | B stock first available at 111 s | A 32.06 s | 52.40 s | 5 with no park on this program |
 
+The [coupled spin and belt study](../axial-spin/README.md) now carries the inbound angular momentum to the reef. It identifies a candidate 0.90 m/s belt limit and failures at both 0.75 and 1.05 m/s.
+
 ## What carries from handoff to target
 
 The centered, transverse station release uses the existing 10 mm bumper stand-off and 240 mm receiver stroke. On the 545-body robot the acquired pipe leaves the chute at 1.697 m/s, meets the receiver 49.81 ms later, and reaches the first retract command 1.10 s after that. A and B keep separate stock identities and absolute lip times of 3.672 and 54.073 s. Each seated center enters the existing 1 ms mission integrator at station-frame (0.124580, 0, 0.937150) m, with horizontal velocity (−0.000496, 0) m/s and yaw π. Its vertical velocity and pitch are zero under the shelf support model. Neither seating nor removal is inferred from a fresh object at the target. [Feeder and first contact](../station-supply/README.md) · [545-body pickup replay](source-545.json) · [545-body complete mission](shop-545.json) · [401-body comparison](reference-401.json)

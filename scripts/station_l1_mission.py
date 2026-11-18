@@ -136,7 +136,7 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
                      math.pi,0.0,"first-top-contact")
 
 
-def resume_from_seat(state,dt,trajectory,grip_law,target_y,piece_id):
+def resume_from_seat(state,dt,trajectory,grip_law,target_y,piece_id,*,axial_contact=None):
     """Resume the actual seated body at the first retract command, on its original lip clock."""
     if state["piece_id"]!=piece_id or state["status"]!="within-modeled-seat-window":
         raise ValueError("A matching attained seat is required")
@@ -148,11 +148,11 @@ def resume_from_seat(state,dt,trajectory,grip_law,target_y,piece_id):
         raise ValueError("Invalid continuation clock or mass")
     return integrate("reference",dt,state["mass_kg"],piece_id,target_y,True,trajectory,grip_law,
                      state["first_contact_from_lip_s"],state["seat_elapsed_s"],state["xyz_m"],
-                     state["vxyz_mps"][:2],state["yaw_rad"],state["yaw_rate_rad_s"],"resume-from-source-seat")
+                     state["vxyz_mps"][:2],state["yaw_rad"],state["yaw_rate_rad_s"],"resume-from-source-seat",axial_contact)
 
 
 def integrate(case,dt,mass,id_,target_y,sample_every_step,trajectory,grip_law,
-              start,time,position,velocity,yaw,omega,initial_event):
+              start,time,position,velocity,yaw,omega,initial_event,axial_contact=None):
     x,y,z=position
     vx,vy=velocity
     mode = "supported"
@@ -227,6 +227,8 @@ def integrate(case,dt,mass,id_,target_y,sample_every_step,trajectory,grip_law,
             if phase=="extend-at-target" and case=="occupied-target":
                 return finish("hold-and-recover-target-occupied")
             last_phase = phase
+        if axial_contact is not None:
+            axial_contact.enter_phase(phase, time)
         if sample_every_step or ticks % max(1,round(.02/dt)) == 0:
             trace.append(row(phase))
         if mode=="supported":
@@ -273,6 +275,10 @@ def integrate(case,dt,mass,id_,target_y,sample_every_step,trajectory,grip_law,
             arm = M["pipeLength_m"]/2
             f_a = clip(longitudinal/2+torque/(2*arm),mu*n_a)
             f_b = clip(longitudinal/2-torque/(2*arm),mu*n_b)
+            if axial_contact is not None:
+                relative_speed=(vx-vel[0])*co+(vy-vel[1])*si
+                f_a,f_b,shelf_friction=axial_contact.supported(
+                    u-slide,relative_speed,normal,n_a,n_b,f_a,f_b,mu,speed_limit,shelf_mu,dt)
             peak["belt_force_N"] = max(peak["belt_force_N"],abs(f_a),abs(f_b))
             peak["centering_force_N"] = max(peak["centering_force_N"],abs(n_a-n_b))
             peak["yaw_error_deg"] = max(peak["yaw_error_deg"],abs(math.degrees(error)))
