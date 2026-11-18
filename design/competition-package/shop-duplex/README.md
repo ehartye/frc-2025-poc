@@ -9,6 +9,8 @@ Explore the [blue robot](blue/robot.html) or the [red robot](red/robot.html) off
 | Carry | 670 / 0 mm | [Blue transport](blue/transport.step) | [Red transport](red/transport.step) |
 | Place | 560 / 370 mm | [Blue place](blue/place.step) | [Red place](red/place.step) |
 
+The [installed procurement and shop review](../../installed-procurement/README.md) maps each of the 545 bodies to a make, buy or unresolved article and includes a separately checked fastening proposal for the inner wheel carriers.
+
 ## What changed
 
 Each pose contains 545 named solids. Six of the 401 earlier bodies were superseded by the 68-body [shop joint package](../../shop-package/JOINTS.md). Four others were superseded by the 86-body [duplex lift package](../../receiver-lift/RETENTION.md). The model includes six threaded outer carrier saddles with 24 screws and washers, four pinned receiver blocks, two drilled inner channels, the longer common shaft, two backup drum and line systems and the pit support rails. Removable pit pins are withdrawn for the match. The historical [401-body model and source register](../README.md) remain available for studies bound to that edition.
