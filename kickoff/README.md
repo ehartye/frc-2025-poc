@@ -8,6 +8,8 @@ This exercise starts from the 2025 REEFSCAPE V0 game manual. The existing mechan
 
 ## Which role can use this 15-second window?
 
+The [field occupancy follow-up](FIELD-SPACE.md) checks the full footprint at the station, flags an intersecting centerline, and compares a reroute and two-robot choke schedule.
+
 Each trial starts with the robot at its pickup pose, has one second of setup and assumes mean loaded and empty transit speeds of 60 in/s. All allocated pieces are at their source when the window opens. Straight sections and bends follow the saved route. The trials assume immediate access and successful scoring. Queues, acceleration transients, alignment variation and capture failures need measurements.
 
 | Candidate | Allocated to this robot | Route A → B | Assumed pickup + release | By 15 s |
