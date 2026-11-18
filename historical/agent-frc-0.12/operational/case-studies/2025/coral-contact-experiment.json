@@ -1,0 +1,37 @@
+{
+  "schema": "frc-coral-contact-experiment/v1",
+  "basis": "unvalidated-fixed-exterior-contact-hypothesis",
+  "orientation": "axis-X-locked-at-Y0-external-zero-angular-work-constraint",
+  "massSelection": "source-interval-midpoint-not-native-volume-or-measured",
+  "floorMu": [
+    0,
+    0.2,
+    0.4,
+    0.8
+  ],
+  "floorStiffnessNpm": 50000,
+  "rollerStiffnessNpm": 5000,
+  "dissipationSpm": 5,
+  "rollerMu": 0.8,
+  "regularizationMps": 0.01,
+  "initial": {
+    "xM": -0.16,
+    "zM": 0.05715,
+    "vxMps": 0.15
+  },
+  "controller": {
+    "periodSeconds": 0.02,
+    "duty": -0.12,
+    "beamXM": 0.1
+  },
+  "horizonSeconds": 3.4,
+  "dtSeconds": [
+    0.0001,
+    5e-05
+  ],
+  "contactScope": "upper-exterior/top-end-edge-only; bore/general-3D unsupported",
+  "constants": "fixed-source-pinned-model-not-general-JSON-parameter-API",
+  "capture": null,
+  "score": null,
+  "engineeringAcceptance": "blocked"
+}

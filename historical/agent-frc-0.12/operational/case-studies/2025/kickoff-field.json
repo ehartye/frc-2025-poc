@@ -1,0 +1,52 @@
+{
+  "season": 2025,
+  "game": "REEFSCAPE",
+  "edition": "Kickoff · V0",
+  "manual": "https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf",
+  "units": "in",
+  "scoring": {
+    "source": "V0 §§6.3.4, 6.4 and 6.5, Table 6-2. See G409 for simultaneous control, G412 for CORAL launch location and the scoring criteria for each target.",
+    "inventory": [
+      {"piece":"CORAL","total":126,"distribution":"6 on field marks. Up to 6 robot preloads. The remainder is split between alliance stations (57–60 per alliance)."},
+      {"piece":"ALGAE","total":18,"distribution":"12 on reef branches and 6 on field marks. Processor transfers can make a piece available for another scoring action."}
+    ],
+    "phases": [{"name":"AUTO","seconds":15},{"name":"TELEOP","seconds":135}],
+    "fieldMap": {
+      "basis":"V0 §§5.1–5.6, 6.3 and Figure 6-2. One alliance frame is mirrored for the other. Start X derives from the starting line and reef dimensions. Three lateral starting slots, pickup and scoring approach coordinates are illustrative robot-center positions in inches. Opening AUTO routes can also use a preload. Actual team routes and arrival times are unknown.",
+      "starts":[[297.5,65],[297.5,158.5],[297.5,252]],
+      "sources":{
+        "CORAL":[[45,42],[45,275]],
+        "ALGAE":[[122,158.5],[176.75,101],[176.75,216]],
+        "marks":[[48,88],[48,158.5],[48,229]]
+      },
+      "targets":{"reef":[[122,158.5],[176.75,101],[176.75,216],[231,158.5]],"processor":[[236,23]],"net":[[305,213]]},
+      "routes":[
+        {"piece":"CORAL","goal":"reef","autoSource":"marks"},
+        {"piece":"ALGAE","goal":"processor"},
+        {"piece":"ALGAE","goal":"net"}
+      ]
+    },
+    "targets": [
+      {"name":"Reef trough (L1)","goal":"reef","piece":"CORAL","points":[3,2]},
+      {"name":"Reef L2 branches","goal":"reef","piece":"CORAL","points":[4,3],"cap":12},
+      {"name":"Reef L3 branches","goal":"reef","piece":"CORAL","points":[6,4],"cap":12},
+      {"name":"Reef L4 branches","goal":"reef","piece":"CORAL","points":[7,5],"cap":12},
+      {"name":"Processor","goal":"processor","piece":"ALGAE","points":[6,6]},
+      {"name":"Net","goal":"net","piece":"ALGAE","points":[4,4]}
+    ]
+  },
+  "field": {"length": 690.875, "width": 317, "source": "§5.1, p. 19. Rectangular field extents."},
+  "limits": {"perimeter": 120, "height": 42, "source": "R101–R104. Rectangular robot perimeter excluding bumpers and height in starting configuration."},
+  "landmarks": [
+    {"name": "Blue reef", "x": 176.75, "y": 158.5, "sides": 6, "acrossFlats": 65.5, "height": 18},
+    {"name": "Red reef", "x": 514.125, "y": 158.5, "sides": 6, "acrossFlats": 65.5, "height": 18}
+  ],
+  "levels": [
+    {"name": "L1 lip", "height": 18},
+    {"name": "L2 tip", "height": 31.875},
+    {"name": "L3 tip", "height": 47.625},
+    {"name": "L4 tip", "height": 72}
+  ],
+  "geometrySource": "§5.3, pp. 23–24. Each reef is centered across the field. Its modeled center is 144 in plus half its width from the alliance wall. The rings mark elevations only.",
+  "omissions": "Corners, barge, stations, game pieces, bumpers and deployed mechanisms are omitted. Field outlines and height rings support scale comparisons only."
+}
