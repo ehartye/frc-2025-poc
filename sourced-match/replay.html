@@ -17,7 +17,7 @@
 const data=window.sourceMatch, byId=id=>document.getElementById(id);
 const scenario=byId('scenario'), spin=byId('spin'), time=byId('time');
 const fmt=n=>n.toFixed(2)+' s';
-const outcome={'sustained-paired-floor-and-lip':'Two-second trough support','inner-riser-bound':'Inner-riser limit reached','returned-shelf-bound':'Pipe reaches receiver again','returned-to-receiver-envelope':'Pipe reaches receiver again'};
+const outcome={'sustained-paired-floor-and-lip':'Two-second trough support','inner-riser-bound':'Inner-riser limit reached','receiver-recontact':'Pipe reaches receiver again'};
 for(const rate of Object.keys(data.pipes[0].spin).map(Number).sort((a,b)=>a-b)){
  const option=document.createElement('option');option.value=String(rate);option.textContent=rate.toFixed(2)+' rad/s';spin.add(option);
 }
