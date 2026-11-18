@@ -1,9 +1,11 @@
 # Release-day opportunity study
 
+Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [editable season source](season-profile.json) is the input for regeneration.
+
 This exercise starts from the 2025 REEFSCAPE V0 game manual. The existing mechanism fixture in the main README is a later investigation. Both candidate match stories in this exercise remain open for team review.
 
 1. Inspect the [editable V0 rules model](rules-v0.json). It records the inventory, phase durations, point values, field dimensions and illustrative route assumptions.
-2. Open the [field lab](https://ehartye.github.io/agent-frc/field-lab.html), or generate the exact offline page using the commands below. Compare the [two saved field observations and scoring windows](field-lab-draft.md). An analyst entered these trial values as prompts for student discussion.
+2. Open the student field lab from the [project-owned season profile](season-profile.json) using the command below. This file supplies season geometry, scoring opportunities, team start slots, proposed routes, obstacle and cage assumptions, period names and limits, and match programs to the portable engine. Compare the [two saved field observations and scoring windows](field-lab-draft.md). An analyst entered these trial values as prompts for student discussion.
 3. Replay the one-piece transport schedule with `python scripts/kickoff_shuttle.py` from the repository root. Its only inputs are the saved model and [trial assumptions](trials.json). No CAD software, installed plugin or network is needed for this calculation.
 
 ## Which role can use this 15-second window?
@@ -31,11 +33,10 @@ Both routes pass within the model's corridor threshold of paths associated with 
 
 ## Reproduce the field exercise
 
-The committed rules JSON and browser draft came from the Agent FRC 0.12.0 release. From its plugin root, generate the original model and field page to fresh paths.
+The saved rules model and browser draft came from Agent FRC 0.12.0. They preserve the baseline for the independent calculations above. To generate a page with the new timed rehearsal, run the portable plugin CLI from the POC root. The same season JSON is also the input to the occupancy, clock, queue and swept-footprint regression suite.
 
 ```sh
-node scripts/kickoff.mjs --season 2025 --model-output rules-v0.json
-node scripts/kickoff.mjs --profile rules-v0.json --output field.html
+node /path/to/agent-frc/scripts/kickoff.mjs --profile kickoff/season-profile.json --output field.html
 ```
 
-In the lab, compare the default 30 × 30 × 30 in box with a 31 × 29 × 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Agent FRC source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)
+Set `AGENT_FRC_PLUGIN_ROOT` to the compatible plugin directory and run `node --test tests/kickoff-field.test.mjs` for the season integration checks. In the lab, compare the default 30 × 30 × 30 in box with a 31 × 29 × 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Original 0.12.0 source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)
