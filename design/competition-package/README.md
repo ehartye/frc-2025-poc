@@ -1,0 +1,37 @@
+# Station receiver assembly review
+
+Open [the robot viewer](robot.html) in a current browser. It works offline. Drag to rotate or use the arrow keys with the drawing focused. Switch between Stowed, Receive, Carry and Place. Select a subsystem or a single part to see its position, or remove the bumpers and deck to inspect the drives. The scale under the view controls follows the current zoom. The [moving field rehearsal](../../mission/moving-field.html) shows the match scenario.
+
+## What moves
+
+| Pose | Lift height | Slide extension | Review question |
+|---|---:|---:|---|
+| [Stowed STEP](poses/stowed.step) | 940 mm | 0 mm | Can the receiver wait for a supply with the slide fully home? |
+| [Receive STEP](poses/receive.step) | 940 mm | 240 mm | Where do the belts meet the pipe as it drops from the station? |
+| [Carry STEP](poses/transport.step) | 670 mm | 0 mm | What stays within the bumper footprint during the transfer? |
+| [Place STEP](poses/place.step) | 560 mm | 370 mm | Which surfaces can still touch the pipe as the shelf withdraws? |
+
+Coordinates are in millimetres from the chassis frame, with X forward, Y left and Z up. The middle carriage moves half the outer slide distance. Three pinions rotate as the racks translate. The return lines change length with lift height and the string potentiometer pays out line with slide extension. The field adapter can call `pose_shapes(height_mm, stroke_mm)` for nominal intermediate geometry or read the [per-part frames](part-frames.json) and [pinion bounds](rotation-bounds.json). The nominal CAD shows centered grip cartridges. The [receiver-drive model](../receiver-drives/) supplies their independent lateral motion.
+
+The [drive chassis](../drivetrain/README.md), [lift](../receiver-lift/), [receiver drives](../receiver-drives/), [electrical packaging](../electrical-inspection/) and [release observer](../../release-observer/README.md) own their dimensions and verification. Combined checks remove each superseded equipment reservation and reject duplicate or missing body IDs.
+
+## Reproduce the checks
+
+The selected assembly combines 361 named solids. Each pose checks 44,324 cross-subsystem pairs. The shorter, 420 mm grip belts replace the earlier 537 mm belts. An inward-displaced long belt could overlap the pipe by 143.4 mm³ even after the shelf cleared. The shorter belt allows a short unpowered coast on the shelf. The [receiver-drive study](../receiver-drives/README.md) records the resulting acquisition and handoff limits. The [source register](source-register.json) identifies the inputs that produced these four exports.
+
+Run from the repository root with Python and the project's OpenCascade bindings.
+
+```sh
+python design/competition-package/build.py artifacts/combined-review --step
+python design/competition-package/travel.py artifacts/combined-review/travel.json
+```
+
+The builder verifies source STEP identities, checks interference between subsystems, tests three service volumes and exports four named STEP assemblies. Each export is reopened and checked for valid solids, body count and material volume. The [pose receipt](review.json) lists the number of inter-subsystem comparisons and the actual interference in each pose. The viewer uses triangulated copies rounded to 0.1 mm. All fit checks use native solids.
+
+The [travel receipt](travel.json) covers nominal continuous station extension, target extension and lift travel with the slide retracted. For each pair of subsystems the checker rules out disjoint swept bounds, verifies the common reference geometry of rigidly co-moving bodies, or reconstructs a native prismatic end face and sweeps it over the full relative displacement. A remaining unclassified pair fails the check. Both travel directions traverse the same occupied positions.
+
+An early harness anchor passed all four named poses. At 100 mm of slide extension it intersected the synchronizer bracket by 320 mm³. A second position passed that bracket but crossed the slide motor. The revised anchor sits on the shelf underside at (75, −45, −90) mm. Removing the battery hold-down is part of battery service. The other two service checks exercise fuse and breaker extraction and access to the main disconnect.
+
+## Design status
+
+The field and robot models share a station-fed, low-level placement role. The team has yet to select this role and its shop constraints. Game-piece contact, observer latency, upper-mass match timing, spring and belt deflection, pneumatic loss, cable flex life and as-built tolerances each need their own evidence. A clear harness route alone does not establish when the robot can release the pipe. Consult the [release observer](../../release-observer/README.md) and the [field rehearsal](../../mission/MOVING-TRAFFIC.md) for the assumptions behind a timed delivery.

@@ -1,8 +1,6 @@
 # 2025 REEFSCAPE proof of concept
 
-![Interim mechanism layout, not a complete robot](cad/interim-layout.svg)
-
-**Interim subsystem concept, not a complete assembled robot.** The top image shows a nominal mechanism fixture. It is not a picture of a complete robot. Chassis, motors, rails, supports and transmission are not assembled.
+[Explore the assembled robot in 3D](design/competition-package/robot.html). Select a carriage pose, remove the bumpers or isolate a part to follow the pipe from the station to the trough. The [engineering record](design/competition-package/README.md) covers the moving hardware, fit checks and remaining design decisions.
 
 ## Design highlights
 
