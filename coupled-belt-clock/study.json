@@ -1,0 +1,1190 @@
+{
+  "schema": "station-held-belt-clock/1",
+  "sourceSha256": {
+    "coupled-belt-clock/DesktopReleaseIO.java": "d7abc1b4523e8d65d3f1073b8244522136979df9ef55703afb8b47086104065e",
+    "coupled-belt-clock/DesktopClockTest.java": "4720cb637e2ce277abc11091bc1046ecde272388a379ef35131427a8ac23987e",
+    "coupled-belt-clock/init.gradle": "93108d96a9f7571c631cb94e3d1dd0a9515de074dca3378fc3f5f4af21da40b7",
+    "coupled-belt-clock/controller.csv": "a042437775165a32cebf05e2d4f8605c5cf7f45641eedf6e2d9d5d5b85d5f9fc",
+    "coupled-belt-clock/capture.py": "9e3137d52e7fb9cc582152b09ead158ce0fab62a119bab786d9f669b4f80e621",
+    "coupled-belt-clock/replay.py": "bfc900c052992bf22d2fd91df85a15158224c1cc3a8aeeaeb8990598b82b6bd8",
+    "competition-controls/src/main/java/org/reefscape/controls/ReceiverIO.java": "49e4e8d006d5a25ac5c3786d3923e03eeadb774c1527449b5fdd2d65a05aa77f",
+    "competition-controls/src/main/java/org/reefscape/controls/ReceiverSubsystem.java": "f7959f66014129d9f8d9f077942c27b12235b115fe03ec472a63bce89ed0917d",
+    "competition-controls/src/main/java/org/reefscape/controls/StationCycle.java": "d478869f221c6aa94ba1b655f3356b9370dfbf471979825c09bac72ff79665dc",
+    "competition-controls/src/main/java/org/reefscape/controls/WithdrawalTrial.java": "846950bddaa1520fa1e4463dbbed9ab75d2eee9a667923a7b2dc3a5975c7ff5c",
+    "axial-spin/pipe_axial_contact.py": "9de8a820819be0d6e19ddd625306065470fbf20ff682ee180d3378e071870f9d",
+    "axial-spin/pipe_spin_route.py": "4850c3a0650a54826e78d295d1108e14f7d3a260d06fa8eef076bbe8342e85e5",
+    "axial-spin/spin_cases.py": "d105003e66e36982731d25e7a586baf04bd622898165ac3743fa4691aefc30a1",
+    "axial-spin/study.json": "4189b0b51d73c5bad7b5eb023b94574bd8821110b1a815d8ad65cad1fa6c3ea7",
+    "scripts/station_l1_mission.py": "990f05d54644869f34ec163ff4d2b48f8934ab1baf2455a224a6c2076e502ef2",
+    "scripts/station_l1_settle.py": "b3f43b1fce297f60b1268b3cb87975ac7e665b91c2dc7745d5e7bed2eb58ad62",
+    "shared/examples/java-2026-sim/gradle.lockfile": "807c82a5d0d482bf78ddc79938d17703b020cdf8123d7ce632c7ba745b40dcbf",
+    "sourced-match/source-545.json": "25a342eec25913ea422a734e649c4b55f25b591c432a2350d17579877e617796"
+  },
+  "approach": "Conditional release from #43 modeled seating and carry. Scripted IO edges.",
+  "acquisition": {
+    "0.0005": {
+      "status": "hold-unconfirmed-seat",
+      "ramp": {
+        "speed": 1.6968209593654793,
+        "spin": 29.690655456963768,
+        "time": 0.31162914647270656,
+        "mode": "rolling",
+        "impact_impulse_Ns": 0.5640606888199671
+      },
+      "first_belt_after_lip_s": 0.022500000000000017,
+      "impact": {
+        "time_s": 0.05250520197442484,
+        "local_u_m": 0.10304905257576599,
+        "spin_before_rad_s": 25.34381042778418,
+        "vx_before_mps": -1.3202984100843767,
+        "vz_before_mps": -1.2160490379001514,
+        "floor_tangent_impulse_Ns": -0.04939900582294615
+      },
+      "seat_elapsed_from_lip_s": 1.1525052019743534,
+      "seat_u_m": -0.03197452007496939,
+      "seat_speed_mps": -2.940625399706987e-221,
+      "seat_spin_rad_s": 5.707549962612355e-220,
+      "capture_travel_m": [
+        -0.03197452007496939,
+        0.10304905257576599
+      ],
+      "minimum_shelf_normal_N": 2.0318341103585205,
+      "impossible_scripted_blockages": [
+        {
+          "state": "CONFIRM",
+          "scripted_ms_after_lip": 120,
+          "sample_from_lip_s": 0.1195052019744249,
+          "port": "entry",
+          "center_m": 0.02581294105074009,
+          "projected_gap_mm": 17.037058949259922
+        },
+        {
+          "state": "CONFIRM",
+          "scripted_ms_after_lip": 140,
+          "sample_from_lip_s": 0.1395052019744249,
+          "port": "entry",
+          "center_m": 0.009090743613142334,
+          "projected_gap_mm": 33.75925638685768
+        }
+      ]
+    },
+    "0.00025": {
+      "status": "hold-unconfirmed-seat",
+      "ramp": {
+        "speed": 1.6968209593654793,
+        "spin": 29.690655456963768,
+        "time": 0.31162914647270656,
+        "mode": "rolling",
+        "impact_impulse_Ns": 0.5640606888199671
+      },
+      "first_belt_after_lip_s": 0.022500000000000017,
+      "impact": {
+        "time_s": 0.052534484079123325,
+        "local_u_m": 0.10301978541223203,
+        "spin_before_rad_s": 25.318486911737423,
+        "vx_before_mps": -1.319677607535946,
+        "vz_before_mps": -1.2148954103828475,
+        "floor_tangent_impulse_Ns": -0.04908030931389591
+      },
+      "seat_elapsed_from_lip_s": 1.1525344840790919,
+      "seat_u_m": -0.03181101726546121,
+      "seat_speed_mps": -4.0718859658091024e-206,
+      "seat_spin_rad_s": 7.921743908566282e-205,
+      "capture_travel_m": [
+        -0.03181101726546121,
+        0.10301978541223203
+      ],
+      "minimum_shelf_normal_N": 2.0310115058952407,
+      "impossible_scripted_blockages": [
+        {
+          "state": "CONFIRM",
+          "scripted_ms_after_lip": 120,
+          "sample_from_lip_s": 0.11978448407912339,
+          "port": "entry",
+          "center_m": 0.025623903426638762,
+          "projected_gap_mm": 17.22609657336125
+        },
+        {
+          "state": "CONFIRM",
+          "scripted_ms_after_lip": 140,
+          "sample_from_lip_s": 0.1397844840791234,
+          "port": "entry",
+          "center_m": 0.008957315805192025,
+          "projected_gap_mm": 33.89268419480799
+        }
+      ]
+    }
+  },
+  "releases": {
+    "HISTORICAL": {
+      "coral-A": {
+        "0.0005": {
+          "id": "coral-A",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.0005,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05245340128088573,
+              "local_u_m": 0.10339155068059276,
+              "spin_before_rad_s": 25.552056746868313,
+              "vx_before_mps": -1.302675608356829,
+              "vz_before_mps": -1.2210104861103914,
+              "floor_tangent_impulse_Ns": -0.06078429928173125
+            },
+            "seat_elapsed_from_lip_s": 1.1524534012808143,
+            "seat_u_m": 0.07850814854919728,
+            "seat_speed_mps": 0.0068860234018926795,
+            "seat_spin_rad_s": -0.01263588173511808,
+            "capture_travel_m": [
+              -0.026572641045543403,
+              0.10339155068059276
+            ],
+            "minimum_shelf_normal_N": 2.3163706156215103
+          },
+          "belt_motor_envelope": {
+            "rpm": 5492.31,
+            "phase_A": 7.02,
+            "terminal_V": 6.75,
+            "input_W": 52.65,
+            "bus_A_at_9p5V": 5.543,
+            "feasible": true
+          },
+          "status": "inner-riser-bound",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05245340128088573,
+              24.09665146585033
+            ],
+            "retract": [
+              1.1,
+              -0.01263588173511808
+            ],
+            "lower": [
+              3.1000000000002683,
+              0.014235723073439998
+            ],
+            "drive-and-turn": [
+              5.1004999999999585,
+              -7.044470669799192e-05
+            ],
+            "lower-at-target": [
+              21.57749999999513,
+              0.0029560362780038157
+            ],
+            "extend-at-target": [
+              23.077499999991634,
+              -8.941673190329096e-05
+            ],
+            "place": [
+              26.077499999984642,
+              -0.008858742396033164
+            ]
+          },
+          "release_spin_rad_s": -0.2794239557077479,
+          "min_shelf_normal_N": 2.3163706156215103,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.307325437436458,
+          "motor_work_J": 1.7456194720166522,
+          "angular_momentum_residual_Nms": 7.91033905045424e-16,
+          "lip_teleop_s": 3.671672635314282,
+          "target": {
+            "stop": "inner-riser-bound",
+            "impact_teleop_s": 30.04690834106986,
+            "end_teleop_s": 30.18410834106986,
+            "contact_input": [
+              0.15214969748093232,
+              0.5048450815019577,
+              1.0355124609547492,
+              -1.0128534237379334
+            ],
+            "input_spin_rad_s": -0.2794239557077479,
+            "delay_after_shelf_ms": 105.0,
+            "min_shelf_gap_mm": 50.51824461040395,
+            "final": [
+              0.1907273304458011,
+              0.5150484737325558,
+              0.20426538336011665,
+              0.054735583518368686,
+              -3.7665615854070236
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "inner-riser-bound",
+            "minimum_gap_mm": 50.51824461040395,
+            "elapsed_from_target_contact_s": 0.13720000000000002
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.1524534,
+            "retract": 1.1524534,
+            "lower": 3.1524534,
+            "drive-and-turn": 5.1529534,
+            "lower-at-target": 21.6299534,
+            "extend-at-target": 23.1299534,
+            "place": 26.1299534,
+            "left-powered-shelf-with-same-piece": 26.2719534,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.2869534,
+            "paired-trough-first-contact": 26.3754534
+          }
+        },
+        "0.00025": {
+          "id": "coral-A",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.00025,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05248188163960737,
+              "local_u_m": 0.10336620039744972,
+              "spin_before_rad_s": 25.527711159221667,
+              "vx_before_mps": -1.3019754258727005,
+              "vz_before_mps": -1.2198941290763734,
+              "floor_tangent_impulse_Ns": -0.06051776602809136
+            },
+            "seat_elapsed_from_lip_s": 1.1524818816395759,
+            "seat_u_m": 0.07851160700961755,
+            "seat_speed_mps": 0.0068701363858049685,
+            "seat_spin_rad_s": -0.012605911107842612,
+            "capture_travel_m": [
+              -0.026401097423728596,
+              0.10336620039744972
+            ],
+            "minimum_shelf_normal_N": 2.3163247988717
+          },
+          "belt_motor_envelope": {
+            "rpm": 5492.31,
+            "phase_A": 7.02,
+            "terminal_V": 6.75,
+            "input_W": 52.65,
+            "bus_A_at_9p5V": 5.543,
+            "feasible": true
+          },
+          "status": "inner-riser-bound",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05248188163960737,
+              24.078687689123576
+            ],
+            "retract": [
+              1.1,
+              -0.012605911107842612
+            ],
+            "lower": [
+              3.100249999999691,
+              0.014252849544662861
+            ],
+            "drive-and-turn": [
+              5.100000000000536,
+              1.4520120424696208e-06
+            ],
+            "lower-at-target": [
+              21.577500000012066,
+              0.0029560469284539456
+            ],
+            "extend-at-target": [
+              23.077500000019228,
+              -8.949658697802162e-05
+            ],
+            "place": [
+              26.077500000033552,
+              -0.008858923402275332
+            ]
+          },
+          "release_spin_rad_s": -0.27935087779909074,
+          "min_shelf_normal_N": 2.3163247988717,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.303554578987035,
+          "motor_work_J": 1.7447521748411527,
+          "angular_momentum_residual_Nms": -1.9984014443252818e-15,
+          "lip_teleop_s": 3.671672635314282,
+          "target": {
+            "stop": "inner-riser-bound",
+            "impact_teleop_s": 30.04696687683841,
+            "end_teleop_s": 30.18456687683841,
+            "contact_input": [
+              0.15203606953071275,
+              0.5048146349844588,
+              1.035499267150227,
+              -1.0131481701406344
+            ],
+            "input_spin_rad_s": -0.27935087779909074,
+            "delay_after_shelf_ms": 106.0,
+            "min_shelf_gap_mm": 50.402231791362084,
+            "final": [
+              0.1906885243065512,
+              0.5150380767276337,
+              0.20370064707828367,
+              0.05458408149141096,
+              -3.7563310070174545
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "inner-riser-bound",
+            "minimum_gap_mm": 50.402231791362084,
+            "elapsed_from_target_contact_s": 0.1376
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.15248188,
+            "retract": 1.15248188,
+            "lower": 3.15273188,
+            "drive-and-turn": 5.15248188,
+            "lower-at-target": 21.62998188,
+            "extend-at-target": 23.12998188,
+            "place": 26.12998188,
+            "left-powered-shelf-with-same-piece": 26.27198188,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.28698188,
+            "paired-trough-first-contact": 26.37548188
+          }
+        }
+      },
+      "coral-B": {
+        "0.0005": {
+          "id": "coral-B",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.0005,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05245340128088573,
+              "local_u_m": 0.10339155068059276,
+              "spin_before_rad_s": 25.552056746868313,
+              "vx_before_mps": -1.302675608356829,
+              "vz_before_mps": -1.2210104861103914,
+              "floor_tangent_impulse_Ns": -0.06078429928173125
+            },
+            "seat_elapsed_from_lip_s": 1.1524534012808143,
+            "seat_u_m": 0.07850814854919728,
+            "seat_speed_mps": 0.0068860234018926795,
+            "seat_spin_rad_s": -0.01263588173511808,
+            "capture_travel_m": [
+              -0.026572641045543403,
+              0.10339155068059276
+            ],
+            "minimum_shelf_normal_N": 2.3163706156215103
+          },
+          "belt_motor_envelope": {
+            "rpm": 5492.31,
+            "phase_A": 7.02,
+            "terminal_V": 6.75,
+            "input_W": 52.65,
+            "bus_A_at_9p5V": 5.543,
+            "feasible": true
+          },
+          "status": "inner-riser-bound",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05245340128088573,
+              24.09665146585033
+            ],
+            "retract": [
+              1.1,
+              -0.01263588173511808
+            ],
+            "lower": [
+              3.1000000000002683,
+              0.014235723073439998
+            ],
+            "drive-and-turn": [
+              5.1004999999999585,
+              -7.044470669799192e-05
+            ],
+            "lower-at-target": [
+              21.264999999995858,
+              0.003014140703683232
+            ],
+            "extend-at-target": [
+              22.764999999992362,
+              -8.919459968212374e-05
+            ],
+            "place": [
+              25.76499999998537,
+              -0.00886997748501592
+            ]
+          },
+          "release_spin_rad_s": -0.27947757402167706,
+          "min_shelf_normal_N": 2.3163706156215103,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.308466033719401,
+          "motor_work_J": 1.749145879798296,
+          "angular_momentum_residual_Nms": 3.0531133177191805e-16,
+          "lip_teleop_s": 54.073030102640885,
+          "target": {
+            "stop": "inner-riser-bound",
+            "impact_teleop_s": 80.13576529347526,
+            "end_teleop_s": 80.27156529347526,
+            "contact_input": [
+              0.15215164388876884,
+              0.5048456030403656,
+              1.0355096675531414,
+              -1.0128483740858731
+            ],
+            "input_spin_rad_s": -0.27947757402167706,
+            "delay_after_shelf_ms": 105.0,
+            "min_shelf_gap_mm": 50.52023189929703,
+            "final": [
+              0.19069285065115116,
+              0.5150392411312057,
+              0.2060775995655565,
+              0.05521965807177959,
+              -3.799384909589917
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "inner-riser-bound",
+            "minimum_gap_mm": 50.52023189929703,
+            "elapsed_from_target_contact_s": 0.1358
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.1524534,
+            "retract": 1.1524534,
+            "lower": 3.1524534,
+            "drive-and-turn": 5.1529534,
+            "lower-at-target": 21.3174534,
+            "extend-at-target": 22.8174534,
+            "place": 25.8174534,
+            "left-powered-shelf-with-same-piece": 25.9594534,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 25.9744534,
+            "paired-trough-first-contact": 26.0629534
+          }
+        },
+        "0.00025": {
+          "id": "coral-B",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.00025,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05248188163960737,
+              "local_u_m": 0.10336620039744972,
+              "spin_before_rad_s": 25.527711159221667,
+              "vx_before_mps": -1.3019754258727005,
+              "vz_before_mps": -1.2198941290763734,
+              "floor_tangent_impulse_Ns": -0.06051776602809136
+            },
+            "seat_elapsed_from_lip_s": 1.1524818816395759,
+            "seat_u_m": 0.07851160700961755,
+            "seat_speed_mps": 0.0068701363858049685,
+            "seat_spin_rad_s": -0.012605911107842612,
+            "capture_travel_m": [
+              -0.026401097423728596,
+              0.10336620039744972
+            ],
+            "minimum_shelf_normal_N": 2.3163247988717
+          },
+          "belt_motor_envelope": {
+            "rpm": 5492.31,
+            "phase_A": 7.02,
+            "terminal_V": 6.75,
+            "input_W": 52.66,
+            "bus_A_at_9p5V": 5.543,
+            "feasible": true
+          },
+          "status": "inner-riser-bound",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05248188163960737,
+              24.078687689123576
+            ],
+            "retract": [
+              1.1,
+              -0.012605911107842612
+            ],
+            "lower": [
+              3.100249999999691,
+              0.014252849544662861
+            ],
+            "drive-and-turn": [
+              5.100000000000536,
+              1.4520120424696208e-06
+            ],
+            "lower-at-target": [
+              21.264750000010572,
+              0.0029690800317074997
+            ],
+            "extend-at-target": [
+              22.764750000017735,
+              -8.938891351805851e-05
+            ],
+            "place": [
+              25.76475000003206,
+              -0.008863965306061893
+            ]
+          },
+          "release_spin_rad_s": -0.2793794611054699,
+          "min_shelf_normal_N": 2.3163247988717,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.304660924720565,
+          "motor_work_J": 1.7482464233568555,
+          "angular_momentum_residual_Nms": -1.2906342661267445e-15,
+          "lip_teleop_s": 54.073030102640885,
+          "target": {
+            "stop": "inner-riser-bound",
+            "impact_teleop_s": 80.1355741168542,
+            "end_teleop_s": 80.2719741168542,
+            "contact_input": [
+              0.15203692901937144,
+              0.5048148652837507,
+              1.0354977786747983,
+              -1.0131459409829424
+            ],
+            "input_spin_rad_s": -0.2793794611054699,
+            "delay_after_shelf_ms": 105.0,
+            "min_shelf_gap_mm": 50.403109306773764,
+            "final": [
+              0.19069468541954437,
+              0.5150397334413229,
+              0.20525376336744922,
+              0.05499867864153972,
+              -3.7844600342685095
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "inner-riser-bound",
+            "minimum_gap_mm": 50.403109306773764,
+            "elapsed_from_target_contact_s": 0.1364
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.15248188,
+            "retract": 1.15248188,
+            "lower": 3.15273188,
+            "drive-and-turn": 5.15248188,
+            "lower-at-target": 21.31723188,
+            "extend-at-target": 22.81723188,
+            "place": 25.81723188,
+            "left-powered-shelf-with-same-piece": 25.95923188,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 25.97423188,
+            "paired-trough-first-contact": 26.06273188
+          }
+        }
+      }
+    },
+    "RAMP_090": {
+      "coral-A": {
+        "0.0005": {
+          "id": "coral-A",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.0005,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05245340128088573,
+              "local_u_m": 0.10339155068059276,
+              "spin_before_rad_s": 25.552056746868313,
+              "vx_before_mps": -1.302675608356829,
+              "vz_before_mps": -1.2210104861103914,
+              "floor_tangent_impulse_Ns": -0.06078429928173125
+            },
+            "seat_elapsed_from_lip_s": 1.1524534012808143,
+            "seat_u_m": 0.07850814854919728,
+            "seat_speed_mps": 0.0068860234018926795,
+            "seat_spin_rad_s": -0.01263588173511808,
+            "capture_travel_m": [
+              -0.026572641045543403,
+              0.10339155068059276
+            ],
+            "minimum_shelf_normal_N": 2.3163706156215103
+          },
+          "belt_motor_envelope": {
+            "rpm": 4707.69,
+            "phase_A": 7.02,
+            "terminal_V": 5.906,
+            "input_W": 46.07,
+            "bus_A_at_9p5V": 4.85,
+            "feasible": true
+          },
+          "status": "sustained-paired-floor-and-lip",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05245340128088573,
+              24.09665146585033
+            ],
+            "retract": [
+              1.1,
+              -0.01263588173511808
+            ],
+            "lower": [
+              3.1000000000002683,
+              0.014235723073439998
+            ],
+            "drive-and-turn": [
+              5.1004999999999585,
+              -7.044470669799192e-05
+            ],
+            "lower-at-target": [
+              21.57749999999513,
+              0.0029560362780038157
+            ],
+            "extend-at-target": [
+              23.077499999991634,
+              -8.941673190329096e-05
+            ],
+            "place": [
+              26.077499999984642,
+              -0.008858742396033164
+            ]
+          },
+          "release_spin_rad_s": -0.3157181979772963,
+          "min_shelf_normal_N": 2.3163706156215103,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.2090692987460026,
+          "motor_work_J": 1.5286892374857495,
+          "angular_momentum_residual_Nms": 7.91033905045424e-16,
+          "lip_teleop_s": 3.671672635314282,
+          "target": {
+            "stop": "sustained-paired-floor-and-lip",
+            "impact_teleop_s": 30.075766121507932,
+            "end_teleop_s": 32.07576612150793,
+            "contact_input": [
+              0.13925089809193797,
+              0.5013888586223456,
+              0.8836849403187208,
+              -1.0457820012709862
+            ],
+            "input_spin_rad_s": -0.3157181979772963,
+            "delay_after_shelf_ms": 109.0,
+            "min_shelf_gap_mm": 37.372822284201504,
+            "final": [
+              0.06451141525439438,
+              0.4812352598277064,
+              2.5713313975772212e-14,
+              5.5309664691760654e-15,
+              -3.801533638249482e-13
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "receiver-recontact",
+            "minimum_gap_mm": -0.019435156352450023,
+            "elapsed_from_target_contact_s": 0.5664
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.1524534,
+            "retract": 1.1524534,
+            "lower": 3.1524534,
+            "drive-and-turn": 5.1529534,
+            "lower-at-target": 21.6299534,
+            "extend-at-target": 23.1299534,
+            "place": 26.1299534,
+            "left-powered-shelf-with-same-piece": 26.2974534,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.3199534,
+            "paired-trough-first-contact": 26.4044534
+          }
+        },
+        "0.00025": {
+          "id": "coral-A",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.00025,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05248188163960737,
+              "local_u_m": 0.10336620039744972,
+              "spin_before_rad_s": 25.527711159221667,
+              "vx_before_mps": -1.3019754258727005,
+              "vz_before_mps": -1.2198941290763734,
+              "floor_tangent_impulse_Ns": -0.06051776602809136
+            },
+            "seat_elapsed_from_lip_s": 1.1524818816395759,
+            "seat_u_m": 0.07851160700961755,
+            "seat_speed_mps": 0.0068701363858049685,
+            "seat_spin_rad_s": -0.012605911107842612,
+            "capture_travel_m": [
+              -0.026401097423728596,
+              0.10336620039744972
+            ],
+            "minimum_shelf_normal_N": 2.3163247988717
+          },
+          "belt_motor_envelope": {
+            "rpm": 4707.69,
+            "phase_A": 7.02,
+            "terminal_V": 5.906,
+            "input_W": 46.07,
+            "bus_A_at_9p5V": 4.85,
+            "feasible": true
+          },
+          "status": "sustained-paired-floor-and-lip",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05248188163960737,
+              24.078687689123576
+            ],
+            "retract": [
+              1.1,
+              -0.012605911107842612
+            ],
+            "lower": [
+              3.100249999999691,
+              0.014252849544662861
+            ],
+            "drive-and-turn": [
+              5.100000000000536,
+              1.4520120424696208e-06
+            ],
+            "lower-at-target": [
+              21.577500000012066,
+              0.0029560469284539456
+            ],
+            "extend-at-target": [
+              23.077500000019228,
+              -8.949658697802162e-05
+            ],
+            "place": [
+              26.077500000033552,
+              -0.008858923402275332
+            ]
+          },
+          "release_spin_rad_s": -0.31991848441495696,
+          "min_shelf_normal_N": 2.3163247988717,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.205646875689189,
+          "motor_work_J": 1.5279047764399165,
+          "angular_momentum_residual_Nms": -1.887379141862766e-15,
+          "lip_teleop_s": 3.671672635314282,
+          "target": {
+            "stop": "sustained-paired-floor-and-lip",
+            "impact_teleop_s": 30.076029868550677,
+            "end_teleop_s": 32.07602986855068,
+            "contact_input": [
+              0.13930839554910257,
+              0.5014042650195597,
+              0.8834727394133381,
+              -1.0456375203156538
+            ],
+            "input_spin_rad_s": -0.31991848441495696,
+            "delay_after_shelf_ms": 110.0,
+            "min_shelf_gap_mm": 37.43129725806438,
+            "final": [
+              0.06451141525439438,
+              0.4812352598277064,
+              2.5713252779562728e-14,
+              5.53088826487553e-15,
+              -3.8015338689669785e-13
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "receiver-recontact",
+            "minimum_gap_mm": -0.034503962702346624,
+            "elapsed_from_target_contact_s": 0.5666
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.15248188,
+            "retract": 1.15248188,
+            "lower": 3.15273188,
+            "drive-and-turn": 5.15248188,
+            "lower-at-target": 21.62998188,
+            "extend-at-target": 23.12998188,
+            "place": 26.12998188,
+            "left-powered-shelf-with-same-piece": 26.29773188,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.31973188,
+            "paired-trough-first-contact": 26.40448188
+          }
+        }
+      },
+      "coral-B": {
+        "0.0005": {
+          "id": "coral-B",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.0005,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05245340128088573,
+              "local_u_m": 0.10339155068059276,
+              "spin_before_rad_s": 25.552056746868313,
+              "vx_before_mps": -1.302675608356829,
+              "vz_before_mps": -1.2210104861103914,
+              "floor_tangent_impulse_Ns": -0.06078429928173125
+            },
+            "seat_elapsed_from_lip_s": 1.1524534012808143,
+            "seat_u_m": 0.07850814854919728,
+            "seat_speed_mps": 0.0068860234018926795,
+            "seat_spin_rad_s": -0.01263588173511808,
+            "capture_travel_m": [
+              -0.026572641045543403,
+              0.10339155068059276
+            ],
+            "minimum_shelf_normal_N": 2.3163706156215103
+          },
+          "belt_motor_envelope": {
+            "rpm": 4707.69,
+            "phase_A": 7.02,
+            "terminal_V": 5.906,
+            "input_W": 46.07,
+            "bus_A_at_9p5V": 4.85,
+            "feasible": true
+          },
+          "status": "sustained-paired-floor-and-lip",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05245340128088573,
+              24.09665146585033
+            ],
+            "retract": [
+              1.1,
+              -0.01263588173511808
+            ],
+            "lower": [
+              3.1000000000002683,
+              0.014235723073439998
+            ],
+            "drive-and-turn": [
+              5.1004999999999585,
+              -7.044470669799192e-05
+            ],
+            "lower-at-target": [
+              21.264999999995858,
+              0.003014140703683232
+            ],
+            "extend-at-target": [
+              22.764999999992362,
+              -8.919459968212374e-05
+            ],
+            "place": [
+              25.76499999998537,
+              -0.00886997748501592
+            ]
+          },
+          "release_spin_rad_s": -0.3157754341069547,
+          "min_shelf_normal_N": 2.3163706156215103,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.2102125147025276,
+          "motor_work_J": 1.5322185205415912,
+          "angular_momentum_residual_Nms": 4.3021142204224816e-16,
+          "lip_teleop_s": 54.073030102640885,
+          "target": {
+            "stop": "sustained-paired-floor-and-lip",
+            "impact_teleop_s": 80.16462319203858,
+            "end_teleop_s": 82.16462319203858,
+            "contact_input": [
+              0.13925244674861903,
+              0.5013892735836527,
+              0.8836820323025432,
+              -1.0457781100318297
+            ],
+            "input_spin_rad_s": -0.3157754341069547,
+            "delay_after_shelf_ms": 109.0,
+            "min_shelf_gap_mm": 37.37439725349651,
+            "final": [
+              0.06451141525439438,
+              0.4812352598277064,
+              2.5713341188655097e-14,
+              5.530832239490622e-15,
+              -3.8015346767015154e-13
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "receiver-recontact",
+            "minimum_gap_mm": -0.01784452769949124,
+            "elapsed_from_target_contact_s": 0.5658000000000001
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.1524534,
+            "retract": 1.1524534,
+            "lower": 3.1524534,
+            "drive-and-turn": 5.1529534,
+            "lower-at-target": 21.3174534,
+            "extend-at-target": 22.8174534,
+            "place": 25.8174534,
+            "left-powered-shelf-with-same-piece": 25.9849534,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.0074534,
+            "paired-trough-first-contact": 26.0919534
+          }
+        },
+        "0.00025": {
+          "id": "coral-B",
+          "settings": {
+            "ramp_mu": 0.4,
+            "belt_mu": 0.4,
+            "shelf_mu": 0.1,
+            "preload": 10.0,
+            "slip_scale": 0.02,
+            "drive": "velocity-command",
+            "release_limit": 0.9,
+            "belt_accel": 26.25,
+            "slices": 5,
+            "area_for_preload": 1.5e-05
+          },
+          "dt_s": 0.00025,
+          "pickup": {
+            "status": "seated",
+            "ramp": {
+              "speed": 1.6968209593654793,
+              "spin": 29.690655456963768,
+              "time": 0.31162914647270656,
+              "mode": "rolling",
+              "impact_impulse_Ns": 0.5640606888199671
+            },
+            "first_belt_after_lip_s": 0.022500000000000017,
+            "impact": {
+              "time_s": 0.05248188163960737,
+              "local_u_m": 0.10336620039744972,
+              "spin_before_rad_s": 25.527711159221667,
+              "vx_before_mps": -1.3019754258727005,
+              "vz_before_mps": -1.2198941290763734,
+              "floor_tangent_impulse_Ns": -0.06051776602809136
+            },
+            "seat_elapsed_from_lip_s": 1.1524818816395759,
+            "seat_u_m": 0.07851160700961755,
+            "seat_speed_mps": 0.0068701363858049685,
+            "seat_spin_rad_s": -0.012605911107842612,
+            "capture_travel_m": [
+              -0.026401097423728596,
+              0.10336620039744972
+            ],
+            "minimum_shelf_normal_N": 2.3163247988717
+          },
+          "belt_motor_envelope": {
+            "rpm": 4707.69,
+            "phase_A": 7.02,
+            "terminal_V": 5.906,
+            "input_W": 46.07,
+            "bus_A_at_9p5V": 4.85,
+            "feasible": true
+          },
+          "status": "sustained-paired-floor-and-lip",
+          "phase_entry_spin_rad_s": {
+            "free-flight": [
+              0,
+              29.690655456963768
+            ],
+            "capture": [
+              0.05248188163960737,
+              24.078687689123576
+            ],
+            "retract": [
+              1.1,
+              -0.012605911107842612
+            ],
+            "lower": [
+              3.100249999999691,
+              0.014252849544662861
+            ],
+            "drive-and-turn": [
+              5.100000000000536,
+              1.4520120424696208e-06
+            ],
+            "lower-at-target": [
+              21.264750000010572,
+              0.0029690800317074997
+            ],
+            "extend-at-target": [
+              22.764750000017735,
+              -8.938891351805851e-05
+            ],
+            "place": [
+              25.76475000003206,
+              -0.008863965306061893
+            ]
+          },
+          "release_spin_rad_s": -0.3199414077883394,
+          "min_shelf_normal_N": 2.3163247988717,
+          "force_fraction": 1.0000000000000004,
+          "dissipated_J": 3.2067544686545326,
+          "motor_work_J": 1.531400680107369,
+          "angular_momentum_residual_Nms": -1.3183898417423734e-15,
+          "lip_teleop_s": 54.073030102640885,
+          "target": {
+            "stop": "sustained-paired-floor-and-lip",
+            "impact_teleop_s": 80.16463715431563,
+            "end_teleop_s": 82.16463715431563,
+            "contact_input": [
+              0.13930910406966207,
+              0.5014044548670715,
+              0.8834715670251553,
+              -1.0456357398041
+            ],
+            "input_spin_rad_s": -0.3199414077883394,
+            "delay_after_shelf_ms": 109.0,
+            "min_shelf_gap_mm": 37.43201783190079,
+            "final": [
+              0.06451141525439438,
+              0.4812352598277064,
+              2.5713258347295763e-14,
+              5.530797963880977e-15,
+              -3.801533660122001e-13
+            ]
+          },
+          "desktop_fixed_slide": {
+            "status": "receiver-recontact",
+            "minimum_gap_mm": -0.033641546818292956,
+            "elapsed_from_target_contact_s": 0.5660000000000001
+          },
+          "events_from_station_s": {
+            "resume-from-source-seat": 1.15248188,
+            "retract": 1.15248188,
+            "lower": 3.15273188,
+            "drive-and-turn": 5.15248188,
+            "lower-at-target": 21.31723188,
+            "extend-at-target": 22.81723188,
+            "place": 25.81723188,
+            "left-powered-shelf-with-same-piece": 25.98498188,
+            "finite-pipe-envelope-clear-of-shelf-by-1mm": 26.00698188,
+            "paired-trough-first-contact": 26.09173188
+          }
+        }
+      }
+    }
+  },
+  "officialScore": null,
+  "measuredHardware": false
+}
