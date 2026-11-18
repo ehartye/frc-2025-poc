@@ -18,6 +18,8 @@ CASES = {
     "stuckAxisTimesOutEvenWithFreshEncoderFrames", "latchedEntryDuringReleaseCannotStartWithdrawal",
     "cancellationImmediatelyDropsAllDemandsAndBlocksSilentRestart", "exitFromAnotherAttemptCannotAuthorizeWithdrawal",
     "deployedCoordinatesMatchTheProjectMission", "stuckWithdrawalIsDetectedBeforeFullRetractionTimeout",
+    "uncalibratedStereoCannotMove", "wrongPieceCannotMove", "tooWideAnIntervalCannotAuthorize",
+    "frameFromFutureCannotAuthorize", "schedulingDelayCannotStartLateRetreat",
     "driverStationDisableCancelsAndEnableAloneStaysNeutral", "sensorPortGeometryRejectsTheOldSeatLocation",
 }
 

@@ -1,5 +1,5 @@
 {
-  "schema": "reefscape-receiver-io/1",
+  "schema": "reefscape-receiver-io/2",
   "classification": "Candidate engineering interfaces and synthetic commissioning assumptions. No field device assigned.",
   "robotFrame": "mm; +X forward, +Y left, +Z up. Carriage-local u starts at the translating receiver datum.",
   "posesMm": {
@@ -35,6 +35,7 @@
     "releaseSurfaceSpeedMps": 1.05,
     "origin": "Test hypotheses. Do not transfer values directly to hardware.",
     "withdrawDelayAfterClearanceMs": 50,
+    "withdrawLatestAfterEarliestCrossingMs": 150,
     "withdrawGoalMmPerSecond": 150,
     "withdrawTrackingToleranceMm": 15
   },
@@ -78,8 +79,8 @@
     {
       "logical": "ExitClear",
       "interface": "independent finite-pipe/shelf separation for active attempt",
-      "units": "boolean event; candidate model has \u22651 mm margin",
-      "boundary": "both optical ports alone cannot observe it. Supply fresh tracked physical or externally reviewed independent measurement."
+      "units": "active-attempt piece key, calibrated finite shelf gap >=1 mm, earliest/latest crossing timestamps in controller ms",
+      "boundary": "See release-observer. The source must bound an earlier still-supported observation and later clear observation, clock error included. No physical calibration or live adapter exists."
     },
     {
       "logical": "Approach",

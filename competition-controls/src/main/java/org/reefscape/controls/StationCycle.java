@@ -15,7 +15,8 @@ public final class StationCycle extends Command {
     private long enteredMs, firstSeatMs, lastTickMs, lastMechanismMs, lastChassisMs;
     static final long WITHDRAW_DELAY_MS = 50;
     static final double WITHDRAW_MM_PER_S = 150;
-    private long attempt, exitObservedMs;
+    static final long LATEST_TESTED_WITHDRAW_MS = 150;
+    private long attempt, exitObservedMs, earliestExitMs, releaseStartedMs, withdrawStartedMs;
     private Sensors previousSensors;
     private Approach previousApproach;
     private boolean previousRelease;
@@ -86,7 +87,7 @@ public final class StationCycle extends Command {
         }
         previousSensors = s; previousApproach = a;
         lastTickMs = now; lastMechanismMs = s.timeMs(); lastChassisMs = a.timeMs();
-        if (s.clearOfShelf() && s.exitAttempt() != attempt) { fail("exit belongs to another attempt"); return; }
+        if (s.clearOfShelf() && s.exit().attempt() != attempt) { fail("exit belongs to another attempt"); return; }
         if (now - enteredMs >= timeout(state)) { fail("timeout in " + state); return; }
         if (state != State.WAIT_EXIT && state != State.WAIT_WITHDRAW && state != State.WITHDRAW && state != State.RELEASE_ENTRY
             && s.clearOfShelf()) { fail("unexpected exit witness"); return; }
@@ -146,7 +147,10 @@ public final class StationCycle extends Command {
             }
             case READY, RELEASE_SEAT, RELEASE_ENTRY -> {
                 if (!s.slideExtended() || !at(s,PLACE_MM,DEPLOY_MM)) { fail("release pose lost"); return; }
-                if (state == State.READY && releaseEdge) move(State.RELEASE_SEAT,now);
+                if (state == State.READY && releaseEdge) {
+                    releaseStartedMs = now;
+                    move(State.RELEASE_SEAT,now);
+                }
                 else if (state == State.RELEASE_SEAT) {
                     if (!s.entry()) { fail("exit before observed seat clearance"); return; }
                     if (!s.seat()) move(State.RELEASE_ENTRY,now);
@@ -154,7 +158,7 @@ public final class StationCycle extends Command {
                     if (s.seat()) { fail("seat reoccupied during release"); return; }
                     if (s.clearOfShelf() && s.entry()) { fail("exit witness disagrees with entry"); return; }
                     if (!s.entry()) {
-                        if (s.clearOfShelf()) beginWithdrawalDelay(s.timeMs(),now);
+                        if (s.clearOfShelf()) beginWithdrawalDelay(s.exit(),now);
                         else move(State.WAIT_EXIT,now);
                     }
                 }
@@ -163,13 +167,19 @@ public final class StationCycle extends Command {
                 if (s.entry() || s.seat() || !at(s,PLACE_MM,DEPLOY_MM) || !s.slideExtended()) {
                     fail("unexpected contact or pose while awaiting exit"); return;
                 }
-                if (s.clearOfShelf()) beginWithdrawalDelay(s.timeMs(),now);
+                if (s.clearOfShelf()) beginWithdrawalDelay(s.exit(),now);
             }
             case WAIT_WITHDRAW -> {
                 if (s.entry() || s.seat() || !s.slideExtended() || !at(s,PLACE_MM,DEPLOY_MM)) {
                     fail("unexpected contact or pose after exit"); return;
                 }
-                if (now-exitObservedMs >= WITHDRAW_DELAY_MS) move(State.WITHDRAW,now);
+                if (now-earliestExitMs > LATEST_TESTED_WITHDRAW_MS) {
+                    fail("withdrawal timing window expired"); return;
+                }
+                if (now-exitObservedMs >= WITHDRAW_DELAY_MS) {
+                    withdrawStartedMs = now;
+                    move(State.WITHDRAW,now);
+                }
             }
             case WITHDRAW -> {
                 if (!near(s.liftMm(),PLACE_MM) || Math.abs(s.slideMm()-withdrawGoal(now)) > 15) {
@@ -199,13 +209,21 @@ public final class StationCycle extends Command {
         receiver.output(demand);
     }
 
-    private void beginWithdrawalDelay(long observedMs,long now) {
-        exitObservedMs = observedMs;
+    private void beginWithdrawalDelay(Exit exit,long now) {
+        if (!exit.calibrated() || !ReceiverIO.pieceKey(attempt).equals(exit.pieceKey())
+            || exit.earliestCrossingMs() < releaseStartedMs || exit.latestCrossingMs() < exit.earliestCrossingMs()
+            || exit.latestCrossingMs() > now
+            || now-exit.earliestCrossingMs() > LATEST_TESTED_WITHDRAW_MS
+            || exit.latestCrossingMs()-exit.earliestCrossingMs() > LATEST_TESTED_WITHDRAW_MS-WITHDRAW_DELAY_MS) {
+            fail("uncertain or late independent clearance"); return;
+        }
+        earliestExitMs = exit.earliestCrossingMs();
+        exitObservedMs = exit.latestCrossingMs();
         move(State.WAIT_WITHDRAW,now);
     }
 
     private double withdrawGoal(long now) {
-        double elapsedSeconds = Math.max(0,now-exitObservedMs-WITHDRAW_DELAY_MS)/1000.0;
+        double elapsedSeconds = Math.max(0,now-withdrawStartedMs)/1000.0;
         return Math.max(0,DEPLOY_MM-WITHDRAW_MM_PER_S*elapsedSeconds);
     }
 

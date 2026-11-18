@@ -13,7 +13,8 @@ import static org.reefscape.controls.StationCycle.State.*;
 
 class StationCycleTest {
     static final class FakeIO implements ReceiverIO {
-        long time, sensorLag, poseLag, attempt, exitAttempt;
+        long time, sensorLag, poseLag, attempt, exitAttempt, earliestLag, latestLag;
+        boolean calibrated=true, wrongPiece;
         @Override public void beginAttempt(long id) { attempt=id; exitAttempt=id; }
         double lift=940, slide;
         boolean seat, entry, exit, jam, release, target, station=true, clear=true, stopped=true;
@@ -22,7 +23,8 @@ class StationCycleTest {
         final List<Demand> writes = new ArrayList<>();
         @Override public Inputs read() {
             return new Inputs(new Sensors(time-sensorLag,lift,slide,lower,upper,slide==0,
-                slide==370,entry,seat,exit,exitAttempt,jam,true),
+                slide==370,entry,seat,exit ? new Exit(true,exitAttempt,wrongPiece ? "other" : ReceiverIO.pieceKey(attempt),
+                    time-earliestLag,time-latestLag,calibrated) : new Exit(false,0,"",0,0,false),jam,true),
                 new Approach(time-poseLag,station,target,clear,stopped,true),release);
         }
         @Override public void write(Demand next) { last=next; writes.add(next); }
@@ -101,7 +103,7 @@ class StationCycleTest {
         io.entry=false; tick(); assertEquals(WAIT_EXIT,command.state()); assertEquals(370,io.last.slideMm());
         io.exit=true; tick(); assertEquals(WAIT_WITHDRAW,command.state());
         tick(); tick(); assertEquals(370,io.last.slideMm()); tick();
-        assertEquals(WITHDRAW,command.state()); assertEquals(368.5,io.last.slideMm(),1e-8);
+        assertEquals(WITHDRAW,command.state()); assertEquals(370,io.last.slideMm(),1e-8);
         for(int i=0;i<150 && command.isScheduled();i++) {io.slide=io.last.slideMm(); tick();}
         assertEquals(COMPLETE,command.state());
         assertEquals(Demand.neutral(),io.last); assertFalse(command.isScheduled());
@@ -151,10 +153,33 @@ class StationCycleTest {
     }
     @Test void stuckWithdrawalIsDetectedBeforeFullRetractionTimeout() {
         ready(); io.release=true; tick(); io.seat=false; tick(); io.entry=false; tick();
-        io.exit=true; tick(); io.time+=170; tick(); tick();
+        io.exit=true; tick(); tick(); tick(); tick(); io.time+=170; tick();
         assertEquals("withdrawal tracking disagreement",receiver.fault());
         assertEquals(Demand.neutral(),io.last);
     }
+    private void awaitExit() {
+        ready(); io.release=true; tick(); io.seat=false; tick(); io.entry=false; tick();
+        assertEquals(WAIT_EXIT,command.state());
+    }
+    @Test void uncalibratedStereoCannotMove() {
+        awaitExit(); io.calibrated=false; io.exit=true; tick();
+        assertEquals(FAULT,command.state()); assertFalse(io.last.active());
+    }
+    @Test void wrongPieceCannotMove() {
+        awaitExit(); io.wrongPiece=true; io.exit=true; tick(); assertEquals(FAULT,command.state());
+    }
+    @Test void tooWideAnIntervalCannotAuthorize() {
+        awaitExit(); for (int i=0;i<6;i++) tick();
+        io.earliestLag=110; io.latestLag=0; io.exit=true; tick(); assertEquals(FAULT,command.state());
+    }
+    @Test void frameFromFutureCannotAuthorize() {
+        awaitExit(); io.latestLag=-1; io.exit=true; tick(); assertEquals(FAULT,command.state());
+    }
+    @Test void schedulingDelayCannotStartLateRetreat() {
+        awaitExit(); io.exit=true; tick(); io.time+=140; tick();
+        assertEquals(FAULT,command.state()); assertFalse(io.last.active());
+    }
+
     @Test void exitFromAnotherAttemptCannotAuthorizeWithdrawal() {
         ready(); io.release=true; tick(); io.seat=false; tick(); io.entry=false; tick();
         io.exit=true; io.exitAttempt=io.attempt-1; tick();
