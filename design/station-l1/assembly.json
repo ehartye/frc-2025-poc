@@ -1,0 +1,76 @@
+{
+  "schema": "station-l1-package/2",
+  "status": "Provisional engineering candidate; role, manufacturing resources and physical parameters await team selection.",
+  "frame": "mm; robot +X forward,+Y left,+Z up. CAD boxes use lower corner and size. Cylinder description uses center of first circular face, axis, radius and axial length.",
+  "poses": {
+    "stowed": {
+      "height": 940,
+      "stroke": 0
+    },
+    "receive": {
+      "height": 940,
+      "stroke": 240
+    },
+    "transport": {
+      "height": 670,
+      "stroke": 0
+    },
+    "place": {
+      "height": 560,
+      "stroke": 370
+    }
+  },
+  "motion": {
+    "chassisStationX_m": 0.434525,
+    "chassisAtTargetX_m": 3,
+    "targetLipX_m": 3.49,
+    "seatU_m": 0.08,
+    "shelfRearU_m": -0.1,
+    "shelfLength_m": 0.265,
+    "shelfTopBelowLift_m": 0.06,
+    "pipeRadius_m": 0.05715,
+    "pipeLength_m": 0.301625,
+    "pipeMass_kg": 0.816466266,
+    "tractionCoefficient": 0.4,
+    "normalPerBelt_N": 7,
+    "servoGain_s2": 100,
+    "servoDamping_s": 20,
+    "releaseSpeed_mps": 1.05
+  },
+  "service": [
+    {
+      "id": "battery-lift",
+      "pose": "stowed",
+      "box": [
+        -300,
+        -125,
+        285,
+        180,
+        215,
+        450
+      ],
+      "instruction": "Remove restraint bar and lift the pack in +Z. Envelope allows nominal battery dimensions only."
+    },
+    {
+      "id": "panel-cover",
+      "pose": "stowed",
+      "box": [
+        -285,
+        95,
+        254,
+        170,
+        135,
+        95
+      ],
+      "instruction": "Lift electrical cover vertically. Connector fingers, wiring flex and fastener tools remain unmodeled."
+    }
+  ],
+  "source": {
+    "commit": "092dffaace65afc79392f4a710b546541a6af5c6",
+    "path": "cad/b4-candidate.json",
+    "gitBlob": "22960041d321eccf49c5d847246ecb21cd029499",
+    "shelfSha256": "53964432b8f4abb5b5123e45d2696325b7fb0fdd5f7e48fa9cfdb7fc99fa514d"
+  },
+  "sourceNote": "Receiver bottom-up sensing through two machined ports. All equipment envelopes and cost allowances are project assumptions.",
+  "electricalInterfaces": "electrical.json and ../../competition-controls/io-contract.json; cable routing, flex life and connectors need selection"
+}
