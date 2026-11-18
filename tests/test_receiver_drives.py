@@ -32,7 +32,7 @@ class ReceiverDriveTests(unittest.TestCase):
         for key in ("opposed_limit_1.5","opposed_limit_-1.5"):
             self.assertEqual({"base":{},"internal":{}},r[key])
         self.assertTrue(any("UP5" in s for s in r["M5_vertical_service_blockers"]["L-rear"]))
-        self.assertTrue(any("spring" in s for s in r["M5_vertical_service_blockers"]["R-front"]))
+        self.assertEqual([],r["M5_vertical_service_blockers"]["R-front"])
 
     def test_current_limits_surface_failures_and_source_pins(self):
         r=json.loads((DESIGN/"sizing.json").read_bytes())
@@ -43,7 +43,9 @@ class ReceiverDriveTests(unittest.TestCase):
         for s in dry:
             self.assertEqual("sustained-paired-floor-and-lip",s["post"])
             self.assertTrue(s["within_sprung_travel"])
-            self.assertGreater(s["minimum_intersected_end_rim_width_mm"],3.6)
+            self.assertEqual(0,s["minimum_intersected_end_rim_width_mm"])
+            self.assertTrue(152<s["last_grip_u_mm"]<154)
+            self.assertEqual(4,len(s["synthetic_shelf_observer"]))
         for s in r["transfers"]:
             if s["case"]=="low preload and wet":self.assertEqual("recover-rear-edge-departure",s["first_outcome"])
             if s["case"]=="no damping":self.assertFalse(s["within_sprung_travel"])

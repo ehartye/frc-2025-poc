@@ -26,11 +26,12 @@ def motor(force,speed,radius,ratio,eff,shaft_accel=0,inertia=0,current_limit=20)
 
 
 class Cartridge:
-    def __init__(self,preload=10,mu=.4,ramp_s=.04,damping=37.52):
+    def __init__(self,preload=10,mu=.4,ramp_s=.04,damping=37.52,front=95.5,shelf_mu=.10):
         self.preload=preload;self.mu=mu;self.ramp=ramp_s;self.start=None
         self.damping=damping;self.previous=None
+        self.front=front;self.shelf_mu=shelf_mu;self.first_coast_s=None;self.coast_start_u_mm=None
         self.max_travel=0.;self.min_normal=1e6;self.max_normal=0.
-    def __call__(self,v,yaw,phase,time):
+    def __call__(self,u,v,yaw,phase,time):
         # Bounding contact on the end-rim silhouette; two 1 N/mm springs per carriage.
         yaw_gain=150.8125*(math.cos(yaw)-1)+57.15*abs(math.sin(yaw))
         offsets=[yaw_gain-1000*v,yaw_gain+1000*v]
@@ -44,7 +45,14 @@ class Cartridge:
         if phase=="place":
             if self.start is None:self.start=time
             speed*=min(1,(time-self.start)/self.ramp)
-        return *normals,self.mu,speed
+        for i,side in enumerate((-1,1)):
+            cap=1000*u+side*150.8125*math.sin(yaw)
+            rim_segments=[sorted((cap+sign*53.5*math.cos(yaw),cap+sign*57.15*math.cos(yaw))) for sign in (-1,1)]
+            overlap=sum(max(0,min(hi,self.front)-max(lo,-84.5)) for lo,hi in rim_segments)
+            normals[i]*=min(1.,overlap/1.) # 1 mm taper at the lip of contact.
+        if phase=="place" and not any(normals) and self.first_coast_s is None:
+            self.first_coast_s=time;self.coast_start_u_mm=u*1000
+        return *normals,self.mu,speed,self.shelf_mu
 
 
 def transfer(sector,id_,label,cartridge,dt=.001):
@@ -53,6 +61,12 @@ def transfer(sector,id_,label,cartridge,dt=.001):
     valid=result["outcome"]=="paired-trough-first-contact"
     post=continue_contact(sector=sector,upstream=result,piece_id=id_,withdrawal="after-separation",
                           wait_after_true_separation_s=.10) if valid else None
+    timing=[]
+    if valid and label=="dry nominal":
+        sys.path.insert(0,str(ROOT/"release-observer"))
+        from study import evaluate
+        for pixel in (.10,.25,.5,1.0):
+            timing.append(evaluate(result,pixel,1,.5,17,8))
     min_rim=1e6
     for row in result["trace"]:
         if row["state"]!="supported":continue
@@ -63,9 +77,11 @@ def transfer(sector,id_,label,cartridge,dt=.001):
             cap=u-side*150.8125*math.sin(yaw)
             intervals=[sorted((cap+sign*53.5*math.cos(yaw),cap+sign*57.15*math.cos(yaw)))
                        for sign in (-1,1)]
-            min_rim=min(min_rim,sum(max(0,min(hi,154)-max(lo,-84.5)) for lo,hi in intervals))
+            min_rim=min(min_rim,sum(max(0,min(hi,cartridge.front)-max(lo,-84.5)) for lo,hi in intervals))
     return dict(case=label,piece_id=id_,sector_m=sector,deadline_qualification=False,
                 minimum_intersected_end_rim_width_mm=round(min_rim,4),
+                last_grip_u_mm=cartridge.coast_start_u_mm,shelf_coast_mu=cartridge.shelf_mu,
+                synthetic_shelf_observer=timing,
                 first_outcome=result["outcome"],post=post["stop"] if post else None,
                 peak_belt_force_N=result["peak_supported"]["belt_force_N"],max_cartridge_motion_mm=round(cartridge.max_travel,4),
                 normal_range_N=[round(q,3) for q in (cartridge.min_normal,cartridge.max_normal)],
@@ -75,7 +91,8 @@ def transfer(sector,id_,label,cartridge,dt=.001):
 def size():
     runs=[]
     for sector,piece in ((-.18,"station-coral-001"),(.18,"station-coral-002")):
-        for name,args in (("dry nominal",{}),("no damping",dict(damping=0)),("low preload and wet",dict(preload=2,mu=.08)),
+        for name,args in (("dry nominal",{}),("long baseline",dict(front=154)),("high shelf drag",dict(shelf_mu=.35)),
+                          ("no damping",dict(damping=0)),("low preload and wet",dict(preload=2,mu=.08)),
                           ("slow spin-up",dict(ramp_s=.22))):
             runs.append(transfer(sector,piece,name,Cartridge(**args)))
     dry=[r for r in runs if r["case"]=="dry nominal"]

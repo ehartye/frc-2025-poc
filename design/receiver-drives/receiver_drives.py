@@ -97,7 +97,7 @@ def parts():
     def rod(x,y,z,axis,r,length):return cad.brep(cylinder(x,y,z,AXES[axis],r,length))
     def holes(spec,xs,y,z,depth,r):
         return cad.brep(cut(spec,*[cylinder(x,y,z,AXES["z"],r,depth) for x in xs]))
-    x1,x2=-84.5,154.
+    x1,x2=-84.5,95.5
     for side in ("L","R"):
         def grip(name,category,body):
             if side=="R":
@@ -105,38 +105,40 @@ def parts():
                 body=BRepBuilderAPI_Transform(body,tr,True).Shape()
             put("grip-"+side+"-"+name,"slide",category,body)
         y=GRIP_Y
-        grip("537-3M-15","belt-envelope",loop(x1,x2,y,-10.35,PITCH_RADIUS,15,"z"))
+        grip("420-3M-15","belt-envelope",loop(x1,x2,y,-10.35,PITCH_RADIUS,15,"z"))
         for label,x in (("drive",x1),("idler",x2)):
             grip(label+"-20T","pulley-root-envelope",annulus(x,y,-10.35,"z",PITCH_RADIUS-1.14,2.5,15))
             grip(label+"-shaft","shaft-envelope",rod(x,y,-21,"z",2.5,36))
             grip(label+"-lower-bearing","bearing-envelope",annulus(x,y,-19,"z",6.5,2.5,5))
             grip(label+"-upper-bearing","bearing-envelope",annulus(x,y,6,"z",6.5,2.5,5))
         for deck,z in (("lower",-19),("upper",6)):
-            spec=cut(box(-94,y-9,z,259,19,5),cylinder(x1,y,z-1,AXES["z"],6.5,7),
+            spec=cut(box(-94,y-9,z,200.5,19,5),cylinder(x1,y,z-1,AXES["z"],6.5,7),
                      box(x2-8,y-8,z-1,16,16,7))
             if deck=="lower":
-                for x in (-73,143):spec=cut(spec,cylinder(x,y-10,-16.5,AXES["y"],1.6,22))
+                for x in (-73,82):spec=cut(spec,cylinder(x,y-10,-16.5,AXES["y"],1.6,22))
             grip(deck+"-cheek","machined",cad.brep(spec))
             grip(deck+"-replaceable-offset-insert","machined",
                  cad.brep(cut(box(x2-8,y-8,z,16,16,5),cylinder(x2,y,z-1,AXES["z"],6.5,7))))
-        for label,x in (("rear",-73),("front",143)):
+        for label,x in (("rear",-73),("front",82)):
             # 3 mm rods in bushings through sprung cheek bosses. Outboard towers stay on the shelf.
             mountx=-80 if x<0 else 140
-            foot=cut(box(mountx-10,y-8,-42,22,40,4),cylinder(mountx,180,-43,AXES["z"],2.65,6),
+            blank=box(mountx-10,y-8,-42,22,40,4)
+            if x>0:blank=["union",[blank,box(74,y+9,-42,58,23,4),box(74,y-8,-42,15,40,4)]]
+            foot=cut(blank,cylinder(mountx,180,-43,AXES["z"],2.65,6),
                      cylinder(mountx,180,-41,AXES["z"],4.5,4))
             grip(label+"-tower","machined",cad.brep(cut(box(x-5,y+24,-38,10,8,24),
                             cylinder(x,y+23,-16.5,AXES["y"],1.6,10))))
             grip(label+"-support-foot","machined",cad.brep(foot))
-            grip(label+"-riser","machined",cad.brep(cut(box(mountx-10,150.8125,-60,22,40,18),
+            grip(label+"-riser","machined",cad.brep(cut(box(mountx-10,156 if x>0 else 150.8125,-60,22,34 if x>0 else 40,18),
                  cylinder(mountx,180,-61,AXES["z"],2.65,20))))
             grip(label+"-long-shelf-screw","fastener-envelope",cad.brep(["union",[
                  cylinder(mountx,180,-87,AXES["z"],2.5,46),cylinder(mountx,180,-41,AXES["z"],4.25,3)]]))
             grip(label+"-slide-guide","guide-envelope",rod(x,y-3,-16.5,"y",1.5,34))
             grip(label+"-spring","spring-envelope",annulus(x,y+10,-16.5,"y",3.2,1.7,14))
-        grip("inboard-hardstop","machined",block(132,y+1,-38,4,2,16))
-        grip("outboard-hardstop","machined",block(132,y+10,-38,4,2,16))
-        grip("moving-stop-lug","machined",block(132,y+4.5,-29,4,4,10))
-        grip("fixed-backbone","machined",block(-68,y+22,-42,198,6,4))
+        grip("inboard-hardstop","machined",block(76,y+1,-38,4,2,16))
+        grip("outboard-hardstop","machined",block(76,y+10,-38,4,2,16))
+        grip("moving-stop-lug","machined",block(76,y+4.5,-29,4,4,10))
+        grip("fixed-backbone","machined",block(-68,y+22,-42,142,6,4))
         chamber=cut(box(14,y+5,-38,26,25,7),box(16,y+3,-36.5,22,24,3))
         grip("dashpot-housing","machined",cad.brep(chamber))
         grip("dashpot-paddle","machined",block(17,y+8,-36,20,8,2))
@@ -153,11 +155,11 @@ def parts():
         grip("NEO550","selected-article-envelope",rod(x1,y+22,54,"z",17.5,44.5))
         grip("idler-magnet","selected-article-envelope",rod(x2,y,15,"z",2.5,1))
         grip("idler-angle-board","sensor-reserve",block(x2-6,y-6,17,12,12,4))
-        grip("backing-strip","machined",block(-71,y-PITCH_RADIUS+1.1,-10,213,3,14))
-        for x in (-25,110):
+        grip("backing-strip","machined",block(-71,y-PITCH_RADIUS+1.1,-10,154.5,3,14))
+        for x in (-25,65):
             grip("wear-strip-foot-"+str(x),"machined",block(x,y-PITCH_RADIUS+1.1,-14,5,3,4))
         grip("sensor-standoff","machined",block(x2+2,y+4,11,4,2,6))
-        for x in (-68,132):
+        for x in (-68,78):
             grip("spacer-"+str(x),"machined",rod(x,y+5,-14,"z",2,20))
         grip("motor-backstay","machined",block(x1-16,y+6,11,6,5,7))
     # 210 mm between equal timing pulleys, pitch loop = 480 mm. Rack pitch radius = 10.
@@ -244,7 +246,7 @@ def added_shapes(pose,lateral_offset_mm=None):
             sign=1 if side=="L" else -1
             if translates_with_grip(name):dy=sign*outward
             if name.endswith("-spring"):
-                x=-73 if "-rear-" in name else 143
+                x=-73 if "-rear-" in name else 82
                 ay=(0,sign,0);y=sign*(GRIP_Y+10+outward)
                 shape=cad.brep(cut(cylinder(x,y,-16.5,ay,3.2,14-outward),
                                    cylinder(x,y-sign,-16.5,ay,1.7,16-outward)))
