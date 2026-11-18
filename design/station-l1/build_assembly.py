@@ -107,13 +107,14 @@ def xcaf_doc():
     return doc,XCAFDoc_DocumentTool.ShapeTool_s(doc.Main())
 
 
-def write_named(path,shapes,parts=PARTS):
+def write_named(path,shapes,parts=PARTS,palette=None):
+    palette = COLORS if palette is None else palette
     doc,table=xcaf_doc()
     colors=XCAFDoc_DocumentTool.ColorTool_s(doc.Main())
     for p,shape in zip(parts,shapes):
         label=table.AddShape(shape,False)
         TDataStd_Name.Set_s(label,TCollection_ExtendedString(p["id"]))
-        rgb=bytes.fromhex(COLORS[p["group"]][1:])
+        rgb=bytes.fromhex(palette[p["group"]][1:])
         colors.SetColor(label,Quantity_Color(*(x/255 for x in rgb),Quantity_TOC_RGB),XCAFDoc_ColorGen)
     w=STEPCAFControl_Writer()
     if not w.Transfer(doc,STEPControl_AsIs) or w.Write(str(path))!=IFSelect_RetDone:

@@ -16,17 +16,18 @@ BASE = HERE.parent / "station-l1"
 LIFT = HERE.parent / "receiver-lift"
 OBSERVER = ROOT / "release-observer"
 DRIVE = HERE.parent / "drivetrain"
-for directory in [BASE, LIFT, OBSERVER, DRIVE, HERE.parent/"receiver-drives", HERE.parent/"electrical-inspection"]:
+for directory in [BASE, LIFT, OBSERVER, DRIVE, HERE.parent/"receiver-drives", HERE.parent/"electrical-inspection", HERE.parent/"bumper-kit"]:
     sys.path.insert(0, str(directory))
 
 import build_assembly as native
 import receiver_drives
 import package as electrical
+import bumper
 from drive_parts import parts as drive_parts
 import check_routing
 import drive_parts as drive_model
 import mechanical
-from check_routing import routing, clashes, write_step
+from check_routing import routing, clashes
 from OCP.BRep import BRep_Tool
 from OCP.BRepMesh import BRepMesh_IncrementalMesh
 from OCP.IFSelect import IFSelect_RetDone
@@ -43,10 +44,11 @@ def sha(path):
 
 def source_register():
     """Record the exact geometry inputs without writing local checkout paths."""
-    generators=[native, mechanical, drive_model, check_routing, receiver_drives, electrical]
+    generators=[native, mechanical, drive_model, check_routing, receiver_drives, electrical, bumper]
     files=[(f"design/{Path(module.__file__).parent.name}/{Path(module.__file__).name}",
             Path(module.__file__)) for module in generators]
     inputs=[BASE/"assembly.json", BASE/"b4-source.json", DRIVE/"review/review.json",
+            bumper.HERE/"red.step", bumper.HERE/"blue.step", bumper.HERE/"review.json",
             OBSERVER/"mount-check.json", OBSERVER/"stereo-mount.step", Path(__file__), HERE/"viewer.template.html"]
     return dict(sorted((name,sha(path)) for name,path in files+[(p.relative_to(ROOT).as_posix(),p) for p in inputs]))
 
@@ -108,19 +110,34 @@ def source_drive(pose):
     return native.read_named(source,inventory), {p["id"]:p for p in inventory}
 
 
-def pose_layers(height_mm, stroke_mm):
+@cache
+def registered_bumpers(alliance):
+    specs=bumper.specifications(alliance)
+    shapes=native.read_named(bumper.HERE/(alliance+".step"),[{"id":key} for key in specs])
+    colors={"alloy":"#a3aebb","steel":"#647181","foam":"#e4e3d8","blue":"#1b48a3","red":"#c82136"}
+    return shapes,{key:colors[group] for key,(group,_) in specs.items()}
+
+
+@cache
+def chassis_holes(source_pose):
+    return bumper.machined_rails(source_drive(source_pose)[0])
+
+
+def pose_layers(height_mm, stroke_mm, alliance="blue"):
     if not (math.isfinite(height_mm) and 560<=height_mm<=940 and math.isfinite(stroke_mm) and 0<=stroke_mm<=370):
         raise ValueError("Carriage position is outside the registered range")
     desc={"height":height_mm,"stroke":stroke_mm}
     poses=native.MODEL["poses"]
     source_pose=next((name for name,p in poses.items() if p==desc),"stowed")
     observed, info=source_drive(source_pose)
+    observed=observed|chassis_holes(source_pose)
     previous=poses[source_pose]
-    families={"Drive and chassis":{}, "Lift":routing(height_mm), "Sensing":{},
+    kit,kit_colors=registered_bumpers(alliance)
+    families={"Drive and chassis":{}, "Bumpers":kit, "Lift":routing(height_mm), "Sensing":{},
               "Receiver drive":receiver_drives.added_shapes(desc), "Electrical":electrical.electrical_parts(desc)}
     groups,colors,frames={},{},{}
     retained={p["id"] for p in native.PARTS}
-    replaced={"lift-drive"} | receiver_drives.REPLACES | electrical.REPLACED
+    replaced={"lift-drive"} | receiver_drives.REPLACES | electrical.REPLACED | bumper.REPLACED
     if missing:=replaced-observed.keys():
         raise ValueError(f"Missing original bodies designated for replacement: {sorted(missing)}")
     for name,shape in observed.items():
@@ -134,6 +151,8 @@ def pose_layers(height_mm, stroke_mm):
         groups[name]=category(part) if name in retained else ("Electrical" if part["group"]=="power" else "Drive")
         colors[name]=native.COLORS[part["group"]]
         frames[name]=part["frame"]
+    for name in kit:
+        groups[name],colors[name],frames[name]="Bumpers",kit_colors[name],"base"
     for name in families["Lift"]:
         groups[name],colors[name]="Lift","#d47d3d"
         frames[name]="variable-rope" if name.startswith("return-line") else "lift" if name.startswith("anchor-tab") else "base"
@@ -166,9 +185,9 @@ def flatten(families):
     return result
 
 
-def pose_shapes(height_mm,stroke_mm):
+def pose_shapes(height_mm,stroke_mm,alliance="blue"):
     """Return named native solids in robot XYZ millimetres, including nonrigid line endpoints."""
-    return flatten(pose_layers(height_mm,stroke_mm)[0])
+    return flatten(pose_layers(height_mm,stroke_mm,alliance)[0])
 
 
 def rotation_bounds():
@@ -181,11 +200,11 @@ def rotation_bounds():
     }
 
 
-def combine(step_dir=None):
+def combine(step_dir=None,alliance="blue"):
     payload, summary = {}, {}
     for pose, desc in native.MODEL["poses"].items():
         source=DRIVE/"review"/(pose+".step")
-        families,groups,colors,frames=pose_layers(desc["height"],desc["stroke"])
+        families,groups,colors,frames=pose_layers(desc["height"],desc["stroke"],alliance)
         shapes=flatten(families)
         conflicts={}
         tested=0
@@ -198,7 +217,7 @@ def combine(step_dir=None):
             verts,idx=triangulate(shape)
             meshes.append([name,groups[name],colors[name],verts,idx])
         payload[pose]={"height":desc["height"],"stroke":desc["stroke"],"parts":meshes}
-        summary[pose]={"base_step_sha256":sha(source),"bodies":len(shapes),
+        summary[pose]={"bumper_alliance":alliance,"base_step_sha256":sha(source),"bodies":len(shapes),
             "cross_layer_pairs":tested,"interferences_mm3":conflicts,
             "triangles":sum(len(row[4])//3 for row in meshes)}
         summary[pose]["families"]={name:len(parts) for name,parts in families.items()}
@@ -210,7 +229,13 @@ def combine(step_dir=None):
         if any(service.values()): raise ValueError(f"A body blocks a service path in {pose}: {service}")
         if step_dir:
             path=step_dir/(pose+".step")
-            write_step(path,shapes)
+            labels=[{"id":name,"group":name} for name in shapes]
+            native.write_named(path,list(shapes.values()),labels,colors)
+            restored=native.read_named(path,labels)
+            for key,shape in restored.items():
+                expected=native.volume(shapes[key])[0]
+                if abs(native.volume(shape)[0]-expected)>max(0.05,expected*1e-8):
+                    raise ValueError("Volume differs on native STEP reopen: "+key)
             summary[pose]["export_sha256"]=sha(path)
     return payload, summary, frames
 
@@ -219,9 +244,10 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("output",type=Path)
     parser.add_argument("--step",action="store_true")
+    parser.add_argument("--alliance",choices=("red","blue"),default="blue")
     args=parser.parse_args()
     args.output.mkdir(exist_ok=True,parents=True)
-    payload,summary,frames=combine(args.output if args.step else None)
+    payload,summary,frames=combine(args.output if args.step else None,args.alliance)
     (args.output/"source-register.json").write_text(json.dumps(source_register(),indent=2)+"\n",encoding="utf-8",newline="\n")
     (args.output/"part-frames.json").write_text(json.dumps(frames,indent=2)+"\n",encoding="utf-8",newline="\n")
     (args.output/"rotation-bounds.json").write_text(json.dumps(rotation_bounds(),indent=2)+"\n",encoding="utf-8",newline="\n")

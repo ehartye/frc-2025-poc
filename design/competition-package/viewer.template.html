@@ -30,7 +30,7 @@ if(gl){
   gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(prog));
   gl.useProgram(prog);gl.enable(gl.DEPTH_TEST);
 }
-const info={Chassis:'Frame, bumpers and parts fixed to the robot.',Drive:'Inspect both drive sides, shafts and transmission clearances.',Electrical:'Review battery retention, control hardware and service access.',Lift:'The paired winch lines raise the same moving crossbar. Check the sheaves, line paths and mast supports.',Receiver:'The shelf and guides translate together to collect and place the pipe.',Sensing:'The overhead stereo mount and three moving contact pads observe different parts of the release.'};
+const info={Chassis:'Frame and parts fixed to the robot.',Bumpers:'Two removable U modules carry solid corner padding, colored covers and eight sleeved frame attachments.',Drive:'Inspect both drive sides, shafts and transmission clearances.',Electrical:'Review battery retention, control hardware and service access.',Lift:'The paired winch lines raise the same moving crossbar. Check the sheaves, line paths and mast supports.',Receiver:'The shelf and guides translate together to collect and place the pipe.',Sensing:'The overhead stereo mount and three moving contact pads observe different parts of the release.'};
 const names={stowed:'Stowed',receive:'Receive',transport:'Carry',place:'Place'};
 let model, pose='place', yaw=-0.85, pitch=.44, zoom=1, pending=false, active=[], sceneCenter=[0,0,450], sceneSpan=1200;
 function dot(a,b){return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]}
