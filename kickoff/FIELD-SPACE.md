@@ -24,6 +24,18 @@ Reserve the 44-in nominal barge depth exclusively for each opposing traversal. A
 
 ## Replay
 
+### Does this alliance need a faster loader?
+
+Run `python scripts/kickoff_partner_timing.py` to compare the *same* 2.5 s partner reservation at two times. This study uses the revised station approach (48,45) in and the original reef destination. The field lab returns a 135.493-in route with potential overlap from the same two modeled partner slots. For a team discussion, assume a single active receiving lane, four pieces allocated to our robot, another piece supplied independently to the partner, mean loaded/empty transit of 80 in/s, 1.0 s to receive and 0.5 s to place. The lane serves each pickup without interruption. The global inventory still supports both allocations. The direct route, lane exclusivity, exact timing, successful scoring and robot speed are trial assumptions.
+
+| Partner's use of our receiving lane | Our first pickup begins | Our third delivery completes | L1 deliveries by 15 s |
+| --- | --- | --- | --- |
+| No reservation | 1.000 s | 13.968 s | 3 |
+| From 0.5 until 3.0 s | 3.000 s | 15.968 s | 2 |
+| From 2.1 until 4.6 s | 1.000 s | 13.968 s | 3 |
+
+The uncontended plan can absorb 1.032 s of total waiting before its third completion misses the deadline. The early reservation consumes 2.000 s of that budget. Shifting it into our loaded transit preserves both the partner's reserved duration and our third delivery. Student decision: measure and coordinate station access before requiring a faster mechanism. If team coordination cannot hold total delay to the budget, compare a different alliance role or measure what service/drive improvement is realistic. Timing alone leaves the retention and post-contact test open.
+
 From the repository root, run both scripts. The first uses a continuous separating-axis test and convex swept footprint. The second independently applies stage boundaries, cube height and an exclusive-resource clock.
 
 ```sh
