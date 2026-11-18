@@ -1,0 +1,124 @@
+{
+  "sourceSha256": {
+    "design/competition-package/shop-duplex/mass.json": "3121ae2178c7d66181242a3f0fff102f77a68920d19930ce3c831e508725fdae",
+    "design/receiver-lift/delivery-retention.json": "a537a0acf33cfd48798ba71e9be81042fab60019ab05b11d4d8a82d506679ebb",
+    "design/drivetrain/review/bom.csv": "690d667aa5fabd371d54105dc3e50c99de9d3af6d23f1600eeedb7d2d96def6f",
+    "design/lift-arrest/study.json": "a08f0fbc4276e2dfddccd450876234b9e80be41045c363bd12bdd6c23bdec402",
+    "design/installed-procurement/clamp-review.json": "a3c53326253a3aea4cb05d6738dc2feaf5d52096941a39d76cc3d08898373df4",
+    "design/lift-screw/screen.json": "b5d931f0246893cc48ac272f62d30c554268396cbe46522245dadd9b392def72",
+    "design/carriage-bridge/native.json": "9c1fe936b4a2fb94a871f0f2753259f2a47a6d37d37fb72e61b0770e367583b0",
+    "design/carriage-bridge/windows.csv": "9e1705e94e57bd2f2f18ed0226e15b31e879d7e3a22028581b40189b8ed2c116",
+    "design/lift-screw/drag.py": "ef820d1e3fa2d1e512713160f7c9106eb174fed260b508007375aef781f4555f",
+    "design/lift-screw/screen.py": "72de7d2b83ca018e500956b16a99c4bc16b740aa37c6cb36ccd0854781fe1fd6"
+  },
+  "retiredId": "slide-base-bridge",
+  "retiredBookedKg": 1.7823,
+  "referenceCadKg": 1.7822699999999996,
+  "newNominalKg": 1.1362284592094765,
+  "newAllowanceKg": [
+    1.085390619784504,
+    1.188515564571915
+  ],
+  "changeKg": [
+    -0.696909380215496,
+    -0.593784435428085
+  ],
+  "R103Kg": [
+    36.6938702061452,
+    50.677175150932605
+  ],
+  "R408Kg": [
+    42.5938702061452,
+    58.177175150932605
+  ],
+  "R103HighMarginKg": 1.4859473990674,
+  "headroomWithLightClampsAndEndStopsKg": 0.600279578228347,
+  "loadedWholeRobotHighKg": 65.1636414169326,
+  "liftMassRangeKg": [
+    7.2544713868984045,
+    11.610242597685819
+  ],
+  "replacementScrewMassRangeWithAllowanceKg": [
+    7.2544713868984045,
+    13.110242597685819
+  ],
+  "screwRemainderWithLightClampAtHighOldDriveCreditKg": 3.1281762926356036,
+  "screwRemainderWithLightClampAtLowOldDriveCreditKg": 1.0281762926356044,
+  "oldLightCoast": {
+    "mu": 0.1,
+    "selfHolding": true,
+    "screwRetardingNm": 0.015527409502644208,
+    "motorCoupled": true,
+    "worstPhase": {
+      "leg": "receiveToCarry",
+      "phase": 0.539,
+      "heightMm": 785.3361844867976,
+      "entryMps": 0.2500543444360499,
+      "coastMm": 396.26339378379805,
+      "marginToBaselineArmMm": -165.92720929700045
+    }
+  },
+  "newLightCoast": {
+    "mu": 0.1,
+    "selfHolding": true,
+    "screwRetardingNm": 0.014166488972011925,
+    "motorCoupled": true,
+    "worstPhase": {
+      "leg": "receiveToCarry",
+      "phase": 0.536,
+      "heightMm": 786.8378876447949,
+      "entryMps": 0.2505074024447999,
+      "coastMm": 434.8662194038154,
+      "marginToBaselineArmMm": -203.02833175902057
+    }
+  },
+  "screwDragAt18to21": {
+    "(0, 0.2)": {
+      "ratio": 0.8571428571428571,
+      "minActualPairNm": 0.1422533116437022,
+      "maxActualPairNm": 0.14790256777536648,
+      "minSettingWith20pctNm": 0.17781663955462773,
+      "maxSettingWith20pctNm": 0.1232521398128054,
+      "toleranceWindowNm": -0.05456449974182233
+    },
+    "(0.1, 0.15)": {
+      "ratio": 0.8571428571428571,
+      "minActualPairNm": 0.0405511009000383,
+      "maxActualPairNm": 0.21553480765903937,
+      "minSettingWith20pctNm": 0.050688876125047876,
+      "maxSettingWith20pctNm": 0.17961233971586615,
+      "toleranceWindowNm": 0.12892346359081827
+    }
+  },
+  "conditionalStructure": {
+    "caseMassKg": 11.610242597685819,
+    "twoGLoadN": 227.71517114119126,
+    "railIxxMm4": 47265.292452830196,
+    "halfLoadSharedAtOuterEnd": {
+      "deflectionMm": 0.15650301200883815,
+      "nominalRootStressMPa": 13.674920249232885
+    },
+    "fullLoadOnOneRailAtOuterEnd": {
+      "deflectionMm": 0.3130060240176763,
+      "nominalRootStressMPa": 27.34984049846577
+    },
+    "oneSideExtendedTipEquivalentForceN": 588.023986238013,
+    "oneSideExtendedTipMomentMatched": {
+      "deflectionMm": 0.8082687202481769,
+      "nominalRootStressMPa": 70.62490457831667
+    },
+    "ineffectiveRail43mmPlateStrip": {
+      "deflectionMm": 33.02918235838451,
+      "nominalRootStressMPa": 301.219510104906
+    },
+    "rackWeb80NMidspan": {
+      "simpleSupportDeflectionMm": 0.04612993097678309,
+      "simpleSupportStressMPa": 14.057142857142857,
+      "oneEndLost": {
+        "deflectionMm": 0.7380788956285295,
+        "nominalRootStressMPa": 56.22857142857143
+      }
+    }
+  },
+  "asBuiltMassKg": null
+}

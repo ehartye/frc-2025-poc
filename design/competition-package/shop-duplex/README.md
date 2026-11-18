@@ -25,6 +25,8 @@ The normal command sequence retracts the slide before moving the lift. Station a
 
 ## Mass, balance and inspection
 
+The [CB-1 bridge proposal](../../carriage-bridge/README.md) reopens these four poses and preserves eleven mounting interfaces. It compares a lighter moving plate against these original weight and fault baselines.
+
 | Engineering estimate | Low | High |
 |---|---:|---:|
 | Added vs. previous robot | 2.738 kg | 3.338 kg |
