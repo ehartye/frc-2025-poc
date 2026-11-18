@@ -30,6 +30,8 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
+The [six-wheel drivetrain engineering review](design/drivetrain/README.md) packages the selected NEO, 20:1 reduction, twin chain planes, bearing carriers, wheel hubs and protected drive circuits. Open any of its four whole-robot STEP poses or replay the 8.95 m station-to-reef transfer.
+
 Open the [editable whole-robot assembly](design/station-l1/README.md) to inspect the differential chassis, telescoping receiver and battery service path in four poses. The package includes named STEP files, a parametric OpenSCAD model, its BOM and the measured interference corrections.
 
 The [receiver load-path study](structural/README.md) connects extension, bumper setback and mounting demand to the decision about when the robot can carry or deploy the shelf.

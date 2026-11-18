@@ -19,14 +19,14 @@ def budget(e):
     return result
 
 
-def identity(plugin, archive_sha, observed, excluded=False):
+def identity(plugin, archive_sha, observed, excluded=False, parts=PARTS):
     nodes=[dict(id=k,parentId=None,sourceId=k) for k in observed]
     bodies=[dict(id=k,occurrenceId=k) for k in observed]
     if excluded:
         bodies.pop()
     expected={"schema":"agent-frc/native-identity-manifest@1","archiveSha256":archive_sha,
               "allowedEvidenceBases":["native-observed"],
-              "bodies":[dict(id=p["id"],occurrenceId=p["id"],sourceId=p["id"],sourceOwnerId=p["id"]) for p in PARTS]}
+              "bodies":[dict(id=p["id"],occurrenceId=p["id"],sourceId=p["id"],sourceOwnerId=p["id"]) for p in parts]}
     actual={"schema":"agent-frc/native-identity-receipt@1","archiveSha256":archive_sha,
             "evidenceBasis":"native-observed","occurrences":nodes,"bodies":bodies}
     with tempfile.TemporaryDirectory() as temp:
@@ -40,7 +40,7 @@ def identity(plugin, archive_sha, observed, excluded=False):
         return json.loads(r.stdout)["status"]
 
 
-def audit(review_dir,plugin=None,openscad=None):
+def audit(review_dir,plugin=None,openscad=None,parts=PARTS):
     review=json.loads((review_dir/"review.json").read_text())
     result={"identity":{},"powerStudy":budget(json.loads((HERE/"electrical.json").read_text()))}
     for name,obs in review["poses"].items():
@@ -48,16 +48,16 @@ def audit(review_dir,plugin=None,openscad=None):
         digest=hashlib.sha256(path.read_bytes()).hexdigest()
         if digest!=obs["stepSha256"] or obs["interferencesOver0.001mm3"]:
             raise ValueError("Unmatched STEP or material overlap at "+name)
-        seen=read_named(path)
+        seen=read_named(path,parts)
         shelf=seen["receiver-R6-ported"]
         pose=MODEL["poses"][name]
         expect=[-100+pose["stroke"],-210,pose["height"]-75,165+pose["stroke"],210,pose["height"]-60]
         if any(abs(x-y)>1.e-5 for x,y in zip(bounds(shelf),expect)):
             raise ValueError("shelf world pose")
         if plugin:
-            result["identity"][name]=identity(plugin,digest,seen)
+            result["identity"][name]=identity(plugin,digest,seen,parts=parts)
             if name=="stowed":
-                result["missingBodyControl"]=identity(plugin,digest,seen,True)
+                result["missingBodyControl"]=identity(plugin,digest,seen,True,parts)
         if name=="stowed":
             shelf_volume=volume(shelf)[0]
     if not openscad:
