@@ -32,18 +32,52 @@ window.sourceMatch = {
           32.05910670547638
         ]
       ],
+      "contact_clock": 30.05910670547638,
       "spin": {
-        "-29.690655": "inner-riser-bound",
-        "-20": "inner-riser-bound",
-        "-15": "inner-riser-bound",
-        "-10": "inner-riser-bound",
-        "-5": "inner-riser-bound",
-        "0": "sustained-paired-floor-and-lip",
-        "5": "sustained-paired-floor-and-lip",
-        "10": "sustained-paired-floor-and-lip",
-        "15": "sustained-paired-floor-and-lip",
-        "20": "receiver-recontact",
-        "29.690655": "receiver-recontact"
+        "-29.690655": [
+          "inner-riser-bound",
+          0.046400000000000004
+        ],
+        "-20": [
+          "inner-riser-bound",
+          0.0614
+        ],
+        "-15": [
+          "inner-riser-bound",
+          0.07440000000000001
+        ],
+        "-10": [
+          "inner-riser-bound",
+          0.0964
+        ],
+        "-5": [
+          "inner-riser-bound",
+          0.14200000000000002
+        ],
+        "0": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "5": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "10": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "15": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "20": [
+          "receiver-recontact",
+          0.2374
+        ],
+        "29.690655": [
+          "receiver-recontact",
+          0.19140000000000001
+        ]
       }
     },
     {
@@ -78,18 +112,52 @@ window.sourceMatch = {
           82.1474641729894
         ]
       ],
+      "contact_clock": 80.1474641729894,
       "spin": {
-        "-29.690655": "inner-riser-bound",
-        "-20": "inner-riser-bound",
-        "-15": "inner-riser-bound",
-        "-10": "inner-riser-bound",
-        "-5": "inner-riser-bound",
-        "0": "sustained-paired-floor-and-lip",
-        "5": "sustained-paired-floor-and-lip",
-        "10": "sustained-paired-floor-and-lip",
-        "15": "sustained-paired-floor-and-lip",
-        "20": "receiver-recontact",
-        "29.690655": "receiver-recontact"
+        "-29.690655": [
+          "inner-riser-bound",
+          0.046200000000000005
+        ],
+        "-20": [
+          "inner-riser-bound",
+          0.061000000000000006
+        ],
+        "-15": [
+          "inner-riser-bound",
+          0.07400000000000001
+        ],
+        "-10": [
+          "inner-riser-bound",
+          0.09580000000000001
+        ],
+        "-5": [
+          "inner-riser-bound",
+          0.1408
+        ],
+        "0": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "5": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "10": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "15": [
+          "sustained-paired-floor-and-lip",
+          2.0
+        ],
+        "20": [
+          "receiver-recontact",
+          0.2374
+        ],
+        "29.690655": [
+          "receiver-recontact",
+          0.19140000000000001
+        ]
       }
     }
   ],

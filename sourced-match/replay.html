@@ -29,7 +29,7 @@ function update(){
  for(const [i,pipe] of data.pipes.entries()){
   const missing=late&&i===1, events=pipe.clock;
   const at=events.filter(([,t])=>t<=now).at(-1);
-  const end=pipe.spin[rate];
+  const [end,duration]=pipe.spin[rate];
   const afterContact=now>=events[5][1];
   let state=at?at[0]:'Stock waiting';
   if(missing)state='Second feed unavailable at its scheduled time';

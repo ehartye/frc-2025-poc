@@ -28,8 +28,9 @@ The shelf integrator resolves translation and yaw. Axial spin after the feeder s
 Run from the project root with its existing OpenCascade and NumPy environment. The 545 red poses ship with the [shop and duplex-lift assembly](../design/competition-package/shop-duplex/README.md). The original 401 red exports are reconstructed from the preserved blue STEP and patches. The optional first command needs your separately obtained, exact January field assembly. The checked-in numerical pickup receipts suffice for the downstream replay.
 
 ```powershell
+$field = 'path/to/FE-2025.STEP'
 $poses = 'design/competition-package/shop-duplex/red'
-python station-supply/transfer.py --field <FE-2025.STEP> --poses $poses --expected-receive-sha256 6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73 --body-count 545 --output sourced-match/source-545.json
+python station-supply/transfer.py --field $field --poses $poses --expected-receive-sha256 6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73 --body-count 545 --output sourced-match/source-545.json
 python sourced-match/replay.py --model shop-545 --poses $poses --source sourced-match/source-545.json --output sourced-match/shop-545.json
 python full-match/materialize_red.py --output artifacts/red-401
 python sourced-match/replay.py --model reference-401 --poses artifacts/red-401 --source station-supply/transfer.json --output sourced-match/reference-401.json

@@ -23,7 +23,8 @@ def dataset():
                 ["First target contact", events["paired-trough-first-contact"]],
                 ["Sustained support", case["zero_spin"]["support_teleop_s"]],
             ],
-            "spin": {speed: row["outcome"] for speed, row in spin["runs"][state["piece_id"]].items()},
+            "contact_clock": case["zero_spin"]["support_teleop_s"] - 2.0,
+            "spin": {speed: [row["outcome"],row["duration_s"]] for speed,row in spin["runs"][state["piece_id"]].items()},
         })
     return {"pipes": pipes, "scenarios": source["scenarios"],
             "rebounds": [[row["assumed_normal_restitution"], row["first_material_witness"]["elapsed_after_impact_s"]]

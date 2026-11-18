@@ -12,7 +12,8 @@ def run():
         key=t["id"]
         state,up=transfer_model(data,t,f)
         cases={}
-        for delta in (-29.690655456963764,-20,-15,-10,-5,0,5,10,15,20,29.690655456963764):
+        lip_spin=state["chute_lip_rolling_speed_magnitude_rad_s"]
+        for delta in (-lip_spin,-20,-15,-10,-5,0,5,10,15,20,lip_spin):
             case=settle.continue_contact(sector=SECTORS[key],upstream=up,piece_id=key,withdrawal="after-separation",
                                   wait_after_true_separation_s=.110,dt=.0002,initial_roll=delta)
             cases[str(round(delta,6))]={"outcome":case["stop"],"duration_s":case["elapsed_s"],
