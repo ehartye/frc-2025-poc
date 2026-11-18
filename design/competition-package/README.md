@@ -41,3 +41,7 @@ The field and robot models share a station-fed, low-level placement role. The te
 ## Earlier field and observer evidence
 
 The original 361-body assembly and its four STEP hashes are retained at [PR 25 geometry](https://github.com/ehartye/frc-2025-poc/tree/40c486d4ba53b227b8cf720b20b6d6bddac88b29/design/competition-package). [PR 26 field and optical evidence](https://github.com/ehartye/frc-2025-poc/tree/aa0b5d368918db56618fd84b28ecb65c4776a023/mission) qualified that exact geometry. The [historical receipt register](historical-receipts.json) pins both source editions. The 401-body robot preserves the registered 850 mm bounding square while replacing four envelopes with removable bumper parts and drilling four frame members. The new CAD motion receipt covers installed fit. Field release, occlusion and contact timing require a new downstream qualification against these four new native STEP hashes.
+
+## Shop handoff
+
+The [fabrication review](../shop-package/README.md) supplies nine dimensioned drawing families, metric DXFs, a purchasing table and an inventory keyed to the 401-body revision. Two proposed positive-retention details have their own native review and mass delta.

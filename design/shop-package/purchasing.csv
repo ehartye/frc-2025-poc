@@ -1,0 +1,38 @@
+assembly,item,installedQuantity,orderUnitOrDecision,source
+Drive and lift,REV-21-1650 NEO V1.1,3,2 drive plus 1 lift; select lift pinion/gearbox pairing,design/drivetrain/SOURCES.md and design/receiver-lift/README.md
+Drive,REV-25-2109 gearbox base,2,one per side,design/drivetrain/SOURCES.md
+Drive,REV-21-2103 5:1 and REV-21-2102 4:1 and REV-21-2104 socket,2 of each,5:1 on input and 4:1 on output,design/drivetrain/SOURCES.md
+Drive,am-0940b 77A six-inch HiGrip and am-4124 half-inch hex hub,6 of each,measure pilot and Bolt Circle before machining,design/drivetrain/SOURCES.md
+Drive,Wheel-to-hub fasteners,36,6 interfaces per wheel; validate selected screw grip/head and retention with supplier drawings,design/drivetrain/drive_parts.py
+Drive,REV-21-2018 single 32T sprocket,8,one at each end of four loops,design/drivetrain/SOURCES.md
+Drive,Tsubaki BF25H quarter-inch endless riveted chain,4 loops,110 pitches per loop; verify endless fabrication and measured alignment,design/drivetrain/SOURCES.md
+Drive,REV-21-1135 rounded hex stock,6 cut lengths,2 at 113 mm plus 4 at 93.6 mm = 600.4 mm before kerf and test pieces; stock pack length to verify,design/drivetrain/drive_parts.py
+Drive,REV-21-1916-PK4 rounded hex bearings,12,three packs of four before spares; obtain current OD/fit/retention evidence,design/drivetrain/SOURCES.md
+Drive,Inner carrier clamps,24 positions,12 mirrored center/end carrier stations total across both faces; six inner carriers require four M5 attachments each,design/shop-package/JOINTS.md
+Drive,Outer steel tapped nut saddles,6,original proposal one per outer carrier; 24 M5x16 socket screws and 24 10x1 washers,design/shop-package/JOINTS.md
+Drive,Take-up jack units,8,eight M4 jacks plus eight fixed tabs; pitch lock access and torque open,design/drivetrain/drive_parts.py
+Drive,Drive axle end retention,10 accessible ends,4 end axles with two ends plus 2 center outboard ends; screws shims clips and inner-race washer geometry require actual stock,design/drivetrain/README.md
+Receiver lift,am-3761 historic 16:1 CIM Sport,1,gearbox and compatible pinion or variant; consult separate lift hold review,design/receiver-lift/README.md
+Receiver lift,am-4647_2000 drums and am-4559 1/8-inch lines,2 of each,line cut lengths terminations sheaves and guides require physical stack,design/receiver-lift/README.md
+Receiver transmission,REV-21-1651 NEO 550,3,2 independent grip motors and 1 slide motor,design/receiver-drives/bom.csv
+Receiver transmission,UP550 drive sets,3,68:13 stages x3 plus 76:21 x1; verify individual plate output and motor kit variant,design/receiver-drives/README.md
+Receiver transmission,Gates 420-3M-15 9293-90008,2,one per grip cartridge,design/receiver-drives/bom.csv
+Receiver transmission,Gates 480-3M-9 9293-40356,1,one synchronization loop,design/receiver-drives/bom.csv
+Receiver transmission,Grip 5x13x5 mm bearings,8,one upper/lower at each of four grip shafts; retention load supplier and seals open,design/receiver-drives/bom.csv
+Receiver transmission,HTD 3M grip drive/idler pulleys,4,two per grip; section OD hub key retention and machining/supplier drawing required,design/receiver-drives/bom.csv
+Receiver transmission,AS5600 idler and pinion channels,4,board magnet and acquisition assembly per channel; 2 grip and 2 synchronizer,design/receiver-drives/bom.csv
+Receiver transmission,TE/Celesco SP1-25 25-inch analog string potentiometer,1,matching mount mating connector and calibration needed,design/receiver-drives/bom.csv
+Receiver transmission,Slide end switches,2,normally closed independent contacts; choose body/lever and overtravel,design/receiver-drives/bom.csv
+Receiver transmission,Grip compression springs,4,two per grip; nominal 1 N/mm and measured preload/solid height,design/receiver-drives/README.md
+Receiver transmission,Sealed grip damping cartridges,2,original paddle/seal concept; seals wipers fluid fill leak test and backup required,design/receiver-drives/README.md
+Receiver shelf,M5 crossblock stack,4,one proposed steel crossblock and two 3x20 solid pins per stack; four long screws by measured head and grip,design/shop-package/JOINTS.md
+Electrical,REV-11-2158 SPARK MAX controllers,6,2 drive plus 1 lift plus 1 slide plus 2 grips; breakers by active branch map,design/electrical-inspection/README.md
+Electrical,EnerSys NP18-12 SB50 pair and CB185-120 main breaker,1 each,compatible battery terminals restraints and leads measured,design/electrical-inspection/README.md
+Electrical,REV-11-1850 PDH and REV-11-1852 PH,1 each,individual branch breakers contacts conductors and crimp terminals per protected map,design/electrical-inspection/README.md
+Electrical,roboRIO 2.0 VH-109 and RSL,1 each,regional radio and controller images and mounting hardware per inspection dossier,design/electrical-inspection/README.md
+Pneumatics,Viair 90C compressor and am-2649 574 mL reservoir,1 each,regulated valve cylinder relief gauges regulator vent fittings and tube from pneumatic schedule,design/electrical-inspection/SOURCES.md
+Sensing,Pololu 4501 QTRX long-range reflectance channels,2,seat and entry; optical mounts wiring calibration,design/electrical-inspection/SOURCES.md
+Observer,Luxonis OAK-D Lite fixed focus and Raspberry Pi 4B,1 each,two Pololu D24V50F5 5V converters; choose cables and protected wiring,release-observer/README.md
+Observer,Interlink FSR 400 Short,3,one channel per contact pad; measure preload adhesives harness and readout,release-observer/README.md
+Bumpers,1000D AndyMark am-2675 red and am-2676 blue cloth,1 roll each,one complete set per alliance; use 44-solid kit source and BOM,design/bumper-kit/README.md
+Bumpers,PE foam and backing and hardware,2 alliance sets,eight permanent sleeves TOTAL per chassis; duplicate removable U bodies hardware and markings only,design/bumper-kit/README.md
