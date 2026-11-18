@@ -30,6 +30,8 @@ The full screen covers three assumed speeds, six stand-offs, two radii and two e
 
 ## Reproduce and qualify
 
+The [station docking study](STATION-DOCK.md) carries the 220 and 240 mm shelf extensions into a bumper-aware three-dimensional alignment test. It calculates the actual finite pipe/shelf overlap at the registered height and checks it against reopened STEP geometry.
+
 1. Run `python scripts/station_receiver_impact.py` to print all 72 cases with times, normals and velocities. Run `python -m unittest discover -s tests` to check sign conventions, normal/tangential impulse and dissipation, the inherited square-geometry boundaries and clear-through controls.
 2. With OCP 8.0.1 available, run `python cad/station-receiver/build_shelves.py artifacts/receiver-comparison` to generate and reopen both candidates. The builder checks their volumes and bounding boxes against separate section formulas.
 3. Run `python cad/station-receiver/verify_contacts.py` against the checked-in STEP solids. Compare with the [six-case receipt](cad/station-receiver/contact-receipt.json). The independent finite outer-cylinder checks measure separation 0.5 ms before impact, tangency at the analytical time and intersection 0.5 ms later **if response is deliberately suppressed**. The deeper placement is a negative control. Each receipt identifies the source and STEP bytes. These selected states do not establish a swept whole-robot clearance.
