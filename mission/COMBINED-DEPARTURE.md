@@ -2,6 +2,8 @@
 
 The 361-part short-belt assembly clears the registered route and supported pipe. Its 67 kg candidate makes the two deliveries in the 16-second traffic reservation with 1.53 s left after return and recovery. A separate failure involves knowing when to move. The original 50 ms dwell after a whole-robot clearance observation misses the prior-contact timing bracket in every tested camera phase.
 
+![Native belt overlap and candidate whole-robot release timing for the first 67 kg, dry-coast pipe](release-window.svg)
+
 | Registered observation | 537 mm belt | 420 mm belt |
 | --- | ---: | ---: |
 | Positive material overlap at nominal shelf-clear event, per inward-loaded belt | 143.40 mm³ | 0 mm³ |
