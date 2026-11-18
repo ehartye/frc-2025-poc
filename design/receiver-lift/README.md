@@ -1,5 +1,7 @@
 # Station receiver lift
 
+The alternative twin Acme drive now has a source-bound comparison of clearance, critical speed, split-drive racking, stopping distance during power loss and mass displaced by a full transmission replacement. [Independent screw-drive comparison](../lift-screw/README.md)
+
 The 545-body placement model shows a moving plate reaching its fixed service arm before the backup line completes its modeled catch. The successor study registers the interference, the independent end-damper packaging and the midtravel brake requirements. [Shared-shaft and power-loss study](../lift-arrest/README.md)
 
 The registered 401-body delivery audit estimates 8.422 to 11.609 kg loaded before the proposed secondary suspension. Its separately modeled duplex lift adds 0.564 kg moving. The following study preserves the earlier 96-body sizing. [Current load, independent supports and qualification](RETENTION.md)
