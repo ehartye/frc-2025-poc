@@ -1,7 +1,7 @@
 """Sweep unmeasured target axial spin using the two actual station-fed trajectories."""
 import json
 from pathlib import Path
-from replay import SOURCE,corrected,transfer_model,settle,SECTORS
+from replay_source_match import SOURCE,corrected,transfer_model,settle,SECTORS
 
 
 def run():

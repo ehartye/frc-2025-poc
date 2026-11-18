@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from replay import ROOT, SECTORS, corrected, digest, transfer_model
+from replay_source_match import ROOT, SECTORS, corrected, digest, transfer_model
 from mission.field_body_clearance import HALF, RAD
 
 HERE = Path(__file__).resolve().parent

@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "sourced-match"
 sys.path.insert(0,str(HERE))
-import replay as sourced
+import replay_source_match as sourced
 import view_data
 
 
@@ -63,4 +63,8 @@ class SourcedMatch(unittest.TestCase):
         for groups in receipt["nearest_by_group"].values():
             self.assertTrue(all(row["lower_bound_m"]>0 for row in groups.values()))
         self.assertEqual("coral-A",receipt["nearest_by_group"]["coral-B"]["previously-supported-pipe"]["occurrence"])
+        timing=json.loads((HERE/"onset-sweep.json").read_bytes())
+        for rows in timing["cases"].values():
+            self.assertEqual(list(range(62,120)),[r["delay_ms"] for r in rows])
+            self.assertTrue(all(r["result"]=="sustained-paired-floor-and-lip" and r["min_shelf_gap_mm"]>41 for r in rows))
         self.assertEqual(view_data.render(),(HERE/"timeline-data.js").read_text())
