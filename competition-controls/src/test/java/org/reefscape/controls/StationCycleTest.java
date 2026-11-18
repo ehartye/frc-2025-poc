@@ -12,16 +12,28 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.reefscape.controls.StationCycle.State.*;
 
 class StationCycleTest {
-    private static final String[] ROW=System.getenv("REEF_WHOLE_ROBOT_TRIAL").split(",");
-    private static final WithdrawalTrial TRIAL=new WithdrawalTrial(ROW[0],ROW[1],ROW[2],Integer.parseInt(ROW[3]),
-            Integer.parseInt(ROW[4]),Long.parseLong(ROW[5]),Double.parseDouble(ROW[6]),Long.parseLong(ROW[7]));
-    static final class FakeIO implements ReceiverIO {
+    private static WithdrawalTrial decode(String line) {
+        String[] r=line.split(",");
+        return new WithdrawalTrial(r[0],r[1],r[2],Integer.parseInt(r[3]),Integer.parseInt(r[4]),
+                Long.parseLong(r[5]),Double.parseDouble(r[6]),Long.parseLong(r[7]),
+                Double.parseDouble(r[8]),Double.parseDouble(r[9]),r[10]);
+    }
+    private static final List<WithdrawalTrial> CASES;
+    static {
+        try {
+            CASES=java.nio.file.Files.readAllLines(java.nio.file.Path.of(System.getenv("REEF_WITHDRAWAL_ROWS")))
+                    .stream().map(StationCycleTest::decode).toList();
+        } catch (java.io.IOException e) { throw new ExceptionInInitializerError(e); }
+    }
+    WithdrawalTrial trial=CASES.get(0);
+    final class FakeIO implements ReceiverIO {
         long time, sensorLag, poseLag, attempt, exitAttempt, earliestLag, latestLag;
         boolean calibrated=true, wrongPiece, whole;
-        String track=TRIAL.pieceId(), reportPiece=TRIAL.pieceId(), assembly=TRIAL.assemblySha256(), study=TRIAL.studySha256();
+        String track=trial.pieceId(), reportPiece=trial.pieceId(), assembly=trial.assemblySha256(), study=trial.studySha256();
         String frame=WithdrawalTrial.FRAME, clock=WithdrawalTrial.CLOCK;
-        int phase=TRIAL.phase(), reportSector=TRIAL.sectorMm(), dockSector=TRIAL.sectorMm();
-        double gap=TRIAL.lowerGapMm();
+        int phase=trial.phase(), reportSector=trial.sectorMm(), dockSector=trial.sectorMm();
+        double gap=trial.lowerGapMm(), mu=trial.coastFriction(), px=trial.pixelError();
+        String field=trial.fieldSha256();
         long captureLag=15,originMs,captureShift;
         boolean alignToReference;
         long exposureReadAt=-1;
@@ -32,7 +44,7 @@ class StationCycleTest {
             if (exposureReadAt<0) exposureReadAt=time;
             return new Exit(true,exitAttempt,key,exposureReadAt-earliestLag,exposureReadAt-latestLag,calibrated,
                     new WholeFront(assembly,study,frame,clock,reportPiece,reportSector,phase,
-                                   exposureReadAt-captureLag+captureShift,gap));
+                                   exposureReadAt-captureLag+captureShift,gap,mu,px,field));
         }
         @Override public void beginAttempt(long id) { attempt=id; exitAttempt=id; }
         double lift=940, slide;
@@ -76,14 +88,14 @@ class StationCycleTest {
         enabled(false);
     }
     void tick() { io.time+=20; scheduler.run(); }
-    void reviewedTrial() { command=new StationCycle(receiver,TRIAL);io.alignToReference=true; }
+    void reviewedTrial() { command=new StationCycle(receiver,trial);io.alignToReference=true; }
     void sourceFrame() {
-        io.earliestLag=io.captureLag+TRIAL.captureSincePriorBoundMs();
+        io.earliestLag=io.captureLag+trial.captureSincePriorBoundMs();
         io.latestLag=io.captureLag-WithdrawalTrial.SYNC_MS;
         io.whole=true;io.exit=true;
     }
     void beforeWholeFrame() {
-        io.time=io.originMs+TRIAL.captureFromLipMs()+io.captureLag-20;
+        io.time=io.originMs+trial.captureFromLipMs()+io.captureLag-20;
         sourceFrame();
     }
     void acquire() {
@@ -103,7 +115,7 @@ class StationCycleTest {
     }
     void ready() {
         carry();
-        if (io.alignToReference) io.time=io.originMs+TRIAL.captureFromLipMs()-400;
+        if (io.alignToReference) io.time=io.originMs+trial.captureFromLipMs()-400;
         io.station=false; io.target=true; tick(); assertEquals(LOWER_PLACE,command.state());
         assertFalse(io.last.drivePermit()); io.lift=560; tick();
         assertEquals(EXTEND_PLACE,command.state());
@@ -227,6 +239,19 @@ class StationCycleTest {
         enabled(true); tick(); assertFalse(command.isScheduled());
         assertEquals(Demand.neutral(),io.last); assertFalse(receiver.acknowledgeRecovery());
     }
+    @Test void everyRegisteredBumperExposureCanWithdrawOnItsSelectedTrack() {
+        for (var sample:CASES) {
+            trial=sample;
+            for (long lag:new long[]{7, 29}) {
+                scheduler.unregisterSubsystem(receiver);
+                io=new FakeIO(); receiver=new ReceiverSubsystem(io,()->io.time);
+                reviewedTrial(); awaitExit(); io.captureLag=lag; beforeWholeFrame(); tick();
+                assertEquals(WITHDRAW,command.state(),sample.toString());
+                assertEquals(-150,io.last.slideVelocityMmPerS());
+                command.cancel();
+            }
+        }
+    }
     @Test void legacyShelfSignalKeepsBothBeltsAndSlideStationary() {
         reviewedTrial(); awaitExit(); io.exit=true;
         for (int n=0; n<12; n++) {
@@ -241,10 +266,10 @@ class StationCycleTest {
     }
     @Test void wholeFrameRequiresMatchingScopeIdentityGeometryAndExposure() {
         List<java.util.function.Consumer<FakeIO>> mutations=List.of(
-            f->f.assembly="0".repeat(64), f->f.study="f".repeat(64), f->f.frame="shelf-local",
+            f->f.assembly="4803dd1f9186acd4736e8b43927e5998f6513ae265882f4ca8dd74baaea3543e", f->f.study="f".repeat(64), f->f.frame="shelf-local",
             f->f.clock="camera-uptime", f->f.reportPiece="coral-B", f->f.track="", f->f.dockSector=220,
             f->f.reportSector=220, f->f.phase=1, f->f.gap=.99, f->f.gap=Double.POSITIVE_INFINITY,
-            f->f.captureShift=-17, f->f.earliestLag-=2);
+            f->f.mu=1, f->f.px=0.5, f->f.field="0".repeat(64), f->f.captureShift=-17, f->f.earliestLag-=2);
         for (var change:mutations) {
             reviewedTrial(); awaitExit(); beforeWholeFrame(); change.accept(io); tick();
             assertEquals(FAULT,command.state()); assertEquals(Demand.neutral(),io.last);

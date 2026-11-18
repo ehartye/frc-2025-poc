@@ -4,7 +4,14 @@ package org.reefscape.controls;
 public interface ReceiverIO {
     /** Independent whole-front proof. Time is the synchronized exposure, not packet arrival. */
     record WholeFront(String assemblySha256, String studySha256, String frame, String clock,
-                      String pieceId, int sectorMm, int exposurePhase, long captureMs, double lowerGapMm) {}
+                      String pieceId, int sectorMm, int exposurePhase, long captureMs, double lowerGapMm,
+                      double coastFriction,double pixelError,String fieldSha256) {
+        /** Older measurements omit the current field configuration and uncertainty tier. */
+        public WholeFront(String assembly,String study,String frame,String clock,String piece,int sector,
+                          int phase,long capture,double gap) {
+            this(assembly,study,frame,clock,piece,sector,phase,capture,gap,Double.NaN,Double.NaN,"");
+        }
+    }
     /** The earliest bound comes from independent prior contact. Both endpoints use controller time. */
     record Exit(boolean clear, long attempt, String pieceKey, long earliestCrossingMs,
                 long latestCrossingMs, boolean calibrated, WholeFront wholeFront) {

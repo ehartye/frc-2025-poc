@@ -1,5 +1,5 @@
 {
-  "schema": "reefscape-receiver-io/3",
+  "schema": "reefscape-receiver-io/4",
   "classification": "Candidate engineering interfaces and synthetic commissioning assumptions. No field device assigned.",
   "robotFrame": "mm; +X forward, +Y left, +Z up. Carriage-local u starts at the translating receiver datum.",
   "posesMm": {
@@ -99,8 +99,8 @@
     {
       "logical": "WholeFront",
       "interface": "simulation-only independent front-plane measurement for the complete pose manifest",
-      "units": "assembly and study SHA-256, robot front frame, synchronized controller clock, piece, sector mm, exposure phase and capture ms, conservative gap mm",
-      "boundary": "Independent observed track identity and time origin survive acquisition. Match the archived image against the 361-body registered route and deadline before emitting slide velocity. The public command holds. Physical calibration, source of stable identity and bounded actuation lag remain open."
+      "units": "assembly, timing study and field configuration SHA-256, robot-front frame, synchronized controller clock, piece, sector mm, modeled shelf friction, image uncertainty px, exposure phase, capture ms and conservative gap mm",
+      "boundary": "Public command holds. The desktop runner selects the exact red 401-body track and measured exposure. Accepted motion onsets must fit the independent geometric and dynamic envelopes. Real friction, timing and observer remain unqualified."
     }
   ],
   "electricalAssignment": {
