@@ -24,6 +24,7 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
+- The [station-edge experiment](STATION-EDGE.md) calculates where an incoming CORAL leaves an idealized chute lip. It runs with Python alone.
 - `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. No vendor CAD or fabrication-ready assembly.
 - `shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `shared/scripts/`: actual execution, finite-body target and evidence checks.
