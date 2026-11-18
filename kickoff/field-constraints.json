@@ -1,0 +1,36 @@
+{
+  "season": 2025,
+  "edition": "Kickoff · V0",
+  "units": "in",
+  "frame": "Origin at the lower blue end-wall / side-border datum, +X toward red, +Y across field, +Z up.",
+  "rulesManual": "https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf",
+  "stationSurvey": {
+    "source": "https://github.com/wpilibsuite/allwpilib/blob/b65f159c3fdfdfce9ec126cf79dfd9a16d1e66e9/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape.json",
+    "committed": "2025-01-04T18:14:34Z",
+    "sourceSha256": "82d7cbd386faadca3a7de04b5cf36e98685ca4602b44c95f8138761fd730fe89",
+    "interpretation": "Model the playing side of each corner as the inward half-plane through its AprilTag, per V0 sections 5.1, 5.6.2 and 5.8. Unknown tag-to-physical-face offset and field tolerances limit precision.",
+    "faces": [
+      {"id": 12, "xyIn": [33.51, 25.8], "inwardDeg": 54},
+      {"id": 13, "xyIn": [33.51, 291.2], "inwardDeg": -54},
+      {"id": 1, "xyIn": [657.37, 25.8], "inwardDeg": 126},
+      {"id": 2, "xyIn": [657.37, 291.2], "inwardDeg": -126}
+    ]
+  },
+  "openings": {
+    "station": {"source": "V0 §5.6.2", "widthIn": 76, "heightIn": 7, "sillIn": 37.5, "chuteSlopeDeg": 55},
+    "processor": {"source": "V0 §5.5", "widthIn": 28, "heightIn": 20, "sillIn": 7}
+  },
+  "barge": {
+    "source": "V0 §§5.4, 5.4.1, 5.4.2 and 6.3.5",
+    "widthIn": 350, "depthIn": 44, "topIn": 101, "trussReferenceIn": 62, "netLowIn": 76,
+    "cageCentersFromMidfieldIn": [41.5, 84.375, 127.375], "cageWidthIn": 7.375,
+    "cageHeightIn": 24, "deepBottomIn": 3.5, "shallowBottomIn": 29.375,
+    "unknowns": "Exact center support contour, horizontal truss lower envelope, station panel offsets, fence details and cage swing are unresolved."
+  },
+  "queueTrial": {
+    "basis": "Hypothetical opposing single-file passages between two deep cages. Reserve the full barge depth from front-entry to rear-exit. Uniform speed, no following or simultaneous passing, no acceleration or braking model.",
+    "boxLengthIn": 30, "boxWidthIn": 30, "boxHeightIn": 30,
+    "speedInPerSecond": 60, "arrivalTimesAutoSeconds": [12.6, 13],
+    "comparisonWidthIn": 36
+  }
+}
