@@ -1,0 +1,482 @@
+{
+  "schema": "reefscape-receiver-side-load/1",
+  "plugin": {
+    "version": "0.14.0",
+    "scriptSha256": "f9c3d10e5e10e52dfa9af3d2bded6351d32cbdf7732b6c59abdb9969a77b946d"
+  },
+  "inputSha256": {
+    "cad/station-receiver/design.json": "a633f075d1fac96331ed3a4941c53ed66c7ba67c6957ff5b483db07aa6736f6e",
+    "structural/study.json": "ebd18d96c5b33aa77c25726e669fea2205907a503de803e4a8da8a086af17fac",
+    "structural/receiver_load_path.py": "894b1a6e7e9a754a71428073a48692fa5c9e182cb2b90b1439b83294865c9a49"
+  },
+  "cases": [
+    {
+      "pose": "stowed",
+      "scenario": "meter-per-second-compliant",
+      "tipXmm": 165,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 690,
+      "energyJ": 12.5,
+      "averageSideForceN": 250.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -33.75,
+        "transmittedLoadsN": [
+          [
+            -34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            -34.12921348314607,
+            -83.3567415730337
+          ],
+          [
+            34.12921348314607,
+            -83.3567415730337
+          ]
+        ],
+        "maxShearN": 90.07302359003879
+      },
+      "carriageYawMomentNm": -41.25,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "stowed",
+      "scenario": "two-meters-per-second-compliant",
+      "tipXmm": 165,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 690,
+      "energyJ": 50.0,
+      "averageSideForceN": 1000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -135.0,
+        "transmittedLoadsN": [
+          [
+            -136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            -136.51685393258427,
+            -333.4269662921348
+          ],
+          [
+            136.51685393258427,
+            -333.4269662921348
+          ]
+        ],
+        "maxShearN": 360.29209436015515
+      },
+      "carriageYawMomentNm": -165.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "stowed",
+      "scenario": "two-meters-per-second-short-stop",
+      "tipXmm": 165,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 690,
+      "energyJ": 50.0,
+      "averageSideForceN": 2000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -270.0,
+        "transmittedLoadsN": [
+          [
+            -273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            -273.03370786516854,
+            -666.8539325842696
+          ],
+          [
+            273.03370786516854,
+            -666.8539325842696
+          ]
+        ],
+        "maxShearN": 720.5841887203103
+      },
+      "carriageYawMomentNm": -330.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "receive",
+      "scenario": "meter-per-second-compliant",
+      "tipXmm": 405,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 20,
+      "aboveBumperTopMm": 690,
+      "energyJ": 12.5,
+      "averageSideForceN": 250.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -33.75,
+        "transmittedLoadsN": [
+          [
+            -34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            -34.12921348314607,
+            -83.3567415730337
+          ],
+          [
+            34.12921348314607,
+            -83.3567415730337
+          ]
+        ],
+        "maxShearN": 90.07302359003879
+      },
+      "carriageYawMomentNm": -101.25,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "receive",
+      "scenario": "two-meters-per-second-compliant",
+      "tipXmm": 405,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 20,
+      "aboveBumperTopMm": 690,
+      "energyJ": 50.0,
+      "averageSideForceN": 1000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -135.0,
+        "transmittedLoadsN": [
+          [
+            -136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            -136.51685393258427,
+            -333.4269662921348
+          ],
+          [
+            136.51685393258427,
+            -333.4269662921348
+          ]
+        ],
+        "maxShearN": 360.29209436015515
+      },
+      "carriageYawMomentNm": -405.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "receive",
+      "scenario": "two-meters-per-second-short-stop",
+      "tipXmm": 405,
+      "tipZmm": 880,
+      "frontBumperSetbackMm": 20,
+      "aboveBumperTopMm": 690,
+      "energyJ": 50.0,
+      "averageSideForceN": 2000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -270.0,
+        "transmittedLoadsN": [
+          [
+            -273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            -273.03370786516854,
+            -666.8539325842696
+          ],
+          [
+            273.03370786516854,
+            -666.8539325842696
+          ]
+        ],
+        "maxShearN": 720.5841887203103
+      },
+      "carriageYawMomentNm": -810.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "transport",
+      "scenario": "meter-per-second-compliant",
+      "tipXmm": 165,
+      "tipZmm": 610,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 420,
+      "energyJ": 12.5,
+      "averageSideForceN": 250.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -33.75,
+        "transmittedLoadsN": [
+          [
+            -34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            -34.12921348314607,
+            -83.3567415730337
+          ],
+          [
+            34.12921348314607,
+            -83.3567415730337
+          ]
+        ],
+        "maxShearN": 90.07302359003879
+      },
+      "carriageYawMomentNm": -41.25,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "transport",
+      "scenario": "two-meters-per-second-compliant",
+      "tipXmm": 165,
+      "tipZmm": 610,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 420,
+      "energyJ": 50.0,
+      "averageSideForceN": 1000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -135.0,
+        "transmittedLoadsN": [
+          [
+            -136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            -136.51685393258427,
+            -333.4269662921348
+          ],
+          [
+            136.51685393258427,
+            -333.4269662921348
+          ]
+        ],
+        "maxShearN": 360.29209436015515
+      },
+      "carriageYawMomentNm": -165.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "transport",
+      "scenario": "two-meters-per-second-short-stop",
+      "tipXmm": 165,
+      "tipZmm": 610,
+      "frontBumperSetbackMm": 260,
+      "aboveBumperTopMm": 420,
+      "energyJ": 50.0,
+      "averageSideForceN": 2000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -270.0,
+        "transmittedLoadsN": [
+          [
+            -273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            -273.03370786516854,
+            -666.8539325842696
+          ],
+          [
+            273.03370786516854,
+            -666.8539325842696
+          ]
+        ],
+        "maxShearN": 720.5841887203103
+      },
+      "carriageYawMomentNm": -330.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "place",
+      "scenario": "meter-per-second-compliant",
+      "tipXmm": 535,
+      "tipZmm": 500,
+      "frontBumperSetbackMm": -110,
+      "aboveBumperTopMm": 310,
+      "energyJ": 12.5,
+      "averageSideForceN": 250.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -33.75,
+        "transmittedLoadsN": [
+          [
+            -34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            34.12921348314607,
+            -41.64325842696629
+          ],
+          [
+            -34.12921348314607,
+            -83.3567415730337
+          ],
+          [
+            34.12921348314607,
+            -83.3567415730337
+          ]
+        ],
+        "maxShearN": 90.07302359003879
+      },
+      "carriageYawMomentNm": -133.75,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "place",
+      "scenario": "two-meters-per-second-compliant",
+      "tipXmm": 535,
+      "tipZmm": 500,
+      "frontBumperSetbackMm": -110,
+      "aboveBumperTopMm": 310,
+      "energyJ": 50.0,
+      "averageSideForceN": 1000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -135.0,
+        "transmittedLoadsN": [
+          [
+            -136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            136.51685393258427,
+            -166.57303370786516
+          ],
+          [
+            -136.51685393258427,
+            -333.4269662921348
+          ],
+          [
+            136.51685393258427,
+            -333.4269662921348
+          ]
+        ],
+        "maxShearN": 360.29209436015515
+      },
+      "carriageYawMomentNm": -535.0,
+      "peakForceN": null,
+      "structuralPass": null
+    },
+    {
+      "pose": "place",
+      "scenario": "two-meters-per-second-short-stop",
+      "tipXmm": 535,
+      "tipZmm": 500,
+      "frontBumperSetbackMm": -110,
+      "aboveBumperTopMm": 310,
+      "energyJ": 50.0,
+      "averageSideForceN": 2000.0,
+      "shelfGroup": {
+        "centroidMm": [
+          30.0,
+          0.0
+        ],
+        "momentNm": -270.0,
+        "transmittedLoadsN": [
+          [
+            -273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            273.03370786516854,
+            -333.14606741573033
+          ],
+          [
+            -273.03370786516854,
+            -666.8539325842696
+          ],
+          [
+            273.03370786516854,
+            -666.8539325842696
+          ]
+        ],
+        "maxShearN": 720.5841887203103
+      },
+      "carriageYawMomentNm": -1070.0,
+      "peakForceN": null,
+      "structuralPass": null
+    }
+  ]
+}
