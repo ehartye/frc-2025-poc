@@ -1,0 +1,643 @@
+{
+  "schema": "independent-twin-screw-replacement/1",
+  "sourceSha256": {
+    "design/competition-package/shop-duplex/mass.json": "3121ae2178c7d66181242a3f0fff102f77a68920d19930ce3c831e508725fdae",
+    "design/receiver-lift/delivery-retention.json": "a537a0acf33cfd48798ba71e9be81042fab60019ab05b11d4d8a82d506679ebb",
+    "design/electrical-inspection/inspection.json": "c49a1b45efed7a21cf543f10721cfda961dad4ff465da7cd848cabc205f94842",
+    "design/lift-arrest/study.json": "a08f0fbc4276e2dfddccd450876234b9e80be41045c363bd12bdd6c23bdec402",
+    "design/installed-procurement/steel-review.json": "ff8e3d49d256edd02c250e3fb606db1115110ffb45f33ef78393064c4fde621f",
+    "design/installed-procurement/clamp-review.json": "a3c53326253a3aea4cb05d6738dc2feaf5d52096941a39d76cc3d08898373df4",
+    "design/lift-arrest/plate-relief.json": "16b41da664c95d6caa11ecee17b2b28ec94b55148811f306526e9b4001658358",
+    "mission/candidate.json": "77f93fe2366935c0008682bb7ddc16465d4676e228b1c6871978070313d621dd",
+    "scripts/station_l1_mission.py": "081df92a7962c7e16f18f50c07e42565abe49ef195c7ab61a5b153aeba5bbc1e",
+    "scripts/station_l1_phase.py": "77385c5e177deacc8b89de15787adf2a8855107f7369f8bd48bd9ab87cf19208",
+    "sourced-match/shop-545.json": "6d303657ff8dc4a626c4654aae4f63cb4478d6174061e13b37a70a017c111f13"
+  },
+  "threads": {
+    "half-8": {
+      "screw": {
+        "leadM": 0.003175,
+        "radiusM": 0.0005053169443167677,
+        "pitchRadiusM": 0.0055562499999999996,
+        "unitMassKg": 0.3784103275708661,
+        "singleInertiaUpperKgM2": 8.09208379936256e-06,
+        "frictionHoldThreshold": 0.08804884720510316,
+        "forwardEfficiency": 0.37,
+        "criticalFixedSupportedRpm": 2922.1835047337267
+      },
+      "drive": [
+        {
+          "ratioMotorPerScrew": 0.65,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 547.8847916416745,
+          "upperInputV": 8.228477554718618,
+          "upperMotorA": 19.856930222283655,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        },
+        {
+          "ratioMotorPerScrew": 0.8,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 547.8847916416745,
+          "upperInputV": 9.427379944109369,
+          "upperMotorA": 17.488450902727692,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        },
+        {
+          "ratioMotorPerScrew": 1,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 547.8847916416745,
+          "upperInputV": 11.163003076167778,
+          "upperMotorA": 15.697667333543988,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        }
+      ]
+    },
+    "five-eighths-8": {
+      "screw": {
+        "leadM": 0.003175,
+        "radiusM": 0.0005053169443167677,
+        "pitchRadiusM": 0.00714375,
+        "unitMassKg": 0.6345531055380578,
+        "singleInertiaUpperKgM2": 2.0038617694372827e-05,
+        "frictionHoldThreshold": 0.06848243671508022,
+        "forwardEfficiency": 0.31,
+        "criticalFixedSupportedRpm": 4022.4031977810637
+      },
+      "drive": [
+        {
+          "ratioMotorPerScrew": 0.65,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 704.4233035392958,
+          "upperInputV": 8.543005855706184,
+          "upperMotorA": 24.558299025231374,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        },
+        {
+          "ratioMotorPerScrew": 0.8,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 704.4233035392958,
+          "upperInputV": 9.680674481961143,
+          "upperMotorA": 21.30831305512271,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        },
+        {
+          "ratioMotorPerScrew": 1,
+          "peakScrewRpm": 4783.464566929133,
+          "peakSurfaceFtMin": 704.4233035392958,
+          "upperInputV": 11.364364657105526,
+          "upperMotorA": 18.753557055460004,
+          "shaftCriticalScreen": false,
+          "schedulingScreen": false
+        }
+      ]
+    },
+    "three-quarters-6": {
+      "screw": {
+        "leadM": 0.004233333333333333,
+        "radiusM": 0.0006737559257556902,
+        "pitchRadiusM": 0.008466666666666666,
+        "unitMassKg": 0.8899220382545932,
+        "singleInertiaUpperKgM2": 4.0495738997601046e-05,
+        "frictionHoldThreshold": 0.07704274130446524,
+        "forwardEfficiency": 0.34,
+        "criticalFixedSupportedRpm": 4726.54380133136
+      },
+      "drive": [
+        {
+          "ratioMotorPerScrew": 0.65,
+          "peakScrewRpm": 3587.5984251968503,
+          "peakSurfaceFtMin": 626.1540475904851,
+          "upperInputV": 7.351038652089419,
+          "upperMotorA": 29.305674494047203,
+          "shaftCriticalScreen": true,
+          "schedulingScreen": true
+        },
+        {
+          "ratioMotorPerScrew": 0.8,
+          "peakScrewRpm": 3587.5984251968503,
+          "peakSurfaceFtMin": 626.1540475904851,
+          "upperInputV": 8.030877604831225,
+          "upperMotorA": 24.911256849255015,
+          "shaftCriticalScreen": true,
+          "schedulingScreen": true
+        },
+        {
+          "ratioMotorPerScrew": 1,
+          "peakScrewRpm": 3587.5984251968503,
+          "peakSurfaceFtMin": 626.1540475904851,
+          "upperInputV": 9.146395122206254,
+          "upperMotorA": 21.29918543792539,
+          "shaftCriticalScreen": true,
+          "schedulingScreen": true
+        }
+      ]
+    }
+  },
+  "mass": {
+    "baseR103HeadroomKg": 0.8921629636393149,
+    "shopCarrierAllowanceKg": 0.6732049262978068,
+    "lightCarrierAllowanceKg": 0.37762071923802143,
+    "headroomWithLightCarrierKg": 0.5145422444012935,
+    "roomBeforeNewLiftKg": 0.2189580373415081,
+    "addOnShaftsKg": 1.7798440765091863,
+    "fourSleeveEstimateKg": 0.8461645277279778,
+    "v1DrivetrainAllowanceRetiredKg": [
+      1.8,
+      3.9
+    ],
+    "explicitDuplexRetirementsKg": {
+      "backup-L-drum-core": 0.010533580640810452,
+      "backup-L-upper-sheave": 0.01884360873938335,
+      "backup-L-drum-flange-0": 0.006357088132762633,
+      "backup-L-sheave-flange-0": 0.007526811462640662,
+      "backup-L-drum-flange-1": 0.006357088132762633,
+      "backup-L-sheave-flange-1": 0.007526811462640662,
+      "backup-L-upper-pin": 0.023865922265492143,
+      "backup-L-top-hanger": 0.07854194778762177,
+      "backup-L-outboard-bearing": 0.029652574445070176,
+      "backup-L-bearing-support": 0.07588207719464855,
+      "backup-L-running-line": 0.005617327444057422,
+      "backup-R-drum-core": 0.010533580640810452,
+      "backup-R-upper-sheave": 0.01884360873938335,
+      "backup-R-drum-flange-0": 0.006357088132762633,
+      "backup-R-sheave-flange-0": 0.007526811462640662,
+      "backup-R-drum-flange-1": 0.006357088132762633,
+      "backup-R-sheave-flange-1": 0.007526811462640662,
+      "backup-R-upper-pin": 0.023865922265492143,
+      "backup-R-top-hanger": 0.07854194778762176,
+      "backup-R-outboard-bearing": 0.029652574445070176,
+      "backup-R-bearing-support": 0.07588207719464858,
+      "backup-R-running-line": 0.005617327444057422,
+      "longer-steel-hex-shaft": 0.10964977134046779,
+      "backup-L-clevis": 0.02572715962709122,
+      "backup-L-clevis-pin": 0.009470016894981084,
+      "backup-L-thimble": 0.006982657769908704,
+      "backup-L-spliced-eye-envelope": 0.00053060651689115,
+      "backup-L-return-line": 0.004688944334698476,
+      "backup-R-clevis": 0.02572715962709122,
+      "backup-R-clevis-pin": 0.009470016894981084,
+      "backup-R-thimble": 0.006982657769908704,
+      "backup-R-spliced-eye-envelope": 0.00053060651689115,
+      "backup-R-return-line": 0.004688944334698476
+    },
+    "retiredDuplexMassKg": 0.74585821704339,
+    "fullReplacementRemainderAtUpperKg": 2.2388076501477334,
+    "sameRoomWithLowOriginalDriveCreditKg": 0.1388076501477341
+  },
+  "assumedExtraMovingKg": 1.5,
+  "coast": {
+    "light": [
+      {
+        "mu": 0.05,
+        "selfHolding": false,
+        "stopDistanceMm": null
+      },
+      {
+        "mu": 0.05,
+        "selfHolding": false,
+        "stopDistanceMm": null
+      },
+      {
+        "mu": 0.08,
+        "selfHolding": true,
+        "screwRetardingNm": 0.002003443021316857,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "receiveToCarry",
+          "phase": 0.508,
+          "heightMm": 800.9506911469158,
+          "entryMps": 0.2529954165888,
+          "coastMm": 2005.8161839117051,
+          "marginToBaselineArmMm": -1759.8654927647895
+        }
+      },
+      {
+        "mu": 0.08,
+        "selfHolding": true,
+        "screwRetardingNm": 0.002003443021316857,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "receiveToCarry",
+          "phase": 0.505,
+          "heightMm": 802.4689187449375,
+          "entryMps": 0.25307437753124995,
+          "coastMm": 3145.8174121541024,
+          "marginToBaselineArmMm": -2898.348493409165
+        }
+      },
+      {
+        "mu": 0.1,
+        "selfHolding": true,
+        "screwRetardingNm": 0.015527409502644208,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 0.587,
+          "heightMm": 597.4151370719234,
+          "entryMps": 0.12930013747420002,
+          "coastMm": 67.59923581176419,
+          "marginToBaselineArmMm": -25.18409873984084
+        }
+      },
+      {
+        "mu": 0.1,
+        "selfHolding": true,
+        "screwRetardingNm": 0.015527409502644208,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "receiveToCarry",
+          "phase": 0.539,
+          "heightMm": 785.3361844867976,
+          "entryMps": 0.2500543444360499,
+          "coastMm": 396.26339378379805,
+          "marginToBaselineArmMm": -165.92720929700045
+        }
+      },
+      {
+        "mu": 0.15,
+        "selfHolding": true,
+        "screwRetardingNm": 0.04914516311076741,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      },
+      {
+        "mu": 0.15,
+        "selfHolding": true,
+        "screwRetardingNm": 0.04914516311076741,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 0.704,
+          "heightMm": 577.3611333343642,
+          "entryMps": 0.09553256120320001,
+          "coastMm": 18.27410914071638,
+          "marginToBaselineArmMm": 4.0870241936478005
+        }
+      },
+      {
+        "mu": 0.2,
+        "selfHolding": true,
+        "screwRetardingNm": 0.08249106263383346,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      },
+      {
+        "mu": 0.2,
+        "selfHolding": true,
+        "screwRetardingNm": 0.08249106263383346,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      }
+    ],
+    "loadedWithMovingAllowance": [
+      {
+        "mu": 0.05,
+        "selfHolding": false,
+        "stopDistanceMm": null
+      },
+      {
+        "mu": 0.05,
+        "selfHolding": false,
+        "stopDistanceMm": null
+      },
+      {
+        "mu": 0.08,
+        "selfHolding": true,
+        "screwRetardingNm": 0.003452889268865309,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "receiveToCarry",
+          "phase": 0.513,
+          "heightMm": 798.4217153485054,
+          "entryMps": 0.2527828906720499,
+          "coastMm": 1197.7281270404562,
+          "marginToBaselineArmMm": -954.306411691951
+        }
+      },
+      {
+        "mu": 0.08,
+        "selfHolding": true,
+        "screwRetardingNm": 0.003452889268865309,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "receiveToCarry",
+          "phase": 0.508,
+          "heightMm": 800.9506911469158,
+          "entryMps": 0.2529954165888,
+          "coastMm": 1860.0581484819688,
+          "marginToBaselineArmMm": -1614.1074573350531
+        }
+      },
+      {
+        "mu": 0.1,
+        "selfHolding": true,
+        "screwRetardingNm": 0.02676114322917795,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 0.656,
+          "heightMm": 584.8520516773478,
+          "entryMps": 0.11203332997120001,
+          "coastMm": 30.355359099861143,
+          "marginToBaselineArmMm": -0.5033074225133071
+        }
+      },
+      {
+        "mu": 0.1,
+        "selfHolding": true,
+        "screwRetardingNm": 0.02676114322917795,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 0.594,
+          "heightMm": 596.0644774334522,
+          "entryMps": 0.1279521647712,
+          "coastMm": 61.3867271009828,
+          "marginToBaselineArmMm": -20.322249667530595
+        }
+      },
+      {
+        "mu": 0.15,
+        "selfHolding": true,
+        "screwRetardingNm": 0.08470059019211111,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      },
+      {
+        "mu": 0.15,
+        "selfHolding": true,
+        "screwRetardingNm": 0.08470059019211111,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      },
+      {
+        "mu": 0.2,
+        "selfHolding": true,
+        "screwRetardingNm": 0.14217150271558016,
+        "motorCoupled": false,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      },
+      {
+        "mu": 0.2,
+        "selfHolding": true,
+        "screwRetardingNm": 0.14217150271558016,
+        "motorCoupled": true,
+        "worstPhase": {
+          "leg": "carryToPlace",
+          "phase": 1.0,
+          "heightMm": 560.0,
+          "entryMps": 0.0,
+          "coastMm": 0.0,
+          "marginToBaselineArmMm": 5.000000000000004
+        }
+      }
+    ]
+  },
+  "passiveDragRange": {
+    "0.00..0.20": {
+      "best": {
+        "ratio": 0.8562,
+        "minActualPairNm": 0.1462275587831307,
+        "maxActualPairNm": 0.13415317262834525,
+        "minSettingWith20pctNm": 0.18278444847891337,
+        "maxSettingWith20pctNm": 0.11179431052362104,
+        "toleranceWindowNm": -0.07099013795529233
+      },
+      "coarseBest": {
+        "ratio": 0.86,
+        "minActualPairNm": 0.14639547310306078,
+        "maxActualPairNm": 0.13139621562985992,
+        "minSettingWith20pctNm": 0.18299434137882598,
+        "maxSettingWith20pctNm": 0.1094968463582166,
+        "toleranceWindowNm": -0.07349749502060937
+      },
+      "positiveGridChoices": 0,
+      "ratiosTested": [
+        0.6,
+        1.05,
+        0.01
+      ],
+      "refinement": [
+        0.85,
+        0.87,
+        0.0002
+      ],
+      "discreteRatioExamples": {
+        "18to21": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.1462691523738926,
+          "maxActualPairNm": 0.1334733097338937,
+          "minSettingWith20pctNm": 0.18283644046736575,
+          "maxSettingWith20pctNm": 0.11122775811157809,
+          "toleranceWindowNm": -0.07160868235578766
+        },
+        "20to23": {
+          "ratio": 0.8695652173913043,
+          "minActualPairNm": 0.14682143232804515,
+          "maxActualPairNm": 0.12424952859255167,
+          "minSettingWith20pctNm": 0.18352679041005643,
+          "maxSettingWith20pctNm": 0.1035412738271264,
+          "toleranceWindowNm": -0.07998551658293003
+        },
+        "24to28": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.1462691523738926,
+          "maxActualPairNm": 0.1334733097338937,
+          "minSettingWith20pctNm": 0.18283644046736575,
+          "maxSettingWith20pctNm": 0.11122775811157809,
+          "toleranceWindowNm": -0.07160868235578766
+        },
+        "19to22": {
+          "ratio": 0.8636363636363636,
+          "minActualPairNm": 0.14655685291113052,
+          "maxActualPairNm": 0.12871304916706872,
+          "minSettingWith20pctNm": 0.18319606613891315,
+          "maxSettingWith20pctNm": 0.1072608743058906,
+          "toleranceWindowNm": -0.07593519183302255
+        }
+      }
+    },
+    "0.05..0.20": {
+      "best": {
+        "ratio": 0.8562,
+        "minActualPairNm": 0.08733368913718673,
+        "maxActualPairNm": 0.13415317262834525,
+        "minSettingWith20pctNm": 0.1091671114214834,
+        "maxSettingWith20pctNm": 0.11179431052362104,
+        "toleranceWindowNm": 0.0026271991021376423
+      },
+      "coarseBest": {
+        "ratio": 0.86,
+        "minActualPairNm": 0.08750160345711679,
+        "maxActualPairNm": 0.13139621562985992,
+        "minSettingWith20pctNm": 0.10937700432139598,
+        "maxSettingWith20pctNm": 0.1094968463582166,
+        "toleranceWindowNm": 0.00011984203682062489
+      },
+      "positiveGridChoices": 1,
+      "ratiosTested": [
+        0.6,
+        1.05,
+        0.01
+      ],
+      "refinement": [
+        0.85,
+        0.87,
+        0.0002
+      ],
+      "discreteRatioExamples": {
+        "18to21": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.08737528272794862,
+          "maxActualPairNm": 0.1334733097338937,
+          "minSettingWith20pctNm": 0.10921910340993576,
+          "maxSettingWith20pctNm": 0.11122775811157809,
+          "toleranceWindowNm": 0.002008654701642326
+        },
+        "20to23": {
+          "ratio": 0.8695652173913043,
+          "minActualPairNm": 0.08792756268210117,
+          "maxActualPairNm": 0.12424952859255167,
+          "minSettingWith20pctNm": 0.10990945335262646,
+          "maxSettingWith20pctNm": 0.1035412738271264,
+          "toleranceWindowNm": -0.006368179525500062
+        },
+        "24to28": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.08737528272794862,
+          "maxActualPairNm": 0.1334733097338937,
+          "minSettingWith20pctNm": 0.10921910340993576,
+          "maxSettingWith20pctNm": 0.11122775811157809,
+          "toleranceWindowNm": 0.002008654701642326
+        },
+        "19to22": {
+          "ratio": 0.8636363636363636,
+          "minActualPairNm": 0.08766298326518654,
+          "maxActualPairNm": 0.12871304916706872,
+          "minSettingWith20pctNm": 0.10957872908148317,
+          "maxSettingWith20pctNm": 0.1072608743058906,
+          "toleranceWindowNm": -0.0023178547755925705
+        }
+      }
+    },
+    "0.10..0.15": {
+      "best": {
+        "ratio": 0.8536,
+        "minActualPairNm": 0.03914273313925238,
+        "maxActualPairNm": 0.20627940465286404,
+        "minSettingWith20pctNm": 0.04892841642406547,
+        "maxSettingWith20pctNm": 0.1718995038773867,
+        "toleranceWindowNm": 0.12297108745332122
+      },
+      "coarseBest": {
+        "ratio": 0.85,
+        "minActualPairNm": 0.03898482432486468,
+        "maxActualPairNm": 0.20383069226585077,
+        "minSettingWith20pctNm": 0.048731030406080844,
+        "maxSettingWith20pctNm": 0.16985891022154231,
+        "toleranceWindowNm": 0.12112787981546147
+      },
+      "positiveGridChoices": 37,
+      "ratiosTested": [
+        0.6,
+        1.05,
+        0.01
+      ],
+      "refinement": [
+        0.84,
+        0.86,
+        0.0002
+      ],
+      "discreteRatioExamples": {
+        "18to21": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.03929878703567161,
+          "maxActualPairNm": 0.2037611402377965,
+          "minSettingWith20pctNm": 0.049123483794589515,
+          "maxSettingWith20pctNm": 0.16980095019816377,
+          "toleranceWindowNm": 0.12067746640357425
+        },
+        "20to23": {
+          "ratio": 0.8695652173913043,
+          "minActualPairNm": 0.03985106698982416,
+          "maxActualPairNm": 0.1945332997853555,
+          "minSettingWith20pctNm": 0.0498138337372802,
+          "maxSettingWith20pctNm": 0.16211108315446293,
+          "toleranceWindowNm": 0.11229724941718273
+        },
+        "24to28": {
+          "ratio": 0.8571428571428571,
+          "minActualPairNm": 0.03929878703567161,
+          "maxActualPairNm": 0.2037611402377965,
+          "minSettingWith20pctNm": 0.049123483794589515,
+          "maxSettingWith20pctNm": 0.16980095019816377,
+          "toleranceWindowNm": 0.12067746640357425
+        },
+        "19to22": {
+          "ratio": 0.8636363636363636,
+          "minActualPairNm": 0.03958648757290953,
+          "maxActualPairNm": 0.19899814965081714,
+          "minSettingWith20pctNm": 0.04948310946613691,
+          "maxSettingWith20pctNm": 0.16583179137568096,
+          "toleranceWindowNm": 0.11634868190954406
+        }
+      }
+    }
+  },
+  "splitDrive": {
+    "spanMm": 510,
+    "shoeLengthMm": 58,
+    "availableSideMm": 0.8,
+    "differentialMmAtGuideLimit": 7.0344827586206895,
+    "commandTimeMsFromStopped": 298,
+    "differentialProof": false
+  },
+  "qualifiedForInstallation": false
+}
