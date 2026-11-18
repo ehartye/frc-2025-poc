@@ -1,6 +1,6 @@
 # 2025 REEFSCAPE proof of concept
 
-[Explore the assembled robot in 3D](design/competition-package/robot.html). Select a carriage pose, remove the bumpers or isolate a part to follow the pipe from the station to the trough. The [engineering record](design/competition-package/README.md) covers the moving hardware, fit checks and remaining design decisions.
+Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.html) or [red robot](design/competition-package/shop-duplex/red/robot.html) in 3D. Select a carriage pose or isolate a part to follow the pipe from station to trough. The [engineering record](design/competition-package/shop-duplex/README.md) includes the fastened chassis and duplex lift, full STEP files, normal travel, weight bounds and open docking and arrest limits.
 
 [Open the complete 2025 match replay](full-match/replay.html). Scrub from AUTO through the end of TELEOP, compare the earlier starting-stack collision, and try a blocked park or a return to station. The [full-match evidence](full-match/README.md) explains how the two pipe identities, contact and clock were qualified.
 

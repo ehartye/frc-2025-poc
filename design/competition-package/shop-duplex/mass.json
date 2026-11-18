@@ -1,0 +1,598 @@
+{
+  "sourceSha256": {
+    "design/stability/review.json": "5567731f7b996d99120ddd6fefa182ad635b466f4fa782505ca1e3bebb4f41c3",
+    "design/stability/stability.py": "b2dc7186d71c2b5e472b338814574ff597ca11fba4a903d4f72f629375b6bc7f",
+    "design/shop-package/native-review.json": "64aefdf9c6294975a573892c121876b0e4177cbd683a7af3b803f30b556c8349",
+    "design/receiver-lift/delivery-retention.json": "a537a0acf33cfd48798ba71e9be81042fab60019ab05b11d4d8a82d506679ebb",
+    "design/receiver-lift/duplex-inventory.json": "4203d68d69b04b45cd8d59900d6e92c3cf7e55c42d6f6a0100a6087f203aaa63",
+    "design/competition-package/shop-duplex/mass.py": "c9d964243721f033d86822aef7ec7bac66825845b37112f29abd76ad01d513bf"
+  },
+  "poses": {
+    "stowed": {
+      "added_kg": [
+        2.7382651863606955,
+        3.3382651863606956
+      ],
+      "empty": {
+        "mass_kg": [
+          49.460779586360694,
+          64.94095958636069
+        ],
+        "cg_mm": [
+          [
+            -129.46564542799763,
+            78.51432548516729
+          ],
+          [
+            -110.97493129162882,
+            107.90977104315027
+          ],
+          [
+            221.59210865164602,
+            512.9404869417865
+          ]
+        ],
+        "radial_cg_upper_m": 0.17051917405755207,
+        "yaw_inertia_upper_kg_m2": 10.359639588440018,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 58.189196468762816,
+            "opposite_edge_equivalent_load_fraction": 0.11748273060521466
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.4610896054218672,
+            "load_line_margin_mm": 95.63613603083348,
+            "opposite_edge_equivalent_load_fraction": 0.19308729261222188
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.4610896054218672,
+            "load_line_margin_mm": 155.73267759651026,
+            "opposite_edge_equivalent_load_fraction": 0.26850461654570734
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 33.96317538311045,
+            "frictionRequired": 1.3510153829087694
+          },
+          "drive": {
+            "phaseA": 11.685088764106359,
+            "frictionRequired": 0.26510893441773753
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.4521927151096343,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 26.47855781338357,
+              "frictionRequired": 0.6794652144703073
+            },
+            "drive": {
+              "phaseA": 11.685088764106359,
+              "frictionRequired": 0.16177948358789931
+            }
+          }
+        }
+      },
+      "seated": {
+        "mass_kg": [
+          50.27724585236069,
+          65.7574258523607
+        ],
+        "cg_mm": [
+          [
+            -126.5200567436267,
+            78.53468183629926
+          ],
+          [
+            -109.51897002799089,
+            106.46619722470922
+          ],
+          [
+            230.73393399341893,
+            518.7200236430892
+          ]
+        ],
+        "radial_cg_upper_m": 0.1673371732592686,
+        "yaw_inertia_upper_kg_m2": 10.393567462553243,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 60.25630340220931,
+            "opposite_edge_equivalent_load_fraction": 0.12165617484798974
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.45248536780083937,
+            "load_line_margin_mm": 98.60720314212011,
+            "opposite_edge_equivalent_load_fraction": 0.19908581292574223
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.45248536780083937,
+            "load_line_margin_mm": 157.35355433455538,
+            "opposite_edge_equivalent_load_fraction": 0.27129923161130237
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 34.2170042609453,
+            "frictionRequired": 1.3308595622191837
+          },
+          "drive": {
+            "phaseA": 11.790200816262505,
+            "frictionRequired": 0.26237808472919466
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.452330096046134,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 26.711015252292906,
+              "frictionRequired": 0.6776772058648544
+            },
+            "drive": {
+              "phaseA": 11.790200816262505,
+              "frictionRequired": 0.16177948358789934
+            }
+          }
+        }
+      },
+      "R103_kg": [
+        37.39077958636069,
+        51.27095958636069
+      ],
+      "R408_kg": [
+        43.29077958636069,
+        58.77095958636069
+      ],
+      "R103_margin_at_high_kg": 0.8921629636393149,
+      "R408_margin_at_high_kg": 2.4640103636393107
+    },
+    "receive": {
+      "added_kg": [
+        2.7382651863606955,
+        3.3382651863606956
+      ],
+      "empty": {
+        "mass_kg": [
+          49.460779586360694,
+          64.94095958636069
+        ],
+        "cg_mm": [
+          [
+            -113.69788854925221,
+            102.12250388746989
+          ],
+          [
+            -110.97493129162882,
+            107.90977104315027
+          ],
+          [
+            221.59210865164602,
+            512.9404869417865
+          ]
+        ],
+        "radial_cg_upper_m": 0.15887934175260143,
+        "yaw_inertia_upper_kg_m2": 10.871709216763463,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 73.49940986831365,
+            "opposite_edge_equivalent_load_fraction": 0.14839372071131365
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.42961510576908934,
+            "load_line_margin_mm": 112.37634607186988,
+            "opposite_edge_equivalent_load_fraction": 0.22688541504516432
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.42961510576908934,
+            "load_line_margin_mm": 157.32305905058507,
+            "opposite_edge_equivalent_load_fraction": 0.2712466535354915
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 34.05977205731771,
+            "frictionRequired": 1.3375138466017948
+          },
+          "drive": {
+            "phaseA": 11.685088764106359,
+            "frictionRequired": 0.26242894373390563
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.4521927151096343,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 26.83789360152063,
+              "frictionRequired": 0.6862888476142806
+            },
+            "drive": {
+              "phaseA": 11.685088764106359,
+              "frictionRequired": 0.16177948358789931
+            }
+          }
+        }
+      },
+      "seated": {
+        "mass_kg": [
+          50.27724585236069,
+          65.7574258523607
+        ],
+        "cg_mm": [
+          [
+            -107.81380339677403,
+            105.08445543625331
+          ],
+          [
+            -109.51897002799089,
+            106.46619722470922
+          ],
+          [
+            230.73393399341893,
+            518.7200236430892
+          ]
+        ],
+        "radial_cg_upper_m": 0.15368220781492636,
+        "yaw_inertia_upper_kg_m2": 11.006415155021598,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 78.59725851062359,
+            "opposite_edge_equivalent_load_fraction": 0.15868616699096225
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.4155618800841092,
+            "load_line_margin_mm": 118.65824359448584,
+            "opposite_edge_equivalent_load_fraction": 0.23956843043506126
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.4155618800841092,
+            "load_line_margin_mm": 159.24103964940156,
+            "opposite_edge_equivalent_load_fraction": 0.27455351663689925
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 34.334958589634404,
+            "frictionRequired": 1.315305130903108
+          },
+          "drive": {
+            "phaseA": 11.790200816262505,
+            "frictionRequired": 0.2592681151952468
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.452330096046134,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 27.14107026122227,
+              "frictionRequired": 0.6857000092368345
+            },
+            "drive": {
+              "phaseA": 11.790200816262505,
+              "frictionRequired": 0.16177948358789934
+            }
+          }
+        }
+      },
+      "R103_kg": [
+        37.39077958636069,
+        51.27095958636069
+      ],
+      "R408_kg": [
+        43.29077958636069,
+        58.77095958636069
+      ],
+      "R103_margin_at_high_kg": 0.8921629636393149,
+      "R408_margin_at_high_kg": 2.4640103636393107
+    },
+    "transport": {
+      "added_kg": [
+        2.7382651863606955,
+        3.3382651863606956
+      ],
+      "empty": {
+        "mass_kg": [
+          49.460779586360694,
+          64.94095958636069
+        ],
+        "cg_mm": [
+          [
+            -129.46564542799763,
+            78.51432548516729
+          ],
+          [
+            -110.97493129162882,
+            107.90977104315027
+          ],
+          [
+            187.77083094403446,
+            471.40572935435387
+          ]
+        ],
+        "radial_cg_upper_m": 0.17051917405755207,
+        "yaw_inertia_upper_kg_m2": 10.359639588440018,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 62.73682790545837,
+            "opposite_edge_equivalent_load_fraction": 0.12666430023310796
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.4610896054218672,
+            "load_line_margin_mm": 97.32572605421717,
+            "opposite_edge_equivalent_load_fraction": 0.19649853836910394
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.4610896054218672,
+            "load_line_margin_mm": 157.48449621926335,
+            "opposite_edge_equivalent_load_fraction": 0.2715249934814885
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 33.96317538311045,
+            "frictionRequired": 1.3359870216146503
+          },
+          "drive": {
+            "phaseA": 11.685088764106359,
+            "frictionRequired": 0.26215992813762345
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.45120542422637683,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 26.47855781338357,
+              "frictionRequired": 0.6794652144703073
+            },
+            "drive": {
+              "phaseA": 11.685088764106359,
+              "frictionRequired": 0.16177948358789931
+            }
+          }
+        }
+      },
+      "seated": {
+        "mass_kg": [
+          50.27724585236069,
+          65.7574258523607
+        ],
+        "cg_mm": [
+          [
+            -126.5200567436267,
+            78.53468183629926
+          ],
+          [
+            -109.51897002799089,
+            106.46619722470922
+          ],
+          [
+            193.89528389044239,
+            474.072598345835
+          ]
+        ],
+        "radial_cg_upper_m": 0.1673371732592686,
+        "yaw_inertia_upper_kg_m2": 10.393567462553243,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 65.18915737336067,
+            "opposite_edge_equivalent_load_fraction": 0.13161550045096038
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.45248536780083937,
+            "load_line_margin_mm": 100.4135759459582,
+            "opposite_edge_equivalent_load_fraction": 0.20273284059349528
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.45248536780083937,
+            "load_line_margin_mm": 159.21328576559176,
+            "opposite_edge_equivalent_load_fraction": 0.27450566511308927
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 34.2170042609453,
+            "frictionRequired": 1.3153141173384197
+          },
+          "drive": {
+            "phaseA": 11.790200816262505,
+            "frictionRequired": 0.259313310526215
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.4512688163248281,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 26.711015252292906,
+              "frictionRequired": 0.6776772058648544
+            },
+            "drive": {
+              "phaseA": 11.790200816262505,
+              "frictionRequired": 0.16177948358789934
+            }
+          }
+        }
+      },
+      "R103_kg": [
+        37.39077958636069,
+        51.27095958636069
+      ],
+      "R408_kg": [
+        43.29077958636069,
+        58.77095958636069
+      ],
+      "R103_margin_at_high_kg": 0.8921629636393149,
+      "R408_margin_at_high_kg": 2.4640103636393107
+    },
+    "place": {
+      "added_kg": [
+        2.7382651863606955,
+        3.3382651863606956
+      ],
+      "empty": {
+        "mass_kg": [
+          49.460779586360694,
+          64.94095958636069
+        ],
+        "cg_mm": [
+          [
+            -105.44174140983043,
+            127.84944825626687
+          ],
+          [
+            -110.97493129162882,
+            107.90977104315027
+          ],
+          [
+            173.99179187797046,
+            454.51846850533116
+          ]
+        ],
+        "radial_cg_upper_m": 0.1692953537301411,
+        "yaw_inertia_upper_kg_m2": 12.216669058961232,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 68.66626756244392,
+            "opposite_edge_equivalent_load_fraction": 0.13863571080646866
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.45778035392571154,
+            "load_line_margin_mm": 100.29365948519268,
+            "opposite_edge_equivalent_load_fraction": 0.20249073184977323
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.45778035392571154,
+            "load_line_margin_mm": 158.3450731536107,
+            "opposite_edge_equivalent_load_fraction": 0.27300874681657017
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 35.23868832958259,
+            "frictionRequired": 1.3700253655896986
+          },
+          "drive": {
+            "phaseA": 11.685088764106359,
+            "frictionRequired": 0.2607351361767991
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.4508040100940243,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 27.781695338974117,
+              "frictionRequired": 0.7044599810659014
+            },
+            "drive": {
+              "phaseA": 11.685088764106359,
+              "frictionRequired": 0.16177948358789931
+            }
+          }
+        }
+      },
+      "seated": {
+        "mass_kg": [
+          50.27724585236069,
+          65.7574258523607
+        ],
+        "cg_mm": [
+          [
+            -97.95142683648717,
+            132.2292234029976
+          ],
+          [
+            -109.51897002799089,
+            106.46619722470922
+          ],
+          [
+            178.8869449596001,
+            455.920014126026
+          ]
+        ],
+        "radial_cg_upper_m": 0.17169441551125597,
+        "yaw_inertia_upper_kg_m2": 12.445235142692459,
+        "load_transfer": {
+          "straight": {
+            "acceleration_mps2": 1.2,
+            "load_line_margin_mm": 64.05480043157979,
+            "opposite_edge_equivalent_load_fraction": 0.1293252582910959
+          },
+          "turn-fore-aft": {
+            "acceleration_mps2": 0.46426749800291417,
+            "load_line_margin_mm": 95.54781556633736,
+            "opposite_edge_equivalent_load_fraction": 0.19290897550239727
+          },
+          "turn-side": {
+            "acceleration_mps2": 0.46426749800291417,
+            "load_line_margin_mm": 159.4368191567575,
+            "opposite_edge_equivalent_load_fraction": 0.2748910675116509
+          }
+        },
+        "drive_demand_at_profile_extrema": {
+          "turn": {
+            "phaseA": 35.756315720476394,
+            "frictionRequired": 1.3635971295810234
+          },
+          "drive": {
+            "phaseA": 11.790200816262505,
+            "frictionRequired": 0.2589497484331997
+          }
+        },
+        "prior_balance_targets": {
+          "requires_radius_m_at_most": 0.05,
+          "requires_dynamic_side_fraction_at_least": 0.44,
+          "requires_static_side_fraction_at_least": 0.4508373251605892,
+          "requires_outer_axle_fraction_at_most": 0.75,
+          "drive_demand_at_profile_extrema": {
+            "turn": {
+              "phaseA": 28.15073669262111,
+              "frictionRequired": 0.7048210140496882
+            },
+            "drive": {
+              "phaseA": 11.790200816262505,
+              "frictionRequired": 0.16177948358789934
+            }
+          }
+        }
+      },
+      "R103_kg": [
+        37.39077958636069,
+        51.27095958636069
+      ],
+      "R408_kg": [
+        43.29077958636069,
+        58.77095958636069
+      ],
+      "R103_margin_at_high_kg": 0.8921629636393149,
+      "R408_margin_at_high_kg": 2.4640103636393107
+    }
+  },
+  "liftLoadedUpperKg": 12.204027033113903,
+  "weighedKg": null
+}

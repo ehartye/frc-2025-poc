@@ -70,11 +70,11 @@ def swept_bounds(name,shape,frame,start,end,turns):
             b[5]+(0 if frame=="variable-rope" else max(0,dz)))
 
 
-def screen():
+def screen(layer_builder=pose_layers, remaining_case=None):
     report={}
     turns=rotation_bounds()
     for leg,(start,end) in paths().items():
-        layers,_,_,frames=pose_layers(*start)
+        layers,_,_,frames=layer_builder(*start)
         shapes=flatten(layers)
         moves={name:translation(name,frame,start,end,turns) for name,frame in frames.items()}
         bounds={name:swept_bounds(name,shape,frames[name],start,end,turns)
@@ -109,6 +109,9 @@ def screen():
                             if swept is not None:
                                 exact[key]=round(native.intersection(swept,shapes[stationary]),8)
                                 break
+                    if key not in exact and remaining_case:
+                        proof=remaining_case(a,b,shapes,frames,start,end)
+                        if proof is not None:exact[key]=round(proof,8)
                     if key not in exact:
                         unknown.append(key)
         report[leg]={"start":start,"end":end,"disjoint_swept_boxes":rejected,"constant_relative_pose":equal,
