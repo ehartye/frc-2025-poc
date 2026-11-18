@@ -31,3 +31,21 @@ Here z₀ is the center height above the lip at separation, and vz is its vertic
 The center moves monotonically right and down. For every arc and flight subinterval the panel screen pairs the smallest X with the smallest Z to bound the distance to the entire panel. The minimum of those bounds covers the time between samples. The falling tube cannot touch the shelf while its lowest point is above the shelf top. The exact positive root for that height crossing gives first shelf contact when the center is inside the shelf span. An ambiguous corner case returns an unresolved result. With the retracted shelf, even the tube's rightmost point remains short through that crossing.
 
 This interval starts at the initial lip tangent. The model screens the ideal ramp, one lower panel and the receiver floor. Station fasteners, side guides, receiver reserves, prior chute transit, lateral offset and yaw require additional geometry. The next test should vary stand-off around the slow case and resolve contact with the rounded or square shelf entrance before estimating rebound or retention.
+
+## How much farther can the robot stand back?
+
+Holding the pipe trajectory and shelf extension fixed, translate the robot and shelf horizontally away from the station. The model uses the square entrance of the original shelf box. It starts at the existing separation state and ends at the first shelf contact or when the pipe center reaches shelf-top elevation, whichever comes first.
+
+![First shelf contact by stand-off and entry speed](cad/shelf-stand-off.svg)
+
+| Entry speed | Last offset for top contact | Last offset for upper entrance-corner contact |
+| ---: | ---: | ---: |
+| 0.5 m/s | 17.71 mm | 93.50 mm |
+| 1.0 m/s | 34.79 mm | 124.71 mm |
+| 2.0 m/s | 52.56 mm | 163.41 mm |
+
+These offsets are relative to the original 434.525 mm chassis stand-off. For the 0.5 m/s feed, adding 20 mm already changes which surface is struck. At 40 mm extra stand-off the entrance is at X = 89.525 mm. The slow pipe hits its corner 71.76 ms after separation with its center at (68.73, 933.23) mm. The center is still left of the corner. At the same offset the 1 m/s feed also strikes the corner, while the 2 m/s feed lands on top. An extra 220 mm clears the entrance for all three through center-at-shelf height. Later side or underside contact is outside this interval.
+
+The first boundary uses the attained horizontal center position when the pipe bottom reaches the shelf plane. Between boundaries, both the horizontal and vertical distances from center to front corner decrease until the center reaches the corner's X or Z. The first time their squared sum equals the squared pipe radius gives the corner strike. Bisection brackets it to 0.1 ns of model time. At the second boundary the pipe is tangent horizontally when its center reaches shelf height. The two time and position limits follow from the trajectory, independently of the requested stand-off. The upper corner merges with the top or vertical face at the exact endpoint of each interval.
+
+Run all three speeds with `python scripts/receiver_contact.py --stand-off-mm 0 20 40 60 100 220`. Tests probe both sides of both boundaries, the contact radius just before and after an attained corner strike, and the retracted control. A measured edge radius, tube deformation and pose uncertainty would change these transitions. The conditional thresholds identify where to compare a square and rounded entrance next.

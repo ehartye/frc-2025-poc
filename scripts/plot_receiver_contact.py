@@ -10,7 +10,7 @@ from matplotlib.patches import Circle, Rectangle
 
 from receiver_contact import (
     DEFAULT_SPEEDS_MPS, EXTENDED_FRONT, LIP_X, LIP_Z, PANEL_RIGHT, PANEL_TOP,
-    RADIUS_M, SHELF_LENGTH, SHELF_TOP, SLOPE_RAD, path_to_shelf,
+    RADIUS_M, SHELF_LENGTH, SHELF_TOP, SLOPE_RAD, path_to_shelf, stand_off_screen,
 )
 
 
@@ -44,6 +44,33 @@ def draw(output):
     ax.set(xlim=(-62, 170), ylim=(853, 1020), xlabel="Robotward distance from station datum (mm)",
            ylabel="Height (mm)", title="First shelf contact for a centered CORAL")
     ax.legend(loc="upper right", frameon=False, fontsize=9)
+    save_svg(fig, output)
+
+
+def draw_stand_off(output):
+    mpl.rcParams.update({"svg.fonttype": "none", "svg.hashsalt": "receiver-contact"})
+    fig, ax = plt.subplots(figsize=(9, 3.2), layout="constrained")
+    for row, speed in enumerate(DEFAULT_SPEEDS_MPS):
+        state = stand_off_screen(speed, 0)
+        top = state["last_top_contact_stand_off_mm"]
+        corner = state["last_upper_corner_contact_stand_off_mm"]
+        for start, end, label, color in (
+            (0, top, "Top", "#28624e"), (top, corner, "Corner", "#875031"),
+            (corner, 220, "Clear*", "#445366"),
+        ):
+            ax.barh(row, end - start, left=start, height=0.58, color=color)
+            ax.text((start + end) / 2, row, label, ha="center", va="center", color="white")
+    ax.set_yticks(range(len(DEFAULT_SPEEDS_MPS)), [f"{v:g} m/s" for v in DEFAULT_SPEEDS_MPS])
+    ax.invert_yaxis()
+    ax.set(xlim=(0, 220), xlabel="Additional robot stand-off (mm)",
+           title="First contact as the receiver moves away from the station")
+    ax.set_xticks(range(0, 221, 20))
+    ax.spines[["top", "left", "right"]].set_visible(False)
+    fig.supxlabel("*Clear through the instant the pipe center reaches shelf-top height.", fontsize=9)
+    save_svg(fig, output)
+
+
+def save_svg(fig, output):
     svg = io.StringIO()
     fig.savefig(svg, format="svg", metadata={"Date": None})
     lines = (line.rstrip() for line in svg.getvalue().splitlines())
@@ -54,4 +81,9 @@ def draw(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("output")
-    draw(parser.parse_args().output)
+    parser.add_argument("--stand-off", action="store_true", help="plot first contact versus stand-off")
+    args = parser.parse_args()
+    if args.stand_off:
+        draw_stand_off(args.output)
+    else:
+        draw(args.output)
