@@ -1,0 +1,391 @@
+{
+  "schema": "station-docking-tolerance/1",
+  "field_step_sha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "receive_step_sha256": "6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73",
+  "source_transfer_sha256": "19c14207324a2ee9d0b7b0ab48095f206fa1b1c4fcc1fe5f1275d6b0213e67e7",
+  "body_count": 545,
+  "station_occurrences": 47,
+  "normal_and_lateral_error_mm": 10.0,
+  "yaw_error_deg": 3.0,
+  "receiver_extension_mm": 240,
+  "conditional_nonrebounding_lip_speed_mps": 1.696820959365479,
+  "native_dock": [
+    {
+      "station_standoff_mm": 10,
+      "yaw_deg": 0,
+      "side_mm": 0,
+      "minimum_native_mm": 9.999999999999012,
+      "closest_body": "bumper-cover-front-red",
+      "closest_station_occurrence": "NAUO1486/GE-25007",
+      "intersections_mm3": {}
+    },
+    {
+      "station_standoff_mm": 5,
+      "yaw_deg": 1,
+      "side_mm": 0,
+      "minimum_native_mm": 0.0,
+      "closest_body": "bumper-cover-front-red",
+      "closest_station_occurrence": "NAUO1486/GE-25007",
+      "intersections_mm3": {
+        "bumper-cover-front-red / NAUO1486/GE-25007": 8091.251283654561,
+        "bumper-foam-front / NAUO1486/GE-25007": 11759.465070813087
+      }
+    },
+    {
+      "station_standoff_mm": 10,
+      "yaw_deg": 2,
+      "side_mm": 0,
+      "minimum_native_mm": 0.0,
+      "closest_body": "bumper-cover-front-red",
+      "closest_station_occurrence": "NAUO1486/GE-25007",
+      "intersections_mm3": {
+        "bumper-cover-front-red / NAUO1486/GE-25007": 8671.679450502563,
+        "bumper-foam-front / NAUO1486/GE-25007": 29402.464738048486
+      }
+    },
+    {
+      "station_standoff_mm": 30,
+      "yaw_deg": 3,
+      "side_mm": 0,
+      "minimum_native_mm": 8.758353975997672,
+      "closest_body": "bumper-cover-front-red",
+      "closest_station_occurrence": "NAUO1486/GE-25007",
+      "intersections_mm3": {}
+    }
+  ],
+  "continuous_dock_bounds": {
+    "10": {
+      "gap_lower_bound_mm": 0.0,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1483/GE-25001"
+    },
+    "25": {
+      "gap_lower_bound_mm": 0.0,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1486/GE-25007"
+    },
+    "30": {
+      "gap_lower_bound_mm": 0.0,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1486/GE-25007"
+    },
+    "35": {
+      "gap_lower_bound_mm": 3.339666326054072,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1486/GE-25007"
+    },
+    "40": {
+      "gap_lower_bound_mm": 8.339666326054072,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1486/GE-25007"
+    },
+    "50": {
+      "gap_lower_bound_mm": 18.339666326054072,
+      "body": "bumper-cover-front-red",
+      "station_occurrence": "NAUO1486/GE-25007"
+    }
+  },
+  "centered_bare_shelf_seating": [
+    {
+      "station_standoff_mm": 10,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07994463795016472,
+      "local_velocity_mps": 0.0004957787354192191
+    },
+    {
+      "station_standoff_mm": 25,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07995427963049542,
+      "local_velocity_mps": 0.0004093023594784775
+    },
+    {
+      "station_standoff_mm": 30,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07995733280599383,
+      "local_velocity_mps": 0.00038190592961892013
+    },
+    {
+      "station_standoff_mm": 35,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07996030750018095,
+      "local_velocity_mps": 0.00035520765412893474
+    },
+    {
+      "station_standoff_mm": 40,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07996320433196907,
+      "local_velocity_mps": 0.00032920222701913657
+    },
+    {
+      "station_standoff_mm": 45,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07996602397902616,
+      "local_velocity_mps": 0.0003038838185404754
+    },
+    {
+      "station_standoff_mm": 50,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.07996876717333803,
+      "local_velocity_mps": 0.0002792461139183407
+    },
+    {
+      "station_standoff_mm": 60,
+      "surface": "top",
+      "result": "within-modeled-seat-window",
+      "local_seat_m": 0.079971228156489,
+      "local_velocity_mps": 0.0002570366875447262
+    },
+    {
+      "station_standoff_mm": 80,
+      "surface": "fillet",
+      "result": "hold-first-contact-unmodeled",
+      "local_seat_m": null,
+      "local_velocity_mps": null
+    },
+    {
+      "station_standoff_mm": 100,
+      "surface": "fillet",
+      "result": "hold-first-contact-unmodeled",
+      "local_seat_m": null,
+      "local_velocity_mps": null
+    }
+  ],
+  "finite_pipe_flight": [
+    {
+      "station_standoff_mm": 10,
+      "side_mm": 0,
+      "yaw_deg": 0,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "receiver-R6-ported": 8
+      },
+      "first_positive_material_sample": null
+    },
+    {
+      "station_standoff_mm": 30,
+      "side_mm": 0,
+      "yaw_deg": 0,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.99,
+        "seconds_from_lip": 0.04931314625455383,
+        "overlaps_mm3": {
+          "observer-moving-pad-0": 1.2513,
+          "observer-moving-pad-1": 1.2513,
+          "observer-moving-pad-2": 1.2513
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 35,
+      "side_mm": 0,
+      "yaw_deg": 0,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.99,
+        "seconds_from_lip": 0.04931314625455383,
+        "overlaps_mm3": {
+          "observer-moving-pad-0": 1.4086,
+          "observer-moving-pad-1": 1.4086,
+          "observer-moving-pad-2": 1.4086
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 40,
+      "side_mm": 0,
+      "yaw_deg": 0,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.99,
+        "seconds_from_lip": 0.04931314625455383,
+        "overlaps_mm3": {
+          "observer-moving-pad-0": 1.4086,
+          "observer-moving-pad-1": 1.4086,
+          "observer-moving-pad-2": 1.4086
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 50,
+      "side_mm": 0,
+      "yaw_deg": 0,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.99,
+        "seconds_from_lip": 0.04931314625455383,
+        "overlaps_mm3": {
+          "observer-moving-pad-0": 1.4086,
+          "observer-moving-pad-1": 1.4086,
+          "observer-moving-pad-2": 1.4086
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 30,
+      "side_mm": -10,
+      "yaw_deg": -3,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "grip-L-420-3M-15": 4,
+        "grip-L-idler-20T": 4,
+        "grip-L-idler-upper-bearing": 4,
+        "grip-L-upper-cheek": 4,
+        "grip-L-upper-replaceable-offset-insert": 4,
+        "grip-L-idler-angle-board": 4,
+        "grip-L-idler-lower-bearing": 5,
+        "grip-L-lower-cheek": 5,
+        "grip-L-lower-replaceable-offset-insert": 5,
+        "grip-L-front-support-foot": 6,
+        "grip-L-front-riser": 6,
+        "grip-L-backing-strip": 6,
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8,
+        "grip-L-wear-strip-foot-65": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.43,
+        "seconds_from_lip": 0.021418841302482977,
+        "overlaps_mm3": {
+          "grip-L-upper-cheek": 3.784
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 30,
+      "side_mm": 10,
+      "yaw_deg": 3,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "grip-R-420-3M-15": 4,
+        "grip-R-idler-20T": 4,
+        "grip-R-idler-upper-bearing": 4,
+        "grip-R-upper-cheek": 4,
+        "grip-R-upper-replaceable-offset-insert": 4,
+        "grip-R-idler-angle-board": 4,
+        "grip-R-idler-lower-bearing": 5,
+        "grip-R-lower-cheek": 5,
+        "grip-R-lower-replaceable-offset-insert": 5,
+        "grip-R-front-support-foot": 6,
+        "grip-R-front-riser": 6,
+        "grip-R-backing-strip": 6,
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8,
+        "grip-R-wear-strip-foot-65": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.43,
+        "seconds_from_lip": 0.021418841302482977,
+        "overlaps_mm3": {
+          "grip-R-upper-cheek": 3.784
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 50,
+      "side_mm": -10,
+      "yaw_deg": -3,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "grip-L-420-3M-15": 6,
+        "grip-L-idler-20T": 6,
+        "grip-L-idler-upper-bearing": 6,
+        "grip-L-lower-cheek": 6,
+        "grip-L-upper-cheek": 6,
+        "grip-L-upper-replaceable-offset-insert": 6,
+        "grip-L-front-support-foot": 6,
+        "grip-L-front-riser": 6,
+        "grip-L-idler-angle-board": 6,
+        "grip-L-idler-lower-bearing": 7,
+        "grip-L-lower-replaceable-offset-insert": 7,
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8,
+        "grip-L-backing-strip": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.65,
+        "seconds_from_lip": 0.03237731824793938,
+        "overlaps_mm3": {
+          "grip-L-upper-cheek": 0.8469
+        }
+      }
+    },
+    {
+      "station_standoff_mm": 50,
+      "side_mm": 10,
+      "yaw_deg": 3,
+      "bare_shelf_height_time_s": 0.049811258842983666,
+      "chord_count": 8,
+      "earliest_candidate_chord_by_body": {
+        "grip-R-420-3M-15": 6,
+        "grip-R-idler-20T": 6,
+        "grip-R-idler-upper-bearing": 6,
+        "grip-R-lower-cheek": 6,
+        "grip-R-upper-cheek": 6,
+        "grip-R-upper-replaceable-offset-insert": 6,
+        "grip-R-front-support-foot": 6,
+        "grip-R-front-riser": 6,
+        "grip-R-idler-angle-board": 6,
+        "grip-R-idler-lower-bearing": 7,
+        "grip-R-lower-replaceable-offset-insert": 7,
+        "receiver-R6-ported": 8,
+        "observer-moving-pad-0": 8,
+        "observer-moving-pad-1": 8,
+        "observer-moving-pad-2": 8,
+        "grip-R-backing-strip": 8
+      },
+      "first_positive_material_sample": {
+        "flight_fraction": 0.65,
+        "seconds_from_lip": 0.03237731824793938,
+        "overlaps_mm3": {
+          "grip-R-upper-cheek": 0.8469
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Station docking lab · 2025 robot</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f2e8;color:#183634;font:16px/1.5 system-ui,sans-serif}main{max-width:1090px;margin:auto;padding:30px 24px 38px}h1{font-size:clamp(32px,6vw,54px);letter-spacing:-.04em;line-height:1.06;margin:.3em 0}h2{font-size:21px;margin:0 0 .35em}p{margin:.35em 0 1em;max-width:76ch}a{color:#245548}header{margin-bottom:22px}label{font-weight:640}select,input{font:inherit;max-width:100%}select{border:1px solid #63776e;border-radius:5px;background:#fffdf7;padding:.4em}.row,.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.cards{margin-top:15px}.card{background:#fffdf7;border:1px solid #ccd4c8;border-radius:10px;padding:14px}svg{display:block;width:100%;background:#193a3a;border-radius:9px;color:white}svg text{font:14px system-ui;fill:#f6f2e3}svg #planlabel{font-weight:700}.axis{display:grid;grid-template-columns:1fr auto;gap:2px}.axis input{grid-column:1/-1;width:100%}output{font-variant-numeric:tabular-nums}.metric{display:block;font-size:24px;font-weight:720;color:#28554b}.warn{color:#9a3e27}input:focus-visible,select:focus-visible{outline:3px solid #bc791e}footer{margin-top:22px} @media(max-width:690px){main{padding:17px 12px}.row,.cards{grid-template-columns:1fr;gap:10px}}
+</style></head><body><main>
+<header><a href="../full-match/replay.html">← Full match replay</a><h1>Docking at the station</h1><p>Back the robot away from the wall, then bring its shelf back under the falling pipe. Watch which change buys bumper clearance and which restores the catch.</p></header>
+<div class="controls"><label for="candidate">Receiving position</label><select id="candidate"></select><output id="setting"></output></div>
+<div class="row"><section><h2>Top view · bumper and wall</h2><svg viewBox="0 0 500 253" aria-label="Top view of the square bumper approaching the station wall"><g id="plan"></g></svg></section>
+<section><h2>Side view · centered feed</h2><svg viewBox="0 0 500 253" aria-label="Pipe leaves the chute and lands at the receiving shelf"><g id="side"></g></svg></section></div>
+<div class="cards"><section class="card"><h2>Parking error</h2><div class="axis"><label for="yaw">Heading error</label><output id="yawRead"></output><input id="yaw" type="range" min="-3" max="3" step=".25" value="0"></div>
+<div class="axis"><label for="axial">Normal error</label><output id="axialRead"></output><input id="axial" type="range" min="-10" max="10" step="1" value="0"></div>
+<output class="metric" id="gap"></output><span>Square bumper to lower wall plane. Negative values indicate overlap.</span></section>
+<section class="card"><h2>Native CAD results</h2><p id="bound"></p><p id="feed"></p><p>The side view uses a centered, zero-rebound feed. The parking sliders change the top view. Heading, sideways error and contact with the belts can change the actual catch.</p></section></div>
+<footer><a href="DOCKING.md">Measurements and reproduction</a> · <a href="handoff.svg">Station entry section</a></footer>
+<script>
+const data=__DATA__,ns="http://www.w3.org/2000/svg",el=id=>document.getElementById(id);
+const fmt=(n,d=1)=>Number(n).toFixed(d),draw=(parent,type,attrs,text)=>{const e=document.createElementNS(ns,type);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;parent.append(e);return e;};
+for(const [i,c] of data.cases.entries()){const o=document.createElement("option");o.value=i;o.textContent=c.label;el("candidate").append(o);}
+function render(){
+ const c=data.cases[+el("candidate").value],yaw=+el("yaw").value,ax=+el("axial").value,h=yaw*Math.PI/180;
+ const clearance=c.standoff+ax-425*(Math.cos(h)+Math.abs(Math.sin(h))-1);
+ el("setting").textContent=c.standoff+" mm standoff · "+c.stroke+" mm shelf stroke";
+ el("yawRead").textContent=fmt(yaw,2)+"°";el("axialRead").textContent=(ax>0?"+":"")+ax+" mm";
+ el("gap").textContent=fmt(clearance)+" mm plane gap";el("gap").classList.toggle("warn",clearance<=0);
+ el("bound").textContent=c.bound>0?"Across ±10 mm of normal and sideways error and ±3° of yaw, the entire receiving robot clears the station by at least "+fmt(c.bound,2)+" mm.":"The receiving robot touches the station in a tested combination of 1° heading error and 5 mm toward the wall.";
+ el("feed").textContent=c.pads?"At "+fmt(c.firstMs,2)+" ms the centered incoming pipe already intersects all three raised pads in the flat-shelf model.":"The centered flight reaches the shelf with no sampled material overlap before touchdown. Belt contact and the seated state have separate checks.";
+ const plan=el("plan");plan.replaceChildren();const sc=.22,wall=112,mid=122,center=wall+(425+c.standoff+ax)*sc;
+ draw(plan,"rect",{x:25,y:19,width:wall-25,height:203,fill:"#557275"});draw(plan,"line",{x1:wall,y1:18,x2:wall,y2:223,stroke:"#b4ddd3","stroke-width":2});draw(plan,"text",{x:35,y:241},"Station wall");
+ const b=draw(plan,"g",{transform:"translate("+center+" "+mid+") rotate("+(-yaw)+")"});draw(b,"rect",{x:-425*sc,y:-425*sc,width:850*sc,height:850*sc,fill:"#a25243",stroke:"#ffc8ac","stroke-width":1.5});draw(b,"rect",{x:-350*sc,y:-350*sc,width:700*sc,height:700*sc,fill:"#73443c"});draw(b,"text",{x:-40,y:5,id:"planlabel"},"Red robot");draw(plan,"text",{x:322,y:237},"850 mm bumper");
+ const side=el("side");side.replaceChildren();const sx=x=>115+x,sz=z=>200-(z-880),front=data.frontAtIssued+(c.standoff-10)-(c.stroke-240);
+ draw(side,"line",{x1:sx(-95),y1:sz(data.lipZ+(data.lipX+95)*Math.tan(35*Math.PI/180)),x2:sx(data.lipX),y2:sz(data.lipZ),stroke:"#b5d7c9","stroke-width":8});
+ draw(side,"line",{x1:sx(front),y1:sz(data.shelfTop),x2:sx(front+data.shelfLength),y2:sz(data.shelfTop),stroke:"#f1c65e","stroke-width":6});
+ draw(side,"polyline",{points:data.flight.map(v=>sx(v[0])+","+sz(v[1])).join(" "),stroke:"#c7e09b","stroke-width":2,fill:"none","stroke-dasharray":"3 4"});
+ if(c.stroke===270)el("feed").textContent="Centered flight leaves a "+fmt(data.rigidGap,2)+" mm lower bound to the other hardware after grip travel. The pipe is tangent to the belt. With 10 mm sideways error and 3° yaw, it strikes the angle board after 11 ms.";
+ const end=data.flight.at(-1);draw(side,"circle",{cx:sx(end[0]),cy:sz(end[1]),r:data.radius,fill:"none",stroke:"#c5e5a3","stroke-width":4});
+ draw(side,"text",{x:14,y:38},"Chute");draw(side,"text",{x:sx(front+75),y:230},"Receiving shelf");draw(side,"text",{x:280,y:52},fmt(data.speed,2)+" m/s at exit");
+}
+for(const id of ["candidate","yaw","axial"])el(id).addEventListener("input",render);render();
+</script></main></body></html>
