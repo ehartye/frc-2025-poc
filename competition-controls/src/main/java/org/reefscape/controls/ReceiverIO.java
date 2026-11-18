@@ -2,9 +2,17 @@ package org.reefscape.controls;
 
 /** Atomic application-time observations. Each timestamp refers to the oldest channel in its group. */
 public interface ReceiverIO {
+    /** Bounds in the controller clock. The lower bound requires an independently observed
+     * still-supported or overlapping pose for this release. A clear-only frame has no such bound. */
+    record Exit(boolean clear, long attempt, String pieceKey, long earliestCrossingMs,
+                long latestCrossingMs, boolean calibrated) {}
+    static String pieceKey(long attempt) { return "station-attempt-" + attempt; }
+
     record Sensors(long timeMs, double liftMm, double slideMm, boolean liftLower,
                    boolean liftUpper, boolean slideRetracted, boolean slideExtended,
-                   boolean entry, boolean seat, boolean clearOfShelf, long exitAttempt, boolean jam, boolean valid) {}
+                   boolean entry, boolean seat, Exit exit, boolean jam, boolean valid) {
+        boolean clearOfShelf() { return exit != null && exit.clear(); }
+    }
 
     record Approach(long timeMs, boolean stationDocked, boolean targetDocked,
                     boolean targetClear, boolean stopped, boolean valid) {}
