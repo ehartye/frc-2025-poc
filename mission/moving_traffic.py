@@ -72,16 +72,16 @@ def feeder(ready,stock,loader_free,piece,consumed):
             "chute_acceleration_mps2":acceleration,"observed_lip_speed_basis":"assumed no-slip rolling from rest"}
 
 
-def programs(start_hold=0,stock=(0,35)):
+def programs(start_hold=0,stock=(0,35),mission_record=INPUT,focal_routes=f.routes):
     team={side+str(i):Program(i,side) for side in ("red","blue") for i in (1,2,3)}
     focal=team["red2"]
     focal.append(start_hold,"traffic reservation")
-    routes=[f.routes(y) for y in (-.18,.22)]
+    routes=[focal_routes(y) for y in (-.18,.22)]
     focal.append(routes[0][0].duration,"first station approach",routes[0][0])
     arrival=[]
     pipe_states=[]
     consumed={}
-    for i,p in enumerate(INPUT["trips"]):
+    for i,p in enumerate(mission_record["trips"]):
         key=p["piece_id"]
         sector=p["sector_m"]
         focal.append(2,"extend empty receiver")
@@ -93,7 +93,7 @@ def programs(start_hold=0,stock=(0,35)):
         consumed[key]=True
         source_start=focal.clock
         carry=routes[i][1]
-        e=INPUT["events"]
+        e=mission_record["events"]
         # This bench stage lasts through the actual registered body capture and
         # lowering. Derive duration from the source receipt's first loaded leg.
         loaded_index=next(j for j,ev in enumerate(e) if ev["event"]=="loaded-"+key)
@@ -136,12 +136,12 @@ def motion_bound(w):
     return abs((w[0]+w[1])/2)+RADIUS*abs((w[1]-w[0])/f.DRIVE["trackM"])
 
 
-def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02):
+def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02,mission_record=INPUT,focal_routes=f.routes):
     if (not math.isfinite(start_hold) or start_hold<0 or not math.isfinite(deadline) or not 0<deadline<=135
             or not math.isfinite(step) or not .005<=step<=.05 or len(stock)!=2
             or any(t is not None and (not math.isfinite(t) or t<0) for t in stock)):
         raise ValueError("Use finite nonnegative times, two stock arrivals and a 5–50 ms collision step")
-    team,feeds,pipes=programs(start_hold,stock)
+    team,feeds,pipes=programs(start_hold,stock,mission_record,focal_routes)
     for key in ("red3","blue3"):
         for _,_,_,route in team[key].intervals:
             if route:
@@ -155,7 +155,7 @@ def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02):
     first=None
     direct=None
     prior_pipes=[(f.LIP[0]+p["departure"]["settled_target_xz_m"][0],f.LIP[1]+p["sector_m"],0)
-                 for p in INPUT["trips"]]
+                 for p in mission_record["trips"]]
     min_other_pipe=math.inf
     for tick in range(math.ceil(deadline/step)):
         t=tick*step+half
@@ -191,12 +191,13 @@ def analyze(start_hold=0,stock=(0,35),deadline=135,step=.02):
     if exclusions["scoring_pipe_count"]!=12 or exclusions["native_material_control_gap_mm"]>1e-5:
         raise ValueError("Incomplete native branch witness")
     measured={}
-    for trip,witness in zip(INPUT["trips"],exclusions["trips"],strict=True):
+    for trip,witness in zip(mission_record["trips"],exclusions["trips"],strict=True):
         x,z=trip["departure"]["settled_target_xz_m"]
-        if (trip["piece_id"]!=witness["piece"] or math.dist([x,trip["sector_m"],z],witness["target_x_y_z_m"])>1e-8
+        displacement=math.dist([x,trip["sector_m"],z],witness["target_x_y_z_m"])
+        if (trip["piece_id"]!=witness["piece"] or displacement>.0001
                 or len(witness["pipe_distances_mm"])!=12):
             raise ValueError("Branch witness differs from observed registered pipe")
-        measured[witness["piece"]]=min(witness["pipe_distances_mm"].values())
+        measured[witness["piece"]]=min(witness["pipe_distances_mm"].values())-displacement*1000
     scores={}
     samples=[]
     for p in observed:
