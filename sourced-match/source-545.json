@@ -1,0 +1,437 @@
+{
+  "schema": "station-source-contact/1",
+  "field_step_sha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "receive_step_sha256": "6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73",
+  "issued_match_sha256": "5cf57314c6cd699d56e711737c85df21fef78d39ff978a9f2b04c19b9b416350",
+  "opening_sections": {
+    "rear": "NAUO1495/GE-25020",
+    "front": "NAUO1496/GE-25021",
+    "center_x_mm": -285.7976633693941,
+    "human_side_face_x_mm": -346.7929372448502,
+    "field_side_face_x_mm": -224.80238949393802,
+    "slot_mm": 121.99054775091216,
+    "centered_side_margin_mm": 3.84527387545608,
+    "outer_hull_yaw_limit_deg": 1.4681617393950064,
+    "test_z_mm": 1340,
+    "native_controls_mm3": {
+      "center": {},
+      "shifted-toward-field": {
+        "NAUO1496/GE-25021": 40657.0948
+      },
+      "yaw-three-degrees": {
+        "NAUO1495/GE-25020": 3397.9886,
+        "NAUO1496/GE-25021": 3299.7343
+      }
+    }
+  },
+  "feed": {
+    "release_z_m": 1.55,
+    "original_lip_mps": 0.5,
+    "old_rolling_distance_m": 0.0421135058592199,
+    "source_assumptions": "Transverse centered, zero spin/velocity, perfectly inelastic ramp landing, no slipping thereafter, no hand model.",
+    "free_drop_s": 0.26004348884157535,
+    "first_ramp_center_xz_m": [
+      -0.2857976633693941,
+      1.2184243359659017
+    ],
+    "fall_speed_mps": 2.5501554798482347,
+    "run_m": 0.38465538042698616,
+    "initial_rolling_speed_mps": 0.7718530063457186,
+    "ramp_accel_mps2": 2.968168938911406,
+    "lip_mps": 1.696820959365479,
+    "ramp_time_s": 0.3116291464727065,
+    "minimum_slide_to_roll_friction": 0.33071691544106807,
+    "minimum_static_rolling_friction": 0.33071691544106807,
+    "first_rebound_alternatives": [
+      {
+        "assumed_normal_restitution": 0.2,
+        "sampled_before_return_s": 0.10401739553663013,
+        "first_material_witness": {
+          "elapsed_after_impact_s": 0.035,
+          "center_mm": [
+            -255.28112148609415,
+            1208.9009385330603
+          ],
+          "material_mm3": {
+            "NAUO1490/GE-25015": 218.8207
+          }
+        }
+      },
+      {
+        "assumed_normal_restitution": 0.4,
+        "sampled_before_return_s": 0.20803479107326026,
+        "first_material_witness": {
+          "elapsed_after_impact_s": 0.02,
+          "center_mm": [
+            -263.5669148635396,
+            1221.298112120844
+          ],
+          "material_mm3": {
+            "NAUO1490/GE-25015": 7436.9155,
+            "NAUO1496/GE-25021": 2860.5942
+          }
+        }
+      },
+      {
+        "assumed_normal_restitution": 0.6,
+        "sampled_before_return_s": 0.3120521866098904,
+        "first_material_witness": {
+          "elapsed_after_impact_s": 0.015,
+          "center_mm": [
+            -265.53005856059804,
+            1226.0809574909615
+          ],
+          "material_mm3": {
+            "NAUO1490/GE-25015": 8939.1833,
+            "NAUO1496/GE-25021": 5294.1887
+          }
+        }
+      }
+    ],
+    "sampled_ramp_material": [
+      {
+        "fraction": 0,
+        "center_mm": [
+          -285.7976633693941,
+          1218.4243359659017
+        ],
+        "material_mm3": {}
+      },
+      {
+        "fraction": 0.25,
+        "center_mm": [
+          -207.02485306351275,
+          1163.2670203837602
+        ],
+        "material_mm3": {}
+      },
+      {
+        "fraction": 0.5,
+        "center_mm": [
+          -128.25204275763136,
+          1108.1097048016184
+        ],
+        "material_mm3": {}
+      },
+      {
+        "fraction": 0.75,
+        "center_mm": [
+          -49.47923245174994,
+          1052.9523892194768
+        ],
+        "material_mm3": {}
+      },
+      {
+        "fraction": 1,
+        "center_mm": [
+          29.2935778541314,
+          997.7950736373351
+        ],
+        "material_mm3": {}
+      }
+    ],
+    "continuous_occupied_hulls": {
+      "vertical-drop": {},
+      "tangent-roll": {},
+      "flight": [
+        {
+          "until_s": 0.006226407355372958,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {
+            "NAUO1489/GE-25010": 19.93331
+          },
+          "robot": {}
+        },
+        {
+          "until_s": 0.012452814710745917,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.018679222066118877,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.024905629421491833,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.03113203677686479,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.03735844413223775,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.04358485148761071,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {}
+        },
+        {
+          "until_s": 0.049811258842983666,
+          "chord_expansion_mm": 0.04752320800341341,
+          "station": {},
+          "robot": {
+            "receiver-R6-ported": 44.12972
+          }
+        }
+      ],
+      "vertical-drop-receiving-robot": {},
+      "tangent-roll-receiving-robot": {}
+    }
+  },
+  "rates": {
+    "0.5": {
+      "centered_flat_model": {
+        "result": "within-modeled-seat-window",
+        "impact": {
+          "surface": "top",
+          "time_s": 0.06831018862283218,
+          "center_m": [
+            0.06723323756067053,
+            0.93715
+          ],
+          "normal_xz": [
+            0.0,
+            1.0
+          ],
+          "velocity_in_mps": [
+            0.4335608888805925,
+            -1.1186934246719311
+          ],
+          "normal_approach_mps": 1.1186934246719311,
+          "post_x_mps": [
+            0.4335608888805925,
+            0.4335608888805925,
+            0.4335608888805925
+          ]
+        },
+        "minimum_local_x_m": 0.08000385340143469,
+        "last_local_x_m": 0.08000385340143469,
+        "last_relative_speed_mps": -3.5352683389083756e-05,
+        "simulated_s": 1.1,
+        "peak_grip_travel_mm": 0.0
+      },
+      "native_arrival_samples": [
+        {
+          "flight_fraction": 0.9,
+          "time_from_lip_s": 0.061479169760548964,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.98,
+          "time_from_lip_s": 0.06694398485037553,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.99,
+          "time_from_lip_s": 0.06762708673660386,
+          "material_mm3": {
+            "observer-moving-pad-0": 0.5301,
+            "observer-moving-pad-1": 0.5301,
+            "observer-moving-pad-2": 0.5301
+          }
+        },
+        {
+          "flight_fraction": 0.995,
+          "time_from_lip_s": 0.06796863767971802,
+          "material_mm3": {
+            "observer-moving-pad-0": 19.2738,
+            "observer-moving-pad-1": 19.2738,
+            "observer-moving-pad-2": 19.2738
+          }
+        },
+        {
+          "flight_fraction": 1,
+          "time_from_lip_s": 0.06831018862283218,
+          "material_mm3": {
+            "observer-moving-pad-0": 50.8924,
+            "observer-moving-pad-1": 50.8924,
+            "observer-moving-pad-2": 50.8924
+          }
+        }
+      ],
+      "supported_motion_occupied_enclosure": {
+        "observer-moving-pad-0": 50.89239,
+        "observer-moving-pad-1": 50.89239,
+        "observer-moving-pad-2": 50.89239
+      },
+      "supported_motion_basis": "Filled finite pipe along the centerline to maximum penetration. Nominal fixed cartridge geometry; positive enclosures need material/compliance interpretation."
+    },
+    "1.696821": {
+      "centered_flat_model": {
+        "result": "within-modeled-seat-window",
+        "impact": {
+          "surface": "top",
+          "time_s": 0.049811258842983666,
+          "center_m": [
+            0.09852895414329949,
+            0.93715
+          ],
+          "normal_xz": [
+            0.0,
+            1.0
+          ],
+          "velocity_in_mps": [
+            1.3899543576566404,
+            -1.4617381005311603
+          ],
+          "normal_approach_mps": 1.4617381005311603,
+          "post_x_mps": [
+            1.3899543576566404,
+            1.3899543576566404,
+            1.3899543576566404
+          ]
+        },
+        "minimum_local_x_m": 0.0073321400498869566,
+        "last_local_x_m": 0.07994463795016472,
+        "last_relative_speed_mps": 0.0004957787354192191,
+        "simulated_s": 1.1,
+        "peak_grip_travel_mm": 0.0
+      },
+      "native_arrival_samples": [
+        {
+          "flight_fraction": 0.9,
+          "time_from_lip_s": 0.0448301329586853,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.98,
+          "time_from_lip_s": 0.04881503366612399,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.99,
+          "time_from_lip_s": 0.04931314625455383,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.995,
+          "time_from_lip_s": 0.049562202548768745,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 1,
+          "time_from_lip_s": 0.049811258842983666,
+          "material_mm3": {}
+        }
+      ],
+      "supported_motion_occupied_enclosure": {},
+      "supported_motion_basis": "Filled finite pipe along the centerline to maximum penetration. Nominal fixed cartridge geometry; positive enclosures need material/compliance interpretation."
+    },
+    "2.5": {
+      "centered_flat_model": {
+        "result": "recover",
+        "impact": {
+          "surface": "top",
+          "time_s": 0.037487223747561485,
+          "center_m": [
+            0.10606291777296603,
+            0.93715
+          ],
+          "normal_xz": [
+            0.0,
+            1.0
+          ],
+          "velocity_in_mps": [
+            2.0478801107224793,
+            -1.801565173641639
+          ],
+          "normal_approach_mps": 1.801565173641639,
+          "post_x_mps": [
+            2.0478801107224793,
+            2.0478801107224793,
+            2.0478801107224793
+          ]
+        },
+        "minimum_local_x_m": -0.10017910592493208,
+        "last_local_x_m": -0.10017910592493208,
+        "last_relative_speed_mps": -0.5487367278653108,
+        "simulated_s": 0.153,
+        "peak_grip_travel_mm": 0.0
+      },
+      "native_arrival_samples": [
+        {
+          "flight_fraction": 0.9,
+          "time_from_lip_s": 0.03373850137280534,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.98,
+          "time_from_lip_s": 0.03673747927261026,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.99,
+          "time_from_lip_s": 0.03711235151008587,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 0.995,
+          "time_from_lip_s": 0.037299787628823675,
+          "material_mm3": {}
+        },
+        {
+          "flight_fraction": 1,
+          "time_from_lip_s": 0.037487223747561485,
+          "material_mm3": {}
+        }
+      ],
+      "supported_motion_occupied_enclosure": {
+        "grip-L-drive-22T": 3.91174,
+        "grip-R-drive-22T": 3.91174
+      },
+      "supported_motion_basis": "Filled finite pipe along the centerline to maximum penetration. Nominal fixed cartridge geometry; positive enclosures need material/compliance interpretation."
+    }
+  },
+  "identified_transfers": [
+    {
+      "id": "coral-A",
+      "available_teleop_s": 0,
+      "human_release_teleop_s": 3.1,
+      "ramp_lip_teleop_s": 3.671672635314282,
+      "ideal_seat_check_teleop_s": 4.821483894157266,
+      "cumulative_extra_s": 0.38471968209755386,
+      "alliance_stock_remaining_if_taken": 59,
+      "five_other_programs": {
+        "lower_bound_m": 4.61369277663511,
+        "nearest_program": "red3",
+        "other_robot_count": 5,
+        "max_interval_s": 0.02
+      }
+    },
+    {
+      "id": "coral-B",
+      "available_teleop_s": 35,
+      "human_release_teleop_s": 53.501357467326606,
+      "ramp_lip_teleop_s": 54.073030102640885,
+      "ideal_seat_check_teleop_s": 55.22284136148387,
+      "cumulative_extra_s": 0.7694393641951047,
+      "alliance_stock_remaining_if_taken": 58,
+      "five_other_programs": {
+        "lower_bound_m": 2.584811096103146,
+        "nearest_program": "red3",
+        "other_robot_count": 5,
+        "max_interval_s": 0.02
+      }
+    }
+  ],
+  "issued_park_s": 93.24593689205535,
+  "whole_match_using_new_source": "pending",
+  "remaining": [
+    "No observed lawful human transfer or hand tracking.",
+    "Sweeps cover centered entry down the nominal ramp through first-catch height. Bounce, actual friction, contact stiffness and sensing are unqualified.",
+    "Full custody and release clock for the changed source require a new downstream qualification."
+  ]
+}

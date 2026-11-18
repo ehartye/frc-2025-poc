@@ -149,7 +149,7 @@ def remote_robot_gap(team,start,end,f,source_x_range):
     return {"lower_bound_m":min_gap,"nearest_program":nearest,"other_robot_count":5,"max_interval_s":.02}
 
 
-def run(step,poses):
+def run(step,poses,*,expected_receive=None,expected_bodies=401):
     shape=parts(step)
     boxes={k:cad.bounds(v) for k,v in shape.items()}
     rear=next(k for k in boxes if k.endswith("/GE-25020"))
@@ -161,9 +161,9 @@ def run(step,poses):
     yaw=math.degrees(math.asin(slot/math.hypot(2*R,2*H))-math.atan2(2*R,2*H))
     source=rolling(center/1000,1.550)
     rkey=ROOT/"full-match/red-kit/manifest.json"
-    expected=json.loads(rkey.read_bytes())["receive"]["red_sha256"]
+    expected=expected_receive or json.loads(rkey.read_bytes())["receive"]["red_sha256"]
     robot=cad.read_named(poses/"receive.step",[{"id":k} for k in json.loads((poses/"part-frames.json").read_bytes())])
-    if len(robot)!=401 or sha(poses/"receive.step")!=expected:
+    if len(robot)!=expected_bodies or sha(poses/"receive.step")!=expected:
         raise ValueError("Robot inventory or STEP differs")
     robotbox={k:cad.bounds(v) for k,v in robot.items()}
     negatives={}
@@ -263,5 +263,7 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     for k in ("field","poses","output"):
         p.add_argument("--"+k,type=Path,required=True)
+    p.add_argument("--expected-receive-sha256",help="Reviewed receiving-pose STEP digest")
+    p.add_argument("--body-count",type=int,default=401)
     args=p.parse_args()
-    args.output.write_text(json.dumps(run(args.field,args.poses),indent=2,allow_nan=False)+"\n",encoding="utf8",newline="\n")
+    args.output.write_text(json.dumps(run(args.field,args.poses,expected_receive=args.expected_receive_sha256,expected_bodies=args.body_count),indent=2,allow_nan=False)+"\n",encoding="utf8",newline="\n")

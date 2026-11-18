@@ -130,14 +130,31 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
     first = rx.first_impact(speed,stand_off_mm,240,6,json.loads(rx.DESIGN.read_text()))
     if first["surface"] != "top":
         raise ValueError("This hold model requires flat first contact")
-    id_ = piece_id
-    # Clock origin is lip departure. The exact first-contact time is inherited.
-    start = first["time_s"]
-    x,z = first["center_m"]
-    vx = first["velocity_in_mps"][0]
-    y = vy = omega = 0.0
-    yaw = math.pi
-    time = 0.0
+    x,z=first["center_m"]
+    return integrate(case,dt,mass,piece_id,target_y,sample_every_step,trajectory,grip_law,
+                     first["time_s"],0.0,(x,0.0,z),(first["velocity_in_mps"][0],0.0),
+                     math.pi,0.0,"first-top-contact")
+
+
+def resume_from_seat(state,dt,trajectory,grip_law,target_y,piece_id):
+    """Resume the actual seated body at the first retract command, on its original lip clock."""
+    if state["piece_id"]!=piece_id or state["status"]!="within-modeled-seat-window":
+        raise ValueError("A matching attained seat is required")
+    values=[state["mass_kg"],state["seat_elapsed_s"],state["first_contact_from_lip_s"],
+            *state["xyz_m"],*state["vxyz_mps"],state["yaw_rad"],state["yaw_rate_rad_s"],state["pitch_rad"]]
+    if not all(math.isfinite(v) for v in values) or abs(state["pitch_rad"])>1e-9 or abs(state["vxyz_mps"][2])>1e-9:
+        raise ValueError("This continuation requires a finite, seated transverse pipe")
+    if not .00025<=dt<=.005 or abs(state["seat_elapsed_s"]-1.1)>1e-9 or state["mass_kg"]<=0:
+        raise ValueError("Invalid continuation clock or mass")
+    return integrate("reference",dt,state["mass_kg"],piece_id,target_y,True,trajectory,grip_law,
+                     state["first_contact_from_lip_s"],state["seat_elapsed_s"],state["xyz_m"],
+                     state["vxyz_mps"][:2],state["yaw_rad"],state["yaw_rate_rad_s"],"resume-from-source-seat")
+
+
+def integrate(case,dt,mass,id_,target_y,sample_every_step,trajectory,grip_law,
+              start,time,position,velocity,yaw,omega,initial_event):
+    x,y,z=position
+    vx,vy=velocity
     mode = "supported"
     trace = []
     events = []
@@ -181,8 +198,8 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
                 "outcome":reason,
                 "physical_capture_tested":False,"score":None,"peak_supported":peak,
                 "events":events,"trace":trace}
-    record("first-top-contact")
-    trace.append(row("station-capture"))
+    record(initial_event)
+    trace.append(row(initial_event if initial_event!="first-top-contact" else "station-capture"))
     # Initial impact is perfectly inelastic in normal direction, with zero tangential
     # impulse. The tube then obtains only the applied, limited forces below.
     last_phase = ""
