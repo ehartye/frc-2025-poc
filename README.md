@@ -8,6 +8,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome.
 
+[Compare the installed articles and inspection weight estimates](design/assembly-accounting/README.md) for both alliance configurations and the proposed carrier and stop hardware.
+
 ## Design highlights
 
 Explore the earlier [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
