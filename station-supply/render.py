@@ -43,4 +43,7 @@ side.annotate("Receiver shelf",(180,880),xytext=(90,808),arrowprops=dict(arrowst
 side.set_title("Centered drop and first contact",loc="left",fontweight="bold");side.set_xlabel("Robotward X (mm)");side.set_ylabel("Above field floor (mm)");side.set_xlim(-405,325);side.set_ylim(770,1605)
 fig.suptitle("Station supply | A 122 mm opening for a 114 mm pipe",fontsize=16,fontweight="bold",x=.06,ha="left");fig.subplots_adjust(left=.07,right=.99,top=.86,bottom=.23,wspace=.19)
 mpl.rcParams["svg.hashsalt"]="station-supply-2025"
-fig.savefig(HERE/"handoff.svg",metadata={"Date":None})
+mpl.rcParams["svg.fonttype"]="none"
+output=HERE/"handoff.svg"
+fig.savefig(output,metadata={"Date":None})
+output.write_text("\n".join(line.rstrip() for line in output.read_text(encoding="utf8").splitlines())+"\n",encoding="utf8",newline="\n")
