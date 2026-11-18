@@ -1,0 +1,132 @@
+{
+  "schema": "frc-2025-b1/1",
+  "season": 2025,
+  "units": "m",
+  "status": "B4 receive-extension candidate; release geometry unchanged from B3; acquisition not established",
+  "frames": {
+    "world": "local rehearsal arena: +X toward isolated REEF face, +Y left, +Z up; not full-field registration",
+    "robot": "origin ground at chassis center, +X forward,+Y left,+Z up"
+  },
+  "strategyId": "station-l1-cycle",
+  "geometry": {
+    "frameLength": 0.7,
+    "frameWidth": 0.7,
+    "bumperOuterLength": 0.85,
+    "bumperOuterWidth": 0.85,
+    "bumperBottom": 0.04,
+    "bumperTop": 0.19,
+    "trackWidth": 0.58,
+    "startHeight": 1.02,
+    "liftLow": 0.56,
+    "liftHigh": 0.94,
+    "releaseX": 0.535,
+    "stationMouthWidth": 0.42,
+    "coralLength": 0.301625,
+    "coralOuterDiameter": 0.1143,
+    "coralMassRangeKg": [
+      0.498951607,
+      0.816466266
+    ],
+    "stowedReleaseX": 0.165,
+    "placementStroke": 0.37,
+    "pieceCenterX": 0.08,
+    "cassetteLength": 0.265,
+    "retainerLiftInPlace": 0.16
+  },
+  "poses": {
+    "station": {
+      "x": -3.0,
+      "y": 0.0,
+      "headingDeg": 180
+    },
+    "reef": {
+      "x": -0.49,
+      "y": 0.0,
+      "headingDeg": 0
+    }
+  },
+  "target": {
+    "frontLipHeight": 0.4572,
+    "floorHeightHypothesis": 0.4,
+    "installedTransformValidated": false,
+    "oldPartLocalExitHeight": 0.06715,
+    "floorModelStatus": "rejected as installed representation: official floor slopes inward"
+  },
+  "motion": {
+    "driveSpeedMps": 1.0,
+    "turnSpeedDegps": 90,
+    "liftSpeedMps": 0.25,
+    "stationWaitS": 1.5,
+    "releaseS": 1.0,
+    "poseMaxAgeS": 0.1,
+    "slideSpeedMps": 0.15
+  },
+  "sources": [
+    {
+      "url": "https://firstfrc.blob.core.windows.net/frc2025/Manual/HTML/2025GameManual.htm",
+      "sections": [
+        "5.6.2",
+        "5.7.1",
+        "6.5.1",
+        "6.5.4",
+        "R104",
+        "R105"
+      ],
+      "facts": "Station opening bottom .9525 m; CORAL nominal .301625 m long, .1143 m outside diameter, mass1.1\u20131.8lb. L1 requires trough support and no allied robot contact. Starting perimeter120in, height42in; extension18in."
+    },
+    {
+      "url": "https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025FieldDrawings.pdf",
+      "sha256": "85659c846ec94909d399ed0b29c9ea0a2fbb57dd8e21f77eaf613fcdd5401015",
+      "scope": "Existing reviewed trough part dimensions are not an installed field transform."
+    }
+  ],
+  "assumptions": [
+    "Station seating and retention are prescribed, not contact simulation",
+    "Lift/drive motion constant-rate, no motor/traction/energy model at this stage",
+    "Target floor elevation .40m is hypothetical; lip screen alone is not a scored placement",
+    "Human feeding timing, PVC orientation and wear are uncalibrated",
+    "Bumper dimensions are provisional envelopes, not backing/coverage acceptance",
+    "Cassette placement slide is prescribed .37m extension; no actuator or swept-fit validation",
+    "Longer slide candidate .37m replaces .14m baseline only for comparison, not accepted design",
+    "B3 shortened shelf/guide and raised retainer reserve; continuous withdrawal prescribed at .15m/s after .05s, not hardware actuation proof"
+  ],
+  "unresolved": [
+    "Complete station chute/receiver orientation and support path",
+    "Installed trough floor/lip/walls registration",
+    "Power-off lift retention and repair access",
+    "CORAL release/contact dynamics and mass/friction sensitivity",
+    "Complete swept envelopes and collision/load tests",
+    "Actual station ramp-edge contact and human feeding, including low-speed continued edge contact",
+    "Extended receiver guide/retainer transitions, impact and retained retraction",
+    "No B4 acquisition acceptance follows from unchanged B3 release geometry"
+  ],
+  "parentContract": "b3-candidate.json",
+  "releaseClearance": {
+    "schema": "frc-release-clearance/1",
+    "retainerOpenRequiredBeforeFeed": true,
+    "retractDelayAfterExitS": 0.05,
+    "retractSpeedMps": 0.15,
+    "basis": "Hypothetical controlled withdrawal after native exit, no selected actuator or sensor",
+    "staticShelfFailurePreserved": true
+  },
+  "acquisition": {
+    "schema": "frc-station-receiver/1",
+    "receiveSlideExtensionM": 0.22,
+    "receiveRetainerLiftM": 0.2,
+    "stationCenteredChassisRobotwardM": 0.434525,
+    "basis": "Candidate uses existing slide range to reduce bumper-to-receiver handoff gap; prescribed motion only",
+    "lipCenterReceiverM": [
+      0.029293577854,
+      0,
+      0.997795073637
+    ],
+    "departureSpeedsMpsHypotheses": [
+      0.5,
+      1,
+      2
+    ],
+    "downRampDegreesHypothesis": 35,
+    "lowSpeedFlightRejected": true,
+    "retentionEstablished": false
+  }
+}

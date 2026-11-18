@@ -1,0 +1,22 @@
+{
+  "basis": "Illustrative simultaneous DC supply loads for sizing comparisons; no selected hardware, measured currents or controller settings.",
+  "openCircuitV": 12.4,
+  "batteryOhm": 0.017,
+  "trunkOhm": 0.008,
+  "studyFloorV": 9.5,
+  "columns": ["controllerAndRadio","DriveLeft","DriveRight","Lift","Slide","LeftGrip","RightGrip"],
+  "busCurrentA": {
+    "receive_stopped": [4,0,0,3,15,8,8],
+    "drive_loaded": [4,30,30,3,0,4,4],
+    "place_stopped": [4,0,0,3,18,10,10],
+    "all_axes_high_negative_control": [4,42,42,30,20,12,12]
+  },
+  "architecture": [
+    ["battery","main disconnect","protected distribution","fixed supply"],
+    ["protected distribution","left/right drive motor controllers","DriveLeft/DriveRight","fixed independent protection and phase-current qualification open"],
+    ["protected distribution","lift controller and passive anti-drop device","Lift","selected brake, power-off retention and measurement open"],
+    ["protected distribution","slide and opposed grips","Slide/LeftGrip/RightGrip","rated connectors, moving harness, fusing and service slack open"],
+    ["protected distribution","robot controller and radio","command authority","regulated supplies, ground return and selected radios open"],
+    ["robot controller","fixed and carriage I/O","Entry/Seat/ExitClear","exit confirmation requires a separate same-attempt measurement"]
+  ]
+}
