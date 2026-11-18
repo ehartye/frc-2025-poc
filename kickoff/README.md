@@ -2,6 +2,8 @@
 
 Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [editable season source](season-profile.json) is the input for regeneration.
 
+The editable observation box starts at 30 × 30 × 30 in and heading 0°. Each rehearsal roster slot initially uses a 26 × 26 in frame with 3.25 in of bumper per side, for a 32.5 × 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.
+
 This exercise starts from the 2025 REEFSCAPE V0 game manual. The existing mechanism fixture in the main README is a later investigation. Both candidate match stories in this exercise remain open for team review.
 
 1. Inspect the [editable V0 rules model](rules-v0.json). It records the inventory, phase durations, point values, field dimensions and illustrative route assumptions.
