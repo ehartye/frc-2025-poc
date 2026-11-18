@@ -1,0 +1,68 @@
+{
+  "schema": "receiver-load-assumptions/1",
+  "basis": "Provisional B4 / station-L1 package interface. Dimensions in millimetres; masses, speeds, deformation distances and share of load below are design scenarios pending measurement.",
+  "shelfRearXmm": -100,
+  "shelfTopBelowLiftMm": 60,
+  "bumperFrontXmm": 425,
+  "bumperTopZmm": 190,
+  "carriageReferenceXmm": 0,
+  "shelfMountsMm": [
+    [
+      -80,
+      -180
+    ],
+    [
+      -80,
+      180
+    ],
+    [
+      140,
+      -180
+    ],
+    [
+      140,
+      180
+    ]
+  ],
+  "poses": {
+    "stowed": {
+      "strokeMm": 0,
+      "liftMm": 940
+    },
+    "receive": {
+      "strokeMm": 240,
+      "liftMm": 940
+    },
+    "transport": {
+      "strokeMm": 0,
+      "liftMm": 670
+    },
+    "place": {
+      "strokeMm": 370,
+      "liftMm": 560
+    }
+  },
+  "contacts": [
+    {
+      "id": "meter-per-second-compliant",
+      "robotMassKg": 50,
+      "peerMassKg": 50,
+      "closingSpeedMps": 1,
+      "combinedCompressionM": 0.05
+    },
+    {
+      "id": "two-meters-per-second-compliant",
+      "robotMassKg": 50,
+      "peerMassKg": 50,
+      "closingSpeedMps": 2,
+      "combinedCompressionM": 0.05
+    },
+    {
+      "id": "two-meters-per-second-short-stop",
+      "robotMassKg": 50,
+      "peerMassKg": 50,
+      "closingSpeedMps": 2,
+      "combinedCompressionM": 0.025
+    }
+  ]
+}

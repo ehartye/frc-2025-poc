@@ -28,6 +28,8 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
+The [receiver load-path study](structural/README.md) connects extension, bumper setback and mounting demand to the decision about when the robot can carry or deploy the shelf.
+
 The [2025 historical input package](historical/agent-frc-0.12/README.md) inventories the season-owned operating files, CAD, executable studies and byte-verified upstream replay route. The [release-day profile](kickoff/season-profile.json) separately owns the current field rehearsal.
 
 - The [station-edge experiment](STATION-EDGE.md) calculates where an incoming CORAL leaves an idealized chute lip. The [receiver-contact screen](RECEIVER-CONTACT.md) follows it to first contact with an extended shelf. Both run with Python alone.
