@@ -1,4 +1,6 @@
 """Run the project-owned WPILib receiver tests offline and retain a source-bound receipt."""
+from withdrawal_trial import reviewed_exposure
+
 import argparse
 import hashlib
 import json
@@ -18,6 +20,9 @@ CASES = {
     "stuckAxisTimesOutEvenWithFreshEncoderFrames", "latchedEntryDuringReleaseCannotStartWithdrawal",
     "cancellationImmediatelyDropsAllDemandsAndBlocksSilentRestart", "exitFromAnotherAttemptCannotAuthorizeWithdrawal",
     "deployedCoordinatesMatchTheProjectMission", "stuckWithdrawalIsDetectedBeforeFullRetractionTimeout",
+    "legacyShelfSignalKeepsBothBeltsAndSlideStationary", "completeFrameCannotEnableOrdinaryCommand",
+    "wholeFrameRequiresMatchingScopeIdentityGeometryAndExposure", "changingTrackEpochLatchesFault",
+    "withdrawalRevocationStopsMotion", "disablingDuringHoldClearsAllDemands",
     "uncalibratedStereoCannotMove", "wrongPieceCannotMove", "tooWideAnIntervalCannotAuthorize",
     "frameFromFutureCannotAuthorize", "schedulingDelayCannotStartLateRetreat",
     "driverStationDisableCancelsAndEnableAloneStaysNeutral", "sensorPortGeometryRejectsTheOldSeatLocation",
@@ -30,13 +35,14 @@ def digest(file):
 
 def pins():
     inputs = list((SOURCE / "src").rglob("*.java"))
-    inputs.extend([SOURCE / "init.gradle", SOURCE / "io-contract.json", ROOT / "mission/candidate.json",
+    inputs.extend([ROOT / "scripts/withdrawal_trial.py", SOURCE / "init.gradle", SOURCE / "io-contract.json", ROOT / "mission/candidate.json",
                    Path(__file__).resolve(), PROJECT / "build.gradle", PROJECT / "gradle.lockfile",
                    PROJECT / "gradle/wrapper/gradle-wrapper.properties"])
     return {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(inputs)}
 
 
 def run(jdk, cache, output):
+    trial_fields, evidence = reviewed_exposure(ROOT)
     source_pins = pins()
     io = json.loads((SOURCE/"io-contract.json").read_bytes())
     mission = json.loads((ROOT/"mission/candidate.json").read_bytes())
@@ -64,6 +70,7 @@ def run(jdk, cache, output):
     env = dict(os.environ, JAVA_HOME=str(jdk), GRADLE_USER_HOME=str(cache),
                REEF_CONTROLS_SOURCE=str(SOURCE), REEF_CONTROLS_BUILD=str(build), REEF_CONTROLS_RUN=run_id)
     env["REEF_CONTROLS_POSES"] = ",".join(str(value) for name,_ in paired for value in io["posesMm"][name])
+    env["REEF_WHOLE_ROBOT_TRIAL"] = trial_fields
     env["REEF_CONTROLS_RELEASE"] = str(release)
     env["PATH"] = str(jdk/"bin")+os.pathsep+env.get("PATH","")
     wrapper = PROJECT / ("gradlew.bat" if os.name == "nt" else "gradlew")
@@ -83,6 +90,7 @@ def run(jdk, cache, output):
     receipt = {"schema":"reefscape-offline-controller-run/1","runId":run_id,"tests":sorted(names),
                "sourceSha256":source_pins,"junitXmlSha256":digest(xml),
                "driverStationMode":"WPILib desktop HAL simulation", "inputSource":"scripted FakeIO",
+               "wholeRobotDesktopTrial":evidence, "ordinaryWithdrawalEnabled":False,
                "electricalHardwareObserved":False,"physicalCalibration":None,"officialScore":None}
     (output/"receipt.json").write_text(json.dumps(receipt,indent=2)+"\n",encoding="utf-8")
     print(f"{len(names)} desktop WPILib checks passed. Receipt: {output/'receipt.json'}")

@@ -31,6 +31,7 @@ class ReleaseObserverTests(unittest.TestCase):
     def test_independent_contact_and_clearance_bracket(self):
         result=self.check()
         self.assertEqual((99,151),(result["earliestCrossingMs"],result["latestCrossingMs"]))
+        self.assertEqual("shelf-only",result["scope"])
         self.assertGreater(result["lowerGapMm"],1)
 
     def test_two_clear_ports_cannot_create_witness(self):

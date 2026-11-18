@@ -2,6 +2,8 @@
 
 **The projected stereo pair can distinguish the reference departure from the slow, recontacting release. The entire timing chain currently passes only 15 of 17 synthetic frame phases in the tightest tested pixel-error case.** The checkout contains no physical calibration or vehicle adapter. The existing Seat and Entry ports can both report empty while the pipe still overlaps the shelf.
 
+This observer produces shelf-scoped evidence. The full assembly can extend beyond that shelf. The desktop controller holds the slide on every legacy shelf packet. A separately registered whole-robot measurement exercises one reviewed simulated withdrawal. [Controller and timing evidence](../competition-controls/README.md)
+
 ## Camera, independent contact and installation
 
 The [original STEP](stereo-mount.step) opens with the receiver in its place pose. Dimensions use robot millimetres, +X forward, +Y left and +Z up. [Open Cascade checks](mount-check.json) reopened all 14 solids and each of the four 96-solid robot poses. There was zero positive-volume intersection in those positions. Proposed upper guide and rope reserves are separately identified in the ray report. Intermediate motion, battery extraction, service tools, all fasteners and complete cable sweep still need physical checks.

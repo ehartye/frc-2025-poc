@@ -55,5 +55,5 @@ def witness(before,after,calibration,expected_attempt,piece_key,received_ms):
     if not isfinite(pad) or not 0 < pad < 1: raise ValueError("invalid installed pad envelope")
     gap=clearance(after["end_marks"],after["front_mm"],after["top_mm"]+pad,err,reg,size)
     if gap<1: raise ValueError("whole pipe clearance unresolved")
-    return dict(clear=True,attempt=expected_attempt,pieceKey=piece_key,earliestCrossingMs=a-sync,
+    return dict(scope="shelf-only",clear=True,attempt=expected_attempt,pieceKey=piece_key,earliestCrossingMs=a-sync,
                 latestCrossingMs=b+sync,lowerGapMm=gap,calibration=calibration["id"])
