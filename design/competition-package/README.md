@@ -1,5 +1,7 @@
 # Station receiver assembly review
 
+The [545-body shop and duplex revision](shop-duplex/README.md) is the latest combined engineering model. This page preserves the 401-body revision used in earlier field and controls evidence.
+
 Open [the robot viewer](robot.html) in a current browser. It works offline. Drag to rotate or use the arrow keys with the drawing focused. Switch between Stowed, Receive, Carry and Place. Select a subsystem or a single part to see its position, or remove the bumpers and deck to inspect the drives. The scale under the view controls follows the current zoom. The [full match rehearsal](../../full-match/replay.html) shows the initial stacks, route and alternative ending positions.
 
 ## What moves

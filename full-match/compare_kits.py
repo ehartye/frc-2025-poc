@@ -30,12 +30,12 @@ def load(folder,pose,color):
     return sha,{k.removesuffix("-"+color):v for k,v in inventory.items()}
 
 
-def compare(red,blue):
+def compare(red,blue,expected_count=401):
     result={}
     for pose in ("stowed","receive","transport","place"):
         rs,rr=load(red,pose,"red")
         bs,bb=load(blue,pose,"blue")
-        if len(rr)!=401 or set(rr)!=set(bb):
+        if len(rr)!=expected_count or set(rr)!=set(bb):
             raise ValueError("Missing corresponding named body on one alliance")
         equal=0
         fallback={}
@@ -59,5 +59,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("red","blue","output"):
         p.add_argument("--"+name,type=Path,required=True)
+    p.add_argument("--body-count",type=int,default=401)
     a=p.parse_args()
-    a.output.write_text(json.dumps(compare(a.red,a.blue),indent=2)+"\n",encoding="utf8",newline="\n")
+    a.output.write_text(json.dumps(compare(a.red,a.blue,a.body_count),indent=2)+"\n",encoding="utf8",newline="\n")
