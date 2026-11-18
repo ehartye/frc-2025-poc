@@ -1,5 +1,7 @@
 # Station receiver lift
 
+The 545-body placement model shows a moving plate reaching its fixed service arm before the backup line completes its modeled catch. The successor study registers the interference, the independent end-damper packaging and the midtravel brake requirements. [Shared-shaft and power-loss study](../lift-arrest/README.md)
+
 The registered 401-body delivery audit estimates 8.422 to 11.609 kg loaded before the proposed secondary suspension. Its separately modeled duplex lift adds 0.564 kg moving. The following study preserves the earlier 96-body sizing. [Current load, independent supports and qualification](RETENTION.md)
 
 One NEO V1.1 drives two single-layer winch drums on a common shaft through a 16:1 Sport gearbox and a 1:1 transfer. A separate line climbs each mast, passes over its own sheave and ends at the moving crossbar. Mirrored winding takes up both lines in the same shaft direction. The mast guides carry side loads. The drive screen retains the mission's two seconds to raise the empty carriage from 670 to 940 mm. Cutting that move to one second needs at least 14.69 V under the model.
