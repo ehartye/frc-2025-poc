@@ -117,7 +117,7 @@ def free_contacts(x,y,z,yaw,front,top):
 
 
 def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-001", target_y=0.0,
-        sample_every_step=False, trajectory=None):
+        sample_every_step=False, trajectory=None, grip_law=None):
     if case not in {"reference","weak-grip","sensor-timeout","slow-release","occupied-target","light-pipe"}:
         raise ValueError("Unknown experiment")
     if not math.isfinite(dt) or not .00025 <= dt <= .005:
@@ -236,13 +236,19 @@ def run(case="reference", dt=.002, *, high_mass=True, piece_id="station-coral-00
             fy = mass*(acc[1]+kp*(q[1]-y)+kd*(vel[1]-vy))
             longitudinal = fx*co+fy*si
             transverse = -fx*si+fy*co
-            if phase=="place":
-                release_speed=.35 if case=="slow-release" else M["releaseSpeed_mps"]
-                longitudinal = mass*kd*(release_speed-(vx*co+vy*si))
             torque = inertia*(acc[2]+kp*error+kd*(vel[2]-omega))
             n_a = (limit+clip(transverse,limit))/2
             n_b = limit-n_a
             mu = M["tractionCoefficient"]
+            if grip_law is not None:
+                n_a,n_b,mu,speed_limit=grip_law(v,error,phase,time)
+                if not all(math.isfinite(q) and q>=0 for q in (n_a,n_b,mu,speed_limit)):
+                    raise ValueError("invalid contact or speed from grip model")
+            if phase=="place":
+                release_speed=.35 if case=="slow-release" else M["releaseSpeed_mps"]
+                if grip_law is not None:
+                    release_speed=min(release_speed,speed_limit)
+                longitudinal=mass*kd*(release_speed-(vx*co+vy*si))
             arm = M["pipeLength_m"]/2
             f_a = clip(longitudinal/2+torque/(2*arm),mu*n_a)
             f_b = clip(longitudinal/2-torque/(2*arm),mu*n_b)
