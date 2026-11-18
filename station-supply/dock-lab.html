@@ -12,9 +12,14 @@
 <div class="axis"><label for="axial">Normal error</label><output id="axialRead"></output><input id="axial" type="range" min="-10" max="10" step="1" value="0"></div>
 <output class="metric" id="gap"></output><span>Square bumper to lower wall plane. Negative values indicate overlap.</span></section>
 <section class="card"><h2>Native CAD results</h2><p id="bound"></p><p id="feed"></p><p>The side view uses a centered, zero-rebound feed. The parking sliders change the top view. Heading, sideways error and contact with the belts can change the actual catch.</p></section></div>
+<section class="card" style="margin-top:18px"><h2>Can the pipe enter the revised receiver?</h2>
+<p>At the 40 mm dock and 270 mm stroke, the two original jaw stops move 1 mm outward on their feet. Try a survey of the receiver centerline. Read sideways error at two station planes 200 mm apart, centered on the expected landing point. Positive depth means away from the wall.</p>
+<div class="row"><div><label for="near">Side error at −100 mm (mm)</label><br><input id="near" type="number" value="-0.1" step="0.05"></div><div><label for="far">Side error at +100 mm (mm)</label><br><input id="far" type="number" value="0.1" step="0.05"></div>
+<div><label for="depth">Depth error at the datum (mm)</label><br><input id="depth" type="number" value="2" step="0.1"></div><div><label for="uncertainty">Error allowance per reading (±mm)</label><br><input id="uncertainty" type="number" value="0.10" min="0" step="0.05"></div></div>
+<output class="metric" id="entryStatus" aria-live="polite"></output><p id="entryNumbers"></p><small>The survey is an example. The bound assumes the modeled chute exit and parked receiver. Repeatable feeding also depends on belt contact, pipe size, spin and rebound.</small></section>
 <footer><a href="DOCKING.md">Measurements and reproduction</a> · <a href="handoff.svg">Station entry section</a></footer>
 <script>
-const data={"cases":[{"label":"Issued approach","standoff":10,"stroke":240,"bound":0.0,"pads":false,"firstMs":null},{"label":"Move chassis back","standoff":40,"stroke":240,"bound":8.339666326054072,"pads":true,"firstMs":49.31314625455383},{"label":"Move chassis and extend shelf","standoff":40,"stroke":270,"bound":8.339666326054072,"pads":false,"firstMs":null}],"flight":[[29.294,997.795],[31.024,996.575],[32.755,995.341],[34.486,994.091],[36.217,992.826],[37.948,991.545],[39.679,990.249],[41.41,988.939],[43.141,987.613],[44.872,986.271],[46.602,984.915],[48.333,983.543],[50.064,982.156],[51.795,980.754],[53.526,979.337],[55.257,977.905],[56.988,976.457],[58.719,974.994],[60.449,973.516],[62.18,972.023],[63.911,970.514],[65.642,968.99],[67.373,967.451],[69.104,965.897],[70.835,964.328],[72.566,962.743],[74.297,961.144],[76.027,959.529],[77.758,957.898],[79.489,956.253],[81.22,954.592],[82.951,952.917],[84.682,951.226],[86.413,949.519],[88.144,947.798],[89.875,946.061],[91.605,944.309],[93.336,942.542],[95.067,940.76],[96.798,938.963],[98.529,937.15]],"radius":57.15,"speed":1.696820959365479,"shelfTop":880.0,"lipX":-3.4863154833308165,"lipZ":950.9805343062192,"rigidGap":0.24929658551366174,"shelfLength":265.0,"frontAtIssued":39.525},ns="http://www.w3.org/2000/svg",el=id=>document.getElementById(id);
+const data={"cases":[{"label":"Issued approach","standoff":10,"stroke":240,"bound":0.0,"pads":false,"firstMs":null},{"label":"Move chassis back","standoff":40,"stroke":240,"bound":8.339666326054072,"pads":true,"firstMs":49.31314625455383},{"label":"Move chassis and extend shelf","standoff":40,"stroke":270,"bound":8.339666326054072,"pads":false,"firstMs":null}],"entryLimits":[{"normal":5,"lateral":0.35,"yaw":0.15,"gap":0.4779880656751345},{"normal":5,"lateral":0.5,"yaw":0.25,"gap":0.11378347329565486}],"flight":[[29.294,997.795],[31.024,996.575],[32.755,995.341],[34.486,994.091],[36.217,992.826],[37.948,991.545],[39.679,990.249],[41.41,988.939],[43.141,987.613],[44.872,986.271],[46.602,984.915],[48.333,983.543],[50.064,982.156],[51.795,980.754],[53.526,979.337],[55.257,977.905],[56.988,976.457],[58.719,974.994],[60.449,973.516],[62.18,972.023],[63.911,970.514],[65.642,968.99],[67.373,967.451],[69.104,965.897],[70.835,964.328],[72.566,962.743],[74.297,961.144],[76.027,959.529],[77.758,957.898],[79.489,956.253],[81.22,954.592],[82.951,952.917],[84.682,951.226],[86.413,949.519],[88.144,947.798],[89.875,946.061],[91.605,944.309],[93.336,942.542],[95.067,940.76],[96.798,938.963],[98.529,937.15]],"radius":57.15,"speed":1.696820959365479,"shelfTop":880.0,"lipX":-3.4863154833308165,"lipZ":950.9805343062192,"rigidGap":0.24929658551366174,"shelfLength":265.0,"frontAtIssued":39.525},ns="http://www.w3.org/2000/svg",el=id=>document.getElementById(id);
 const fmt=(n,d=1)=>Number(n).toFixed(d),draw=(parent,type,attrs,text)=>{const e=document.createElementNS(ns,type);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;parent.append(e);return e;};
 for(const [i,c] of data.cases.entries()){const o=document.createElement("option");o.value=i;o.textContent=c.label;el("candidate").append(o);}
 function render(){
@@ -37,4 +42,17 @@ function render(){
  draw(side,"text",{x:14,y:38},"Chute");draw(side,"text",{x:sx(front+75),y:230},"Receiving shelf");draw(side,"text",{x:280,y:52},fmt(data.speed,2)+" m/s at exit");
 }
 for(const id of ["candidate","yaw","axial"])el(id).addEventListener("input",render);render();
+function survey(){
+ const ids=["near","far","depth","uncertainty"],[near,far,depth,error]=ids.map(id=>el(id).valueAsNumber);
+ const status=el("entryStatus"),numbers=el("entryNumbers");
+ if(![near,far,depth,error].every(Number.isFinite)||error<0){status.textContent="Enter four valid readings";numbers.textContent="";return;}
+ const slope=(Math.abs(far-near)+2*error)/200;
+ const axial=Math.abs(depth)+error,side=Math.abs((near+far)/2)+error+axial*slope;
+ const yaw=Math.atan(slope)*180/Math.PI;
+ const fit=data.entryLimits.find(r=>axial<=r.normal&&side<=r.lateral&&yaw<=r.yaw);
+ status.textContent=fit?"Within the modeled entry window":"Outside the verified entry window";
+ status.classList.toggle("warn",!fit);
+ numbers.textContent="Including reading error: "+fmt(axial,2)+" mm in depth, "+fmt(side,3)+" mm sideways and "+fmt(yaw,3)+"° heading. "+(fit?"At least "+Math.floor(fit.gap*100)/100+" mm to rigid hardware in this tested range.":"The measured pose or its uncertainty extends beyond the positive-clearance cases.");
+}
+for(const id of ["near","far","depth","uncertainty"])el(id).addEventListener("input",survey);survey();
 </script></main></body></html>

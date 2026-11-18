@@ -12,12 +12,27 @@ The bounds cover all combinations of ±10 mm in each horizontal direction and ±
 
 The longer-stroke receiver still needs a guiding or alignment solution. At the modeled 1.697 m/s exit speed, eight curved-flight enclosures leave a minimum 0.249 mm to hardware other than the belt and intended shelf, allowing up to 1.5 mm of grip carriage travel. With 1 mm side error and 0.25° heading error, the first sampled overlap is with a belt at 20.92 ms. With 10 mm and 3° in the same direction, the pipe reaches the rigid angle board at 10.96 ms on either side. Even the smallest combined registration error studied leaves the rigid-hardware clearance unresolved. The belt's response, chute rebound, incoming spin and achievable parking errors need measurements before the team can count a repeatable feed. [Feeder assumptions and contact model](README.md)
 
-## Reproduce the three positions
+## Locating the jaw stops
+
+On the 40 mm dock with 270 mm extension, move each original inboard stop 1.00 mm outward on its front support foot. The 4 × 2 × 16 mm blocks retain their complete 8 mm² footprints and their original volume. The lug touches the relocated stop at 0.50 mm inward. A 0.75 mm inward displacement overlaps it by 7 mm³ on each side. The outward stop stays at 1.50 mm. Allow ±0.10 mm on the installed travel limits for this study. The downloadable pair is in the robot frame at the receiving pose. [Two relocated stops in STEP](receiver-stops.step) · [Survey and native results](entry-window.json)
+
+| Depth error | Side error | Heading error | Minimum clearance to rigid hardware | Maximum outward belt movement required by the envelope |
+| ---: | ---: | ---: | ---: | ---: |
+| ±5 mm | ±0.35 mm | ±0.15° | 0.477 mm | 0.694 mm |
+| ±5 mm | ±0.50 mm | ±0.25° | 0.113 mm | 1.074 mm |
+| ±5 mm | ±1.00 mm | ±0.25° | Unresolved at the cheeks | 1.574 mm |
+
+The errors are independent and refer to the center of the incoming pipe at nominal shelf height. Eight convex prisms enclose the entire curved flight of the transverse pipe at the modeled chute exit speed, including its full diameter, length, and every allowed registration error. Each grip can travel inward by up to 0.60 mm. The intended belt and shelf contacts are evaluated separately from rigid hardware. At 0.50 mm side error and zero yaw, the issued fully inward grips intersect the pipe shell at the upper cheek by 0.193 mm³ at 15.44 ms on the assumed ballistic path. The relocated stops clear this path. A real belt can change the path earlier.
+
+The [student lab](dock-lab.html) converts two sideways readings 200 mm apart plus an independent depth reading into bounds at the receiver. Enter the total uncertainty of each reading, including registration of the measuring device. The two simple stops still require an attachment detail, an as-built survey and a check that the belt on the far side can reach a short or off-center pipe. The entry window covers flight through shelf height. The seated state, later slide travel, and subsequent scoring need rechecking with the changed grip limits and the actual pipe spin.
+
+## Reproduce the geometry studies
 
 Supply the January field STEP used in the [source receipt](transfer.json). From the project root, use the CAD Python environment that can import OCP.
 
 ```powershell
 python station-supply/dock_tolerance.py --field $env:FIRST_FIELD_STEP --poses design/competition-package/shop-duplex/red --output station-supply/dock-tolerance.json
 python station-supply/compensated_dock.py --field $env:FIRST_FIELD_STEP --assembly design/competition-package/shop-duplex --output station-supply/compensated-dock.json
+python station-supply/entry_window.py --step station-supply/receiver-stops.step --output station-supply/entry-window.json
 python station-supply/build_dock_lab.py
 ```

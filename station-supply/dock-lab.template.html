@@ -12,6 +12,11 @@
 <div class="axis"><label for="axial">Normal error</label><output id="axialRead"></output><input id="axial" type="range" min="-10" max="10" step="1" value="0"></div>
 <output class="metric" id="gap"></output><span>Square bumper to lower wall plane. Negative values indicate overlap.</span></section>
 <section class="card"><h2>Native CAD results</h2><p id="bound"></p><p id="feed"></p><p>The side view uses a centered, zero-rebound feed. The parking sliders change the top view. Heading, sideways error and contact with the belts can change the actual catch.</p></section></div>
+<section class="card" style="margin-top:18px"><h2>Can the pipe enter the revised receiver?</h2>
+<p>At the 40 mm dock and 270 mm stroke, the two original jaw stops move 1 mm outward on their feet. Try a survey of the receiver centerline. Read sideways error at two station planes 200 mm apart, centered on the expected landing point. Positive depth means away from the wall.</p>
+<div class="row"><div><label for="near">Side error at −100 mm (mm)</label><br><input id="near" type="number" value="-0.1" step="0.05"></div><div><label for="far">Side error at +100 mm (mm)</label><br><input id="far" type="number" value="0.1" step="0.05"></div>
+<div><label for="depth">Depth error at the datum (mm)</label><br><input id="depth" type="number" value="2" step="0.1"></div><div><label for="uncertainty">Error allowance per reading (±mm)</label><br><input id="uncertainty" type="number" value="0.10" min="0" step="0.05"></div></div>
+<output class="metric" id="entryStatus" aria-live="polite"></output><p id="entryNumbers"></p><small>The survey is an example. The bound assumes the modeled chute exit and parked receiver. Repeatable feeding also depends on belt contact, pipe size, spin and rebound.</small></section>
 <footer><a href="DOCKING.md">Measurements and reproduction</a> · <a href="handoff.svg">Station entry section</a></footer>
 <script>
 const data=__DATA__,ns="http://www.w3.org/2000/svg",el=id=>document.getElementById(id);
@@ -37,4 +42,17 @@ function render(){
  draw(side,"text",{x:14,y:38},"Chute");draw(side,"text",{x:sx(front+75),y:230},"Receiving shelf");draw(side,"text",{x:280,y:52},fmt(data.speed,2)+" m/s at exit");
 }
 for(const id of ["candidate","yaw","axial"])el(id).addEventListener("input",render);render();
+function survey(){
+ const ids=["near","far","depth","uncertainty"],[near,far,depth,error]=ids.map(id=>el(id).valueAsNumber);
+ const status=el("entryStatus"),numbers=el("entryNumbers");
+ if(![near,far,depth,error].every(Number.isFinite)||error<0){status.textContent="Enter four valid readings";numbers.textContent="";return;}
+ const slope=(Math.abs(far-near)+2*error)/200;
+ const axial=Math.abs(depth)+error,side=Math.abs((near+far)/2)+error+axial*slope;
+ const yaw=Math.atan(slope)*180/Math.PI;
+ const fit=data.entryLimits.find(r=>axial<=r.normal&&side<=r.lateral&&yaw<=r.yaw);
+ status.textContent=fit?"Within the modeled entry window":"Outside the verified entry window";
+ status.classList.toggle("warn",!fit);
+ numbers.textContent="Including reading error: "+fmt(axial,2)+" mm in depth, "+fmt(side,3)+" mm sideways and "+fmt(yaw,3)+"° heading. "+(fit?"At least "+Math.floor(fit.gap*100)/100+" mm to rigid hardware in this tested range.":"The measured pose or its uncertainty extends beyond the positive-clearance cases.");
+}
+for(const id of ["near","far","depth","uncertainty"])el(id).addEventListener("input",survey);survey();
 </script></main></body></html>
