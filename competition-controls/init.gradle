@@ -1,0 +1,8 @@
+allprojects {
+    afterEvaluate {
+        def sources = new File(System.getenv('REEF_CONTROLS_SOURCE'))
+        sourceSets.main.java.srcDir(new File(sources, 'src/main/java'))
+        sourceSets.test.java.srcDir(new File(sources, 'src/test/java'))
+        layout.buildDirectory.set(new File(System.getenv('REEF_CONTROLS_BUILD')))
+    }
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "reefscape-receiver-io/1",
+  "classification": "Candidate engineering interfaces and synthetic commissioning assumptions. No field device assigned.",
+  "robotFrame": "mm; +X forward, +Y left, +Z up. Carriage-local u starts at the translating receiver datum.",
+  "posesMm": {
+    "stowed": [
+      940,
+      0
+    ],
+    "receive": [
+      940,
+      240
+    ],
+    "carry": [
+      670,
+      0
+    ],
+    "place": [
+      560,
+      370
+    ]
+  },
+  "conventions": {
+    "poseArray": "carriage height above floor, outward slide extension",
+    "wheelbase": "six-wheel differential, 580 mm track, nominal 152 mm wheels",
+    "grips": "LeftGrip/RightGrip contact surfaces both move toward +X on release. Facing motor shaft signs are assigned by individual calibration.",
+    "detection": "Seat and Entry are bottom-up occupancy signals through shelf optical ports; both can be true at the nominal seated center u=80 mm.",
+    "travel": "Positive lift increases height; positive slide extends forward."
+  },
+  "controlParameters": {
+    "sensorFreshnessMs": 60,
+    "seatNewSampleDwellMs": 60,
+    "axisToleranceMm": 2,
+    "receiverSurfaceSpeedMps": -0.2,
+    "releaseSurfaceSpeedMps": 1.05,
+    "origin": "Test hypotheses. Do not transfer values directly to hardware.",
+    "withdrawDelayAfterClearanceMs": 50,
+    "withdrawGoalMmPerSecond": 150,
+    "withdrawTrackingToleranceMm": 15
+  },
+  "channels": [
+    {
+      "logical": "DriveLeft/DriveRight",
+      "interface": "paired side motor/encoder requests and observations",
+      "units": "mm/s and mm of signed ground travel",
+      "boundary": "drive-owned; receiver supplies permit only. Drive must also enforce its own limits."
+    },
+    {
+      "logical": "Lift",
+      "interface": "axis goal, encoder, lower/upper limit",
+      "units": "mm above common field floor",
+      "boundary": "passive unpowered holding and limit switch elevations open"
+    },
+    {
+      "logical": "Slide",
+      "interface": "axis goal, encoder, retracted/extended switches",
+      "units": "mm outward from stow",
+      "boundary": "electrical zero, positive limit alignment and external stops open"
+    },
+    {
+      "logical": "LeftGrip/RightGrip",
+      "interface": "velocity demand to opposed belt contacts",
+      "units": "m/s along local +X",
+      "boundary": "paired gearing, electrical inversions, belt preload and roller encoder selection open"
+    },
+    {
+      "logical": "Entry",
+      "interface": "bottom-up reflective occupancy",
+      "units": "boolean; u=+100 mm",
+      "boundary": "threshold, debounce, tube finish, full footprint and failure diagnostic open"
+    },
+    {
+      "logical": "Seat",
+      "interface": "bottom-up reflective occupancy",
+      "units": "boolean; u=+40 mm",
+      "boundary": "earlier u=-60 mm fails geometric footprint; threshold and selectivity open"
+    },
+    {
+      "logical": "ExitClear",
+      "interface": "independent finite-pipe/shelf separation for active attempt",
+      "units": "boolean event; candidate model has \u22651 mm margin",
+      "boundary": "both optical ports alone cannot observe it. Supply fresh tracked physical or externally reviewed independent measurement."
+    },
+    {
+      "logical": "Approach",
+      "interface": "drive/localization target clearance, dock and measured stop",
+      "units": "logical observation with validity and oldest timestamp",
+      "boundary": "drive subsystem owns dock, obstacle/target occupancy, freshness and stop; incoming pose quality needs calibration"
+    },
+    {
+      "logical": "Jam",
+      "interface": "hardware diagnostics or operator-latched jam observation",
+      "units": "boolean",
+      "boundary": "current sensor, thresholds, motion window, fault code and timeout calibration open"
+    }
+  ],
+  "electricalAssignment": {
+    "actualMotors": null,
+    "actualControllers": null,
+    "deviceAddresses": null,
+    "controllerFirmware": null,
+    "encoderModels": null,
+    "ioChannels": null,
+    "sensorPowerAndGround": null,
+    "protectedCircuitMap": null,
+    "currentLimits": null,
+    "gearRatios": null,
+    "axisGains": null,
+    "beltGains": null,
+    "loadedSupplyEvidence": null
+  }
+}
