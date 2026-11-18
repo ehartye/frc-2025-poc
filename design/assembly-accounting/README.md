@@ -19,7 +19,7 @@ Each material alternative replaces the same six installed parts. The aluminum op
 
 ## Reproduce the comparison
 
-From the repository root, set `AGENT_FRC_PLUGIN_ROOT` to the installed Agent FRC 0.20.0 directory. The checked-in red map selects the light carriers and stops. The checked-in blue map selects the steel alternative and stops. The replay tests both choices and the baseline on both colors.
+From the repository root, set `AGENT_FRC_PLUGIN_ROOT` to the installed Agent FRC 0.20.1 directory. The checked-in red map selects the light carriers and stops. The checked-in blue map selects the steel alternative and stops. The replay tests both choices and the baseline on both colors.
 
 ```powershell
 node "$env:AGENT_FRC_PLUGIN_ROOT/scripts/assembly-accounting.mjs" design/assembly-accounting/red.json
@@ -28,5 +28,4 @@ python design/assembly-accounting/replay.py --plugin-root "$env:AGENT_FRC_PLUGIN
 python design/assembly-accounting/build.py blue artifacts/assembly-accounting/blue-light.json --select light stop
 ```
 
-The replay writes `artifacts/assembly-accounting/review.json`. Compare it with the [recorded review](review.json). Each source map pins the original crosswalk, 545 native names and frame assignments, four matching native STEP files and their reopen receipts, the carrier and end-stop studies and the baseline weight record. The generator checks named STEP products against the complete frame register and the purchased-article rollup. It derives the steel part names from the source builder’s changes to the light design and checks their population against the steel reopen receipt. The replay exercises three rejection cases: changed native bytes, a changed mass bound, and mutually exclusive carrier materials. Agent FRC validates the baseline and delta values against the source bytes. This project separately checks the comparison limit against the original R103 margin. The design retains a null whole-configuration margin in every case.
-
+The replay writes `artifacts/assembly-accounting/review.json`. Compare it with the [recorded review](review.json). Each source map pins the original crosswalk, 545 native names and frame assignments, four matching native STEP files and their reopen receipts, the carrier and end-stop studies and the baseline weight record. The generator checks named STEP products against the complete frame register and the purchased-article rollup. It derives the steel part names from the source builder’s changes to the light design and checks their population against the steel reopen receipt. The replay exercises four rejection cases covering changed native bytes, a changed mass bound, mutually exclusive carrier materials and a 300 g edit to the inspection limit. Agent FRC verifies the baseline, selected deltas and [V11 R103 comparison limit](inspection-limit.json) against pinned project records. The generator also cross-checks the original R103 margin and the exact pound-to-kilogram conversion. The design retains a null whole-configuration margin in every case.

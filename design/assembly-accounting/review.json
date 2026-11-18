@@ -1,5 +1,5 @@
 {
-  "checkerSha256": "7da671707a4a791fc309db75a00af92d6494532a6a48d68e23dd01edf40dc1af",
+  "checkerSha256": "d5a130973d35bf502348cd9fa8ceb7d5223402e91d65d72d9323329e2ab6205a",
   "sourceReaderSha256": "0a7d57b92f69c7d4bf1b5a5b579171dfb9822db607bdb07d08958f177f7bf6b5",
   "configurations": {
     "red": {
@@ -47,10 +47,11 @@
           51.27095958636069
         ],
         "representedMarginKg": [
-          0.8921629636393149,
-          14.77234296363931
+          0.8921629636393078,
+          14.772342963639304
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "stop": {
         "configuration": "shop-duplex-545-red",
@@ -98,10 +99,11 @@
           51.77900668796172
         ],
         "representedMarginKg": [
-          0.3841158620382856,
-          14.264295862038281
+          0.3841158620382785,
+          14.264295862038274
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "light": {
         "configuration": "shop-duplex-545-red",
@@ -149,10 +151,11 @@
           51.64858030559871
         ],
         "representedMarginKg": [
-          0.5145422444012908,
-          14.394722244401287
+          0.5145422444012837,
+          14.39472224440128
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "light+stop": {
         "configuration": "shop-duplex-545-red",
@@ -201,10 +204,11 @@
           52.15662740719974
         ],
         "representedMarginKg": [
-          0.006495142800261533,
-          13.886675142800257
+          0.006495142800254428,
+          13.88667514280025
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "steel": {
         "configuration": "shop-duplex-545-red",
@@ -252,10 +256,11 @@
           51.944164512658496
         ],
         "representedMarginKg": [
-          0.21895803734150832,
-          14.099138037341504
+          0.2189580373415012,
+          14.099138037341497
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "steel+stop": {
         "configuration": "shop-duplex-545-red",
@@ -304,10 +309,11 @@
           52.452211614259525
         ],
         "representedMarginKg": [
-          -0.28908906425952097,
-          13.591090935740475
+          -0.2890890642595281,
+          13.591090935740468
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       }
     },
     "blue": {
@@ -355,10 +361,11 @@
           51.27095958636069
         ],
         "representedMarginKg": [
-          0.8921629636393149,
-          14.77234296363931
+          0.8921629636393078,
+          14.772342963639304
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "stop": {
         "configuration": "shop-duplex-545-blue",
@@ -406,10 +413,11 @@
           51.77900668796172
         ],
         "representedMarginKg": [
-          0.3841158620382856,
-          14.264295862038281
+          0.3841158620382785,
+          14.264295862038274
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "light": {
         "configuration": "shop-duplex-545-blue",
@@ -457,10 +465,11 @@
           51.64858030559871
         ],
         "representedMarginKg": [
-          0.5145422444012908,
-          14.394722244401287
+          0.5145422444012837,
+          14.39472224440128
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "light+stop": {
         "configuration": "shop-duplex-545-blue",
@@ -509,10 +518,11 @@
           52.15662740719974
         ],
         "representedMarginKg": [
-          0.006495142800261533,
-          13.886675142800257
+          0.006495142800254428,
+          13.88667514280025
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "steel": {
         "configuration": "shop-duplex-545-blue",
@@ -560,10 +570,11 @@
           51.944164512658496
         ],
         "representedMarginKg": [
-          0.21895803734150832,
-          14.099138037341504
+          0.2189580373415012,
+          14.099138037341497
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       },
       "steel+stop": {
         "configuration": "shop-duplex-545-blue",
@@ -612,14 +623,19 @@
           52.452211614259525
         ],
         "representedMarginKg": [
-          -0.28908906425952097,
-          13.591090935740475
+          -0.2890890642595281,
+          13.591090935740468
         ],
-        "configurationMarginKg": null
+        "configurationMarginKg": null,
+        "limitBasis": "source-pinned"
       }
     }
   },
   "controls": {
+    "changed-inspection-limit": {
+      "rejected": true,
+      "reason": "Inspection limit differs"
+    },
     "incompatible-carrier-materials": {
       "rejected": true,
       "reason": "Incompatible alternatives"

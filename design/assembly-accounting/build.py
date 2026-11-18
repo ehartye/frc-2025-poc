@@ -6,6 +6,7 @@ import json
 import os
 import re
 from collections import defaultdict
+from decimal import Decimal
 from functools import cache
 from pathlib import Path
 
@@ -66,6 +67,7 @@ def build(color, output, selected=()):
         return identity
 
     for key, file in {"crosswalk": PROC/"installed.csv", "rollup": PROC/"item-rollup.csv", "open-items": PROC/"loose-items.csv",
+                      "inspection-limit": HERE/"inspection-limit.json", "rule-sources": ROOT/"design/electrical-inspection/SOURCES.md",
                       "purchase": ROOT/"design/shop-package/purchasing.csv", "mass": ROBOT/"mass.json", "mass-model": ROBOT/"mass.py",
                       "frames": ROBOT/color/"part-frames.json", "reopen": ROBOT/color/"review.json",
                       "light": PROC/"clamp-review.json", "steel": PROC/"steel-review.json", "clamp-step": PROC/"inner-clamps.step",
@@ -159,7 +161,13 @@ def build(color, output, selected=()):
 
     mass_source = read_json(ROBOT/"mass.json")["poses"]["stowed"]
     mass = mass_source["R103_kg"]
-    limit = 115*.45359237
+    limit_source = read_json(HERE/"inspection-limit.json")
+    limit = limit_source["R103LimitKg"]
+    converted = Decimal(str(limit_source["kilogramsPerPound"]))*limit_source["R103LimitLb"]
+    known_authority = (ROOT/"design/electrical-inspection/SOURCES.md").read_text(encoding="utf-8")
+    if (Decimal(str(limit)) != converted or limit_source["sourcePdfSha256"] not in known_authority
+            or limit_source["sourceUrl"] not in known_authority):
+        raise ValueError("Inspection comparison source or unit conversion changed")
     if abs(limit - mass[1] - mass_source["R103_margin_at_high_kg"]) > 1e-12:
         raise ValueError("R103 limit differs from the project mass source")
     return {"schema":"agent-frc/assembly-accounting@1", **trio, "scope":"partial",
@@ -167,7 +175,8 @@ def build(color, output, selected=()):
                          "Spare stock and the opposite-color kit are outside this installed configuration."],
             "sources":pins,"exports":exports,"assignments":assignments,"instances":list(instances.values()),
             "articles":list(articles.values()),"changes":changes,"selected":list(selected),
-            "mass":{"unit":"kg",**trio,"limitKg":limit,"baseline":evidence("mass","/poses/stowed/R103_kg",mass),
+            "mass":{"unit":"kg",**trio,"limitKg":limit,"limitEvidence":{"source":"inspection-limit","pointer":"/R103LimitKg"},
+                    "baseline":evidence("mass","/poses/stowed/R103_kg",mass),
                     "omissions":["No installed weigh-in. Baseline hardware and consumables remain estimates.",
                                  "Candidate stop margin precedes mounting bolts, sleeves and final attachment details.",
                                  "Additional full-travel carriage arrest and unfinished design changes have no credited mass."]}}
@@ -192,4 +201,3 @@ if __name__ == "__main__":
     parser.add_argument("--select",nargs="*",choices=("light","steel","stop"),default=[])
     args = parser.parse_args()
     write_map(args.output.resolve(),build(args.color,args.output.resolve(),args.select))
-

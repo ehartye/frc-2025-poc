@@ -30,7 +30,7 @@ def summarize(report):
             "knownLooseWheelScrews":buy["Wheel-to-hub fasteners"]["requiredUnits"],
             "bearings":{k:buy[BEARING][k] for k in ("sku","requiredUnits","unitsPerPack","onHand","packsToCoverKnownShortfall")},
             "representedRangeKg":report["mass"]["representedRangeKg"],"representedMarginKg":report["mass"]["representedMarginKg"],
-            "configurationMarginKg":report["mass"]["configurationMarginKg"]}
+            "configurationMarginKg":report["mass"]["configurationMarginKg"],"limitBasis":report["mass"]["limitBasis"]}
 
 
 def replay(plugin, output):
@@ -55,6 +55,7 @@ def replay(plugin, output):
                     cases["+".join(selection) or "baseline"]=summarize(report)
             result["configurations"][color]=cases
         controls = [
+            ("changed-inspection-limit", lambda data: data["mass"].update(limitKg=data["mass"]["limitKg"]+0.3), "Inspection limit differs"),
             ("incompatible-carrier-materials", lambda data: data.update(selected=["light","steel"]), "Incompatible alternatives"),
             ("changed-pinned-mass", lambda data: data["mass"]["baseline"]["rangeKg"].__setitem__(1, 50), "differs from pinned"),
             ("changed-native-step", lambda data: next(p for p in data["sources"] if p["id"]=="place-step").update(sha256="0"*64), "digest mismatch"),
@@ -77,4 +78,3 @@ if __name__=="__main__":
     parser.add_argument("--output",type=Path,default=ROOT/"artifacts/assembly-accounting/review.json")
     args=parser.parse_args()
     replay(args.plugin_root.resolve(),args.output.resolve())
-

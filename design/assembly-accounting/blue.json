@@ -8,6 +8,8 @@
     {"id":"crosswalk","file":"../installed-procurement/installed.csv","sha256":"92d18a54fad902c1b2457e34f3014611f53586af24d2778f1d3b95cf33e1b44c"},
     {"id":"rollup","file":"../installed-procurement/item-rollup.csv","sha256":"c057855f4ec32719374b7c5cea1ece55f0a60f94d8bf7b27170bb903a92fcb6b"},
     {"id":"open-items","file":"../installed-procurement/loose-items.csv","sha256":"c09e70abe0668939d975785da833ab11da0308954dcddb1850d3bbdbe5c69c8a"},
+    {"id":"inspection-limit","file":"inspection-limit.json","sha256":"0bab03d637c6f3a4e165b0a9937e09f5f08352b7ac3fedb0639f976a8032234e"},
+    {"id":"rule-sources","file":"../electrical-inspection/SOURCES.md","sha256":"5b02f578b31f08175bf49e5bdb6ae572b8ff3d7ce9c9c4b7595cc8317b212ad2"},
     {"id":"purchase","file":"../shop-package/purchasing.csv","sha256":"d98329c1ad3d3c55e4c62706bc1a71b954265b6ef9d774184740429e8bf81691"},
     {"id":"mass","file":"../competition-package/shop-duplex/mass.json","sha256":"3121ae2178c7d66181242a3f0fff102f77a68920d19930ce3c831e508725fdae"},
     {"id":"mass-model","file":"../competition-package/shop-duplex/mass.py","sha256":"c9d964243721f033d86822aef7ec7bac66825845b37112f29abd76ad01d513bf"},
@@ -3004,5 +3006,5 @@
     {"id":"stop","revision":"ec188e69828e32c610de3e208378edb7f6e1566e","configuration":"shop-duplex-545-blue","remove":[],"add":["stop-bracket-L","stop-absorber-L","stop-nut-L","stop-mount-bolt-L1","stop-mount-sleeve-L1","stop-mount-bolt-L2","stop-mount-sleeve-L2","stop-bracket-R","stop-absorber-R","stop-nut-R","stop-mount-bolt-R1","stop-mount-sleeve-R1","stop-mount-bolt-R2","stop-mount-sleeve-R2"],"delta":{"source":"stop","pointer":"/bracketFit/place/export/massWithoutFastenersKg","rangeKg":[0.5080471016010315,0.5080471016010315],"basis":"estimated"}}
   ],
   "selected": ["steel","stop"],
-  "mass": {"unit":"kg","revision":"ec188e69828e32c610de3e208378edb7f6e1566e","configuration":"shop-duplex-545-blue","limitKg":52.163122550000004,"baseline":{"source":"mass","pointer":"/poses/stowed/R103_kg","rangeKg":[37.39077958636069,51.27095958636069],"basis":"estimated"},"omissions":["No installed weigh-in. Baseline hardware and consumables remain estimates.","Candidate stop margin precedes mounting bolts, sleeves and final attachment details.","Additional full-travel carriage arrest and unfinished design changes have no credited mass."]}
+  "mass": {"unit":"kg","revision":"ec188e69828e32c610de3e208378edb7f6e1566e","configuration":"shop-duplex-545-blue","limitKg":52.16312255,"limitEvidence":{"source":"inspection-limit","pointer":"/R103LimitKg"},"baseline":{"source":"mass","pointer":"/poses/stowed/R103_kg","rangeKg":[37.39077958636069,51.27095958636069],"basis":"estimated"},"omissions":["No installed weigh-in. Baseline hardware and consumables remain estimates.","Candidate stop margin precedes mounting bolts, sleeves and final attachment details.","Additional full-travel carriage arrest and unfinished design changes have no credited mass."]}
 }

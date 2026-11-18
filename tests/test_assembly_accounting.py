@@ -25,6 +25,7 @@ class AssemblyAccountingTest(unittest.TestCase):
                 self.assertFalse(case["orderQuantitiesKnown"])
                 self.assertFalse(case["inventoryComplete"])
                 self.assertIsNone(case["configurationMarginKg"])
+                self.assertEqual(case["limitBasis"],"source-pinned")
             self.assertEqual(cases["baseline"]["representedInstances"],556)
 
     def test_mass_against_source_and_rejected_controls(self):
@@ -41,4 +42,3 @@ class AssemblyAccountingTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
