@@ -1,0 +1,735 @@
+{
+  "schema": "station-l1-post-contact/1",
+  "source_sha256": {
+    "cad/station-receiver/shelf-r6.step": "53964432b8f4abb5b5123e45d2696325b7fb0fdd5f7e48fa9cfdb7fc99fa514d",
+    "cad/station-receiver/verify_contacts.py": "7035b65ce587c4d732607778ea2258761d9c232a581fb0dac4f4a30b1db9cfed",
+    "scripts/station_l1_settle.py": "673ceeec76f9e9d45049203e77bf0f7f18c532727fbc25635e51e1928a86cf1f",
+    "scripts/station_l1_mission.py": "1024ee20398edb1c2005235c09f452a2706dfe92eabce32e4b051c158f6bd823",
+    "mission/candidate.json": "77f93fe2366935c0008682bb7ddc16465d4676e228b1c6871978070313d621dd",
+    "mission/target.json": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37",
+    "scripts/station_l1_phase.py": "77385c5e177deacc8b89de15787adf2a8855107f7369f8bd48bd9ab87cf19208",
+    "mission/replay_post_contact.py": "ffac121619476c5e71b9c271978ed05befb4f99eebeea226084a64eef41a9fbb"
+  },
+  "runs": [
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.6138,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.1021490751114114,
+        0.4913140084685334,
+        -0.4431524664084108,
+        -0.11874234549799087,
+        7.957165542014181
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 0.559199999999971,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.2056820525048066,
+      "withdrawal": "fixed",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.0009248885885285163,
+      "official_score": null,
+      "trace_sha256": "57fa96866407a171f5447a77154e1a4e9ba9cf4e184deabb1de2dc3695354040"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.6137,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.10213921372385576,
+        0.4913113661177016,
+        -0.44302988328340964,
+        -0.11870949944864419,
+        7.954944940274291
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 0.5575999999999549,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.2709659664572683,
+      "withdrawal": "fixed",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.010786276144168772,
+      "official_score": null,
+      "trace_sha256": "d9842bfbe03c1dc4e59f1fe3f04ca577a84f3b6b0aeaf068bcafef06393e994a",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 43.03184665,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 0.6137,
+          "gap_mm": 0.0,
+          "overlap_mm3": 4.816418
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.61365,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.10212898826055979,
+        0.49130862621306914,
+        -0.44296859172091807,
+        -0.11869307642396573,
+        7.953834639404499
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 0.5566999999999469,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.3034563276579307,
+      "withdrawal": "fixed",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.021011739440142396,
+      "official_score": null,
+      "trace_sha256": "7c69c8a5bc4e952a1ab247b21cc9d14793c6d906ce1fce63312e60dc56082fbe"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.6138,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.1021490751114114,
+        0.4913140084685334,
+        -0.4431524664084108,
+        -0.11874234549799087,
+        7.957165542014181
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 0.559199999999971,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.2056820525048066,
+      "withdrawal": "late",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.0009248885885285163,
+      "official_score": null,
+      "trace_sha256": "57fa96866407a171f5447a77154e1a4e9ba9cf4e184deabb1de2dc3695354040"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.6137,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.10213921372385576,
+        0.4913113661177016,
+        -0.44302988328340964,
+        -0.11870949944864419,
+        7.954944940274291
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 0.5575999999999549,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.2709659664572683,
+      "withdrawal": "late",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.010786276144168772,
+      "official_score": null,
+      "trace_sha256": "d9842bfbe03c1dc4e59f1fe3f04ca577a84f3b6b0aeaf068bcafef06393e994a",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 43.03184665,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 0.6137,
+          "gap_mm": 0.0,
+          "overlap_mm3": 4.816418
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.61365,
+      "stop": "receiver-recontact",
+      "last_xz_vxvz_spin": [
+        0.10212898826055979,
+        0.49130862621306914,
+        -0.44296859172091807,
+        -0.11869307642396573,
+        7.953834639404499
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 0.5566999999999469,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.3034563276579307,
+      "withdrawal": "late",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": -0.021011739440142396,
+      "official_score": null,
+      "trace_sha256": "7c69c8a5bc4e952a1ab247b21cc9d14793c6d906ce1fce63312e60dc56082fbe"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.06451141525439442,
+        0.48123525982770654,
+        1.9694101747371674e-14,
+        -2.4563798147598124e-14,
+        -2.9116375901171513e-13
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 1.858199999999828,
+      "first_lip_after_s": 0.6906,
+      "max_compression_mm": 2.2056820525048066,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.1993999999999005,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "16a98e60fc6fb483b83bc2550df79a0d3b38e70d1679a021a9b6b551eafdb4c2"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.0645114152543947,
+        0.4812352598277075,
+        -2.060230972008767e-14,
+        -1.910452152858591e-13,
+        3.045912029420704e-13
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 1.857099999999812,
+      "first_lip_after_s": 0.6905,
+      "max_compression_mm": 2.2709659664572683,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.1995999999998843,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "46d3368e8d6c5029c8744abca77c2d926ebc76ec252cf85c8791d9752024516c",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 48.59419169,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 2.0,
+          "gap_mm": 267.96412774,
+          "overlap_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.06451141525439531,
+        0.4812352598277085,
+        -1.3365569749901826e-13,
+        -3.607743234796339e-13,
+        1.976009770818561e-12
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 1.8561000000017047,
+      "first_lip_after_s": 0.69035,
+      "max_compression_mm": 2.3034563276579307,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.1998000000003197,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "d9bb0bd9a291faf8041640fa56c197084af12ddcc57ba7e16fc2aacf4fb61dd2"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.0896,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.1907471271236692,
+        0.5150619817673884,
+        0.4036517953490031,
+        0.10456020868851086,
+        0.0
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 0.0349999999999999,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.205682052504855,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "263810509e977c50b7d448cae9f55b9b3ff64fba95c3b2a35df5adf5d153ddb2"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.08950000000000001,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.1907156413721429,
+        0.5150623210620658,
+        0.40416214657234356,
+        0.10363621699330548,
+        0.0
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 0.03339999999999993,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.2709659664573376,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "aedd070e63edad33c2931b8adb8ff1992bf9e94f0fa3ba1500da7f7929b1cd81",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 48.59419169,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 0.08950000000000001,
+          "gap_mm": 108.86590324,
+          "overlap_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.08945,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.19069957803298035,
+        0.5150636131452092,
+        0.4043688480964676,
+        0.10335512890325763,
+        0.0
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 0,
+      "friction": 0,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 0.03250000000000042,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.303456327657431,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "21dd71af779ded18dbd1df4ea003bdf338ee6af19f39ecdad7e250439a791821"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.0902,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.19074592167862903,
+        0.5150596385014923,
+        0.47554487396482137,
+        0.1241727638282438,
+        -8.669424797324098
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": -10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 0.035599999999999896,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.205682052504751,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "90c685bdfa739b9e99d180b6ecd7b3302a0d3df27acb99dfc2896721535c6157"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.0903,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.19069634471395397,
+        0.5150535401050699,
+        0.475511963934332,
+        0.1230340827525852,
+        -8.670696647161488
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": -10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 0.03419999999999995,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.270965966457282,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "313b0e5fa380ffa33519f21fd43d83d34423c1cbe4a953c0e11ff4902f39d76a",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 48.59419169,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 0.0903,
+          "gap_mm": 108.96477495,
+          "overlap_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 0.09040000000000001,
+      "stop": "inner-riser-bound",
+      "last_xz_vxvz_spin": [
+        0.1906871515400188,
+        0.5150555723581273,
+        0.4753313459549453,
+        0.12248476307946174,
+        -8.671795915496844
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": -10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 0.033450000000000445,
+      "first_lip_after_s": null,
+      "max_compression_mm": 2.3034563276573756,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 0.0,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 48.59418714994795,
+      "official_score": null,
+      "trace_sha256": "02e9de6700936701ee8348c23db9a4985891dc47669b615c92040a1ab67a7dcc"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.06451141525439445,
+        0.48123525982770665,
+        1.5350598191803137e-14,
+        -4.244946346084564e-14,
+        -2.2694996512146666e-13
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0002,
+      "support_duration_s": 1.8773999999998259,
+      "first_lip_after_s": 0.394,
+      "max_compression_mm": 2.2056820525049106,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.5143999999998659,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 26.731094688919107,
+      "official_score": null,
+      "trace_sha256": "1a4de4bbf7dc2e1d4b75133c018c5587c2492c5cb580665adfcbea3653f46b01"
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.06451141525439474,
+        0.48123525982770754,
+        -2.890266830180834e-14,
+        -2.001586741576363e-13,
+        4.27306126868878e-13
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 0.0001,
+      "support_duration_s": 1.8766999999998097,
+      "first_lip_after_s": 0.3937,
+      "max_compression_mm": 2.2709659664573447,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.5147999999998496,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 26.647055902607804,
+      "official_score": null,
+      "trace_sha256": "2f060be6e01f1d36bad5119c9709438afb967a5f8494b0416c301abc2bda0ae7",
+      "native_receiver_witnesses": [
+        {
+          "elapsed_s": 0.0,
+          "gap_mm": 48.59419169,
+          "overlap_mm3": 0.0
+        },
+        {
+          "elapsed_s": 2.0,
+          "gap_mm": 267.96412774,
+          "overlap_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "piece_id": "station-coral-001",
+      "input_case": "reference",
+      "sector_m": -0.18,
+      "start_from_station_s": 14.935516285904695,
+      "elapsed_s": 2.0,
+      "stop": "sustained-paired-floor-and-lip",
+      "last_xz_vxvz_spin": [
+        0.0645114152543953,
+        0.48123525982770826,
+        -1.3379317193385245e-13,
+        -3.208767374692346e-13,
+        1.9780422166411767e-12
+      ],
+      "initial_xz_vxvz": [
+        0.1448100056804114,
+        0.5028784170113147,
+        0.94355747,
+        -1.0317193604037778
+      ],
+      "initial_roll_rad_s": 10,
+      "friction": 0.35,
+      "damping_ratio": 0.6,
+      "spring_N_per_m": 60000.0,
+      "dt_s": 5e-05,
+      "support_duration_s": 1.875650000001746,
+      "first_lip_after_s": 0.39345,
+      "max_compression_mm": 2.3034563276575146,
+      "withdrawal": "after-separation",
+      "clear_witness_from_station_s": 14.84831019,
+      "ending_still_double_contact_s": 1.515050000000985,
+      "peak_total_energy_gain_J": 0.0,
+      "min_shelf_clearance_mm": 26.619806809236835,
+      "official_score": null,
+      "trace_sha256": "5a4f52cd301eb065ba0ab27c997e2967ef572a9732ee851aa697c1e863dec032"
+    }
+  ]
+}

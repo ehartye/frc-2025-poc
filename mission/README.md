@@ -21,6 +21,8 @@ The [target input](target.json) retains the Jan 9 field STEP hash, two trimmed p
 
 ## From the first approach into a second trip
 
+The [post-impact trough and withdrawal experiment](TROUGH-CONTACT.md) supersedes the synthetic 1.2 s wait for the reference contact case. A rolling pipe hits the fixed shelf before that wait ends. An independently triggered early retraction allows sustained modeled floor/lip support under specific friction and roll assumptions.
+
 The [phase rehearsal](../scripts/station_l1_phase.py) starts the empty chassis at X = 1.20 m. It takes an assumed 2 s to dock and 2 s to extend. The first identified pipe therefore reaches the trough at **18.936 s**, placing this trial outside a 15 s AUTO period. The finite AUTO rehearsal stops at 15.000 s, with no continuing powered steps.
 
 In TELEOP the evidence-only run reaches that first contact and waits for confirmation that the robot and the selected sector are clear for withdrawal. A separate scenario supplies a synthetic independent confirmation after 1.2 s. It times the empty 3 s withdrawal, 1 s lift, 5 s return, 2 s station-height recovery and subsequent extension. The second assigned pipe becomes available at 35.000 s, reaches a separate sector at **49.936 s**, and finishes the modeled empty recovery at **62.136 s**. The two specimen identities are `coral-A` and `coral-B`, assigned to lateral offsets −180 and +180 mm within the same target assembly. The earlier pipe's post-impact state stays unresolved. Trying the second pipe in an overlapping sector stops before its feed.
