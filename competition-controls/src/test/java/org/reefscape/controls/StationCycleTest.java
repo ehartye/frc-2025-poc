@@ -12,9 +12,28 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.reefscape.controls.StationCycle.State.*;
 
 class StationCycleTest {
+    private static final String[] ROW=System.getenv("REEF_WHOLE_ROBOT_TRIAL").split(",");
+    private static final WithdrawalTrial TRIAL=new WithdrawalTrial(ROW[0],ROW[1],ROW[2],Integer.parseInt(ROW[3]),
+            Integer.parseInt(ROW[4]),Long.parseLong(ROW[5]),Double.parseDouble(ROW[6]),Long.parseLong(ROW[7]));
     static final class FakeIO implements ReceiverIO {
         long time, sensorLag, poseLag, attempt, exitAttempt, earliestLag, latestLag;
-        boolean calibrated=true, wrongPiece;
+        boolean calibrated=true, wrongPiece, whole;
+        String track=TRIAL.pieceId(), reportPiece=TRIAL.pieceId(), assembly=TRIAL.assemblySha256(), study=TRIAL.studySha256();
+        String frame=WithdrawalTrial.FRAME, clock=WithdrawalTrial.CLOCK;
+        int phase=TRIAL.phase(), reportSector=TRIAL.sectorMm(), dockSector=TRIAL.sectorMm();
+        double gap=TRIAL.lowerGapMm();
+        long captureLag=15,originMs,captureShift;
+        boolean alignToReference;
+        long exposureReadAt=-1;
+        Exit departure() {
+            if (!exit) return new Exit(false,0,"",0,0,false);
+            String key=wrongPiece ? "other" : ReceiverIO.pieceKey(attempt);
+            if (!whole) return new Exit(true,exitAttempt,key,time-earliestLag,time-latestLag,calibrated);
+            if (exposureReadAt<0) exposureReadAt=time;
+            return new Exit(true,exitAttempt,key,exposureReadAt-earliestLag,exposureReadAt-latestLag,calibrated,
+                    new WholeFront(assembly,study,frame,clock,reportPiece,reportSector,phase,
+                                   exposureReadAt-captureLag+captureShift,gap));
+        }
         @Override public void beginAttempt(long id) { attempt=id; exitAttempt=id; }
         double lift=940, slide;
         boolean seat, entry, exit, jam, release, target, station=true, clear=true, stopped=true;
@@ -23,9 +42,8 @@ class StationCycleTest {
         final List<Demand> writes = new ArrayList<>();
         @Override public Inputs read() {
             return new Inputs(new Sensors(time-sensorLag,lift,slide,lower,upper,slide==0,
-                slide==370,entry,seat,exit ? new Exit(true,exitAttempt,wrongPiece ? "other" : ReceiverIO.pieceKey(attempt),
-                    time-earliestLag,time-latestLag,calibrated) : new Exit(false,0,"",0,0,false),jam,true),
-                new Approach(time-poseLag,station,target,clear,stopped,true),release);
+                slide==370,entry,seat,departure(),jam,true),
+                new Approach(time-poseLag,station,target,clear,stopped,true,dockSector),release,track,originMs);
         }
         @Override public void write(Demand next) { last=next; writes.add(next); }
     }
@@ -58,6 +76,16 @@ class StationCycleTest {
         enabled(false);
     }
     void tick() { io.time+=20; scheduler.run(); }
+    void reviewedTrial() { command=new StationCycle(receiver,TRIAL);io.alignToReference=true; }
+    void sourceFrame() {
+        io.earliestLag=io.captureLag+TRIAL.captureSincePriorBoundMs();
+        io.latestLag=io.captureLag-WithdrawalTrial.SYNC_MS;
+        io.whole=true;io.exit=true;
+    }
+    void beforeWholeFrame() {
+        io.time=io.originMs+TRIAL.captureFromLipMs()+io.captureLag-20;
+        sourceFrame();
+    }
     void acquire() {
         command.schedule(); tick();
         assertEquals(DEPLOY,command.state()); assertEquals(240,io.last.slideMm());
@@ -75,6 +103,7 @@ class StationCycleTest {
     }
     void ready() {
         carry();
+        if (io.alignToReference) io.time=io.originMs+TRIAL.captureFromLipMs()-400;
         io.station=false; io.target=true; tick(); assertEquals(LOWER_PLACE,command.state());
         assertFalse(io.last.drivePermit()); io.lift=560; tick();
         assertEquals(EXTEND_PLACE,command.state());
@@ -95,15 +124,17 @@ class StationCycleTest {
     }
 
     @Test void acquireConfirmCarryReleaseAndWithdraw() {
-        io.release=true; ready(); tick();
+        reviewedTrial(); io.release=true; ready(); tick();
         assertEquals(READY,command.state()); // A release pressed before readiness cannot start feed.
         io.release=false; tick(); io.release=true; tick();
         assertEquals(RELEASE_SEAT,command.state()); assertEquals(1.05,io.last.beltMps());
         io.seat=false; tick(); assertEquals(RELEASE_ENTRY,command.state());
         io.entry=false; tick(); assertEquals(WAIT_EXIT,command.state()); assertEquals(370,io.last.slideMm());
         io.exit=true; tick(); assertEquals(WAIT_WITHDRAW,command.state());
-        tick(); tick(); assertEquals(370,io.last.slideMm()); tick();
+        assertEquals(0,io.last.beltMps()); assertEquals(0,io.last.slideVelocityMmPerS());
+        beforeWholeFrame(); tick();
         assertEquals(WITHDRAW,command.state()); assertEquals(370,io.last.slideMm(),1e-8);
+        assertEquals(-150,io.last.slideVelocityMmPerS());
         for(int i=0;i<150 && command.isScheduled();i++) {io.slide=io.last.slideMm(); tick();}
         assertEquals(COMPLETE,command.state());
         assertEquals(Demand.neutral(),io.last); assertFalse(command.isScheduled());
@@ -152,8 +183,7 @@ class StationCycleTest {
         assertEquals(Demand.neutral(),io.last);
     }
     @Test void stuckWithdrawalIsDetectedBeforeFullRetractionTimeout() {
-        ready(); io.release=true; tick(); io.seat=false; tick(); io.entry=false; tick();
-        io.exit=true; tick(); tick(); tick(); tick(); io.time+=170; tick();
+        reviewedTrial(); awaitExit(); beforeWholeFrame(); tick(); io.time+=170; tick();
         assertEquals("withdrawal tracking disagreement",receiver.fault());
         assertEquals(Demand.neutral(),io.last);
     }
@@ -169,14 +199,14 @@ class StationCycleTest {
         awaitExit(); io.wrongPiece=true; io.exit=true; tick(); assertEquals(FAULT,command.state());
     }
     @Test void tooWideAnIntervalCannotAuthorize() {
-        awaitExit(); for (int i=0;i<6;i++) tick();
-        io.earliestLag=110; io.latestLag=0; io.exit=true; tick(); assertEquals(FAULT,command.state());
+        reviewedTrial(); awaitExit(); beforeWholeFrame();
+        io.earliestLag=151; tick(); assertEquals(FAULT,command.state());
     }
     @Test void frameFromFutureCannotAuthorize() {
         awaitExit(); io.latestLag=-1; io.exit=true; tick(); assertEquals(FAULT,command.state());
     }
     @Test void schedulingDelayCannotStartLateRetreat() {
-        awaitExit(); io.exit=true; tick(); io.time+=140; tick();
+        reviewedTrial(); awaitExit(); io.captureLag=41; beforeWholeFrame(); tick();
         assertEquals(FAULT,command.state()); assertFalse(io.last.active());
     }
 
@@ -196,6 +226,45 @@ class StationCycleTest {
         assertFalse(command.isScheduled()); assertEquals(Demand.neutral(),io.last);
         enabled(true); tick(); assertFalse(command.isScheduled());
         assertEquals(Demand.neutral(),io.last); assertFalse(receiver.acknowledgeRecovery());
+    }
+    @Test void legacyShelfSignalKeepsBothBeltsAndSlideStationary() {
+        reviewedTrial(); awaitExit(); io.exit=true;
+        for (int n=0; n<12; n++) {
+            tick(); assertEquals(WAIT_WITHDRAW,command.state());
+            assertEquals(370,io.last.slideMm()); assertEquals(0,io.last.slideVelocityMmPerS());
+            assertEquals(0,io.last.beltMps()); assertFalse(io.last.drivePermit());
+        }
+    }
+    @Test void completeFrameCannotEnableOrdinaryCommand() {
+        io.alignToReference=true; awaitExit(); beforeWholeFrame(); tick();
+        assertEquals(WAIT_WITHDRAW,command.state()); assertEquals(0,io.last.slideVelocityMmPerS());
+    }
+    @Test void wholeFrameRequiresMatchingScopeIdentityGeometryAndExposure() {
+        List<java.util.function.Consumer<FakeIO>> mutations=List.of(
+            f->f.assembly="0".repeat(64), f->f.study="f".repeat(64), f->f.frame="shelf-local",
+            f->f.clock="camera-uptime", f->f.reportPiece="coral-B", f->f.track="", f->f.dockSector=220,
+            f->f.reportSector=220, f->f.phase=1, f->f.gap=.99, f->f.gap=Double.POSITIVE_INFINITY,
+            f->f.captureShift=-17, f->f.earliestLag-=2);
+        for (var change:mutations) {
+            reviewedTrial(); awaitExit(); beforeWholeFrame(); change.accept(io); tick();
+            assertEquals(FAULT,command.state()); assertEquals(Demand.neutral(),io.last);
+            scheduler.unregisterSubsystem(receiver);
+            io=new FakeIO(); receiver=new ReceiverSubsystem(io,()->io.time);
+        }
+    }
+    @Test void changingTrackEpochLatchesFault() {
+        reviewedTrial(); carry(); io.originMs++; tick();
+        assertEquals("piece track changed during attempt",receiver.fault()); assertEquals(Demand.neutral(),io.last);
+    }
+    @Test void withdrawalRevocationStopsMotion() {
+        reviewedTrial(); awaitExit(); beforeWholeFrame(); tick(); assertEquals(WITHDRAW,command.state());
+        io.gap=.5; tick(); assertEquals("whole-robot clearance revoked",receiver.fault());
+        assertEquals(Demand.neutral(),io.last);
+    }
+    @Test void disablingDuringHoldClearsAllDemands() {
+        awaitExit(); io.exit=true; tick(); assertEquals(WAIT_WITHDRAW,command.state());
+        enabled(false); tick(); assertEquals(Demand.neutral(),io.last);
+        enabled(true); tick(); assertFalse(command.isScheduled()); assertEquals(Demand.neutral(),io.last);
     }
     @Test void sensorPortGeometryRejectsTheOldSeatLocation() {
         double center=80, radius=57.15;

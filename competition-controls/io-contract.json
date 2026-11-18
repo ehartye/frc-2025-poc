@@ -1,5 +1,5 @@
 {
-  "schema": "reefscape-receiver-io/2",
+  "schema": "reefscape-receiver-io/3",
   "classification": "Candidate engineering interfaces and synthetic commissioning assumptions. No field device assigned.",
   "robotFrame": "mm; +X forward, +Y left, +Z up. Carriage-local u starts at the translating receiver datum.",
   "posesMm": {
@@ -34,10 +34,12 @@
     "receiverSurfaceSpeedMps": -0.2,
     "releaseSurfaceSpeedMps": 1.05,
     "origin": "Test hypotheses. Do not transfer values directly to hardware.",
-    "withdrawDelayAfterClearanceMs": 50,
     "withdrawLatestAfterEarliestCrossingMs": 150,
     "withdrawGoalMmPerSecond": 150,
-    "withdrawTrackingToleranceMm": 15
+    "withdrawTrackingToleranceMm": 15,
+    "ordinaryCommandAllowsWithdrawal": false,
+    "reviewedDesktopIntentionalWaitMs": 0,
+    "assumedDesktopActuationLagUpperMs": 10
   },
   "channels": [
     {
@@ -54,7 +56,7 @@
     },
     {
       "logical": "Slide",
-      "interface": "axis goal, encoder, retracted/extended switches",
+      "interface": "position goal and signed slide velocity, encoder, retracted/extended switches",
       "units": "mm outward from stow",
       "boundary": "electrical zero, positive limit alignment and external stops open"
     },
@@ -78,14 +80,14 @@
     },
     {
       "logical": "ExitClear",
-      "interface": "independent finite-pipe/shelf separation for active attempt",
+      "interface": "independent finite-pipe/shelf crossing bound for this acquisition",
       "units": "active-attempt piece key, calibrated finite shelf gap >=1 mm, earliest/latest crossing timestamps in controller ms",
-      "boundary": "See release-observer. The source must bound an earlier still-supported observation and later clear observation, clock error included. No physical calibration or live adapter exists."
+      "boundary": "Shelf-only observation stops outward feed and holds the deployed slide."
     },
     {
       "logical": "Approach",
       "interface": "drive/localization target clearance, dock and measured stop",
-      "units": "logical observation with validity and oldest timestamp",
+      "units": "validity, oldest timestamp, and signed registered target sector in mm",
       "boundary": "drive subsystem owns dock, obstacle/target occupancy, freshness and stop; incoming pose quality needs calibration"
     },
     {
@@ -93,6 +95,12 @@
       "interface": "hardware diagnostics or operator-latched jam observation",
       "units": "boolean",
       "boundary": "current sensor, thresholds, motion window, fault code and timeout calibration open"
+    },
+    {
+      "logical": "WholeFront",
+      "interface": "simulation-only independent front-plane measurement for the complete pose manifest",
+      "units": "assembly and study SHA-256, robot front frame, synchronized controller clock, piece, sector mm, exposure phase and capture ms, conservative gap mm",
+      "boundary": "Independent observed track identity and time origin survive acquisition. Match the archived image against the 361-body registered route and deadline before emitting slide velocity. The public command holds. Physical calibration, source of stable identity and bounded actuation lag remain open."
     }
   ],
   "electricalAssignment": {

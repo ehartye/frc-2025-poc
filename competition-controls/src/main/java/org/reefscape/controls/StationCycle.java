@@ -13,15 +13,21 @@ public final class StationCycle extends Command {
     private final ReceiverSubsystem receiver;
     private State state;
     private long enteredMs, firstSeatMs, lastTickMs, lastMechanismMs, lastChassisMs;
-    static final long WITHDRAW_DELAY_MS = 50;
+    private final WithdrawalTrial trial;
+    private String acquiredPiece;
+    private int currentSector;
+    private long acquiredOriginMs;
     static final double WITHDRAW_MM_PER_S = 150;
     static final long LATEST_TESTED_WITHDRAW_MS = 150;
-    private long attempt, exitObservedMs, earliestExitMs, releaseStartedMs, withdrawStartedMs;
+    private long attempt, releaseStartedMs, withdrawStartedMs;
     private Sensors previousSensors;
     private Approach previousApproach;
     private boolean previousRelease;
 
-    public StationCycle(ReceiverSubsystem receiver) {
+    public StationCycle(ReceiverSubsystem receiver) { this(receiver,null); }
+
+    StationCycle(ReceiverSubsystem receiver, WithdrawalTrial desktopTrial) {
+        this.trial=desktopTrial;
         this.receiver = receiver;
         addRequirements(receiver);
     }
@@ -43,6 +49,8 @@ public final class StationCycle extends Command {
             fail("start requires docked empty receiver at stow"); return;
         }
         attempt = receiver.beginAttempt();
+        acquiredPiece="";
+        acquiredOriginMs=-1;
         previousSensors = s;
         previousApproach = input.chassis();
         previousRelease = input.requestRelease();
@@ -76,6 +84,7 @@ public final class StationCycle extends Command {
         if (!why.isEmpty()) { fail(why); return; }
         Sensors s = input.mechanism();
         Approach a = input.chassis();
+        currentSector=a.targetSectorMm();
         boolean releaseEdge = input.requestRelease() && !previousRelease;
         previousRelease = input.requestRelease();
         if (now < lastTickMs || s.timeMs() < lastMechanismMs || a.timeMs() < lastChassisMs) {
@@ -87,6 +96,11 @@ public final class StationCycle extends Command {
         }
         previousSensors = s; previousApproach = a;
         lastTickMs = now; lastMechanismMs = s.timeMs(); lastChassisMs = a.timeMs();
+        String observedPiece=input.trackedPieceId();
+        if (!acquiredPiece.isEmpty() &&
+            (!acquiredPiece.equals(observedPiece) || acquiredOriginMs!=input.trackOriginMs())) {
+            fail("piece track changed during attempt"); return;
+        }
         if (s.clearOfShelf() && s.exit().attempt() != attempt) { fail("exit belongs to another attempt"); return; }
         if (now - enteredMs >= timeout(state)) { fail("timeout in " + state); return; }
         if (state != State.WAIT_EXIT && state != State.WAIT_WITHDRAW && state != State.WITHDRAW && state != State.RELEASE_ENTRY
@@ -122,7 +136,11 @@ public final class StationCycle extends Command {
             }
             case WAIT_SEAT -> {
                 if (!s.entry()) { fail("entry lost before seat"); return; }
-                if (s.seat()) { firstSeatMs = s.timeMs(); move(State.CONFIRM,now); }
+                if (s.seat()) {
+                    acquiredPiece=observedPiece==null ? "" : observedPiece;
+                    acquiredOriginMs=input.trackOriginMs();
+                    firstSeatMs = s.timeMs(); move(State.CONFIRM,now);
+                }
             }
             case CONFIRM -> {
                 if (!carrying(s)) { fail("seat not sustained"); return; }
@@ -158,7 +176,7 @@ public final class StationCycle extends Command {
                     if (s.seat()) { fail("seat reoccupied during release"); return; }
                     if (s.clearOfShelf() && s.entry()) { fail("exit witness disagrees with entry"); return; }
                     if (!s.entry()) {
-                        if (s.clearOfShelf()) beginWithdrawalDelay(s.exit(),now);
+                        if (s.clearOfShelf()) assessDeparture(s.exit(),now);
                         else move(State.WAIT_EXIT,now);
                     }
                 }
@@ -167,21 +185,21 @@ public final class StationCycle extends Command {
                 if (s.entry() || s.seat() || !at(s,PLACE_MM,DEPLOY_MM) || !s.slideExtended()) {
                     fail("unexpected contact or pose while awaiting exit"); return;
                 }
-                if (s.clearOfShelf()) beginWithdrawalDelay(s.exit(),now);
+                if (s.clearOfShelf()) assessDeparture(s.exit(),now);
             }
             case WAIT_WITHDRAW -> {
                 if (s.entry() || s.seat() || !s.slideExtended() || !at(s,PLACE_MM,DEPLOY_MM)) {
                     fail("unexpected contact or pose after exit"); return;
                 }
-                if (now-earliestExitMs > LATEST_TESTED_WITHDRAW_MS) {
-                    fail("withdrawal timing window expired"); return;
-                }
-                if (now-exitObservedMs >= WITHDRAW_DELAY_MS) {
-                    withdrawStartedMs = now;
-                    move(State.WITHDRAW,now);
-                }
+                if (s.clearOfShelf() && s.exit().wholeFront()!=null) assessDeparture(s.exit(),now);
             }
             case WITHDRAW -> {
+                WholeFront observation=s.exit()==null ? null : s.exit().wholeFront();
+                if (currentSector!=trial.sectorMm() || (observation!=null &&
+                    (!s.exit().clear() || !s.exit().calibrated() || !trial.sameTrack(observation,acquiredPiece)
+                     || !Double.isFinite(observation.lowerGapMm()) || observation.lowerGapMm()<1))) {
+                    fail("whole-robot clearance revoked"); return;
+                }
                 if (!near(s.liftMm(),PLACE_MM) || Math.abs(s.slideMm()-withdrawGoal(now)) > 15) {
                     fail("withdrawal tracking disagreement"); return;
                 }
@@ -197,7 +215,8 @@ public final class StationCycle extends Command {
             case LOWER_CARRY, CARRY -> new Demand(true,CARRY_MM,0,0,state == State.CARRY);
             case LOWER_PLACE -> new Demand(true,PLACE_MM,0,0,false);
             case WAIT_WITHDRAW -> new Demand(true,PLACE_MM,DEPLOY_MM,0,false);
-            case WITHDRAW -> new Demand(true,PLACE_MM,withdrawGoal(now),0,false);
+            case WITHDRAW -> new Demand(true,PLACE_MM,withdrawGoal(now),0,false,
+                    withdrawGoal(now)>0 ? -WITHDRAW_MM_PER_S : 0);
             case EXTEND_PLACE, READY -> new Demand(true,PLACE_MM,DEPLOY_MM,0,false);
             case RELEASE_SEAT, RELEASE_ENTRY, WAIT_EXIT -> new Demand(true,PLACE_MM,DEPLOY_MM,1.05,false);
             case COMPLETE, FAULT -> Demand.neutral();
@@ -209,17 +228,19 @@ public final class StationCycle extends Command {
         receiver.output(demand);
     }
 
-    private void beginWithdrawalDelay(Exit exit,long now) {
+    private void assessDeparture(Exit exit,long now) {
         if (!exit.calibrated() || !ReceiverIO.pieceKey(attempt).equals(exit.pieceKey())
             || exit.earliestCrossingMs() < releaseStartedMs || exit.latestCrossingMs() < exit.earliestCrossingMs()
-            || exit.latestCrossingMs() > now
-            || now-exit.earliestCrossingMs() > LATEST_TESTED_WITHDRAW_MS
-            || exit.latestCrossingMs()-exit.earliestCrossingMs() > LATEST_TESTED_WITHDRAW_MS-WITHDRAW_DELAY_MS) {
+            || exit.latestCrossingMs() > now || now-exit.earliestCrossingMs() > LATEST_TESTED_WITHDRAW_MS) {
             fail("uncertain or late independent clearance"); return;
         }
-        earliestExitMs = exit.earliestCrossingMs();
-        exitObservedMs = exit.latestCrossingMs();
-        move(State.WAIT_WITHDRAW,now);
+        if (trial==null || exit.wholeFront()==null) {
+            if (state!=State.WAIT_WITHDRAW) move(State.WAIT_WITHDRAW,now);
+            return;
+        }
+        if (!trial.permits(exit,acquiredPiece,acquiredOriginMs,currentSector,now)) { fail("unqualified whole-robot observation"); return; }
+        withdrawStartedMs=now;
+        move(State.WITHDRAW,now);
     }
 
     private double withdrawGoal(long now) {
