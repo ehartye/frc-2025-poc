@@ -12,7 +12,7 @@ For the nominal test the pipe starts at the measured slot center, Z1550 mm, with
 
 A modest change to the ramp impact invalidates the free-rolling exit prediction. With assumed normal restitution 0.20, the rebounding pipe intersects the installed upper guard GE-25015 after 35 ms (219 mm³). At 0.40 it reaches both GE-25015 and GE-25021 after 20 ms; at 0.60 it reaches them after 15 ms. These positive-volume snapshots mark the end of each free-flight hypothesis. They do not predict the subsequent exit speed.
 
-The continuous filled-pipe sweeps cover the centerline vertical drop, downhill straight section and eight ballistic chords through first shelf height. The flight checks expand each chord radially by 0.0476 mm to bound gravity curvature. Outer-envelope overlap at the initial ramp lip and final shelf is consistent with the planned support transitions. A modeled centered dry receiver brings the nominal source to within 0.1 mm of its 80 mm seat after 1.1 seconds. A separate 2.50 m/s input crosses the rear shelf boundary. In the historical 0.50 m/s case the finite pipe wall intersects each of three 0.8 mm observer pad laminates by 50.89 mm³ at the bare-shelf contact instant. The first such positive sample already occurs at 99% of the computed flight time. The laminates can deform, and their normal response is unmeasured. A bare-shelf calculation cannot establish their contact history.
+The continuous filled-pipe sweeps cover the centerline vertical drop, downhill straight section and eight ballistic chords through first shelf height. The flight checks expand each chord radially by 0.0476 mm to bound gravity curvature. Outer-envelope overlap at the initial ramp lip and final shelf is consistent with the planned support transitions. A modeled centered dry receiver brings the nominal source to within 0.1 mm of its 80 mm seat after 1.1 seconds. A separate centered dry speed sweep from 1.60 to 2.50 m/s in 0.01 m/s increments places the first rear-boundary failure at 2.42 m/s. The preceding 2.41 m/s case recovers to seat at all three tested integration steps (0.5, 1 and 2 ms). This is a model boundary for designing the incoming-speed measurement. [Speed sweep](speed-window.json) In the historical 0.50 m/s case the finite pipe wall intersects each of three 0.8 mm observer pad laminates by 50.89 mm³ at the bare-shelf contact instant. The first such positive sample already occurs at 99% of the computed flight time. The laminates can deform, and their normal response is unmeasured. A bare-shelf calculation cannot establish their contact history.
 
 ## Two scheduled introductions
 
@@ -30,6 +30,7 @@ The solver consumes the project-owned red receiving STEP and a user-supplied cop
 ```powershell
 python full-match/materialize_red.py --output artifacts/red-401
 python station-supply/transfer.py --field $env:FIRST_FIELD_STEP --poses artifacts/red-401 --output artifacts/station-transfer.json
+python station-supply/speed_window.py
 python station-supply/render.py
 ```
 
