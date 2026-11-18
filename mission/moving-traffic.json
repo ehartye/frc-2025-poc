@@ -1,0 +1,433 @@
+{
+  "schema": "registered-moving-traffic/1",
+  "input_sha256_lf_text": {
+    "mission/registered-field-receipt.json": "144ea1131c4bb65e57a5d9a865c1234430b6eaa928953921a3a65e25e804f5c5",
+    "mission/branch-exclusion.json": "d9c122efbda3f3978a264c0858e940cb1d212bbdc260b5e1658908af7b59f49d",
+    "mission/field-registration.json": "b652c3f62805eba1351c920b9fdfc8dbfa09799099f96afee728a77b872525ef",
+    "kickoff/rule-register-v0.json": "7d1cfd49b8a87c402aa5d1cad49cd7ef07afc456859d8db09addf3f064fad24b"
+  },
+  "clock_s": 135,
+  "step_s": 0.02,
+  "robot_pairs": 15,
+  "scenarios": {
+    "immediate": {
+      "hold_before_start_s": 0,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "active_clock_s": 135,
+      "separated_for_full_clock": false,
+      "min_separating_bound_m": -1.0338811390997649,
+      "worst": [
+        "red3",
+        "red2",
+        5.81
+      ],
+      "first_unresolved": [
+        "red3",
+        "red2",
+        3.85
+      ],
+      "first_sampled_overlap": [
+        "red3",
+        "red2",
+        3.87,
+        -0.00714
+      ],
+      "feeds": [
+        {
+          "piece_id": "coral-A",
+          "stock_available_s": 0,
+          "insertion_started_s": 16.318601879283914,
+          "chute_roll_start_s": 17.418601879283916,
+          "lip_arrival_s": 17.587055902720795,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        },
+        {
+          "piece_id": "coral-B",
+          "stock_available_s": 35,
+          "insertion_started_s": 67.87470212795424,
+          "chute_roll_start_s": 68.97470212795423,
+          "lip_arrival_s": 69.14315615139111,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        }
+      ],
+      "source_arrivals_before_clock": [],
+      "support_observations": [],
+      "planned_empty_finish_s": 116.75031910264846,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "edition_assessments": {},
+      "empty_finish_available": false
+    },
+    "opponent": {
+      "hold_before_start_s": 10,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "active_clock_s": 135,
+      "separated_for_full_clock": false,
+      "min_separating_bound_m": -0.14927296930462652,
+      "worst": [
+        "blue3",
+        "red2",
+        16.83
+      ],
+      "first_unresolved": [
+        "blue3",
+        "red2",
+        15.71
+      ],
+      "first_sampled_overlap": [
+        "blue3",
+        "red2",
+        15.73,
+        -0.00599
+      ],
+      "feeds": [
+        {
+          "piece_id": "coral-A",
+          "stock_available_s": 0,
+          "insertion_started_s": 26.318601879283914,
+          "chute_roll_start_s": 27.418601879283916,
+          "lip_arrival_s": 27.587055902720795,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        },
+        {
+          "piece_id": "coral-B",
+          "stock_available_s": 35,
+          "insertion_started_s": 77.87470212795424,
+          "chute_roll_start_s": 78.97470212795423,
+          "lip_arrival_s": 79.14315615139111,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        }
+      ],
+      "source_arrivals_before_clock": [],
+      "support_observations": [],
+      "planned_empty_finish_s": 126.75031910264846,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "edition_assessments": {},
+      "empty_finish_available": false
+    },
+    "reserved": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        35
+      ],
+      "active_clock_s": 135,
+      "separated_for_full_clock": true,
+      "min_separating_bound_m": 0.09994580285199105,
+      "worst": [
+        "blue3",
+        "red2",
+        20.55
+      ],
+      "first_unresolved": null,
+      "first_sampled_overlap": null,
+      "feeds": [
+        {
+          "piece_id": "coral-A",
+          "stock_available_s": 0,
+          "insertion_started_s": 32.31860187928392,
+          "chute_roll_start_s": 33.41860187928392,
+          "lip_arrival_s": 33.5870559027208,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        },
+        {
+          "piece_id": "coral-B",
+          "stock_available_s": 35,
+          "insertion_started_s": 83.87470212795425,
+          "chute_roll_start_s": 84.97470212795425,
+          "lip_arrival_s": 85.14315615139112,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        }
+      ],
+      "source_arrivals_before_clock": [
+        "coral-A",
+        "coral-B"
+      ],
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.60257219682326,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 113.84367244523627,
+          "sector_m": 0.22
+        }
+      ],
+      "planned_empty_finish_s": 132.7503191026485,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "edition_assessments": {
+        "kickoff-v0": {
+          "edition": "kickoff-v0",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            },
+            {
+              "timeMs": 113844,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-B",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        },
+        "archive-compiled": {
+          "edition": "archive-compiled",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            },
+            {
+              "timeMs": 113844,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-B",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        }
+      },
+      "empty_finish_available": true
+    },
+    "late": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        111
+      ],
+      "active_clock_s": 135,
+      "separated_for_full_clock": true,
+      "min_separating_bound_m": 0.09994580285199105,
+      "worst": [
+        "blue3",
+        "red2",
+        20.55
+      ],
+      "first_unresolved": null,
+      "first_sampled_overlap": null,
+      "feeds": [
+        {
+          "piece_id": "coral-A",
+          "stock_available_s": 0,
+          "insertion_started_s": 32.31860187928392,
+          "chute_roll_start_s": 33.41860187928392,
+          "lip_arrival_s": 33.5870559027208,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        },
+        {
+          "piece_id": "coral-B",
+          "stock_available_s": 111,
+          "insertion_started_s": 111.0,
+          "chute_roll_start_s": 112.1,
+          "lip_arrival_s": 112.26845402343687,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        }
+      ],
+      "source_arrivals_before_clock": [
+        "coral-A",
+        "coral-B"
+      ],
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.60257219682326,
+          "sector_m": -0.18
+        }
+      ],
+      "planned_empty_finish_s": 159.87561697469422,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "edition_assessments": {
+        "kickoff-v0": {
+          "edition": "kickoff-v0",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        },
+        "archive-compiled": {
+          "edition": "archive-compiled",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        }
+      },
+      "empty_finish_available": false
+    },
+    "depleted": {
+      "hold_before_start_s": 16,
+      "stock_ready_s": [
+        0,
+        null
+      ],
+      "active_clock_s": 135,
+      "separated_for_full_clock": true,
+      "min_separating_bound_m": 0.09994580285199105,
+      "worst": [
+        "blue3",
+        "red2",
+        20.55
+      ],
+      "first_unresolved": null,
+      "first_sampled_overlap": null,
+      "feeds": [
+        {
+          "piece_id": "coral-A",
+          "stock_available_s": 0,
+          "insertion_started_s": 32.31860187928392,
+          "chute_roll_start_s": 33.41860187928392,
+          "lip_arrival_s": 33.5870559027208,
+          "travel_m": 0.0421135058592199,
+          "chute_acceleration_mps2": 2.968168938911406,
+          "observed_lip_speed_basis": "assumed no-slip rolling from rest"
+        }
+      ],
+      "source_arrivals_before_clock": [
+        "coral-A"
+      ],
+      "support_observations": [
+        {
+          "id": "coral-A",
+          "support_s": 62.60257219682326,
+          "sector_m": -0.18
+        }
+      ],
+      "planned_empty_finish_s": null,
+      "other_robot_to_target_min_bound_m": 1.342198894904296,
+      "edition_assessments": {
+        "kickoff-v0": {
+          "edition": "kickoff-v0",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        },
+        "archive-compiled": {
+          "edition": "archive-compiled",
+          "phase": "TELEOP",
+          "basis": "Registered candidate, continuous moving-roster occupancy, complete red native scoring-pipe exclusion.",
+          "samples": [
+            {
+              "timeMs": 62603,
+              "clock": "active",
+              "controlledCoralCountScreen": "unknown",
+              "pieces": [
+                {
+                  "id": "coral-A",
+                  "controlledByFocalRobot": "unknown",
+                  "countsTowardCoralLimit": "unknown",
+                  "l1CriteriaAtInstant": "yes"
+                }
+              ]
+            }
+          ],
+          "officialEarnedPoints": null
+        }
+      },
+      "empty_finish_available": false
+    }
+  }
+}

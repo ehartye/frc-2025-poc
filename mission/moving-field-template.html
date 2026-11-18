@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REEFSCAPE · The shared corridor</title><style>
+*{box-sizing:border-box}body{margin:0;color:#183333;background:#f6f4e9;font:16px/1.4 system-ui,sans-serif}main{max-width:1060px;margin:auto;padding:24px}
+h1{margin:.15em 0;font-size:clamp(36px,6vw,64px);line-height:1;letter-spacing:-.055em}p{max-width:77ch}label{font-weight:650}
+select,button{font:inherit;color:inherit;background:#fffdf4;border:1px solid #b5b9a8;border-radius:6px;padding:.45em .7em}
+.controls,header,aside{display:flex;align-items:center;gap:14px;flex-wrap:wrap}header{justify-content:space-between;margin-bottom:14px}
+.board{background:#122e32;border-radius:12px;overflow:hidden}svg{display:block;width:100%}.controls{margin:12px 0}
+input{min-width:80px;flex:1}output{font-variant-numeric:tabular-nums;min-width:72px}button{background:#275d50;color:white;border:0;min-width:5em}
+#verdict{border-left:4px solid #357b64;padding-left:.65em}aside{font-size:14px;color:#425957}strong{color:#163d3b}
+svg text{font:2.1px system-ui,sans-serif;fill:#faf9f1}svg .body-label{font-weight:750;fill:#102529}
+@media(max-width:600px){main{padding:12px}header{gap:4px}.controls,aside{gap:8px}}
+</style></head><body><main><h1>The shared corridor</h1>
+<p>Follow Red 2 from its starting line through the station and two reef sectors. Change its departure time or the second pipe’s availability to see which deliveries fit the 135-second TELEOP clock.</p>
+<header><label for="scenario">Rehearsal <select id="scenario"></select></label><strong id="verdict"></strong></header>
+<div class="board"><svg id="field" viewBox="-3 -3 182 87" role="img" aria-label="Registered overhead field showing six robot bodies, three motion paths and the red reef"></svg></div>
+<div class="controls"><button id="play" type="button">Play</button><input id="clock" type="range" min="0" max="135" step=".01" value="16" aria-label="Elapsed TELEOP seconds"><output id="time" for="clock"></output><button id="event" type="button">Next event</button></div>
+<aside><span>Red 2 <strong id="phase"></strong></span><span>Lip arrivals <strong id="feeds"></strong></span><span>Supported pipes <strong id="supports"></strong></span></aside>
+<p id="detail"></p><p>Traces assume the displayed partner and opponent schedules, finite station stock and an ideal rolling feed. The route screen checks all 15 robot pairs every 20 ms. The drawing samples poses every 200 ms. Each supported pipe has a registered model observation. Official match points require an official assessment.</p>
+<script type="application/json" id="source">REPLAY_SOURCE</script><script>
+const d=JSON.parse(document.querySelector('#source').textContent),by=id=>document.getElementById(id);
+const field=by('field'),select=by('scenario'),clock=by('clock'),play=by('play'),H=d.field[1];
+const xy=(x,y)=>[x*10,(H-y)*10],svg=(type,attrs,parent=field)=>{const n=document.createElementNS('http://www.w3.org/2000/svg',type);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);parent.append(n);return n};
+for(const [id,c] of Object.entries(d.cases))select.add(new Option(c.name,id));
+select.value='reserved';
+let scenario,robots,pipes,cursor=16,playing=false,last=0,events=[];
+function init(){
+  playing=false;play.textContent='Play';scenario=d.cases[select.value];field.replaceChildren();robots={};pipes=[];
+  svg('rect',{x:0,y:0,width:d.field[0]*10,height:H*10,fill:'#264748',stroke:'#c0c9a8','stroke-width':.4});
+  for(const [name,points] of d.obstacles)svg('polygon',{points:points.map(p=>xy(...p).join(',')).join(' '),fill:name.toLowerCase().includes('reef')?'#a5a57a':'#516566',stroke:'#c0bea4','stroke-width':.25});
+  const colors={red2:'#ffc75d',red3:'#ff9980',blue3:'#8bcaff'};
+  for(const [id,color] of Object.entries(colors)){
+    const rows=d.tracks[scenario.tracks[id]];svg('polyline',{points:rows.map(r=>xy(r[1],r[2]).join(',')).join(' '),fill:'none',stroke:color,'stroke-width':.35,'stroke-dasharray':id==='red2'?'none':'1 .7',opacity:.85});
+  }
+  for(const [id,tid] of Object.entries(scenario.tracks)){
+    const body=svg('g',{}),marker=svg('g',{},body),color=colors[id]||(id.startsWith('red')?'#d38571':'#80b5d2');
+    svg('rect',{x:-4.25,y:-4.25,width:8.5,height:8.5,rx:.5,fill:color,stroke:'#f2eada','stroke-width':.28},marker);
+    svg('path',{d:'M2.65 -1.6 L3.8 0 L2.65 1.6',fill:'none',stroke:'#173638','stroke-width':.45},marker);
+    const label=svg('text',{'text-anchor':'middle',y:.8,class:'body-label'},body);label.textContent=id[0].toUpperCase()+id.slice(-1);robots[id]={body,marker,rows:d.tracks[tid]};
+  }
+  for(const p of scenario.pieces){const [x,y]=xy(d.lip[0]+.065,d.lip[1]+p.sector_m);pipes.push([p.support_s,svg('line',{x1:x,x2:x,y1:y-1.51,y2:y+1.51,stroke:'#5ff3a6','stroke-width':1.15})]);}
+  const stop=scenario.stop;
+  by('verdict').textContent=stop?'Hold · conflict predicted':'Transit clear · '+scenario.pieces.length+' supported';
+  by('verdict').style.borderColor=stop?'#bf614c':'#357b64';
+  by('detail').textContent=stop?'Counterfactual route. '+stop[0]+' and '+stop[1]+' lose verified clearance at '+stop[2].toFixed(2)+' s and overlap at '+scenario.contact[2].toFixed(2)+' s. A preflight check withholds this departure.':
+    'Minimum robot separation bound '+(scenario.gap*1000).toFixed(0)+' mm. The second station pipe '+(scenario.stock[1]===null?'never arrives.':'becomes available at '+scenario.stock[1]+' s.')+' '+(scenario.reset===null?'The return after a second delivery has no scheduled completion.':'The final empty return and recovery would finish at '+scenario.reset.toFixed(2)+' s.');
+  events=stop?[stop[2],scenario.contact[2]]:scenario.feeds.map(x=>x.lip_arrival_s).concat(scenario.pieces.map(x=>x.support_s),scenario.reset? [scenario.reset]:[]).filter(x=>x<=135).sort((a,b)=>a-b);
+  draw();
+}
+function stateAt(rows,t){
+  let lo=0,hi=rows.length-1;while(lo<hi){const m=Math.ceil((lo+hi)/2);if(rows[m][0]<=t)lo=m;else hi=m-1;}
+  const a=rows[lo],b=rows[Math.min(lo+1,rows.length-1)],u=b[0]>a[0]?(t-a[0])/(b[0]-a[0]):0;
+  const da=Math.atan2(Math.sin(b[3]-a[3]),Math.cos(b[3]-a[3]));
+  return [a[1]+(b[1]-a[1])*u,a[2]+(b[2]-a[2])*u,a[3]+da*u,a[4]];
+}
+function draw(){clock.value=cursor;by('time').value=cursor.toFixed(2)+' s';
+  for(const [id,r] of Object.entries(robots)){const [x,y,a,phase]=stateAt(r.rows,cursor),p=xy(x,y);r.body.setAttribute('transform','translate('+p.join(' ')+')');r.marker.setAttribute('transform','rotate('+(-a*180/Math.PI)+')');if(id==='red2')by('phase').textContent=phase;}
+  for(const [t,n] of pipes)n.setAttribute('visibility',cursor>=t?'visible':'hidden');
+  by('feeds').textContent=scenario.stop?'withheld':scenario.feeds.filter(p=>p.lip_arrival_s<=cursor).map(p=>p.piece_id).join(', ')||'none';
+  by('supports').textContent=scenario.pieces.filter(p=>p.support_s<=cursor).map(p=>p.id).join(', ')||'none';
+}
+function frame(now){if(!playing)return;cursor=Math.min(135,cursor+(now-last)/1000);last=now;draw();if(cursor>=135){playing=false;play.textContent='Play';}else requestAnimationFrame(frame);}
+select.onchange=()=>{cursor=0;init();};clock.oninput=()=>{cursor=Number(clock.value);draw();};by('event').onclick=()=>{cursor=events.find(t=>t>cursor+.02)??135;draw();};
+play.onclick=()=>{playing=!playing;play.textContent=playing?'Pause':'Play';if(playing){if(cursor>=135)cursor=0;last=performance.now();requestAnimationFrame(frame);}};init();
+</script></main></body></html>

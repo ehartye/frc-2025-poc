@@ -6,6 +6,8 @@
 
 ## Design highlights
 
+Explore the [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
+
 Open the [registered two-pipe field replay](mission/registered-field.html) or inspect its [route, robot-clearance and timing evidence](mission/REGISTERED-FIELD.md). This candidate runs from the red station to two demonstrated reef sectors within the modeled TELEOP clock.
 
 The [station-to-L1 candidate mission](mission/README.md) follows an identified pipe from a station feed through the moving receiver and into first contact with a registered reef trough. It includes custody losses, timing limits and a conditional second trip. The [CORAL assessment](scoring/README.md) applies edition-specific criteria to observations, using the [release-day rules register](kickoff/rule-register-v0.json) as a separate kickoff record.
