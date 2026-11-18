@@ -58,9 +58,11 @@ def shelf_gap(x,z,front,top):
 
 def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt=.0001, duration=2.0,
                      withdrawal="fixed", initial_roll=0.0, piece_id="station-coral-001", upstream=None,
-                     wait_after_true_separation_s=.05):
+                     wait_after_true_separation_s=.05, inertia_ratio=1.0):
     if not all(math.isfinite(v) for v in (mu,damping_ratio,dt,duration,initial_roll)) or abs(initial_roll)>40:
         raise ValueError("Contact and time inputs must be finite")
+    if not math.isfinite(inertia_ratio) or not .5<=inertia_ratio<=1:
+        raise ValueError("Require a finite cylinder polar inertia ratio from 0.5 through 1")
     if not 0<=mu<=1 or not 0<=damping_ratio<=1 or not .000025<=dt<=.00025 or not 0<duration<=135:
         raise ValueError("Outside the explored contact or integration range")
     source = mission.TARGET
@@ -76,7 +78,7 @@ def continue_contact(case="reference", sector=-.18, mu=.35, damping_ratio=.6, dt
     normal=(-slope/math.hypot(1,slope),1/math.hypot(1,slope))
     r=mission.R
     # Thin-ring estimate. Actual CORAL wall/material properties are unmeasured.
-    inertia=mass*r*r
+    inertia=mass*r*r*inertia_ratio
     base_energy=.5*mass*(vx*vx+vz*vz)+.5*inertia*omega**2+mass*mission.G*z
     peak_energy_gain=0.0
     peak_speed=math.hypot(vx,vz)

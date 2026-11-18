@@ -6,6 +6,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow both station-fed pipes through the updated 545-body match](sourced-match/replay.html). The new timeline preserves their feeder states and lets students compare axial spin, a late feed and a blocked park. [Conditional scoring evidence](sourced-match/README.md)
 
+[Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome.
+
 ## Design highlights
 
 Explore the earlier [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.

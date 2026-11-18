@@ -156,10 +156,10 @@ def load_source(name,path):
     return module
 
 
-def recorded_departure(robot,case,delay,onset_half_range=0):
+def recorded_departure(robot,case,delay,onset_half_range=0,*,initial_roll=0.0,inertia_ratio=1.0):
     sector,key,up=case
     post=settle.continue_contact(sector=sector,withdrawal="after-separation",wait_after_true_separation_s=delay,
-                                 upstream=up,piece_id=key)
+                                 upstream=up,piece_id=key,initial_roll=initial_roll,inertia_ratio=inertia_ratio)
     if post["stop"]!="sustained-paired-floor-and-lip":
         raise ValueError("Revised contact experiment did not sustain support: "+key)
     first=post["clear_witness_from_station_s"]
