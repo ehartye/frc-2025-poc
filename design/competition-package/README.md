@@ -34,6 +34,8 @@ An early harness anchor passed all four named poses. At 100 mm of slide extensio
 
 ## Design status
 
+The [whole-robot balance study](../stability/README.md) checks the completed native poses against the turn schedule. It includes six-wheel weighing inputs, the clearance to the tipping edges and the grip required from the lighter drive side.
+
 The field and robot models share a station-fed, low-level placement role. The team has yet to select this role and its shop constraints. Game-piece contact, observer latency, upper-mass match timing, spring and belt deflection, pneumatic loss, cable flex life and as-built tolerances each need their own evidence. A clear harness route alone does not establish when the robot can release the pipe. Consult the [release observer](../../release-observer/README.md) and the [field rehearsal](../../mission/MOVING-TRAFFIC.md) for the assumptions behind a timed delivery.
 
 ## Earlier field and observer evidence
