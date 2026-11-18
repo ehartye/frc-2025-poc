@@ -103,7 +103,14 @@ def case(folder,poses,mode,plugin):
                 refinements.append(write("pair-"+str(len(refinements)),pair))
     sweep=write("sweep",{"schema":"field-route/sweep@1",**bound,"sourceEvidence":sources["trajectory"],
                          "intervals":observations,"refinements":refinements})
-    write("request",{"scenario":scenario,"route":sweep,"detector":event})
+    request={"scenario":scenario,"route":sweep,"detector":event}
+    version=json.loads((plugin/".codex-plugin/plugin.json").read_text())["version"]
+    if tuple(int(v) for v in version.split(".")[:2])>=(0,17):
+        request["inventory"]=write("inventory-v017",{"schema":"field-route/inventory@1","fieldSha256":sources["field"]["sha256"],
+            "clock":"match-wall-seconds","startS":0,"scope":{"kind":"bounded-study","name":"Initial floor stacks",
+            "unresolved":[],"outsideScope":["reef-mounted stock and remaining installed field geometry"]},
+            "collections":[{"path":["slab_obstacles"],"format":"keys","initial":"placed","bounds":"value"}]})
+    write("request",request)
     exe=plugin/"scripts/field-route-evidence.mjs"
     result=subprocess.run(["node",str(exe),str(folder/"request.json")],capture_output=True,text=True)
     data=json.loads(result.stdout)
@@ -112,7 +119,9 @@ def case(folder,poses,mode,plugin):
             "exit_code":result.returncode,"declared_robot_ids":len(ids),"registered_floor_ids":len(obstacles),
             "declared_floor_ids":len(selected),"event":row["detectorEvent"]["id"],"status":row["routeStatus"],
             "native_hits":len(row["contacts"]),
-            "gaps":len(row.get("gaps",[])),"full_result":data}
+            **({"inventory_scope":data["inventoryScope"],"whole_field":row["wholeFieldStatus"],
+                "inventory_gap_reasons":sorted({g["reason"] for g in row.get("inventoryGaps",[])})}
+                if "inventoryScope" in data else {}),"gaps":len(row.get("gaps",[])),"full_result":data}
 
 
 if __name__=="__main__":

@@ -1,6 +1,6 @@
 # Station receiver assembly review
 
-Open [the robot viewer](robot.html) in a current browser. It works offline. Drag to rotate or use the arrow keys with the drawing focused. Switch between Stowed, Receive, Carry and Place. Select a subsystem or a single part to see its position, or remove the bumpers and deck to inspect the drives. The scale under the view controls follows the current zoom. The [moving field rehearsal](../../mission/moving-field.html) shows the match scenario.
+Open [the robot viewer](robot.html) in a current browser. It works offline. Drag to rotate or use the arrow keys with the drawing focused. Switch between Stowed, Receive, Carry and Place. Select a subsystem or a single part to see its position, or remove the bumpers and deck to inspect the drives. The scale under the view controls follows the current zoom. The [full match rehearsal](../../full-match/replay.html) shows the initial stacks, route and alternative ending positions.
 
 ## What moves
 
