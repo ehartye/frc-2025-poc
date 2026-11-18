@@ -4,6 +4,7 @@ A team can quote the named motors, drive articles and several machined families 
 
 | Use | Record |
 |---|---|
+| Compare independent red/blue bills and the two carrier materials with end stops | [Reproducible assembly accounting](../assembly-accounting/README.md) |
 | Locate an exact part in either alliance's assembly | [545-row installed crosswalk](installed.csv) |
 | Count distinct articles represented by several solids | [305 grouped line items](item-rollup.csv) |
 | Identify candidates, quantities, pack sizes and assembly-level order decisions | [Earlier purchasing schedule](../shop-package/purchasing.csv) · [electrical and inspection dossier](../electrical-inspection/README.md) |
