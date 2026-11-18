@@ -1,0 +1,40 @@
+{
+  "basis": "Centered no-rebound shelf impact, nominal dry grip and nominal flat geometry. Speed grid only.",
+  "range_mps": [
+    1.6,
+    2.5
+  ],
+  "step_mps": 0.01,
+  "runs": [
+    {
+      "integration_dt_s": 0.002,
+      "trials": 91,
+      "passed": 82,
+      "failed": 9,
+      "greatest_passing_speed_mps": 2.41,
+      "lowest_failed_speed_mps": 2.42,
+      "minimum_x_at_maximum_pass_m": -0.09982482108330153,
+      "minimum_x_at_first_failure_m": -0.10024356829683405
+    },
+    {
+      "integration_dt_s": 0.001,
+      "trials": 91,
+      "passed": 82,
+      "failed": 9,
+      "greatest_passing_speed_mps": 2.41,
+      "lowest_failed_speed_mps": 2.42,
+      "minimum_x_at_maximum_pass_m": -0.09982502669346516,
+      "minimum_x_at_first_failure_m": -0.1000788092223345
+    },
+    {
+      "integration_dt_s": 0.0005,
+      "trials": 91,
+      "passed": 82,
+      "failed": 9,
+      "greatest_passing_speed_mps": 2.41,
+      "lowest_failed_speed_mps": 2.42,
+      "minimum_x_at_maximum_pass_m": -0.09982614867873221,
+      "minimum_x_at_first_failure_m": -0.10007880922233754
+    }
+  ]
+}
