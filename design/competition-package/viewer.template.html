@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Station receiver · Robot design review</title>
+<style>
+:root{color-scheme:light;--paper:#efeee7;--ink:#1a302c;--accent:#903e24;--line:#a5afa4;--soft:#f8f7f1}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.45 "Source Sans 3","Segoe UI",sans-serif}main{max-width:1500px;margin:auto;padding:28px clamp(16px,4vw,64px) 24px}header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:12px;gap:1em}header b,legend,.label,.read{font:600 13px/1.3 "IBM Plex Mono",Consolas,monospace}h1{margin:26px 0 6px;font:600 clamp(40px,6vw,78px)/.98 Georgia,serif;letter-spacing:-.055em}h2{font:600 26px/1.12 Georgia,serif;letter-spacing:-.04em;margin:0}p{margin:.6em 0}a{color:var(--accent);text-underline-offset:3px}button,select{font:inherit;color:var(--ink)}button{border:1px solid var(--line);background:var(--soft);border-radius:1px;padding:9px 14px;cursor:pointer}button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}button:focus-visible,select:focus-visible,canvas:focus-visible,a:focus-visible{outline:3px solid #be5428;outline-offset:3px}fieldset{border:0;padding:0;margin:0}legend,.label{display:block;margin-bottom:9px}nav, .tools{display:flex;gap:6px;flex-wrap:wrap}.lead{max-width:750px;margin-bottom:22px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(235px,28%);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.board{position:relative;min-width:0;border-right:1px solid var(--line);background-color:#e5e8de;background-image:linear-gradient(#73877718 1px,transparent 1px),linear-gradient(90deg,#73877718 1px,transparent 1px);background-size:29px 29px}.board canvas{width:100%;height:clamp(460px,62vh,750px);display:block;cursor:grab;touch-action:none}.board canvas:active{cursor:grabbing}.tools{position:absolute;left:12px;bottom:12px}.tools button{padding:6px 10px;font-size:14px}.side{padding:22px 0 20px 22px;display:flex;flex-direction:column;gap:20px}select{display:block;border:1px solid var(--line);background:var(--soft);padding:8px;width:100%}.facts{display:grid;grid-template-columns:1fr auto;gap:7px 12px;margin:0;border-top:1px solid var(--line);padding-top:14px}.facts dd{margin:0;font-family:Consolas,monospace}.note{font-size:14px;color:#43584f}.side .note{margin-top:auto}.vhead{display:flex;justify-content:space-between;gap:15px;align-items:flex-end;margin:22px 0 12px}.small{font-size:13px}.read{display:block;margin:12px 0}.status{min-height:1.3em}.switch{display:flex;align-items:center;gap:8px}.switch input{width:18px;height:18px;accent-color:var(--accent)}
+@media(max-width:760px){main{padding-top:16px}.layout{grid-template-columns:1fr}.board{border-right:0;border-bottom:1px solid var(--line)}.board canvas{height:clamp(310px,73vw,480px)}.side{padding:18px 0;gap:14px}.vhead{display:block}.vhead nav{margin-top:10px}button{padding:8px 11px}h1{margin-top:18px}.lead{margin-bottom:14px}header{font-size:13px}}
+</style></head>
+<body><main><header><b>2025 · REEFSCAPE</b><a href="../../mission/moving-field.html">Open the field replay ↗</a></header>
+<h1>Station receiver</h1><p class="lead">Follow the shelf from pickup to placement. Rotate the robot or isolate a subsystem to inspect how its parts fit.</p>
+<div class="vhead"><h2>Assembly review</h2><nav aria-label="Carriage pose" id="poses"></nav></div>
+<div class="layout"><div class="board"><div id="scaleBar" aria-hidden="true" style="position:absolute;left:14px;top:14px;font:12px Consolas,monospace;border-bottom:2px solid;padding-bottom:3px;white-space:nowrap"></div><canvas id="view" tabindex="0" aria-label="3D robot assembly. Drag or use arrow keys to rotate. Use plus and minus to zoom."></canvas>
+<div class="tools"><button id="home">Isometric</button><button id="sideView">Side</button><button id="topView">Top</button><button id="plus" aria-label="Zoom in">＋</button><button id="minus" aria-label="Zoom out">−</button></div></div>
+<aside class="side"><div><label class="label" for="group">Subsystem</label><select id="group"><option>Whole robot</option></select></div>
+<div><label class="label" for="part">Part</label><select id="part"><option>All parts</option></select></div>
+<label class="switch"><input type="checkbox" id="cut">Remove bumpers and deck</label>
+<dl class="facts"><dt>Carriage height</dt><dd id="height">—</dd><dt>Slide extension</dt><dd id="stroke">—</dd><dt>Visible solids</dt><dd id="count">—</dd></dl>
+<p class="note" id="about"></p></aside></div>
+<p class="read status" id="status" role="status">Opening the CAD surfaces…</p><p class="small">Nominal CAD surfaces share the chassis frame. Purchased-part envelopes, cable routes and sensing clearances are design assumptions. Use the <a href="README.md">engineering record</a> for the source geometry and unresolved checks.</p>
+</main><script id="mesh" type="application/octet-stream">@@MESH@@</script><script>
+'use strict';
+const $=id=>document.getElementById(id), canvas=$('view');
+const gl=canvas.getContext('webgl',{alpha:true,antialias:true});
+const ctx=gl?null:canvas.getContext('2d');
+let prog=null;
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s}
+if(gl){
+  prog=gl.createProgram();
+  gl.attachShader(prog,shader(gl.VERTEX_SHADER,'attribute vec3 pos; attribute vec3 normal; uniform vec3 right, up, eye, center, tint; uniform vec2 size; uniform float lift; varying vec3 color; void main(){vec3 p=pos-center;gl_Position=vec4(dot(p,right)*size.x,dot(p,up)*size.y+lift,-dot(p,eye)/4000.0,1.0);color=tint*(0.65+0.35*max(0.,dot(normal,vec3(0.28,-0.49,0.82))));}'));
+  gl.attachShader(prog,shader(gl.FRAGMENT_SHADER,'precision mediump float; varying vec3 color; void main(){gl_FragColor=vec4(color,1.0);}'));
+  gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(prog));
+  gl.useProgram(prog);gl.enable(gl.DEPTH_TEST);
+}
+const info={Chassis:'Frame, bumpers and parts fixed to the robot.',Drive:'Inspect both drive sides, shafts and transmission clearances.',Electrical:'Review battery retention, control hardware and service access.',Lift:'The paired winch lines raise the same moving crossbar. Check the sheaves, line paths and mast supports.',Receiver:'The shelf and guides translate together to collect and place the pipe.',Sensing:'The overhead stereo mount and three moving contact pads observe different parts of the release.'};
+const names={stowed:'Stowed',receive:'Receive',transport:'Carry',place:'Place'};
+let model, pose='place', yaw=-0.85, pitch=.44, zoom=1, pending=false, active=[], sceneCenter=[0,0,450], sceneSpan=1200;
+function dot(a,b){return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]}
+function cross(a,b){return[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]}
+function minus(a,b){return a.map((v,i)=>v-b[i])}
+function unit(v){let n=Math.hypot(...v);return n?v.map(x=>x/n):[0,0,0]}
+function makePart([name,group,color,coords,index]){
+  const vertices=[];for(let i=0;i<coords.length;i+=3)vertices.push([coords[i]/10,coords[i+1]/10,coords[i+2]/10]);
+  const base=[1,3,5].map(i=>parseInt(color.slice(i,i+2),16));
+  const faces=[];
+  const arr=gl?new Float32Array(index.length*6):null;
+  for(let i=0;i<index.length;i+=3){
+    let a=index[i],b=index[i+1],c=index[i+2];let n=unit(cross(minus(vertices[b],vertices[a]),minus(vertices[c],vertices[a])));
+    if(gl){
+      for(let j=0;j<3;j++){let offset=(i+j)*6;arr.set(vertices[index[i+j]],offset);arr.set(n,offset+3)}
+    }else{
+      let light=.67+.33*Math.max(0,dot(n,[.28,-.49,.82]));
+      faces.push([a,b,c,n,'rgb('+base.map(v=>Math.round(v*light)).join(',')+')']);
+    }
+  }
+  if(gl){
+    const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);
+    return{name,group,vertices,buffer,count:index.length,tint:base.map(v=>v/255)};
+  }
+  return{name,group,vertices,faces};
+}
+function redraw(){
+  if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;paint()});
+}
+function paint(){
+  const box=canvas.getBoundingClientRect(),w=box.width,h=box.height;
+  const pixelRatio=Math.min(2,devicePixelRatio||1);
+  if(canvas.width!==Math.round(w*pixelRatio)||canvas.height!==Math.round(h*pixelRatio)){
+    canvas.width=Math.round(w*pixelRatio);canvas.height=Math.round(h*pixelRatio);
+  }
+  if(ctx){ctx.setTransform(pixelRatio,0,0,pixelRatio,0,0);ctx.clearRect(0,0,w,h)}
+  const eye=[Math.cos(pitch)*Math.cos(yaw),Math.cos(pitch)*Math.sin(yaw),Math.sin(pitch)];
+  const right=[-Math.sin(yaw),Math.cos(yaw),0],up=cross(eye,right);
+  const scale=Math.min(w*.91,(h-64)*.98)*zoom/sceneSpan;
+  const scaleBar=[10,25,50,100,200,500].find(v=>v*scale>=55)||500;
+  $('scaleBar').textContent=scaleBar+' mm';$('scaleBar').style.width=scaleBar*scale+'px';
+  if(gl){
+    gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    const u=id=>gl.getUniformLocation(prog,id);
+    gl.uniform3fv(u('right'),right);gl.uniform3fv(u('up'),up);gl.uniform3fv(u('eye'),eye);gl.uniform3fv(u('center'),sceneCenter);
+    gl.uniform2f(u('size'),2*scale/w,2*scale/h);gl.uniform1f(u('lift'),28/h);
+    const pos=gl.getAttribLocation(prog,'pos'),norm=gl.getAttribLocation(prog,'normal');
+    gl.enableVertexAttribArray(pos);gl.enableVertexAttribArray(norm);
+    for(const part of active){
+      gl.bindBuffer(gl.ARRAY_BUFFER,part.buffer);gl.vertexAttribPointer(pos,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(norm,3,gl.FLOAT,false,24,12);
+      gl.uniform3fv(u('tint'),part.tint);gl.drawArrays(gl.TRIANGLES,0,part.count);
+    }
+    return;
+  }
+  const project=p=>{let d=minus(p,sceneCenter);return[w/2+dot(d,right)*scale,(h-28)/2-dot(d,up)*scale,dot(d,eye)]};
+  const draw=[];
+  for(const part of active){
+    const pts=part.vertices.map(project);
+    for(const [a,b,c,n,color] of part.faces){
+      if(dot(n,eye)<=0)continue;
+      draw.push([pts[a][2]+pts[b][2]+pts[c][2],pts[a],pts[b],pts[c],color]);
+    }
+  }
+  draw.sort((a,b)=>a[0]-b[0]);ctx.lineJoin='round';ctx.lineWidth=.45;
+  for(const [,a,b,c,color] of draw){
+    ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(c[0],c[1]);ctx.closePath();
+    ctx.fillStyle=color;ctx.fill();ctx.strokeStyle=color;ctx.stroke();
+  }
+
+}
+function selectPart(){
+  const chosen=$('part').value, group=$('group').value;
+  active=model[pose].parts.filter(p=>(group==='Whole robot'||group===p.group)&&(!chosen||p.name===chosen)
+    &&(!$('cut').checked||(!p.name.startsWith('bumper')&&p.name!=='deck-main')));
+  sceneCenter=[0,0,480];sceneSpan=1260;
+  if(chosen&&active.length){
+    let lo=[Infinity,Infinity,Infinity],hi=[-Infinity,-Infinity,-Infinity];
+    for(let pt of active[0].vertices)pt.forEach((v,i)=>{lo[i]=Math.min(lo[i],v);hi[i]=Math.max(hi[i],v)});
+    sceneCenter=lo.map((n,i)=>(n+hi[i])/2);sceneSpan=Math.max(55,Math.hypot(...minus(hi,lo))*1.06);
+  }
+  $('height').textContent=model[pose].height+' mm';$('stroke').textContent=model[pose].stroke+' mm';$('count').textContent=active.length;
+  $('about').textContent=info[group]||'The lift changes height while the slide moves the shelf toward the station or trough. Use the pose controls to compare their motions.';
+  $('status').textContent=names[pose]+' · '+(chosen||group)+(active.length?'':' · Hidden by cutaway');redraw();
+}
+function fillParts(){
+  const selected=$('part').value,g=$('group').value;
+  const available=model[pose].parts.filter(p=>g==='Whole robot'||g===p.group).map(p=>p.name).sort();
+  $('part').replaceChildren(new Option('All parts',''),...available.map(p=>new Option(p,p)));
+  if(available.includes(selected))$('part').value=selected;
+  selectPart();
+}
+function setPose(k){
+  if(!model[k].parts){
+    if(model[pose].parts){
+      if(gl)for(const part of model[pose].parts)gl.deleteBuffer(part.buffer);
+      delete model[pose].parts;
+    }
+    model[k].parts=model[k].surfaces.map(makePart);
+  }
+  pose=k;
+  for(let b of $('poses').children)b.setAttribute('aria-pressed',String(b.dataset.pose===k));
+  fillParts();
+}
+function changeZoom(f){zoom=Math.max(.45,Math.min(3.5,zoom*f));redraw()}
+$('home').onclick=()=>{yaw=-.85;pitch=.44;zoom=1;redraw()};$('sideView').onclick=()=>{yaw=-Math.PI/2;pitch=0;redraw()};
+$('topView').onclick=()=>{yaw=-Math.PI/2;pitch=Math.PI/2;redraw()};$('plus').onclick=()=>changeZoom(1.2);$('minus').onclick=()=>changeZoom(1/1.2);
+let drag=null;canvas.onpointerdown=e=>{canvas.setPointerCapture(e.pointerId);drag=[e.clientX,e.clientY]};
+canvas.onpointermove=e=>{if(!drag)return;yaw-=(e.clientX-drag[0])*.009;pitch=Math.max(-1.50,Math.min(1.50,pitch+(e.clientY-drag[1])*.008));drag=[e.clientX,e.clientY];redraw()};
+canvas.onpointerup=canvas.onpointercancel=()=>drag=null;
+canvas.onkeydown=e=>{const commands={ArrowLeft:()=>yaw-=.12,ArrowRight:()=>yaw+=.12,ArrowUp:()=>pitch=Math.min(1.57,pitch+.10),ArrowDown:()=>pitch=Math.max(-1.57,pitch-.10),'+':()=>changeZoom(1.2),'=':()=>changeZoom(1.2),'-':()=>changeZoom(.83)};if(commands[e.key]){e.preventDefault();commands[e.key]();redraw()}};
+$('group').onchange=()=>{zoom=1;fillParts()};$('part').onchange=()=>{zoom=1;selectPart()};$('cut').onchange=()=>selectPart();
+new ResizeObserver(redraw).observe(canvas);
+(async()=>{
+  const packed=Uint8Array.from(atob($('mesh').textContent),ch=>ch.charCodeAt(0));
+  model=await new Response(new Blob([packed]).stream().pipeThrough(new DecompressionStream('gzip'))).json();
+  for(const state of Object.values(model)){state.surfaces=state.parts;delete state.parts}
+  for(const [id,name] of Object.entries(names)){
+    let b=document.createElement('button');b.type='button';b.textContent=name;b.dataset.pose=id;b.onclick=()=>setPose(id);$('poses').append(b);
+  }
+  for(const g of [...new Set(model.place.surfaces.map(p=>p[1]))].sort())$('group').add(new Option(g,g));
+  setPose('place');
+})().catch(err=>{$('status').textContent='The CAD surfaces could not open. Use a current desktop browser or open the STEP assembly.';console.error(err)});
+</script></body></html>
