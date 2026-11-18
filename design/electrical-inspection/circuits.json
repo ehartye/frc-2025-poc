@@ -1,0 +1,137 @@
+{
+  "format": "2025 field configuration proposal. Device IDs and channel positions are uncommissioned. Distances are one-way design maxima in metres. AWG denotes copper supply and return.",
+  "branches": [
+    {
+      "load": "DriveLeft",
+      "channel": 0,
+      "ratingA": 40,
+      "protection": "REV ATO breaker",
+      "awg": 10,
+      "leadM": 1.7,
+      "can": 11,
+      "phaseA": 38
+    },
+    {
+      "load": "DriveRight",
+      "channel": 1,
+      "ratingA": 40,
+      "protection": "REV ATO breaker",
+      "awg": 10,
+      "leadM": 1.8,
+      "can": 12,
+      "phaseA": 38
+    },
+    {
+      "load": "Lift",
+      "channel": 2,
+      "ratingA": 40,
+      "protection": "REV ATO breaker",
+      "awg": 12,
+      "leadM": 1.5,
+      "can": 13,
+      "phaseA": 35
+    },
+    {
+      "load": "Slide",
+      "channel": 3,
+      "ratingA": 30,
+      "protection": "REV ATO breaker",
+      "awg": 14,
+      "leadM": 1.7,
+      "can": 14,
+      "phaseA": 20
+    },
+    {
+      "load": "LeftGrip",
+      "channel": 4,
+      "ratingA": 20,
+      "protection": "REV ATO breaker",
+      "awg": 16,
+      "leadM": 1.3,
+      "can": 15,
+      "phaseA": 8
+    },
+    {
+      "load": "RightGrip",
+      "channel": 5,
+      "ratingA": 20,
+      "protection": "REV ATO breaker",
+      "awg": 16,
+      "leadM": 1.4,
+      "can": 16,
+      "phaseA": 8
+    },
+    {
+      "load": "Observer",
+      "channel": 6,
+      "ratingA": 10,
+      "protection": "REV ATO breaker",
+      "awg": 18,
+      "leadM": 0.8,
+      "can": null,
+      "phaseA": null
+    },
+    {
+      "load": "RIO",
+      "channel": 20,
+      "ratingA": 10,
+      "protection": "ATM blade fuse",
+      "awg": 18,
+      "leadM": 1.1,
+      "can": null,
+      "phaseA": null
+    },
+    {
+      "load": "Radio",
+      "channel": 21,
+      "ratingA": 10,
+      "protection": "ATM blade fuse",
+      "awg": 18,
+      "leadM": 1.2,
+      "can": null,
+      "phaseA": null
+    },
+    {
+      "load": "PH",
+      "channel": 7,
+      "ratingA": 20,
+      "protection": "REV ATO breaker",
+      "awg": 14,
+      "leadM": 1.3,
+      "can": 2,
+      "phaseA": null
+    }
+  ],
+  "canChain": [
+    "roboRIO terminated",
+    "DriveLeft=11",
+    "DriveRight=12",
+    "Lift=13",
+    "Slide=14",
+    "LeftGrip=15",
+    "RightGrip=16",
+    "PH=2",
+    "PDH=1 termination enabled"
+  ],
+  "sensorChannels": {
+    "DIO0": "Entry QTRXL 4501 RC",
+    "DIO1": "Seat QTRXL 4501 RC",
+    "DIO2": "lift lower NC",
+    "DIO3": "lift upper NC",
+    "DIO4": "slide retracted NC",
+    "DIO5": "slide extended NC",
+    "DIO6": "pawl engaged NC",
+    "DIO7": "pawl released NC",
+    "PHswitch": "Nason upstream pressure switch",
+    "PH0": "24V 3W M4V210-06-24VDC spring return",
+    "RSL": "dedicated NI RSL",
+    "camera": "USB 3 to Pi 4B; wired Ethernet to VH-109 AUX1 PoE off",
+    "pads": "three moving piezoresistive pads to observer ADS1015 channels A0/A1/A2; wired I2C host only",
+    "encoders": "six dedicated NEO Hall-sensor plugs to matching SPARK MAX",
+    "AI0": "TE SP1-25 slide string potentiometer; 5 V excitation, ground reference and calibrated ratio",
+    "liftReference": "NEO lift encoder after qualified lower/upper homing, independent position tolerance unresolved",
+    "observerADC0x48": "Existing 3 pad inputs dedicated to first ADS1015. Do not insert other channels into the 2 ms triplet budget.",
+    "observerADC0x49": "Additional ADS1015 at 3.3 V records four AS5600 analog channels (grip front idlers L/R, slide sync pinions 1/2); 3.3 V sensor supply or conditioned range required. No raw high voltage at inputs.",
+    "timing": "Publish each observation with monotonic acquisition and freshness. SHARE NO POWER AUTHORITY with coprocessor. Stop when an angle wraps ambiguously, either rail fails, data ages out or axes disagree."
+  }
+}

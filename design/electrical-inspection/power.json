@@ -1,0 +1,334 @@
+{
+  "nominal": {
+    "durationS": 114.21341,
+    "peakBusA": 83.63244,
+    "minimumBusV": 10.30919,
+    "minimumMotorHeadroomV": 2.64891,
+    "minimumDeviceV": 9.81559,
+    "AH": 1.05657,
+    "packHeatJ": 2409.09155,
+    "trunkHeatJ": 1133.69014,
+    "loadEstimateByBranch": {
+      "DriveLeft": {
+        "peakA": 25.98082,
+        "minV": 9.838,
+        "wireAndContactJ": 80.95278,
+        "phaseLeadHeatJ": 185.10198,
+        "windingCopperJ": 1745.52981,
+        "maxPhaseA": 35.78319
+      },
+      "DriveRight": {
+        "peakA": 26.04013,
+        "minV": 9.81559,
+        "wireAndContactJ": 84.85776,
+        "phaseLeadHeatJ": 185.10198,
+        "windingCopperJ": 1745.52981,
+        "maxPhaseA": 35.78319
+      },
+      "Lift": {
+        "peakA": 7.18349,
+        "minV": 10.30766,
+        "wireAndContactJ": 21.34856,
+        "phaseLeadHeatJ": 25.04989,
+        "windingCopperJ": 224.1742,
+        "maxPhaseA": 9.67504
+      },
+      "Slide": {
+        "peakA": 1.91664,
+        "minV": 10.30659,
+        "wireAndContactJ": 3.97625,
+        "phaseLeadHeatJ": 47.70782,
+        "windingCopperJ": 123.11298,
+        "maxPhaseA": 5.96
+      },
+      "LeftGrip": {
+        "peakA": 5.59324,
+        "minV": 10.053,
+        "wireAndContactJ": 66.61778,
+        "phaseLeadHeatJ": 241.57051,
+        "windingCopperJ": 321.19734,
+        "maxPhaseA": 6.81
+      },
+      "RightGrip": {
+        "peakA": 5.63857,
+        "minV": 10.03236,
+        "wireAndContactJ": 72.50974,
+        "phaseLeadHeatJ": 259.19622,
+        "windingCopperJ": 321.19734,
+        "maxPhaseA": 6.81
+      },
+      "Observer": {
+        "peakA": 2.45119,
+        "minV": 10.19913,
+        "wireAndContactJ": 24.41393,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "RIO": {
+        "peakA": 1.46768,
+        "minV": 10.22023,
+        "wireAndContactJ": 11.82584,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "Radio": {
+        "peakA": 1.1728,
+        "minV": 10.23196,
+        "wireAndContactJ": 8.20756,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "PH": {
+        "peakA": 15.45917,
+        "minV": 9.85569,
+        "wireAndContactJ": 790.60566,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      }
+    },
+    "events": {
+      "empty-first-approach": {
+        "elapsedS": 14.3186,
+        "minBusV": 10.63457,
+        "maxBusA": 70.61712
+      },
+      "extend-empty-receiver": {
+        "elapsedS": 4.0,
+        "minBusV": 11.85781,
+        "maxBusA": 21.68751
+      },
+      "acquire-retract-lower": {
+        "elapsedS": 10.33662,
+        "minBusV": 11.41589,
+        "maxBusA": 39.36438
+      },
+      "loaded-coral-A": {
+        "elapsedS": 17.08097,
+        "minBusV": 10.30919,
+        "maxBusA": 83.63244
+      },
+      "lower-extend-release-first-contact": {
+        "elapsedS": 9.53423,
+        "minBusV": 11.49875,
+        "maxBusA": 36.05007
+      },
+      "observe-floor-lip-and-retract": {
+        "elapsedS": 3.99841,
+        "minBusV": 11.60927,
+        "maxBusA": 31.62921
+      },
+      "finish-slide-retraction": {
+        "elapsedS": 1.01292,
+        "minBusV": 11.85781,
+        "maxBusA": 21.68751
+      },
+      "raise-empty-to-travel": {
+        "elapsedS": 2.0,
+        "minBusV": 11.736,
+        "maxBusA": 26.55983
+      },
+      "empty-return-coral-A": {
+        "elapsedS": 15.76567,
+        "minBusV": 10.63457,
+        "maxBusA": 70.61712
+      },
+      "raise-station-receiver": {
+        "elapsedS": 4.0,
+        "minBusV": 11.72685,
+        "maxBusA": 26.92612
+      },
+      "loaded-coral-B": {
+        "elapsedS": 16.7658,
+        "minBusV": 10.30919,
+        "maxBusA": 83.63244
+      },
+      "empty-return-coral-B": {
+        "elapsedS": 15.40019,
+        "minBusV": 10.63457,
+        "maxBusA": 70.61712
+      }
+    }
+  },
+  "upperAtRegisteredTiming": {
+    "massKg": 67,
+    "spinWheelAccel": 0.7,
+    "drivePeakPhaseA": 38.45205
+  },
+  "upperWithSlowerTurns": {
+    "durationS": 114.94165,
+    "peakBusA": 86.67909,
+    "minimumBusV": 10.23302,
+    "minimumMotorHeadroomV": 2.57056,
+    "minimumDeviceV": 9.7117,
+    "AH": 1.08245,
+    "packHeatJ": 2543.44395,
+    "trunkHeatJ": 1196.9148,
+    "loadEstimateByBranch": {
+      "DriveLeft": {
+        "peakA": 27.43573,
+        "minV": 9.73545,
+        "wireAndContactJ": 97.37835,
+        "phaseLeadHeatJ": 209.06935,
+        "windingCopperJ": 1971.54443,
+        "maxPhaseA": 36.71961
+      },
+      "DriveRight": {
+        "peakA": 27.50282,
+        "minV": 9.7117,
+        "wireAndContactJ": 102.09935,
+        "phaseLeadHeatJ": 209.06935,
+        "windingCopperJ": 1971.54443,
+        "maxPhaseA": 36.71961
+      },
+      "Lift": {
+        "peakA": 7.18349,
+        "minV": 10.23148,
+        "wireAndContactJ": 21.34865,
+        "phaseLeadHeatJ": 25.04989,
+        "windingCopperJ": 224.1742,
+        "maxPhaseA": 9.67504
+      },
+      "Slide": {
+        "peakA": 1.91664,
+        "minV": 10.23041,
+        "wireAndContactJ": 3.9764,
+        "phaseLeadHeatJ": 47.70782,
+        "windingCopperJ": 123.11298,
+        "maxPhaseA": 5.96
+      },
+      "LeftGrip": {
+        "peakA": 5.63707,
+        "minV": 9.97483,
+        "wireAndContactJ": 67.14367,
+        "phaseLeadHeatJ": 242.78973,
+        "windingCopperJ": 322.81843,
+        "maxPhaseA": 6.81
+      },
+      "RightGrip": {
+        "peakA": 5.68295,
+        "minV": 9.95402,
+        "wireAndContactJ": 73.08296,
+        "phaseLeadHeatJ": 260.50439,
+        "windingCopperJ": 322.81843,
+        "maxPhaseA": 6.81
+      },
+      "Observer": {
+        "peakA": 2.46984,
+        "minV": 10.12213,
+        "wireAndContactJ": 24.64293,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "RIO": {
+        "peakA": 1.4788,
+        "minV": 10.14339,
+        "wireAndContactJ": 11.93662,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "Radio": {
+        "peakA": 1.18166,
+        "minV": 10.15521,
+        "wireAndContactJ": 8.2844,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      },
+      "PH": {
+        "peakA": 15.45917,
+        "minV": 9.77949,
+        "wireAndContactJ": 795.61905,
+        "phaseLeadHeatJ": 0.0,
+        "windingCopperJ": 0.0,
+        "maxPhaseA": 0.0
+      }
+    },
+    "events": {
+      "empty-first-approach": {
+        "elapsedS": 14.46425,
+        "minBusV": 10.56467,
+        "maxBusA": 73.41304
+      },
+      "extend-empty-receiver": {
+        "elapsedS": 4.0,
+        "minBusV": 11.85781,
+        "maxBusA": 21.68751
+      },
+      "acquire-retract-lower": {
+        "elapsedS": 10.33662,
+        "minBusV": 11.41589,
+        "maxBusA": 39.36438
+      },
+      "loaded-coral-A": {
+        "elapsedS": 17.22662,
+        "minBusV": 10.23302,
+        "maxBusA": 86.67909
+      },
+      "lower-extend-release-first-contact": {
+        "elapsedS": 9.53423,
+        "minBusV": 11.49875,
+        "maxBusA": 36.05007
+      },
+      "observe-floor-lip-and-retract": {
+        "elapsedS": 3.99841,
+        "minBusV": 11.60927,
+        "maxBusA": 31.62921
+      },
+      "finish-slide-retraction": {
+        "elapsedS": 1.01292,
+        "minBusV": 11.85781,
+        "maxBusA": 21.68751
+      },
+      "raise-empty-to-travel": {
+        "elapsedS": 2.0,
+        "minBusV": 11.736,
+        "maxBusA": 26.55983
+      },
+      "empty-return-coral-A": {
+        "elapsedS": 15.91132,
+        "minBusV": 10.56467,
+        "maxBusA": 73.41304
+      },
+      "raise-station-receiver": {
+        "elapsedS": 4.0,
+        "minBusV": 11.72685,
+        "maxBusA": 26.92612
+      },
+      "loaded-coral-B": {
+        "elapsedS": 16.91145,
+        "minBusV": 10.23302,
+        "maxBusA": 86.67909
+      },
+      "empty-return-coral-B": {
+        "elapsedS": 15.54583,
+        "minBusV": 10.56467,
+        "maxBusA": 73.41304
+      }
+    }
+  },
+  "weakenedSource": {
+    "openCircuitV": 11.8,
+    "commonOhm": 0.032,
+    "minBusV": 8.65235,
+    "minDeviceV": 8.05054,
+    "motorHeadroomV": 0.93504
+  },
+  "collapsedCase": {
+    "openCircuitV": 10.9,
+    "commonOhm": 0.04,
+    "observation": "empty-first-approach at 0.498 s: common voltage collapse"
+  },
+  "floorV": 9.5,
+  "inputSha256": {
+    "mission/registered-field-receipt.json": "144ea1131c4bb65e57a5d9a865c1234430b6eaa928953921a3a65e25e804f5c5",
+    "design/receiver-lift/sizing.json": "d55c1521930992a83acb69caac104ee5ed03f77c131388a676999e3ca41415ba",
+    "design/drivetrain/route_check.py": "bf98c5b2664a2cdc559e68634c481020c186d3c4d334ae6ef5187265f1247031",
+    "design/electrical-inspection/circuits.json": "b80b0645be4aa34d39c91f4d98b59e7b2c6bec490a8f3786f398b76495e3b703"
+  }
+}
