@@ -1,5 +1,6 @@
 """Run the project-owned WPILib receiver tests offline and retain a source-bound receipt."""
-from withdrawal_trial import reviewed_exposure
+from registered_withdrawals import matrix
+from tempfile import TemporaryDirectory
 
 import argparse
 import hashlib
@@ -7,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import uuid
 import xml.etree.ElementTree as ET
 
@@ -23,6 +25,7 @@ CASES = {
     "legacyShelfSignalKeepsBothBeltsAndSlideStationary", "completeFrameCannotEnableOrdinaryCommand",
     "wholeFrameRequiresMatchingScopeIdentityGeometryAndExposure", "changingTrackEpochLatchesFault",
     "withdrawalRevocationStopsMotion", "disablingDuringHoldClearsAllDemands",
+    "everyRegisteredBumperExposureCanWithdrawOnItsSelectedTrack",
     "uncalibratedStereoCannotMove", "wrongPieceCannotMove", "tooWideAnIntervalCannotAuthorize",
     "frameFromFutureCannotAuthorize", "schedulingDelayCannotStartLateRetreat",
     "driverStationDisableCancelsAndEnableAloneStaysNeutral", "sensorPortGeometryRejectsTheOldSeatLocation",
@@ -35,14 +38,24 @@ def digest(file):
 
 def pins():
     inputs = list((SOURCE / "src").rglob("*.java"))
-    inputs.extend([ROOT / "scripts/withdrawal_trial.py", SOURCE / "init.gradle", SOURCE / "io-contract.json", ROOT / "mission/candidate.json",
+    inputs.extend((ROOT / "full-match/red-kit").glob("*"))
+    inputs.extend((ROOT / "design/competition-package/poses").glob("*.step"))
+    inputs.extend(ROOT / "full-match" / name for name in ("materialize_red.py", "field-trial.json", "red-assembly.json",
+                                                           "red-withdrawal-clock.json", "observer-extent.json"))
+    inputs.extend([ROOT / "scripts/withdrawal_trial.py", ROOT / "scripts/registered_withdrawals.py", SOURCE / "init.gradle", SOURCE / "io-contract.json", ROOT / "mission/candidate.json",
                    Path(__file__).resolve(), PROJECT / "build.gradle", PROJECT / "gradle.lockfile",
                    PROJECT / "gradle/wrapper/gradle-wrapper.properties"])
     return {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(inputs)}
 
 
 def run(jdk, cache, output):
-    trial_fields, evidence = reviewed_exposure(ROOT)
+    with TemporaryDirectory() as temp:
+        red_dir = Path(temp) / "red-401"
+        subprocess.run([sys.executable, "-B", str(ROOT / "full-match/materialize_red.py"),
+                        "--output", str(red_dir)], check=True)
+        trials, evidence = matrix(ROOT, red_dir)
+    if not trials:
+        raise ValueError("no supported registered red exposure")
     source_pins = pins()
     io = json.loads((SOURCE/"io-contract.json").read_bytes())
     mission = json.loads((ROOT/"mission/candidate.json").read_bytes())
@@ -70,7 +83,9 @@ def run(jdk, cache, output):
     env = dict(os.environ, JAVA_HOME=str(jdk), GRADLE_USER_HOME=str(cache),
                REEF_CONTROLS_SOURCE=str(SOURCE), REEF_CONTROLS_BUILD=str(build), REEF_CONTROLS_RUN=run_id)
     env["REEF_CONTROLS_POSES"] = ",".join(str(value) for name,_ in paired for value in io["posesMm"][name])
-    env["REEF_WHOLE_ROBOT_TRIAL"] = trial_fields
+    reviewed_rows = output / "reviewed-exposures.csv"
+    reviewed_rows.write_text("".join(",".join(map(str,row))+"\n" for row in trials), encoding="ascii", newline="\n")
+    env["REEF_WITHDRAWAL_ROWS"] = str(reviewed_rows)
     env["REEF_CONTROLS_RELEASE"] = str(release)
     env["PATH"] = str(jdk/"bin")+os.pathsep+env.get("PATH","")
     wrapper = PROJECT / ("gradlew.bat" if os.name == "nt" else "gradlew")
@@ -91,6 +106,7 @@ def run(jdk, cache, output):
                "sourceSha256":source_pins,"junitXmlSha256":digest(xml),
                "driverStationMode":"WPILib desktop HAL simulation", "inputSource":"scripted FakeIO",
                "wholeRobotDesktopTrial":evidence, "ordinaryWithdrawalEnabled":False,
+               "qualifiedExposureCount":len(trials), "qualifiedRowsSha256":digest(reviewed_rows),
                "electricalHardwareObserved":False,"physicalCalibration":None,"officialScore":None}
     (output/"receipt.json").write_text(json.dumps(receipt,indent=2)+"\n",encoding="utf-8")
     print(f"{len(names)} desktop WPILib checks passed. Receipt: {output/'receipt.json'}")
