@@ -1,0 +1,124 @@
+{
+  "schema": "reefscape-coral-observations/1",
+  "phase": "AUTO",
+  "basis": "Synthetic rule counterexamples. Each timestamp and observation is a fixture input.",
+  "samples": [
+    {
+      "timeMs": 14950,
+      "robotCommandActive": true,
+      "inventoryComplete": true,
+      "pieces": [
+        {
+          "id": "pipe-A",
+          "observedMs": 14950,
+          "fullySupportedByRobot": true,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": true,
+          "touchesOpponentRobot": false,
+          "touchesOwnTrough": false,
+          "scoredOnAnotherReefLevel": false,
+          "directSupporterIds": []
+        }
+      ]
+    },
+    {
+      "timeMs": 15000,
+      "robotCommandActive": false,
+      "inventoryComplete": true,
+      "pieces": [
+        {
+          "id": "pipe-A",
+          "observedMs": 15000,
+          "fullySupportedByRobot": false,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": false,
+          "touchesOpponentRobot": true,
+          "touchesOwnTrough": true,
+          "scoredOnAnotherReefLevel": false,
+          "directSupporterIds": []
+        }
+      ]
+    },
+    {
+      "timeMs": 15100,
+      "robotCommandActive": false,
+      "inventoryComplete": true,
+      "pieces": [
+        {
+          "id": "pipe-A",
+          "observedMs": 15100,
+          "fullySupportedByRobot": false,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": false,
+          "touchesOpponentRobot": false,
+          "touchesOwnTrough": true,
+          "scoredOnAnotherReefLevel": true,
+          "directSupporterIds": []
+        },
+        {
+          "id": "pipe-B",
+          "observedMs": 15100,
+          "fullySupportedByRobot": false,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": false,
+          "touchesOpponentRobot": false,
+          "touchesOwnTrough": false,
+          "scoredOnAnotherReefLevel": false,
+          "directSupporterIds": [
+            "pipe-A"
+          ]
+        }
+      ]
+    },
+    {
+      "timeMs": 18000,
+      "robotCommandActive": false,
+      "inventoryComplete": true,
+      "pieces": [
+        {
+          "id": "pipe-A",
+          "observedMs": 15100,
+          "fullySupportedByRobot": false,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": false,
+          "touchesOpponentRobot": false,
+          "touchesOwnTrough": true,
+          "scoredOnAnotherReefLevel": false,
+          "directSupporterIds": []
+        },
+        {
+          "id": "pipe-B",
+          "observedMs": 18000,
+          "touchesAlliedRobot": false,
+          "directSupporterIds": [
+            "pipe-A"
+          ]
+        }
+      ]
+    },
+    {
+      "timeMs": 18001,
+      "robotCommandActive": false,
+      "inventoryComplete": true,
+      "pieces": [
+        {
+          "id": "pipe-A",
+          "observedMs": 18001,
+          "fullySupportedByRobot": false,
+          "stuckToRobot": false,
+          "intentionalHerding": false,
+          "touchesAlliedRobot": false,
+          "touchesOpponentRobot": false,
+          "touchesOwnTrough": true,
+          "scoredOnAnotherReefLevel": false,
+          "directSupporterIds": []
+        }
+      ]
+    }
+  ]
+}
