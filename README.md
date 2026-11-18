@@ -2,9 +2,11 @@
 
 [Explore the assembled robot in 3D](design/competition-package/robot.html). Select a carriage pose, remove the bumpers or isolate a part to follow the pipe from the station to the trough. The [engineering record](design/competition-package/README.md) covers the moving hardware, fit checks and remaining design decisions.
 
+[Open the complete 2025 match replay](full-match/replay.html). Scrub from AUTO through the end of TELEOP, compare the earlier starting-stack collision, and try a blocked park or a return to station. The [full-match evidence](full-match/README.md) explains how the two pipe identities, contact and clock were qualified.
+
 ## Design highlights
 
-Explore the [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
+Explore the earlier [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
 
 Open the [registered two-pipe field replay](mission/registered-field.html) or inspect its [route, robot-clearance and timing evidence](mission/REGISTERED-FIELD.md). This candidate runs from the red station to two demonstrated reef sectors within the modeled TELEOP clock.
 

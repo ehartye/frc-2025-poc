@@ -1,0 +1,92 @@
+{
+  "revised": {
+    "plugin": "0.17.0",
+    "exit_code": 0,
+    "declared_robot_ids": 401,
+    "registered_floor_ids": 12,
+    "declared_floor_ids": 12,
+    "event": "first-station-lip",
+    "status": "supported",
+    "native_hits": 0,
+    "inventory_scope": {
+      "kind": "bounded-study",
+      "name": "Initial floor stacks",
+      "unresolved": [],
+      "outsideScope": [
+        "reef-mounted stock and remaining installed field geometry"
+      ]
+    },
+    "whole_field": "pending",
+    "inventory_gap_reasons": [],
+    "gaps": 0
+  },
+  "prior": {
+    "plugin": "0.17.0",
+    "exit_code": 0,
+    "declared_robot_ids": 401,
+    "registered_floor_ids": 12,
+    "declared_floor_ids": 12,
+    "event": "first-station-lip",
+    "status": "infeasible",
+    "native_hits": 4,
+    "inventory_scope": {
+      "kind": "bounded-study",
+      "name": "Initial floor stacks",
+      "unresolved": [],
+      "outsideScope": [
+        "reef-mounted stock and remaining installed field geometry"
+      ]
+    },
+    "whole_field": "infeasible",
+    "inventory_gap_reasons": [],
+    "gaps": 299
+  },
+  "missing-sweep": {
+    "plugin": "0.17.0",
+    "exit_code": 0,
+    "declared_robot_ids": 401,
+    "registered_floor_ids": 12,
+    "declared_floor_ids": 12,
+    "event": "first-station-lip",
+    "status": "pending",
+    "native_hits": 0,
+    "inventory_scope": {
+      "kind": "bounded-study",
+      "name": "Initial floor stacks",
+      "unresolved": [],
+      "outsideScope": [
+        "reef-mounted stock and remaining installed field geometry"
+      ]
+    },
+    "whole_field": "pending",
+    "inventory_gap_reasons": [
+      "Sweep does not enclose registered field object: red-upper-algae",
+      "Sweep does not enclose registered field object: red-upper-coral"
+    ],
+    "gaps": 7
+  },
+  "underdeclared": {
+    "plugin": "0.17.0",
+    "exit_code": 0,
+    "declared_robot_ids": 401,
+    "registered_floor_ids": 12,
+    "declared_floor_ids": 10,
+    "event": "first-station-lip",
+    "status": "pending",
+    "native_hits": 0,
+    "inventory_scope": {
+      "kind": "bounded-study",
+      "name": "Initial floor stacks",
+      "unresolved": [],
+      "outsideScope": [
+        "reef-mounted stock and remaining installed field geometry"
+      ]
+    },
+    "whole_field": "pending",
+    "inventory_gap_reasons": [
+      "Source field object omitted: red-upper-algae",
+      "Source field object omitted: red-upper-coral"
+    ],
+    "gaps": 0
+  }
+}

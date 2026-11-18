@@ -265,7 +265,8 @@ def prepare_extreme(robot,source):
     robot.extreme_source_sha=digest(source)
 
 
-def review(robot,delay=.127,contact_root=None):
+def review(robot,delay=.127,contact_root=None,motion=None,field_obstacles=()):
+    motion=motion or field
     if not math.isfinite(delay) or not 0<=delay<=.6:
         raise ValueError("Use a finite delay from 0 through 0.6 s")
     source=ROOT/"mission/registered-field-receipt.json"
@@ -304,18 +305,18 @@ def review(robot,delay=.127,contact_root=None):
             lower=obs["lower"]*field.IN
             if 1.020<lower<=hull[5]/1000:
                 overhead.append((obs["name"],[(x*field.IN,y*field.IN) for x,y in obs["poly"]]))
-        clearance_rows=field.audit(route,hull,parked+extra+overhead)
+        clearance_rows=field.audit(route,hull,parked+extra+overhead+list(field_obstacles))
         routes.append({"leg":leg,"pose":pose,"extra_height_obstacles":[k for k,_ in overhead],
                        "min_clearance":min(clearance_rows,key=lambda v:v["gap_m"])})
     for idx,specimen in enumerate(reference["trips"]):
         sector=specimen["sector_m"]
-        paths=field.routes(sector)
+        paths=motion.routes(sector)
         if idx==0:
             route_check("starting-line-to-station",paths[0],"stowed",[])
         route_check("loaded-"+specimen["piece_id"],paths[1],"transport",targets)
         key=specimen["piece_id"]
         args={"grip_law":cartridge()} if cartridge else {}
-        up=producer.run(dt=.001,target_y=sector,trajectory=field.RegisteredMission(sector),sample_every_step=True,
+        up=producer.run(dt=.001,target_y=sector,trajectory=motion.RegisteredMission(sector),sample_every_step=True,
                         piece_id=key,**args)
         dep=recorded_departure(robot,(sector,key,up),delay)
         dep["last_possible_after_shelf_ms"]=1000*(dep["last_possible_contact_s"]-dep["first_shelf_witness_s"])

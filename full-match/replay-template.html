@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REEFSCAPE | Two pipes and a park</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3efe4;color:#172d2c;font:16px/1.5 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:32px 22px}h1{font-size:clamp(32px,6vw,62px);line-height:1.03;letter-spacing:-.05em;margin:0}p{max-width:76ch}header,.controls,footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0}header{justify-content:space-between}label,output{font-weight:650}select,button{font:inherit;background:#fffdf6;color:#1b3730;border:1px solid #8c9b86;border-radius:5px;padding:7px 12px}button{background:#254f49;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #d37c14}input[type=checkbox]{min-width:0}input{flex:1;min-width:90px}svg{width:100%;display:block;background:#163537;border-radius:10px}.action{margin:.4em 0;color:#24544c;font-weight:700}output{font-variant-numeric:tabular-nums}footer{font-size:14px;gap:18px}footer b{font-size:16px}svg text{font:7px system-ui,sans-serif;fill:#f5eddb}svg .id{font-weight:800;fill:#142b2b;dominant-baseline:central;text-anchor:middle}@media(max-width:520px){main{padding:16px 10px}header{gap:6px}}
+</style></head><body><main>
+<header><h1>Two pipes and a park</h1><label>Field trial <select id="scenario"></select></label></header>
+<p>Follow red robot 2 from its starting line to the station, two reef sectors and its final position. Change the partner’s route to see where the same endgame plan breaks down.</p>
+<svg viewBox="-10 -10 711 337" role="img" aria-label="Six moving robots, reef and station geometry, six starting stacks, the red parking zone and the path of red robot two."><g id="scene"></g></svg>
+<div class="controls"><label><input type="checkbox" id="legacy"> Earlier AUTO route and collision</label></div><div class="controls"><button id="play">Play</button><label for="clock">Match time</label><input id="clock" type="range" min="0" max="153" step=".5" value="0"><output id="time"></output></div>
+<p class="action" id="action"></p><p id="note"></p>
+<footer><span><b style="color:#af514a">R</b> Red alliance</span><span><b style="color:#276d8f">B</b> Blue alliance</span><span>● Green starting stack</span><span>Dashed gold line marks red 2’s route</span><span>Shaded area marks the red parking zone</span></footer>
+<p>Each frame represents half a second. The movement and contact reports use finer intervals. Green stacks show floor CORAL with ALGAE. The twelve reef-mounted ALGAE still require a separate clearance check. Points remain conditional on inspection, measured traction, legal feeding and field assessment.</p>
+<script>
+const data=__DATA__,ns="http://www.w3.org/2000/svg";
+const select=document.querySelector("#scenario"), clock=document.querySelector("#clock"), button=document.querySelector("#play"),scene=document.querySelector("#scene");
+function shape(tag,props,parent=scene){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(props))e.setAttribute(k,v);parent.appendChild(e);return e}
+function label(x,y,words){const e=shape("text",{x,y});e.textContent=words}
+for(const name of Object.keys(data.scenarios)){const op=document.createElement("option");op.textContent=name;select.append(op)}
+function draw(){
+ const s=data.scenarios[select.value],t=Number(clock.value),frame=s.frames[Math.round(t*2)],h=317,sy=y=>h-y;
+ scene.replaceChildren();
+ shape("path",{d:"M0 43 L59 0 H632 L690.875 43 V274 L632 317 H59 L0 274 Z",fill:"#264648",stroke:"#a2b7a8","stroke-width":1.4});
+ shape("rect",{x:322.4375,y:170.5,width:46,height:146.5,fill:"#ac615d",opacity:.48});
+ for(const x of [297.5,392.375])shape("line",{x1:x,x2:x,y1:0,y2:h,stroke:"#f4f1df","stroke-width":1,"stroke-dasharray":"6 5",opacity:.65});
+ for(const [name,xy] of data.solids){const e=shape("polygon",{points:xy.map(([x,y])=>x+","+sy(y)).join(" "),fill:name.includes("reef")?"#537473":"#75908a",stroke:"#9ab5a4","stroke-width":.8});const a=shape("title",{},e);a.textContent=name}
+ const focal=s.bots.indexOf("red2");
+ if(document.querySelector("#legacy").checked){shape("polyline",{points:data.legacy.map(p=>p[0]+","+sy(p[1])).join(" "),fill:"none",stroke:"#ffc4b4","stroke-width":2.5,"stroke-dasharray":"1 3"});const [x,y]=data.hit;shape("circle",{cx:x,cy:sy(y),r:15,fill:"none",stroke:"#ffd7cf","stroke-width":1.5});label(x-80,sy(y)+23,"Earlier contact · AUTO 11.58 s");}
+ shape("polyline",{points:s.frames.map(f=>{const p=f[0][focal];return p[0]+","+sy(p[1])}).join(" "),fill:"none",stroke:"#f7cb73","stroke-width":1.5,"stroke-dasharray":"3 3"});
+ for(const [x,y] of data.stacks){shape("rect",{x:x-14.7,y:sy(y)-14.7,width:29.4,height:29.4,fill:"none",stroke:"#a9bf88","stroke-width":.7,"stroke-dasharray":"2 2"});shape("circle",{cx:x,cy:sy(y),r:8,fill:"#baca7c",stroke:"#d8e8a1"})}
+ for(const p of s.result.qualified_supports){if(t>=18+p.support_s)shape("circle",{cx:data.target[0]+2.54,cy:sy(data.target[1]+p.sector_m/.0254),r:3.2,fill:"#fff6bc"})}
+ for(const [i,[x,y,a]] of frame[0].entries()){const id=s.bots[i],g=shape("g",{transform:"translate("+x+" "+sy(y)+")"});const body=shape("g",{transform:"rotate("+(-a)+")"},g);shape("rect",{x:-16.73,y:-16.73,width:33.46,height:33.46,rx:2,fill:id[0]=="r"?"#ea968a":"#83c1df",stroke:id=="red2"?"#ffde80":"#d1ddd4","stroke-width":id=="red2"?2:.7},body);shape("path",{d:"M10 0 l-4 -3 v6 z",fill:"#284842"},body);shape("text",{class:"id",x:0,y:0},g).textContent=id[0].toUpperCase()+id.slice(-1)}
+ label(6,12,"Blue");label(661,12,"Red");
+ const phase=t<15?"AUTO":t<18?"DISABLED":"TELEOP",elapsed=t<15?t:t<18?t-15:t-18;
+ document.querySelector("#time").value=phase+" "+elapsed.toFixed(1)+" s";
+ document.querySelector("#action").textContent=t>=15&&t<18?"Stopped at mode transition":frame[1].replace(/^./,c=>c.toUpperCase());
+ const hit=s.result.first_pair;
+ document.querySelector("#note").textContent=hit?"Partner holds its starting position. The ending route overlaps a robot at TELEOP "+hit[2].toFixed(2)+" s; release is withheld.":s.result.rules.red_barge_park_overlap_m>0?"Both identified pipes reach support. Red 2 then holds its modeled parking position from TELEOP "+s.result.rules.teleop_motion_completion_s.toFixed(2)+" s.":"Both identified pipes reach support. Red 2 returns to the station and finishes outside the parking zone.";
+}
+let timer;function stop(){clearInterval(timer);timer=null;button.textContent="Play"}
+button.onclick=()=>{if(timer){stop();return}if(+clock.value>=153)clock.value=0;button.textContent="Pause";timer=setInterval(()=>{clock.value=Math.min(153,+clock.value+.5);draw();if(+clock.value>=153)stop()},90)};
+document.querySelector("#legacy").onchange=draw;clock.oninput=draw;select.onchange=()=>{stop();draw()};draw();
+</script></main></body></html>

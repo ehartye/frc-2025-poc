@@ -1,0 +1,593 @@
+{
+  "schema": "reefs-2025-match-onset/1",
+  "inches_to_m": 0.0254,
+  "field_floor_stacks_centers_in": [
+    [
+      48,
+      86.5
+    ],
+    [
+      48,
+      158.5
+    ],
+    [
+      48,
+      230.5
+    ],
+    [
+      642.875,
+      86.5
+    ],
+    [
+      642.875,
+      158.5
+    ],
+    [
+      642.875,
+      230.5
+    ]
+  ],
+  "stack_occupied_half_extent_in": 14.7,
+  "prior_alignment_m": 1.25,
+  "prior_result": {
+    "kind": "turn",
+    "seconds": 1.2925354645839635,
+    "closest": "floor-stack-6",
+    "gap_m": -0.43830244674760654
+  },
+  "revised_alignment_m": 0.65,
+  "north_waypoint_in": [
+    440,
+    230
+  ],
+  "archive_rules": [
+    "5.2",
+    "6.3.3",
+    "6.3.4",
+    "6.4",
+    "6.5.1",
+    "6.5.2",
+    "6.5.4",
+    "G303",
+    "G412",
+    "G431",
+    "G433"
+  ],
+  "staging": {
+    "total_coral": 126,
+    "floor": 6,
+    "all_robot_preloads": 0,
+    "red_station_total": 60,
+    "blue_station_total": 60,
+    "algae_on_floor_coral": 6,
+    "algae_on_reefs": 12,
+    "chosen_receipts": [
+      "coral-A",
+      "coral-B"
+    ]
+  },
+  "open_acceptance": [
+    "location and ball/robot contact with all 12 reef-staged ALGAE",
+    "measured empty/start and as-built inspection",
+    "physical legal handoff, segmentation and controller calibration",
+    "measured traction, mass distribution, partner routes and referee assessment"
+  ],
+  "sources": [
+    {
+      "piece_id": "coral-A",
+      "sector_m": -0.18,
+      "seat_seconds": 5.16831019,
+      "support_from_feed_s": 28.4059330001621,
+      "empty_retract_and_lift_s": 1.489043856504566,
+      "worst_onset_after_shelf_s": 0.11000000000000151,
+      "settled_target_xz_m": [
+        0.06451141525439472,
+        0.4812352598277075
+      ]
+    },
+    {
+      "piece_id": "coral-B",
+      "sector_m": 0.22,
+      "seat_seconds": 5.16831019,
+      "support_from_feed_s": 28.09293300034852,
+      "empty_retract_and_lift_s": 1.4890438563181476,
+      "worst_onset_after_shelf_s": 0.11000000000000151,
+      "settled_target_xz_m": [
+        0.06451141525439472,
+        0.4812352598277075
+      ]
+    }
+  ],
+  "hold_variants": {
+    "0": {
+      "field": [
+        {
+          "leg": "autonomous-approach",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 13.49159843948311
+        },
+        {
+          "leg": "loaded-coral-A",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.477480003867615
+        },
+        {
+          "leg": "after-coral-A",
+          "minimum_gap_m": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.8532069051255
+        },
+        {
+          "leg": "loaded-coral-B",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.164526260706847
+        },
+        {
+          "leg": "after-coral-B",
+          "minimum_gap_m": 0.025849999999999707,
+          "closest": "South cage 1",
+          "drive_time_s": 10.378868226722757
+        },
+        {
+          "leg": "red1 clear own endgame lane",
+          "minimum_gap_m": 0.2338124999999991,
+          "closest": "South cage 2",
+          "drive_time_s": 2.9034866666666668
+        },
+        {
+          "leg": "red3 partner takes shared corridor",
+          "minimum_gap_m": 0.07209293208196565,
+          "closest": "North cage 2",
+          "drive_time_s": 4.909869670706751
+        },
+        {
+          "leg": "red3 partner clears north lane",
+          "minimum_gap_m": 0.16095923599143502,
+          "closest": "upper rail",
+          "drive_time_s": 7.5408094316103345
+        },
+        {
+          "leg": "blue3 opponent crosses cage gap",
+          "minimum_gap_m": 0.02743749999999956,
+          "closest": "North cage 2",
+          "drive_time_s": 13.78824727730995
+        }
+      ],
+      "rules": {
+        "start_robot_center_at_red_tape_edge_m": 0.0,
+        "start_center_tape_edges_in": [
+          391.37499999999994,
+          393.37499999999994
+        ],
+        "auto_end_bumper_x_gap_from_tape_m": 5.847332661673718,
+        "auto_arrival_s": 13.49159843948311,
+        "auto_coast_to_deadline_s": 1.5084015605168908,
+        "transition_disabled_s": 3,
+        "teleop_start_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          0.9426766239273482
+        ],
+        "teleop_end_pose": [
+          9.017,
+          2.4272875,
+          3.141592653589793
+        ],
+        "teleop_motion_completion_s": 93.24593689205535,
+        "red_barge_park_overlap_m": 0.7663125000000015,
+        "reef_zone_bumper_overlap_at_release_m": 0.29059999999999997
+      },
+      "preflight_route_clear": true,
+      "robot_pairs": 15,
+      "dynamic_min_gap_m": 0.09033298340521144,
+      "first_pair": null,
+      "scheduled_station_lip_arrivals_s": [
+        3.2684540234368797,
+        53.28509180866593
+      ],
+      "qualified_supports": [
+        {
+          "id": "coral-A",
+          "support_s": 31.67438702359898,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 81.37802480901445,
+          "sector_m": 0.22
+        }
+      ],
+      "on_time": true,
+      "potential_points_after_other_acceptance": 9
+    },
+    "16": {
+      "field": [
+        {
+          "leg": "autonomous-approach",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 13.49159843948311
+        },
+        {
+          "leg": "loaded-coral-A",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.477480003867615
+        },
+        {
+          "leg": "after-coral-A",
+          "minimum_gap_m": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.8532069051255
+        },
+        {
+          "leg": "loaded-coral-B",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.164526260706847
+        },
+        {
+          "leg": "after-coral-B",
+          "minimum_gap_m": 0.025849999999999707,
+          "closest": "South cage 1",
+          "drive_time_s": 10.378868226722757
+        },
+        {
+          "leg": "red1 clear own endgame lane",
+          "minimum_gap_m": 0.2338124999999991,
+          "closest": "South cage 2",
+          "drive_time_s": 2.9034866666666668
+        },
+        {
+          "leg": "red3 partner takes shared corridor",
+          "minimum_gap_m": 0.07209293208196565,
+          "closest": "North cage 2",
+          "drive_time_s": 4.909869670706751
+        },
+        {
+          "leg": "red3 partner clears north lane",
+          "minimum_gap_m": 0.16095923599143502,
+          "closest": "upper rail",
+          "drive_time_s": 7.5408094316103345
+        },
+        {
+          "leg": "blue3 opponent crosses cage gap",
+          "minimum_gap_m": 0.02743749999999956,
+          "closest": "North cage 2",
+          "drive_time_s": 13.78824727730995
+        }
+      ],
+      "rules": {
+        "start_robot_center_at_red_tape_edge_m": 0.0,
+        "start_center_tape_edges_in": [
+          391.37499999999994,
+          393.37499999999994
+        ],
+        "auto_end_bumper_x_gap_from_tape_m": 5.847332661673718,
+        "auto_arrival_s": 13.49159843948311,
+        "auto_coast_to_deadline_s": 1.5084015605168908,
+        "transition_disabled_s": 3,
+        "teleop_start_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          0.9426766239273482
+        ],
+        "teleop_end_pose": [
+          9.017,
+          2.4272875,
+          3.141592653589793
+        ],
+        "teleop_motion_completion_s": 109.24593689205535,
+        "red_barge_park_overlap_m": 0.7663125000000015,
+        "reef_zone_bumper_overlap_at_release_m": 0.29059999999999997
+      },
+      "preflight_route_clear": true,
+      "robot_pairs": 15,
+      "dynamic_min_gap_m": 0.10550422873273001,
+      "first_pair": null,
+      "scheduled_station_lip_arrivals_s": [
+        19.26845402343688,
+        69.28509180866592
+      ],
+      "qualified_supports": [
+        {
+          "id": "coral-A",
+          "support_s": 47.67438702359898,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 97.37802480901445,
+          "sector_m": 0.22
+        }
+      ],
+      "on_time": true,
+      "potential_points_after_other_acceptance": 9
+    },
+    "partner-holds-start": {
+      "field": [
+        {
+          "leg": "autonomous-approach",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 13.49159843948311
+        },
+        {
+          "leg": "loaded-coral-A",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.477480003867615
+        },
+        {
+          "leg": "after-coral-A",
+          "minimum_gap_m": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.8532069051255
+        },
+        {
+          "leg": "loaded-coral-B",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.164526260706847
+        },
+        {
+          "leg": "after-coral-B",
+          "minimum_gap_m": 0.025849999999999707,
+          "closest": "South cage 1",
+          "drive_time_s": 10.378868226722757
+        },
+        {
+          "leg": "red3 partner takes shared corridor",
+          "minimum_gap_m": 0.07209293208196565,
+          "closest": "North cage 2",
+          "drive_time_s": 4.909869670706751
+        },
+        {
+          "leg": "red3 partner clears north lane",
+          "minimum_gap_m": 0.16095923599143502,
+          "closest": "upper rail",
+          "drive_time_s": 7.5408094316103345
+        },
+        {
+          "leg": "blue3 opponent crosses cage gap",
+          "minimum_gap_m": 0.02743749999999956,
+          "closest": "North cage 2",
+          "drive_time_s": 13.78824727730995
+        }
+      ],
+      "rules": {
+        "start_robot_center_at_red_tape_edge_m": 0.0,
+        "start_center_tape_edges_in": [
+          391.37499999999994,
+          393.37499999999994
+        ],
+        "auto_end_bumper_x_gap_from_tape_m": 5.847332661673718,
+        "auto_arrival_s": 13.49159843948311,
+        "auto_coast_to_deadline_s": 1.5084015605168908,
+        "transition_disabled_s": 3,
+        "teleop_start_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          0.9426766239273482
+        ],
+        "teleop_end_pose": [
+          9.017,
+          2.4272875,
+          3.141592653589793
+        ],
+        "teleop_motion_completion_s": 93.24593689205535,
+        "red_barge_park_overlap_m": 0.7663125000000015,
+        "reef_zone_bumper_overlap_at_release_m": 0.29059999999999997
+      },
+      "preflight_route_clear": false,
+      "robot_pairs": 15,
+      "dynamic_min_gap_m": -0.0865812065230382,
+      "first_pair": [
+        "red2",
+        "red1",
+        88.61,
+        -0.0007
+      ],
+      "scheduled_station_lip_arrivals_s": [
+        3.2684540234368797,
+        53.28509180866593
+      ],
+      "qualified_supports": [],
+      "on_time": true,
+      "potential_points_after_other_acceptance": null
+    },
+    "return-to-station": {
+      "field": [
+        {
+          "leg": "autonomous-approach",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 13.49159843948311
+        },
+        {
+          "leg": "loaded-coral-A",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.477480003867615
+        },
+        {
+          "leg": "after-coral-A",
+          "minimum_gap_m": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.8532069051255
+        },
+        {
+          "leg": "loaded-coral-B",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.164526260706847
+        },
+        {
+          "leg": "after-coral-B",
+          "minimum_gap_m": 0.009999999999999898,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.467103920176474
+        },
+        {
+          "leg": "red1 clear own endgame lane",
+          "minimum_gap_m": 0.2338124999999991,
+          "closest": "South cage 2",
+          "drive_time_s": 2.9034866666666668
+        },
+        {
+          "leg": "red3 partner takes shared corridor",
+          "minimum_gap_m": 0.07209293208196565,
+          "closest": "North cage 2",
+          "drive_time_s": 4.909869670706751
+        },
+        {
+          "leg": "red3 partner clears north lane",
+          "minimum_gap_m": 0.16095923599143502,
+          "closest": "upper rail",
+          "drive_time_s": 7.5408094316103345
+        },
+        {
+          "leg": "blue3 opponent crosses cage gap",
+          "minimum_gap_m": 0.02743749999999956,
+          "closest": "North cage 2",
+          "drive_time_s": 13.78824727730995
+        }
+      ],
+      "rules": {
+        "start_robot_center_at_red_tape_edge_m": 0.0,
+        "start_center_tape_edges_in": [
+          391.37499999999994,
+          393.37499999999994
+        ],
+        "auto_end_bumper_x_gap_from_tape_m": 5.847332661673718,
+        "auto_arrival_s": 13.49159843948311,
+        "auto_coast_to_deadline_s": 1.5084015605168908,
+        "transition_disabled_s": 3,
+        "teleop_start_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          0.9426766239273482
+        ],
+        "teleop_end_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          7.225861931106932
+        ],
+        "teleop_motion_completion_s": 99.33417258550907,
+        "red_barge_park_overlap_m": 0,
+        "reef_zone_bumper_overlap_at_release_m": 0.29059999999999997
+      },
+      "preflight_route_clear": true,
+      "robot_pairs": 15,
+      "dynamic_min_gap_m": 0.09033298340521144,
+      "first_pair": null,
+      "scheduled_station_lip_arrivals_s": [
+        3.2684540234368797,
+        53.28509180866593
+      ],
+      "qualified_supports": [
+        {
+          "id": "coral-A",
+          "support_s": 31.67438702359898,
+          "sector_m": -0.18
+        },
+        {
+          "id": "coral-B",
+          "support_s": 81.37802480901445,
+          "sector_m": 0.22
+        }
+      ],
+      "on_time": true,
+      "potential_points_after_other_acceptance": 7
+    },
+    "second-inventory-absent": {
+      "field": [
+        {
+          "leg": "autonomous-approach",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 13.49159843948311
+        },
+        {
+          "leg": "loaded-coral-A",
+          "minimum_gap_m": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 16.477480003867615
+        },
+        {
+          "leg": "after-coral-A",
+          "minimum_gap_m": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "drive_time_s": 14.8532069051255
+        },
+        {
+          "leg": "red1 clear own endgame lane",
+          "minimum_gap_m": 0.2338124999999991,
+          "closest": "South cage 2",
+          "drive_time_s": 2.9034866666666668
+        },
+        {
+          "leg": "red3 partner takes shared corridor",
+          "minimum_gap_m": 0.07209293208196565,
+          "closest": "North cage 2",
+          "drive_time_s": 4.909869670706751
+        },
+        {
+          "leg": "red3 partner clears north lane",
+          "minimum_gap_m": 0.16095923599143502,
+          "closest": "upper rail",
+          "drive_time_s": 7.5408094316103345
+        },
+        {
+          "leg": "blue3 opponent crosses cage gap",
+          "minimum_gap_m": 0.02743749999999956,
+          "closest": "North cage 2",
+          "drive_time_s": 13.78824727730995
+        }
+      ],
+      "rules": {
+        "start_robot_center_at_red_tape_edge_m": 0.0,
+        "start_center_tape_edges_in": [
+          391.37499999999994,
+          393.37499999999994
+        ],
+        "auto_end_bumper_x_gap_from_tape_m": 5.847332661673718,
+        "auto_arrival_s": 13.49159843948311,
+        "auto_coast_to_deadline_s": 1.5084015605168908,
+        "transition_disabled_s": 3,
+        "teleop_start_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          0.9426766239273482
+        ],
+        "teleop_end_pose": [
+          16.440098425682283,
+          7.042555402239259,
+          7.225861931106935
+        ],
+        "teleop_motion_completion_s": 52.01663778522905,
+        "red_barge_park_overlap_m": 0,
+        "reef_zone_bumper_overlap_at_release_m": 0.29059999999999997
+      },
+      "preflight_route_clear": true,
+      "robot_pairs": 15,
+      "dynamic_min_gap_m": 0.09033298340521144,
+      "first_pair": null,
+      "scheduled_station_lip_arrivals_s": [
+        3.2684540234368797
+      ],
+      "qualified_supports": [
+        {
+          "id": "coral-A",
+          "support_s": 31.67438702359898,
+          "sector_m": -0.18
+        }
+      ],
+      "on_time": true,
+      "potential_points_after_other_acceptance": 5
+    }
+  }
+}

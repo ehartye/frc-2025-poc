@@ -71,10 +71,10 @@ def schedule(up,front):
     return budgets,possible
 
 
-def run(root,report,poses):
+def run(root,report,poses,motion=None):
     producer=load_source("scripts.short_passive_trajectory",root/"scripts/station_l1_mission.py")
     law=load_source("short_passive_force_law",root/"design/receiver-drives/size_drives.py")
-    motion=heavy.revised_motion()
+    motion=motion or heavy.revised_motion()
     data=json.loads(report.read_text())
     front=data["departures"][0]["independent_front_plane_stereo"]["front_bound_mm"]
     robot=SuppliedRobot(poses/"part-frames.json",{k:poses/(k+".step") for k in POSES},hashes=data["pose_step_sha256"],
