@@ -21,6 +21,10 @@ SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463
 
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/fallback.webm'] = '3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5'
 
+# Team-authored animation of public robot solids, finite tube and reconstructed target.
+SHOWCASE_ASSETS['experiments/swerve-drive/score-stroke/receiver-motion.webm'] = '24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414'
+SHOWCASE_ASSETS['docs/robot/receiver-motion.png'] = 'b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]
