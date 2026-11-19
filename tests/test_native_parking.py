@@ -1,5 +1,6 @@
 import hashlib
 import json
+import math
 import unittest
 from pathlib import Path
 
@@ -42,3 +43,34 @@ class NativeParking(unittest.TestCase):
         for key in ("issued","shorter","retained-partner"):
             self.assertEqual(rows[key]["routeStatus"],"supported")
             self.assertEqual(rows[key]["wholeFieldStatus"],"pending")
+
+    def test_cone_distinguishes_two_stops_and_tape_still_clears(self):
+        motion=json.loads((HERE/"cage-motion.json").read_bytes())
+        self.assertEqual(motion["route_sha256"],hashlib.sha256((HERE/"native-park.json").read_bytes()).hexdigest())
+        near_path=HERE/"near-tape.json"
+        self.assertEqual(motion["near_tape_sha256"],hashlib.sha256(near_path.read_bytes()).hexdigest())
+        parts=[p["type"] for s in motion["stations"].values() for p in s["parts"].values()]
+        self.assertEqual((len(motion["stations"]),parts.count("GE-25229"),parts.count("3216T41_Carabiner")),(6,4,10))
+        sway=motion["upper_height_mm"]*math.tan(math.radians(3))
+        old,new=(motion["cases"][k] for k in ("shorter","near-tape"))
+        self.assertLess(old["displacement_budget_mm"]-sway,0)
+        self.assertGreater(new["displacement_budget_mm"]-sway,28)
+        self.assertLess(new["displacement_budget_mm"]-motion["upper_height_mm"]*math.tan(math.radians(4.1)),0)
+        near=json.loads(near_path.read_bytes())["cases"]["near-tape"]
+        self.assertGreater(near["one_percent_wheel_case"]["remaining_end_auto_tape_clearance_m"],.032)
+        self.assertIsNone(motion["cases"]["issued"]["floor_cone_limit_deg"])
+
+    def test_locked_robot_and_counterexample_use_material(self):
+        motion=json.loads((HERE/"cage-motion.json").read_bytes())
+        locked=motion["high_locked_robot"]
+        self.assertEqual(locked["installed_bodies"],583)
+        self.assertTrue(locked["drive_cases_clear"])
+        self.assertEqual(locked["stock_count"],24)
+        self.assertGreater(min(r["lower_bound_mm"] for r in locked["stock_bounds"].values()),0)
+        self.assertEqual(locked["start_tape_end_tape_end_zone_mm3"][1],0)
+        check=json.loads((HERE/"near-tape-review.json").read_bytes())["cases"]["near-tape"]
+        self.assertEqual((check["routeStatus"],check["wholeFieldStatus"]),("supported","pending"))
+        self.assertAlmostEqual(locked["start_tape_end_tape_end_zone_mm3"][2],check["volumeInZoneMm3"])
+        controls=motion["tilt_trial"]["overlap_mm3_by_degrees"]
+        self.assertEqual(controls["0"],0)
+        self.assertGreater(controls["6"],600)

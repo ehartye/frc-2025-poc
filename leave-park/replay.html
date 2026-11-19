@@ -3,16 +3,59 @@
 <title>Leave and park rehearsal</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f7f5ed;color:#202a32;font:1rem/1.45 system-ui,sans-serif}main{max-width:1100px;margin:0 auto;padding:clamp(16px,4vw,44px)}h1{font:600 clamp(2rem,5vw,3.7rem)/1.05 Georgia,serif;margin:0 0 12px}p{margin:0 0 18px;max-width:78ch}canvas{display:block;width:100%;height:auto;background:#17242e;border-radius:8px}section{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}select,button{padding:.5em;border:1px solid #53636c;border-radius:4px;background:white;font:inherit}label{font-weight:600}input[type=range]{flex:1;min-width:135px;accent-color:#ad3935}output{min-width:10em;font-variant-numeric:tabular-nums}#result{font-weight:650}#detail{font-size:.94rem}a{color:#1a505b}:focus-visible{outline:3px solid #317fa5}button{min-width:64px}
+.clearance{border-top:1px solid #bdc2bb;margin:20px 0;padding-top:16px}
+.clearance h2{font:600 1.55rem Georgia,serif;margin:0 0 8px}
+.clearance-grid{display:grid;grid-template-columns:minmax(230px,1fr) 1fr;align-items:center;gap:22px}
+.clearance-grid output{font-weight:700;display:block;margin-bottom:6px}.clearance-grid p{margin:.4em 0}
+#cone{max-width:25em}#coneValue{min-width:3em}#zoom{background:#20323c}
+@media(max-width:620px){.clearance-grid{grid-template-columns:1fr;gap:8px}}
 </style></head><body><main>
 <h1>Leave and park</h1><p>Can Red 2 earn points with its receiver stowed and no station supply? Scrub the match to see how a partner’s position changes the endgame decision.</p>
-<section><label for="scene">Match plan</label><select id="scene"><option value="shorter">Shorter straight AUTO</option><option value="direct">Original straight AUTO</option><option value="shared">South partner keeps its slot</option><option value="reserved">Reserved and clear</option><option value="occupied">Partner stays · wait</option><option value="late">Clearance comes too late</option><option value="ignore-reservation">Ignore the occupied lane</option></select><label><input type="checkbox" id="hardware" checked> Static cage bounds</label></section>
+<section><label for="scene">Match plan</label><select id="scene"><option value="near-tape">Stop closer to the tape</option><option value="shorter">Shorter straight AUTO</option><option value="direct">Original straight AUTO</option><option value="shared">South partner keeps its slot</option><option value="reserved">Reserved and clear</option><option value="occupied">Partner stays · wait</option><option value="late">Clearance comes too late</option><option value="ignore-reservation">Ignore the occupied lane</option></select><label><input type="checkbox" id="hardware" checked> Static cage bounds</label></section>
 <canvas id="field" width="1200" height="585" aria-label="Registered field, six robot footprints and Red 2 route"></canvas>
 <section><button id="play" type="button">Play</button><label for="clock">Match clock</label><input id="clock" type="range" min="0" max="153" step=".05" value="153"><output id="time" for="clock"></output></section>
-<p id="result" aria-live="polite"></p><p id="detail"></p><a href="README.md">Geometry, scoring criteria and assumptions</a>
+<p id="result" aria-live="polite"></p><p id="detail"></p>
+<div class="clearance" id="clearance" hidden>
+<h2>How much can the cages move?</h2>
+<p>Set a cone around each suspension eye. Assume the centerline of every hanging part stays inside that cone. The close-up shows the whole AUTO route and the space needed to hold the final pose.</p>
+<section><label for="cone">Sway allowance</label><input type="range" id="cone" min="0" max="8" step=".1" value="3"><output for="cone" id="coneValue"></output></section>
+<div class="clearance-grid"><canvas id="zoom" width="760" height="410" aria-label="Top view of the red swept robot footprint, tracking allowance and nearby hanging cage envelopes"></canvas>
+<div><output for="scene cone" id="margin" aria-live="polite"></output><p id="swayDetail"></p><p>The gold rings include cage width, any twist and the selected sway. The pale red border includes wheel and setup error.</p></div></div></div>
+<a href="README.md">Geometry, scoring criteria and assumptions</a>
 </main><script src="tracks.js"></script><script>
 const data=REHEARSAL, ctx=document.querySelector("canvas").getContext("2d");
 const select=document.querySelector("#scene"),clock=document.querySelector("#clock"),play=document.querySelector("#play");
 let playing=false,last=0;
+function drawClearance(row){
+ const panel=document.querySelector("#clearance");
+ panel.hidden=!row.swing;
+ if(panel.hidden)return;
+ const angle=Number(document.querySelector("#cone").value);
+ const sway=data.eyeHeight*Math.tan(angle*Math.PI/180);
+ const gap=row.swing.displacement_budget_mm-sway;
+ document.querySelector("#coneValue").textContent=angle.toFixed(1)+"°";
+ document.querySelector("#margin").textContent=gap>0?gap.toFixed(1)+" mm clearance remaining":(-gap).toFixed(1)+" mm beyond the clearance budget";
+ let detail="This allowance adds "+sway.toFixed(1)+" mm in any direction. The bumper clears the starting tape by at least "+row.tapeReserve.toFixed(1)+" mm under the same tracking assumptions.";
+ if(select.value==="shared")detail+=" In a separate 6° tilt toward the parked robot, the cage and front cover overlap by "+data.sharedTiltVolume.toFixed(0)+" mm³.";
+ if(select.value==="near-tape")detail+=" The "+data.lockedBodies+"-body locked carriage fits this footprint.";
+ document.querySelector("#swayDetail").textContent=detail;
+ const c=document.querySelector("#zoom").getContext("2d"),box=row.swing.native_route_box_mm;
+ const s=.25, x=v=>150+v*s, y=v=>205+(v-(box[2]+box[5])/2)*s;
+ c.clearRect(0,0,760,410);
+ const err=row.swing.tracking_mm;
+ c.fillStyle="#eaa59d";c.beginPath();
+ c.roundRect(x(box[0]-err),y(box[2]-err),(box[3]-box[0]+2*err)*s,(box[5]-box[2]+2*err)*s,err*s);c.fill();
+ c.fillStyle="#904844";c.fillRect(x(box[0]),y(box[2]),(box[3]-box[0])*s,(box[5]-box[2])*s);
+ c.fillStyle="#fff";c.font="bold 22px system-ui";c.textAlign="center";
+ c.fillText("Red 2 route",x((box[0]+box[3])/2),205);
+ for(const [cx,cz] of Object.values(data.cages)){
+   c.beginPath();c.arc(x(cx),y(cz),(data.cageRadius+sway)*s,0,2*Math.PI);
+   c.fillStyle="rgba(248,198,101,.18)";c.fill();c.strokeStyle="#fac86d";c.lineWidth=3;c.stroke();
+   c.beginPath();c.arc(x(cx),y(cz),data.cageRadius*s,0,2*Math.PI);c.strokeStyle="#efdbad";c.lineWidth=1;c.stroke();
+   c.beginPath();c.arc(x(cx),y(cz),3,0,2*Math.PI);c.fillStyle="#fff";c.fill();
+ }
+ return gap;
+}
 function pose(track,t){
  let i=1;while(i<track.length && track[i][0]<t)i++;
  if(i===track.length)return track[i-1].slice(1);
@@ -21,6 +64,7 @@ function pose(track,t){
 }
 function draw(){
  const row=data.cases[select.value], t=Number(clock.value),tele=Math.max(0,t-18),bad=row.first_sampled_overlap;
+ const swingMargin=drawClearance(row);
  const struck=bad && tele>=bad[2]; const sample=struck?bad[2]:tele;
  const scale=1140/data.field[0],px=x=>30+x*scale,py=y=>555-y*scale;
  function rect(x0,y0,x1,y1,c){ctx.fillStyle=c;ctx.fillRect(px(x0),py(y1),(x1-x0)*scale,(y1-y0)*scale)}
@@ -41,9 +85,10 @@ function draw(){
  document.querySelector("#time").textContent=(t<15?"AUTO "+t.toFixed(1):t<18?"Disabled "+(t-15).toFixed(1):"TELEOP "+tele.toFixed(1))+" s";
  document.querySelector("#result").textContent=struck?"Route rejected · playback holds at first overlap":t<15?(direct?"AUTO · straight drive into the reserved zone":"AUTO · reverse clear of the starting line"):t<18?"Disabled transition · LEAVE assessed":t<153?(direct?"TELEOP · holding the AUTO parking pose":tele<row.decision_teleop_s?"TELEOP · holding for the endgame decision":row.attempt?"TELEOP · parking route":"TELEOP · hold position"):select.value==="shared"?"Nominal STEP clears · planning exclusion reached":(row.leave_points+row.park_points)+(row.park_points&&!direct?" geometric points · turn traction unresolved":" modeled points · "+(row.park_points?"LEAVE and PARK":"LEAVE"));
  document.querySelector("#detail").textContent=direct?`Static hardware clearance ${row.staticGap.toFixed(1)} mm. Planning exclusion clearance ${row.planningGap.toFixed(1)} mm. Minimum AUTO partner clearance bound ${row.partnerGap.toFixed(0)} mm. The yellow shapes on the field show projected bounds of nearby static hardware. Cage motion needs a measured allowance.`:struck?"Red 2 overlaps the stationary Red 1 in the prescribed path.":select.value==="late"?"At TELEOP 129 s the drive requires more time than remains.":select.value==="occupied"?"Red 1 occupies the approach. Red 2 stays outside the BARGE ZONE.":"The highlighted footprint is the 545-body stowed design. Live driving, calibration and official scoring remain field checks.";
+ if(direct && t>=153 && swingMargin<=0)document.querySelector("#result").textContent="Parking clearance unproven at the selected sway";
 }
 function stop(){playing=false;play.textContent="Play"}
 function tick(now){if(!playing)return;clock.value=Math.min(153,Number(clock.value)+(now-last)/1000*5);last=now;draw();if(Number(clock.value)>=153)stop();else requestAnimationFrame(tick)}
 play.onclick=()=>{if(playing){stop();return}if(Number(clock.value)>=153)clock.value=0;last=performance.now();playing=true;play.textContent="Pause";requestAnimationFrame(tick)};
-document.querySelector("#hardware").onchange=draw;clock.oninput=()=>{stop();draw()};select.onchange=()=>{stop();draw()};draw();
+document.querySelector("#cone").oninput=draw;document.querySelector("#hardware").onchange=draw;clock.oninput=()=>{stop();draw()};select.onchange=()=>{stop();draw()};draw();
 </script></body></html>

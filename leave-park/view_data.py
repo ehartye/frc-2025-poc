@@ -1,7 +1,7 @@
 """Serialize the same wheel programs as the study for an offline student replay."""
 import json
 import math
-from rehearse import HERE, ROOT, STOCK, TAPE, ZONE, candidate, corrected, prepare
+from rehearse import HERE, ROOT, STOCK, TAPE, ZONE, candidate, corrected, digest, prepare
 
 
 def auto_frames(route):
@@ -30,6 +30,10 @@ def main():
     programs = {}
     cases = {}
     native=json.loads((HERE/"native-park.json").read_bytes())
+    motion=json.loads((HERE/"cage-motion.json").read_bytes())
+    near=json.loads((HERE/"near-tape.json").read_bytes())
+    if motion["route_sha256"] != digest(HERE/"native-park.json") or motion["near_tape_sha256"] != digest(HERE/"near-tape.json"):
+        raise ValueError("Rebuild the cage motion study for this route revision")
     def track_refs(team,case):
         refs={}
         for key,program in team.items():
@@ -42,13 +46,15 @@ def main():
         team=prepare(f,leave,park,row["lane_reserved"],row["decision_teleop_s"],row["attempt"])
         cases[name]=dict(row,robots=track_refs(team,name))
     from straight_role import team_at_teleop
-    for name,trial in (("direct","issued"),("shorter","shorter"),("shared","shared-105")):
-        row=native["cases"][trial]
+    for name,trial in (("direct","issued"),("shorter","shorter"),("near-tape","near-tape"),("shared","shared-105")):
+        row=(near if trial=="near-tape" else native)["cases"][trial]
         direct=f.Route(row["start"])
         direct.go(row["finish"][:2])
         peers=team_at_teleop(f,direct,move_partner=not row["red1_keeps_south"])
         cases[name]={"robots":track_refs(peers,name),"leave_points":3,"park_points":2,"auto":auto_frames(direct),
                      "attempt":True,"decision_teleop_s":0,"first_sampled_overlap":None,
+                     "swing":motion["cases"][trial],
+                     "tapeReserve":row["one_percent_wheel_case"]["remaining_end_auto_tape_clearance_m"]*1000,
                      "staticGap":row["static_field_lower_bound_mm"],"planningGap":row["planning_field"]["gap_m"]*1000,
                      "partnerGap":min(row["auto_focal_to_each_peer_m"].values())*1000}
     hardware=[]
@@ -64,10 +70,14 @@ def main():
         x,_,z=part["native_center_mm"]
         pieces.append([part["group"],*f.field_from_native(x/25.4,z/25.4)])
     obj={"auto":auto,"hardware":hardware,"cases":cases,"programs":programs,"leave":study["auto_tape_clearance_m"],
+         "cages":{name:station["axis_mm"] for name,station in motion["stations"].items()},
+         "cageRadius":motion["radius_mm"],"eyeHeight":motion["upper_height_mm"],
+         "sharedTiltVolume":motion["tilt_trial"]["overlap_mm3_by_degrees"]["6"],
+         "lockedBodies":motion["high_locked_robot"]["installed_bodies"],
          "zone":[v*f.IN for v in ZONE],"tape":[v*f.IN for v in TAPE],
          "field":[f.PROFILE["field"][k]*f.IN for k in ("length","width")],
          "obstacles":[[n,poly] for n,poly in f.obstacles()],"pieces":pieces}
-    (HERE/"tracks.js").write_text("const REHEARSAL="+json.dumps(obj,separators=(",",":"),allow_nan=False)+";\n",encoding="utf8")
+    (HERE/"tracks.js").write_bytes(("const REHEARSAL="+json.dumps(obj,separators=(",",":"),allow_nan=False)+";\n").encode())
 
 
 if __name__=="__main__":
