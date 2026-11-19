@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 
 HERE=Path(__file__).resolve().parent
-ROOT=HERE.parent
+ROOT=HERE.parents[1]/"six-wheel"
 SITES={"FL":(282,277), "FR":(282,-277), "RL":(-282,277), "RR":(-282,-277)}
 def basis(site):
     x,y=SITES[site]

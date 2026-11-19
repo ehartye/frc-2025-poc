@@ -6,7 +6,7 @@ from OCP.gp import gp_Trsf
 from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
 from OCP.BRepAlgoAPI import BRepAlgoAPI_Common
 from module_placement import HERE, SITES, basis, read, write
-ROOT=next(p for p in HERE.parents if (p/"mission/check_branch_exclusion.py").is_file())
+ROOT=HERE.parents[1]/"six-wheel"
 sys.path.insert(0,str(ROOT/"drive-side-attachment"))
 import joint as j
 

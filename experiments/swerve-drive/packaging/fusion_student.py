@@ -66,6 +66,15 @@ def run(context):
         ok = app.importManager.importToTarget(app.importManager.createSTEPImportOptions(str(source)),comp)
         if not ok: raise RuntimeError("Manufacturer import failed "+tag)
         record("manufacturer-import",corner=tag,nested=comp.allOccurrences.count,matrix=occ.transform2.asArray())
+    if "frame" in config:
+        frame=Path(config["frame"])
+        if hashlib.sha256(frame.read_bytes()).hexdigest()!=config["frameSha256"]:
+            raise ValueError("Unregistered chassis exchange")
+        fixed=root.occurrences.addNewComponent(adsk.core.Matrix3D.create()).component
+        fixed.name="Machined chassis - welded and bolted module connections"
+        fixed.attributes.add("FRC","customFrameSha256",config["frameSha256"])
+        if not app.importManager.importToTarget(app.importManager.createSTEPImportOptions(str(frame)),fixed):
+            raise ValueError("Frame import failed")
     sketch.isVisible = False
     archive = out/"fixed-height-maxswerve-independent.f3d"
     if archive.exists(): raise ValueError("Archive already exists; name the revision before exporting")

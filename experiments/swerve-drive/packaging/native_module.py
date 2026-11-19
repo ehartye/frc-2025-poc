@@ -7,7 +7,7 @@ import sys
 from OCP.TopLoc import TopLoc_Location
 
 HERE=Path(__file__).resolve().parent
-ROOT=HERE.parent
+ROOT=HERE.parents[1]/"six-wheel"
 sys.path.insert(0,str(ROOT/"mission"))
 from check_branch_exclusion import cad,direct_children,name
 PIN="11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e"
