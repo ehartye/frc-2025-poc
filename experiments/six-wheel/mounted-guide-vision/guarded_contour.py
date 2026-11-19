@@ -18,7 +18,7 @@ def separated_by_background(indices, known, max_gap):
     return any(np.any(known[indices[k] + 1 : indices[k + 1]]) for k in large)
 
 
-def partial_fit(images, background, error=1.0):
+def partial_fit(images, background, error=1.0, *, peak_bound=None):
     eps = error + 0.5
     peaks = []
     tangents = []
@@ -54,27 +54,30 @@ def partial_fit(images, background, error=1.0):
         # is concave as a function of image row. Each observed secant extended beyond either
         # endpoint bounds the unknown edge from above. Bound the continuous peak even across
         # a gap in the robot-backed pixels instead of treating unknown background as empty.
-        q = np.arange(first, last + 1)
-        upper = np.full(len(q), np.inf)
-        for stride in (12, 24, 36):
-            for r0, v0 in ends:
-                r1 = r0 + stride
-                if r1 not in edge:
-                    continue
-                v1 = edge[r1]
-                right_slope = (v1 - v0 + 2 * eps) / stride
-                left_slope = (v1 - v0 - 2 * eps) / stride
-                before = q + 0.5 <= r0
-                after = q - 0.5 >= r1
-                upper[before] = np.minimum(
-                    upper[before],
-                    v0 + eps + (q[before] - r0) * left_slope + 0.5 * abs(left_slope),
-                )
-                upper[after] = np.minimum(
-                    upper[after],
-                    v1 + eps + (q[after] - r1) * right_slope + 0.5 * abs(right_slope),
-                )
-        maximum = float(max(upper))
+        if peak_bound is not None:
+            maximum = peak_bound(ends, first, last, eps)
+        else:
+            q = np.arange(first, last + 1)
+            upper = np.full(len(q), np.inf)
+            for stride in (12, 24, 36):
+                for r0, v0 in ends:
+                    r1 = r0 + stride
+                    if r1 not in edge:
+                        continue
+                    v1 = edge[r1]
+                    right_slope = (v1 - v0 + 2 * eps) / stride
+                    left_slope = (v1 - v0 - 2 * eps) / stride
+                    before = q + 0.5 <= r0
+                    after = q - 0.5 >= r1
+                    upper[before] = np.minimum(
+                        upper[before],
+                        v0 + eps + (q[before] - r0) * left_slope + 0.5 * abs(left_slope),
+                    )
+                    upper[after] = np.minimum(
+                        upper[after],
+                        v1 + eps + (q[after] - r1) * right_slope + 0.5 * abs(right_slope),
+                    )
+            maximum = float(max(upper))
         if not np.isfinite(maximum) or maximum < peak - eps:
             return {"status": "unbounded-end"}
         peaks.append(((peak - eps) / o.F, maximum / o.F))

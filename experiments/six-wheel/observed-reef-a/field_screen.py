@@ -62,17 +62,19 @@ def brake(times, poses, when, config):
     )
 
 
-def reconcile(assets, side, variant, inhibit=None):
-    time, pose, trial = path_for(assets, side, variant)
+def reconcile(assets, side, variant, inhibit=None, *, selected=None,
+              source_opening=None, seat_wall_s=22.97167263531428):
+    time, pose, trial = (selected.path(assets,side,variant) if selected
+                         else path_for(assets, side, variant))
     stop = None
     if inhibit is not None:
         config = nav.read(ROOT / "station-landmark/routes.json")["cases"][side]
         time, pose, stop = brake(time, pose, inhibit - DRIVE, config)
     ta = assets / "conditioned-match" / side / "corrected-opening.npz"
-    if (
-        nav.sha(ta)
-        != nav.read(ROOT / "conditioned-match/opening.json")[side]["pathSha256"]
-    ):
+    opening_sha=nav.read(ROOT / "conditioned-match/opening.json")[side]["pathSha256"]
+    if source_opening is not None:
+        ta,opening_sha=source_opening
+    if nav.sha(ta)!=opening_sha:
         raise ValueError("Different reached station")
     first = np.load(ta)
     if np.max(abs(first["pose"][-1, :2] - pose[0, :2])) > 1.0e-6:
@@ -86,7 +88,7 @@ def reconcile(assets, side, variant, inhibit=None):
     events = {
         "coral-A": {
             "feed": 21.1,
-            "seat": 22.97167263531428,
+            "seat": seat_wall_s,
             "carry": DRIVE,
             "carryBeltSpeedBoundMps": 0.032,
         }

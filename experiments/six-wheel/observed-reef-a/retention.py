@@ -79,10 +79,14 @@ def run(job):
 
 
 def propagate(
-    assets, side, step, variant, servo, camera, elastic, head, quantized, stuck, limited
+    assets, side, step, variant, servo, camera, elastic, head, quantized, stuck, limited,
+    *, selection=None
 ):
     feed.cfg = replace(feed.cfg, slices=10)
-    if elastic:
+    if selection is not None:
+        pipe, issued, row, path = selection.restore(assets, side)
+        modal_max = np.max(np.abs(pipe.table), axis=(0, 1))
+    elif elastic:
         import importlib.util
 
         sys.path.insert(0, str(elastic))
@@ -152,7 +156,7 @@ def propagate(
     actuator = BeltDrive(acceleration, quantized, stuck)
     pipe.belt_drive = actuator
     max_deflection = 0.0
-    times, pose, field = path_for(assets, side, variant)
+    times, pose, field = (selection.path(assets, side, variant) if selection is not None else path_for(assets, side, variant))
     wait = nav.read(ROOT / "relieved-match/first-feed.json")["scheduledDriveWallS"] - (
         origin + start_java / 1000
     )
@@ -251,6 +255,8 @@ def propagate(
         alpha = accel[seeks, 2] + f * (accel[seeks + 1, 2] - accel[seeks, 2])
         fictitious(pipe, local, turn, alpha, dt)
         pipe.moves(targets, dt)
+        if selection is not None:
+            selection.observe_boundary(pipe, t + dt)
         if actuator.follow_fault:
             fault = fault or [java, "idler failed to follow requested travel"]
         worst_yaw = max(worst_yaw, abs(math.degrees(math.atan2(pipe.a[0], pipe.a[1]))))
@@ -267,6 +273,10 @@ def propagate(
         peak = max(peak, max(abs(actuator.speed)))
         if issued:
             max_deflection = max(max_deflection, 1000 * (abs(pipe.z) @ modal_max[0]))
+            if selection is not None and selection.attained and (
+                max_deflection > .05 or selection.pupil_guard_exceeded is not None
+            ):
+                fault = fault or [java, "projected roof reference outside registered motion bound"]
         if (
             i % sampling == 0
             or pipe.hard
@@ -294,12 +304,20 @@ def propagate(
         + ("stuck-" if stuck else "")
     )
     name = qualifier + name
-    cache = assets / "observed-reef-a"
+    if selection is not None:
+        name = selection.label + "-" + name
+    cache = assets / ("straight-guide-match" if selection is not None else "observed-reef-a")
+    cache.mkdir(exist_ok=True, parents=True)
     np.save(cache / (name + ".npy"), np.asarray(motions))
     motion_path = cache / (name + ".npy")
     frame_path = cache / (name + "-frames.json")
     frame_path.write_text(json.dumps(frames, separators=(",", ":")), encoding="utf8")
+    terminal={}
+    if selection is not None and selection.attained:
+        out=cache/(name+"-terminal.npz")
+        terminal["terminalStateSha256"]=selection.terminal(out,pipe,actuator,targets,pending,last_good)
     return {
+        **terminal,
         "id": name,
         "piece": "coral-A",
         "wheelCase": side,

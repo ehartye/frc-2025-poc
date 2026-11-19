@@ -1,0 +1,239 @@
+{
+  "id": "leftSmall-folded-31.25us-1800Hz-0.236-5460-serial-carriage-recover",
+  "programSha256": "9e29d95f57b0e45164916d9b97ff1ea1a3d0e2303bff85641f4afa2251df4a94",
+  "case": "leftSmall",
+  "poseMmDeg": [
+    -2.9895600084993763,
+    -1.5952738480082915,
+    0.16996936253027206
+  ],
+  "layout": "folded",
+  "stepUs": 31.25,
+  "deadlineMs": 5460,
+  "outwardPerSideMm": 0.0,
+  "binding": {
+    "source": {
+      "step": "984186cbd3be603dfcbff8b8ecbd8afae1b1544a6021701345c766ecbf792add",
+      "fit": "b5cf656c607bb07711017c2c7051cc2ab19c9f6b2df9093b62e2795bf1988fc3",
+      "rootEquations": "5ef7149df295a8a1fba2a4d6bacdc07a509a56c8c9eae194086a567bc2d3a3c5",
+      "staticReceipt": "771b13f9ee655a4b51646d8262049cc3be437d85361ed4add9400f2a93f712e0"
+    },
+    "layout": "folded",
+    "cutoffHz": 1800.0,
+    "frequenciesHz": [
+      109.11713471724731,
+      123.7657109975179,
+      307.1388642573802,
+      786.7336608861233,
+      1743.1560238815969
+    ],
+    "modalDamping": 0.03,
+    "distributedMassPerSideKg": 0.030891372780000002,
+    "movingArmMassFraction": 0.236,
+    "rootsMmKgNPerM": [
+      [
+        687.0,
+        0.028772419144704,
+        32177.099064034603
+      ],
+      [
+        787.0,
+        0.030652073635704,
+        20694.269091017795
+      ]
+    ],
+    "staticMmPerN_referenceFullRetained": {
+      "625": [
+        0.19969939337100384,
+        0.19969939336887932,
+        0.1984591738586
+      ],
+      "637.5": [
+        0.1398671586061023,
+        0.13986616471175592,
+        0.139808296269422
+      ],
+      "687": [
+        0.031078003582918783,
+        0.031078003582857266,
+        0.03107068474228534
+      ],
+      "737": [
+        0.029842774378579538,
+        0.02984277437852855,
+        0.029668868078028703
+      ],
+      "787": [
+        0.04832255710997994,
+        0.048322557109067056,
+        0.048314966216314315
+      ],
+      "813": [
+        0.09243588648721436,
+        0.09243588648489622,
+        0.0916198259468966
+      ]
+    }
+  },
+  "lastJavaMs": 5460,
+  "firstBandMs": 1340,
+  "lastState": "IN_BAND",
+  "reason": "",
+  "portTransitions": [
+    [
+      0,
+      "WAIT_ENTRY",
+      false,
+      false,
+      0.65
+    ],
+    [
+      320,
+      "BRAKE",
+      true,
+      false,
+      0.65
+    ],
+    [
+      340,
+      "BRAKE",
+      false,
+      false,
+      0.65
+    ],
+    [
+      480,
+      "BRAKE",
+      false,
+      false,
+      0.0
+    ],
+    [
+      500,
+      "BRAKE",
+      false,
+      true,
+      -0.14
+    ],
+    [
+      520,
+      "BRAKE",
+      false,
+      false,
+      0.0
+    ],
+    [
+      580,
+      "PROBE",
+      false,
+      true,
+      0.16
+    ],
+    [
+      1100,
+      "DWELL",
+      true,
+      true,
+      0.0
+    ],
+    [
+      1340,
+      "IN_BAND",
+      true,
+      true,
+      0.0
+    ]
+  ],
+  "loss": null,
+  "hardStop": null,
+  "finalPositionMm": [
+    76.0646671860162,
+    0.18209549713167128,
+    557.1136942083195
+  ],
+  "finalAxis": [
+    -0.003395339525265985,
+    0.9999942358175067,
+    -1.1264541802501519e-06
+  ],
+  "beltMps": 0.0,
+  "firstShelfContact": [
+    0.21718750000000575,
+    [
+      0.11683876169503639,
+      -2.1067719088222226e-06,
+      0.5572886173870408
+    ],
+    [
+      -1.335243284310208,
+      -0.0024377122603801205,
+      -2.933531375050931
+    ],
+    [
+      0.0855565714121298,
+      -27.325235693145515,
+      -0.01880730658447928
+    ]
+  ],
+  "peakShelfNormalN": 2173.75696548733,
+  "damperWorkJ": [
+    0.34220127168752495,
+    0.45929379447599766
+  ],
+  "carriageSupport": {
+    "model.py": "879955c4cc54dc9d85d68e118ca304894562290563ddeb3637f5386be1c9c3b6",
+    "boundary.json": "ac5e2827eb9cd6a016bd02a16939694ca75b68eaaa8460547e8830a5c6856a8c"
+  },
+  "shelfDisplacementSlopeTable": "be4ae38fb0599396917c4e4dc520096051df59f8ec99b0e8d5341e038d86ad4b",
+  "guideDisplacementTable": "2b2ab20120d833582427c20a5c83b4fd63a7304ea7e539d6d2e95cbd66baf39b",
+  "guideSlopeTable": "45d442c6c02d3a487e52e1ea23c61b73f824a2e5b4e917ae2529dd3dcfd3ece6",
+  "peakBeltCellN": 5.502428163121943,
+  "peakCartridgeTravelMm": 0.15944633996811675,
+  "guide": {
+    "peakSideNormalN": [
+      1.375292216358473,
+      2.5477291907150272
+    ],
+    "peakAbsSideTravelMm": [
+      0.06054741837406961,
+      0.1442598978986897
+    ],
+    "signedPipeImpulseNs": [
+      [
+        0.0012848472555706605,
+        0.055546863777163676,
+        0.004907052644387103
+      ],
+      [
+        0.0020104734610423996,
+        -0.056481168872570375,
+        0.0059030163865255265
+      ]
+    ],
+    "pipeContactWorkJ": [
+      -0.017118946522677033,
+      -0.0198414724136347
+    ],
+    "supportWorkJ": [
+      5.550523062177213e-06,
+      1.0924485217339138e-05
+    ],
+    "supportDissipationJ": [
+      5.550523062177183e-06,
+      1.092448521733916e-05
+    ],
+    "supportEnergyAtExitJ": [
+      6.21185216358213e-99,
+      1.2504941942610805e-99
+    ],
+    "frictionHeatJ": [
+      0.01631016822315285,
+      0.016850784034772488
+    ],
+    "firstForceS": 0.09924999999999252,
+    "lastForceS": 0.21168750000000391
+  },
+  "trajectorySha256": "9f54de7605b5b400847760595d6b835f5cba6bd4356726b367c9038c08798b29",
+  "stateSha256": "d6096599c49ba822e7e322cb351f946fc55f140a203a1bb1af1b48bd8854fde0",
+  "guideHistorySha256": "1073c85070cce5276f6f71217dfcb67757df0e974295efc0cb670b6dfc4abf2c"
+}

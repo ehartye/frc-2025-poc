@@ -6,6 +6,8 @@
 **Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
+[Replay the straight-guide robot from the starting line to its station and reef decisions](straight-guide-match/replay.html). [Match evidence and controls](straight-guide-match/README.md)
+
 [Open the intact-guide reef approach](reef-inertial-observer/README.md) for the fixed-camera and gyro trial, the survey-offset counterexample and both signed match clocks.
 
 [See which intake guide blocks the scoring fastener](mounted-guide-vision/viewer.html). Select the mounted position and wheel case to compare the two field-camera pupils. [Station custody and optical controls](mounted-guide-vision/README.md)
