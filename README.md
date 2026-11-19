@@ -8,7 +8,7 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow the closed-loop slide withdrawal across both pipes and all 17 camera phases](slide-feedback/README.md).
 
-[Compare the actively opening outside-diameter receiver](od-gate/README.md) with the earlier end grips and passive cradle. The finite pipe and complete robot give different release times under a yawed approach. The [dual-camera installation and measured design trade](od-camera/README.md) test the receiver in the complete no-air assembly.
+[Compare the actively opening outside-diameter receiver](od-gate/README.md) with the earlier end grips and passive cradle. The finite pipe and complete robot give different release times under a yawed approach. The [dual-camera installation and receiver comparison](od-camera/README.md) test the receiver in the complete no-air assembly.
 
 [Review the fixed-low match battery, power and protection study](fixed-low-power/README.md) for the two-pipe park, station hold and weakened-pack trials.
 

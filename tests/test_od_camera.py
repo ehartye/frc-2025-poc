@@ -41,6 +41,13 @@ class OutsideDiameterCameraTests(unittest.TestCase):
         station = read("station")
         self.assertGreater(station["approach"]["gap_lower_bound_mm"], 8.33)
         self.assertTrue(station["nativeAdverseControl"]["intersections_mm3"])
+        occupied = read("occupied")
+        self.assertEqual(occupied["reefBalls"], 12)
+        self.assertEqual(len(occupied["samples"]), 12)
+        cases = occupied["samples"]
+        self.assertGreater(cases["long/-0.18/open"]["minimumMm"], 19)
+        self.assertTrue(cases["long/-0.18/forward-error"]["intersectionsMm3"])
+        self.assertGreater(cases["long/0.22/forward-error"]["minimumMm"], 25)
 
     def test_hood_and_camera_disagreement_at_exit(self):
         for row in read("ranges")["samples"]:
@@ -58,6 +65,7 @@ class OutsideDiameterCameraTests(unittest.TestCase):
         self.assertGreater(long["native"]["firstHeldOneMmClearS"], long["lastPlaneOverOneMmS"])
         self.assertGreater(long["native"]["firstHeldOneMmClearS"], 4.10)
         self.assertGreater(long["native"]["terminalMinimumMm"], 3.6)
+        self.assertEqual(read("images")["installedReefBalls"], 12)
         pictures = read("images")["cases"]
         self.assertEqual(len(pictures), 28)
         for case in ("center", "long"):

@@ -11,13 +11,13 @@ INPUTS = (
     "od-gate/split-gate.step", "od-gate/package.json", "od-gate/engineering.json",
     "od-gate/observer.json", "od-gate/study.json", "od-gate/motion.py",
     "fixed-low-power/dual-camera.json", "fixed-low-power/dual_camera.py",
-    "kickoff/rule-register-v0.json"
+    "kickoff/rule-register-v0.json", "bridge-tolerance/field.json"
 )
 RECORDS = (
     "revised-bridge.step", "unmodified.json", "first-bridge-control.json",
     "foot-width-control.json", "rearward-aim-control.json", "native.json",
     "travel.json", "departure.json", "ranges.json", "images.json", "budget.json",
-    "station.json"
+    "station.json", "occupied.json"
 )
 
 def digest(path):

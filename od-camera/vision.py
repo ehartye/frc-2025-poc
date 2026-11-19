@@ -30,6 +30,15 @@ def field_source(path):
     if name(occ)!="NAUO36":raise ValueError("Unregistered reef")
     loc=table.GetLocation_s(occ)
     reef={name(o):table.GetShape_s(child).Moved(loc.Multiplied(table.GetLocation_s(o))) for o,child in direct_children(table,ref)}
+    for node, ref in direct_children(table,roots.Value(1)):
+        if name(ref) != "GE-25501":
+            continue
+        shape = table.GetShape_s(ref).Moved(table.GetLocation_s(node))
+        bounds = cad.bounds(shape)
+        if (bounds[1] + bounds[4]) / 2 > 800:
+            reef["installed-ball-" + name(node)] = shape
+    if sum(k.startswith("installed-ball-") for k in reef) != 12:
+        raise ValueError("Installed reef-ball inventory differs from registered field")
     return station_parts(path),reef
 
 def field_at(field,c,station):
@@ -134,7 +143,7 @@ def run(kit,field):
     preview = ROOT / "artifacts" / "od-camera" / "registered-views.png"
     preview.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(preview)
-    return {"fieldSha":FIRST_SHA,"nativeSha":sha(HERE/"revised-bridge.step"),"stationParts":len(station),"reefParts":len(reef),
+    return {"fieldSha":FIRST_SHA,"nativeSha":sha(HERE/"revised-bridge.step"),"stationParts":len(station),"reefParts":len(reef)-12,"installedReefBalls":12,
             "cases":info,"scope":"Synthetic unmarked images from actual CAD plus registered field. Finite comparisons, no physical measurement or general pose observability."}
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("--field",type=Path,required=True);p.add_argument("--lamp",type=Path,required=True)
