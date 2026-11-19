@@ -16,6 +16,8 @@
 
 [Can the robot stop with the first pipe aboard?](elastic-carry/README.md) Follow the loaded turn, the two camera alarms and how long the robot can wait to brake while retaining the pipe.
 
+[Watch the carriage take the station load](compliant-carriage/chart.html) and compare how two independently moving guide stages change what the acquisition sensors see. [Model, clocks and bench checks](compliant-carriage/README.md)
+
 [How do the receiver masts carry load into the rails?](mast-attachment/README.md) See the splice drawing, the reversible removal path and what happens when one side loses support.
 
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.

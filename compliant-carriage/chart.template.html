@@ -4,7 +4,7 @@
 *{box-sizing:border-box}body{margin:0;background:#f8f7f1;color:#192f39;font:16px/1.55 system-ui,sans-serif}main{max-width:980px;margin:auto;padding:clamp(1rem,4vw,3.2rem)}h1{font:500 clamp(2rem,6vw,4rem)/1.05 Georgia,serif;max-width:16ch;margin:.45em 0}.intro{max-width:70ch}.controls{display:flex;align-items:end;gap:1rem;flex-wrap:wrap;border-block:1px solid #b3b7ac;padding:1rem 0;margin-top:1.5rem}label{display:grid;gap:.35rem;font-weight:650}select,input{font:inherit;accent-color:#126960}select{background:#fffef8;padding:.4rem;border:1px solid #70827b;border-radius:4px;color:inherit}figure{margin:1.25rem 0}.plot{width:100%;display:block;max-height:370px}.legend{display:flex;gap:1.2rem;flex-wrap:wrap}.left{color:#006b65}.right{color:#953a22}.readout{font-variant-numeric:tabular-nums;min-height:3em}.time{display:flex;align-items:center;gap:.7rem}.time input{width:min(100%,500px)}.fine{font-size:.93em}a{color:#00635d}select:focus-visible,input:focus-visible{outline:3px solid #b86a27;outline-offset:3px}
 </style><main><a href="../carriage-support/README.md">Carriage shop study</a><h1>Watch the carriage take the station load</h1>
 <p class="intro">The pipe touches the shelf, the bracket noses bend and the two old height pins can share the load. Compare both arrivals during the first 150 milliseconds of contact. The readings come from a mechanical model.</p>
-<div class="controls"><label>Approach<select id="approach"><option value="published-drop">Original signed drop</option><option value="powered-dock">Powered station approach</option></select></label><label>Arrival<select id="side"><option value="leftSmall">Left</option><option value="rightSmall">Right</option></select></label><label>Measurement<select id="metric"><option value="nose">Forward bracket travel</option><option value="guide">Guide travel relative to carriage</option><option value="pin">Original pin force</option></select></label></div>
+<div class="controls"><label>Approach<select id="approach"><option value="published-drop">Original signed drop</option><option value="powered-dock">Powered station approach</option></select></label><label>Arrival<select id="side"><option value="leftSmall">Left</option><option value="rightSmall">Right</option></select></label><label>Support model<select id="model"><option value="bracket">Equivalent 2 mm guide</option><option value="two-stages">Two serial 1 mm stages</option><option value="closed-guides">Guide clearance closed</option><option value="soft-guides">Softer guide stops</option><option value="zero-pin-gap-integrated">Original pins pre-seated</option></select></label><label>Integration step<select id="step"><option value="31.25">31.25 µs</option><option value="15.625">15.625 µs</option></select></label><label>Measurement<select id="metric"><option value="nose">Forward bracket travel</option><option value="guide">Guide travel relative to carriage</option><option value="pin">Original pin force</option></select></label></div>
 <figure><svg class="plot" id="plot" viewBox="0 0 820 270" role="img" aria-label="Two support traces over 150 milliseconds"></svg><figcaption class="legend"><span class="left">━━ Left support</span><span class="right">┄┄ Right support</span></figcaption></figure>
 <label class="time">Time<input id="tick" type="range" min="0" max="150" step="0.1" value="0"><output id="clock"></output></label><p id="readout" class="readout" aria-live="polite"></p><p id="state"></p>
 <p class="fine">Positive travel points down. Pin force uses the original vertical cantilever assumption. The controls use desktop sensor apertures; a complete physical capture requires measured support fit, calibrated sensors and a loaded fixture.</p></main>
@@ -13,7 +13,12 @@ const cases=/*DATA*/;
 const controls=Object.fromEntries([...document.querySelectorAll('[id]')].map(e=>[e.id,e]));
 const specs={nose:[1,'mm'],guide:[3,'mm'],pin:[5,'N']};
 function update(){
-const c=cases[controls.approach.value+'/'+controls.side.value];
+const key=(m,d)=>[controls.approach.value,m,controls.side.value,d].join('/');
+for(const o of controls.model.options)o.disabled=!cases[key(o.value,'31.25')];
+if(!cases[key(controls.model.value,'31.25')])controls.model.value='bracket';
+for(const o of controls.step.options)o.disabled=!cases[key(controls.model.value,o.value)];
+if(!cases[key(controls.model.value,controls.step.value)])controls.step.value='31.25';
+const c=cases[key(controls.model.value,controls.step.value)];
 const [i,u]=specs[controls.metric.value], a=c.data, t=+controls.tick.value, w=700;
 let lo=Math.min(0,...a.flatMap(r=>[r[i],r[i+1]])),hi=Math.max(0,...a.flatMap(r=>[r[i],r[i+1]]));if(hi-lo<.01){lo-=.01;hi+=.01}
 const x=v=>70+w*v/150,y=v=>25+175*(hi-v)/(hi-lo),path=j=>a.map((r,k)=>(k?'L':'M')+x(r[0]).toFixed(2)+' '+y(r[j]).toFixed(2)).join(' ');
@@ -24,5 +29,5 @@ const closest=a.reduce((b,r)=>Math.abs(r[0]-t)<Math.abs(b[0]-t)?r:b,a[0]);contro
 controls.readout.textContent='Closest recorded sample at '+closest[0].toFixed(2)+' ms. Left '+closest[i].toFixed(2)+' '+u+', right '+closest[i+1].toFixed(2)+' '+u+'.';
 controls.state.textContent='Desktop controller ended in '+c.java+(c.firstBandMs!==null?' and entered IN_BAND at '+c.firstBandMs+' ms.':'.')+' First contact was '+c.impactLipS.toFixed(4)+' seconds after the lip.';
 }
-for(const e of [controls.approach,controls.side,controls.metric,controls.tick])e.addEventListener('input',update);update();
+for(const e of [controls.approach,controls.side,controls.model,controls.step,controls.metric,controls.tick])e.addEventListener('input',update);update();
 </script></html>
