@@ -16,7 +16,7 @@ SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '552351fad4fd747f866234827b64b
 
 SHOWCASE_ASSETS['docs/robot/station-witness.png'] = '391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec'
 # Two project-machined bodies, six native features and no supplier geometry.
-SHOWCASE_ASSETS['experiments/swerve-drive/score-stroke/cam-lands.f3d'] = '633a98edb544817afdbfd93b75cfff259985e900fa1733e07e59d682a5174f16'
+SHOWCASE_ASSETS['experiments/swerve-drive/score-stroke/cam-lands.f3d'] = 'b5453de8239aa798db60d625ca5925f08bf137860e27168e41a3d6db34a700a5'
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'
 
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/fallback.webm'] = '3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5'
