@@ -39,8 +39,8 @@ def silhouette(bg,center,axis,intensity=220):
     return images
 
 
-def run(cache,step,probe=False,hold=False):
-    feed=HERE/("hold-feed.json" if hold else "probe-feed.json" if probe else "feed.json")
+def run(cache,step,probe=False,hold=False,records=HERE):
+    feed=records/("hold-feed.json" if hold else "probe-feed.json" if probe else "feed.json")
     from observe import read_pair
     full=np.load(cache/("station-views-relief.npz" if probe else "station-views.npz"))
     robot=[(full[k],full[k+"_z"]) for k in ("left","right")]
@@ -92,7 +92,7 @@ def run(cache,step,probe=False,hold=False):
     reference=data.get((0,0,0),next(iter(data.values())));diff={}
     for key,bg in data.items():
         diff[str(key)]=[int(np.count_nonzero(np.abs(g.astype(int)-r.astype(int))>=30)) for (g,d),(r,_) in zip(bg,reference)]
-    (HERE/("hold-images.json" if hold else "probe-images.json" if probe else "images.json")).write_text(json.dumps({"field":sha(step),"feed":sha(feed),"stationImageChangePixels":diff,"cases":observed},indent=2)+"\n",encoding="utf8",newline="\n")
+    (records/("hold-images.json" if hold else "probe-images.json" if probe else "images.json")).write_text(json.dumps({"field":sha(step),"feed":sha(feed),"stationImageChangePixels":diff,"cases":observed},indent=2)+"\n",encoding="utf8",newline="\n")
 
 
 if __name__=="__main__":
