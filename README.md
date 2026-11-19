@@ -12,6 +12,8 @@
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
 
+[How far do the installed guides move when the pipe hits them?](guide-impact/README.md) Follow the load into four mounting arms and see when each approach reaches both port sensors.
+
 [Can the receiving shelf absorb the station drop?](shelf-structure/README.md) Compare the stock shelf with a lighter machined insert and two stowed shock absorbers. Follow the load through the slide and mast and see which capture assumptions still need a fixture.
 
 [How does the locked receiver resist pitch?](carriage-support/README.md) Inspect the two fixed brackets, their machining drawing and the deflection that changes the station-impact calculation.
