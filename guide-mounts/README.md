@@ -10,6 +10,10 @@ The STEP exchange contains 58 reopened single solids, including both modified ma
 
 With the slide stowed and unloaded, the symmetric shop removal path uses 65 mm of inward movement followed by 670 mm forward. The root fasteners are removed and the sleeves remain in the masts. The conservative swept regions cover all 24 moving module articles. Reversing the sequence and pulling forward first crosses a roof post. Pulling the right module outboard with the slide fully extended reaches the reserved carrier volume. Physical clearance, personnel access and restraint of the stowed robot still need checks on the finished machine. [Service path and adverse cases](service.json)
 
+### Assembly position changes the throat
+
+The root screws can all fit with both modules 0.315 mm outboard. On each mast the sleeves shift 0.040 mm, the screw axes shift 0.120 mm and the modules shift 0.315 mm before tightening. The 58 native bodies retain all four mast lands with no within-side material overlap. At the lower parallel faces this changes a 301.025 mm throat into 301.655 mm. A centered 301.625 mm pipe then clears each end by 0.015 mm. Both bore patterns can accept that placement. Set and survey the position of each face relative to the robot centerline at two elevations before and after tightening. A width check alone misses a common sideways shift. Match-drilled locating features and a repeatable service gauge are potential revisions. [Measured-geometry control](datum.json)
+
 ## Loads at pickup
 
 Both attained, machined-shelf histories contain 171,520 stored states at 31.25 µs steps. Reconstructing the assigned annular end contacts at all eligible states gave maximum contact heights of 787.37 and 795.38 mm. None of their penetrating guide cells touches the removed strip. Peak normal loads were 2.160 and 2.395 N. These trajectories used the earlier rigid guide and the original support assumptions. A new compliant pickup can take a different path.
@@ -40,6 +44,7 @@ Use the same project-generated 991-body scene, signed raw trajectories, and winc
 ```text
 python guide-mounts/fit.py <fixed-camera-registered-scene.json>
 python guide-mounts/service.py <fixed-camera-registered-scene.json>
+python guide-mounts/datum.py
 python guide-mounts/loads.py <coupled-corrected-trace-directory>
 python guide-mounts/account.py <installed-plugin> <winchless-supported-maps> <map-output-directory>
 python guide-mounts/view.py

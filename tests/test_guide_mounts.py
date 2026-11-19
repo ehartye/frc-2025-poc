@@ -35,6 +35,15 @@ class GuideMounts(unittest.TestCase):
         self.assertAlmostEqual(old["strokeMm"],327.801,places=3)
         self.assertAlmostEqual(old["insideOldFaceMm3"],4*math.pi*.25**3/3,places=6)
 
+    def test_bolts_do_not_locate_the_throat(self):
+        datum=read("datum.json")
+        self.assertEqual(datum["stepSha256"],read("fit.json")["stepSha256"])
+        self.assertAlmostEqual(datum["alternateEndGapMm"],.015)
+        self.assertIsNone(datum["actualMeasuredWidthMm"])
+        for side in datum["checked"].values():
+            self.assertFalse(side["materialInterferencesMm3"])
+            self.assertGreater(min(side["mastSeatsAt0p1Mm3"]),48)
+
     def test_complete_service_module(self):
         service=read("service.json")
         self.assertEqual(len(service["uncoveredVolumeMm3"]),24)
