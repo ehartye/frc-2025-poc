@@ -65,5 +65,5 @@ python mass.py PLUGIN REBOUND_MAP_DIRECTORY/selected.json mass.json
 python balance.py
 python installed.py PLUGIN REBOUND_MAP_DIRECTORY/selected.json OUTPUT_MAPS installed.json
 python report.py clocks.json MOTION_RAW routes.json
-python -m unittest discover -s . -p test_power.py
+python ../../../tests/swerve_power_suite.py
 ```
