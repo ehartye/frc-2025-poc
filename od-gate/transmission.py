@@ -20,7 +20,7 @@ def circles(p,r,q,s):
     return (p[0]+(along*dx-side*dz)/d,p[1]+(along*dz+side*dx)/d)
 
 def register(p,put,m):
-    px=-m.ARM*1000;hz=682.;rear=(m.REAR,m.Z0);pivot=(px,hz)
+    px=-m.ARM*1000;hz=714.;rear=(m.REAR,m.Z0);pivot=(px,hz)
     jack=circles(rear,165.,pivot,32.)
     def base(k,s,mat="Al"):put(k,"base",mat,s)
     def ringbelt(xz1,xz2,r1,r2,y,width):
@@ -44,13 +44,13 @@ def register(p,put,m):
     base("reverser-output-32T",m.ann(px,-52,hz,"y",15.95,5.05,5))
     # The hinge is the center of the small sprocket, so hood motion cannot alter belt length.
     hy=-188.; top=(0.,hz)
-    put("315-3M-9-swing-drive","hood","rubber",ringbelt(pivot,top,66/(2*math.pi),162/(2*math.pi),hy,9))
-    base("hood-input-22T",m.ann(px,hy,hz,"y",66/(2*math.pi)-1.24,5.05,9))
-    put("hood-output-54T","hood","Al",m.subtract(m.rod(0,hy,hz,m.AY,162/(2*math.pi)-1.24,9),m.hex_shaft(0,hy-1,hz,12.85,11)))
+    put("315-3M-9-swing-drive","hood","rubber",ringbelt(pivot,top,108/(2*math.pi),150/(2*math.pi),hy,9))
+    base("hood-input-36T",m.ann(px,hy,hz,"y",108/(2*math.pi)-1.24,5.05,9))
+    put("hood-output-50T","hood","Al",m.subtract(m.rod(0,hy,hz,m.AY,150/(2*math.pi)-1.24,9),m.hex_shaft(0,hy-1,hz,12.85,11)))
     # One independent 82:1 hood positioner rotates the swing, around its powered input shaft.
     phx=px-36
-    base("hood-position-NEO550",m.rod(phx,74,682,m.AY,17.5,44.5),"motor")
-    base("hood-position-UP5-UP5",m.box(phx-19,118.5,663,38,35,38),"gearbox")
+    base("hood-position-NEO550",m.rod(phx,74,714,m.AY,17.5,44.5),"motor")
+    base("hood-position-UP5-UP5",m.box(phx-19,118.5,695,38,35,38),"gearbox")
     base("hood-position-output-shaft",m.rod(phx,153.5,hz,m.AY,3,31),"steel")
     base("hood-position-18T",m.ann(phx,178,hz,"y",8.95,3.05,5))
     put("hood-sector-54T","hood","Al",m.ann(px,178,hz,"y",26.95,5.2,5))
@@ -71,10 +71,11 @@ def register(p,put,m):
         # Flat tooth region on the outside of each strand, plus welded connection to its carriage.
         arm=m.box(sx+(1.2 if s==1 else -4.2),y-5,497,3,10,9)
         put("gate-clamp-"+lr,lr,"Al",arm)
-        if s==1:link=m.box(sx+4.2,y-3,500,130-8-(sx+4.2),6,4)
+        if s==1:link=m.box(sx+4.2,y-3,500,68-8-(sx+4.2),6,4)
         else:link=m.box(-2,y-3,500,sx-4.2+2,6,4)
         put("gate-link-"+lr,lr,"Al",link)
         # Electrical sensors remain local and independent from steel channel/receiver hits.
-        base("gate-open-switch-"+lr,m.box(57,s*197-3,510,9,6,8),"sensor")
-        put("gate-travel-flag-"+lr,lr,"Al",m.box(58,s*85-2,504,5,4,4))
+        base("gate-open-switch-"+lr,m.box(48,s*210-3,483,7,6,6),"sensor")
+        put("gate-travel-flag-"+lr,lr,"Al",m.box(50,min(s*85,s*98)-1,490,4,15,3))
+        base("gate-closed-switch-"+lr,m.box(48,s*98-3,483,7,6,6),"sensor")
     return jack

@@ -20,7 +20,7 @@ from OCP.gp import gp_Ax1,gp_Ax2,gp_Dir,gp_Pnt,gp_Trsf
 C=Case()
 Z=1000*C.bottom
 PR=45/math.pi
-R=PR+1.2
+R=PR+1.2+12
 REAR=1000*C.belt_rear
 FRONT=1000*C.belt_front
 Z0=Z-R
@@ -69,7 +69,7 @@ def local():
     p={}
     def put(k,frame,material,s):p[k]=(frame,material,s)
     def common(k,s,material="Al"):put(k,"base",material,s)
-    # Acquire the four existing steel anchor blocks at x=-80/+140 and y=ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â±180.
+    # Acquire the original steel anchor blocks.
     for side,sign in (("L",1),("R",-1)):
         y=sign*180
         sill=box(-96,y-9,485,253,18,4)
@@ -82,7 +82,7 @@ def local():
     for x in (-91,92):
         # Each shallow bridge picks up the original inner rack anchors at y=56.
         common("rack-bridge-"+str(x),box(x-4,-171,485,8,342,4))
-    for gx in (-10,130):
+    for gx in (-10,68):
         for sign in (-1,1):
             y=sign*130
             guide=rod(gx,min(sign*53,sign*225),499,AY,5,172)
@@ -106,6 +106,8 @@ def local():
         belt=subtract(profile(REAR,REAR+223.5,y-7.5,Z0,PR+1.2,15),
                       profile(REAR,REAR+223.5,y-8.5,Z0,PR-1.14,17))
         moving("537-3M-15",tilt(belt),"rubber")
+        pads=subtract(profile(REAR,REAR+223.5,y-7.5,Z0,R,15),profile(REAR,REAR+223.5,y-8.5,Z0,PR+1.2,17))
+        moving("segmented-tread",tilt(pads),"foam")
         for name,x,z in (("drive",REAR,Z0),("nose",FRONT,Z1)):
             yr=y-7.5
             pulley=rod(x,yr,z,AY,PR-1.24,15)
@@ -123,30 +125,30 @@ def local():
             moving("cheek-"+str(n),tilt(plate))
         strip=box(REAR+14,y-6,Z0+PR-4.15,223.5-28,12,3)
         moving("tooth-backing",tilt(strip),"poly")
-        for gx in (-10,130):
+        for gx in (-10,68):
             housing=subtract(box(gx-8,y-12,491,16,24,16),rod(gx,y-13,499,AY,5.1,26))
             moving("linear-bushing-"+str(gx),housing,"bearing")
             bottom=Z0+(gx-REAR)*math.tan(math.radians(6))-9
-            moving("bushing-stay-"+str(gx),box(gx-5,y+8.2,507,10,3.6,bottom-507))
+            moving("bushing-stay-"+str(gx),box(gx-5,y+8.2,min(bottom,507),10,3.6,max(1,abs(bottom-507))))
     # Captively engaged opposite timing-belt spans separate the cassettes.
     common("gate-belt-loop",cad.translated(rotate(rd.loop(-210,210,-38,497,9.5493,9,"z"),(0,0,0),AZ,90),(0,4,0)),"rubber")
     # A pivot-to-head transmission with constant center distance follows the swinging hood.
-    common("hood-pivot-shaft",rod(-ARM*1000,-194,682,AY,5,388),"steel")
+    common("hood-pivot-shaft",rod(-ARM*1000,-194,714,AY,5,388),"steel")
     hood_y=0.
-    put("hood-hex-shaft","hood","Al",hex_shaft(0,-189,682,12.7,354))
+    put("hood-hex-shaft","hood","Al",hex_shaft(0,-189,714,12.7,354))
     for lr,s in (("L",1),("R",-1)):
         y=s*78
-        put("hood-wheel-"+lr,"hood","rubber",ann(0,y-6.35,682,"y",38.1,18,12.7))
-        hub=subtract(rod(0,y-6.35,682,AY,18,12.7),hex_shaft(0,y-7,682,12.85,15))
+        put("hood-wheel-"+lr,"hood","rubber",ann(0,y-6.35,714,"y",38.1,18,12.7))
+        hub=subtract(rod(0,y-6.35,714,AY,18,12.7),hex_shaft(0,y-7,714,12.85,15))
         put("hood-hub-"+lr,"hood","Al",hub)
         yy=s*160
-        arm=profile(-ARM*1000,0,yy-2,682,11,4)
-        for x,r0 in ((-ARM*1000,5.1),(0,7.45)):arm=subtract(arm,rod(x,yy-3,682,AY,r0,6))
+        arm=profile(-ARM*1000,0,yy-2,714,11,4)
+        for x,r0 in ((-ARM*1000,5.1),(0,7.45)):arm=subtract(arm,rod(x,yy-3,714,AY,r0,6))
         put("hood-arm-"+lr,"hood","Al",arm)
-        common("hood-upright-"+lr,beam((-89,s*160,489),(-ARM*1000,s*168,672),5))
-        common("hinge-bearing-"+lr,ann(-ARM*1000,s*168-2,682,"y",11,5.05,4))
+        common("hood-upright-"+lr,beam((-89,s*160,489),(-ARM*1000,s*168,704),5))
+        common("hinge-bearing-"+lr,ann(-ARM*1000,s*168-2,714,"y",11,5.05,4))
         # Receiver-presence channels look down outside the wheel lanes.
-        put("optical-range-"+lr,"hood","sensor",box(-3,s*110-4,664,6,8,4))
+        put("optical-range-"+lr,"hood","sensor",box(-3,s*110-4,696,6,8,4))
     # Trim contact faces of welded structural members to the corresponding parent.
     for sign in (-1,1):
         key=f"bulkhead-stay-{sign}"
@@ -155,16 +157,16 @@ def local():
         lr="L" if sign==1 else "R"
         key="hood-upright-"+lr
         f,mat,obj=p[key];p[key]=(f,mat,subtract(subtract(obj,p["rack-bridge--91"][2]),p["hinge-bearing-"+lr][2]))
-        for gx in (-10,130):
+        for gx in (-10,68):
             k=lr+"-bushing-stay-"+str(gx);f,mat,obj=p[k]
             p[k]=(f,mat,subtract(obj,p[lr+"-cheek-1"][2]))
-    put("optical-crossbar","hood","Al",box(-61,-161,666,5,322,4))
+    put("optical-crossbar","hood","Al",box(-61,-161,698,5,322,4))
     for lr,s in (("L",1),("R",-1)):
-        put("optical-probe-arm-"+lr,"hood","Al",box(-56,s*110-2,664,53,4,3))
-        put("optical-riser-"+lr,"hood","Al",box(-61,s*160-1.8,670,5,3.6,2.1))
+        put("optical-probe-arm-"+lr,"hood","Al",box(-56,s*110-2,696,53,4,3))
+        put("optical-riser-"+lr,"hood","Al",box(-61,s*160-1.8,702,5,3.6,2.1))
     for lr,sgn in (("L",1),("R",-1)):
         k="optical-riser-"+lr;f,mat,obj=p[k];p[k]=(f,mat,subtract(obj,p["hood-arm-"+lr][2]))
-        k="guide-rib-130-"+str(sgn);f,mat,obj=p[k]
+        k="guide-rib-68-"+str(sgn);f,mat,obj=p[k]
         p[k]=(f,mat,subtract(obj,rod(140,180*sgn,488,AZ,4.35,5)))
     import transmission
     transmission.register(p,put,sys.modules[__name__])
@@ -176,7 +178,7 @@ def shapes(stroke,opening=0.,height=0.,right_open=None):
         dy=0
         if frame in ("L","R"):dy=opening if frame=="L" else -(opening if right_open is None else right_open)
         if frame=="hood":
-            shape=rotate(shape,(-ARM*1000,0,682),AY,-math.degrees(math.asin(height/(1000*ARM))))
+            shape=rotate(shape,(-ARM*1000,0,714),AY,-math.degrees(math.asin(height/(1000*ARM))))
         result[k]=cad.translated(shape,(stroke,dy,0))
     return result
 

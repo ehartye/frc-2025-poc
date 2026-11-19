@@ -13,10 +13,10 @@ from scripts import station_l1_mission as mission
 def unequal_belt_length(c,r1,r2):
     d=r2-r1
     return 2*math.sqrt(c*c-d*d)+math.pi*(r1+r2)+2*d*math.asin(d/c)
-lo,hi=90.,110.
+lo,hi=80.,110.
 for _ in range(50):
     mid=(lo+hi)/2
-    if unequal_belt_length(mid,66/(2*math.pi),162/(2*math.pi))<315:lo=mid
+    if unequal_belt_length(mid,108/(2*math.pi),150/(2*math.pi))<315:lo=mid
     else:hi=mid
 ARM=(lo+hi)/2000
 
@@ -36,18 +36,18 @@ class Case:
     mu: float=.55
     damping: float=.38
     head_x: float=0.
-    head_z: float=.682
+    head_z: float=.714
     head_r: float=.0381
     back_x: float=-.054
-    back_top: float=.656
+    back_top: float=.688
     belt_front: float=-.070+.2235*math.cos(math.radians(6))
     belt_rear: float=-.070
-    bottom: float=.534
+    bottom: float=.566
     incline: float=6.
     hood_raise: float=.04
     close_time: float=.4
     close_duration: float=.24
-    belt_r: float=.09/(2*math.pi)+.0012
+    belt_r: float=.09/(2*math.pi)+.0012+.012
     initial_surface: float=-.38
     acquire_until: float=.78
     release: float=.80
@@ -65,6 +65,8 @@ class Case:
     drive_current: float=8.
     inertia: float=3e-6
     surface_mass: float=.40
+    tread_stop: float=.009
+    stop_rate: float=650000.
     servo_gain: float=130.
 
 def smooth(x):
@@ -155,6 +157,8 @@ def run(c,trace=False):
         fx=-c.mass*ax;fz=-c.mass*9.80665;tau=0.;hits=set()
         for name,gap,nx,nz,sv,k,dam,mu in contacts:
             normal=max(0.,-k*gap-2*dam*math.sqrt(c.mass*k)*(vx*nx+vz*nz-(xshift*nx if name in ("rear","hood","belt") else 0)-(hv*nz+hvx*nx if name=="hood" else 0)))
+            if name=="belt" and -gap>c.tread_stop:
+                normal+=c.stop_rate*weight*(-gap-c.tread_stop)
             if not normal:continue
             slip=vx*nz-vz*nx+w*r-sv
             shear=-mu*normal*max(-1.,min(1.,slip/.022))
@@ -175,7 +179,8 @@ def run(c,trace=False):
             amps=max((-9.5-emf)/.12,min((9.5-emf)/.12,amps))
             amps=max(-c.drive_current,min(c.drive_current,amps))
             force=amps*.97/(100-1.4)*c.ratio*.78/radius
-            lowv+=dt*(force-drive_load-0.4*math.tanh(lowv/.005))/(c.surface_mass+c.inertia*(c.ratio/radius)**2)
+            drag=.4+1.4*.97/(100-1.4)*c.ratio*.78/radius
+            lowv+=dt*(force-drive_load-drag*math.tanh(lowv/.005))/(c.surface_mass+c.inertia*(c.ratio/radius)**2)
             peak_amps=max(peak_amps,abs(amps))
             peak_voltage=max(peak_voltage,abs(emf+amps*.12))
             max_drive_speed=max(max_drive_speed,abs(lowv))

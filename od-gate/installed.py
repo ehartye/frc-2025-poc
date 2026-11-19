@@ -18,7 +18,7 @@ def tube(x,y,z,ang,c):
 
 def review(c):
     state=run(c,trace=True);trace=state.pop("trace")
-    phase={0:base(0),370:base(370)}
+    phase={30:base(30),370:base(370)}
     bounds={k:{n:cad.bounds(s) for n,s in data.items()} for k,data in phase.items()}
     layer=local();boxes={k:cad.bounds(a[2]) for k,a in layer.items()}
     contacts=defaultdict(list);intended=defaultdict(float)
@@ -31,7 +31,7 @@ def review(c):
         # Dense 2-ms samples around contact and release and sparse samples in steady phases.
         selected=(.17<t<.29 or end-.075<t<end+.15 or int(round(t*1000))%40==0)
         if not selected:continue
-        kept+=1;stroke=370 if t>=3.5 else 0
+        kept+=1;stroke=370 if t>=3.5 else 30
         # Evaluate the target branch at its actual fixed position. All studied issued
         # cases hold the robot/slide after release; planned retreat is a separate control.
         if retract:raise ValueError("Use stationary slide for installed review")
@@ -52,7 +52,7 @@ def review(c):
             if not interior(brefs[f],boxes[k]):continue
             vol=cad.intersection(refs[f],obj)
             if vol<=.025:continue
-            if k in ("rear-bulkhead","L-537-3M-15","R-537-3M-15","hood-wheel-L","hood-wheel-R") and t<end:
+            if k in ("rear-bulkhead","L-segmented-tread","R-segmented-tread","hood-wheel-L","hood-wheel-R") and t<end:
                 intended[k]=max(intended[k],vol)
             else:clashes.append((k,vol))
         if clashes:last_hit=t
@@ -67,10 +67,10 @@ def build(field):
            "short-yawed":replace(basecase,lateral=-.010,normal=-.010,yaw=-4.,length=.295275,sector=.18)}
     results={n:review(c) for n,c in cases.items()}
     station=parts(field);bb={k:cad.bounds(v) for k,v in station.items()}
-    result=shapes(0,height=40);rb={k:cad.bounds(v) for k,v in result.items()}
+    result=base(30)|shapes(30,height=40);rb={k:cad.bounds(v) for k,v in result.items()}
     return {"fieldSha256":FIRST_SHA,"splitGateNativeSha256":sha(HERE/"split-gate.step"),"stationCount":len(station),
-            "addedDockBound":bounded_dock(rb,bb,10),"nativeDock":[native_dock(result,station,bb,n,a,y)
-                   for n,a,y in ((10,0,0),(0,-3,-10),(0,3,10))],"pipe":results}
+            "addedDockBound":bounded_dock(rb,bb,40),"nativeDock":[native_dock(result,station,bb,n,a,y)
+                   for n,a,y in ((40,0,0),(30,-3,-10),(30,3,10),(0,3,10))],"pipe":results}
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("--field",type=Path,required=True);p.add_argument("--output",type=Path,required=True)
     a=p.parse_args();a.output.write_text(json.dumps(build(a.field),indent=2)+"\n",encoding="utf-8",newline="\n")
