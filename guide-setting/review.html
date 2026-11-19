@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Survey the station guides</title>
+<style>
+:root{font-family:"Segoe UI",system-ui,sans-serif;color:#183233;background:#f5f4eb;color-scheme:light}
+*{box-sizing:border-box}body{margin:0}main{max-width:920px;margin:auto;padding:36px clamp(16px,4vw,42px) 55px}
+a{color:#075e65}h1{font:normal clamp(38px,7vw,64px)/1.02 Georgia,serif;letter-spacing:-.045em;margin:.65em 0 .28em}
+p{max-width:70ch;line-height:1.5}.controls{display:flex;gap:18px;flex-wrap:wrap;margin:24px 0}label{display:grid;gap:5px;font-weight:650}
+select,input{color:inherit;font:inherit;max-width:100%}select{padding:8px;background:#fffefa;border:1px solid #8e9c93;border-radius:5px}
+section{background:white;border:1px solid #c7d1c7;padding:clamp(14px,3vw,26px);border-radius:9px}h2{font-size:1.15rem;margin:0 0 12px}
+dl{display:flex;gap:1.4rem;flex-wrap:wrap}dt{font-size:.84rem;color:#485856}dd{margin:4px 0;font-weight:650}
+svg{width:100%;display:block}svg text{font:14px system-ui;fill:#2e4041}.caption{color:#445759;font-size:.94rem}
+#issue{color:#8a300d}footer{margin-top:24px}input[type=file]{font-weight:400}
+</style>
+<main>
+<a href="../guide-mounts/guide.html">View the guide assembly in 3D</a>
+<h1>Survey the station guides</h1>
+<p>The pipe has two ends. Move the guides together and the opening stays the same width, but one end can lose contact. Compare both ends against a pipe located from the chassis.</p>
+<div class="controls">
+<label>Survey<select id="mode"><option value="nominal">Example · centered guides</option><option value="sideways">Example · both shifted sideways</option><option value="both-outboard">Example · guides spread apart</option></select></label>
+<label>Measurement station<select id="station"></select></label></div>
+<section aria-live="polite">
+<h2 id="caption"></h2><p id="result"></p><svg id="plot" viewBox="0 0 520 150" role="img" aria-label="Overlap interval for each pipe end in millimetres"></svg>
+<dl><div><dt>Signed left overlap</dt><dd id="left"></dd></div><div><dt>Signed right overlap</dt><dd id="right"></dd></div><div><dt>Opening width</dt><dd id="width"></dd></div><div><dt>Opening center Y</dt><dd id="center"></dd></div></dl>
+<p class="caption">Positive overlap puts a guide inside the undeformed pipe envelope. Negative values leave a gap. The upper lead-in widens by design. The overall result covers the six lower stations.</p></section>
+<footer><label>Open a local report from survey.py check<input id="file" type="file" accept=".json,application/json"></label>
+<p id="issue" role="status"></p><a href="README.md">Fixture dimensions and measurement procedure</a></footer></main>
+<script src="examples.js"></script><script>
+const byId = id => document.getElementById(id);
+const expected = cases.nominal;
+const keys = Object.keys(expected.stations);
+for (const key of keys) {
+  const row = expected.stations[key];
+  byId("station").add(new Option("Z " + row.zMm + " mm · " + key.split("/")[1],key));
+}
+const signed = n => (n > 0.0005 ? "+" : "") + (Math.abs(n)<0.0005 ? "0.000" : n.toFixed(3));
+function validate(report) {
+  if (report.schema !== expected.schema || report.guideStepSha256 !== expected.guideStepSha256 ||
+      report.settingStepSha256 !== expected.settingStepSha256) throw Error("The report uses another geometry revision or format.");
+  if (!["example","shop"].includes(report.kind) || typeof report.readingId !== "string" ||
+      !report.readingId.trim() || !Array.isArray(report.unresolved) || !report.unresolved.every(v => typeof v === "string"))
+    throw Error("The survey identity or uncertainty record is incomplete.");
+  const ready = report.unresolved.length === 0;
+  if (Object.keys(report.stations).length !== keys.length) throw Error("The survey needs ten stations.");
+  let minimum = Infinity;
+  for (const key of keys) {
+    const row = report.stations[key], target = expected.stations[key];
+    if (!row || row.xMm !== target.xMm || row.zMm !== target.zMm ||
+        ![row.centerYMm,row.widthMm].every(Number.isFinite)) throw Error("Invalid measurement at " + key);
+    if (!row.overlapMm && !ready) continue;
+    for (const side of ["L","R"]) {
+      const pair = row.overlapMm?.[side];
+      if (!Array.isArray(pair) || pair.length !== 2 || !pair.every(Number.isFinite) || pair[0] > pair[1])
+        throw Error("Invalid end interval at " + key);
+      if (row.zMm < 770) minimum = Math.min(minimum,pair[0]);
+    }
+  }
+  if (ready ? minimum !== report.minimumLowerOverlapMm || (minimum>0) !== report.bothEndsContactAtAllLowerStations
+            : report.minimumLowerOverlapMm !== null || report.bothEndsContactAtAllLowerStations !== null)
+    throw Error("The lower-station summary disagrees with its readings.");
+}
+function plot(values) {
+  const svg = byId("plot");
+  svg.replaceChildren();
+  svg.style.display = values ? "block" : "none";
+  if (!values) return;
+  function add(tag,attrs,label) {
+    const el = document.createElementNS("http://www.w3.org/2000/svg",tag);
+    for (const [name,value] of Object.entries(attrs)) el.setAttribute(name,value);
+    if (label) el.textContent = label;
+    svg.appendChild(el);
+  }
+  const limit = Math.max(.5,...Object.values(values).flat().map(Math.abs))*1.2;
+  const x = value => 277+199*(value/limit);
+  add("rect",{x:78,y:22,width:199,height:93,fill:"#fae8da"});
+  add("rect",{x:277,y:22,width:199,height:93,fill:"#dbf1e7"});
+  add("line",{x1:277,x2:277,y1:18,y2:115,stroke:"#455853"});
+  for (const [idx,side] of ["L","R"].entries()) {
+    const y = 48+idx*42, [lo,hi] = values[side];
+    add("text",{x:10,y:y+5},idx ? "Right" : "Left");
+    add("line",{x1:x(lo),x2:x(hi),y1:y,y2:y,stroke:"#163e44","stroke-width":5});
+    for (const v of [lo,hi]) add("circle",{cx:x(v),cy:y,r:4,fill:"#163e44"});
+  }
+  add("text",{x:78,y:138},"Gap");
+  add("text",{x:277,y:138,"text-anchor":"middle"},"0 mm");
+  add("text",{x:476,y:138,"text-anchor":"end"},"Overlap");
+}
+function refresh() {
+  const report = cases[byId("mode").value];
+  const row = report.stations[byId("station").value];
+  byId("caption").textContent = (report.kind==="shop" ? "Shop survey · " : "Illustrative survey · ")+report.readingId;
+  const unresolved = report.unresolved.length>0;
+  byId("result").textContent = unresolved ? "Unresolved. "+report.unresolved.join(". ") :
+    "Weakest lower end, including uncertainty: "+signed(report.minimumLowerOverlapMm)+" mm. "+
+    (report.minimumLowerOverlapMm>0 ? "Both ends retain geometric overlap." : "The survey cannot establish overlap at both ends.");
+  const values = unresolved ? null : row.overlapMm;
+  plot(values);
+  for (const [id,side] of [["left","L"],["right","R"]]) byId(id).textContent = values ? values[side].map(signed).join(" to ")+" mm" : "Unresolved";
+  byId("width").textContent=row.widthMm.toFixed(3)+" mm";
+  byId("center").textContent=signed(row.centerYMm)+" mm";
+}
+byId("mode").onchange=refresh;
+byId("station").onchange=refresh;
+byId("file").onchange=async event=>{
+  const file=event.target.files[0]; if(!file) return;
+  try {
+    const report=JSON.parse(await file.text()); validate(report);
+    cases.loaded=report;
+    const mode=byId("mode");
+    if(!mode.querySelector('[value="loaded"]')) mode.add(new Option("Local report","loaded"));
+    mode.value="loaded"; refresh(); byId("issue").textContent="Opened "+file.name+" on this device.";
+  } catch(error) { byId("issue").textContent="Could not open "+file.name+". "+error.message; }
+  event.target.value="";
+};
+refresh();
+</script></html>
