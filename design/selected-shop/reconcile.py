@@ -147,7 +147,7 @@ def stage(plugin, baseline, out):
         add("shop-ads1015-"+adc,"ADS1015 acquisition board; select breakout and protection")
     # The camera disconnect input represents the chain as one assembly. A service buyer
     # needs 23 installed links. Use one retained first link and add precisely 22 more.
-    chain="10.025.100.0"
+    chain=next(a["sku"] for a in catalog.values() if a["id"]=="selected chain as 23-link assembly")
     label="igus Series 10 chain link"
     buy("service-"+chain,label,chain)
     for link in range(2,24):
@@ -177,7 +177,14 @@ def stage(plugin, baseline, out):
         for r in buy_list:
             size=r["unitsPerPack"]
             qty=r["requiredUnits"]
-            writer.writerow([r["article"],r["sku"],qty,size,math.ceil(qty/size) if size else None,None," | ".join(r["instances"])])
+            printed_sku=r["sku"]
+            identities=list(r["instances"])
+            if r["article"]==label:
+                # Keep the supplier numeric fields legible in spreadsheet readers and retain
+                # their leading zeros. The full original ID remains in the source-bound JSON.
+                printed_sku=" / ".join(chain.split("."))
+                identities=["shop-chain-link-01 (issued assembly)" if k=="service-"+chain else k for k in identities]
+            writer.writerow([r["article"],printed_sku,qty,size,math.ceil(qty/size) if size else None,None," | ".join(identities)])
     new=result["mass"]["representedMarginKg"][0]
     light=next(c["delta"]["rangeKg"][1] for c in data["changes"] if c["id"]=="light")
     steel=next(c["delta"]["rangeKg"][1] for c in data["changes"] if c["id"]=="steel")

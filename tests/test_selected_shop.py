@@ -39,7 +39,7 @@ class SelectedShopTests(unittest.TestCase):
         self.assertEqual(len(sku),len([r for r in rows if r["sku"]]))
         self.assertEqual((sku["REV-21-1916-PK4"]["installed"],sku["REV-21-1916-PK4"]["packsIfZeroStock"]),("12","3"))
         self.assertEqual(sku["am-1592"]["installed"],"36")
-        self.assertEqual(sku["10.025.100.0"]["installed"],"23")
+        self.assertEqual(sku["10 / 025 / 100 / 0"]["installed"],"23")
         self.assertEqual(sku["DDR-30G-5"]["installed"],"3")
         self.assertEqual(sku["A00532"]["installed"],"2")
         self.assertEqual(sku["DM6010"]["installed"],"2")
