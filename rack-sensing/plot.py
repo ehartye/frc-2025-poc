@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 
 def figure(raw, destination):
+    plt.rcParams.update({"svg.fonttype": "none", "svg.hashsalt": "receiver-onset"})
     with (raw / "results.json").open() as stream:
         cases = json.load(stream)["cases"]
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.8), sharey=True)
@@ -42,7 +43,7 @@ def figure(raw, destination):
     axes[1].legend(loc="upper left", frameon=False, fontsize=9)
     fig.suptitle("Did the shelf actually move?", fontsize=17, weight="bold")
     fig.tight_layout()
-    fig.savefig(destination, dpi=145)
+    fig.savefig(destination, format="svg", metadata={"Date": None})
     plt.close(fig)
 
 

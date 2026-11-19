@@ -2,7 +2,7 @@
 
 The original detector acknowledged a stationary shelf **5 ms** after the withdrawal command. The motor-side encoder indicated motion while a repeatability change at the direct sensor crossed the four-count threshold. Actual modeled rack travel stayed at **0 mm**. The controller eventually faulted 130 ms after the command. The revised detector withheld the acknowledgement and faulted at 40 ms. [Two-trip scheduler results](results.json)
 
-![Actual simulated rack travel in the false-acknowledgement case and two loaded withdrawal trials](onset.png)
+![Actual simulated rack travel in the false-acknowledgement case and two loaded withdrawal trials](onset.svg)
 
 The left dot marks the original false acknowledgement. On the right, the green dot marks confirmed movement at 35 ms. The purple dot is the last physical sample before the 40 ms timeout in the combined high-drag and adverse-reading case. The simulation stops logging that fault trajectory at inhibition. Subsequent coasting and pipe contact remain unknown.
 
@@ -37,6 +37,6 @@ Use the project's native Python dependencies, the original source-bound pressure
 ```sh
 python rack-sensing/rack_trial.py "$POC_ARTIFACTS/relieved-match" "$RUN" "$JDK17" "$GRADLE_CACHE"
 python rack-sensing/qualify.py "$POC_ARTIFACTS/relieved-match" "$RUN" "$JDK17"
-python rack-sensing/plot.py "$RUN" "$RUN/onset.png"
+python rack-sensing/plot.py "$RUN" "$RUN/onset.svg"
 python -m unittest discover -s tests -p test_rack_sensing.py
 ```
