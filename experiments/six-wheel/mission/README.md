@@ -1,9 +1,9 @@
 # A station-fed CORAL cycle on the provisional L1 robot
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The reference run carries one identified CORAL from a chute to a first contact on both panels of a source-registered reef trough. Breaking different parts of the candidate changes the outcome. A weak acquisition grip loses the pipe past the receiver's rear edge. An unconfirmed seat stops the requested retraction. A slow placement drives the pipe over the edge and into the shelf again. Each result follows the same pipe, position and velocity from the station. The model stops at first unresolved contact.

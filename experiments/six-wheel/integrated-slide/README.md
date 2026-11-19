@@ -1,9 +1,9 @@
 # Can both cameras and the rack still see the same shelf?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The sensor's new mounting hardware is visible to the fixed camera at full extension. It changes 18 left-eye and two right-eye pixels at each scoring dock. The moving camera's view remains backed by the shelf. Across 3,994 exposure evaluations, the detector returned the same observations as the prior camera study. The newly loaded rack follows a different physical trajectory and still reaches both stow deadlines in 13 of the 19 revised-controller cases. These are desktop results on one registered geometry. [Optical, scheduler and contact results](result.json) · [Native mount drawing](../sp1-mount/shop-drawing.svg)

@@ -1,9 +1,9 @@
 # Can the receiver tell whether both belts actually moved?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 At 580 ms the receiver asks its two belts to help seat the pipe. On the original 850 mm guide, a good left feed and a completely stalled drive gave the same Entry and Seat readings until 1,100 ms. The two **passive front idlers** provide an earlier observation. Each turns when its own timing belt advances, even though neither sensor sees the pipe. On the desktop, both locked-belt trials went neutral at **640 ms**, 700 ms before the issued controller's timeout. [Original port evidence](../split-guide-acquisition/README.md) · [Replayed results](qualification.json)

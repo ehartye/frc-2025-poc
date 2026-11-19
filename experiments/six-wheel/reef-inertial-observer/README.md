@@ -1,9 +1,9 @@
 # Field approach with one visible fastener
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The intact guide arm can stay on the robot. In two signed desktop wheel trials the existing fixed stereo camera and chassis gyro brought the stowed robot to sector A. The three-frame decision bounded the smaller-left-wheel robot within **8.02 mm and 0.697°** and the smaller-right-wheel robot within **6.81 mm and 0.572°**. The corresponding match clocks were 47.862 s and 47.792 s. Both robots stopped at 48.162 s. [Open the student replay](viewer.html) · [Controller receipts](results.json)

@@ -1,9 +1,9 @@
 # Count the installed articles and compare mass alternatives
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Each alliance map represents one 545-body robot in four poses. The baseline contains **520 modeled physical instances** and **36 additional wheel-to-hub fasteners**. Of those 556 instances, 263 are designated for fabrication, 223 are purchased articles or commodity items, and 70 still have an open selection. The count covers the identified items. Unresolved loose hardware, shop stock, spare quantities and the second detachable bumper kit each require a separate purchasing decision. [Installed article crosswalk](../installed-procurement/installed.csv) · [Loose-item register](../installed-procurement/loose-items.csv)

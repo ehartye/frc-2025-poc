@@ -10,8 +10,8 @@ import panel
 
 
 def qualify(directory):
-    data = read(ROOT / "swerve-package/envelopes.json")
-    power=read(ROOT/"swerve-power/envelopes.json")
+    data = read(HERE.parent / "packaging/envelopes.json")
+    power=read(HERE.parent/"power/envelopes.json")
     groups = {
         "rotating_and_fixed_modules": data["cornerBoundsMm"],
         "changed_structure": data["frameBoundsMm"],
@@ -59,14 +59,8 @@ def qualify(directory):
         )
     return dict(
         scope="Material added or changed in these maps, including local modeled wires. Earlier robot and station registration retained. Unmodeled connector tails, glare, extrinsic drift, wear and physical sightlines remain open.",
-        inputs={
-            p: sha(ROOT / p)
-            for p in (
-                "swerve-package/envelopes.json",
-                "swerve-power/envelopes.json",
-                "station-landmark/native.json",
-            )
-        },
+        inputs={p.relative_to(HERE.parents[2]).as_posix():sha(p) for p in (
+            HERE.parent/"packaging/envelopes.json", HERE.parent/"power/envelopes.json", ROOT/"station-landmark/native.json")},
         sourceBackground=directory.joinpath("plus.json").is_file()
         and read(directory / "plus.json")["backgroundSha256"],
         paddedRayLengthMm=reach,

@@ -1,9 +1,9 @@
 # Can the slide clear both pipes before the robot departs?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The desktop controller corroborated movement and stow in **all 17 camera phases for both pipes** on the 598-body fixed-low robot. Each phase ran with five scheduler offsets, eleven actuator delays and three string-pot biases. In those 5,610 trials, the nearest point on the pipe stayed at least 31.08 mm beyond the robot front. Both pipes retained modeled floor and lip support through three seconds of assessment. [Phase results](phases.csv) · [Machine-readable evidence](results.json) · [Camera handoff](../moving-observer/README.md)

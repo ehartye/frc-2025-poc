@@ -1,9 +1,9 @@
 # Can two optical ports seat the station pipe?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 On the issued 545-body receiver, a desktop controller brought the centered simulated pipe to **75.67 mm** against the **72–88 mm** seat window. It used two thresholded optical returns and a clock. A zero-speed catch allowed the pipe to hit both drive pulleys. A short outward belt command kept the pipe farther forward, then a slow outward scan located it again. The competition controller still requires physical calibration and an independent custody decision before retracting. [Controller](PortAcquisition.java) · [Results and conditions](results.json) · [Historical controller comparison](../coupled-belt-clock/README.md)

@@ -1,9 +1,9 @@
 # How late can the two cameras deliver a release observation?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 On the fixed-low robot, the controller must recognize the same pipe as it moves from the shelf-mounted stereo head into the fixed head's view. A valid image can still arrive too late to begin withdrawing the shelf. At a 5 ms service period, both pipes met the modeled command deadline at all 85 camera/service alignments per pipe for every constant integer delivery latency from 7 through 18 ms. Pipe A missed one alignment at 19 ms. At 24 ms all alignments failed. A physical installation would need a measured latency distribution, including tail events, and timestamps on both sides of the transport. [Registered 598-body geometry and travel](../moving-observer/README.md) · [Independent actuator-feedback study](https://github.com/ehartye/frc-2025-poc/pull/65)

@@ -1,9 +1,9 @@
 # Unplug the moving stereo head
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The fixed-height receiver can retain the camera's data and power leads independently. The proposed frame carries two releasable cable clamps, a rest for the Luxonis Y adapter and a removable power transition board. A 14 mm rearward withdrawal clears the modeled hardware for either plug. The power taper removes the previous voltage guarantee. A narrower converter setting and a measured hot connection-resistance limit restore it in the design calculation. The hardware, streams and rail voltages still need bench qualification. [Original 25-solid STEP](service-support.step) · [Electrical comparisons](power/corners.json) · [Baseline removable bridge](../camera-datum-shop/README.md)

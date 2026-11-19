@@ -1,9 +1,9 @@
 # A more tolerant pickup at the station
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The receiver can use its existing belt drives, springs and shelf to accept a wider error in the modeled incoming pipe position. Relieve the inner edges of four grip plates, narrow their four matching idler inserts, add four spring-seat shims and reset two stops. At the 40 mm dock, the model supports two combinations at Â±5 mm depth: **Â±0.80 mm side with Â±0.25Â° heading** or **Â±1.00 mm side with Â±0.15Â° heading**. Earlier tests supported Â±0.50 mm and Â±0.35 mm respectively. Both the pipe and the loaded receiver must still be measured before using either window. [Original stop and docking study](../station-supply/DOCKING.md) Â· [Station survey](../station-localization/README.md)

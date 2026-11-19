@@ -10,7 +10,7 @@ import sys
 import tempfile
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+ROOT = HERE.parents[1] / "six-wheel"
 sys.path.insert(0, str(ROOT / "guide-impact"))
 spec = importlib.util.spec_from_file_location(
     "swerve_station_feed", ROOT / "guide-impact/replay.py"

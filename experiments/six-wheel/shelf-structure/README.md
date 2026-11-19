@@ -1,9 +1,9 @@
 # Can the receiving shelf absorb the station drop?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 A lighter shelf and two small adjustable shock absorbers give the incoming pipe somewhere to transfer energy. The original shelf bends and springs back under the modeled arrival. In the coupled model this lifts the pipe out of the powered belt's narrow working height. Both opposing approaches lose it. A stiffer aluminum insert alone also fails both. The two-absorber prototype uses a replaceable shelf and drilled bridge. It keeps the original receiving height and puts a separate plunge stop under each side of the landing line. The cartridge setting, running clearance, joint loads and remaining inspection margin require a fixture and a weighed installation before the team can rely on this configuration for match scoring. [Original contact study](../shelf-contact/README.md) · [Three-part machining STEP](stow-receiver.step) · [Issued dimensions](installed.json)

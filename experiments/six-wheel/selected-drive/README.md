@@ -1,9 +1,9 @@
 # Can the shop robot drive the two-pipe match?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The selected 20:1 drivetrain can supply the nominal wheel profile at the estimated upper mass on a screened battery. **A small wheel calibration error still drives the robot into the station before the first feed.** The short near-tape alternative avoids that station approach. This study assigns no points to the shop configuration. Its scoring mechanism and cameras have separate geometry and observation gates. [Drive results](results.json) · [Native bumper contact](dock.json) · [Original student match](../relieved-match/replay.html)

@@ -1,9 +1,9 @@
 # Whole-robot electrical and inspection review
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Open the [33-body stowed electrical and pneumatic CAD layer](stowed.step), or regenerate all four poses with the commands below. The proposed competition configuration uses one 12 V battery, two propulsion motors and four mechanism motors. The two-trip electrical replay covers every positive-duration event in the project's registered TELEOP clock. At a conservative 67 kg and reduced turn acceleration, the slower route draws **86.68 A peak** and maintains **9.71 V** at the lowest modeled device terminal. The weakest assumed pack violates the rail requirement. The gravity-loaded pawl remains the critical physical qualification. [Rail results](power.json) · [Pawl calculation](pawl.json) · [Historical rules and manufacturer references](SOURCES.md)

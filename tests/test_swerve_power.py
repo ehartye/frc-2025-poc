@@ -1,6 +1,9 @@
 import unittest
 import json
 from pathlib import Path
+import sys
+POWER=Path(__file__).resolve().parents[1]/"experiments/swerve-drive/power"
+sys.path.insert(0,str(POWER))
 import numpy as np
 from electrical import IDS, branches, source, DRIVE_SUPPLY_R, demand
 from loads import G, Support, corner_loads, load_bound
@@ -11,7 +14,7 @@ from route_grip import accepted_normals
 
 class SwervePowerTests(unittest.TestCase):
     def test_registered_public_configuration(self):
-        folder = Path(__file__).resolve().parent
+        folder = POWER
 
         def read(name):
             return json.loads((folder / name).read_bytes())

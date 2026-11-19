@@ -53,7 +53,7 @@ def publish(directory, out):
         scope="Prebuild station approach only. Staged pieces remain in field inventory. No pickup, transfer, delivery or scoring result.",
         samplesPerCase=4220,
         sources={
-            s: sha(ROOT / s)
+            (ROOT/s).relative_to(HERE.parents[2]).as_posix(): sha(ROOT / s)
             for s in [
                 "station-landmark/native.json",
                 "station-landmark/panel.py",

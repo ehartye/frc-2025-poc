@@ -1,9 +1,9 @@
 # CB-1 · Windowed receiver carriage bridge
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The 322 × 410 × 5 mm slide-base bridge is the heaviest individually identified part that travels with the lift. Its original 1.7823 kg budget exceeds the ported shelf's 1.578 kg. A 2–5 kg whole-robot miscellaneous allowance and a 1.8–3.9 kg grouped lift-drive allowance still have too little item-level evidence to reduce. CB-1 replaces a single verifiable body while keeping the overall outline and mating lands. The [545-body source assembly](../competition-package/shop-duplex/README.md) remains the registered field model.

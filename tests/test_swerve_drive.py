@@ -7,7 +7,7 @@ import numpy as np
 
 root = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
-    "selected_swerve_kinematics", root / "swerve-drive/kinematics.py"
+    "selected_swerve_kinematics", root / "experiments/swerve-drive/motion/kinematics.py"
 )
 drive = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = drive
@@ -63,7 +63,7 @@ class SwerveDrive(unittest.TestCase):
     def test_nominal_and_fault_clocks(self):
         import json
 
-        folder = root / "swerve-drive"
+        folder = root / "experiments/swerve-drive/motion"
         receipt = json.loads((folder / "opening.json").read_bytes())
         cases = receipt["cases"]
         for name in ("plus", "minus", "heavy", "upper-minus"):
@@ -95,8 +95,8 @@ class SwerveDrive(unittest.TestCase):
     def test_current_encoder_fixture_matches_module_origins(self):
         import json
 
-        record = json.loads((root / "swerve-drive/encoders.json").read_bytes())
-        geometry = json.loads((root / "swerve-package/module.json").read_bytes())
+        record = json.loads((root / "experiments/swerve-drive/motion/encoders.json").read_bytes())
+        geometry = json.loads((root / "experiments/swerve-drive/packaging/module.json").read_bytes())
         self.assertEqual([m["id"] for m in record["modules"]], geometry["order"])
         for m in record["modules"]:
             self.assertEqual(

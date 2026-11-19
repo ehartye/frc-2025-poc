@@ -1,9 +1,9 @@
 # Fit the receiver to the reef wall
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The original scoring pose put both inner slide rails through the trough wall. A raised channel floor and a relocated position sensor give the reviewed shop robot **2.908 mm minimum clearance** to fixed reef structure at both scoring sectors through the modeled stroke and error allowance. The result supports a fabrication trial. It does not assign either pipe a score. [Explore stroke and sensor travel](review.html) · [18-body machining STEP](receiver-clearance-kit.step) · [Field clearances](corrected-clearance.json)

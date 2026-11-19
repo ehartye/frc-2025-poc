@@ -1,9 +1,9 @@
 # Chassis balance and turn traction
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The robot can stay upright and still skid before it completes a scheduled turn. The 401-solid design has a positive modeled tipping margin in each of its four nominal poses on level carpet. Its current bill of materials leaves enough uncertainty in mass placement that the planned turn still needs a balance and traction measurement. The tighter design target for loaded carry requires a modeled longitudinal friction coefficient of 0.681 or greater against the earlier carpet assumption of 0.90. [Pose results and input hashes](review.json) · [Drivetrain equations and assumptions](../drivetrain/README.md)

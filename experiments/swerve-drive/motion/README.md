@@ -1,5 +1,11 @@
 # Four-module opening to the red station
 
+<!-- cad-still -->
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+<!-- /cad-still -->
+
 [Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.285 and 20.330 s. A 72 kg test with higher yaw inertia also reached the station on both signed calibration cases.
 
 | Case | Station confirmation | Achieved normal / lateral / yaw at 21.10 s | Minimum barrier / stock / peer clearance |
@@ -9,13 +15,13 @@
 | 72 kg, positive errors | 20.195 s | −1.35 mm / −0.09 mm / +0.016° | 7.94 / 71.58 / 39.46 mm |
 | 72 kg, negative errors | 20.245 s | −1.41 mm / −0.05 mm / +0.009° | 7.94 / 56.89 / 41.64 mm |
 
-The 21.10 s station opening is an opportunity to feed one pipe. The route ends there with all starting stock still in the field inventory. The table contains simulated ground truth scored after the controller acted. An authorized acquisition needs a matching finite pipe delivery, a mechanical seat and an independent observation. Points remain unassigned.
+The field animation stops at the 21.10 s feed slot. A separate simulation starts coral-A there and carries the achieved signed 65 kg chassis poses into a stationary receiver. The actual port controller reaches IN_BAND at 22.911673 s and holds through 27.031673 s at both contact time steps. The earlier positive calibration run faulted at Java 1,020 ms under the same controller. The selected inlet still needs independent pipe imagery and a loaded swerve departure before delivery can be assessed. [Four physical/contact clock records](first-feed.json)
 
 ## How this drivetrain moves
 
 The motor/absolute contract applies to four horizontally separated steering axes in FL, FR, RL, RR order. At each corner a 76.2 mm wheel turns through a 5.50:1 drive train. The azimuth ratio is 9424:203. The installed locations have a 564 mm wheelbase and 554 mm track. The controller converts field velocities into robot +X forward and +Y left, selects the shorter steering rotation and reverses wheel speed where necessary. A wheel at the chosen center of rotation holds its previous azimuth. The four wheel targets share one speed limit.
 
-The drive pinion lies on the steering axis. In the model a locked wheel makes one motor input revolution per carrier revolution. The per-corner logical signs and arbitrary absolute zeros are simulated commissioning inputs. Independent polarities and steer-induced rotor turns are removed before applying the drive ratio. The checker exercises simultaneous rolling/steering, an offset pivot and a reversed wheel. The installed Agent FRC 0.23.0 portable vector check gave a maximum residual of 0.00221 m/s. A deliberately inverted front-right drive signal failed all three exercises, with residuals of 1.42–1.55 m/s.
+The drive pinion lies on the steering axis. In the model a locked wheel makes one motor input revolution per carrier revolution. The per-corner logical signs and arbitrary absolute zeros are simulated commissioning inputs. Independent polarities and steer-induced rotor turns are removed before applying the drive ratio. The checker exercises simultaneous rolling/steering, an offset pivot and a reversed wheel. The portable vector checks in Agent FRC 0.23.0 and 0.24.0 gave a maximum residual of 0.00221 m/s. A deliberately inverted front-right drive signal failed all three exercises, with residuals of 1.42–1.55 m/s.
 
 A 5 ms field controller requests chassis translation and yaw. A 1 ms plant evolves four steering inertias, drive-wheel inertia, finite lateral tire forces, yaw and translation. The same gear coupling participates in steer torque and rotor speed. Each substep passes achieved chassis acceleration to four constrained tread springs and uses their reactions for the following substep’s tire-force caps. The 65 kg / 5 kg·m² and 72 kg / 8 kg·m² cases share a 380 mm CG height, 26/24/26/24% static shares, front/rear tread rates 90/110% of 150 kN/m, friction coefficient 0.80 and a 9.5 V modeled actuator terminal ceiling. The inner motor loops assume ideal velocity feedback. The odometry channel independently quantizes absolute azimuth to 1,024 counts per turn and rotor turns to 1/4,096 of a revolution as a reporting assumption. Results depend on these hypotheses and on the separately protected auxiliary loads.
 

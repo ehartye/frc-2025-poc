@@ -15,11 +15,11 @@ from kinematics import ORDER, EncoderMap, body_to_field, field_to_body, wrapped
 from plant import Plant, Odometry, SETTINGS
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+ROOT = HERE.parents[1] / "six-wheel"
 sys.path.insert(0, str(ROOT / "conditioned-match"))
 from supply import n
 
-sys.path.insert(0, str(ROOT / "swerve-power"))
+sys.path.insert(0, str(HERE.parent / "power"))
 from loads import Support
 from field import screen
 import panel
@@ -103,7 +103,7 @@ def run(assets, out, case):
         read(ROOT / "fixed-height-match/placements.json")["placements"], inboard=True
     )
     source = read(ROOT / "station-landmark/native.json")
-    module = read(ROOT / "swerve-package/module.json")
+    module = read(HERE.parent / "packaging/module.json")
     if tuple(module["order"]) != ORDER:
         raise ValueError("Unexpected native module order")
     centers = np.array([[module["modules"][i][k] for k in ("xM", "yM")] for i in ORDER])

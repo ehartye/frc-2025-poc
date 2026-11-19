@@ -11,7 +11,7 @@ HERE = Path(__file__).resolve().parent
 
 
 def exercise():
-    module = json.loads((HERE.parent / "swerve-package/module.json").read_bytes())
+    module = json.loads((HERE.parent / "packaging/module.json").read_bytes())
     centers = np.array([[module["modules"][i][k] for k in ("xM", "yM")] for i in ORDER])
     sign = np.array([1, -1, 1, -1])
     steer = np.array([1, -1, -1, 1])

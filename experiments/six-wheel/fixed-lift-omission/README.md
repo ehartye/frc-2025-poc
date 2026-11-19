@@ -1,9 +1,9 @@
 # Keep the deck and omit the unused lift motor
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The selected 560 mm receiver takes in and places both pipes at one height. Its two permanent shoulder pins transmit vertical load into the masts. A dedicated fixed-height build can omit the third NEO while keeping both drivetrain NEOs, the passive winch, its shaft and both permanent locks. The original motor, pinion and shaft leave as one assembly. An original blind input cover closes the retained long motor block. The deck keeps its full 4 mm thickness. [Input-cover drawing](shop.svg) · [Editable geometry](cap_fit.py) · [Reopened STEP](input-cap.step)
