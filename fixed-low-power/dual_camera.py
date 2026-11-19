@@ -15,7 +15,7 @@ SUPPLIES = {
     # channel, input lead m, output AWG, output lead m, fuse/connectors/USB ohms,
     # connected output current including the host's 1 W auxiliary allowance.
     "Host": (6, .80, 16, .20, .025, 3.20),
-    "FixedCamera": (8, .95, 16, .70, .055, 1.20),
+    "FixedCamera": (8, .95, 14, 1.30, .055, 1.20),
     "MovingCamera": (9, 1.10, 14, 1.50, .055, 1.20),
 }
 RESISTANCE = {k: v for k, v in power.electric.RESIST.items() if k != "Observer"}

@@ -36,3 +36,20 @@ class DualCameraSupply(unittest.TestCase):
         for row in result["converters"].values():
             self.assertGreater(row["minInputV"], 10.)
             self.assertLess(row["peakInputA"], 2.)
+
+    def test_panel_clearance_and_fixed_lead_budget(self):
+        panel = json.loads((ROOT / "design/fixed-no-air/converter-panel.json").read_bytes())
+        for pose in panel["poses"].values():
+            self.assertEqual(pose["retainedParts"], 591)
+            self.assertGreater(pose["panelClearance"]["mm"], 3.6)
+            self.assertGreater(pose["directLeadCradleInterferenceMm3"], 132)
+            for foot in pose["feet"].values():
+                self.assertEqual(foot["bearingFraction"], 1.)
+                self.assertGreaterEqual(foot["otherClearance"]["mm"], 3.)
+            sections = pose["fixedCameraLeadSegments"]
+            length = sum(s["lengthMm"] for s in sections) / 1000
+            self.assertGreater(length, 1.)
+            self.assertLess(length + .24, 1.30)
+            self.assertGreaterEqual(min(s["otherClearance"]["mm"] for s in sections), 10.)
+            self.assertAlmostEqual(REPORT["inlets"]["FixedCamera"]["loopOhm"],
+                                   2 * 1.25 * .008286 * 1.30 + .055, places=5)
