@@ -194,20 +194,25 @@ def trial(proc,delta,mode,dt,phase,cache,fault=None,feed_side=0,relief=False,unt
             "trajectorySHA256":hashlib.sha256(path.read_bytes()).hexdigest(),"portTicks":ticks}
 
 
+def port_program(probe):
+    text=(ROOT/"observable-acquisition/PortAcquisition.java").read_text().replace("speed = 0.45;","speed = 0.65;")
+    if probe:
+        anchor="        return new Output(state, state != State.FAULT, speed, reason);"
+        if text.count(anchor)!=1:raise ValueError("Port controller changed")
+        text=text.replace(anchor,"""        if (counterfeed && state == State.BRAKE && incomingSeatOnly && !incomingClear
+                && previous - entered >= 160 && previous - entered < 480) {
+            speed = -0.14;
+        }
+"""+anchor)
+    return text
+
+
 def run(cache,jdk,relief=False,probe=False,hold=False):
     cache.mkdir(parents=True,exist_ok=True)
     base=ROOT/"observable-acquisition";results=[]
     poses={r["mode"]:r["returnStationRobotDxDyYawMmDeg"] for r in json.loads((ROOT/"spatial-contact/match.json").read_bytes())["cases"] if r["pipe"]=="coral-A"}
     with tempfile.TemporaryDirectory() as tmp:
-        tmp=Path(tmp);text=(base/"PortAcquisition.java").read_text().replace("speed = 0.45;","speed = 0.65;")
-        if probe:
-            anchor="        return new Output(state, state != State.FAULT, speed, reason);"
-            if text.count(anchor)!=1:raise ValueError("Port controller changed")
-            text=text.replace(anchor,"""        if (counterfeed && state == State.BRAKE && incomingSeatOnly && !incomingClear
-                && previous - entered >= 160 && previous - entered < 480) {
-            speed = -0.14;
-        }
-"""+anchor)
+        tmp=Path(tmp);text=port_program(probe)
         (tmp/"PortAcquisition.java").write_text(text,encoding="utf8",newline="\n")
         subprocess.run([str(jdk/"bin/javac"),"-d",str(tmp),str(tmp/"PortAcquisition.java"),str(base/"PortConsole.java")],check=True)
         with subprocess.Popen([str(jdk/"bin/java"),"-cp",str(tmp),"org.reefscape.controls.PortConsole"],stdin=subprocess.PIPE,stdout=subprocess.PIPE,text=True,bufsize=1) as proc:

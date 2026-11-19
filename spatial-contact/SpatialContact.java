@@ -20,6 +20,8 @@ public class SpatialContact {
     static final Panel[] panels={new Panel(),new Panel()};
     static double slope,intercept,lipDepth,lipTop,scale,floorX,floorZ;
     static double[] rack;
+    static boolean sweepY;
+    static double tracePeriod=.05, traceUntil=3;
     double x,y,z,vx,vy,vz,ax,ay,az,lx,ly,lz,wx,wy,wz;
     double fx,fy,fz,tx,ty,tz,compression,baseline,energyGain,spring,minFront=1,minRiser=1,dwell;
     double floorLo,floorHi,lipLo,lipHi,firstFloor=-1,firstLip=-1,mu;
@@ -99,8 +101,13 @@ public class SpatialContact {
         int stations=(int)input[18],steps=(int)Math.ceil(end/dt);
         double co=Math.cos(heading),si=Math.sin(heading),t=0;
         String result="elapsed";
+        double minY=Double.POSITIVE_INFINITY,maxY=Double.NEGATIVE_INFINITY;
         for(int i=0;i<=steps;i++){
             t=i*dt;contacts(stations);
+            if(sweepY){
+                double extent=HALF*Math.abs(ay)+R*Math.sqrt(Math.max(0,1-ay*ay));
+                minY=Math.min(minY,y-extent);maxY=Math.max(maxY,y+extent);
+            }
             if(floorLo<floorHi && firstFloor<0)firstFloor=t;
             if(lipLo<lipHi && firstLip<0)firstLip=t;
             double withdrawn=withdrawal(t-start);
@@ -123,15 +130,19 @@ public class SpatialContact {
             if(floorHi-floorLo>=.18 && lipHi-lipLo>=.18 &&
                vx*vx+vy*vy+vz*vz<.0001 && wx*wx+wy*wy+wz*wz<.04 && gap>.001)dwell+=dt;
             else dwell=0;
-            if(i%Math.max(1,(int)Math.round(.05/dt))==0 && t<=3)
+            if(i%Math.max(1,(int)Math.round(tracePeriod/dt))==0 && t<=traceUntil)
                 trace.printf(Locale.ROOT,"%s,%.5f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f%n",label,t,x,y,z,ax,ay,az,gap);
             if(i<steps)step(dt);
         }
         if(result.equals("elapsed") && dwell>=.25)result="supported";
-        report.printf(Locale.ROOT,"%s,%s,%.6f,%.6f,%.6f,%.6f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f%n",
+        report.printf(Locale.ROOT,"%s,%s,%.6f,%.6f,%.6f,%.6f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f,%.9f",
             label,result,t,firstFloor,firstLip,dwell,x,y,z,ax,ay,az,minFront,minRiser,compression,energyGain);
+        if(sweepY)report.printf(Locale.ROOT,",%.9f,%.9f",minY,maxY);
+        report.println();
     }
     public static void main(String[] args)throws Exception{
+        sweepY=args[args.length-1].equals("sweep-y");
+        if(args.length-(sweepY?1:0)==7){tracePeriod=Double.parseDouble(args[5]);traceUntil=Double.parseDouble(args[6]);}
         for(String s:Files.readAllLines(Path.of(args[0]))){
             String[] r=s.split(",");double[] d=Arrays.stream(r).skip(2).mapToDouble(Double::parseDouble).toArray();
             if(r[0].equals("profile")){slope=d[0];intercept=d[1];lipDepth=d[2];lipTop=d[3];scale=Math.hypot(1,slope);floorX=-slope/scale;floorZ=1/scale;}
@@ -140,7 +151,7 @@ public class SpatialContact {
         }
         rack=Files.lines(Path.of(args[1])).skip(1).map(s->s.split(",")[1]).mapToDouble(Double::parseDouble).toArray();
         try(PrintWriter report=new PrintWriter(args[3]);PrintWriter trace=new PrintWriter(args[4])){
-            report.println("case,outcome,elapsed_s,first_floor_s,first_lip_s,final_dwell_s,x_m,y_m,z_m,axis_x,axis_y,axis_z,min_front_m,min_riser_m,max_compression_m,energy_gain_J");
+            report.println("case,outcome,elapsed_s,first_floor_s,first_lip_s,final_dwell_s,x_m,y_m,z_m,axis_x,axis_y,axis_z,min_front_m,min_riser_m,max_compression_m,energy_gain_J"+(sweepY?",swept_min_y_m,swept_max_y_m":""));
             trace.println("case,t_s,x_m,y_m,z_m,axis_x,axis_y,axis_z,front_gap_m");
             for(String s:Files.readAllLines(Path.of(args[2])))new SpatialContact(s.split(",")).run(report,trace);
         }

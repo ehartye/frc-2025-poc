@@ -24,12 +24,12 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def model(lamp):
+def model(lamp,stroke=0):
     r=json.loads((ROOT/"design/fixed-no-air/whole-robot.json").read_bytes())
     if sha(lamp)!=r["supplied_lamp_sha256"]:raise ValueError("Unregistered lamp")
     roof=mount.cad.read_named(ROOT/"bridge-tolerance/moving-bridge.step",[{"id":k} for k in [*bridge.parts()[0],"receiver-R6-drilled-for-camera"]])
     deck=mount.cad.read_named(whole.LIGHT/"deck-mount.step",[{"id":k} for k in ("front-electronics-platform","light-spacer")])
-    _,robot=whole.model(0,roof,deck,whole.mounted(whole.product(lamp),whole.X,whole.Y,whole.PANEL))
+    _,robot=whole.model(stroke,roof,deck,whole.mounted(whole.product(lamp),whole.X,whole.Y,whole.PANEL))
     if len(robot)!=593:raise ValueError("Incorrect body inventory")
     return robot
 

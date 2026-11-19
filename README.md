@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Watch the two-pipe match](relieved-match/replay.html). The same 597-body robot takes both human feeds, reaches two L1 sectors and parks at 110.878 s for nine modeled points. Try the seven-point single-trip route or interrupt the second camera packet. [Engineering evidence and hardware limits](relieved-match/README.md).
+
 [Try the second station feed](return-station/replay.html). Follow the return from the first score and compare the physical cartridge stop, port sequence and camera confirmation. [Station study and departure states](return-station/README.md).
 
 [Watch the pipe land in the trough](spatial-contact/replay.html). Five corrected approaches each support one modeled L1 score and a park. The [spatial contact and field study](spatial-contact/README.md) follows each pipe through the scoring assessment and measures the return error at the second station.

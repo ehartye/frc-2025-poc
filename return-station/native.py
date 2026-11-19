@@ -24,10 +24,10 @@ def prism(outline,lo,hi):
     return BRepPrimAPI_MakePrism(BRepBuilderAPI_MakeFace(poly.Wire()).Face(),gp_Vec(0,hi-lo,0)).Shape()
 
 
-def run(cache,lamp,relief=False,probe=False,hold=False):
+def run(cache,lamp,relief=False,probe=False,hold=False,records=HERE):
     from receiver_relief import low_relief
     robot=low_relief(lamp) if relief else model(lamp)
-    source=HERE/("hold-feed.json" if hold else "probe-feed.json" if probe else "relief-feed.json" if relief else "feed.json")
+    source=records/("hold-feed.json" if hold else "probe-feed.json" if probe else "relief-feed.json" if relief else "feed.json")
     skip={"grip-L-420-3M-15","grip-R-420-3M-15","receiver-R6-drilled-for-camera"}
     if len(skip & robot.keys())!=3:raise ValueError("Intended contact inventory changed")
     boxes={k:mount.cad.bounds(s) for k,s in robot.items() if k not in skip}
@@ -73,7 +73,7 @@ def run(cache,lamp,relief=False,probe=False,hold=False):
                 volume=mount.cad.intersection(tool,robot[k])
                 if volume>.0001:hits[k]=round(volume,5)
         result.append({"fromMs":start,"toMs":end,"nativeRigidLowerMm":nearest[0],"nearest":nearest[1],"outerEnvelopeOverlapMm3":hits})
-    (HERE/("hold-native.json" if hold else "probe-native.json" if probe else "relief-native.json" if relief else "native.json")).write_text(json.dumps({"robotBodies":len(robot),"excludedIntended":sorted(skip),"trajectories":len(traces),"independentCartridgeInwardOutwardMm":[inward,outward],"maxTimeStepMs":.5,
+    (records/("hold-native.json" if hold else "probe-native.json" if probe else "relief-native.json" if relief else "native.json")).write_text(json.dumps({"robotBodies":len(robot),"excludedIntended":sorted(skip),"trajectories":len(traces),"independentCartridgeInwardOutwardMm":[inward,outward],"maxTimeStepMs":.5,
         "interpolationPaddingMm":.025,"bins":result,"feedSHA256":sha(source)},indent=2)+"\n",encoding="utf8",newline="\n")
     print([(r["fromMs"],r["outerEnvelopeOverlapMm3"]) for r in result if r["outerEnvelopeOverlapMm3"]],flush=True)
 

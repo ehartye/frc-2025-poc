@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "camera-registration.json": "5f2ca514fcfb832305e5372bbfdea192ba76fbef25b9d30eefc5d2719393ee55",
+    "station-images.json": "1d24db7575f26d4fbdcee3f54bc52f8fbae5309eec5c3e8c805da8b0f0e0b809",
+    "landing-windows.csv": "d2f367d8ad7a22080966ec41e72a9e447b30896716d475df1ac5ce33db388864",
+    "first-feed.json": "2b2fb7dcc73bd30f37613584dfa8fd39f519ebf4379e564ec80f44f5032eabcb",
+    "return-feed.json": "26651bd3c001f8c7df9d1df338f60f560b3354e8dbbcf20cd9489ff068ec5eb6",
+    "probe-native.json": "e3005be2a3d658c07e0416e79624331b1bb4b75c0410beb40890d93f6187647f",
+    "hold-native.json": "f8a411416f02ed5f589f7e959c5c494f41d2fd0c8dca549edd010befc085950b",
+    "coral-A-fixed": "19d33e5030066d180f38bd9f9fc123576acd1aa7af48630b812c517c6536f713",
+    "coral-A-moving": "aa96465e9da42383eb7e3dfaac24d69cbf98d36eb53640568aa8bd1588e02992",
+    "coral-B-fixed": "668a725e88ae5be36cee0b6d8e1048787ba505ff29331a114198b712945cb595",
+    "coral-B-moving": "e9dc4a0dfc247cd74c511824ddfdb8a7ee8d387fb3d99e736e7cad616515f45f"
+  },
+  "eligible": {
+    "coral-A": {
+      "priorLowerMs": 26588,
+      "eligibleCaptureMs": [
+        26690,
+        26707
+      ],
+      "releaseCameraMs": 26437.979639181893,
+      "rawPadLastMs": 26591.249635314285
+    },
+    "coral-B": {
+      "priorLowerMs": 26298,
+      "eligibleCaptureMs": [
+        26401
+      ],
+      "releaseCameraMs": 26145.026363347723,
+      "rawPadLastMs": 26301.250102640875
+    }
+  },
+  "delayMs": 15,
+  "onsetReserveMs": 40,
+  "padThresholdMeasured": false,
+  "qualification": "conditional synthetic pressure and image calibration"
+}
