@@ -15,7 +15,31 @@
 | 72 kg, positive errors | 20.195 s | −1.35 mm / −0.09 mm / +0.016° | 7.94 / 71.58 / 39.46 mm |
 | 72 kg, negative errors | 20.245 s | −1.41 mm / −0.05 mm / +0.009° | 7.94 / 56.89 / 41.64 mm |
 
-The field animation stops at the 21.10 s feed slot. A separate simulation starts coral-A there and carries the achieved signed 65 kg chassis poses into a stationary receiver. The actual port controller reaches IN_BAND at 22.911673 s and holds through 27.031673 s at both contact time steps. The earlier positive calibration run faulted at Java 1,020 ms under the same controller. The selected inlet still needs independent pipe imagery and a loaded swerve departure before delivery can be assessed. [Four physical/contact clock records](first-feed.json)
+The field animation stops at the 21.10 s feed slot. A separate simulation starts coral-A there and carries the achieved signed 65 kg chassis poses into a stationary receiver. The actual port controller reaches IN_BAND at 22.911673 s and holds through 27.031673 s at both contact time steps. The earlier positive calibration run faulted at Java 1,020 ms under the same controller. The R4 camera study below follows those four feeds through the decision to begin loaded travel. [Four physical/contact clock records](first-feed.json)
+
+## Can the robot leave the station with coral-A?
+
+At **27.035 s**, the first eligible swerve controller tick, the fixed and roof stereo heads agree that coral-A is seated in both simulated 65 kg approaches. Each decision uses five synchronized image pairs per head. The two contact solver steps, 31.25 and 15.625 microseconds, repeat each approach. These are two starts. The checks use the straight guides, fixed-height receiver and the existing gyro-referenced dock poses. [Camera records](receiver-witness.json) · [Mechanical state at first service](first-service.json)
+
+| Condition at station | Positive approach | Negative approach |
+| --- | --- | --- |
+| Contrasting shelf, 15 ms packet delay, nominal geometry | 5 of 5 paired captures qualify | 5 of 5 qualify |
+| Same delay and a 0.05 mm shelf perturbation bound | 5 of 5 qualify | 5 of 5 qualify |
+| Shelf region with the same brightness as the pipe | Hold because the roof loses the rear edge | Hold because the roof loses the rear edge |
+| 45 ms delay on the guarded case | Hold because only 3 of 5 arrive in time | Hold because only 3 of 5 arrive in time |
+
+Each image comes from an attained pipe pose, the actual signed station transform and the separately reopened R4 public robot, including its 975 registered solids. Each head sees the other camera's housing. Rays originating at the two registered pupils omit that head's own opaque public housing envelope. The fixed estimator measures the pipe's position. The roof estimator independently bounds its position and yaw. Field-only rays supply no robot reference for the roof. The five observations at Java 5372–5440 ms are available by the decision tick with 15 ms transport. The next image at 5457 ms becomes available at wall 27.045 s. A missing eye, an empty shelf, an 18 mm sideways displacement and a 7 degree yaw challenge all withhold permission at both refinements on both starts.
+
+For the 3.327 ms between the saved feed state and first wheel service, the contact solver retains the same finite pipe, its linear and angular state, both guide modal histories, the 21 carriage and shelf modes and both plungers under the held zero-belt command. Across the four restarts, the largest center displacement is below 0.00032 mm. The chassis is stationary in this interval. The outgoing checkpoints can seed the next loaded-motion experiment.
+
+The evidence ends before wheel actuation. It credits zero deliveries. It assumes surveyed pupils, modeled surface brightness, the represented stowed geometry, 15 ms camera transport and one uninterrupted delivery of coral-A. The cameras measure shape and position; the station simulation supplies the piece identity. Conditioning on finish, timing and the stationary chassis keeps this result separate from departures under power and from inspection or as-built behavior.
+
+From the repository root, replay the original swerve feeds into a local directory, then run:
+
+```powershell
+python experiments/swerve-drive/motion/receiver_witness.py $feedDirectory $officialFieldStep $cameraResult
+python experiments/swerve-drive/motion/first_service.py $feedDirectory $checkpointDirectory $serviceResult
+```
 
 ## How this drivetrain moves
 
