@@ -1,0 +1,824 @@
+{
+  "inputs": {
+    "design/fixed-height/low-locks.step": "7daaed3eeab7c3b198d16bc5ce8e43e9bb3bb28c726b66ed8fd03c046492d619",
+    "design/fixed-height/native.py": "262847ba967206f3d00a6ad4c77c87bc7fdee59dcdf9bbf89c36dd9901c5436a",
+    "design/fixed-height/handoff.py": "6915687ce4e2664e185cfa30fcf2ecbdc35537a8529b0a8d3bfe90539696dfaf",
+    "design/fixed-height/handoff.json": "c50d929ff2d556db2436acbc1f23ff4dfbc63e48a19a2f2d72cd037af100c5eb",
+    "design/fixed-height/ports.py": "ff0a47260c7adf65e8ccfd532ff19a9c9c78d5657cbceed65a276965e9e8a62b",
+    "design/fixed-height/ports-065.json": "b989d577112aced0fc1259d778c64765425ce703521b728d8dec6f30d91b0617",
+    "design/competition-package/shop-duplex/assembly.py": "0abeb80deabce6aee1d083dd60361e30568eb22df77e5eb01bfff5965fae6e58",
+    "design/competition-package/shop-duplex/red/source-register.json": "27da02ff7052b9364eeafd3f1dd0aab2045126d701beeafff289259dd2b0b280",
+    "observable-acquisition/study.py": "bd528292623730ff0f20d30a8be46eb673e43855ba554dd180e44d2b05d39593",
+    "stereo-custody/imaging.py": "7110b3c162eeb88d35867a95a83966adcb93e92b1c0e376413bc3a9d37b0c26b",
+    "stereo-custody/observe.py": "b881192541d7b62064c11f4f4e0229edb6d5dda19c55b5f7076f4f015908e593",
+    "scripts/station_l1_settle.py": "b3f43b1fce297f60b1268b3cb87975ac7e665b91c2dc7745d5e7bed2eb58ad62",
+    "low-observation/source.py": "c1a11c46dd6b3f1f08cca7db48a79a4f8fa971a5e834e71a7cb7f18ddd397905",
+    "low-observation/geometry.py": "16b8bbd57a3ae25d2acde6b021bab451ff0d700a660db3eaee8ad31e48c28cb4",
+    "low-observation/prepare.py": "e6b992fe707b0c93497e3a5345db47c35c293003e90798773dd99a0fbf359eac"
+  },
+  "poses": {
+    "0": {
+      "height_mm": 560,
+      "stroke_mm": 0,
+      "bodies": 577,
+      "machined": [
+        "backup-L-drilled-mast",
+        "backup-R-drilled-mast",
+        "lift-crossbar-drilled",
+        "lift-shoe--235",
+        "lift-shoe-210",
+        "slide-base-bridge"
+      ],
+      "added": [
+        "crossbar-L-1-bottom-washer",
+        "crossbar-L-1-locking-nut",
+        "crossbar-L-1-screw",
+        "crossbar-L-1-top-washer",
+        "crossbar-L-2-bottom-washer",
+        "crossbar-L-2-locking-nut",
+        "crossbar-L-2-screw",
+        "crossbar-L-2-top-washer",
+        "crossbar-R-1-bottom-washer",
+        "crossbar-R-1-locking-nut",
+        "crossbar-R-1-screw",
+        "crossbar-R-1-top-washer",
+        "crossbar-R-2-bottom-washer",
+        "crossbar-R-2-locking-nut",
+        "crossbar-R-2-screw",
+        "crossbar-R-2-top-washer",
+        "height-L-front-washer",
+        "height-L-locking-nut",
+        "height-L-mast-sleeve",
+        "height-L-pin",
+        "height-L-rear-washer",
+        "height-L-shoe-stand-off",
+        "height-R-front-washer",
+        "height-R-locking-nut",
+        "height-R-mast-sleeve",
+        "height-R-pin",
+        "height-R-rear-washer",
+        "height-R-shoe-stand-off",
+        "rail-L-fillet--1",
+        "rail-L-fillet-1",
+        "rail-R-fillet--1",
+        "rail-R-fillet-1"
+      ],
+      "mesh_sha256": "ca69d3d1ac400793210d1ca3703e0e00282f232466d5f07b880b2c24d63a7ed5",
+      "front_mm": 425.0
+    },
+    "370": {
+      "height_mm": 560,
+      "stroke_mm": 370,
+      "bodies": 577,
+      "machined": [
+        "backup-L-drilled-mast",
+        "backup-R-drilled-mast",
+        "lift-crossbar-drilled",
+        "lift-shoe--235",
+        "lift-shoe-210",
+        "slide-base-bridge"
+      ],
+      "added": [
+        "crossbar-L-1-bottom-washer",
+        "crossbar-L-1-locking-nut",
+        "crossbar-L-1-screw",
+        "crossbar-L-1-top-washer",
+        "crossbar-L-2-bottom-washer",
+        "crossbar-L-2-locking-nut",
+        "crossbar-L-2-screw",
+        "crossbar-L-2-top-washer",
+        "crossbar-R-1-bottom-washer",
+        "crossbar-R-1-locking-nut",
+        "crossbar-R-1-screw",
+        "crossbar-R-1-top-washer",
+        "crossbar-R-2-bottom-washer",
+        "crossbar-R-2-locking-nut",
+        "crossbar-R-2-screw",
+        "crossbar-R-2-top-washer",
+        "height-L-front-washer",
+        "height-L-locking-nut",
+        "height-L-mast-sleeve",
+        "height-L-pin",
+        "height-L-rear-washer",
+        "height-L-shoe-stand-off",
+        "height-R-front-washer",
+        "height-R-locking-nut",
+        "height-R-mast-sleeve",
+        "height-R-pin",
+        "height-R-rear-washer",
+        "height-R-shoe-stand-off",
+        "rail-L-fillet--1",
+        "rail-L-fillet-1",
+        "rail-R-fillet--1",
+        "rail-R-fillet-1"
+      ],
+      "mesh_sha256": "1dc01cb7cc1a0467abae644e896fbb27bf5213cdea5c6a3ed58b33b4a8e2c558",
+      "front_mm": 535.0
+    }
+  },
+  "pieces": {
+    "coral-A": {
+      "truth_ms": {
+        "resume-from-modeled-java-in-band": 1460.0,
+        "retract": 1460.0,
+        "lower": 3460.0,
+        "drive-and-turn": 5460.5,
+        "lower-at-target": 21937.5,
+        "extend-at-target": 23437.5,
+        "place": 26437.5,
+        "left-powered-shelf-with-same-piece": 26605.0,
+        "finite-pipe-envelope-clear-of-shelf-by-1mm": 26627.5,
+        "paired-trough-first-contact": 26712.0
+      },
+      "teleop_minus_local_seconds": 3.5713127215079403,
+      "station": {
+        "nominal": {
+          "first_corroborated_ms": 1560,
+          "last_corroborated_ms": 1700,
+          "positive_ticks": 8,
+          "first_revoked_ms": null,
+          "last_status": "independent-position-corroborated"
+        },
+        "wrong-epoch": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "invalid-frame-clock-or-identity"
+        },
+        "empty": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "insufficient-stereo-contour"
+        },
+        "wrong-pose": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "invalid-frame-clock-or-identity"
+        },
+        "uncalibrated": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "uncalibrated-or-moving"
+        },
+        "stale": {
+          "first_corroborated_ms": 1560,
+          "last_corroborated_ms": 1600,
+          "positive_ticks": 3,
+          "first_revoked_ms": 1620,
+          "last_status": "independent-position-corroborated"
+        }
+      },
+      "blind_durations_ms": {
+        "moving_field_unregistered": 16477.0,
+        "moving_slide_unregistered": 3000.0
+      },
+      "rigid_backdrop": {
+        "interval_ms": 250,
+        "sample_status_counts": {
+          "outside-custody-envelope": 58,
+          "inconsistent-stereo-shape": 5,
+          "position-witness": 2,
+          "unbounded-contour": 1
+        }
+      },
+      "selected_exposures": {
+        "station_after_ports": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            68.5,
+            83.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -8.649999999999999,
+            7.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.6287776511958683,
+            2.6287776511958683
+          ],
+          "scanlines": 100,
+          "cells": 118
+        },
+        "last_stationary_before_drive": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            73.5,
+            89.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -9.649999999999999,
+            6.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5937608619715746,
+            2.5937608619715746
+          ],
+          "scanlines": 99,
+          "cells": 123
+        },
+        "first_transit_rigid_backdrop": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            73.5,
+            88.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -14.649999999999999,
+            10.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5286293690539026,
+            2.5286293690539026
+          ],
+          "scanlines": 65,
+          "cells": 183
+        },
+        "last_stationary_before_extension": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            73.5,
+            89.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -9.649999999999999,
+            6.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5937608619715746,
+            2.5937608619715746
+          ],
+          "scanlines": 99,
+          "cells": 123
+        },
+        "first_stationary_at_release": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            67.5,
+            100.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -16.65,
+            10.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.4518469773318827,
+            3.4518469773318827
+          ],
+          "scanlines": 57,
+          "cells": 524
+        },
+        "last_powered_shelf_contact": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            151.5,
+            191.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -14.649999999999999,
+            15.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.7570525652920495,
+            3.7570525652920495
+          ],
+          "scanlines": 52,
+          "cells": 678
+        },
+        "first_shelf_1mm_clear": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            169.5,
+            211.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -19.65,
+            11.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.838280163958835,
+            3.838280163958835
+          ],
+          "scanlines": 51,
+          "cells": 743
+        },
+        "at_first_trough_contact": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            244.5,
+            292.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -74.65,
+            -35.65
+          ],
+          "y_interval_mm": [
+            -4.05282741374473,
+            4.05282741374473
+          ],
+          "scanlines": 43,
+          "cells": 1184
+        }
+      },
+      "phases": [
+        {
+          "phase_ms": 0,
+          "first_proven_forward_ms": 26707,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 1,
+          "first_proven_forward_ms": 26708,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 2,
+          "first_proven_forward_ms": 26709,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 3,
+          "first_proven_forward_ms": 26710,
+          "first_eligible_tick_ms": 26780,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 4,
+          "first_proven_forward_ms": 26711,
+          "first_eligible_tick_ms": 26780,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 5,
+          "first_proven_forward_ms": 26695,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 6,
+          "first_proven_forward_ms": 26696,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 7,
+          "first_proven_forward_ms": 26697,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 8,
+          "first_proven_forward_ms": 26698,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 9,
+          "first_proven_forward_ms": 26699,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 10,
+          "first_proven_forward_ms": 26700,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 11,
+          "first_proven_forward_ms": 26701,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 12,
+          "first_proven_forward_ms": 26702,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 13,
+          "first_proven_forward_ms": 26703,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 14,
+          "first_proven_forward_ms": 26704,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 15,
+          "first_proven_forward_ms": 26705,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        },
+        {
+          "phase_ms": 16,
+          "first_proven_forward_ms": 26706,
+          "first_eligible_tick_ms": 26760,
+          "earliest_prior_ms": 26593,
+          "latest_tick_ms": 26740,
+          "timely": false
+        }
+      ],
+      "ideal_prior_pad_ms": 26596.5,
+      "unwithdrawn_plant": "receiver-recontact",
+      "hypothetical_110ms_plant": "sustained-paired-floor-and-lip",
+      "first_usable_station_teleop_s": 5.131312721507941
+    },
+    "coral-B": {
+      "truth_ms": {
+        "resume-from-modeled-java-in-band": 1480.0,
+        "retract": 1480.0,
+        "lower": 3480.0,
+        "drive-and-turn": 5480.5,
+        "lower-at-target": 21645.0,
+        "extend-at-target": 23145.0,
+        "place": 26145.0,
+        "left-powered-shelf-with-same-piece": 26312.5,
+        "finite-pipe-envelope-clear-of-shelf-by-1mm": 26335.0,
+        "paired-trough-first-contact": 26419.5
+      },
+      "teleop_minus_local_seconds": 53.95366979203857,
+      "station": {
+        "nominal": {
+          "first_corroborated_ms": 1580,
+          "last_corroborated_ms": 1720,
+          "positive_ticks": 8,
+          "first_revoked_ms": null,
+          "last_status": "independent-position-corroborated"
+        },
+        "wrong-epoch": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "invalid-frame-clock-or-identity"
+        },
+        "empty": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "insufficient-stereo-contour"
+        },
+        "wrong-pose": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "invalid-frame-clock-or-identity"
+        },
+        "uncalibrated": {
+          "first_corroborated_ms": null,
+          "last_corroborated_ms": null,
+          "positive_ticks": 0,
+          "first_revoked_ms": null,
+          "last_status": "uncalibrated-or-moving"
+        },
+        "stale": {
+          "first_corroborated_ms": 1580,
+          "last_corroborated_ms": 1620,
+          "positive_ticks": 3,
+          "first_revoked_ms": 1640,
+          "last_status": "independent-position-corroborated"
+        }
+      },
+      "blind_durations_ms": {
+        "moving_field_unregistered": 16164.5,
+        "moving_slide_unregistered": 3000.0
+      },
+      "rigid_backdrop": {
+        "interval_ms": 250,
+        "sample_status_counts": {
+          "outside-custody-envelope": 58,
+          "inconsistent-stereo-shape": 5,
+          "position-witness": 2
+        }
+      },
+      "selected_exposures": {
+        "station_after_ports": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            68.5,
+            83.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -8.649999999999999,
+            7.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.6287776511958683,
+            2.6287776511958683
+          ],
+          "scanlines": 100,
+          "cells": 118
+        },
+        "last_stationary_before_drive": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            73.5,
+            89.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -9.649999999999999,
+            6.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5937608619715746,
+            2.5937608619715746
+          ],
+          "scanlines": 99,
+          "cells": 123
+        },
+        "first_transit_rigid_backdrop": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            73.5,
+            88.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -14.649999999999999,
+            10.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5286293690539026,
+            2.5286293690539026
+          ],
+          "scanlines": 65,
+          "cells": 183
+        },
+        "last_stationary_before_extension": {
+          "status": "position-witness",
+          "u_interval_mm": [
+            73.5,
+            89.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -9.649999999999999,
+            6.350000000000001
+          ],
+          "y_interval_mm": [
+            -2.5937608619715746,
+            2.5937608619715746
+          ],
+          "scanlines": 99,
+          "cells": 123
+        },
+        "first_stationary_at_release": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            67.5,
+            100.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -16.65,
+            10.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.4518469773318827,
+            3.4518469773318827
+          ],
+          "scanlines": 57,
+          "cells": 524
+        },
+        "last_powered_shelf_contact": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            151.5,
+            191.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -14.649999999999999,
+            15.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.7570525652920495,
+            3.7570525652920495
+          ],
+          "scanlines": 52,
+          "cells": 678
+        },
+        "first_shelf_1mm_clear": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            169.5,
+            211.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -19.65,
+            11.350000000000001
+          ],
+          "y_interval_mm": [
+            -3.838280163958835,
+            3.838280163958835
+          ],
+          "scanlines": 51,
+          "cells": 743
+        },
+        "at_first_trough_contact": {
+          "status": "outside-custody-envelope",
+          "u_interval_mm": [
+            244.5,
+            292.5
+          ],
+          "bottom_relative_to_shelf_mm": [
+            -74.65,
+            -35.65
+          ],
+          "y_interval_mm": [
+            -4.05282741374473,
+            4.05282741374473
+          ],
+          "scanlines": 43,
+          "cells": 1184
+        }
+      },
+      "phases": [
+        {
+          "phase_ms": 0,
+          "first_proven_forward_ms": 26418,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 1,
+          "first_proven_forward_ms": 26402,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 2,
+          "first_proven_forward_ms": 26403,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 3,
+          "first_proven_forward_ms": 26404,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 4,
+          "first_proven_forward_ms": 26405,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 5,
+          "first_proven_forward_ms": 26406,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 6,
+          "first_proven_forward_ms": 26407,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 7,
+          "first_proven_forward_ms": 26408,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 8,
+          "first_proven_forward_ms": 26409,
+          "first_eligible_tick_ms": 26460,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 9,
+          "first_proven_forward_ms": 26410,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 10,
+          "first_proven_forward_ms": 26411,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 11,
+          "first_proven_forward_ms": 26412,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 12,
+          "first_proven_forward_ms": 26413,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 13,
+          "first_proven_forward_ms": 26414,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 14,
+          "first_proven_forward_ms": 26415,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 15,
+          "first_proven_forward_ms": 26416,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        },
+        {
+          "phase_ms": 16,
+          "first_proven_forward_ms": 26417,
+          "first_eligible_tick_ms": 26480,
+          "earliest_prior_ms": 26301,
+          "latest_tick_ms": 26440,
+          "timely": false
+        }
+      ],
+      "ideal_prior_pad_ms": 26304.0,
+      "unwithdrawn_plant": "receiver-recontact",
+      "hypothetical_110ms_plant": "sustained-paired-floor-and-lip",
+      "first_usable_station_teleop_s": 55.533669792038566
+    }
+  }
+}
