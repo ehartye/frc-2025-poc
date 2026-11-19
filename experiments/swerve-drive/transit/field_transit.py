@@ -8,6 +8,7 @@ import numpy as np
 
 from register import MOTION, prior, read, sha, write
 import opening as dock
+from occupied_supply import supply_review
 
 DT = 0.005
 
@@ -263,7 +264,7 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
         trajectory=sha(file),
         inputs="four shaft/azimuth channels and signed gyro",
         peaks=plant.peak,
-        battery=dock.supply_review(plant.power_samples, receiver="loaded"),
+        battery=supply_review(plant.power_samples),
         field=gaps,
         finalSpeedMps=float(np.linalg.norm(vel[-1, :2])),
         pathLengthM=float(np.linalg.norm(np.diff(pose[:, :2], axis=0), axis=1).sum()),
