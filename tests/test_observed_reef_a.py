@@ -15,7 +15,11 @@ class ObservedReefApproach(unittest.TestCase):
     def test_two_independent_heads_and_known_false_survey(self):
         old = read("field-trials")
         machined = read("machined-field-trials")
+        guard = read("machined-guard-field-trials")
         self.assertEqual(len(machined), 12)
+        self.assertEqual(
+            [r["motionSHA256"] for r in guard], [r["motionSHA256"] for r in machined]
+        )
         for source, row in zip(old, machined):
             self.assertEqual(
                 (source["wheelCase"], source["mode"], source["motionSHA256"]),
@@ -40,6 +44,12 @@ class ObservedReefApproach(unittest.TestCase):
             self.assertTrue(all(r[-1] for r in state["roof"]["roof"]))
             for perturbation in ("roof-050", "roof-same"):
                 self.assertFalse(any(r[-1] for r in state["roof"][perturbation]))
+        yaw_fault = read(
+            "machined-roof-yaw-dropout-limited-quantized-cargo-nominal-active"
+        )
+        self.assertTrue(
+            all(r["firstFault"] == [5475, "missing-yaw-observation"] for r in yaw_fault)
+        )
         faults = read("machined-roof-050-quantized-cargo-nominal-active")
         self.assertTrue(
             all(r["firstFault"] == [5475, "missing-end-arc"] for r in faults)

@@ -65,3 +65,32 @@ def carried(robot, center, axis, radius=57.15, half=150.8125):
         frame[name] = np.where(tube < z, 170, robot[name]).astype(np.uint8)
         frame[name + "_z"] = np.minimum(z, tube)
     return frame
+
+
+def bound_machined_shelf(scene):
+    """Fill the whole machined shelf's two-millimeter deformation envelope."""
+    register = nav.read(HERE / "machined-bounds.json")["boxesMm"]
+    ids = [
+        "receiver-R6-drilled-for-camera",
+        "r6-receiver-insert",
+        *(f"observer-moving-pad-{i}" for i in range(3)),
+    ]
+    boxes = np.array([register[key] for key in ids])
+    low = boxes[:, :3].min(axis=0) - 2.0
+    high = boxes[:, 3:].max(axis=0) + 2.0
+    v, u = np.indices((480, 640), dtype=float)
+    up = (240.0 - v) / F
+    rays = [C + up * S, (320.0 - u) / F, -S + up * C]
+    for eye, key in zip(EYES, ("left", "right")):
+        start = np.full(v.shape, -np.inf)
+        end = np.full(v.shape, np.inf)
+        for i, (origin, ray) in enumerate(zip((-315.0, eye, 970.0), rays)):
+            with np.errstate(divide="ignore", invalid="ignore"):
+                a, b = (low[i] - origin) / ray, (high[i] - origin) / ray
+            start = np.maximum(start, np.minimum(a, b))
+            end = np.minimum(end, np.maximum(a, b))
+        z = scene[key + "_z"]
+        opaque = (start > 0) & (end >= start) & (start <= z)
+        scene[key] = np.where(opaque, 0, scene[key]).astype(np.uint8)
+        scene[key + "_z"] = np.where(opaque, start, z)
+    return [*low.tolist(), *high.tolist()]

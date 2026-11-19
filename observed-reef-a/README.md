@@ -12,7 +12,7 @@ The robot receives 35 ms captures after 15 ms and integrates shaft travel at 5 m
 
 At the A approach, accounting for 10 mm planar displacement and 1° heading error leaves at least 135.06 mm to the occupied reef ball. The bound uses the 991-body stowed register, two actual guide plates, the finite carried-pipe enclosure and 629 optional fixed-harness boxes. The student robot stays stowed throughout this approach. The common power calculation retains the two-camera host, rack hold and both grip controllers. It allows up to 8 A phase at each grip and 0.032 m/s surface speed throughout carry. [Native stock bounds](stock.json) · [Six-robot, installed stock and bus](field.json)
 
-All twelve signed sector wheel histories repeat byte for byte after substituting the 998-body machined receiver raster with its painted reference marks and fixed harness. The machined stock check reopens the 998 bodies plus both fabricated guides. The guide remains closest to the mounted ball. The native field raster represents the nominal stowed shelf surface. Flexure-induced changes in partial fastener visibility require an independent camera or deformation calibration. All results concern the stowed rack at A. [Machined field captures](machined-field-trials.json) · [Machined stock](machined-stock.json)
+All twelve signed sector wheel histories repeat byte for byte after substituting the 998-body machined receiver raster with its painted reference marks and fixed harness. The machined stock check reopens the 998 bodies plus both fabricated guides. The guide remains closest to the mounted ball. Filling the complete deformed shelf and pressure-pad bounding box with a dark opaque surface expanded by 2 mm in each direction also repeats all twelve histories. This tests field-landmark occlusion. The separate roof witness depends on the shelf surface behind the pipe. [Opaque shelf challenge](machined-guard-field-trials.json) All results concern the stowed rack at A. [Machined field captures](machined-field-trials.json) · [Machined stock](machined-stock.json)
 
 ## Can the mechanism keep this particular pipe?
 
@@ -23,7 +23,7 @@ A field localization permit and a pipe-custody permit come from separate cameras
 | Effective shelf, continuous trim, 125 and 62.5 µs | Both signed starts reach the sector at 48.162 s. Each has 1,244 accepted roof samples and at least 10.71 mm clearance to the guide. |
 | Machined shelf, two dampers and 13 retained modes, capped quantized belts | Each independent arrival preserves 1,244 roof witnesses to stowed rest at 48.162 s. Peak plate deflection bounds are 0.02421 and 0.02454 mm. The respective idler errors peak at 0.03313 and 0.03232 mm. [Joined cases, last pipe states and clock](outcomes.json) |
 | Machined station, nominal painted roof and fixed stereo | Both starts have five supported fixed-eye frames and six overlapping roof frames before the initial departure. The optical witness depends on contrast and registration. |
-| Conservative 0.05 mm displacement mask or a matched-brightness finish | Neither start has a qualified initial roof witness. The controller holds the rack stowed at the station. If granted the earlier nominal handoff and then challenged, it inhibits on the first delivered observation at Java 5,475 ms. |
+| Conservative 0.05 mm displacement mask or a matched-brightness finish | Neither start has a qualified initial roof witness. A position-only classification without a measured yaw interval also inhibits on the first serviced frame. The controller holds the rack stowed at the station. If granted the earlier nominal handoff and then challenged, it inhibits on the first delivered observation at Java 5,475 ms. |
 | Both belt surfaces jam | The independent idler following errors latch at wall 28.642 and 27.757 s. The chassis stops at 29.652 and 28.522 s, respectively. Center travel after the inhibit is 0.294 and 83.379 mm on the registered, finite wheel brake. |
 
 Each idler has 4,096 angle counts per 60 mm of belt travel. A 200 Hz pulse-position controller waits for a full count of accumulated error, limits the pulse to 6 mm/s, and latches a 0.25 mm following error. On the upper modeled rotor inertia the old 26.25 m/s² slew needs 13.921 A. Capping slew at 2.4 m/s² requires up to 4.625 A, within the modeled 8 A limit. This bound assumes up to 0.25 m/s of contact approach speed, 1.4 mm spring travel, 0.40 friction and 0.4 N extra drag. The raw trajectories provide 1 ms samples for comparison. The two timestep replays check repeatability at their stated resolutions. Contact patches, body survey and the plate mode basis do not undergo a three-level joint refinement here. Idler traction, breakaway torque, gearbox backlash, roof calibration, shelf/pipe properties and continuous speed under impact still need measurements. [Actuator envelope](effort.json) · [Jam and wheel brake](cargo-stops.json) · [Same-pipe settling after inhibit](jam-settle.json) · [Optical overlap](station-bridge.json)
@@ -39,6 +39,7 @@ export OPENBLAS_NUM_THREADS=1
 python observed-reef-a/station_bridge.py "$ARTIFACTS" elastic-carry "$FIELD_STEP"
 python observed-reef-a/trials.py "$ARTIFACTS"
 python observed-reef-a/trials.py "$ARTIFACTS" --machined
+python observed-reef-a/trials.py "$ARTIFACTS" --shelf-guard
 python observed-reef-a/native_bounds.py "$ARTIFACTS" "$LAMP_STEP"
 python observed-reef-a/native_bounds.py "$ARTIFACTS" "$LAMP_STEP" --machined
 python observed-reef-a/stock.py "$ARTIFACTS"
@@ -50,6 +51,7 @@ python observed-reef-a/retention.py "$ARTIFACTS" --quantized --stuck
 python observed-reef-a/retention.py "$ARTIFACTS" --quantized --limited
 python observed-reef-a/retention.py "$ARTIFACTS" --quantized --limited --elastic elastic-carry
 python observed-reef-a/retention.py "$ARTIFACTS" --quantized --elastic elastic-carry --head roof-050
+python observed-reef-a/retention.py "$ARTIFACTS" --quantized --limited --elastic elastic-carry --head roof-yaw-dropout
 python observed-reef-a/field_screen.py "$ARTIFACTS" --aborts
 python observed-reef-a/jam_hold.py "$ARTIFACTS"
 python observed-reef-a/effort.py "$ARTIFACTS"

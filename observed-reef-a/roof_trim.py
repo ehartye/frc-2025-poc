@@ -84,7 +84,11 @@ def serve(assets, elastic=None, head="roof"):
         sys.path.insert(0, str(elastic))
         from carry_images import camera_views
 
-        actual, reference = camera_views(assets, assets / "elastic-carry", head)
+        actual, reference = camera_views(
+            assets,
+            assets / "elastic-carry",
+            "roof" if head == "roof-yaw-dropout" else head,
+        )
     else:
         actual, reference = prepare(assets)
     previous = {}
@@ -94,7 +98,12 @@ def serve(assets, elastic=None, head="roof"):
         key = hashlib.sha256(b"".join(image.tobytes() for image in images)).hexdigest()
         if key not in previous:
             fit = roof.fit_row(images, reference, True, 0)
-            previous[key] = [fit, yaw_interval(images, reference), key]
+            angle = (
+                None if head == "roof-yaw-dropout" else yaw_interval(images, reference)
+            )
+            if fit[0] == "inside" and angle is None:
+                fit = ["missing-yaw-observation", *fit[1:]]
+            previous[key] = [fit, angle, key]
         print(json.dumps(previous[key]), flush=True)
 
 
