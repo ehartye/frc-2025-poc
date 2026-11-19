@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where does the robot's weight land?</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f6f1e6;color:#172a33;font:1.08rem/1.5 "Segoe UI",system-ui,sans-serif}main{max-width:61rem;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}h1{font:600 clamp(2.4rem,6vw,4.5rem)/1.02 Georgia,serif;letter-spacing:-.045em;max-width:12em;margin:.4em 0}header{border-bottom:2px solid;padding-bottom:1rem}section{padding:1.4rem 0}label{display:grid;grid-template-columns:1fr auto;align-items:center;margin:.4rem 0 1rem}input{grid-column:1/-1;width:100%;accent-color:#0d645e;min-height:32px}output{font-weight:700;font-variant-numeric:tabular-nums}figure{margin:0;padding:1.3rem clamp(.7rem,3vw,2rem);background:#193844;color:#fff;border-radius:5px}figcaption{font-weight:600}#axles{display:flex;align-items:flex-end;gap:1rem;height:12rem;margin:1rem 0}.axle{display:flex;flex:1;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}.bar{background:#8ae4ca;min-height:1px;display:block}.axle:nth-child(2) .bar{background:#ffd17a}.summary{font-size:1.22rem}a{color:#0a6056}button{font:inherit;color:inherit;background:white;border:1px solid #456061;border-radius:4px;padding:.4rem .75rem;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #ad5e00;outline-offset:2px}@media(min-width:48rem){.work{display:grid;grid-template-columns:1fr 1.25fr;gap:2rem}}@media(prefers-reduced-motion:no-preference){.bar{transition:height .1s}}
+</style>
+<main>
+<header><h1>Where does the robot’s weight land?</h1>
+<p>Three axles share the weight on each side. Move the center wheels up or change their stiffness to see whether the drive still meets its 75% end-axle design target.</p></header>
+<section class="work"><div>
+<label for="rate">Center stiffness relative to either end <output id="r" for="rate"></output>
+<input id="rate" type="range" min="40" max="140" step="1" value="100"></label>
+<label for="gap">Center-wheel gap <output id="g" for="gap"></output>
+<input id="gap" type="range" min="-2" max="2" step=".01" value="0"></label>
+<label for="compression">Reference compression <output id="d" for="compression"></output>
+<input id="compression" type="range" min=".25" max="3" step=".05" value="1"></label>
+<button type="button" id="reset">Restore equal wheels</button>
+</div><figure><figcaption>Vertical load carried by each axle</figcaption>
+<div id="axles" aria-hidden="true"><div class="axle"><span id="fl"></span><i id="fb" class="bar"></i>Front</div><div class="axle"><span id="cl"></span><i id="cb" class="bar"></i>Center</div><div class="axle"><span id="bl"></span><i id="bb" class="bar"></i>Rear</div></div>
+<div role="status" id="result" class="summary"></div></figure></section>
+<p>Positive gap means the center wheel sits higher. Reference compression is how far six equal wheels would settle at this load. The calculation uses level ground, equal end-wheel stiffness, a centered load and linear springs that can push against the carpet. A real robot in a turn can also transfer load from side to side.</p>
+<p>With 80% center stiffness, a 0.30 mm center gap and 1.00 mm reference compression, the end axles carry about 77%. The corrected station approach still passed at 77.5% in both tested battery cases. At 80% the 32 mΩ case reached its low-voltage inhibit. <a href="README.md">Read the signed drive results and assumptions</a>.</p>
+</main>
+<script>
+const byId=id=>document.getElementById(id);
+function draw(){
+  const ratio=Number(byId('rate').value)/100;
+  const gap=Number(byId('gap').value);
+  const compression=Number(byId('compression').value);
+  const middle=Math.max(0,Math.min(1,ratio*(1-2*gap/(3*compression))/(2+ratio)));
+  const ends=1-middle;
+  byId('r').value=(ratio*100).toFixed(0)+'%';
+  byId('g').value=gap.toFixed(2)+' mm';
+  byId('d').value=compression.toFixed(2)+' mm';
+  for(const [key,fraction] of [['f',ends/2],['c',middle],['b',ends/2]]){
+    byId(key+'l').textContent=(100*fraction).toFixed(1)+'%';
+    byId(key+'b').style.height=(fraction*70)+'%';
+  }
+  byId('result').textContent='End axles '+(100*ends).toFixed(1)+'%, center axle '+(100*middle).toFixed(1)+'%. '+(ends<=.75+1e-12?'Within the 75% end-load target.':'Above the 75% end-load target.');
+}
+document.querySelectorAll('input').forEach(input=>input.addEventListener('input',draw));
+byId('reset').addEventListener('click',()=>{byId('rate').value=100;byId('gap').value=0;byId('compression').value=1;draw()});
+draw();
+</script>
+</html>
