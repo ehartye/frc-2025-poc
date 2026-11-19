@@ -80,7 +80,7 @@ def run():
          ])+'<p>Threads are conventional major-diameter CAD envelopes. Cut taps to the drawing callouts. The camera screw has 3.5 mm nominal engagement. Verify delivered thread depth, bottom clearance, drive size and head dimensions before fitting the captors. Both camera and frame can be removed without loose screws.</p>')
     v=[rect(100,260,80,7),rect(620,260,80,7),rect(135,65,18,195),rect(650,65,18,195),rect(135,51,533,14),
        rect(340,65,103,7),rect(352,72,79,17),dim(144,295,659,295,"400 between post axes"),dim(75,64,75,260,"359.5 cut"),
-       txt(270,35,"Upper crossbar: 415 × 15 × 15"),txt(260,178,"Pupil: X48, Y0, Z842 at slide 0"),txt(260,201,"Baseline along Y · optical axis downward")]
+       txt(270,35,"Upper crossbar: 415 × 15 × 15"),txt(260,178,"Pupil midpoint: X48, Y0, Z842 at slide 0"),txt(260,201,"Baseline along Y · optical axis downward")]
     page("04 · Welded bridge and service",drawing_svg("Front elevation of the removable bridge",v,height=325)+
          table(("Stock and datum","Fabrication and acceptance"),[
          ("2 vertical posts","15 × 15 × 2 aluminum square tube, 359.5 long; outer X −5…+10. Center Y ±200. End square ≤0.05. Pair stock and machine/weld with pads on one fixture."),
