@@ -177,17 +177,20 @@ def short():
     error_mm = 1000*(endpoint+center_error+2*hull_radius*math.sin((initial_yaw+yaw_growth)/2))
     sway = cage["upper_height_mm"]*math.tan(math.radians(3))
     locked = cage["high_locked_robot"]
+    # Enlarge the historical native box up to the 42-inch starting height.
+    # A uniform vertical extrusion adds at most this amount to any 3-D distance.
+    added_height_mm = 42*25.4-locked["hull_mm"][5]
     return {"nominal":rollout(),"wheelTrackDelayCases":cases,"badPackets":faults,"sweptHullErrorMm":error_mm,
             "tapeLeaveMarginMm":native["tape_clearance_mm"]-error_mm,
             "cageMarginAt3DegMm":cage["cases"]["near-tape"]["upright_gap_mm"]-error_mm-sway,
-            "staticHardwareMarginMm":native["static_field_lower_bound_mm"]-error_mm,
+            "staticHardwareMarginMm":native["static_field_lower_bound_mm"]-error_mm-added_height_mm,
             "planningExclusionMarginMm":1000*native["planning_field"]["gap_m"]-error_mm,
-            "stockMarginMm":min(r["lower_bound_mm"] for r in locked["stock_bounds"].values())-error_mm,
+            "stockMarginMm":min(r["lower_bound_mm"] for r in locked["stock_bounds"].values())-error_mm-added_height_mm,
             "autoPeerMarginMm":1000*min(native["auto_focal_to_each_peer_m"].values())-error_mm,
             "parkEndpointPeerMarginMm":1000*native["teleop_pair_bound_m"]-error_mm,
             "maximumPostInhibitTravelMm":max(q["postInhibitTravelM"] for q in faults.values())*1000,
             "maxPossibleTravelAfterFreshnessLossMm":1000*(MAX_SPEED*(MAX_AGE+.010)+MAX_SPEED**2/(2*ACCEL))*1.002,
-            "terminalXErrorMm":endpoint*1000,"stockCount":locked["stock_count"]}
+            "terminalXErrorMm":endpoint*1000,"stockCount":locked["stock_count"],"upperHeightAllowanceMm":added_height_mm}
 
 
 if __name__=="__main__":

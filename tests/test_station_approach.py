@@ -36,6 +36,9 @@ class StationApproachTests(unittest.TestCase):
         results=json.loads(path.read_bytes())
         field=json.loads((DIRECTORY/"field.json").read_bytes())
         self.assertEqual(field["sourceResultsSha256"],hashlib.sha256(path.read_bytes()).hexdigest())
+        shop=ROOT/"selected-match/corrected-clearance.json"
+        self.assertEqual(field["shopStowedSourceSha256"],hashlib.sha256(shop.read_bytes()).hexdigest())
+        self.assertAlmostEqual(results["short"]["upperHeightAllowanceMm"],7.8,places=6)
         for key,expected in results["sources"].items():
             self.assertEqual(hashlib.sha256((ROOT/key).read_bytes()).hexdigest(),expected,key)
         for key in ("nominal","radius","track"):

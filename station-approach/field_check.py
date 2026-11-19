@@ -25,6 +25,10 @@ def check(artifacts,field):
     toe_bounds=list(cad.bounds(toe))
     if max(abs(a-b) for a,b in zip(toe_bounds,[-3.175,-1012.825,0,9.525,1012.825,304.8])) > .001:
         raise ValueError("Unexpected station toe geometry")
+    shop_source=ROOT/"selected-match/corrected-clearance.json"
+    shop=json.loads(shop_source.read_bytes())
+    if not shop["containedAtStow"] or shop["stowedHullMm"]!=[-425,-425,0,425,425,1059]:
+        raise ValueError("Selected shop configuration exceeds the field-analysis envelope")
     f=corrected()
     shapes,_=read_shop(artifacts)
     covers={k:v for k,v in shapes.items() if k.startswith("bumper-cover-")}
@@ -57,7 +61,10 @@ def check(artifacts,field):
             lower = gap-half_step*traffic.motion_bound(wheels)-acceleration*half_step**2
             lowest=min(lower,lowest)
         distances[key]=1000*lowest-study["sweptHullErrorMm"]
-    return {"fieldStepSha256":FIRST_SHA,"toeNativeBoundsMm":toe_bounds,"shopStepSha256":SHOP_STEP,"twoCoverIds":sorted(covers),
+    return {"shopStowedSourceSha256":hashlib.sha256(shop_source.read_bytes()).hexdigest(),
+            "shopStowedBodyCount":shop["nativeAndRotationalBodies"],
+            "shopAdditionalEnvelopeCount":shop["additionalEnvelopeCount"],"shopStowedExtrema":shop["stowedExtrema"],
+            "fieldStepSha256":FIRST_SHA,"toeNativeBoundsMm":toe_bounds,"shopStepSha256":SHOP_STEP,"twoCoverIds":sorted(covers),
             "startErodedTapeCommonMm3":robust_start,"parkErodedZoneCommonMm3":robust_end,
             "fullCorridorTeleopPeerGapMm":distances,
             "rule":"source-scheduled peers with Red 1 assigned middle; includes every partial stop",
