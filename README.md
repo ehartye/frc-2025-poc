@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Drive the final approach to the reef](sector-alignment/replay.html). Try a 35 mm starting error, a missing camera frame or a shifted field survey. The [docking and stowed-park evidence](sector-alignment/README.md) follows the aft-camera robot onto the match clock.
+
 [Replay the 593-body fixed-low match](integrated-match/replay.html). Follow two identified pipes on one controller clock, inject a late camera frame, or park after the first delivery. The [engineering record](integrated-match/README.md) explains the nine-, five- and seven-point modeled outcomes.
 
 Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.html) or [red robot](design/competition-package/shop-duplex/red/robot.html) in 3D. Select a carriage pose or isolate a part to follow the pipe from station to trough. The [engineering record](design/competition-package/shop-duplex/README.md) includes the fastened chassis and duplex lift, full STEP files, normal travel, weight bounds and open docking and arrest limits.
