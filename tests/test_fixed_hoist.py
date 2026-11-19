@@ -56,3 +56,14 @@ class FixedHoistTests(unittest.TestCase):
         self.assertGreater(combined["cases"]["densityMatchedRemovalKg"]["exampleFaceOnlyUpperMarginKg"],.27)
         self.assertLess(combined["cases"]["noCutCreditKg"]["exampleFaceOnlyUpperMarginKg"],-.64)
         self.assertIsNone(combined["physicalInspectionMarginKg"])
+
+    def test_signed_impact_exposes_existing_carriage_lock(self):
+        transfer=read("lock-transfer.json")
+        self.assertAlmostEqual(transfer["lockSpacingM"],.445)
+        for case in transfer["cases"].values():
+            self.assertEqual(case["sampleCount"],4801)
+            self.assertGreater(case["singleSidePeakPinBendingMPa"],840.)
+            heavy=max(row["nominalPinBendingMPa"] for row in case["bilateralVerticalCouple"].values())
+            self.assertGreater(heavy,430.)
+            self.assertGreater(case["totalForeAftCoupleAtFullShoeHeightN"],8200.)
+        self.assertIsNone(transfer["actualContactShare"])

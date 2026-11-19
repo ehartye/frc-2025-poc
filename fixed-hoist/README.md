@@ -16,6 +16,8 @@ With the carriage on its qualified supports and the primary drums, lines, spacer
 
 The design assigns the shaft and drums a parked role. A hypothetical 2 kg axially moving assembly at 6 g sends 118 N to one stop. Charging that force to one 3 mm screw section gives 16.6 MPa nominal single-plane shear. Charging one aluminum cheek gives 15.5 MPa nominal bearing. The 32 mm primary drum overhang gives 47.7 MPa nominal shaft bending at 300 N of radial line load and 143.2 MPa at 900 N. These sensitivities omit fatigue, loose-hardware impacts, cross-hole stress concentration and actual rope preload. Select the real screw grade, locking hardware, shaft stock, arm fastening and fits, then measure residual line tension and test in a captive fixture. The earlier single-side permanent lock reached 503 MPa at the separate 10 g comparison. Prove the actual load split and the complete locks under the coupled shelf impact before using the scoring role. [Load calculation](loads.json) · [Lock reactions](../fixed-lift-omission/mechanics.json)
 
+The two signed shelf impacts also load the permanent lock pins. Transforming the original stowed reactions from the mast feet to the pin plane, 422.5 mm above the floor, gives 481–485 N·m peak pitch. With a centered 140 N gravity allowance and the pair of vertical lock reactions carrying roll, the heavier pin reaches 437 and 441 MPa nominal bending in the two arrivals. A single pin assigned the entire vertical load reaches 851 MPa. If the shoes alone close the pitch couple through their full 58 mm height, they need 8.30–8.35 kN total opposing fore/aft force. These are separate load-sharing exercises using the original 18 mm pin lever and the two primary shelf impact histories. Actual pin loads depend on seating, clearance, crossbar stiffness, the shoe contacts, line preload and material. The current geometrical fit and mass margin leave this structural gate open. [Signed lock calculation](lock-transfer.json)
+
 ## Joined inspection bill
 
 The retired components and shaft trim account for 884.01 g in the original modeled bill. The eight new parts have a 33.8–58.0 g receiving window. Require each dressed pair to meet its window on a scale. The inspector's physical mass margin remains unknown. The accounting keeps the original loose hardware and termination allowances, credits zero motor mass, and takes no credit for drilling the shaft.
@@ -37,6 +39,7 @@ Use the registered fixed-camera scene, the installed Agent FRC accounting checke
 ```sh
 python fixed-hoist/fit.py "$ARTIFACTS/fixed-camera-route/scene.json"
 python fixed-hoist/loads.py
+python fixed-hoist/lock_transfer.py "$ARTIFACTS/shelf-structure/coupled" "$ARTIFACTS/fixed-camera-route/scene.json"
 python fixed-hoist/draw.py
 python fixed-hoist/mast_fit.py mast-attachment
 python fixed-hoist/account.py "$PLUGIN" "$ARTIFACTS/ribbed-deck/maps/restrictedNoMotorCreditKg/selected.json" "$ARTIFACTS/fixed-hoist/map"
