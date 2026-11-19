@@ -49,3 +49,5 @@ python -B cradle-receiver/engineering.py
 python -B cradle-receiver/figure.py
 python -B -m unittest discover -s tests -p test_cradle_receiver.py
 ```
+
+The [end-grip length study](../end-grip-length/README.md) compares a fixed-center cassette and indexed jaw stops on the low receiver.
