@@ -14,6 +14,8 @@
 
 [Check the fixed-guide robot's inspection weight](winchless-bill/README.md). Trace the original winch bill, retained support material and fasteners to the selected prebuild estimate.
 
+[Explore six-wheel load sharing](wheel-loads/README.md). See how center-wheel stiffness, mass placement and battery condition change the simulated station approach.
+
 [How much weight can the deck give back?](ribbed-deck/README.md) Explore the underside ribs, the battery load path and the measured limits a finished panel has to meet.
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
