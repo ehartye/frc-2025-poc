@@ -1,0 +1,98 @@
+{
+  "schema": "agent-frc/replay-chapters@1",
+  "revision": "R4 \u00b7 fixed-height swerve \u00b7 red alliance",
+  "media": {
+    "file": "experiments/swerve-drive/score-stroke/receiver-motion.webm",
+    "sha256": "24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414"
+  },
+  "trace": {
+    "file": "experiments/swerve-drive/score-stroke/receiver-chapter-states.json",
+    "sha256": "7250d3a29f9f9cdafdb7ce59c8a46fc57f89187d6a2fa6b8fd97068f3f96904b"
+  },
+  "observations": {
+    "file": "experiments/swerve-drive/score-stroke/receiver-chapter-events.json",
+    "sha256": "d07da65d95ae9db7d129b94816a4f47d2ab3d61710c5d2f60e51d6392906fa44"
+  },
+  "chapters": [
+    {
+      "id": "station",
+      "label": "Station pickup",
+      "start": "/rows/0",
+      "end": "/rows/1",
+      "sync": [
+        {
+          "clipS": 0.0,
+          "runS": 0.1000312
+        },
+        {
+          "clipS": 2.6799844,
+          "runS": 5.46
+        }
+      ],
+      "events": [
+        {
+          "id": "station-0",
+          "type": "seat",
+          "pointer": "/events/0",
+          "timeS": 1.34,
+          "outcome": "reached"
+        }
+      ]
+    },
+    {
+      "id": "extend",
+      "label": "Extend at the supplied dock",
+      "start": "/rows/2",
+      "end": "/rows/3",
+      "sync": [
+        {
+          "clipS": 3.35,
+          "runS": 0.0
+        },
+        {
+          "clipS": 6.351,
+          "runS": 3.001
+        }
+      ],
+      "events": [],
+      "join": {
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "release",
+      "label": "Release into the trough",
+      "start": "/rows/4",
+      "end": "/rows/5",
+      "sync": [
+        {
+          "clipS": 7.0,
+          "runS": 0.0
+        },
+        {
+          "clipS": 10.0,
+          "runS": 3.0
+        }
+      ],
+      "events": [
+        {
+          "id": "release-1",
+          "type": "support",
+          "pointer": "/events/1",
+          "timeS": 2.6974,
+          "outcome": "reached"
+        },
+        {
+          "id": "release-2",
+          "type": "tally",
+          "pointer": "/events/2",
+          "timeS": 3.0,
+          "outcome": "unresolved"
+        }
+      ],
+      "join": {
+        "kind": "fixture"
+      }
+    }
+  ]
+}

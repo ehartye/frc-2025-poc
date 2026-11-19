@@ -127,6 +127,30 @@
       "label": "Loaded wheel paths and observed stops",
       "revision": "Attained pipe custody on the moving receiver",
       "url": "https://github.com/ehartye/frc-2025-poc/blob/1b408dbbbb2d6e85ff73304d5fcff630fca43ce4/experiments/swerve-drive/transit/README.md"
+    },
+    {
+      "id": "receiver-film-register",
+      "label": "Receiver film chapter boundaries",
+      "revision": "Continuous-land receiver film, three independent starting states",
+      "file": "experiments/swerve-drive/score-stroke/receiver-chapters.json",
+      "sha256": "5d4be5ebc8d23034d16038e88b216c7530db05d3748a74a462d2065268da9310",
+      "shareable": true
+    },
+    {
+      "id": "receiver-film-trace",
+      "label": "Receiver film source positions",
+      "revision": "Continuous-land receiver film, three independent starting states",
+      "file": "experiments/swerve-drive/score-stroke/receiver-chapter-states.json",
+      "sha256": "7250d3a29f9f9cdafdb7ce59c8a46fc57f89187d6a2fa6b8fd97068f3f96904b",
+      "shareable": true
+    },
+    {
+      "id": "receiver-film-observations",
+      "label": "Station seat, field support and match tally",
+      "revision": "Continuous-land receiver film, three independent starting states",
+      "file": "experiments/swerve-drive/score-stroke/receiver-chapter-events.json",
+      "sha256": "d07da65d95ae9db7d129b94816a4f47d2ab3d61710c5d2f60e51d6392906fa44",
+      "shareable": true
     }
   ],
   "results": [
@@ -208,7 +232,12 @@
       "poster": "receiver-poster",
       "source": "conditional-landing",
       "description": "Three-dimensional cutaways show a station feed seating the hollow pipe, the sliding receiver extending, and the released pipe settling in a red trough.",
-      "caption": "The station pickup plays at 2x. At the separate scoring dock, the 370 mm extension and the trough landing play in real time. A cut at the rim identifies the assumed belt exit speed."
+      "caption": "The station pickup plays at 2x. At the separate scoring dock, the 370 mm extension and the trough landing play in real time. A cut at the rim identifies the assumed belt exit speed.",
+      "chapters": {
+        "register": "receiver-film-register",
+        "trace": "receiver-film-trace",
+        "observations": "receiver-film-observations"
+      }
     },
     {
       "asset": "fallback-film",
