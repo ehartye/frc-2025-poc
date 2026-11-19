@@ -2,7 +2,7 @@
 
 The intact USB-C overmolds, removable guides and fixed 5 V branch fit below **Z1043.873 mm** on the registered shop robot. This leaves **15.127 mm** inside the 1,059 mm stowed height used by the field studies. The previous straight power-tail trial reached Z1064.735 mm. The fixed and moving OAK-D Lite heads retain their issued poses and independent identities. The fabricated loom and both streams still need receiving and robot tests. [Native body and extraction check](fit.json) · [Installed extents and mounting seats](installation.json) · [Predecessor mounts](../selected-optics/README.md)
 
-![Front and side views show the two cable paths, the fixed camera's curved power exit, and the rotated host board beside the converter panel.](routing.png)
+![Front and side views show the two cable paths, the fixed camera's curved power exit, and the rotated host board beside the converter panel.](routing.svg)
 
 ## Install the stationary leads
 

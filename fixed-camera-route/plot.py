@@ -101,7 +101,13 @@ def draw():
         for k in ("data", "power", "roof-host")
     ]
     fig.legend(handles=handles, loc="outside lower center", ncol=3, frameon=False)
-    fig.savefig(ROOT / "routing.png", dpi=155, metadata={"Software": "Matplotlib"})
+    plt.rcParams.update({"svg.fonttype": "none", "svg.hashsalt": "fixed-camera-route-2025"})
+    fig.savefig(ROOT / "routing.svg", metadata={"Creator": "Matplotlib", "Date": None})
+    output = ROOT / "routing.svg"
+    lines = output.read_text(encoding="utf8").splitlines()
+    output.write_text(
+        "\n".join(line.rstrip() for line in lines) + "\n", encoding="utf8", newline="\n"
+    )
     plt.close(fig)
 
 
