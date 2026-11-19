@@ -4,6 +4,8 @@
 
 **The issued observer authorizes zero L1 deliveries.** It corroborates the stationary seats, while uninterrupted carried identity remains unresolved. At both placements its image, scheduler and 50 ms wait miss the reviewed withdrawal window on all 17 phases. Holding the slide instead recontacts each pipe 566.4 ms after first trough contact, at TELEOP 30.850 and 80.940 s. The reserve-lane run below is the opportunity if a qualified observer and actuator can deliver the modeled retreat. The conservative replay holds at the station after its first intake and retains only the conditional AUTO LEAVE.
 
+The zero-dwell sensitivity meets its timing test in 11 of 17 phases for the first pipe and 12 of 17 for the second. This qualifies selected simulated withdrawal timings. The independent optics still lack a continuous identified track from station through carry and extension, and require physical calibration. The inherited timing window is a screening criterion. [Source-bound observer decisions](observer.json)
+
 | Six-robot scenario | Result on one clock | Conditional points |
 |---|---|---:|
 | Issued interlock holds at station | The focal robot retains its AUTO endpoint and withholds carrying, placement and parking. | 3 |
@@ -47,6 +49,7 @@ Reproduce from the project root with its Python CAD libraries and installed Agen
 ```powershell
 python fixed-height-match/placements.py
 python fixed-height-match/native_field.py
+python fixed-height-match/observer_gate.py low-observation
 python fixed-height-match/rehearse.py
 python fixed-height-match/viewer.py
 python fixed-height-match/park_event.py "$env:AGENT_FRC_PLUGIN_ROOT" artifacts/low-match/park

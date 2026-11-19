@@ -132,7 +132,8 @@ def audit(sources, **options):
     clear=minimum[0]>0 and others_to_pipe>0 and all(r["minimumStaticM"]>0 and min(r["stockBoundsMm"].values())>0 for r in field)
     all_l1=all(p["l1CriteriaAtInstant"]=="yes" for r in editions.values() for p in r)
     raw=3*leave+2*len(delivered)*all_l1+2*parked
-    return {"completeProgramClear":clear,"observerAuthorizedL1Count":0,
+    gates=read(HERE/"observer.json")["pieces"]
+    return {"completeProgramClear":clear,"observerAuthorizedL1Count":sum(gates[s["id"]]["matchAuthorized"] for s in delivered),
             "sixRobotPaths":{k:[x[2] for x in p.intervals if x[3]] for k,p in team.items()},
             "autoTimeS":auto.duration,"finishTeleopS":focal.clock,"finiteIds":[s["id"] for s in delivered],
             "conditionalPoints":raw if clear and focal.clock<=135 else None,"pairBound":minimum,"firstOverlap":first,

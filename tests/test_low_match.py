@@ -27,6 +27,9 @@ class LowMatchTest(unittest.TestCase):
         self.assertFalse(cases["returnInstead"]["park"])
 
     def test_two_distinct_pieces_through_assessment(self):
+        gates = json.loads((STUDY / "observer.json").read_bytes())["pieces"]
+        self.assertEqual([gates[k]["immediateTimingOnlyPhases"] for k in ("coral-A", "coral-B")], [11, 12])
+        self.assertTrue(all(p["issuedTimelyPhases"] == 0 and not p["matchAuthorized"] for p in gates.values()))
         placements = json.loads((STUDY / "placements.json").read_bytes())["placements"]
         for i, piece in enumerate(placements):
             self.assertEqual(len(piece["stockedPipeBounds"]), 24+i)
