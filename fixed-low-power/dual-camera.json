@@ -1,0 +1,219 @@
+{
+  "sourceSha256": {
+    "fixed-low-power/power.py": "b3bac05af74b0f5431ab1e7da4f570f4369da335e84c369755b37dc7d6d1b37d",
+    "fixed-low-power/retreat.py": "b74895b138b872a9c0fbe3db9edd5b9f87b1e238bf5de91277543a4aca785456",
+    "design/electrical-inspection/circuits.json": "b80b0645be4aa34d39c91f4d98b59e7b2c6bec490a8f3786f398b76495e3b703",
+    "design/electrical-inspection/replay.py": "03d0ea98644415760db2fa362b48bbba6a8f7c2add32e53bbe780ff7ce07857b",
+    "design/receiver-drives/sizing.json": "1d04d09bd4b3e267072be139317c9f4dcdb3094566f89b70e8204679b7c58ab8",
+    "slide-feedback/no-air.json": "2e2400d71498e05b7720d5bb93dadc549960b78e21d8db3e0c271091be440192",
+    "design/fixed-no-air/whole-robot.json": "8d7c1d153591966b59ff6ef8f1404057f737b809f2b7cd0db551fd8c6957b15a",
+    "fixed-height-match/placements.json": "65d1be7fd38161f6815814486cacac226eec92c0f9bd0835eb2e8a4736dae108",
+    "slide-feedback/results.json": "d09b21189775cd4eea95d291419604a9331337e46646f139263dc4df8ba24131",
+    "slide-feedback/phases.csv": "56503e91cd2559c1a1d9400def7214bb97f632e508f0e96e7fb6667c49ee17dc",
+    "low-observation/results.json": "de59084725ce1c6478a22919327cdde9e2af8aa8011f4cdeb9d298c010a8b648"
+  },
+  "gripSha256": "ebd477b21781b4ab3be912947792c65d11b2491a62f37b1a3da0969b8d3c2959",
+  "integratedHal": {
+    "commandWallMs": {
+      "coral-A": 48295,
+      "coral-B": 98390
+    },
+    "stowWallMs": {
+      "coral-A": 50765,
+      "coral-B": 100860
+    },
+    "eventsSha256": "c225b4ade4fdfaea9eb5fae6ffbc76af067838f9ec28284a09e45a9ea2ef49b6",
+    "motionSha256": "62c69e83995e02563d2bd39f554fd1906665a121e140901dcd35d1980f9558e0",
+    "peakSlideInputW": 32.36102,
+    "recordedMillisPerWithdrawal": 3001
+  },
+  "integratedScreenedPack": {
+    "openCircuitV": 11.8,
+    "commonOhm": 0.027,
+    "assumedEfficiency": 0.85,
+    "ticks": 7800,
+    "peakA": 62.75297,
+    "weakestV": 9.57702,
+    "weakestAt": [
+      90.38,
+      "DriveRight"
+    ],
+    "belowFloorS": 0.0,
+    "minMotorHeadroomV": 2.83502,
+    "converters": {
+      "Host": {
+        "minInputV": 10.01776,
+        "peakInputA": 1.95793
+      },
+      "FixedCamera": {
+        "minInputV": 10.06712,
+        "peakInputA": 0.73063
+      },
+      "MovingCamera": {
+        "minInputV": 10.06136,
+        "peakInputA": 0.73104
+      }
+    },
+    "minimumSlideTerminalInsideNominalPullsV": 11.4619
+  },
+  "rackWindows": [
+    {
+      "piece": "coral-A",
+      "startWallS": 48.281312721507945,
+      "endWallS": 50.77131272150794,
+      "phaseA": 9.55299049704751,
+      "motorV": 2.7192147108615226
+    },
+    {
+      "piece": "coral-B",
+      "startWallS": 98.37066979203857,
+      "endWallS": 100.86066979203856,
+      "phaseA": 9.55299049704751,
+      "motorV": 2.7192147108615226
+    }
+  ],
+  "inlets": {
+    "Host": {
+      "loopOhm": 0.03159,
+      "conditionalMinV": 5.01893,
+      "conditionalMaxV": 5.21,
+      "loadA": 3.2
+    },
+    "FixedCamera": {
+      "loopOhm": 0.07805,
+      "conditionalMinV": 5.02634,
+      "conditionalMaxV": 5.21,
+      "loadA": 1.2
+    },
+    "MovingCamera": {
+      "loopOhm": 0.08607,
+      "conditionalMinV": 5.01671,
+      "conditionalMaxV": 5.21,
+      "loadA": 1.2
+    }
+  },
+  "extra50mOhmMovingLoop": {
+    "loopOhm": 0.13607,
+    "conditionalMinV": 4.95671,
+    "conditionalMaxV": 5.21,
+    "loadA": 1.2
+  },
+  "cases": {
+    "nominal": {
+      "openCircuitV": 12.4,
+      "commonOhm": 0.025,
+      "assumedEfficiency": 0.85,
+      "ticks": 7800,
+      "peakA": 57.39494,
+      "weakestV": 10.48212,
+      "weakestAt": [
+        90.38,
+        "DriveRight"
+      ],
+      "belowFloorS": 0.0,
+      "minMotorHeadroomV": 3.54538,
+      "converters": {
+        "Host": {
+          "minInputV": 10.88421,
+          "peakInputA": 1.80207
+        },
+        "FixedCamera": {
+          "minInputV": 10.92962,
+          "peakInputA": 0.67297
+        },
+        "MovingCamera": {
+          "minInputV": 10.92432,
+          "peakInputA": 0.6733
+        }
+      },
+      "minimumSlideTerminalInsideNominalPullsV": 11.99514
+    },
+    "screened": {
+      "openCircuitV": 11.8,
+      "commonOhm": 0.027,
+      "assumedEfficiency": 0.85,
+      "ticks": 7800,
+      "peakA": 62.75297,
+      "weakestV": 9.57702,
+      "weakestAt": [
+        90.38,
+        "DriveRight"
+      ],
+      "belowFloorS": 0.0,
+      "minMotorHeadroomV": 2.83502,
+      "converters": {
+        "Host": {
+          "minInputV": 10.01776,
+          "peakInputA": 1.95793
+        },
+        "FixedCamera": {
+          "minInputV": 10.06712,
+          "peakInputA": 0.73063
+        },
+        "MovingCamera": {
+          "minInputV": 10.06136,
+          "peakInputA": 0.73104
+        }
+      },
+      "minimumSlideTerminalInsideNominalPullsV": 11.34717
+    },
+    "weak": {
+      "openCircuitV": 11.8,
+      "commonOhm": 0.032,
+      "assumedEfficiency": 0.85,
+      "ticks": 7800,
+      "peakA": 65.68004,
+      "weakestV": 9.14459,
+      "weakestAt": [
+        90.38,
+        "DriveRight"
+      ],
+      "belowFloorS": 2.82,
+      "minMotorHeadroomV": 2.61512,
+      "converters": {
+        "Host": {
+          "minInputV": 9.60656,
+          "peakInputA": 2.04174
+        },
+        "FixedCamera": {
+          "minInputV": 9.65806,
+          "peakInputA": 0.76157
+        },
+        "MovingCamera": {
+          "minInputV": 9.65205,
+          "peakInputA": 0.76204
+        }
+      },
+      "minimumSlideTerminalInsideNominalPullsV": 11.28172
+    },
+    "conversionLoss": {
+      "openCircuitV": 11.8,
+      "commonOhm": 0.027,
+      "assumedEfficiency": 0.75,
+      "ticks": 7800,
+      "peakA": 63.31777,
+      "weakestV": 9.56087,
+      "weakestAt": [
+        90.38,
+        "DriveRight"
+      ],
+      "belowFloorS": 0.0,
+      "minMotorHeadroomV": 2.82261,
+      "converters": {
+        "Host": {
+          "minInputV": 9.99052,
+          "peakInputA": 2.22504
+        },
+        "FixedCamera": {
+          "minInputV": 10.04665,
+          "peakInputA": 0.82973
+        },
+        "MovingCamera": {
+          "minInputV": 10.0401,
+          "peakInputA": 0.83027
+        }
+      },
+      "minimumSlideTerminalInsideNominalPullsV": 11.3358
+    }
+  }
+}
