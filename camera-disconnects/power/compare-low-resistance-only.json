@@ -1,0 +1,38 @@
+{
+  "schema": "frc-power-comparison/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "window": {
+    "fromS": 0,
+    "toS": 0.02
+  },
+  "maxSampleIntervalS": 0.02,
+  "requiredLoads": [
+    "camera"
+  ],
+  "locations": [
+    {
+      "id": "camera-input",
+      "minV": 5.0
+    }
+  ],
+  "trials": [
+    {
+      "id": "low-resistance-only",
+      "condition": "Screw-terminal band 5.13 to 5.20 V with total interface resistance bounded by 38 mOhm",
+      "trace": {
+        "file": "low-resistance-only.json",
+        "sha256": "0082a635e067ce2e8d5d37e1edbb703b6c4a2d4e668fad9165d87e8f54e2b11a"
+      }
+    },
+    {
+      "id": "selected-screen",
+      "condition": "Screw-terminal band 5.16 to 5.20 V with total interface resistance bounded by 50 mOhm",
+      "trace": {
+        "file": "selected-screen.json",
+        "sha256": "22a04da15ffa22d41ef4bc12f2bed797c20e63f1aa8be58ea29c9d93fe26d347"
+      }
+    }
+  ]
+}

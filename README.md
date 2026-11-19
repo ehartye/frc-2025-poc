@@ -30,7 +30,7 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Inspect the fixed-height robot without match pneumatics](design/fixed-no-air/README.md), the combined two-camera weight and [the removable carriage support in 3D](design/fixed-no-air/service.html).
 
-[Inspect the moving-shelf stereo bridge](moving-observer/README.md) to see both pipes through transport and extension. [Explore camera delivery deadlines](moving-frame-timing/README.md) for the 5 ms and 20 ms desktop controllers. [Compare the original and aft bridge against the occupied reef ball](bridge-tolerance/README.md). [Build and survey its removable camera support](camera-datum-shop/README.md).
+[Inspect the moving-shelf stereo bridge](moving-observer/README.md) to see both pipes through transport and extension. [Explore camera delivery deadlines](moving-frame-timing/README.md) for the 5 ms and 20 ms desktop controllers. [Compare the original and aft bridge against the occupied reef ball](bridge-tolerance/README.md). [Build and survey its removable camera support](camera-datum-shop/README.md). [Inspect its two removable power and data leads](camera-disconnects/README.md).
 
 ## Design highlights
 
