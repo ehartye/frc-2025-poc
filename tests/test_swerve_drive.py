@@ -92,6 +92,32 @@ class SwerveDrive(unittest.TestCase):
         self.assertGreater(cases["late"]["renderedDetections"], 0)
         self.assertEqual(cases["late"]["acceptedCameraFrames"], 0)
 
+    def test_raw_and_normalized_fixtures_match_the_sensor_export(self):
+        import hashlib
+        import json
+        import subprocess
+        import tempfile
+
+        folder = root / "experiments/swerve-drive/motion"
+        reviewed = json.loads((folder / "raw-review.json").read_bytes())["cases"]
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / "sensor.json"
+            for fixture, options, case in (
+                ("encoders.json", [], None),
+                ("raw-encoders.json", ["--raw"], "registered"),
+                (None, ["--raw", "--wrong-polarity"], "invertedFrontRightDrive"),
+            ):
+                with self.subTest(case=case):
+                    subprocess.run(
+                        [sys.executable, str(folder / "check_module_map.py"), str(output), *options],
+                        check=True,
+                    )
+                    generated = output.read_bytes()
+                    if fixture:
+                        self.assertEqual(generated, (folder / fixture).read_bytes())
+                    if case:
+                        self.assertEqual(hashlib.sha256(generated).hexdigest(), reviewed[case]["fixtureSha256"])
+
     def test_current_encoder_fixture_matches_module_origins(self):
         import json
 
