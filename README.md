@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[How much weight can the deck give back?](ribbed-deck/README.md) Explore the underside ribs, the battery load path and the measured limits a finished panel has to meet.
+
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
 
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.
