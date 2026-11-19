@@ -6,6 +6,22 @@
 **Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
+## Signed motor and transmission replay
+
+The current opening controller uses the [reciprocal motor and four-corner energy replay](energy.json). At 65 kg it reached the station at 20.285 and 20.330 s for the two signed tire and gyro variations. At 72 kg it reached at 20.180 and 20.245 s. Missing or late observations, a stalled steer axis and a misaligned start each withheld the feed. The closest represented field barrier in the four reached cases was 7.93 mm away. All eight paths used the original stock, other five robot reservations, stowed receiver loads and 21.10 s feed-slot deadline.
+
+Both motor types use one SI constant for back EMF and torque, winding resistance from the catalog stall current, and viscous drag fitted at free speed. This predicts 2.083 N·m drive and 1.027 N·m steer stall torque versus catalog 2.60 and 0.97 N·m. The curves between these points, gearbox efficiencies, phase limits and tread support are prebuild assumptions. A backdriven gearbox now dissipates energy when the wheel powers the motor. Drive-to-azimuth reaction uses the same signed coupling as rotor speed. The earlier 0.2 N·m, 100 rad/s drive example had an unexplained 3.973 W surplus. The corrected run accounts for shaft work, winding heat and drag at each of eight motor ports every millisecond. Across the four signed openings the minimum protected drive or steer voltage was 11.28 V on the 11.8 V, 32 mΩ pack. The supply screen charges the magnitude of braking electrical power and takes no regeneration credit. The drive simulation uses its fixed 9.5 V authority level.
+
+The historical student film and custody study below use the original motor revision. The new 65 kg positive terminal moved 0.0165 mm in station-normal position. Each new pickup must consume its own signed wheel trace and actual pipe trajectory before it can support loaded departure or a scoring decision. To reproduce the corrected register, run from this directory:
+
+```powershell
+foreach ($case in 'plus','minus','heavy','upper-minus','blind','late','jam','misaligned') {
+    python opening.py $artifacts "$raw/reciprocal" --case $case
+}
+python opening.py $artifacts "$raw/historical" --case plus --model historical
+python energy_review.py $raw $pluginRoot $outputJson
+```
+
 [Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.285 and 20.330 s. A 72 kg test with higher yaw inertia also reached the station on both signed calibration cases.
 
 | Case | Station confirmation | Achieved normal / lateral / yaw at 21.10 s | Minimum barrier / stock / peer clearance |
@@ -72,7 +88,7 @@ Run these commands from this study directory. The registered camera artifacts ar
 
 ```powershell
 $cases = 'plus','minus','heavy','upper-minus','blind','late','jam','misaligned'
-foreach ($case in $cases) { python opening.py $artifacts $rawOutput --case $case }
+foreach ($case in $cases) { python opening.py $artifacts $rawOutput --case $case --model historical }
 python publish.py $rawOutput --out $reviewOutput
 python check_module_map.py $normalizedInput
 node "$env:AGENT_FRC_PLUGIN_ROOT/examples/swerve/check-encoders.mjs" $normalizedInput

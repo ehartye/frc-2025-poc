@@ -12,6 +12,7 @@ from pathlib import Path
 import numpy as np
 
 from kinematics import ORDER, EncoderMap, body_to_field, field_to_body, wrapped
+from actual_supply import supply_review
 from plant import Plant, Odometry, SETTINGS
 
 HERE = Path(__file__).resolve().parent
@@ -98,7 +99,7 @@ class Stereo:
         )
 
 
-def run(assets, out, case):
+def run(assets, out, case, model="reciprocal"):
     f, _, team, _ = n.route.route.field.scenario(
         read(ROOT / "fixed-height-match/placements.json")["placements"], inboard=True
     )
@@ -140,6 +141,7 @@ def run(assets, out, case):
         centers,
         true_start,
         mass=mass,
+        model=model,
         radii=0.0381 * (1 + sign * np.array([0.001, -0.001, 0.0005, -0.0005])),
         loads=mass * 9.80665 * np.array([0.26, 0.24, 0.26, 0.24]),
         coupling=couplings,
@@ -349,6 +351,15 @@ def run(assets, out, case):
     hull_start = 1000 * (extent(poses[0]) - abs(poses[0, 0] - tape))
     hull_end = 1000 * (pause[0, 0] - extent(pause[0]) - tape)
     return dict(
+        **(
+            {
+                "motorModel": model,
+                "energy": plant.balance,
+                "battery": supply_review(plant.power_samples),
+            }
+            if plant.reciprocal
+            else {}
+        ),
         case=case,
         assumedGrossMassKg=mass,
         assumedYawInertiaKgM2=plant.yaw_inertia,
@@ -394,8 +405,11 @@ if __name__ == "__main__":
         ),
         required=True,
     )
+    p.add_argument(
+        "--model", choices=("historical", "reciprocal"), default="reciprocal"
+    )
     args = p.parse_args()
-    result = run(args.assets, args.out, args.case)
+    result = run(args.assets, args.out, args.case, args.model)
     (args.out / (args.case + ".json")).write_text(
         json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf8"
     )
