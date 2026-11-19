@@ -1,0 +1,5298 @@
+{
+  "scope": "source command feasibility; selected field occupancy, hardware and mechanism qualification remain separate",
+  "R103Kg": [
+    35.53422410116875,
+    51.41059599889371
+  ],
+  "upperRevisionReserveKg": 0.001,
+  "emptyFieldKg": [
+    47.604224101168754,
+    65.0815959988937
+  ],
+  "jointedR103Kg": [
+    35.87836370116875,
+    51.890271198893714
+  ],
+  "jointedHighFieldKg": 65.5612711988937,
+  "hardwareMeasured": false,
+  "cases": {
+    "nominal": {
+      "routeEndWallS": 110.87842822672276,
+      "openingEndWallS": 13.49159843948311,
+      "cases": {
+        "attachedPlus50g": {
+          "bodyKg": 65.6112711988937,
+          "onePipeKg": 66.42773746489371,
+          "peakFrictionRequired": 0.7841134158332581,
+          "peakMotorPhaseA": 36.423884010230495,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.537015552324966,
+            "turnPeakA": 36.423884010230495,
+            "steadyTurnA": 18.099795888429615,
+            "steadyStraightA": 3.001399954220023
+          },
+          "maxCommonA": 65.27058786749987,
+          "minPDHV": 10.037694128159883,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.513462253032097,
+          "minimumMotorHeadroomV": 2.8484824019415695,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.27058786749987,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027157009321675758,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.65628916146112,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.958343582210492,
+              "maxA": 1.205019680324819,
+              "rmsA": 1.0566360192676614
+            },
+            "RIO": {
+              "minV": 9.946284364809788,
+              "maxA": 1.508100859560218,
+              "rmsA": 1.3220274326762844
+            },
+            "PH": {
+              "minV": 10.033219567456994,
+              "maxA": 0.14950335631697811,
+              "rmsA": 0.13131793364463334
+            },
+            "Host": {
+              "minV": 9.937254203180686,
+              "maxA": 2.2369693759286378,
+              "rmsA": 1.9605550953381248
+            },
+            "FixedCamera": {
+              "minV": 9.993688745241649,
+              "maxA": 0.8341264384453705,
+              "rmsA": 0.7320076291361882
+            },
+            "MovingCamera": {
+              "minV": 9.987102296314276,
+              "maxA": 0.8346765410700147,
+              "rmsA": 0.7323801425785217
+            },
+            "DriveLeft": {
+              "minV": 9.537377373607509,
+              "maxA": 27.586940590669002,
+              "rmsA": 5.71704236480994
+            },
+            "DriveRight": {
+              "minV": 9.513462253032097,
+              "maxA": 27.65628916146112,
+              "rmsA": 5.731626198107646
+            },
+            "Lift": {
+              "minV": 10.037694128159883,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.035028380841114,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391423242545246
+            },
+            "LeftGrip": {
+              "minV": 9.965761432110163,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7342341119045526
+            },
+            "RightGrip": {
+              "minV": 9.958223607392249,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.7585331354717482
+            }
+          }
+        },
+        "attachedScreened": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527070831577,
+            "steadyStraightA": 3.0004956633326763
+          },
+          "maxCommonA": 65.1844490742249,
+          "minPDHV": 10.040019875565031,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.516584304169172,
+          "minimumMotorHeadroomV": 2.84979385687676,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.1844490742249,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.614279494908196,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.960688006169,
+              "maxA": 1.2047360576466186,
+              "rmsA": 1.0566181855083583
+            },
+            "RIO": {
+              "minV": 9.94863167975412,
+              "maxA": 1.507745032970275,
+              "rmsA": 1.3220050648076367
+            },
+            "PH": {
+              "minV": 10.035546352308405,
+              "maxA": 0.1494686933168283,
+              "rmsA": 0.13131575056129874
+            },
+            "Host": {
+              "minV": 9.939603692226935,
+              "maxA": 2.23644060886626,
+              "rmsA": 1.9605218628055874
+            },
+            "FixedCamera": {
+              "minV": 9.996024776530007,
+              "maxA": 0.8339315064096647,
+              "rmsA": 0.731995362651119
+            },
+            "MovingCamera": {
+              "minV": 9.989439882498028,
+              "maxA": 0.8344812219757254,
+              "rmsA": 0.7323678534899157
+            },
+            "DriveLeft": {
+              "minV": 9.540460656976062,
+              "maxA": 27.545170852942736,
+              "rmsA": 5.70914131749531
+            },
+            "DriveRight": {
+              "minV": 9.516584304169172,
+              "maxA": 27.614279494908196,
+              "rmsA": 5.723691658797066
+            },
+            "Lift": {
+              "minV": 10.040019875565031,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.037354746088521,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391423216367286
+            },
+            "LeftGrip": {
+              "minV": 9.968104084768324,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7342251952292904
+            },
+            "RightGrip": {
+              "minV": 9.96056806004312,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.7585237851436035
+            }
+          }
+        },
+        "attachedWeak": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527070831577,
+            "steadyStraightA": 3.0004956633326763
+          },
+          "maxCommonA": 68.40229680121169,
+          "minPDHV": 9.611126502693487,
+          "floorBelowOrUnsolvedS": 2.5500000000000003,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.061396826535585,
+          "minimumMotorHeadroomV": 2.58078141526299,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 68.40229680121169,
+          "firstReferenceInhibitWallS": 0.43,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 29.00144688980109,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.528193679687956,
+              "maxA": 1.2594202430604868,
+              "rmsA": 1.064076320992392
+            },
+            "RIO": {
+              "minV": 9.515579245236179,
+              "maxA": 1.5763622595555082,
+              "rmsA": 1.3313567780326494
+            },
+            "PH": {
+              "minV": 9.606453159758964,
+              "maxA": 0.15614503865833002,
+              "rmsA": 0.1322302763978655
+            },
+            "Host": {
+              "minV": 9.506131418709877,
+              "maxA": 2.33842057869953,
+              "rmsA": 1.9744130453311457
+            },
+            "FixedCamera": {
+              "minV": 9.565149584495275,
+              "maxA": 0.8714970870410979,
+              "rmsA": 0.7371293939010182
+            },
+            "MovingCamera": {
+              "minV": 9.558264837044533,
+              "maxA": 0.8721248199456185,
+              "rmsA": 0.7375105746859995
+            },
+            "DriveLeft": {
+              "minV": 9.086616053160395,
+              "maxA": 28.920955532261353,
+              "rmsA": 5.881477235689279
+            },
+            "DriveRight": {
+              "minV": 9.061396826535585,
+              "maxA": 29.00144688980109,
+              "rmsA": 5.897145900931929
+            },
+            "Lift": {
+              "minV": 9.611126502693487,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.608342375218076,
+              "maxA": 12.00536380495414,
+              "rmsA": 2.418177688091809
+            },
+            "LeftGrip": {
+              "minV": 9.535951615391951,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.749280265787722
+            },
+            "RightGrip": {
+              "minV": 9.528068195409194,
+              "maxA": 5.789759510864287,
+              "rmsA": 1.773855398764678
+            }
+          }
+        },
+        "fresh": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 58.82938825195736,
+          "minPDHV": 10.929265294351826,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.458400258832796,
+          "minimumMotorHeadroomV": 3.5745196382088764,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 58.82938825195736,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.03682575551254579,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 24.84087709310247,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.856479266709968,
+              "maxA": 1.1053307158976018,
+              "rmsA": 0.9989328191975471
+            },
+            "RIO": {
+              "minV": 10.845433932168774,
+              "maxA": 1.383070524777097,
+              "rmsA": 1.2497050789079787
+            },
+            "PH": {
+              "minV": 10.925156039542328,
+              "maxA": 0.13729781017048406,
+              "rmsA": 0.12422356574390406
+            },
+            "Host": {
+              "minV": 10.837165839433933,
+              "maxA": 2.051212804407398,
+              "rmsA": 1.8531613476471236
+            },
+            "FixedCamera": {
+              "minV": 10.888877651651727,
+              "maxA": 0.7655518104508703,
+              "rmsA": 0.6922358954409429
+            },
+            "MovingCamera": {
+              "minV": 10.882837531506222,
+              "maxA": 0.765976701927872,
+              "rmsA": 0.6925503739367298
+            },
+            "DriveLeft": {
+              "minV": 10.479665318794437,
+              "maxA": 24.790470641673412,
+              "rmsA": 5.222584611442932
+            },
+            "DriveRight": {
+              "minV": 10.458400258832796,
+              "maxA": 24.84087709310247,
+              "rmsA": 5.234534067458476
+            },
+            "Lift": {
+              "minV": 10.929265294351826,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.92681711115924,
+              "maxA": 11.043357237932854,
+              "rmsA": 2.2454282050278396
+            },
+            "LeftGrip": {
+              "minV": 10.863275613753792,
+              "maxA": 5.289629394739993,
+              "rmsA": 1.6354758395894329
+            },
+            "RightGrip": {
+              "minV": 10.856369357418803,
+              "maxA": 5.339715255496585,
+              "rmsA": 1.6581153439906804
+            }
+          }
+        },
+        "continuousMaxGrip": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 78.51706990213782,
+          "minPDHV": 9.680039113324412,
+          "floorBelowOrUnsolvedS": 1.4000000000000001,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.141332646815616,
+          "minimumMotorHeadroomV": 1.6760266774536348,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 78.51706990213782,
+          "firstReferenceInhibitWallS": 28.195,
+          "allowableCommonOhmAtVoc": 0.02356501711896104,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 28.419908284448706,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.59770694749324,
+              "maxA": 1.2502986458795973,
+              "rmsA": 1.0650420076177456
+            },
+            "RIO": {
+              "minV": 9.5851857085343,
+              "maxA": 1.5649149068279966,
+              "rmsA": 1.3325667990566699
+            },
+            "PH": {
+              "minV": 9.675399072157616,
+              "maxA": 0.155032364950865,
+              "rmsA": 0.13234919216525876
+            },
+            "Host": {
+              "minV": 9.575808006562175,
+              "maxA": 2.3214054958181976,
+              "rmsA": 1.9762094807530846
+            },
+            "FixedCamera": {
+              "minV": 9.634392634435004,
+              "maxA": 0.865233576863546,
+              "rmsA": 0.737795498951249
+            },
+            "MovingCamera": {
+              "minV": 9.627557912526587,
+              "maxA": 0.8658478168335796,
+              "rmsA": 0.7381775580928263
+            },
+            "DriveLeft": {
+              "minV": 9.166002917436149,
+              "maxA": 28.34341618263469,
+              "rmsA": 5.7288056275365795
+            },
+            "DriveRight": {
+              "minV": 9.141332646815616,
+              "maxA": 28.419908284448706,
+              "rmsA": 5.743727873027113
+            },
+            "Lift": {
+              "minV": 9.680039113324412,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.677274817538214,
+              "maxA": 11.862085978097001,
+              "rmsA": 2.4526849519991076
+            },
+            "LeftGrip": {
+              "minV": 9.345981506492693,
+              "maxA": 7.29343609697546,
+              "rmsA": 3.892273652539148
+            },
+            "RightGrip": {
+              "minV": 9.318442551579512,
+              "maxA": 7.365242117219695,
+              "rmsA": 3.9276740831116665
+            }
+          }
+        },
+        "lower": {
+          "bodyKg": 47.604224101168754,
+          "onePipeKg": 48.42069036716875,
+          "peakFrictionRequired": 0.7841134158332583,
+          "peakMotorPhaseA": 27.258549227641744,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 20.896679420786406,
+            "turnPeakA": 27.258549227641744,
+            "steadyTurnA": 13.681292362004566,
+            "steadyStraightA": 2.67572778225009
+          },
+          "maxCommonA": 40.48818793874337,
+          "minPDHV": 10.70681892582335,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.411913252843785,
+          "minimumMotorHeadroomV": 3.312370794338504,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 40.48818793874337,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.04459570772130976,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 15.557994380425807,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.632499619140518,
+              "maxA": 1.1286151356542466,
+              "rmsA": 1.0514585735721742
+            },
+            "RIO": {
+              "minV": 10.62121786656421,
+              "maxA": 1.4122674243619724,
+              "rmsA": 1.3155348680030396
+            },
+            "PH": {
+              "minV": 10.70262423029504,
+              "maxA": 0.1401525427524656,
+              "rmsA": 0.1306834272705269
+            },
+            "Host": {
+              "minV": 10.612772143971577,
+              "maxA": 2.0945831147388163,
+              "rmsA": 1.9509102737929713
+            },
+            "FixedCamera": {
+              "minV": 10.665585737998212,
+              "maxA": 0.7815792029406682,
+              "rmsA": 0.7284445326325467
+            },
+            "MovingCamera": {
+              "minV": 10.659418045414371,
+              "maxA": 0.7820314359080893,
+              "rmsA": 0.7288108376221548
+            },
+            "DriveLeft": {
+              "minV": 10.42501371220508,
+              "maxA": 15.538443626944744,
+              "rmsA": 3.383015393667517
+            },
+            "DriveRight": {
+              "minV": 10.411913252843785,
+              "maxA": 15.557994380425807,
+              "rmsA": 3.3901278510485406
+            },
+            "Lift": {
+              "minV": 10.70681892582335,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.55343829774988,
+              "maxA": 11.812474593985971,
+              "rmsA": 2.391415649168298
+            },
+            "LeftGrip": {
+              "minV": 10.639440941212978,
+              "maxA": 5.644958561514533,
+              "rmsA": 1.731638640780662
+            },
+            "RightGrip": {
+              "minV": 10.632387362239562,
+              "maxA": 5.699819804463981,
+              "rmsA": 1.7558117215176816
+            }
+          }
+        },
+        "calibrated": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7824461057027746,
+          "peakMotorPhaseA": 36.115084987463156,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.235048305625675,
+            "turnPeakA": 36.115084987463156,
+            "steadyTurnA": 17.95222667090263,
+            "steadyStraightA": 2.9942039857735763
+          },
+          "maxCommonA": 64.08798368811891,
+          "minPDHV": 10.069624440844322,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.554974487648101,
+          "minimumMotorHeadroomV": 2.859175573770184,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.08798368811891,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027653907186272784,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.15078688997617,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.990529534284235,
+              "maxA": 1.2011375331827927,
+              "rmsA": 1.0563965218348954
+            },
+            "RIO": {
+              "minV": 9.978509884611622,
+              "maxA": 1.5032304596032198,
+              "rmsA": 1.3217270406791126
+            },
+            "PH": {
+              "minV": 10.065164081367111,
+              "maxA": 0.14902886707796828,
+              "rmsA": 0.13128861845033835
+            },
+            "Host": {
+              "minV": 9.969509478435633,
+              "maxA": 2.2297319021980058,
+              "rmsA": 1.9601087905512338
+            },
+            "FixedCamera": {
+              "minV": 10.0257598253277,
+              "maxA": 0.8314581782560836,
+              "rmsA": 0.731842903482894
+            },
+            "MovingCamera": {
+              "minV": 10.019194659091202,
+              "maxA": 0.8320029986078864,
+              "rmsA": 0.7322151121956191
+            },
+            "DriveLeft": {
+              "minV": 9.581001909957765,
+              "maxA": 26.942133374865293,
+              "rmsA": 5.593649229914433
+            },
+            "DriveRight": {
+              "minV": 9.554974487648101,
+              "maxA": 27.15078688997617,
+              "rmsA": 5.636194750709521
+            },
+            "Lift": {
+              "minV": 10.069624440844322,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.06696715095762,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391422891308458
+            },
+            "LeftGrip": {
+              "minV": 9.997923140693068,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7341134881613671
+            },
+            "RightGrip": {
+              "minV": 9.990409952170808,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.758406641507639
+            }
+          }
+        },
+        "screened": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 64.36426481104806,
+          "minPDHV": 10.062164850558073,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.546311695272315,
+          "minimumMotorHeadroomV": 2.8623684653878634,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.36426481104806,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.2142628182565,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.983010370024557,
+              "maxA": 1.2020422252622063,
+              "rmsA": 1.05644833003944
+            },
+            "RIO": {
+              "minV": 9.970981500154108,
+              "maxA": 1.5043654428371134,
+              "rmsA": 1.321792026344638
+            },
+            "PH": {
+              "minV": 10.057701181456153,
+              "maxA": 0.1491394477662171,
+              "rmsA": 0.1312949571131126
+            },
+            "Host": {
+              "minV": 9.96197416037979,
+              "maxA": 2.23141848949404,
+              "rmsA": 1.960205347705744
+            },
+            "FixedCamera": {
+              "minV": 10.018267429863446,
+              "maxA": 0.8320800036891832,
+              "rmsA": 0.7318785294995691
+            },
+            "MovingCamera": {
+              "minV": 10.011697303981423,
+              "maxA": 0.8326260519966943,
+              "rmsA": 0.7322508055141449
+            },
+            "DriveLeft": {
+              "minV": 9.569819375001062,
+              "maxA": 27.14741263547701,
+              "rmsA": 5.633818856070122
+            },
+            "DriveRight": {
+              "minV": 9.546311695272315,
+              "maxA": 27.2142628182565,
+              "rmsA": 5.64805313254635
+            },
+            "Lift": {
+              "minV": 10.062164850558073,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.059505589646928,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.3914229670452505
+            },
+            "LeftGrip": {
+              "minV": 9.990409625812552,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7341402629592129
+            },
+            "RightGrip": {
+              "minV": 9.98289069640097,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.758434722666019
+            }
+          }
+        },
+        "weak": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 67.46813843939644,
+          "minPDHV": 9.641019570927279,
+          "floorBelowOrUnsolvedS": 2.27,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.099857817863336,
+          "minimumMotorHeadroomV": 2.6501039206171875,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 67.46813843939644,
+          "firstReferenceInhibitWallS": 0.45,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 28.549438971469236,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.558348384630005,
+              "maxA": 1.2554470204597497,
+              "rmsA": 1.0638459116833847
+            },
+            "RIO": {
+              "minV": 9.545774549659473,
+              "maxA": 1.5713758922302534,
+              "rmsA": 1.3310677188500804
+            },
+            "PH": {
+              "minV": 9.636360732259096,
+              "maxA": 0.15566042426976975,
+              "rmsA": 0.13220211271373417
+            },
+            "Host": {
+              "minV": 9.536357272934374,
+              "maxA": 2.3310088639845263,
+              "rmsA": 1.9739835042634204
+            },
+            "FixedCamera": {
+              "minV": 9.595186579944151,
+              "maxA": 0.868768932271093,
+              "rmsA": 0.7369710238430829
+            },
+            "MovingCamera": {
+              "minV": 9.588323623246183,
+              "maxA": 0.8693907639694163,
+              "rmsA": 0.7373518922406072
+            },
+            "DriveLeft": {
+              "minV": 9.124653988504601,
+              "maxA": 28.471856110646154,
+              "rmsA": 5.800278977043857
+            },
+            "DriveRight": {
+              "minV": 9.099857817863336,
+              "maxA": 28.549438971469236,
+              "rmsA": 5.815573363225043
+            },
+            "Lift": {
+              "minV": 9.641019570927279,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.638244080933939,
+              "maxA": 12.005363804954138,
+              "rmsA": 2.4181773519375622
+            },
+            "LeftGrip": {
+              "minV": 9.566081458481623,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.749164792927387
+            },
+            "RightGrip": {
+              "minV": 9.558223303158721,
+              "maxA": 5.789759510864286,
+              "rmsA": 1.7737342923874633
+            }
+          }
+        },
+        "depleted": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 89.34189033041253,
+          "minPDHV": 7.547640606727528,
+          "floorBelowOrUnsolvedS": 8.61,
+          "unsolvedS": 0.0,
+          "minTerminalV": 6.826233229678458,
+          "minimumMotorHeadroomV": 0.376479332432309,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 89.34189033041253,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.019817112157840905,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 38.05844697638231,
+          "branchBounds": {
+            "Radio": {
+              "minV": 7.441451648262072,
+              "maxA": 1.6125885871747299,
+              "rmsA": 1.1373869976509887
+            },
+            "RIO": {
+              "minV": 7.425194316263644,
+              "maxA": 2.0201491518067094,
+              "rmsA": 1.4232982976704158
+            },
+            "PH": {
+              "minV": 7.541687794675072,
+              "maxA": 0.1988944704206794,
+              "rmsA": 0.1412093494641104
+            },
+            "Host": {
+              "minV": 7.4129991414279095,
+              "maxA": 2.9986963318400526,
+              "rmsA": 2.111004268217891
+            },
+            "FixedCamera": {
+              "minV": 7.488917015709295,
+              "maxA": 1.1131115463709642,
+              "rmsA": 0.7875670771997009
+            },
+            "MovingCamera": {
+              "minV": 7.4800925386536345,
+              "maxA": 1.114424715593214,
+              "rmsA": 0.7880387816594124
+            },
+            "DriveLeft": {
+              "minV": 6.860900219870782,
+              "maxA": 37.86614395989999,
+              "rmsA": 6.828051351782528
+            },
+            "DriveRight": {
+              "minV": 6.826233229678458,
+              "maxA": 38.05844697638231,
+              "rmsA": 6.851940270399809
+            },
+            "Lift": {
+              "minV": 7.547640606727528,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 7.5440946742923005,
+              "maxA": 13.245047065130297,
+              "rmsA": 2.6218706706346357
+            },
+            "LeftGrip": {
+              "minV": 7.45143578001172,
+              "maxA": 6.299569240858481,
+              "rmsA": 1.878254692787659
+            },
+            "RightGrip": {
+              "minV": 7.441290066849289,
+              "maxA": 6.363994802010587,
+              "rmsA": 1.905179444578198
+            }
+          }
+        },
+        "poorBalance": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 1.4906824530452778,
+          "peakMotorPhaseA": 48.240346732468225,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 39.427750816764444,
+            "turnPeakA": 48.240346732468225,
+            "steadyTurnA": 30.055886101023184,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 133.38391726399857,
+          "minPDHV": 8.198634234545432,
+          "floorBelowOrUnsolvedS": 8.005,
+          "unsolvedS": 0.0,
+          "minTerminalV": 7.046507470809653,
+          "minimumMotorHeadroomV": -0.9309844066763588,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 133.38391726399857,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.01449879782459746,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 60.78140693136619,
+          "branchBounds": {
+            "Radio": {
+              "minV": 8.101091827068995,
+              "maxA": 1.4812818143726245,
+              "rmsA": 1.0719612904789644
+            },
+            "RIO": {
+              "minV": 8.08619726695932,
+              "maxA": 1.8550128700533792,
+              "rmsA": 1.341259360073514
+            },
+            "PH": {
+              "minV": 8.193154751811376,
+              "maxA": 0.1830796616734688,
+              "rmsA": 0.13318786856273943
+            },
+            "Host": {
+              "minV": 8.075031362700628,
+              "maxA": 2.752847925274053,
+              "rmsA": 1.989140029461492
+            },
+            "FixedCamera": {
+              "minV": 8.144638455308186,
+              "maxA": 1.0234954007770714,
+              "rmsA": 0.7425323930660932
+            },
+            "MovingCamera": {
+              "minV": 8.13653584158839,
+              "maxA": 1.024514629111825,
+              "rmsA": 0.7429273197201831
+            },
+            "DriveLeft": {
+              "minV": 7.105446356125526,
+              "maxA": 60.27723193757753,
+              "rmsA": 11.493681258208422
+            },
+            "DriveRight": {
+              "minV": 7.046507470809653,
+              "maxA": 60.78140693136619,
+              "rmsA": 11.545713312599814
+            },
+            "Lift": {
+              "minV": 8.198634234545432,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 8.195370092755955,
+              "maxA": 11.812474593991833,
+              "rmsA": 2.3914457463174217
+            },
+            "LeftGrip": {
+              "minV": 8.110244284395685,
+              "maxA": 5.644958561517232,
+              "rmsA": 1.7426570220185655
+            },
+            "RightGrip": {
+              "minV": 8.100943738031466,
+              "maxA": 5.69981980446672,
+              "rmsA": 1.7673685267719828
+            }
+          }
+        }
+      },
+      "kinematicSensitivity": {
+        "nominal": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3740120152760937e-08
+          ],
+          "yawErrorDeg": 6.997220299219736e-14,
+          "openingMaxHullDisplacementMm": 1.7049193595577044e-08,
+          "normalStationGapMm": 9.99999998483595
+        },
+        "bothPlus02pct": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            27.448183119243907,
+            -29.970121227928637
+          ],
+          "yawErrorDeg": -0.2519772160064262,
+          "openingMaxHullDisplacementMm": 43.37667632343197,
+          "normalStationGapMm": 16.255655067792357
+        },
+        "leftSmallRightLarge": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -59.19465642735844,
+            183.20321824203313
+          ],
+          "yawErrorDeg": 3.010957319746788,
+          "openingMaxHullDisplacementMm": 224.11075805280817,
+          "normalStationGapMm": -125.18893898266616
+        },
+        "trackPlus2mm": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -25.425037715844923,
+            61.56793294320728
+          ],
+          "yawErrorDeg": 0.4329505429665381,
+          "openingMaxHullDisplacementMm": 71.37533886917159,
+          "normalStationGapMm": -28.075637415913175
+        },
+        "calibrated": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3741896509600338e-08
+          ],
+          "yawErrorDeg": 1.2086107789561363e-13,
+          "openingMaxHullDisplacementMm": 1.705020477990848e-08,
+          "normalStationGapMm": 9.999999984834135
+        }
+      },
+      "motionStockSourceMarginMm": 1.0338237563957762,
+      "worstFullPathHullDriftAt1ppmMm": 3.1990840291632523,
+      "pointsAwarded": null
+    },
+    "bridge26": {
+      "routeEndWallS": 110.87842822672276,
+      "openingEndWallS": 13.49159843948311,
+      "cases": {
+        "attachedPlus50g": {
+          "bodyKg": 65.6112711988937,
+          "onePipeKg": 66.42773746489371,
+          "peakFrictionRequired": 0.7841134158332581,
+          "peakMotorPhaseA": 36.423884010230495,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.537015552324966,
+            "turnPeakA": 36.423884010230495,
+            "steadyTurnA": 18.099795888429615,
+            "steadyStraightA": 3.001399954220023
+          },
+          "maxCommonA": 65.27058786749987,
+          "minPDHV": 10.037694128159883,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.513462253032097,
+          "minimumMotorHeadroomV": 2.8484824019415695,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.27058786749987,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027157009321675758,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.65628916146112,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.958343582210492,
+              "maxA": 1.205019680324819,
+              "rmsA": 1.0566360192676614
+            },
+            "RIO": {
+              "minV": 9.946284364809788,
+              "maxA": 1.508100859560218,
+              "rmsA": 1.3220274326762844
+            },
+            "PH": {
+              "minV": 10.033219567456994,
+              "maxA": 0.14950335631697811,
+              "rmsA": 0.13131793364463334
+            },
+            "Host": {
+              "minV": 9.937254203180686,
+              "maxA": 2.2369693759286378,
+              "rmsA": 1.9605550953381248
+            },
+            "FixedCamera": {
+              "minV": 9.993688745241649,
+              "maxA": 0.8341264384453705,
+              "rmsA": 0.7320076291361882
+            },
+            "MovingCamera": {
+              "minV": 9.987102296314276,
+              "maxA": 0.8346765410700147,
+              "rmsA": 0.7323801425785217
+            },
+            "DriveLeft": {
+              "minV": 9.537377373607509,
+              "maxA": 27.586940590669002,
+              "rmsA": 5.71704236480994
+            },
+            "DriveRight": {
+              "minV": 9.513462253032097,
+              "maxA": 27.65628916146112,
+              "rmsA": 5.731626198107646
+            },
+            "Lift": {
+              "minV": 10.037694128159883,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.035028380841114,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391423242545246
+            },
+            "LeftGrip": {
+              "minV": 9.965761432110163,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7342341119045526
+            },
+            "RightGrip": {
+              "minV": 9.958223607392249,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.7585331354717482
+            }
+          }
+        },
+        "attachedScreened": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527070831577,
+            "steadyStraightA": 3.0004956633326763
+          },
+          "maxCommonA": 65.1844490742249,
+          "minPDHV": 10.040019875565031,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.516584304169172,
+          "minimumMotorHeadroomV": 2.84979385687676,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.1844490742249,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.614279494908196,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.960688006169,
+              "maxA": 1.2047360576466186,
+              "rmsA": 1.0566181855083583
+            },
+            "RIO": {
+              "minV": 9.94863167975412,
+              "maxA": 1.507745032970275,
+              "rmsA": 1.3220050648076367
+            },
+            "PH": {
+              "minV": 10.035546352308405,
+              "maxA": 0.1494686933168283,
+              "rmsA": 0.13131575056129874
+            },
+            "Host": {
+              "minV": 9.939603692226935,
+              "maxA": 2.23644060886626,
+              "rmsA": 1.9605218628055874
+            },
+            "FixedCamera": {
+              "minV": 9.996024776530007,
+              "maxA": 0.8339315064096647,
+              "rmsA": 0.731995362651119
+            },
+            "MovingCamera": {
+              "minV": 9.989439882498028,
+              "maxA": 0.8344812219757254,
+              "rmsA": 0.7323678534899157
+            },
+            "DriveLeft": {
+              "minV": 9.540460656976062,
+              "maxA": 27.545170852942736,
+              "rmsA": 5.70914131749531
+            },
+            "DriveRight": {
+              "minV": 9.516584304169172,
+              "maxA": 27.614279494908196,
+              "rmsA": 5.723691658797066
+            },
+            "Lift": {
+              "minV": 10.040019875565031,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.037354746088521,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391423216367286
+            },
+            "LeftGrip": {
+              "minV": 9.968104084768324,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7342251952292904
+            },
+            "RightGrip": {
+              "minV": 9.96056806004312,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.7585237851436035
+            }
+          }
+        },
+        "attachedWeak": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527070831577,
+            "steadyStraightA": 3.0004956633326763
+          },
+          "maxCommonA": 68.40229680121169,
+          "minPDHV": 9.611126502693487,
+          "floorBelowOrUnsolvedS": 2.5500000000000003,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.061396826535585,
+          "minimumMotorHeadroomV": 2.58078141526299,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 68.40229680121169,
+          "firstReferenceInhibitWallS": 0.43,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 29.00144688980109,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.528193679687956,
+              "maxA": 1.2594202430604868,
+              "rmsA": 1.064076320992392
+            },
+            "RIO": {
+              "minV": 9.515579245236179,
+              "maxA": 1.5763622595555082,
+              "rmsA": 1.3313567780326494
+            },
+            "PH": {
+              "minV": 9.606453159758964,
+              "maxA": 0.15614503865833002,
+              "rmsA": 0.1322302763978655
+            },
+            "Host": {
+              "minV": 9.506131418709877,
+              "maxA": 2.33842057869953,
+              "rmsA": 1.9744130453311457
+            },
+            "FixedCamera": {
+              "minV": 9.565149584495275,
+              "maxA": 0.8714970870410979,
+              "rmsA": 0.7371293939010182
+            },
+            "MovingCamera": {
+              "minV": 9.558264837044533,
+              "maxA": 0.8721248199456185,
+              "rmsA": 0.7375105746859995
+            },
+            "DriveLeft": {
+              "minV": 9.086616053160395,
+              "maxA": 28.920955532261353,
+              "rmsA": 5.881477235689279
+            },
+            "DriveRight": {
+              "minV": 9.061396826535585,
+              "maxA": 29.00144688980109,
+              "rmsA": 5.897145900931929
+            },
+            "Lift": {
+              "minV": 9.611126502693487,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.608342375218076,
+              "maxA": 12.00536380495414,
+              "rmsA": 2.418177688091809
+            },
+            "LeftGrip": {
+              "minV": 9.535951615391951,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.749280265787722
+            },
+            "RightGrip": {
+              "minV": 9.528068195409194,
+              "maxA": 5.789759510864287,
+              "rmsA": 1.773855398764678
+            }
+          }
+        },
+        "fresh": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 58.82938825195736,
+          "minPDHV": 10.929265294351826,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.458400258832796,
+          "minimumMotorHeadroomV": 3.5745196382088764,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 58.82938825195736,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.03682575551254579,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 24.84087709310247,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.856479266709968,
+              "maxA": 1.1053307158976018,
+              "rmsA": 0.9989328191975471
+            },
+            "RIO": {
+              "minV": 10.845433932168774,
+              "maxA": 1.383070524777097,
+              "rmsA": 1.2497050789079787
+            },
+            "PH": {
+              "minV": 10.925156039542328,
+              "maxA": 0.13729781017048406,
+              "rmsA": 0.12422356574390406
+            },
+            "Host": {
+              "minV": 10.837165839433933,
+              "maxA": 2.051212804407398,
+              "rmsA": 1.8531613476471236
+            },
+            "FixedCamera": {
+              "minV": 10.888877651651727,
+              "maxA": 0.7655518104508703,
+              "rmsA": 0.6922358954409429
+            },
+            "MovingCamera": {
+              "minV": 10.882837531506222,
+              "maxA": 0.765976701927872,
+              "rmsA": 0.6925503739367298
+            },
+            "DriveLeft": {
+              "minV": 10.479665318794437,
+              "maxA": 24.790470641673412,
+              "rmsA": 5.222584611442932
+            },
+            "DriveRight": {
+              "minV": 10.458400258832796,
+              "maxA": 24.84087709310247,
+              "rmsA": 5.234534067458476
+            },
+            "Lift": {
+              "minV": 10.929265294351826,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.92681711115924,
+              "maxA": 11.043357237932854,
+              "rmsA": 2.2454282050278396
+            },
+            "LeftGrip": {
+              "minV": 10.863275613753792,
+              "maxA": 5.289629394739993,
+              "rmsA": 1.6354758395894329
+            },
+            "RightGrip": {
+              "minV": 10.856369357418803,
+              "maxA": 5.339715255496585,
+              "rmsA": 1.6581153439906804
+            }
+          }
+        },
+        "continuousMaxGrip": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 78.51706990213782,
+          "minPDHV": 9.680039113324412,
+          "floorBelowOrUnsolvedS": 1.4000000000000001,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.141332646815616,
+          "minimumMotorHeadroomV": 1.6760266774536348,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 78.51706990213782,
+          "firstReferenceInhibitWallS": 28.195,
+          "allowableCommonOhmAtVoc": 0.02356501711896104,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 28.419908284448706,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.59770694749324,
+              "maxA": 1.2502986458795973,
+              "rmsA": 1.0650420076177456
+            },
+            "RIO": {
+              "minV": 9.5851857085343,
+              "maxA": 1.5649149068279966,
+              "rmsA": 1.3325667990566699
+            },
+            "PH": {
+              "minV": 9.675399072157616,
+              "maxA": 0.155032364950865,
+              "rmsA": 0.13234919216525876
+            },
+            "Host": {
+              "minV": 9.575808006562175,
+              "maxA": 2.3214054958181976,
+              "rmsA": 1.9762094807530846
+            },
+            "FixedCamera": {
+              "minV": 9.634392634435004,
+              "maxA": 0.865233576863546,
+              "rmsA": 0.737795498951249
+            },
+            "MovingCamera": {
+              "minV": 9.627557912526587,
+              "maxA": 0.8658478168335796,
+              "rmsA": 0.7381775580928263
+            },
+            "DriveLeft": {
+              "minV": 9.166002917436149,
+              "maxA": 28.34341618263469,
+              "rmsA": 5.7288056275365795
+            },
+            "DriveRight": {
+              "minV": 9.141332646815616,
+              "maxA": 28.419908284448706,
+              "rmsA": 5.743727873027113
+            },
+            "Lift": {
+              "minV": 9.680039113324412,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.677274817538214,
+              "maxA": 11.862085978097001,
+              "rmsA": 2.4526849519991076
+            },
+            "LeftGrip": {
+              "minV": 9.345981506492693,
+              "maxA": 7.29343609697546,
+              "rmsA": 3.892273652539148
+            },
+            "RightGrip": {
+              "minV": 9.318442551579512,
+              "maxA": 7.365242117219695,
+              "rmsA": 3.9276740831116665
+            }
+          }
+        },
+        "lower": {
+          "bodyKg": 47.604224101168754,
+          "onePipeKg": 48.42069036716875,
+          "peakFrictionRequired": 0.7841134158332583,
+          "peakMotorPhaseA": 27.258549227641744,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 20.896679420786406,
+            "turnPeakA": 27.258549227641744,
+            "steadyTurnA": 13.681292362004566,
+            "steadyStraightA": 2.67572778225009
+          },
+          "maxCommonA": 40.48818793874337,
+          "minPDHV": 10.70681892582335,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.411913252843785,
+          "minimumMotorHeadroomV": 3.312370794338504,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 40.48818793874337,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.04459570772130976,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 15.557994380425807,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.632499619140518,
+              "maxA": 1.1286151356542466,
+              "rmsA": 1.0514585735721742
+            },
+            "RIO": {
+              "minV": 10.62121786656421,
+              "maxA": 1.4122674243619724,
+              "rmsA": 1.3155348680030396
+            },
+            "PH": {
+              "minV": 10.70262423029504,
+              "maxA": 0.1401525427524656,
+              "rmsA": 0.1306834272705269
+            },
+            "Host": {
+              "minV": 10.612772143971577,
+              "maxA": 2.0945831147388163,
+              "rmsA": 1.9509102737929713
+            },
+            "FixedCamera": {
+              "minV": 10.665585737998212,
+              "maxA": 0.7815792029406682,
+              "rmsA": 0.7284445326325467
+            },
+            "MovingCamera": {
+              "minV": 10.659418045414371,
+              "maxA": 0.7820314359080893,
+              "rmsA": 0.7288108376221548
+            },
+            "DriveLeft": {
+              "minV": 10.42501371220508,
+              "maxA": 15.538443626944744,
+              "rmsA": 3.383015393667517
+            },
+            "DriveRight": {
+              "minV": 10.411913252843785,
+              "maxA": 15.557994380425807,
+              "rmsA": 3.3901278510485406
+            },
+            "Lift": {
+              "minV": 10.70681892582335,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.55343829774988,
+              "maxA": 11.812474593985971,
+              "rmsA": 2.391415649168298
+            },
+            "LeftGrip": {
+              "minV": 10.639440941212978,
+              "maxA": 5.644958561514533,
+              "rmsA": 1.731638640780662
+            },
+            "RightGrip": {
+              "minV": 10.632387362239562,
+              "maxA": 5.699819804463981,
+              "rmsA": 1.7558117215176816
+            }
+          }
+        },
+        "calibrated": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7824461057027746,
+          "peakMotorPhaseA": 36.115084987463156,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.235048305625675,
+            "turnPeakA": 36.115084987463156,
+            "steadyTurnA": 17.95222667090263,
+            "steadyStraightA": 2.9942039857735763
+          },
+          "maxCommonA": 64.08798368811891,
+          "minPDHV": 10.069624440844322,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.554974487648101,
+          "minimumMotorHeadroomV": 2.859175573770184,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.08798368811891,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027653907186272784,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.15078688997617,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.990529534284235,
+              "maxA": 1.2011375331827927,
+              "rmsA": 1.0563965218348954
+            },
+            "RIO": {
+              "minV": 9.978509884611622,
+              "maxA": 1.5032304596032198,
+              "rmsA": 1.3217270406791126
+            },
+            "PH": {
+              "minV": 10.065164081367111,
+              "maxA": 0.14902886707796828,
+              "rmsA": 0.13128861845033835
+            },
+            "Host": {
+              "minV": 9.969509478435633,
+              "maxA": 2.2297319021980058,
+              "rmsA": 1.9601087905512338
+            },
+            "FixedCamera": {
+              "minV": 10.0257598253277,
+              "maxA": 0.8314581782560836,
+              "rmsA": 0.731842903482894
+            },
+            "MovingCamera": {
+              "minV": 10.019194659091202,
+              "maxA": 0.8320029986078864,
+              "rmsA": 0.7322151121956191
+            },
+            "DriveLeft": {
+              "minV": 9.581001909957765,
+              "maxA": 26.942133374865293,
+              "rmsA": 5.593649229914433
+            },
+            "DriveRight": {
+              "minV": 9.554974487648101,
+              "maxA": 27.15078688997617,
+              "rmsA": 5.636194750709521
+            },
+            "Lift": {
+              "minV": 10.069624440844322,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.06696715095762,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.391422891308458
+            },
+            "LeftGrip": {
+              "minV": 9.997923140693068,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7341134881613671
+            },
+            "RightGrip": {
+              "minV": 9.990409952170808,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.758406641507639
+            }
+          }
+        },
+        "screened": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 64.36426481104806,
+          "minPDHV": 10.062164850558073,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.546311695272315,
+          "minimumMotorHeadroomV": 2.8623684653878634,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.36426481104806,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 27.2142628182565,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.983010370024557,
+              "maxA": 1.2020422252622063,
+              "rmsA": 1.05644833003944
+            },
+            "RIO": {
+              "minV": 9.970981500154108,
+              "maxA": 1.5043654428371134,
+              "rmsA": 1.321792026344638
+            },
+            "PH": {
+              "minV": 10.057701181456153,
+              "maxA": 0.1491394477662171,
+              "rmsA": 0.1312949571131126
+            },
+            "Host": {
+              "minV": 9.96197416037979,
+              "maxA": 2.23141848949404,
+              "rmsA": 1.960205347705744
+            },
+            "FixedCamera": {
+              "minV": 10.018267429863446,
+              "maxA": 0.8320800036891832,
+              "rmsA": 0.7318785294995691
+            },
+            "MovingCamera": {
+              "minV": 10.011697303981423,
+              "maxA": 0.8326260519966943,
+              "rmsA": 0.7322508055141449
+            },
+            "DriveLeft": {
+              "minV": 9.569819375001062,
+              "maxA": 27.14741263547701,
+              "rmsA": 5.633818856070122
+            },
+            "DriveRight": {
+              "minV": 9.546311695272315,
+              "maxA": 27.2142628182565,
+              "rmsA": 5.64805313254635
+            },
+            "Lift": {
+              "minV": 10.062164850558073,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.059505589646928,
+              "maxA": 11.812474593991832,
+              "rmsA": 2.3914229670452505
+            },
+            "LeftGrip": {
+              "minV": 9.990409625812552,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.7341402629592129
+            },
+            "RightGrip": {
+              "minV": 9.98289069640097,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.758434722666019
+            }
+          }
+        },
+        "weak": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 67.46813843939644,
+          "minPDHV": 9.641019570927279,
+          "floorBelowOrUnsolvedS": 2.27,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.099857817863336,
+          "minimumMotorHeadroomV": 2.6501039206171875,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 67.46813843939644,
+          "firstReferenceInhibitWallS": 0.45,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 28.549438971469236,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.558348384630005,
+              "maxA": 1.2554470204597497,
+              "rmsA": 1.0638459116833847
+            },
+            "RIO": {
+              "minV": 9.545774549659473,
+              "maxA": 1.5713758922302534,
+              "rmsA": 1.3310677188500804
+            },
+            "PH": {
+              "minV": 9.636360732259096,
+              "maxA": 0.15566042426976975,
+              "rmsA": 0.13220211271373417
+            },
+            "Host": {
+              "minV": 9.536357272934374,
+              "maxA": 2.3310088639845263,
+              "rmsA": 1.9739835042634204
+            },
+            "FixedCamera": {
+              "minV": 9.595186579944151,
+              "maxA": 0.868768932271093,
+              "rmsA": 0.7369710238430829
+            },
+            "MovingCamera": {
+              "minV": 9.588323623246183,
+              "maxA": 0.8693907639694163,
+              "rmsA": 0.7373518922406072
+            },
+            "DriveLeft": {
+              "minV": 9.124653988504601,
+              "maxA": 28.471856110646154,
+              "rmsA": 5.800278977043857
+            },
+            "DriveRight": {
+              "minV": 9.099857817863336,
+              "maxA": 28.549438971469236,
+              "rmsA": 5.815573363225043
+            },
+            "Lift": {
+              "minV": 9.641019570927279,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.638244080933939,
+              "maxA": 12.005363804954138,
+              "rmsA": 2.4181773519375622
+            },
+            "LeftGrip": {
+              "minV": 9.566081458481623,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.749164792927387
+            },
+            "RightGrip": {
+              "minV": 9.558223303158721,
+              "maxA": 5.789759510864286,
+              "rmsA": 1.7737342923874633
+            }
+          }
+        },
+        "depleted": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826120129536,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 89.34189033041253,
+          "minPDHV": 7.547640606727528,
+          "floorBelowOrUnsolvedS": 8.61,
+          "unsolvedS": 0.0,
+          "minTerminalV": 6.826233229678458,
+          "minimumMotorHeadroomV": 0.376479332432309,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 89.34189033041253,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.019817112157840905,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 38.05844697638231,
+          "branchBounds": {
+            "Radio": {
+              "minV": 7.441451648262072,
+              "maxA": 1.6125885871747299,
+              "rmsA": 1.1373869976509887
+            },
+            "RIO": {
+              "minV": 7.425194316263644,
+              "maxA": 2.0201491518067094,
+              "rmsA": 1.4232982976704158
+            },
+            "PH": {
+              "minV": 7.541687794675072,
+              "maxA": 0.1988944704206794,
+              "rmsA": 0.1412093494641104
+            },
+            "Host": {
+              "minV": 7.4129991414279095,
+              "maxA": 2.9986963318400526,
+              "rmsA": 2.111004268217891
+            },
+            "FixedCamera": {
+              "minV": 7.488917015709295,
+              "maxA": 1.1131115463709642,
+              "rmsA": 0.7875670771997009
+            },
+            "MovingCamera": {
+              "minV": 7.4800925386536345,
+              "maxA": 1.114424715593214,
+              "rmsA": 0.7880387816594124
+            },
+            "DriveLeft": {
+              "minV": 6.860900219870782,
+              "maxA": 37.86614395989999,
+              "rmsA": 6.828051351782528
+            },
+            "DriveRight": {
+              "minV": 6.826233229678458,
+              "maxA": 38.05844697638231,
+              "rmsA": 6.851940270399809
+            },
+            "Lift": {
+              "minV": 7.547640606727528,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 7.5440946742923005,
+              "maxA": 13.245047065130297,
+              "rmsA": 2.6218706706346357
+            },
+            "LeftGrip": {
+              "minV": 7.45143578001172,
+              "maxA": 6.299569240858481,
+              "rmsA": 1.878254692787659
+            },
+            "RightGrip": {
+              "minV": 7.441290066849289,
+              "maxA": 6.363994802010587,
+              "rmsA": 1.905179444578198
+            }
+          }
+        },
+        "poorBalance": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 1.4906824530452778,
+          "peakMotorPhaseA": 48.240346732468225,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 39.427750816764444,
+            "turnPeakA": 48.240346732468225,
+            "steadyTurnA": 30.055886101023184,
+            "steadyStraightA": 2.9918203450877514
+          },
+          "maxCommonA": 133.38391726399857,
+          "minPDHV": 8.198634234545432,
+          "floorBelowOrUnsolvedS": 8.005,
+          "unsolvedS": 0.0,
+          "minTerminalV": 7.046507470809653,
+          "minimumMotorHeadroomV": -0.9309844066763588,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 133.38391726399857,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.01449879782459746,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000025935,
+          "maxWheelMps": 1.2500000000029339,
+          "maxDriveBranchA": 60.78140693136619,
+          "branchBounds": {
+            "Radio": {
+              "minV": 8.101091827068995,
+              "maxA": 1.4812818143726245,
+              "rmsA": 1.0719612904789644
+            },
+            "RIO": {
+              "minV": 8.08619726695932,
+              "maxA": 1.8550128700533792,
+              "rmsA": 1.341259360073514
+            },
+            "PH": {
+              "minV": 8.193154751811376,
+              "maxA": 0.1830796616734688,
+              "rmsA": 0.13318786856273943
+            },
+            "Host": {
+              "minV": 8.075031362700628,
+              "maxA": 2.752847925274053,
+              "rmsA": 1.989140029461492
+            },
+            "FixedCamera": {
+              "minV": 8.144638455308186,
+              "maxA": 1.0234954007770714,
+              "rmsA": 0.7425323930660932
+            },
+            "MovingCamera": {
+              "minV": 8.13653584158839,
+              "maxA": 1.024514629111825,
+              "rmsA": 0.7429273197201831
+            },
+            "DriveLeft": {
+              "minV": 7.105446356125526,
+              "maxA": 60.27723193757753,
+              "rmsA": 11.493681258208422
+            },
+            "DriveRight": {
+              "minV": 7.046507470809653,
+              "maxA": 60.78140693136619,
+              "rmsA": 11.545713312599814
+            },
+            "Lift": {
+              "minV": 8.198634234545432,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 8.195370092755955,
+              "maxA": 11.812474593991833,
+              "rmsA": 2.3914457463174217
+            },
+            "LeftGrip": {
+              "minV": 8.110244284395685,
+              "maxA": 5.644958561517232,
+              "rmsA": 1.7426570220185655
+            },
+            "RightGrip": {
+              "minV": 8.100943738031466,
+              "maxA": 5.69981980446672,
+              "rmsA": 1.7673685267719828
+            }
+          }
+        }
+      },
+      "kinematicSensitivity": {
+        "nominal": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3740120152760937e-08
+          ],
+          "yawErrorDeg": 6.997220299219736e-14,
+          "openingMaxHullDisplacementMm": 1.7049193595577044e-08,
+          "normalStationGapMm": 9.99999998483595
+        },
+        "bothPlus02pct": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            27.448183119243907,
+            -29.970121227928637
+          ],
+          "yawErrorDeg": -0.2519772160064262,
+          "openingMaxHullDisplacementMm": 43.37667632343197,
+          "normalStationGapMm": 16.255655067792357
+        },
+        "leftSmallRightLarge": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -59.19465642735844,
+            183.20321824203313
+          ],
+          "yawErrorDeg": 3.010957319746788,
+          "openingMaxHullDisplacementMm": 224.11075805280817,
+          "normalStationGapMm": -125.18893898266616
+        },
+        "trackPlus2mm": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -25.425037715844923,
+            61.56793294320728
+          ],
+          "yawErrorDeg": 0.4329505429665381,
+          "openingMaxHullDisplacementMm": 71.37533886917159,
+          "normalStationGapMm": -28.075637415913175
+        },
+        "calibrated": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3741896509600338e-08
+          ],
+          "yawErrorDeg": 1.2086107789561363e-13,
+          "openingMaxHullDisplacementMm": 1.705020477990848e-08,
+          "normalStationGapMm": 9.999999984834135
+        }
+      },
+      "motionStockSourceMarginMm": 1.0338237563957762,
+      "worstFullPathHullDriftAt1ppmMm": 3.1990840291632523,
+      "pointsAwarded": null
+    },
+    "single": {
+      "routeEndWallS": 60.478428226722755,
+      "openingEndWallS": 13.49159843948311,
+      "cases": {
+        "attachedPlus50g": {
+          "bodyKg": 65.6112711988937,
+          "onePipeKg": 66.42773746489371,
+          "peakFrictionRequired": 0.7841134158332581,
+          "peakMotorPhaseA": 36.423884010230495,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.537015552324966,
+            "turnPeakA": 36.423884010230495,
+            "steadyTurnA": 18.09979588547769,
+            "steadyStraightA": 3.0013999511287026
+          },
+          "maxCommonA": 65.27058786749987,
+          "minPDHV": 10.037694128159883,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.513462253032097,
+          "minimumMotorHeadroomV": 2.8484824019415695,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.27058786749987,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027157009321675758,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 27.65628916146112,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.958343582210492,
+              "maxA": 1.205019680324819,
+              "rmsA": 1.0480008637329683
+            },
+            "RIO": {
+              "minV": 9.946284364809788,
+              "maxA": 1.508100859560218,
+              "rmsA": 1.3112020700452625
+            },
+            "PH": {
+              "minV": 10.033219567456994,
+              "maxA": 0.14950335631697811,
+              "rmsA": 0.13025776544146872
+            },
+            "Host": {
+              "minV": 9.937254203180686,
+              "maxA": 2.2369693759286378,
+              "rmsA": 1.9444774002320733
+            },
+            "FixedCamera": {
+              "minV": 9.993688745241649,
+              "maxA": 0.8341264384453705,
+              "rmsA": 0.7260598449173133
+            },
+            "MovingCamera": {
+              "minV": 9.987102296314276,
+              "maxA": 0.8346765410700147,
+              "rmsA": 0.7264229429531504
+            },
+            "DriveLeft": {
+              "minV": 9.537377373607509,
+              "maxA": 27.586940590669002,
+              "rmsA": 4.314566172663661
+            },
+            "DriveRight": {
+              "minV": 9.513462253032097,
+              "maxA": 27.65628916146112,
+              "rmsA": 4.317624201995376
+            },
+            "Lift": {
+              "minV": 10.037694128159883,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.035028380841114,
+              "maxA": 11.812474593991832,
+              "rmsA": 1.6935104372982623
+            },
+            "LeftGrip": {
+              "minV": 9.965761432110163,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.2283937253046733
+            },
+            "RightGrip": {
+              "minV": 9.958223607392249,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.2456042266823493
+            }
+          }
+        },
+        "attachedScreened": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527067881776,
+            "steadyStraightA": 3.000495660243283
+          },
+          "maxCommonA": 65.1844490742249,
+          "minPDHV": 10.040019875565031,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.516584304169172,
+          "minimumMotorHeadroomV": 2.84979385687676,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 65.1844490742249,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 27.614279494908196,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.960688006169,
+              "maxA": 1.2047360576466186,
+              "rmsA": 1.0479906552091496
+            },
+            "RIO": {
+              "minV": 9.94863167975412,
+              "maxA": 1.507745032970275,
+              "rmsA": 1.3111892659294893
+            },
+            "PH": {
+              "minV": 10.035546352308405,
+              "maxA": 0.1494686933168283,
+              "rmsA": 0.13025651587331674
+            },
+            "Host": {
+              "minV": 9.939603692226935,
+              "maxA": 2.23644060886626,
+              "rmsA": 1.9444583766569923
+            },
+            "FixedCamera": {
+              "minV": 9.996024776530007,
+              "maxA": 0.8339315064096647,
+              "rmsA": 0.7260528234841799
+            },
+            "MovingCamera": {
+              "minV": 9.989439882498028,
+              "maxA": 0.8344812219757254,
+              "rmsA": 0.7264159085381935
+            },
+            "DriveLeft": {
+              "minV": 9.540460656976062,
+              "maxA": 27.545170852942736,
+              "rmsA": 4.308611813647854
+            },
+            "DriveRight": {
+              "minV": 9.516584304169172,
+              "maxA": 27.614279494908196,
+              "rmsA": 4.31164627922865
+            },
+            "Lift": {
+              "minV": 10.040019875565031,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.037354746088521,
+              "maxA": 11.812474593991832,
+              "rmsA": 1.6935104163184975
+            },
+            "LeftGrip": {
+              "minV": 9.968104084768324,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.2283874384513578
+            },
+            "RightGrip": {
+              "minV": 9.96056806004312,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.2455976339685653
+            }
+          }
+        },
+        "attachedWeak": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.39843471048455,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.518577392821356,
+            "turnPeakA": 36.39843471048455,
+            "steadyTurnA": 18.087527067881776,
+            "steadyStraightA": 3.000495660243283
+          },
+          "maxCommonA": 68.40229680121169,
+          "minPDHV": 9.611126502693487,
+          "floorBelowOrUnsolvedS": 1.41,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.061396826535585,
+          "minimumMotorHeadroomV": 2.58078141526299,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 68.40229680121169,
+          "firstReferenceInhibitWallS": 0.43,
+          "allowableCommonOhmAtVoc": 0.02719369667363683,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 29.00144688980109,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.528193679687956,
+              "maxA": 1.2594202430604868,
+              "rmsA": 1.0533765152822365
+            },
+            "RIO": {
+              "minV": 9.515579245236179,
+              "maxA": 1.5763622595555082,
+              "rmsA": 1.317942012911066
+            },
+            "PH": {
+              "minV": 9.606453159758964,
+              "maxA": 0.15614503865833002,
+              "rmsA": 0.13091726598289244
+            },
+            "Host": {
+              "minV": 9.506131418709877,
+              "maxA": 2.33842057869953,
+              "rmsA": 1.9544883969892828
+            },
+            "FixedCamera": {
+              "minV": 9.565149584495275,
+              "maxA": 0.8714970870410979,
+              "rmsA": 0.7297612214180589
+            },
+            "MovingCamera": {
+              "minV": 9.558264837044533,
+              "maxA": 0.8721248199456185,
+              "rmsA": 0.7301304201456887
+            },
+            "DriveLeft": {
+              "minV": 9.086616053160395,
+              "maxA": 28.920955532261353,
+              "rmsA": 4.437599925539667
+            },
+            "DriveRight": {
+              "minV": 9.061396826535585,
+              "maxA": 29.00144688980109,
+              "rmsA": 4.441408515077685
+            },
+            "Lift": {
+              "minV": 9.611126502693487,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.608342375218076,
+              "maxA": 12.00536380495414,
+              "rmsA": 1.7124686556563078
+            },
+            "LeftGrip": {
+              "minV": 9.535951615391951,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.2390455074141915
+            },
+            "RightGrip": {
+              "minV": 9.528068195409194,
+              "maxA": 5.789759510864287,
+              "rmsA": 1.256451410578183
+            }
+          }
+        },
+        "fresh": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826117200103,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 58.82938825195736,
+          "minPDHV": 10.929265294351826,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.458400258832796,
+          "minimumMotorHeadroomV": 3.5745196382088764,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 58.82938825195736,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.03682575551254579,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 24.84087709310247,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.856479266709968,
+              "maxA": 1.1053307158976018,
+              "rmsA": 0.9923729675214841
+            },
+            "RIO": {
+              "minV": 10.845433932168774,
+              "maxA": 1.383070524777097,
+              "rmsA": 1.2414841784096668
+            },
+            "PH": {
+              "minV": 10.925156039542328,
+              "maxA": 0.13729781017048406,
+              "rmsA": 0.12341652292437948
+            },
+            "Host": {
+              "minV": 10.837165839433933,
+              "maxA": 2.051212804407398,
+              "rmsA": 1.8409548719843327
+            },
+            "FixedCamera": {
+              "minV": 10.888877651651727,
+              "maxA": 0.7655518104508703,
+              "rmsA": 0.687713110104817
+            },
+            "MovingCamera": {
+              "minV": 10.882837531506222,
+              "maxA": 0.765976701927872,
+              "rmsA": 0.6880212543769705
+            },
+            "DriveLeft": {
+              "minV": 10.479665318794437,
+              "maxA": 24.790470641673412,
+              "rmsA": 3.942181298665213
+            },
+            "DriveRight": {
+              "minV": 10.458400258832796,
+              "maxA": 24.84087709310247,
+              "rmsA": 3.9437557430126824
+            },
+            "Lift": {
+              "minV": 10.929265294351826,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.92681711115924,
+              "maxA": 11.043357237932854,
+              "rmsA": 1.5901174151358886
+            },
+            "LeftGrip": {
+              "minV": 10.863275613753792,
+              "maxA": 5.289629394739993,
+              "rmsA": 1.1584493124780486
+            },
+            "RightGrip": {
+              "minV": 10.856369357418803,
+              "maxA": 5.339715255496585,
+              "rmsA": 1.174484810238564
+            }
+          }
+        },
+        "continuousMaxGrip": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826117200103,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 78.51706990213782,
+          "minPDHV": 9.680039113324412,
+          "floorBelowOrUnsolvedS": 0.7000000000000001,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.141332646815616,
+          "minimumMotorHeadroomV": 1.6760266774536348,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 78.51706990213782,
+          "firstReferenceInhibitWallS": 28.195,
+          "allowableCommonOhmAtVoc": 0.02356501711896104,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 28.419908284448706,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.59770694749324,
+              "maxA": 1.2502986458795973,
+              "rmsA": 1.052259338712931
+            },
+            "RIO": {
+              "minV": 9.5851857085343,
+              "maxA": 1.5649149068279966,
+              "rmsA": 1.3165414118428198
+            },
+            "PH": {
+              "minV": 9.675399072157616,
+              "maxA": 0.155032364950865,
+              "rmsA": 0.1307801428312552
+            },
+            "Host": {
+              "minV": 9.575808006562175,
+              "maxA": 2.3214054958181976,
+              "rmsA": 1.9524081670251148
+            },
+            "FixedCamera": {
+              "minV": 9.634392634435004,
+              "maxA": 0.865233576863546,
+              "rmsA": 0.7289918252525889
+            },
+            "MovingCamera": {
+              "minV": 9.627557912526587,
+              "maxA": 0.8658478168335796,
+              "rmsA": 0.7293597877741853
+            },
+            "DriveLeft": {
+              "minV": 9.166002917436149,
+              "maxA": 28.34341618263469,
+              "rmsA": 4.315059409210445
+            },
+            "DriveRight": {
+              "minV": 9.141332646815616,
+              "maxA": 28.419908284448706,
+              "rmsA": 4.3179242451443995
+            },
+            "Lift": {
+              "minV": 9.680039113324412,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.677274817538214,
+              "maxA": 11.862085978097001,
+              "rmsA": 1.7367824648287453
+            },
+            "LeftGrip": {
+              "minV": 9.345981506492693,
+              "maxA": 7.29343609697546,
+              "rmsA": 2.759827342279771
+            },
+            "RightGrip": {
+              "minV": 9.318442551579512,
+              "maxA": 7.365242117219695,
+              "rmsA": 2.784921112173616
+            }
+          }
+        },
+        "lower": {
+          "bodyKg": 47.604224101168754,
+          "onePipeKg": 48.42069036716875,
+          "peakFrictionRequired": 0.7841134158332583,
+          "peakMotorPhaseA": 27.258549227641744,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 20.896679420786406,
+            "turnPeakA": 27.258549227641744,
+            "steadyTurnA": 13.681292359817359,
+            "steadyStraightA": 2.6757277798528056
+          },
+          "maxCommonA": 40.48818793874337,
+          "minPDHV": 10.70681892582335,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.411913252843785,
+          "minimumMotorHeadroomV": 3.312370794338504,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 40.48818793874337,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.04459570772130976,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 15.557994380425807,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.632499619140518,
+              "maxA": 1.1286151356542466,
+              "rmsA": 1.045039142462691
+            },
+            "RIO": {
+              "minV": 10.62121786656421,
+              "maxA": 1.4122674243619724,
+              "rmsA": 1.3074880072514277
+            },
+            "PH": {
+              "minV": 10.70262423029504,
+              "maxA": 0.1401525427524656,
+              "rmsA": 0.12989482278496195
+            },
+            "Host": {
+              "minV": 10.612772143971577,
+              "maxA": 2.0945831147388163,
+              "rmsA": 1.9389600519351127
+            },
+            "FixedCamera": {
+              "minV": 10.665585737998212,
+              "maxA": 0.7815792029406682,
+              "rmsA": 0.7240216599081781
+            },
+            "MovingCamera": {
+              "minV": 10.659418045414371,
+              "maxA": 0.7820314359080893,
+              "rmsA": 0.7243811955293359
+            },
+            "DriveLeft": {
+              "minV": 10.42501371220508,
+              "maxA": 15.538443626944744,
+              "rmsA": 2.5545607011693883
+            },
+            "DriveRight": {
+              "minV": 10.411913252843785,
+              "maxA": 15.557994380425807,
+              "rmsA": 2.552852890863426
+            },
+            "Lift": {
+              "minV": 10.70681892582335,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.55343829774988,
+              "maxA": 11.812474593985971,
+              "rmsA": 1.6935043498507962
+            },
+            "LeftGrip": {
+              "minV": 10.639440941212978,
+              "maxA": 5.644958561514533,
+              "rmsA": 1.2265635844144929
+            },
+            "RightGrip": {
+              "minV": 10.632387362239562,
+              "maxA": 5.699819804463981,
+              "rmsA": 1.2436852453609077
+            }
+          }
+        },
+        "calibrated": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7824461057027746,
+          "peakMotorPhaseA": 36.115084987463156,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.235048305625675,
+            "turnPeakA": 36.115084987463156,
+            "steadyTurnA": 17.952226667976667,
+            "steadyStraightA": 2.994203982698651
+          },
+          "maxCommonA": 64.08798368811891,
+          "minPDHV": 10.069624440844322,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.554974487648101,
+          "minimumMotorHeadroomV": 2.859175573770184,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.08798368811891,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027653907186272784,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 27.15078688997617,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.990529534284235,
+              "maxA": 1.2011375331827927,
+              "rmsA": 1.0478640042601566
+            },
+            "RIO": {
+              "minV": 9.978509884611622,
+              "maxA": 1.5032304596032198,
+              "rmsA": 1.3110304106645114
+            },
+            "PH": {
+              "minV": 10.065164081367111,
+              "maxA": 0.14902886707796828,
+              "rmsA": 0.13024101466665292
+            },
+            "Host": {
+              "minV": 9.969509478435633,
+              "maxA": 2.2297319021980058,
+              "rmsA": 1.944222356521571
+            },
+            "FixedCamera": {
+              "minV": 10.0257598253277,
+              "maxA": 0.8314581782560836,
+              "rmsA": 0.7259657166365753
+            },
+            "MovingCamera": {
+              "minV": 10.019194659091202,
+              "maxA": 0.8320029986078864,
+              "rmsA": 0.7263286399328517
+            },
+            "DriveLeft": {
+              "minV": 9.581001909957765,
+              "maxA": 26.942133374865293,
+              "rmsA": 4.221695097272273
+            },
+            "DriveRight": {
+              "minV": 9.554974487648101,
+              "maxA": 27.15078688997617,
+              "rmsA": 4.245782282003625
+            },
+            "Lift": {
+              "minV": 10.069624440844322,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.06696715095762,
+              "maxA": 11.812474593991832,
+              "rmsA": 1.6935101562536923
+            },
+            "LeftGrip": {
+              "minV": 9.997923140693068,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.228308795538105
+            },
+            "RightGrip": {
+              "minV": 9.990409952170808,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.2455151623951002
+            }
+          }
+        },
+        "screened": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826117200103,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 64.36426481104806,
+          "minPDHV": 10.062164850558073,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.546311695272315,
+          "minimumMotorHeadroomV": 2.8623684653878634,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 64.36426481104806,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 27.2142628182565,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.983010370024557,
+              "maxA": 1.2020422252622063,
+              "rmsA": 1.047893427489824
+            },
+            "RIO": {
+              "minV": 9.970981500154108,
+              "maxA": 1.5043654428371134,
+              "rmsA": 1.3110673182599137
+            },
+            "PH": {
+              "minV": 10.057701181456153,
+              "maxA": 0.1491394477662171,
+              "rmsA": 0.130244614233566
+            },
+            "Host": {
+              "minV": 9.96197416037979,
+              "maxA": 2.23141848949404,
+              "rmsA": 1.944277195256653
+            },
+            "FixedCamera": {
+              "minV": 10.018267429863446,
+              "maxA": 0.8320800036891832,
+              "rmsA": 0.7259859487138431
+            },
+            "MovingCamera": {
+              "minV": 10.011697303981423,
+              "maxA": 0.8326260519966943,
+              "rmsA": 0.7263489103920959
+            },
+            "DriveLeft": {
+              "minV": 9.569819375001062,
+              "maxA": 27.14741263547701,
+              "rmsA": 4.251846487322374
+            },
+            "DriveRight": {
+              "minV": 9.546311695272315,
+              "maxA": 27.2142628182565,
+              "rmsA": 4.254659050248988
+            },
+            "Lift": {
+              "minV": 10.062164850558073,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.059505589646928,
+              "maxA": 11.812474593991832,
+              "rmsA": 1.693510216501954
+            },
+            "LeftGrip": {
+              "minV": 9.990409625812552,
+              "maxA": 5.64495856151723,
+              "rmsA": 1.2283275556164197
+            },
+            "RightGrip": {
+              "minV": 9.98289069640097,
+              "maxA": 5.699819804466718,
+              "rmsA": 1.2455348380483786
+            }
+          }
+        },
+        "weak": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826117200103,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 67.46813843939644,
+          "minPDHV": 9.641019570927279,
+          "floorBelowOrUnsolvedS": 1.245,
+          "unsolvedS": 0.0,
+          "minTerminalV": 9.099857817863336,
+          "minimumMotorHeadroomV": 2.6501039206171875,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 67.46813843939644,
+          "firstReferenceInhibitWallS": 0.45,
+          "allowableCommonOhmAtVoc": 0.027548313682706764,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 28.549438971469236,
+          "branchBounds": {
+            "Radio": {
+              "minV": 9.558348384630005,
+              "maxA": 1.2554470204597497,
+              "rmsA": 1.0532445175283853
+            },
+            "RIO": {
+              "minV": 9.545774549659473,
+              "maxA": 1.5713758922302534,
+              "rmsA": 1.3177764133805088
+            },
+            "PH": {
+              "minV": 9.636360732259096,
+              "maxA": 0.15566042426976975,
+              "rmsA": 0.13090113279478813
+            },
+            "Host": {
+              "minV": 9.536357272934374,
+              "maxA": 2.3310088639845263,
+              "rmsA": 1.9542423141188987
+            },
+            "FixedCamera": {
+              "minV": 9.595186579944151,
+              "maxA": 0.868768932271093,
+              "rmsA": 0.7296704973244289
+            },
+            "MovingCamera": {
+              "minV": 9.588323623246183,
+              "maxA": 0.8693907639694163,
+              "rmsA": 0.730039516437746
+            },
+            "DriveLeft": {
+              "minV": 9.124653988504601,
+              "maxA": 28.471856110646154,
+              "rmsA": 4.37644099225817
+            },
+            "DriveRight": {
+              "minV": 9.099857817863336,
+              "maxA": 28.549438971469236,
+              "rmsA": 4.3799825322495645
+            },
+            "Lift": {
+              "minV": 9.641019570927279,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 9.638244080933939,
+              "maxA": 12.005363804954138,
+              "rmsA": 1.7124683865256944
+            },
+            "LeftGrip": {
+              "minV": 9.566081458481623,
+              "maxA": 5.7336622655620415,
+              "rmsA": 1.2389640829607584
+            },
+            "RightGrip": {
+              "minV": 9.558223303158721,
+              "maxA": 5.789759510864286,
+              "rmsA": 1.2563660126323368
+            }
+          }
+        },
+        "depleted": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.7841134158332582,
+          "peakMotorPhaseA": 36.154286751574574,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 27.341690835870796,
+            "turnPeakA": 36.154286751574574,
+            "steadyTurnA": 17.969826117200103,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 89.34189033041253,
+          "minPDHV": 7.547640606727528,
+          "floorBelowOrUnsolvedS": 4.86,
+          "unsolvedS": 0.0,
+          "minTerminalV": 6.826233229678458,
+          "minimumMotorHeadroomV": 0.376479332432309,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 89.34189033041253,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.019817112157840905,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 38.05844697638231,
+          "branchBounds": {
+            "Radio": {
+              "minV": 7.441451648262072,
+              "maxA": 1.6125885871747299,
+              "rmsA": 1.1185343055251478
+            },
+            "RIO": {
+              "minV": 7.425194316263644,
+              "maxA": 2.0201491518067094,
+              "rmsA": 1.399645737358225
+            },
+            "PH": {
+              "minV": 7.541687794675072,
+              "maxA": 0.1988944704206794,
+              "rmsA": 0.13890544796995494
+            },
+            "Host": {
+              "minV": 7.4129991414279095,
+              "maxA": 2.9986963318400526,
+              "rmsA": 2.075855509836625
+            },
+            "FixedCamera": {
+              "minV": 7.488917015709295,
+              "maxA": 1.1131115463709642,
+              "rmsA": 0.7746102995166437
+            },
+            "MovingCamera": {
+              "minV": 7.4800925386536345,
+              "maxA": 1.114424715593214,
+              "rmsA": 0.7750561825699003
+            },
+            "DriveLeft": {
+              "minV": 6.860900219870782,
+              "maxA": 37.86614395989999,
+              "rmsA": 5.144434449475844
+            },
+            "DriveRight": {
+              "minV": 6.826233229678458,
+              "maxA": 38.05844697638231,
+              "rmsA": 5.154014572670895
+            },
+            "Lift": {
+              "minV": 7.547640606727528,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 7.5440946742923005,
+              "maxA": 13.245047065130297,
+              "rmsA": 1.8567624940139673
+            },
+            "LeftGrip": {
+              "minV": 7.45143578001172,
+              "maxA": 6.299569240858481,
+              "rmsA": 1.3303802825224353
+            },
+            "RightGrip": {
+              "minV": 7.441290066849289,
+              "maxA": 6.363994802010587,
+              "rmsA": 1.349449454778293
+            }
+          }
+        },
+        "poorBalance": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 1.4906824530452778,
+          "peakMotorPhaseA": 48.240346732468225,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 39.427750816764444,
+            "turnPeakA": 48.240346732468225,
+            "steadyTurnA": 30.055886098093747,
+            "steadyStraightA": 2.991820342016846
+          },
+          "maxCommonA": 133.38391726399857,
+          "minPDHV": 8.198634234545432,
+          "floorBelowOrUnsolvedS": 4.545,
+          "unsolvedS": 0.0,
+          "minTerminalV": 7.046507470809653,
+          "minimumMotorHeadroomV": -0.9309844066763588,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 40.325,
+          "commonCurrentAtMinimumA": 133.38391726399857,
+          "firstReferenceInhibitWallS": 0.0,
+          "allowableCommonOhmAtVoc": 0.01449879782459746,
+          "limitingLeg": "coral-A transit",
+          "maxYawRadS": 1.2500000000008171,
+          "maxWheelMps": 1.2500000000008868,
+          "maxDriveBranchA": 60.78140693136619,
+          "branchBounds": {
+            "Radio": {
+              "minV": 8.101091827068995,
+              "maxA": 1.4812818143726245,
+              "rmsA": 1.056788914430707
+            },
+            "RIO": {
+              "minV": 8.08619726695932,
+              "maxA": 1.8550128700533792,
+              "rmsA": 1.3222304861924807
+            },
+            "PH": {
+              "minV": 8.193154751811376,
+              "maxA": 0.1830796616734688,
+              "rmsA": 0.13132996132106728
+            },
+            "Host": {
+              "minV": 8.075031362700628,
+              "maxA": 2.752847925274053,
+              "rmsA": 1.9608694019674706
+            },
+            "FixedCamera": {
+              "minV": 8.144638455308186,
+              "maxA": 1.0234954007770714,
+              "rmsA": 0.7320948738983171
+            },
+            "MovingCamera": {
+              "minV": 8.13653584158839,
+              "maxA": 1.024514629111825,
+              "rmsA": 0.7324708689863658
+            },
+            "DriveLeft": {
+              "minV": 7.105446356125526,
+              "maxA": 60.27723193757753,
+              "rmsA": 8.656910867692314
+            },
+            "DriveRight": {
+              "minV": 7.046507470809653,
+              "maxA": 60.78140693136619,
+              "rmsA": 8.696218059722973
+            },
+            "Lift": {
+              "minV": 8.198634234545432,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 8.195370092755955,
+              "maxA": 11.812474593991833,
+              "rmsA": 1.693528457359667
+            },
+            "LeftGrip": {
+              "minV": 8.110244284395685,
+              "maxA": 5.644958561517232,
+              "rmsA": 1.234324237930935
+            },
+            "RightGrip": {
+              "minV": 8.100943738031466,
+              "maxA": 5.69981980446672,
+              "rmsA": 1.2518255315308728
+            }
+          }
+        }
+      },
+      "kinematicSensitivity": {
+        "nominal": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3740120152760937e-08
+          ],
+          "yawErrorDeg": 6.997220299219736e-14,
+          "openingMaxHullDisplacementMm": 1.7049193595577044e-08,
+          "normalStationGapMm": 9.99999998483595
+        },
+        "bothPlus02pct": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            27.448183119243907,
+            -29.970121227928637
+          ],
+          "yawErrorDeg": -0.2519772160064262,
+          "openingMaxHullDisplacementMm": 43.37667632343197,
+          "normalStationGapMm": 16.255655067792357
+        },
+        "leftSmallRightLarge": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -59.19465642735844,
+            183.20321824203313
+          ],
+          "yawErrorDeg": 3.010957319746788,
+          "openingMaxHullDisplacementMm": 224.11075805280817,
+          "normalStationGapMm": -125.18893898266616
+        },
+        "trackPlus2mm": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            -25.425037715844923,
+            61.56793294320728
+          ],
+          "yawErrorDeg": 0.4329505429665381,
+          "openingMaxHullDisplacementMm": 71.37533886917159,
+          "normalStationGapMm": -28.075637415913175
+        },
+        "calibrated": {
+          "openingEndS": 13.49159843948311,
+          "XYerrorMm": [
+            6.885159109515371e-09,
+            1.3741896509600338e-08
+          ],
+          "yawErrorDeg": 1.2086107789561363e-13,
+          "openingMaxHullDisplacementMm": 1.705020477990848e-08,
+          "normalStationGapMm": 9.999999984834135
+        }
+      },
+      "motionStockSourceMarginMm": null,
+      "worstFullPathHullDriftAt1ppmMm": 0.9851213324633319,
+      "pointsAwarded": null
+    },
+    "near": {
+      "routeEndWallS": 1.3452694897305875,
+      "openingEndWallS": 1.3452694897305875,
+      "cases": {
+        "attachedPlus50g": {
+          "bodyKg": 65.6112711988937,
+          "onePipeKg": 66.42773746489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.771384833753524,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.771384833753524,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.612475233948988,
+          "minPDHV": 11.27046316896068,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.143355131271674,
+          "minimumMotorHeadroomV": 5.483740618530906,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.612475233948988,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.0935611478564648,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.70569038598835,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.199909024433602,
+              "maxA": 1.0714372745190097,
+              "rmsA": 1.0376086993686038
+            },
+            "RIO": {
+              "minV": 11.189207413625152,
+              "maxA": 1.340577526674001,
+              "rmsA": 1.2981736807049278
+            },
+            "PH": {
+              "minV": 11.266478405631478,
+              "maxA": 0.13313831935720344,
+              "rmsA": 0.12898210672601718
+            },
+            "Host": {
+              "minV": 11.181197500716944,
+              "maxA": 1.9880995154506462,
+              "rmsA": 1.9251273808058464
+            },
+            "FixedCamera": {
+              "minV": 11.231306897655173,
+              "maxA": 0.7422110423979561,
+              "rmsA": 0.7189024515533062
+            },
+            "MovingCamera": {
+              "minV": 11.225452439752946,
+              "maxA": 0.7425981308761808,
+              "rmsA": 0.7192541086469288
+            },
+            "DriveLeft": {
+              "minV": 11.148909354633822,
+              "maxA": 6.702349709244422,
+              "rmsA": 0.3028624924940322
+            },
+            "DriveRight": {
+              "minV": 11.143355131271674,
+              "maxA": 6.70569038598835,
+              "rmsA": 0.30296920266025423
+            },
+            "Lift": {
+              "minV": 11.27046316896068,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.26808913289436,
+              "maxA": 0.06212233429681751,
+              "rmsA": 0.06018357443423338
+            },
+            "LeftGrip": {
+              "minV": 11.267617691693232,
+              "maxA": 0.06212493351776191,
+              "rmsA": 0.060185937792194034
+            },
+            "RightGrip": {
+              "minV": 11.26741308996512,
+              "maxA": 0.062126061626641485,
+              "rmsA": 0.060186963524710084
+            }
+          }
+        },
+        "attachedScreened": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.7649478224194,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.7649478224194,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.602733681710884,
+          "minPDHV": 11.270726190869953,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.143709137315035,
+          "minimumMotorHeadroomV": 5.484908294761981,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.602733681710884,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09360905371101234,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.700890442221371,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.200173713721144,
+              "maxA": 1.0714119536645224,
+              "rmsA": 1.0376086139214538
+            },
+            "RIO": {
+              "minV": 11.189472359519584,
+              "maxA": 1.3405457842914783,
+              "rmsA": 1.298173573591467
+            },
+            "PH": {
+              "minV": 11.266741520597902,
+              "maxA": 0.1331352101455149,
+              "rmsA": 0.12898209623158757
+            },
+            "Host": {
+              "minV": 11.181462639323799,
+              "maxA": 1.988052372965551,
+              "rmsA": 1.925127221729377
+            },
+            "FixedCamera": {
+              "minV": 11.231570839737405,
+              "maxA": 0.742193600427391,
+              "rmsA": 0.7189023926882797
+            },
+            "MovingCamera": {
+              "minV": 11.225716520522738,
+              "maxA": 0.7425806615337393,
+              "rmsA": 0.7192540496905941
+            },
+            "DriveLeft": {
+              "minV": 11.149259339220805,
+              "maxA": 6.697554678492928,
+              "rmsA": 0.30264021015664727
+            },
+            "DriveRight": {
+              "minV": 11.143709137315035,
+              "maxA": 6.700890442221371,
+              "rmsA": 0.3027467550211321
+            },
+            "Lift": {
+              "minV": 11.270726190869953,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.268352210229224,
+              "maxA": 0.06212088395360517,
+              "rmsA": 0.060183569538909264
+            },
+            "LeftGrip": {
+              "minV": 11.26788078004019,
+              "maxA": 0.062123482992469434,
+              "rmsA": 0.06018593289626231
+            },
+            "RightGrip": {
+              "minV": 11.267676183091812,
+              "maxA": 0.06212461102231661,
+              "rmsA": 0.06018695862851465
+            }
+          }
+        },
+        "attachedWeak": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.7649478224194,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.7649478224194,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.788821418133153,
+          "minPDHV": 11.166757714689963,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.038530401010124,
+          "minimumMotorHeadroomV": 5.37972955845707,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.788821418133153,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09360905371101234,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.764738723036542,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.095539909477525,
+              "maxA": 1.0815156448358054,
+              "rmsA": 1.040451296767589
+            },
+            "RIO": {
+              "minV": 11.084736141202026,
+              "maxA": 1.3532121837564466,
+              "rmsA": 1.301736564911216
+            },
+            "PH": {
+              "minV": 11.16273591839126,
+              "maxA": 0.13437565942312246,
+              "rmsA": 0.12933152409865437
+            },
+            "Host": {
+              "minV": 11.076649504052668,
+              "maxA": 2.0068643794497767,
+              "rmsA": 1.9304181452256741
+            },
+            "FixedCamera": {
+              "minV": 11.127235219539708,
+              "maxA": 0.7491528520365753,
+              "rmsA": 0.7208615214162627
+            },
+            "MovingCamera": {
+              "minV": 11.121325558483134,
+              "maxA": 0.7495509376255476,
+              "rmsA": 0.7212160708531266
+            },
+            "DriveLeft": {
+              "minV": 11.04413466899706,
+              "maxA": 6.76130600424039,
+              "rmsA": 0.30489521635983335
+            },
+            "DriveRight": {
+              "minV": 11.038530401010124,
+              "maxA": 6.764738723036542,
+              "rmsA": 0.30500443738237776
+            },
+            "Lift": {
+              "minV": 11.166757714689963,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.16436162157629,
+              "maxA": 0.06269950971913854,
+              "rmsA": 0.06034657003404128
+            },
+            "LeftGrip": {
+              "minV": 11.163885797995352,
+              "maxA": 0.0627021820776504,
+              "rmsA": 0.06034895265866063
+            },
+            "RightGrip": {
+              "minV": 11.163679294117802,
+              "maxA": 0.06270334193215613,
+              "rmsA": 0.06034998675382624
+            }
+          }
+        },
+        "fresh": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 18.400870057111636,
+          "minPDHV": 11.939978248632427,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.82102433314935,
+          "minimumMotorHeadroomV": 6.170029438796808,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 18.400870057111636,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.12029834682672917,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.275512878124907,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.873426270966787,
+              "maxA": 1.0106602530848836,
+              "rmsA": 0.9845103089987695
+            },
+            "RIO": {
+              "minV": 11.863339838846434,
+              "maxA": 1.2643994190305998,
+              "rmsA": 1.2316303857487845
+            },
+            "PH": {
+              "minV": 11.93621706954709,
+              "maxA": 0.12566795587413995,
+              "rmsA": 0.12244931695042735
+            },
+            "Host": {
+              "minV": 11.85579179496252,
+              "maxA": 1.8749766964344372,
+              "rmsA": 1.8263236432414738
+            },
+            "FixedCamera": {
+              "minV": 11.903031686480576,
+              "maxA": 0.7003257841838733,
+              "rmsA": 0.6822923995032886
+            },
+            "MovingCamera": {
+              "minV": 11.897510051689972,
+              "maxA": 0.7006508054024229,
+              "rmsA": 0.6825928936388078
+            },
+            "DriveLeft": {
+              "minV": 11.826215505691778,
+              "maxA": 6.272758212430975,
+              "rmsA": 0.2839660614084502
+            },
+            "DriveRight": {
+              "minV": 11.82102433314935,
+              "maxA": 6.275512878124907,
+              "rmsA": 0.28405432935701563
+            },
+            "Lift": {
+              "minV": 11.939978248632427,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.937737384292824,
+              "maxA": 0.058637577412368844,
+              "rmsA": 0.057136105193445794
+            },
+            "LeftGrip": {
+              "minV": 11.937292400877064,
+              "maxA": 0.058639763230443204,
+              "rmsA": 0.057138127348460396
+            },
+            "RightGrip": {
+              "minV": 11.937099282881569,
+              "maxA": 0.058640711902583985,
+              "rmsA": 0.05713900498405972
+            }
+          }
+        },
+        "continuousMaxGrip": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.50942375824947,
+          "minPDHV": 11.273245558792558,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.147100002628418,
+          "minimumMotorHeadroomV": 5.496105108275877,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.50942375824947,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09407035194825857,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.6549138715733,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.202709048689007,
+              "maxA": 1.0711694776545406,
+              "rmsA": 1.0376077956289629
+            },
+            "RIO": {
+              "minV": 11.192010151777168,
+              "maxA": 1.340241815061092,
+              "rmsA": 1.2981725478102444
+            },
+            "PH": {
+              "minV": 11.269261779652645,
+              "maxA": 0.13310543577116501,
+              "rmsA": 0.12898199573030406
+            },
+            "Host": {
+              "minV": 11.184002277009757,
+              "maxA": 1.9876009305746263,
+              "rmsA": 1.9251256983207237
+            },
+            "FixedCamera": {
+              "minV": 11.234099019382388,
+              "maxA": 0.7420265733476048,
+              "rmsA": 0.718901828960838
+            },
+            "MovingCamera": {
+              "minV": 11.228246028257832,
+              "maxA": 0.7424133724021551,
+              "rmsA": 0.7192534850889344
+            },
+            "DriveLeft": {
+              "minV": 11.152611688256984,
+              "maxA": 6.651624974392032,
+              "rmsA": 0.3005118586730656
+            },
+            "DriveRight": {
+              "minV": 11.147100002628418,
+              "maxA": 6.6549138715733,
+              "rmsA": 0.30061682717190735
+            },
+            "Lift": {
+              "minV": 11.273245558792558,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.270872108917384,
+              "maxA": 0.06210699520280848,
+              "rmsA": 0.060183522658190255
+            },
+            "LeftGrip": {
+              "minV": 11.270400784182147,
+              "maxA": 0.062109592498470895,
+              "rmsA": 0.06018588600972602
+            },
+            "RightGrip": {
+              "minV": 11.270196233005368,
+              "maxA": 0.06211071977167645,
+              "rmsA": 0.06018691173945335
+            }
+          }
+        },
+        "lower": {
+          "bodyKg": 47.604224101168754,
+          "onePipeKg": 48.42069036716875,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 9.453153508510661,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 9.453153508510661,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 16.285452032901862,
+          "minPDHV": 11.360292795170272,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.264260220476263,
+          "minimumMotorHeadroomV": 5.8976816555790155,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 16.285452032901862,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.11326192985971775,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 5.066278455520692,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.290303534243556,
+              "maxA": 1.0628589358650926,
+              "rmsA": 1.037579724907676
+            },
+            "RIO": {
+              "minV": 11.279688842999708,
+              "maxA": 1.3298239170231327,
+              "rmsA": 1.2981373601343078
+            },
+            "PH": {
+              "minV": 11.356339562726664,
+              "maxA": 0.1320848141000681,
+              "rmsA": 0.12897854768718725
+            },
+            "Host": {
+              "minV": 11.271744204235103,
+              "maxA": 1.9721289740571972,
+              "rmsA": 1.9250734412132462
+            },
+            "FixedCamera": {
+              "minV": 11.32144828615655,
+              "maxA": 0.7363015569477056,
+              "rmsA": 0.7188824896571769
+            },
+            "MovingCamera": {
+              "minV": 11.31564081227489,
+              "maxA": 0.736679445582732,
+              "rmsA": 0.7192341160146261
+            },
+            "DriveLeft": {
+              "minV": 11.268444890576536,
+              "maxA": 5.064397033179069,
+              "rmsA": 0.22803755024040573
+            },
+            "DriveRight": {
+              "minV": 11.264260220476263,
+              "maxA": 5.066278455520692,
+              "rmsA": 0.2280956775459077
+            },
+            "Lift": {
+              "minV": 11.360292795170272,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.35793753921754,
+              "maxA": 0.061630907687508174,
+              "rmsA": 0.06018191424850283
+            },
+            "LeftGrip": {
+              "minV": 11.357469829273647,
+              "maxA": 0.061633445698949976,
+              "rmsA": 0.06018427740190453
+            },
+            "RightGrip": {
+              "minV": 11.35726684707354,
+              "maxA": 0.061634547239714725,
+              "rmsA": 0.06018530304563157
+            }
+          }
+        },
+        "calibrated": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.716908503594958,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.716908503594958,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.509455119766972,
+          "minPDHV": 11.27324471203159,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.147098672559306,
+          "minimumMotorHeadroomV": 5.494987821329463,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.509455119766972,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09407018869903054,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.654939368896918,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.202708196562728,
+              "maxA": 1.0711695591323087,
+              "rmsA": 1.037607795872192
+            },
+            "RIO": {
+              "minV": 11.192009298825184,
+              "maxA": 1.3402419172019933,
+              "rmsA": 1.2981725481151511
+            },
+            "PH": {
+              "minV": 11.269260932592234,
+              "maxA": 0.13310544577611086,
+              "rmsA": 0.1289819957601749
+            },
+            "Host": {
+              "minV": 11.184001423437667,
+              "maxA": 1.9876010822699468,
+              "rmsA": 1.925125698773551
+            },
+            "FixedCamera": {
+              "minV": 11.234098169660463,
+              "maxA": 0.7420266294728263,
+              "rmsA": 0.7189018291283947
+            },
+            "MovingCamera": {
+              "minV": 11.228245178089637,
+              "maxA": 0.7424134286154125,
+              "rmsA": 0.7192534852567519
+            },
+            "DriveLeft": {
+              "minV": 11.152610743697016,
+              "maxA": 6.651630366926155,
+              "rmsA": 0.3004220983007491
+            },
+            "DriveRight": {
+              "minV": 11.147098672559306,
+              "maxA": 6.654939368896918,
+              "rmsA": 0.30070799972221657
+            },
+            "Lift": {
+              "minV": 11.27324471203159,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.270871261978066,
+              "maxA": 0.062106999869781875,
+              "rmsA": 0.06018352267212406
+            },
+            "LeftGrip": {
+              "minV": 11.270399937207392,
+              "maxA": 0.062109597166029915,
+              "rmsA": 0.06018588602366157
+            },
+            "RightGrip": {
+              "minV": 11.270195386015232,
+              "maxA": 0.06211072443948967,
+              "rmsA": 0.060186911753389645
+            }
+          }
+        },
+        "screened": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.50942375824947,
+          "minPDHV": 11.273245558792558,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.147100002628418,
+          "minimumMotorHeadroomV": 5.496105108275877,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.50942375824947,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09407035194825857,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.6549138715733,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.202709048689007,
+              "maxA": 1.0711694776545406,
+              "rmsA": 1.0376077956289629
+            },
+            "RIO": {
+              "minV": 11.192010151777168,
+              "maxA": 1.340241815061092,
+              "rmsA": 1.2981725478102444
+            },
+            "PH": {
+              "minV": 11.269261779652645,
+              "maxA": 0.13310543577116501,
+              "rmsA": 0.12898199573030406
+            },
+            "Host": {
+              "minV": 11.184002277009757,
+              "maxA": 1.9876009305746263,
+              "rmsA": 1.9251256983207237
+            },
+            "FixedCamera": {
+              "minV": 11.234099019382388,
+              "maxA": 0.7420265733476048,
+              "rmsA": 0.718901828960838
+            },
+            "MovingCamera": {
+              "minV": 11.228246028257832,
+              "maxA": 0.7424133724021551,
+              "rmsA": 0.7192534850889344
+            },
+            "DriveLeft": {
+              "minV": 11.152611688256984,
+              "maxA": 6.651624974392032,
+              "rmsA": 0.3005118586730656
+            },
+            "DriveRight": {
+              "minV": 11.147100002628418,
+              "maxA": 6.6549138715733,
+              "rmsA": 0.30061682717190735
+            },
+            "Lift": {
+              "minV": 11.273245558792558,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.270872108917384,
+              "maxA": 0.06210699520280848,
+              "rmsA": 0.060183522658190255
+            },
+            "LeftGrip": {
+              "minV": 11.270400784182147,
+              "maxA": 0.062109592498470895,
+              "rmsA": 0.06018588600972602
+            },
+            "RightGrip": {
+              "minV": 11.270196233005368,
+              "maxA": 0.06211071977167645,
+              "rmsA": 0.06018691173945335
+            }
+          }
+        },
+        "weak": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.693612412040473,
+          "minPDHV": 11.169804402881772,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.042463513071787,
+          "minimumMotorHeadroomV": 5.391468618719246,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.693612412040473,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09407035194825857,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.7179746935537255,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.09860627399132,
+              "maxA": 1.0812168396423814,
+              "rmsA": 1.0404502955377473
+            },
+            "RIO": {
+              "minV": 11.087805535105694,
+              "maxA": 1.3528375793124887,
+              "rmsA": 1.3017353097469064
+            },
+            "PH": {
+              "minV": 11.165783704363093,
+              "maxA": 0.1343389805602151,
+              "rmsA": 0.12933140116499395
+            },
+            "Host": {
+              "minV": 11.079721173253567,
+              "maxA": 2.006308009536821,
+              "rmsA": 1.9304162810889904
+            },
+            "FixedCamera": {
+              "minV": 11.130292764751935,
+              "maxA": 0.748947056127664,
+              "rmsA": 0.7208608317571412
+            },
+            "MovingCamera": {
+              "minV": 11.124384740420428,
+              "maxA": 0.7493448127257917,
+              "rmsA": 0.7212153801068303
+            },
+            "DriveLeft": {
+              "minV": 11.048028585218267,
+              "maxA": 6.714590740157925,
+              "rmsA": 0.30273927105619636
+            },
+            "DriveRight": {
+              "minV": 11.042463513071787,
+              "maxA": 6.7179746935537255,
+              "rmsA": 0.30284686270148387
+            },
+            "Lift": {
+              "minV": 11.169804402881772,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.167408963609585,
+              "maxA": 0.06268240039216245,
+              "rmsA": 0.060346512689713444
+            },
+            "LeftGrip": {
+              "minV": 11.166933269937303,
+              "maxA": 0.06268507056314936,
+              "rmsA": 0.06034889530710109
+            },
+            "RightGrip": {
+              "minV": 11.166726822446034,
+              "maxA": 0.06268622946815021,
+              "rmsA": 0.060349929399127755
+            }
+          }
+        },
+        "depleted": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.16177948359910221,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 21.15968065404926,
+          "minPDHV": 10.411293412747568,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.274433593009617,
+          "minimumMotorHeadroomV": 4.6234386986570755,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 21.15968065404926,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.07221368954953304,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 7.220153769428056,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.334833545589161,
+              "maxA": 1.1611217487988978,
+              "rmsA": 1.095473469800082
+            },
+            "RIO": {
+              "minV": 10.323221340082629,
+              "maxA": 1.4530348140224936,
+              "rmsA": 1.370711480272863
+            },
+            "PH": {
+              "minV": 10.406979553018019,
+              "maxA": 0.14413403931066635,
+              "rmsA": 0.1360885723052633
+            },
+            "Host": {
+              "minV": 10.314527265254913,
+              "maxA": 2.1551480510613548,
+              "rmsA": 2.032855492696178
+            },
+            "FixedCamera": {
+              "minV": 10.36888033769246,
+              "maxA": 0.8039440834992926,
+              "rmsA": 0.758764855413304
+            },
+            "MovingCamera": {
+              "minV": 10.362534511201442,
+              "maxA": 0.8044364041431324,
+              "rmsA": 0.7591785223415615
+            },
+            "DriveLeft": {
+              "minV": 10.280425018482157,
+              "maxA": 7.2159458681854485,
+              "rmsA": 0.32323332699696183
+            },
+            "DriveRight": {
+              "minV": 10.274433593009617,
+              "maxA": 7.220153769428056,
+              "rmsA": 0.32336545218667107
+            },
+            "Lift": {
+              "minV": 10.411293412747568,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.408723371346177,
+              "maxA": 0.06725128289286718,
+              "rmsA": 0.06349851512336212
+            },
+            "LeftGrip": {
+              "minV": 10.408212984815629,
+              "maxA": 0.06725458068750308,
+              "rmsA": 0.06350129105065454
+            },
+            "RightGrip": {
+              "minV": 10.407991478837468,
+              "maxA": 0.06725601201954358,
+              "rmsA": 0.0635024958597734
+            }
+          }
+        },
+        "poorBalance": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.22244678994876554,
+          "peakMotorPhaseA": 11.703194328437446,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 11.703194328437446,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 0.0
+          },
+          "maxCommonA": 19.50942375824947,
+          "minPDHV": 11.273245558792558,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.147100002628418,
+          "minimumMotorHeadroomV": 5.496105108275877,
+          "limitingBranch": "DriveRight",
+          "limitingWallS": 0.665,
+          "commonCurrentAtMinimumA": 19.50942375824947,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.09407035194825857,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.805657336355381,
+          "maxDriveBranchA": 6.6549138715733,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.202709048689007,
+              "maxA": 1.0711694776545406,
+              "rmsA": 1.0376077956289629
+            },
+            "RIO": {
+              "minV": 11.192010151777168,
+              "maxA": 1.340241815061092,
+              "rmsA": 1.2981725478102444
+            },
+            "PH": {
+              "minV": 11.269261779652645,
+              "maxA": 0.13310543577116501,
+              "rmsA": 0.12898199573030406
+            },
+            "Host": {
+              "minV": 11.184002277009757,
+              "maxA": 1.9876009305746263,
+              "rmsA": 1.9251256983207237
+            },
+            "FixedCamera": {
+              "minV": 11.234099019382388,
+              "maxA": 0.7420265733476048,
+              "rmsA": 0.718901828960838
+            },
+            "MovingCamera": {
+              "minV": 11.228246028257832,
+              "maxA": 0.7424133724021551,
+              "rmsA": 0.7192534850889344
+            },
+            "DriveLeft": {
+              "minV": 11.152611688256984,
+              "maxA": 6.651624974392032,
+              "rmsA": 0.3005118586730656
+            },
+            "DriveRight": {
+              "minV": 11.147100002628418,
+              "maxA": 6.6549138715733,
+              "rmsA": 0.30061682717190735
+            },
+            "Lift": {
+              "minV": 11.273245558792558,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.270872108917384,
+              "maxA": 0.06210699520280848,
+              "rmsA": 0.060183522658190255
+            },
+            "LeftGrip": {
+              "minV": 11.270400784182147,
+              "maxA": 0.062109592498470895,
+              "rmsA": 0.06018588600972602
+            },
+            "RightGrip": {
+              "minV": 11.270196233005368,
+              "maxA": 0.06211071977167645,
+              "rmsA": 0.06018691173945335
+            }
+          }
+        }
+      },
+      "kinematicSensitivity": {
+        "nominal": {
+          "openingEndS": 1.3452694897305875,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        },
+        "bothPlus02pct": {
+          "openingEndS": 1.3452694897305875,
+          "XYerrorMm": [
+            -1.0858499999990556,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 1.0858499999990556,
+          "normalStationGapMm": null
+        },
+        "leftSmallRightLarge": {
+          "openingEndS": 1.3452694897305875,
+          "XYerrorMm": [
+            0.0012686211885437615,
+            -1.016438659454444
+          ],
+          "yawErrorDeg": 0.2145331799458072,
+          "openingMaxHullDisplacementMm": 3.2669212868363466,
+          "normalStationGapMm": null
+        },
+        "trackPlus2mm": {
+          "openingEndS": 1.3452694897305875,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        },
+        "calibrated": {
+          "openingEndS": 1.3452694897305875,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        }
+      },
+      "motionStockSourceMarginMm": null,
+      "worstFullPathHullDriftAt1ppmMm": 0.002178906653188548,
+      "pointsAwarded": null
+    },
+    "nearSlow": {
+      "routeEndWallS": 2.328992063492059,
+      "openingEndWallS": 2.328992063492059,
+      "cases": {
+        "attachedPlus50g": {
+          "bodyKg": 65.6112711988937,
+          "onePipeKg": 66.42773746489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.2809152428323225,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.2809152428323225,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.986633488383637
+          },
+          "maxCommonA": 9.331178901738388,
+          "minPDHV": 11.548058169680559,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.460971567925089,
+          "minimumMotorHeadroomV": 8.912602504256611,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.331178901738388,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19523441111402912,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6389261354130664,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.47922074442381,
+              "maxA": 1.0453671261465345,
+              "rmsA": 1.0375466239264397
+            },
+            "RIO": {
+              "minV": 11.468783194771758,
+              "maxA": 1.3078981218197592,
+              "rmsA": 1.2980958676478558
+            },
+            "PH": {
+              "minV": 11.54416925840465,
+              "maxA": 0.12993572481691879,
+              "rmsA": 0.1289744812747666
+            },
+            "Host": {
+              "minV": 11.460971567925089,
+              "maxA": 1.9395679678278588,
+              "rmsA": 1.9250118217493568
+            },
+            "FixedCamera": {
+              "minV": 11.509849494562108,
+              "maxA": 0.7242492618116675,
+              "rmsA": 0.7188596834750639
+            },
+            "MovingCamera": {
+              "minV": 11.504137816145601,
+              "maxA": 0.7246088436371786,
+              "rmsA": 0.7192112749634464
+            },
+            "DriveLeft": {
+              "minV": 11.518338079122707,
+              "maxA": 1.6387345918533587,
+              "rmsA": 0.11159651878539142
+            },
+            "DriveRight": {
+              "minV": 11.51699191505227,
+              "maxA": 1.6389261354130664,
+              "rmsA": 0.11160291079550058
+            },
+            "Lift": {
+              "minV": 11.548058169680559,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.54574122445548,
+              "maxA": 0.060628415828106644,
+              "rmsA": 0.06018001738255322
+            },
+            "LeftGrip": {
+              "minV": 11.54528112599924,
+              "maxA": 0.0606308319702709,
+              "rmsA": 0.060182380303852936
+            },
+            "RightGrip": {
+              "minV": 11.54508144750183,
+              "maxA": 0.06063188061366762,
+              "rmsA": 0.06018340584683601
+            }
+          }
+        },
+        "attachedScreened": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.07487185180832556,
+          "peakMotorPhaseA": 6.277936181779741,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.277936181779741,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9857291974999134
+          },
+          "maxCommonA": 9.329176570100003,
+          "minPDHV": 11.548112232634752,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.46102604482196,
+          "minimumMotorHeadroomV": 8.913051843117653,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.329176570100003,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.1952754018517012,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6379391897925657,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.479275133531536,
+              "maxA": 1.045362173169576,
+              "rmsA": 1.0375466020831385
+            },
+            "RIO": {
+              "minV": 11.468837634021291,
+              "maxA": 1.307891913606295,
+              "rmsA": 1.298095840268908
+            },
+            "PH": {
+              "minV": 11.54422333957721,
+              "maxA": 0.12993511610759736,
+              "rmsA": 0.12897447859020636
+            },
+            "Host": {
+              "minV": 11.46102604482196,
+              "maxA": 1.9395587486145227,
+              "rmsA": 1.9250117810916783
+            },
+            "FixedCamera": {
+              "minV": 11.509903737583311,
+              "maxA": 0.7242458486234288,
+              "rmsA": 0.7188596684222542
+            },
+            "MovingCamera": {
+              "minV": 11.504192086290697,
+              "maxA": 0.7246054253504542,
+              "rmsA": 0.7192112598881859
+            },
+            "DriveLeft": {
+              "minV": 11.518410037112975,
+              "maxA": 1.6377478783511186,
+              "rmsA": 0.11155246992284969
+            },
+            "DriveRight": {
+              "minV": 11.517064685807437,
+              "maxA": 1.6379391897925657,
+              "rmsA": 0.11155885345996908
+            },
+            "Lift": {
+              "minV": 11.548112232634752,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.5457952982609,
+              "maxA": 0.06062813187978816,
+              "rmsA": 0.06018001613026941
+            },
+            "LeftGrip": {
+              "minV": 11.545335201960533,
+              "maxA": 0.0606305479879988,
+              "rmsA": 0.0601823790514196
+            },
+            "RightGrip": {
+              "minV": 11.545135524398859,
+              "maxA": 0.060631596616658005,
+              "rmsA": 0.06018340459433778
+            }
+          }
+        },
+        "attachedWeak": {
+          "bodyKg": 65.5612711988937,
+          "onePipeKg": 66.37773746489371,
+          "peakFrictionRequired": 0.07487185180832556,
+          "peakMotorPhaseA": 6.277936181779741,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.277936181779741,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9857291974999134
+          },
+          "maxCommonA": 9.368405408088256,
+          "minPDHV": 11.50021102703559,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.412756513704993,
+          "minimumMotorHeadroomV": 8.865020613322297,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.368405408088256,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.1952754018517012,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.644798724549133,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.431083722997897,
+              "maxA": 1.049769233677951,
+              "rmsA": 1.040375773147667
+            },
+            "RIO": {
+              "minV": 11.420601604389187,
+              "maxA": 1.313415923223797,
+              "rmsA": 1.3016418904835902
+            },
+            "PH": {
+              "minV": 11.496305924797213,
+              "maxA": 0.1304766948454757,
+              "rmsA": 0.12932224890136668
+            },
+            "Host": {
+              "minV": 11.412756513704993,
+              "maxA": 1.9477619895455816,
+              "rmsA": 1.9302775413955677
+            },
+            "FixedCamera": {
+              "minV": 11.46184231737945,
+              "maxA": 0.7272827324940796,
+              "rmsA": 0.7208094939562997
+            },
+            "MovingCamera": {
+              "minV": 11.456106531445126,
+              "maxA": 0.7276468647632642,
+              "rmsA": 0.7211639624700649
+            },
+            "DriveLeft": {
+              "minV": 11.470384470838447,
+              "maxA": 1.6446049954314297,
+              "rmsA": 0.11193076717728577
+            },
+            "DriveRight": {
+              "minV": 11.469033456012081,
+              "maxA": 1.644798724549133,
+              "rmsA": 0.11193722550537555
+            },
+            "Lift": {
+              "minV": 11.50021102703559,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.497884438162318,
+              "maxA": 0.060880764958521315,
+              "rmsA": 0.06034224344873414
+            },
+            "LeftGrip": {
+              "minV": 11.497422423745363,
+              "maxA": 0.060883211401740446,
+              "rmsA": 0.0603446255349044
+            },
+            "RightGrip": {
+              "minV": 11.49722191364297,
+              "maxA": 0.060884273197280604,
+              "rmsA": 0.060345659396355236
+            }
+          }
+        },
+        "fresh": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 8.823607058132138,
+          "minPDHV": 12.179409823978933,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 12.096901333652568,
+          "minimumMotorHeadroomV": 9.54974791376728,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 8.823607058132138,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.24915642641636157,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.5437240422490404,
+          "branchBounds": {
+            "Radio": {
+              "minV": 12.114180483780643,
+              "maxA": 0.9905746423430362,
+              "rmsA": 0.9844625717397291
+            },
+            "RIO": {
+              "minV": 12.104297035742217,
+              "maxA": 1.2392293377886543,
+              "rmsA": 1.2315705640556183
+            },
+            "PH": {
+              "minV": 12.175722630096162,
+              "maxA": 0.12319597329626038,
+              "rmsA": 0.12244344195532222
+            },
+            "Host": {
+              "minV": 12.096901333652568,
+              "maxA": 1.8376055751974423,
+              "rmsA": 1.8262348231040053
+            },
+            "FixedCamera": {
+              "minV": 12.143193973275416,
+              "maxA": 0.6864750755316732,
+              "rmsA": 0.6822594810381846
+            },
+            "MovingCamera": {
+              "minV": 12.137782301962964,
+              "maxA": 0.6867811427670666,
+              "rmsA": 0.6825599300575672
+            },
+            "DriveLeft": {
+              "minV": 12.151415765349409,
+              "maxA": 1.543563003392364,
+              "rmsA": 0.1054324326661322
+            },
+            "DriveRight": {
+              "minV": 12.150148148827093,
+              "maxA": 1.5437240422490404,
+              "rmsA": 0.10543780551823066
+            },
+            "Lift": {
+              "minV": 12.179409823978933,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 12.177213028214744,
+              "maxA": 0.057484417688849807,
+              "rmsA": 0.05713336455770621
+            },
+            "LeftGrip": {
+              "minV": 12.176776799613979,
+              "maxA": 0.05748647704720932,
+              "rmsA": 0.057135386411707144
+            },
+            "RightGrip": {
+              "minV": 12.176587481508008,
+              "maxA": 0.057487370830543116,
+              "rmsA": 0.057136263916654
+            }
+          }
+        },
+        "continuousMaxGrip": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 9.309991048333952,
+          "minPDHV": 11.548630241722037,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.461548019937469,
+          "minimumMotorHeadroomV": 8.91736171038542,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.309991048333952,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19566904985660669,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6284826777175592,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.479796267530789,
+              "maxA": 1.0453147181662574,
+              "rmsA": 1.0375463928709787
+            },
+            "RIO": {
+              "minV": 11.46935924843406,
+              "maxA": 1.3078324320556955,
+              "rmsA": 1.2980955780371124
+            },
+            "PH": {
+              "minV": 11.544741523216757,
+              "maxA": 0.12992928399336298,
+              "rmsA": 0.12897445287783535
+            },
+            "Host": {
+              "minV": 11.461548019937469,
+              "maxA": 1.9394704183645353,
+              "rmsA": 1.9250113916780605
+            },
+            "FixedCamera": {
+              "minV": 11.510423471912643,
+              "maxA": 0.7242131464877233,
+              "rmsA": 0.7188595242484448
+            },
+            "MovingCamera": {
+              "minV": 11.504712080496905,
+              "maxA": 0.7245726743680453,
+              "rmsA": 0.7192111154993543
+            },
+            "DriveLeft": {
+              "minV": 11.519099509298698,
+              "maxA": 1.628293583113076,
+              "rmsA": 0.11113096853953451
+            },
+            "DriveRight": {
+              "minV": 11.517761945445232,
+              "maxA": 1.6284826777175592,
+              "rmsA": 0.11113727122312839
+            },
+            "Lift": {
+              "minV": 11.548630241722037,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.546313411315044,
+              "maxA": 0.06062541133813506,
+              "rmsA": 0.06018000413605666
+            },
+            "LeftGrip": {
+              "minV": 11.545853335670326,
+              "maxA": 0.06062782712104835,
+              "rmsA": 0.06018236705577483
+            },
+            "RightGrip": {
+              "minV": 11.545653667074038,
+              "maxA": 0.06062887560851266,
+              "rmsA": 0.06018339259807144
+            }
+          }
+        },
+        "lower": {
+          "bodyKg": 47.604224101168754,
+          "onePipeKg": 48.42069036716875,
+          "peakFrictionRequired": 0.07487185180832556,
+          "peakMotorPhaseA": 5.208033389215349,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 5.208033389215349,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.6609613177185985
+          },
+          "maxCommonA": 8.640284257045858,
+          "minPDHV": 11.56671232584283,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.47976831800065,
+          "minimumMotorHeadroomV": 9.073329360601026,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 8.640284257045858,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.21050254714643166,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.2983815463032298,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.497987254006922,
+              "maxA": 1.0436609238558803,
+              "rmsA": 1.0375391895382433
+            },
+            "RIO": {
+              "minV": 11.487566976627473,
+              "maxA": 1.305759525103871,
+              "rmsA": 1.2980865492336637
+            },
+            "PH": {
+              "minV": 11.5628296906055,
+              "maxA": 0.12972603074995656,
+              "rmsA": 0.1289735675602239
+            },
+            "Host": {
+              "minV": 11.47976831800065,
+              "maxA": 1.9363921568414422,
+              "rmsA": 1.924997983965053
+            },
+            "FixedCamera": {
+              "minV": 11.528565681050509,
+              "maxA": 0.7230734707702515,
+              "rmsA": 0.7188545601786481
+            },
+            "MovingCamera": {
+              "minV": 11.52286334622567,
+              "maxA": 0.7234312991076536,
+              "rmsA": 0.7192061440366151
+            },
+            "DriveLeft": {
+              "minV": 11.543167052444216,
+              "maxA": 1.298261656297654,
+              "rmsA": 0.09712826719495721
+            },
+            "DriveRight": {
+              "minV": 11.542101179037267,
+              "maxA": 1.2983815463032298,
+              "rmsA": 0.09713212085384121
+            },
+            "Lift": {
+              "minV": 11.56671232584283,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.564399118755693,
+              "maxA": 0.060530598504223765,
+              "rmsA": 0.06017959115610004
+            },
+            "LeftGrip": {
+              "minV": 11.563939762974364,
+              "maxA": 0.06053300296852746,
+              "rmsA": 0.06018195402658063
+            },
+            "RightGrip": {
+              "minV": 11.563740406827794,
+              "maxA": 0.060534046543165736,
+              "rmsA": 0.06018297954750575
+            }
+          }
+        },
+        "calibrated": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.255970680688417,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.255970680688417,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.979407987047967
+          },
+          "maxCommonA": 9.30999788569707,
+          "minPDHV": 11.548630057113234,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.461547833915313,
+          "minimumMotorHeadroomV": 8.915905980580883,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.30999788569707,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19566890932490194,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6284655556770056,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.479796081808377,
+              "maxA": 1.0453147350775656,
+              "rmsA": 1.0375463929633244
+            },
+            "RIO": {
+              "minV": 11.469359062540446,
+              "maxA": 1.307832453252843,
+              "rmsA": 1.29809557815286
+            },
+            "PH": {
+              "minV": 11.544741338545752,
+              "maxA": 0.1299292860717267,
+              "rmsA": 0.12897445288918516
+            },
+            "Host": {
+              "minV": 11.461547833915313,
+              "maxA": 1.939470449842349,
+              "rmsA": 1.9250113918499445
+            },
+            "FixedCamera": {
+              "minV": 11.510423286689026,
+              "maxA": 0.7242131581416283,
+              "rmsA": 0.7188595243120839
+            },
+            "MovingCamera": {
+              "minV": 11.504711895180673,
+              "maxA": 0.7245726860393569,
+              "rmsA": 0.7192111155630881
+            },
+            "DriveLeft": {
+              "minV": 11.519098891937642,
+              "maxA": 1.6283174446180957,
+              "rmsA": 0.11112668683855081
+            },
+            "DriveRight": {
+              "minV": 11.517762085388988,
+              "maxA": 1.6284655556770056,
+              "rmsA": 0.11114189334281009
+            },
+            "Lift": {
+              "minV": 11.548630057113234,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.546313226669191,
+              "maxA": 0.06062541230764199,
+              "rmsA": 0.06018000414135107
+            },
+            "LeftGrip": {
+              "minV": 11.545853151017113,
+              "maxA": 0.06062782809067121,
+              "rmsA": 0.06018236706106988
+            },
+            "RightGrip": {
+              "minV": 11.54565348241763,
+              "maxA": 0.06062887657818584,
+              "rmsA": 0.06018339260336676
+            }
+          }
+        },
+        "screened": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 9.309991048333952,
+          "minPDHV": 11.548630241722037,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.461548019937469,
+          "minimumMotorHeadroomV": 8.91736171038542,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.309991048333952,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19566904985660669,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6284826777175592,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.479796267530789,
+              "maxA": 1.0453147181662574,
+              "rmsA": 1.0375463928709787
+            },
+            "RIO": {
+              "minV": 11.46935924843406,
+              "maxA": 1.3078324320556955,
+              "rmsA": 1.2980955780371124
+            },
+            "PH": {
+              "minV": 11.544741523216757,
+              "maxA": 0.12992928399336298,
+              "rmsA": 0.12897445287783535
+            },
+            "Host": {
+              "minV": 11.461548019937469,
+              "maxA": 1.9394704183645353,
+              "rmsA": 1.9250113916780605
+            },
+            "FixedCamera": {
+              "minV": 11.510423471912643,
+              "maxA": 0.7242131464877233,
+              "rmsA": 0.7188595242484448
+            },
+            "MovingCamera": {
+              "minV": 11.504712080496905,
+              "maxA": 0.7245726743680453,
+              "rmsA": 0.7192111154993543
+            },
+            "DriveLeft": {
+              "minV": 11.519099509298698,
+              "maxA": 1.628293583113076,
+              "rmsA": 0.11113096853953451
+            },
+            "DriveRight": {
+              "minV": 11.517761945445232,
+              "maxA": 1.6284826777175592,
+              "rmsA": 0.11113727122312839
+            },
+            "Lift": {
+              "minV": 11.548630241722037,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.546313411315044,
+              "maxA": 0.06062541133813506,
+              "rmsA": 0.06018000413605666
+            },
+            "LeftGrip": {
+              "minV": 11.545853335670326,
+              "maxA": 0.06062782712104835,
+              "rmsA": 0.06018236705577483
+            },
+            "RightGrip": {
+              "minV": 11.545653667074038,
+              "maxA": 0.06062887560851266,
+              "rmsA": 0.06018339259807144
+            }
+          }
+        },
+        "weak": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 9.34905425314543,
+          "minPDHV": 11.500830263992384,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.413380532175157,
+          "minimumMotorHeadroomV": 8.869432743370846,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.34905425314543,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19566904985660669,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6352876148679873,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.43170672724905,
+              "maxA": 1.0497120234370905,
+              "rmsA": 1.0403755211806356
+            },
+            "RIO": {
+              "minV": 11.421225187913317,
+              "maxA": 1.3133442124820354,
+              "rmsA": 1.301641574654659
+            },
+            "PH": {
+              "minV": 11.496925372158545,
+              "maxA": 0.1304696648403464,
+              "rmsA": 0.12932221793864054
+            },
+            "Host": {
+              "minV": 11.413380532175157,
+              "maxA": 1.9476554970428972,
+              "rmsA": 1.9302770723823997
+            },
+            "FixedCamera": {
+              "minV": 11.462463634091634,
+              "maxA": 0.7272433105224506,
+              "rmsA": 0.7208093203302912
+            },
+            "MovingCamera": {
+              "minV": 11.456728161465463,
+              "maxA": 0.7276073834096906,
+              "rmsA": 0.7211637885830016
+            },
+            "DriveLeft": {
+              "minV": 11.471176160471675,
+              "maxA": 1.6350961359014489,
+              "rmsA": 0.1115070785058036
+            },
+            "DriveRight": {
+              "minV": 11.469832978430658,
+              "maxA": 1.6352876148679873,
+              "rmsA": 0.11151345488334824
+            },
+            "Lift": {
+              "minV": 11.500830263992384,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.498503800439885,
+              "maxA": 0.06087748564062925,
+              "rmsA": 0.0603422290054023
+            },
+            "LeftGrip": {
+              "minV": 11.498041810921222,
+              "maxA": 0.06087993168846513,
+              "rmsA": 0.06034461108983428
+            },
+            "RightGrip": {
+              "minV": 11.497841311625713,
+              "maxA": 0.06088099331238943,
+              "rmsA": 0.0603456449505306
+            }
+          }
+        },
+        "depleted": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.07487185180832555,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 9.883585204615319,
+          "minPDHV": 10.884889421454645,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 10.792408015522707,
+          "minimumMotorHeadroomV": 8.25172752933582,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.883585204615319,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.1510962360568109,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.7283685026055002,
+          "branchBounds": {
+            "Radio": {
+              "minV": 10.811802626653938,
+              "maxA": 1.1098981746500665,
+              "rmsA": 1.095352230608266
+            },
+            "RIO": {
+              "minV": 10.800710934919977,
+              "maxA": 1.3887974680910333,
+              "rmsA": 1.3705594382643513
+            },
+            "PH": {
+              "minV": 10.88076340121649,
+              "maxA": 0.1378579741778318,
+              "rmsA": 0.1360737183450039
+            },
+            "Host": {
+              "minV": 10.792408015522707,
+              "maxA": 2.0597195085064346,
+              "rmsA": 2.032629623805456
+            },
+            "FixedCamera": {
+              "minV": 10.844335891538336,
+              "maxA": 0.7686962192405392,
+              "rmsA": 0.7586814301791887
+            },
+            "MovingCamera": {
+              "minV": 10.838270748446089,
+              "maxA": 0.7691263849627631,
+              "rmsA": 0.7590949496889081
+            },
+            "DriveLeft": {
+              "minV": 10.853547831529669,
+              "maxA": 1.7281423646325396,
+              "rmsA": 0.11757015259403425
+            },
+            "DriveRight": {
+              "minV": 10.852127764395632,
+              "maxA": 1.7283685026055002,
+              "rmsA": 0.11757766187299301
+            },
+            "Lift": {
+              "minV": 10.884889421454645,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 10.882431252927937,
+              "maxA": 0.06432386143598783,
+              "rmsA": 0.06349158661713343
+            },
+            "LeftGrip": {
+              "minV": 10.88194309562678,
+              "maxA": 0.06432674696500802,
+              "rmsA": 0.06349436156656313
+            },
+            "RightGrip": {
+              "minV": 10.881731238326672,
+              "maxA": 0.064327999347615,
+              "rmsA": 0.06349556595122771
+            }
+          }
+        },
+        "poorBalance": {
+          "bodyKg": 65.0815959988937,
+          "onePipeKg": 65.89806226489371,
+          "peakFrictionRequired": 0.10294879623644763,
+          "peakMotorPhaseA": 6.249356547655547,
+          "tractionAndCurrentByPhase": {
+            "translationPeakA": 6.249356547655547,
+            "turnPeakA": 0.0,
+            "steadyTurnA": 0.0,
+            "steadyStraightA": 2.9770538792897487
+          },
+          "maxCommonA": 9.309991048333952,
+          "minPDHV": 11.548630241722037,
+          "floorBelowOrUnsolvedS": 0.0,
+          "unsolvedS": 0.0,
+          "minTerminalV": 11.461548019937469,
+          "minimumMotorHeadroomV": 8.91736171038542,
+          "limitingBranch": "Host",
+          "limitingWallS": 0.77,
+          "commonCurrentAtMinimumA": 9.309991048333952,
+          "firstReferenceInhibitWallS": null,
+          "allowableCommonOhmAtVoc": 0.19566904985660669,
+          "limitingLeg": "near tape",
+          "maxYawRadS": 0.0,
+          "maxWheelMps": 0.3500000000002501,
+          "maxDriveBranchA": 1.6284826777175592,
+          "branchBounds": {
+            "Radio": {
+              "minV": 11.479796267530789,
+              "maxA": 1.0453147181662574,
+              "rmsA": 1.0375463928709787
+            },
+            "RIO": {
+              "minV": 11.46935924843406,
+              "maxA": 1.3078324320556955,
+              "rmsA": 1.2980955780371124
+            },
+            "PH": {
+              "minV": 11.544741523216757,
+              "maxA": 0.12992928399336298,
+              "rmsA": 0.12897445287783535
+            },
+            "Host": {
+              "minV": 11.461548019937469,
+              "maxA": 1.9394704183645353,
+              "rmsA": 1.9250113916780605
+            },
+            "FixedCamera": {
+              "minV": 11.510423471912643,
+              "maxA": 0.7242131464877233,
+              "rmsA": 0.7188595242484448
+            },
+            "MovingCamera": {
+              "minV": 11.504712080496905,
+              "maxA": 0.7245726743680453,
+              "rmsA": 0.7192111154993543
+            },
+            "DriveLeft": {
+              "minV": 11.519099509298698,
+              "maxA": 1.628293583113076,
+              "rmsA": 0.11113096853953451
+            },
+            "DriveRight": {
+              "minV": 11.517761945445232,
+              "maxA": 1.6284826777175592,
+              "rmsA": 0.11113727122312839
+            },
+            "Lift": {
+              "minV": 11.548630241722037,
+              "maxA": 0.0,
+              "rmsA": 0.0
+            },
+            "Slide": {
+              "minV": 11.546313411315044,
+              "maxA": 0.06062541133813506,
+              "rmsA": 0.06018000413605666
+            },
+            "LeftGrip": {
+              "minV": 11.545853335670326,
+              "maxA": 0.06062782712104835,
+              "rmsA": 0.06018236705577483
+            },
+            "RightGrip": {
+              "minV": 11.545653667074038,
+              "maxA": 0.06062887560851266,
+              "rmsA": 0.06018339259807144
+            }
+          }
+        }
+      },
+      "kinematicSensitivity": {
+        "nominal": {
+          "openingEndS": 2.328992063492059,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        },
+        "bothPlus02pct": {
+          "openingEndS": 2.328992063492059,
+          "XYerrorMm": [
+            -1.0858499999990556,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 1.0858499999990556,
+          "normalStationGapMm": null
+        },
+        "leftSmallRightLarge": {
+          "openingEndS": 2.328992063492059,
+          "XYerrorMm": [
+            0.0012686211885437615,
+            -1.016438659454444
+          ],
+          "yawErrorDeg": 0.21453317994578178,
+          "openingMaxHullDisplacementMm": 3.26692128683608,
+          "normalStationGapMm": null
+        },
+        "trackPlus2mm": {
+          "openingEndS": 2.328992063492059,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        },
+        "calibrated": {
+          "openingEndS": 2.328992063492059,
+          "XYerrorMm": [
+            0.0,
+            0.0
+          ],
+          "yawErrorDeg": 0.0,
+          "openingMaxHullDisplacementMm": 0.0,
+          "normalStationGapMm": null
+        }
+      },
+      "motionStockSourceMarginMm": null,
+      "worstFullPathHullDriftAt1ppmMm": 0.00217775247689242,
+      "pointsAwarded": null
+    }
+  },
+  "reference597SurfaceWithShopLoadedRack": {
+    "nominal": [
+      {
+        "case": "coral-A/250/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032999297",
+        "min_riser_m": "0.021603313",
+        "max_compression_m": "0.002300512"
+      },
+      {
+        "case": "coral-A/500/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032860229",
+        "min_riser_m": "0.021999456",
+        "max_compression_m": "0.002293042"
+      },
+      {
+        "case": "coral-B/250/observed",
+        "outcome": "supported",
+        "min_front_m": "0.033191984",
+        "min_riser_m": "0.021406043",
+        "max_compression_m": "0.002306861"
+      },
+      {
+        "case": "coral-B/500/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032605364",
+        "min_riser_m": "0.022372688",
+        "max_compression_m": "0.002379198"
+      }
+    ],
+    "bridge26": [
+      {
+        "case": "coral-A/250/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032999297",
+        "min_riser_m": "0.021603313",
+        "max_compression_m": "0.002300512"
+      },
+      {
+        "case": "coral-A/500/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032860229",
+        "min_riser_m": "0.021999456",
+        "max_compression_m": "0.002293042"
+      },
+      {
+        "case": "coral-B/250/observed",
+        "outcome": "supported",
+        "min_front_m": "0.033191984",
+        "min_riser_m": "0.021406043",
+        "max_compression_m": "0.002306861"
+      },
+      {
+        "case": "coral-B/500/observed",
+        "outcome": "supported",
+        "min_front_m": "0.032605364",
+        "min_riser_m": "0.022372688",
+        "max_compression_m": "0.002379198"
+      }
+    ]
+  },
+  "sources": {
+    "design/selected-shop/articles.json": "41ed304fa5ab693ad352853e05138539fde4e4f50f9228c1a9288f6afe6047a6",
+    "axle-retention/accounting.json": "5e3fa42bf31b894b1f73bfa428aecbd3b8523f0d48f8403fe69df2960bc821f4",
+    "drive-side-attachment/accounting.json": "82e75f69dc49345e4ad1225050a29094fbfa15ec5c96cf430c6fed3e2432725f",
+    "design/competition-package/shop-duplex/mass.py": "c9d964243721f033d86822aef7ec7bac66825845b37112f29abd76ad01d513bf",
+    "design/drivetrain/route-receipt.json": "c536c5cd1b4afee892f0806414edc927f66725000a02a455e13b8916bf9c9493",
+    "relieved-match/navigation.json": "5f7f56ae36feecfe0ec78fb9cb563a2c8227493bdab3c7e3489613c532f1d60b",
+    "relieved-match/match.json": "e452391318af8e19fa2ede86dc0486932262bb0e85f195395936df52b511dc5b",
+    "packet-recovery/events.csv": "f15af1b12377e7168f949548c0fcc7e43916c2799891963360f75d1a007a5916",
+    "design/electrical-inspection/circuits.json": "b80b0645be4aa34d39c91f4d98b59e7b2c6bec490a8f3786f398b76495e3b703",
+    "camera-disconnects/mass-conditions.json": "7d1a49a624c920c7985a07596ec56bd7f15a6687028f6ffabf0afb1e138001bf",
+    "camera-disconnects/power/corners.json": "429d577b58f9c2d678b8aa947201997c2acf17a54fa0e0914ec8f241878b164f",
+    "selected-drive/wheels.json": "843b003dbe2ac3d46c5ec55d120d784364e0d6e38baf3651574f57a79cc3616d",
+    "selected-drive/dock.json": "85803c9bbdb2573fde459a67a3efd3ad74dd63ee4ebee236bb5e512fea0c2595",
+    "selected-drive/rack.json": "6b7550c51076f0b65289b06f13a673109418a8fa6f928e2309c100bce2f3b1a9"
+  }
+}

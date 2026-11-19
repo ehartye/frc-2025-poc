@@ -1,0 +1,38 @@
+{
+  "schema": "frc-power-comparison/v1",
+  "actionId": "selected-drive-spin",
+  "busId": "main-pack",
+  "clockId": "match-wall",
+  "window": {
+    "fromS": 40.325,
+    "toS": 40.33
+  },
+  "maxSampleIntervalS": 0.005001,
+  "requiredLoads": [
+    "pack"
+  ],
+  "locations": [
+    {
+      "id": "drive-right",
+      "minV": 9.5
+    }
+  ],
+  "trials": [
+    {
+      "id": "screened",
+      "condition": "11.8 V pack with 27 milliohm common source",
+      "trace": {
+        "file": "screened.json",
+        "sha256": "c16dc5296a5a8bfc4545132c94d2c2f792922d7924d3b685061c28f02ea61726"
+      }
+    },
+    {
+      "id": "weak",
+      "condition": "11.8 V pack with 32 milliohm common source",
+      "trace": {
+        "file": "weak.json",
+        "sha256": "f20d2e6ed6650f98b39b66a50a3e37274d6a445b00efc573d8e95ad7ba0c0e32"
+      }
+    }
+  ]
+}
