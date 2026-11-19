@@ -1,0 +1,1703 @@
+{
+  "sources": {
+    "station A grayscale and depth": "dbde9609d4c33ae41af7c74ce15df958954928274f474fe7799cb79919728abb",
+    "station B grayscale and depth": "6bd316f9dec44d739f3961d2b0e38733d90b7a5bc49b52afc00a74d51dae7ab5",
+    "stowed fixed head robot-only depth": "186a4015adb7317284d1cfd5fa782a6bfb39be0fca9bd30e6e4849b72d6a644f",
+    "selected-optics/mount.json": "b13497ab3f36ed2d8aab5f3c26ae79cf040d5fc794396a1b9704b058226919ad",
+    "native.json": "1c534d8d07a661834e6271cd5047adcf505054d8faf4fea180c22fd7c7211a2b",
+    "full-match/installed-stock.json": "f4c4be4d987bb7cc01b579d699b62e9673fd05540c32fbd4326b78b8ab218589",
+    "relieved-match/return-feed.json": "26651bd3c001f8c7df9d1df338f60f560b3354e8dbbcf20cd9489ff068ec5eb6"
+  },
+  "sourceCalibrationPx": [
+    [
+      [
+        -0.6006741722277127,
+        -0.5570475463901374
+      ],
+      [
+        -0.5871712755808858,
+        -0.5424276633492013
+      ],
+      [
+        -0.6211920652416154,
+        -0.6540087632062637
+      ],
+      [
+        -0.4042864036927085,
+        -0.6540087632062637
+      ]
+    ],
+    [
+      [
+        -0.4128287244190716,
+        -0.5424276633492013
+      ],
+      [
+        -0.39932582777231573,
+        -0.5570475463901374
+      ],
+      [
+        -0.5957135963072915,
+        -0.6540087632062637
+      ],
+      [
+        -0.37880793475835617,
+        -0.6540087632062637
+      ]
+    ]
+  ],
+  "syntheticCalibrationPx": [
+    [
+      [
+        -0.2848846985434932,
+        -0.31143351130241115
+      ],
+      [
+        -0.3834675718771905,
+        -0.3202054411269728
+      ],
+      [
+        -0.3086920652416154,
+        -0.46650876320626367
+      ],
+      [
+        -0.19105110957508487,
+        -0.45915582202979977
+      ]
+    ],
+    [
+      [
+        -0.2831990947894525,
+        -0.27634579200416454
+      ],
+      [
+        -0.38178196812322085,
+        -0.38160894989890437
+      ],
+      [
+        -0.4873802629739714,
+        -0.5415087632062523
+      ],
+      [
+        -0.22439617005250057,
+        -0.45915582202979977
+      ]
+    ]
+  ],
+  "returnEstimatedMmDeg": [
+    0.49777996937432595,
+    -3.1434509110146516e-07,
+    -3.033563085046701e-08
+  ],
+  "returnMaxPixelResidual": 0.14527420768808952,
+  "equalChassisAndCameraShiftPixelDifference": 0.0,
+  "cases": {
+    "nominal": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        424.8681076272154,
+        -8.620656848730285,
+        0.09571183005134572
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0957118300513648,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.3848206974921707
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.42,
+        "finalStationMmDeg": [
+          3.02386798772464,
+          -0.10777365634690668,
+          0.016083749320650216
+        ],
+        "observedStationMmDeg": [
+          2.7432934382521723,
+          0.30250436101463135,
+          0.04801911814481959
+        ],
+        "minimumStationPlaneMm": 12.904581122184204,
+        "peakWheelMmS": 281.39999999999964,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.672066689123,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 515.8836147179074,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 417.5264985799844,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.614198551559,
+          "Station wall \u00c2\u00b7 tag 1": 4610.9815787168245,
+          "Station wall \u00c2\u00b7 tag 2": 12.319854742802368
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2021.05256257638,
+          "NAUO193": 1868.6525625763802,
+          "NAUO194": 202.3864629006929,
+          "NAUO195": 3848.0555863252216,
+          "NAUO196": 49.98646290069296,
+          "NAUO197": 3695.6555863252215,
+          "NAUO198": 1838.7463568236706,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.9109598208524,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.359433368755,
+          "NAUO203": 1174.5448428723244
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 12.319854742802368,
+        "minimumStockMm": 49.98646290069296,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.10000000000042
+      },
+      "trajectorySHA256": "9d9d4caec5bb765e836429fb77e54c13d39059c070c4141026abfeb7ca1866b3",
+      "eligibleInRehearsal": true
+    },
+    "leftSmall": {
+      "wheelScale": [
+        0.998,
+        1.002
+      ],
+      "effectiveTrackMm": 578,
+      "gyroBiasDegS": 0.02,
+      "gyroScaleError": 0.001,
+      "startHeadingErrorDeg": 0.2,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        412.5358295770952,
+        -43.172719807874735,
+        0.11275469977898592
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.112754699779005,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.4178611030134482
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 20.299999999999997,
+        "finalStationMmDeg": [
+          2.9977029917530804,
+          -0.45008890292798304,
+          0.07149603230533702
+        ],
+        "observedStationMmDeg": [
+          2.9425654472673513,
+          0.24395934451103463,
+          0.11922216723816768
+        ],
+        "minimumStationPlaneMm": 12.228022161260393,
+        "peakWheelMmS": 274.199496202025,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4097.233930595354,
+          "Red reef": 1036.3473961442005,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 85.62143059535397,
+          "South cage 1": 730.1387465605039,
+          "South cage 2": 1697.714776098185,
+          "South cage 3": 2668.1117270047807,
+          "North cage 1": 592.9605453208169,
+          "North cage 2": 1088.7815437210745,
+          "North cage 3": 1236.5281964939172,
+          "blue wall": 9418.533930595353,
+          "red wall": 516.219708269423,
+          "lower rail": 3452.724790701116,
+          "upper rail": 417.3803944614579,
+          "Station wall \u00c2\u00b7 tag 12": 7614.730322479337,
+          "Station wall \u00c2\u00b7 tag 13": 6368.135912846467,
+          "Station wall \u00c2\u00b7 tag 1": 4648.481911013985,
+          "Station wall \u00c2\u00b7 tag 2": 11.559556747173401
+        },
+        "stockMm": {
+          "NAUO45": 8144.226978182623,
+          "NAUO46": 7991.826978182622,
+          "NAUO47": 4404.457989716548,
+          "NAUO48": 5074.913583132385,
+          "NAUO49": 4044.239040829829,
+          "NAUO50": 5115.41852109546,
+          "NAUO51": 4450.792322056121,
+          "NAUO52": 5407.368747542282,
+          "NAUO188": 8305.825324558147,
+          "NAUO189": 8385.247091819158,
+          "NAUO190": 8153.425324558148,
+          "NAUO191": 8232.847091819158,
+          "NAUO192": 2052.469512724259,
+          "NAUO193": 1900.0695127242593,
+          "NAUO194": 236.34830225552383,
+          "NAUO195": 3878.9827580900196,
+          "NAUO196": 83.94830225552391,
+          "NAUO197": 3726.5827580900195,
+          "NAUO198": 1858.4625694073309,
+          "NAUO199": 2067.152076399911,
+          "NAUO200": 2399.6962894533326,
+          "NAUO201": 1483.3814411557091,
+          "NAUO202": 1227.688223411248,
+          "NAUO203": 1188.954487259839
+        },
+        "peerMm": {
+          "red1": 1376.7247907011156,
+          "red3": 79.94799060679874,
+          "blue1": 2229.441664152352,
+          "blue2": 1437.0339305953532,
+          "blue3": 2246.5613227846607
+        },
+        "minimumBarrierMm": 11.559556747173401,
+        "minimumStockMm": 83.94830225552391,
+        "minimumPeerMm": 79.94799060679874,
+        "throughWallS": 21.100000000000122
+      },
+      "trajectorySHA256": "243ee9c5ee6cf8d8649cc0ea49e62d24b323507dda65a53637de72971f5dce03",
+      "eligibleInRehearsal": true
+    },
+    "rightSmall": {
+      "wheelScale": [
+        1.002,
+        0.998
+      ],
+      "effectiveTrackMm": 582,
+      "gyroBiasDegS": -0.02,
+      "gyroScaleError": -0.001,
+      "startHeadingErrorDeg": -0.2,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        441.99011311050174,
+        16.382896490715087,
+        0.18072833713116135
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.18072833713118044,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.5381472794365143
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.7,
+        "finalStationMmDeg": [
+          3.0038239792585335,
+          0.654551598440902,
+          -0.014908742868955794
+        ],
+        "observedStationMmDeg": [
+          2.799782356983176,
+          0.27931125725426864,
+          -0.05389007780669873
+        ],
+        "minimumStationPlaneMm": 12.893250541931813,
+        "peakWheelMmS": 286.2432335593009,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4095.973583713668,
+          "Red reef": 1005.3965124480848,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.36108371366927,
+          "South cage 1": 731.1199648516553,
+          "South cage 2": 1695.1832718454298,
+          "South cage 3": 2662.057259034522,
+          "North cage 1": 599.1518844610594,
+          "North cage 2": 1109.046044448058,
+          "North cage 3": 1263.3380774268585,
+          "blue wall": 9417.27358371367,
+          "red wall": 515.2001184187494,
+          "lower rail": 3451.464135144843,
+          "upper rail": 417.9034612772093,
+          "Station wall \u00c2\u00b7 tag 12": 7617.227333208073,
+          "Station wall \u00c2\u00b7 tag 13": 6392.199361427683,
+          "Station wall \u00c2\u00b7 tag 1": 4581.960983871856,
+          "Station wall \u00c2\u00b7 tag 2": 12.476550792136786
+        },
+        "stockMm": {
+          "NAUO45": 8142.878841857637,
+          "NAUO46": 7990.478841857636,
+          "NAUO47": 4403.55814598872,
+          "NAUO48": 5073.9658974047925,
+          "NAUO49": 4042.8099776757285,
+          "NAUO50": 5113.59375443438,
+          "NAUO51": 4448.890959014975,
+          "NAUO52": 5405.981667843536,
+          "NAUO188": 8305.37853292977,
+          "NAUO189": 8383.070828270247,
+          "NAUO190": 8152.978532929769,
+          "NAUO191": 8230.670828270248,
+          "NAUO192": 1991.981345047019,
+          "NAUO193": 1839.581345047019,
+          "NAUO194": 172.25142305269188,
+          "NAUO195": 3819.201275541115,
+          "NAUO196": 19.851423052691953,
+          "NAUO197": 3666.801275541115,
+          "NAUO198": 1821.430898359057,
+          "NAUO199": 2058.2187939297323,
+          "NAUO200": 2366.509913275739,
+          "NAUO201": 1469.104496575979,
+          "NAUO202": 1193.4572791022872,
+          "NAUO203": 1162.3815466706105
+        },
+        "peerMm": {
+          "red1": 1375.4641351448422,
+          "red3": 104.39240547123686,
+          "blue1": 2235.598851599121,
+          "blue2": 1435.7735837136688,
+          "blue3": 2256.7511935863276
+        },
+        "minimumBarrierMm": 12.476550792136786,
+        "minimumStockMm": 19.851423052691953,
+        "minimumPeerMm": 104.39240547123686,
+        "throughWallS": 21.100000000000374
+      },
+      "trajectorySHA256": "e97f7c92aee4bfec52440ef10dbc88b8d5a3d5123642d3e97082edc42de097a7",
+      "eligibleInRehearsal": true
+    },
+    "trackOnly": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 582,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        425.563492799824,
+        -9.327647383709087,
+        0.10782396805161666
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.10782396805163574,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.379271588325902
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.42,
+        "finalStationMmDeg": [
+          3.0132317924712475,
+          -0.3738206236646078,
+          0.0077175285190726845
+        ],
+        "observedStationMmDeg": [
+          2.8759665930269915,
+          -0.6214578232994451,
+          -0.015008549674510237
+        ],
+        "minimumStationPlaneMm": 12.95598972787157,
+        "peakWheelMmS": 281.2912170161622,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.5968029063167,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1250.1009974090011,
+          "blue wall": 9417.900574524001,
+          "red wall": 516.0798819500817,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 417.3489757761543,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.526174555708,
+          "Station wall \u00c2\u00b7 tag 1": 4611.439177842818,
+          "Station wall \u00c2\u00b7 tag 2": 12.371431321757923
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2020.958466652961,
+          "NAUO193": 1868.5584666529612,
+          "NAUO194": 202.4152918126219,
+          "NAUO195": 3847.937492926951,
+          "NAUO196": 50.01529181262195,
+          "NAUO197": 3695.537492926951,
+          "NAUO198": 1838.679143335372,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.839556637377,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.2892974692368,
+          "NAUO203": 1174.4575147616372
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 12.371431321757923,
+        "minimumStockMm": 50.01529181262195,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.10000000000042
+      },
+      "trajectorySHA256": "34c6e7af3b4a5d259dac5eaf9a5035d829f4d7acb0280c6628e5db3d6f30e49f",
+      "eligibleInRehearsal": true
+    },
+    "bothLarge": {
+      "wheelScale": [
+        1.002,
+        1.002
+      ],
+      "effectiveTrackMm": 582,
+      "gyroBiasDegS": 0.02,
+      "gyroScaleError": 0.001,
+      "startHeadingErrorDeg": 0.2,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        406.5774871992365,
+        -17.087405363896803,
+        0.08626712321551355
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.08626712321553263,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.4063012286212458
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.619999999999997,
+        "finalStationMmDeg": [
+          3.0298909768854543,
+          -0.35697023039740355,
+          0.022766877452728176
+        ],
+        "observedStationMmDeg": [
+          2.955782861013891,
+          0.11804309715940856,
+          0.05921755142313755
+        ],
+        "minimumStationPlaneMm": 12.861047820420756,
+        "peakWheelMmS": 273.33035059039236,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4097.234071830215,
+          "Red reef": 1032.8052233279457,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 85.62157183021559,
+          "South cage 1": 730.1388887441412,
+          "South cage 2": 1697.7148664023684,
+          "South cage 3": 2668.1117652782577,
+          "North cage 1": 594.2462327153822,
+          "North cage 2": 1094.1126400705036,
+          "North cage 3": 1244.0277756583096,
+          "blue wall": 9418.534071830214,
+          "red wall": 516.0941681871915,
+          "lower rail": 3452.724895579185,
+          "upper rail": 417.3906400619056,
+          "Station wall \u00c2\u00b7 tag 12": 7614.730486262846,
+          "Station wall \u00c2\u00b7 tag 13": 6371.664185783663,
+          "Station wall \u00c2\u00b7 tag 1": 4624.859551894363,
+          "Station wall \u00c2\u00b7 tag 2": 12.275728684685065
+        },
+        "stockMm": {
+          "NAUO45": 8144.22711175927,
+          "NAUO46": 7991.827111759269,
+          "NAUO47": 4404.45816134812,
+          "NAUO48": 5074.913750874531,
+          "NAUO49": 4044.2391673096718,
+          "NAUO50": 5115.41858959103,
+          "NAUO51": 4450.792374774405,
+          "NAUO52": 5407.3688776218105,
+          "NAUO188": 8305.825533988045,
+          "NAUO189": 8385.246974844176,
+          "NAUO190": 8153.425533988045,
+          "NAUO191": 8232.846974844177,
+          "NAUO192": 2040.5767823495528,
+          "NAUO193": 1888.176782349553,
+          "NAUO194": 221.02805125629388,
+          "NAUO195": 3867.689459131383,
+          "NAUO196": 68.62805125629396,
+          "NAUO197": 3715.289459131383,
+          "NAUO198": 1853.148309398411,
+          "NAUO199": 2065.361746619058,
+          "NAUO200": 2395.533809271473,
+          "NAUO201": 1480.1618075555314,
+          "NAUO202": 1223.2125968693272,
+          "NAUO203": 1186.5818356290652
+        },
+        "peerMm": {
+          "red1": 1376.7248955791852,
+          "red3": 85.88006522256823,
+          "blue1": 2229.4418838398656,
+          "blue2": 1437.034071830215,
+          "blue3": 2248.953991222404
+        },
+        "minimumBarrierMm": 12.275728684685065,
+        "minimumStockMm": 68.62805125629396,
+        "minimumPeerMm": 85.88006522256823,
+        "throughWallS": 21.100000000000385
+      },
+      "trajectorySHA256": "ff684fc02c797a45fa7cb9e84140545cd2e399df1c1f70466fa6e7387dbf11ba",
+      "eligibleInRehearsal": true
+    },
+    "bothSmall": {
+      "wheelScale": [
+        0.998,
+        0.998
+      ],
+      "effectiveTrackMm": 578,
+      "gyroBiasDegS": -0.02,
+      "gyroScaleError": -0.001,
+      "startHeadingErrorDeg": -0.2,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        443.43067459102315,
+        -0.4759585399585209,
+        0.1055105200829465
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.10551052008296558,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.5445161463576371
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.259999999999998,
+        "finalStationMmDeg": [
+          3.0566435463432957,
+          0.2753660669922832,
+          0.003751073495641491
+        ],
+        "observedStationMmDeg": [
+          2.853165617730636,
+          0.3611592072309484,
+          0.004401913699300101
+        ],
+        "minimumStationPlaneMm": 13.027790227934183,
+        "peakWheelMmS": 287.5528912670626,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4095.9740613381437,
+          "Red reef": 1006.5010647657897,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.36156133814383,
+          "South cage 1": 731.1201966675193,
+          "South cage 2": 1695.1835558793246,
+          "South cage 3": 2662.057595438686,
+          "North cage 1": 598.1850261089724,
+          "North cage 2": 1104.4746024595786,
+          "North cage 3": 1255.4037118812876,
+          "blue wall": 9417.274061338143,
+          "red wall": 515.5671233453115,
+          "lower rail": 3451.4644028849057,
+          "upper rail": 417.75284538620843,
+          "Station wall \u00c2\u00b7 tag 12": 7617.227542364201,
+          "Station wall \u00c2\u00b7 tag 13": 6389.591560666617,
+          "Station wall \u00c2\u00b7 tag 1": 4597.32713521719,
+          "Station wall \u00c2\u00b7 tag 2": 12.426140095936004
+        },
+        "stockMm": {
+          "NAUO45": 8142.879326941739,
+          "NAUO46": 7990.479326941739,
+          "NAUO47": 4403.5585930592615,
+          "NAUO48": 5073.966348380399,
+          "NAUO49": 4042.810469676471,
+          "NAUO50": 5113.594548907264,
+          "NAUO51": 4448.891769158161,
+          "NAUO52": 5405.982156337717,
+          "NAUO188": 8305.378942542327,
+          "NAUO189": 8383.072051126755,
+          "NAUO190": 8152.978942542326,
+          "NAUO191": 8230.672051126756,
+          "NAUO192": 2001.5317130037015,
+          "NAUO193": 1849.1317130037016,
+          "NAUO194": 183.94259065073982,
+          "NAUO195": 3828.408035274415,
+          "NAUO196": 31.542590650739882,
+          "NAUO197": 3676.008035274415,
+          "NAUO198": 1824.2927490776015,
+          "NAUO199": 2060.2215826581814,
+          "NAUO200": 2368.243422227131,
+          "NAUO201": 1472.5663768095262,
+          "NAUO202": 1195.4652926203855,
+          "NAUO203": 1162.4676099574904
+        },
+        "peerMm": {
+          "red1": 1375.464402884905,
+          "red3": 98.49985813931266,
+          "blue1": 2235.599007524748,
+          "blue2": 1435.7740613381434,
+          "blue3": 2254.7273092475275
+        },
+        "minimumBarrierMm": 12.426140095936004,
+        "minimumStockMm": 31.542590650739882,
+        "minimumPeerMm": 98.49985813931266,
+        "throughWallS": 21.100000000000442
+      },
+      "trajectorySHA256": "2e15d4fe1ab3eccb90f29fc187b1e7e9d6f1d82f6bd61a6f3b22e74a83c772e1",
+      "eligibleInRehearsal": true
+    },
+    "crossedDrift": {
+      "wheelScale": [
+        0.998,
+        1.002
+      ],
+      "effectiveTrackMm": 582,
+      "gyroBiasDegS": -0.02,
+      "gyroScaleError": -0.001,
+      "startHeadingErrorDeg": -0.2,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        427.803081878484,
+        -14.844580964705257,
+        0.16789346438684552
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.16789346438686462,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.5382358550375994
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.54,
+        "finalStationMmDeg": [
+          3.1193805708163356,
+          -0.4119519323592303,
+          0.011280520401255606
+        ],
+        "observedStationMmDeg": [
+          3.0308809312408758,
+          -0.3361957484687627,
+          0.016730324642923004
+        ],
+        "minimumStationPlaneMm": 13.034403909271974,
+        "peakWheelMmS": 281.39999999999964,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4095.973730959117,
+          "Red reef": 1018.5795580752313,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.36123095911809,
+          "South cage 1": 731.1199367055785,
+          "South cage 2": 1695.183348135404,
+          "South cage 3": 2662.057440065025,
+          "North cage 1": 597.0130488360346,
+          "North cage 2": 1099.4261033733098,
+          "North cage 3": 1251.1796461824124,
+          "blue wall": 9417.273730959118,
+          "red wall": 516.1700737302108,
+          "lower rail": 3451.4641719624005,
+          "upper rail": 417.4100763711823,
+          "Station wall \u00c2\u00b7 tag 12": 7617.227259116691,
+          "Station wall \u00c2\u00b7 tag 13": 6381.209751066432,
+          "Station wall \u00c2\u00b7 tag 1": 4616.455000973564,
+          "Station wall \u00c2\u00b7 tag 2": 12.427725427625228
+        },
+        "stockMm": {
+          "NAUO45": 8142.878999371112,
+          "NAUO46": 7990.478999371111,
+          "NAUO47": 4403.558250397691,
+          "NAUO48": 5073.9660074953035,
+          "NAUO49": 4042.8101446577234,
+          "NAUO50": 5113.594235592085,
+          "NAUO51": 4448.891460526076,
+          "NAUO52": 5405.981829913158,
+          "NAUO188": 8305.378583881415,
+          "NAUO189": 8383.071850264258,
+          "NAUO190": 8152.978583881415,
+          "NAUO191": 8230.671850264258,
+          "NAUO192": 2022.6371817572578,
+          "NAUO193": 1870.237181757258,
+          "NAUO194": 204.88731610772956,
+          "NAUO195": 3849.471522826642,
+          "NAUO196": 52.48731610772965,
+          "NAUO197": 3697.0715228266417,
+          "NAUO198": 1838.128268122539,
+          "NAUO199": 2062.103164454876,
+          "NAUO200": 2380.9802884590194,
+          "NAUO201": 1475.8615348066432,
+          "NAUO202": 1208.5075340260203,
+          "NAUO203": 1173.1938201472483
+        },
+        "peerMm": {
+          "red1": 1375.4641719624,
+          "red3": 92.59435391996415,
+          "blue1": 2235.5986716725542,
+          "blue2": 1435.7737309591178,
+          "blue3": 2252.556367493273
+        },
+        "minimumBarrierMm": 12.427725427625228,
+        "minimumStockMm": 52.48731610772965,
+        "minimumPeerMm": 92.59435391996415,
+        "throughWallS": 21.1000000000004
+      },
+      "trajectorySHA256": "473c3f3ee8c6280e0f4daa5de533ba0371d1a83542ff74f56f98bfea8ce5da47",
+      "eligibleInRehearsal": true
+    },
+    "badRegistration": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 3,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        424.8681076272154,
+        -8.620656848730285,
+        0.09571183005134572
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0957118300513648,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.3848206974921707
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 18.3,
+        "finalStationMmDeg": [
+          3.1647334887109797,
+          -2.986407068723806,
+          0.01720102310162357
+        ],
+        "observedStationMmDeg": [
+          2.9994564267596737,
+          0.27733698050376077,
+          0.03843666299985031
+        ],
+        "minimumStationPlaneMm": 13.036802521082791,
+        "peakWheelMmS": 281.39999999999964,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.672066689123,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 518.2911152080425,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 415.9457854778391,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.614198551559,
+          "Station wall \u00c2\u00b7 tag 1": 4610.9815787168245,
+          "Station wall \u00c2\u00b7 tag 2": 12.434825421171844
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2021.05256257638,
+          "NAUO193": 1868.6525625763802,
+          "NAUO194": 202.3864629006929,
+          "NAUO195": 3848.0555863252216,
+          "NAUO196": 49.98646290069296,
+          "NAUO197": 3695.6555863252215,
+          "NAUO198": 1838.7463568236706,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.9109598208524,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.359433368755,
+          "NAUO203": 1174.5448428723244
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 12.434825421171844,
+        "minimumStockMm": 49.98646290069296,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.10000000000044
+      },
+      "trajectorySHA256": "1b54af752d91cedcb80fdc1736d531290c78f60f73038c51faf56152f5d78ad9",
+      "eligibleInRehearsal": true
+    },
+    "lateStereo": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        424.8681076272154,
+        -8.620656848730285,
+        0.09571183005134572
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0957118300513648,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.3848206974921707
+      },
+      "observer": {
+        "status": "stale registered stereo",
+        "wallS": 12.309999999999999,
+        "finalStationMmDeg": [
+          332.09023707686674,
+          -8.775641179408979,
+          0.09571183005134572
+        ],
+        "observedStationMmDeg": [
+          331.89140243968234,
+          -8.055276982517977,
+          0.13430899720608658
+        ],
+        "minimumStationPlaneMm": 341.3808736023728,
+        "peakWheelMmS": 197.39999999999986,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 0,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.672066689123,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 716.3936526965797,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 678.8251220244829,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.614198551559,
+          "Station wall \u00c2\u00b7 tag 1": 4610.9815787168245,
+          "Station wall \u00c2\u00b7 tag 2": 256.4969545666227
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2021.05256257638,
+          "NAUO193": 1868.6525625763802,
+          "NAUO194": 202.3864629006929,
+          "NAUO195": 3848.0555863252216,
+          "NAUO196": 49.98646290069296,
+          "NAUO197": 3695.6555863252215,
+          "NAUO198": 1838.7463568236706,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.9109598208524,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.359433368755,
+          "NAUO203": 1174.5448428723244
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 84.98807452400126,
+        "minimumStockMm": 49.98646290069296,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.09999999999981,
+        "holdThroughTeleopPeerMm": {
+          "red1": 5431.7213333701075,
+          "red3": 2136.601405065745,
+          "blue1": 8223.444169039973,
+          "blue2": 7661.049277585581,
+          "blue3": 3739.5903704136776
+        }
+      },
+      "trajectorySHA256": "39b64015d1d409ab8a081bbcc57ef5134ede4990d30d1015b76b1f9b53944013",
+      "eligibleInRehearsal": false
+    },
+    "lostStereo": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        424.8681076272154,
+        -8.620656848730285,
+        0.09571183005134572
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0957118300513648,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.3848206974921707
+      },
+      "observer": {
+        "status": "stale registered stereo",
+        "wallS": 12.309999999999999,
+        "finalStationMmDeg": [
+          332.09023707686674,
+          -8.775641179408979,
+          0.09571183005134572
+        ],
+        "observedStationMmDeg": [
+          331.89140243968234,
+          -8.055276982517977,
+          0.13430899720608658
+        ],
+        "minimumStationPlaneMm": 341.3808736023728,
+        "peakWheelMmS": 197.39999999999986,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 0,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.672066689123,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 716.3936526965797,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 678.8251220244829,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.614198551559,
+          "Station wall \u00c2\u00b7 tag 1": 4610.9815787168245,
+          "Station wall \u00c2\u00b7 tag 2": 256.4969545666227
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2021.05256257638,
+          "NAUO193": 1868.6525625763802,
+          "NAUO194": 202.3864629006929,
+          "NAUO195": 3848.0555863252216,
+          "NAUO196": 49.98646290069296,
+          "NAUO197": 3695.6555863252215,
+          "NAUO198": 1838.7463568236706,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.9109598208524,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.359433368755,
+          "NAUO203": 1174.5448428723244
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 84.98807452400126,
+        "minimumStockMm": 49.98646290069296,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.09999999999981,
+        "holdThroughTeleopPeerMm": {
+          "red1": 5431.7213333701075,
+          "red3": 2136.601405065745,
+          "blue1": 8223.444169039973,
+          "blue2": 7661.049277585581,
+          "blue3": 3739.5903704136776
+        }
+      },
+      "trajectorySHA256": "39b64015d1d409ab8a081bbcc57ef5134ede4990d30d1015b76b1f9b53944013",
+      "eligibleInRehearsal": false
+    },
+    "noContrast": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 11.35,
+      "stationHandoffMmDeg": [
+        424.8681076272154,
+        -8.620656848730285,
+        0.09571183005134572
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0957118300513648,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.3848206974921707
+      },
+      "observer": {
+        "status": "search exhausted without unique stereo",
+        "wallS": 13.68,
+        "finalStationMmDeg": [
+          229.0823808000519,
+          -8.947714579725485,
+          0.09571183005134572
+        ],
+        "observedStationMmDeg": null,
+        "minimumStationPlaneMm": 238.37301732555795,
+        "peakWheelMmS": 100.0,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 0,
+        "searchTravelMm": 194.79100000000003
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1019.672066689123,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 656.0031960400339,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 595.3770544190369,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6380.614198551559,
+          "Station wall \u00c2\u00b7 tag 1": 4610.9815787168245,
+          "Station wall \u00c2\u00b7 tag 2": 237.790431074869
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 2021.05256257638,
+          "NAUO193": 1868.6525625763802,
+          "NAUO194": 202.3864629006929,
+          "NAUO195": 3848.0555863252216,
+          "NAUO196": 49.98646290069296,
+          "NAUO197": 3695.6555863252215,
+          "NAUO198": 1838.7463568236706,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2381.9109598208524,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1209.359433368755,
+          "NAUO203": 1174.5448428723244
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 84.98807452400126,
+        "minimumStockMm": 49.98646290069296,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.09999999999984,
+        "holdThroughTeleopPeerMm": {
+          "red1": 5534.729333370108,
+          "red3": 2196.992102906534,
+          "blue1": 8326.452169039974,
+          "blue2": 7721.4399754263695,
+          "blue3": 3745.337097180849
+        }
+      },
+      "trajectorySHA256": "0f7bc574fdd7ec5e180590fd0449080c6463e5911400f342b4f045794852b27f",
+      "eligibleInRehearsal": false
+    },
+    "noGyro": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 0.005,
+      "stationHandoffMmDeg": [
+        6230.099461223718,
+        -3444.9369161371774,
+        8.471360074331935
+      ],
+      "inertial": {
+        "latched": true,
+        "peakWheelMmS": 0.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.0,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.0
+      },
+      "observer": {
+        "status": "inertial stage inhibited",
+        "wallS": 0.005,
+        "finalStationMmDeg": [
+          6230.099461223718,
+          -3444.9369161371774,
+          8.471360074331935
+        ],
+        "imagesConfirmed": 0,
+        "maxTransitionWheelMmS": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.647853587282,
+          "Red reef": 1661.422853587283,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 85.03535358728203,
+          "South cage 1": 730.6665864683266,
+          "South cage 2": 1696.4921390431239,
+          "South cage 3": 2665.1335095554564,
+          "North cage 1": 602.5193413641281,
+          "North cage 2": 1475.685353587282,
+          "North cage 3": 2567.885353587282,
+          "blue wall": 9417.94785358728,
+          "red wall": 6982.722853587284,
+          "lower rail": 3452.1228535872833,
+          "upper rail": 3452.122853587283,
+          "Station wall \u00c2\u00b7 tag 12": 7616.006235650798,
+          "Station wall \u00c2\u00b7 tag 13": 7529.125594750404,
+          "Station wall \u00c2\u00b7 tag 1": 6097.810902463508,
+          "Station wall \u00c2\u00b7 tag 2": 6182.241182295197
+        },
+        "stockMm": {
+          "NAUO45": 8143.597968911512,
+          "NAUO46": 7991.197968911511,
+          "NAUO47": 4404.047075975055,
+          "NAUO48": 5074.479343182324,
+          "NAUO49": 4043.570481512632,
+          "NAUO50": 5114.56350644655,
+          "NAUO51": 4449.901763763181,
+          "NAUO52": 5406.7207465064475,
+          "NAUO188": 8305.635673337918,
+          "NAUO189": 8384.234157064178,
+          "NAUO190": 8153.235673337917,
+          "NAUO191": 8231.834157064179,
+          "NAUO192": 5709.212497613894,
+          "NAUO193": 5556.812497613893,
+          "NAUO194": 5937.413141674959,
+          "NAUO195": 6046.581560163935,
+          "NAUO196": 5785.013141674958,
+          "NAUO197": 5894.181560163935,
+          "NAUO198": 2977.850609746312,
+          "NAUO199": 2090.529092707232,
+          "NAUO200": 2725.9926732787003,
+          "NAUO201": 1613.4730048993606,
+          "NAUO202": 2652.6903454062267,
+          "NAUO203": 1996.2137801733186
+        },
+        "peerMm": {
+          "red1": 1363.2228535872803,
+          "red3": 1081.2169923548345,
+          "blue1": 2232.1666395338902,
+          "blue2": 1436.0478535872812,
+          "blue3": 2257.7960885547286
+        },
+        "minimumBarrierMm": 85.03535358728203,
+        "minimumStockMm": 1613.4730048993606,
+        "minimumPeerMm": 1081.2169923548345,
+        "throughWallS": 21.095000000000006,
+        "holdThroughTeleopPeerMm": {
+          "red1": 2161.358278678512,
+          "red3": 1357.9867470610832,
+          "blue1": 2230.9662210086926,
+          "blue2": 1435.122853587287,
+          "blue3": 1514.1021098872766
+        }
+      },
+      "trajectorySHA256": "0a54185bfd844c2586675a787f36df2c2b14f217a8fa38cbcb60c7aee9f0a5d7",
+      "eligibleInRehearsal": false
+    },
+    "lostGyro": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 7.59,
+      "stationHandoffMmDeg": [
+        6227.370379092021,
+        -3425.9871889952283,
+        9.404166978580722
+      ],
+      "inertial": {
+        "latched": true,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.9328069042487888,
+        "gyroLossRecovery": {
+          "source": "paired recorded shaft samples",
+          "startS": 3.795,
+          "stopS": 7.59,
+          "returnScaleMultiplier": [
+            1.002,
+            0.998
+          ],
+          "returnTrackExtraMm": 2,
+          "shaftResidualMm": [
+            0.0,
+            0.0
+          ],
+          "fieldReturnErrorMm": 19.145235648481044
+        },
+        "sensorErrorPlusLatencyPeakDeg": 10.015320059948126
+      },
+      "observer": {
+        "status": "inertial stage inhibited",
+        "wallS": 7.59,
+        "finalStationMmDeg": [
+          6227.370379092021,
+          -3425.9871889952283,
+          9.404166978580722
+        ],
+        "imagesConfirmed": 0,
+        "maxTransitionWheelMmS": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 1325.9252708258323,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 727.8213328561947,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1098.7936331810542,
+          "North cage 3": 1468.8490511680911,
+          "blue wall": 9417.900574524001,
+          "red wall": 5778.463921272211,
+          "lower rail": 3446.2095805129597,
+          "upper rail": 1167.980188968012,
+          "Station wall \u00c2\u00b7 tag 12": 7612.980257753212,
+          "Station wall \u00c2\u00b7 tag 13": 6395.759116305037,
+          "Station wall \u00c2\u00b7 tag 1": 6077.58412970136,
+          "Station wall \u00c2\u00b7 tag 2": 3650.450740472869
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 5020.1099111400545,
+          "NAUO193": 4867.709911140054,
+          "NAUO194": 4521.584690657891,
+          "NAUO195": 5972.468660432192,
+          "NAUO196": 4369.184690657891,
+          "NAUO197": 5820.068660432193,
+          "NAUO198": 2690.4967590432107,
+          "NAUO199": 2053.693055396267,
+          "NAUO200": 2645.96914663187,
+          "NAUO201": 1470.9344522356262,
+          "NAUO202": 2104.193162818342,
+          "NAUO203": 1522.2685737648897
+        },
+        "peerMm": {
+          "red1": 1357.3112479138515,
+          "red3": 91.93269220629219,
+          "blue1": 2217.052806793018,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 84.98807452400126,
+        "minimumStockMm": 1470.9344522356262,
+        "minimumPeerMm": 91.93269220629219,
+        "throughWallS": 21.09999999999971,
+        "holdThroughTeleopPeerMm": {
+          "red1": 2128.0294678535165,
+          "red3": 1368.7845652260191,
+          "blue1": 2215.8224224016294,
+          "blue2": 1455.0599177822917,
+          "blue3": 1528.89577577452
+        }
+      },
+      "trajectorySHA256": "57894f0d5a6d14bd4309e0c7034b0145cafe9e59a0092de2d896313676d71613",
+      "eligibleInRehearsal": false
+    },
+    "encoderOnly": {
+      "wheelScale": [
+        0.998,
+        1.002
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 400,
+      "handoffWallS": 10.79733936193194,
+      "stationHandoffMmDeg": [
+        271.68247717650496,
+        -140.49166390131333,
+        3.0069657590240384
+      ],
+      "inertial": {
+        "latched": false,
+        "residualWheelMmS": 0
+      },
+      "observer": {
+        "status": "stale registered stereo",
+        "wallS": 13.56733936193194,
+        "finalStationMmDeg": [
+          116.3722770692083,
+          -123.05763046274284,
+          -19.067332522269933
+        ],
+        "observedStationMmDeg": [
+          116.44944959087387,
+          -124.26871999178805,
+          -19.150223016275845
+        ],
+        "minimumStationPlaneMm": 10.851156250513043,
+        "peakWheelMmS": 227.75024949501204,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 0,
+        "searchTravelMm": 0.0
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.457792490522,
+          "Red reef": 1078.287997296383,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.84529249052245,
+          "South cage 1": 730.545782192064,
+          "South cage 2": 1696.3715429653519,
+          "South cage 3": 2665.0131222831683,
+          "North cage 1": 588.961198501152,
+          "North cage 2": 1085.1340548882454,
+          "North cage 3": 1233.51098760891,
+          "blue wall": 9417.757792490522,
+          "red wall": 683.6691647298849,
+          "lower rail": 3451.9953944970657,
+          "upper rail": 438.654693125426,
+          "Station wall \u00c2\u00b7 tag 12": 7615.884685151799,
+          "Station wall \u00c2\u00b7 tag 13": 6354.444024402586,
+          "Station wall \u00c2\u00b7 tag 1": 4791.880994589134,
+          "Station wall \u00c2\u00b7 tag 2": 10.412674007231644
+        },
+        "stockMm": {
+          "NAUO45": 8143.403218329692,
+          "NAUO46": 7991.003218329692,
+          "NAUO47": 4403.875151695155,
+          "NAUO48": 5074.305306259686,
+          "NAUO49": 4043.371330644863,
+          "NAUO50": 5114.320483502,
+          "NAUO51": 4449.647761100045,
+          "NAUO52": 5406.523714747924,
+          "NAUO188": 8305.485195065854,
+          "NAUO189": 8383.922166652868,
+          "NAUO190": 8153.0851950658525,
+          "NAUO191": 8231.522166652869,
+          "NAUO192": 2220.1405096234844,
+          "NAUO193": 2067.7405096234843,
+          "NAUO194": 401.15950842683884,
+          "NAUO195": 4046.8277103165415,
+          "NAUO196": 248.75950842683892,
+          "NAUO197": 3894.4277103165414,
+          "NAUO198": 1916.5029256871692,
+          "NAUO199": 2057.7478617412157,
+          "NAUO200": 2447.565138385145,
+          "NAUO201": 1473.6201942910645,
+          "NAUO202": 1278.6206508253117,
+          "NAUO203": 1223.4075773686293
+        },
+        "peerMm": {
+          "red1": 1375.9953944970648,
+          "red3": 73.08310108566911,
+          "blue1": 2232.4455284785336,
+          "blue2": 1436.2577924905218,
+          "blue3": 2243.392712852388
+        },
+        "minimumBarrierMm": 10.412674007231644,
+        "minimumStockMm": 248.75950842683892,
+        "minimumPeerMm": 73.08310108566911,
+        "throughWallS": 21.09733936193178,
+        "holdThroughTeleopPeerMm": {
+          "red1": 5297.672743252072,
+          "red3": 2172.524338177476,
+          "blue1": 9201.28126326367,
+          "blue2": 7840.994621819018,
+          "blue3": 3671.8180413480945
+        }
+      },
+      "trajectorySHA256": "8dac9253c647eb44f482244b5755c2a78c38533cd1d8f9107d9eede1072e44f2",
+      "eligibleInRehearsal": false
+    },
+    "stockAtFarStage": {
+      "wheelScale": [
+        1,
+        1
+      ],
+      "effectiveTrackMm": 580,
+      "gyroBiasDegS": 0,
+      "gyroScaleError": 0,
+      "startHeadingErrorDeg": 0,
+      "assumedStationExtrinsicErrorMm": 0,
+      "stageDistanceMm": 925,
+      "handoffWallS": 11.225,
+      "stationHandoffMmDeg": [
+        947.9221505690969,
+        -7.128307454855376,
+        0.0806041430029397
+      ],
+      "inertial": {
+        "latched": false,
+        "peakWheelMmS": 1250.0,
+        "residualWheelMmS": 0.0,
+        "headingResidualDeg": 0.08060414300295878,
+        "gyroLossRecovery": {},
+        "sensorErrorPlusLatencyPeakDeg": 0.383582450883401
+      },
+      "observer": {
+        "status": "observed stationary",
+        "wallS": 20.015,
+        "finalStationMmDeg": [
+          3.0294968910559774,
+          0.09677309936049897,
+          0.000693384064815717
+        ],
+        "observedStationMmDeg": [
+          2.918664201701557,
+          0.33870697397245975,
+          0.014233609295732681
+        ],
+        "minimumStationPlaneMm": 13.024353642340145,
+        "peakWheelMmS": 386.39999999999935,
+        "maxTransitionWheelMmS": 0.0,
+        "imagesConfirmed": 3,
+        "searchTravelMm": 7.581000000000002
+      },
+      "occupancy": {
+        "barriersMm": {
+          "Blue reef": 4096.600574524,
+          "Red reef": 864.46761567889,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.98807452400126,
+          "South cage 1": 730.6365864683266,
+          "South cage 2": 1696.462139043124,
+          "South cage 3": 2665.1035095554566,
+          "North cage 1": 596.2693413641283,
+          "North cage 2": 1099.415893194296,
+          "North cage 3": 1249.9077610544095,
+          "blue wall": 9417.900574524001,
+          "red wall": 515.6980768110524,
+          "lower rail": 3452.0911566641535,
+          "upper rail": 417.62793544948937,
+          "Station wall \u00c2\u00b7 tag 12": 7615.976071555508,
+          "Station wall \u00c2\u00b7 tag 13": 6371.10920493681,
+          "Station wall \u00c2\u00b7 tag 1": 4437.897501316214,
+          "Station wall \u00c2\u00b7 tag 2": 12.439798666885713
+        },
+        "stockMm": {
+          "NAUO45": 8143.549511749422,
+          "NAUO46": 7991.149511749421,
+          "NAUO47": 4404.004351656183,
+          "NAUO48": 5074.4360879625,
+          "NAUO49": 4043.5209189757247,
+          "NAUO50": 5114.502938234175,
+          "NAUO51": 4449.83843968523,
+          "NAUO52": 5406.671716492717,
+          "NAUO188": 8305.598337806006,
+          "NAUO189": 8384.15619412886,
+          "NAUO190": 8153.198337806007,
+          "NAUO191": 8231.75619412886,
+          "NAUO192": 1640.0870885118761,
+          "NAUO193": 1487.6870885118763,
+          "NAUO194": -39.497066516245994,
+          "NAUO195": 3447.2913698629463,
+          "NAUO196": -191.89706651624593,
+          "NAUO197": 3294.8913698629462,
+          "NAUO198": 1631.2671205182867,
+          "NAUO199": 2062.831988496817,
+          "NAUO200": 2203.4390136809848,
+          "NAUO201": 1476.406590858374,
+          "NAUO202": 1026.7936640535072,
+          "NAUO203": 1051.5137204466769
+        },
+        "peerMm": {
+          "red1": 1376.0911566641525,
+          "red3": 92.2137304647853,
+          "blue1": 2232.5366395338906,
+          "blue2": 1436.4005745240006,
+          "blue3": 2251.9460885547296
+        },
+        "minimumBarrierMm": 12.439798666885713,
+        "minimumStockMm": -191.89706651624593,
+        "minimumPeerMm": 92.2137304647853,
+        "throughWallS": 21.09500000000017
+      },
+      "trajectorySHA256": "55a4568367a06c61c782a42061b186694e143aff07587774913784b7faae0070",
+      "eligibleInRehearsal": false
+    }
+  }
+}
