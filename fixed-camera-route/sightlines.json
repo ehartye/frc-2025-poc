@@ -1,0 +1,157 @@
+{
+  "sourceMarkedSceneSha256": "565f5495bb6eafcf3039e3f843b3a3c0a20801176c78aa80508d0fd470b97eaa",
+  "guideIssueSha256": "598cdac2f0493f15fb56e797dc7c4b4ef78bb1c57ed9e8c50f5a62883fc3085d",
+  "roofRegistration": {
+    "sameWitnessCoordinatesAndSigns": true,
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "witnessSamples": [
+      306,
+      316,
+      309,
+      311
+    ]
+  },
+  "captures": {
+    "coral-A-moving-barrel-nominal-all-bounded": {
+      "frames": 1493,
+      "finite": 1481,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 14,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "0bc4b31507419a0808abc5736ae6eba2a2e15d6f89661b5050d420b7a43e73ea",
+      "statuses": {
+        "inside": 1481,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      }
+    },
+    "coral-A-fixed-barrel-nominal-critical": {
+      "frames": 17,
+      "finite": 17,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 17,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "83a34064462862a2efa7ba5120a398f88127d780f096b51ec8c888821e017d42",
+      "statuses": {
+        "outside-custody-envelope": 17
+      }
+    },
+    "coral-A-seat-barrel-nominal-all": {
+      "frames": 246,
+      "finite": 246,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 246,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "2ca5aad4628a002bb2b50e0eb930f875e3f3499d4fe02e6d83ff7a0a258f86f4",
+      "statuses": {
+        "position-witness": 246
+      }
+    },
+    "coral-B-moving-barrel-nominal-all-bounded": {
+      "frames": 1476,
+      "finite": 1464,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 14,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "7ba93a9aa8b105e7445c8f891c10d6698d511facd73e92a36eca9b1e0fced4c9",
+      "statuses": {
+        "inside": 1464,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      }
+    },
+    "coral-B-fixed-barrel-nominal-critical": {
+      "frames": 18,
+      "finite": 18,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 18,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "69256bac2c00c7065df666b6d0471c94ab46198cb442f08fd144c15523eee123",
+      "statuses": {
+        "outside-custody-envelope": 18
+      }
+    },
+    "coral-B-seat-barrel-nominal-all": {
+      "frames": 246,
+      "finite": 246,
+      "outsideModelTruthMm": 0.0,
+      "sameIntervalAndStatus": 246,
+      "wholePipeConeUnresolved": 0,
+      "csvSha256": "258e67b15afc361d69c7bbf9a53cdfbdf1f4b61463170ba0275106c56d4b36f3",
+      "statuses": {
+        "position-witness": 246
+      }
+    }
+  },
+  "joined": {
+    "coral-A": {
+      "overlapMs": [
+        26486,
+        26503,
+        26520
+      ],
+      "wholeFrontTimeMs": 26707,
+      "wholeFrontBounds": [
+        "outside-custody-envelope",
+        240.5,
+        287.5,
+        -3.9223082701660275,
+        4.063724661879512,
+        -76.65,
+        -36.65
+      ]
+    },
+    "coral-B": {
+      "overlapMs": [
+        26180,
+        26197,
+        26214,
+        26231
+      ],
+      "wholeFrontTimeMs": 26401,
+      "wholeFrontBounds": [
+        "outside-custody-envelope",
+        229.5,
+        275.5,
+        -3.9018101081569228,
+        3.919269842151742,
+        -61.65,
+        -24.65
+      ]
+    }
+  },
+  "station": {
+    "first-fixed": {
+      "bothRectanglesUnique": true,
+      "maxShiftPx": 0.0
+    },
+    "return-fixed": {
+      "bothRectanglesUnique": true,
+      "maxShiftPx": 0.0
+    }
+  },
+  "adverseControls": {
+    "lost-eye": {
+      "captures": 70,
+      "finite": 0,
+      "statuses": {
+        "unbacked-end": 63,
+        "unresolved-end-curvature": 7
+      },
+      "csvSha256": "027f7414f25da72b557dab6f826fc16fbfa17f0ab016e52e5fa00a8ab8e4a49d"
+    },
+    "swapped-eyes": {
+      "captures": 70,
+      "finite": 0,
+      "statuses": {
+        "robot-reference-lost": 70
+      },
+      "csvSha256": "fb3faca478a1544a08d5dd8ab1de4830302c72578c84c474cace5d8a309cc874"
+    }
+  }
+}
