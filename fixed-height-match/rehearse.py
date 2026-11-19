@@ -17,7 +17,41 @@ def read(path):
     return json.loads(path.read_bytes())
 
 
-def scenario(sources, park=True, partner_clears=True, stock=(0,35), station_hold=False):
+def park_route(f,start,inboard):
+    if not inboard:
+        return build_park(f,start)
+    ref=read(ROOT/"leave-park/near-tape.json")["cases"]["near-tape"]["finish"]
+    route=f.Route(start)
+    route.go((425*f.IN,start[1]),reverse=True)
+    route.go((425*f.IN,ref[1]))
+    route.go(tuple(ref[:2]))
+    return route
+
+
+def cage_margin(f,route):
+    model=read(ROOT/"leave-park/cage-motion.json")
+    stations={name:((s["axis_mm"][0]+690.875*25.4/2)/1000,
+                   (317*25.4/2-s["axis_mm"][1])/1000) for name,s in model["stations"].items()}
+    ticks=math.ceil(route.duration/.01)
+    dt=route.duration/ticks
+    half=dt/2
+    best=(math.inf,None,None)
+    for i in range(ticks):
+        t=(i+.5)*dt
+        (x,y,h),w=route.at(t)
+        motion=half*traffic.motion_bound(w)+f.DRIVE["maximumWheelAccelMps2"]*(1+2*traffic.RADIUS/f.DRIVE["trackM"])*half**2
+        for key,(cx,cy) in stations.items():
+            rx,ry=f.rot((cx-x,cy-y),-h)
+            gap=math.hypot(max(0,abs(rx)-.425),max(0,abs(ry)-.425))-model["radius_mm"]/1000-motion
+            best=min(best,(gap,key,t))
+    tracking=model["cases"]["near-tape"]["tracking_mm"]
+    residual=1000*best[0]-tracking
+    return {"uprightUnlimitedYawLowerMm":1000*best[0],"closest":best[1],"legTimeS":best[2],
+            "comparisonTrackingMm":tracking,"remainingLateralSwingMm":residual,
+            "assumedConeDeg":math.degrees(math.atan2(max(0,residual),model["upper_height_mm"]))}
+
+
+def scenario(sources, park=True, partner_clears=True, stock=(0,35), station_hold=False,inboard=False):
     f=corrected()
     team,_,_=traffic.programs()
     auto=f.routes(-.18)[0]
@@ -55,7 +89,7 @@ def scenario(sources, park=True, partner_clears=True, stock=(0,35), station_hold
         finish_retract=s["clear"]+s["retreatDelay"]+.370/.15
         focal.append(max(0,finish_retract-focal.clock),"empty slide recovery")
         delivery.append(s)
-        returning=build_park(f,focal.pose) if i==1 and park else empty
+        returning=park_route(f,focal.pose,inboard) if i==1 and park else empty
         focal.append(returning.duration,"park" if i==1 and park else "return",returning)
     return f,auto,team,delivery
 
@@ -132,8 +166,10 @@ def audit(sources, **options):
     clear=minimum[0]>0 and others_to_pipe>0 and all(r["minimumStaticM"]>0 and min(r["stockBoundsMm"].values())>0 for r in field)
     all_l1=all(p["l1CriteriaAtInstant"]=="yes" for r in editions.values() for p in r)
     raw=3*leave+2*len(delivered)*all_l1+2*parked
+    cage=next((cage_margin(f,path) for _,_,phase,path in focal.intervals if phase=="park"),None)
     gates=read(HERE/"observer.json")["pieces"]
-    return {"completeProgramClear":clear,"observerAuthorizedL1Count":sum(gates[s["id"]]["matchAuthorized"] for s in delivered),
+    return {"nominalProgramClear":clear,"parkCageScreen":cage,
+            "observerAuthorizedL1Count":sum(gates[s["id"]]["matchAuthorized"] for s in delivered),
             "sixRobotPaths":{k:[x[2] for x in p.intervals if x[3]] for k,p in team.items()},
             "autoTimeS":auto.duration,"finishTeleopS":focal.clock,"finiteIds":[s["id"] for s in delivered],
             "conditionalPoints":raw if clear and focal.clock<=135 else None,"pairBound":minimum,"firstOverlap":first,
@@ -143,7 +179,7 @@ def audit(sources, **options):
 
 def main():
     files=read(HERE/"placements.json")["placements"]
-    return {k:audit(files,**opts) for k,opts in (("stationHold",{"station_hold":True}),
+    return {k:audit(files,**opts) for k,opts in (("stationHold",{"station_hold":True}),("inboard",{"inboard":True}),
             ("reserved",{}),("blocked",{"partner_clears":False}),
             ("lateSecond",{"stock":(0,112)}),("returnInstead",{"park":False}))}
 

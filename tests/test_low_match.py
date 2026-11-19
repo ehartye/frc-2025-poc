@@ -17,6 +17,11 @@ class LowMatchTest(unittest.TestCase):
         self.assertTrue(all(main["sixRobotPaths"].values()))
         self.assertEqual(main["finiteIds"], ["coral-A", "coral-B"])
         self.assertEqual(main["conditionalPoints"], 9)
+        self.assertLess(main["parkCageScreen"]["uprightUnlimitedYawLowerMm"], 0)
+        refined = cases["inboard"]
+        self.assertGreater(refined["parkCageScreen"]["remainingLateralSwingMm"], 110)
+        self.assertAlmostEqual(refined["finishTeleopS"], 92.899, places=3)
+        self.assertEqual(refined["conditionalPoints"], 9)
         self.assertGreater(main["pairBound"][0], .105)
         self.assertGreater(main["otherRobotToSettledPipeBoundM"], 1.6)
         self.assertEqual(cases["blocked"]["firstOverlap"][:2], ["red1", "red2"])
@@ -48,3 +53,6 @@ class LowMatchTest(unittest.TestCase):
         self.assertGreater(sum(native["parkClothInZoneMm3"].values()), 339500)
         self.assertEqual(event["volumeMm3"], native["parkClothInZoneMm3"][event["subject"]])
         self.assertEqual((event["route"], event["wholeField"]), ("supported", "pending"))
+        alternate = json.loads((STUDY / "inboard-event.json").read_bytes())
+        self.assertGreater(alternate["volumeMm3"], 200500)
+        self.assertEqual(alternate["volumeMm3"], native["inboardClothInZoneMm3"][alternate["subject"]])

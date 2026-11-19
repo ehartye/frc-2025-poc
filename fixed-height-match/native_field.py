@@ -46,6 +46,8 @@ def run():
     tape=(park.TAPE[0],0,park.TAPE[1],f.PROFILE["field"]["width"])
     start=park.overlap(f,held,auto.start,tape)
     final=park.overlap(f,held,endpoint,park.ZONE)
+    rebound=json.loads((ROOT/"leave-park/near-tape.json").read_bytes())["cases"]["near-tape"]["finish"]
+    inboard=park.overlap(f,held,rebound,park.ZONE)
     source=pose_shapes(940,0,"red")
     from OCP.BRepAlgoAPI import BRepAlgoAPI_Common
     difference={}
@@ -69,7 +71,8 @@ def run():
     return {"bodyCount":len(boxes),"stowedToFixedBumperSymmetricDifferenceMm3":difference,
             "startBumperTapeMm3":start,"parkClothInZoneMm3":final,
             "autoEndWholeHullToStartTapeLowerM":auto.end[0]-.425*math.sqrt(2)-park.TAPE[1]*f.IN,
-            "parkPose":endpoint,"targetStrokeSweepInstalledStock":dock_stock,
+            "parkPose":endpoint,"inboardPose":rebound,"inboardClothInZoneMm3":inboard,
+            "targetStrokeSweepInstalledStock":dock_stock,
             "firstTubeToSecondDockMm":{"part":minimum,"gap":separation[minimum],"inflatedTubeBoxMm":tube}}
 
 

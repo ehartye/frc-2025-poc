@@ -10,7 +10,8 @@ def main():
     sources=read(HERE/"placements.json")["placements"]
     results=read(HERE/"match.json")
     modes=(("Issued interlock holds at station","stationHold",{"station_hold":True}),
-           ("Reserved lane, assumed withdrawal","reserved",{}),("Partner keeps the lane","blocked",{"partner_clears":False}),
+           ("Reserved lane, park at 372 in","inboard",{"inboard":True}),
+           ("Original 355 in park","reserved",{}),("Partner keeps the lane","blocked",{"partner_clears":False}),
            ("Second pipe arrives late","lateSecond",{"stock":(0,112)}),
            ("Return to station","returnInstead",{"park":False}))
     scenarios={}
@@ -35,6 +36,8 @@ def main():
               if r["firstOverlap"] else
               f"{len(deliveries)} modeled deliveries. Red 2 finishes at TELEOP {r['finishTeleopS']:.2f} s. "
               f"Conditional opportunity: {r['conditionalPoints']} points. The issued observer authorizes zero L1 deliveries.")
+        if key=="reserved":
+            note+=" The full-swivel cage envelope overlaps this final lane."
         scenarios[label]={"frames":frames,"bots":list(team),"result":{
             "qualified_supports":[{"support_s":s["supported"],"sector_m":s["sector"]} for s in deliveries],
             "message":note}}

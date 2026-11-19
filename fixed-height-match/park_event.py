@@ -11,16 +11,17 @@ sys.path.insert(0,str(ROOT/"leave-park"))
 from body_route import pin,write,read
 
 
-def replay(plugin,out):
+def replay(plugin,out,inboard=False):
     out.mkdir(parents=True,exist_ok=True)
     nr=HERE/"native.json"
     observed=read(nr)
     body="bumper-cover-front-red"
-    covers=list(observed["parkClothInZoneMm3"])
+    area="inboardClothInZoneMm3" if inboard else "parkClothInZoneMm3"
+    covers=list(observed[area])
     kit=ROOT/"design/competition-package/shop-duplex/red"
     geometry=pin(kit/"stowed.step",out)
     robot=write(out,"robot",{"schema":"field-route/robot@1","scope":"subassembly","geometry":geometry,
-                "catalog":pin(nr,out),"collection":{"path":["parkClothInZoneMm3"],"format":"keys"}})
+                "catalog":pin(nr,out),"collection":{"path":[area],"format":"keys"}})
     stock_source=ROOT/"full-match/installed-stock.json"
     boxes={k:[v/1000 for v in row["native_bounds_mm"]] for k,row in read(stock_source)["stock"].items()}
     field=write(out,"field",{"source":pin(stock_source,out),"placed":boxes})
@@ -36,9 +37,9 @@ def replay(plugin,out):
     event={"id":"stationary-front-bumper","robotBody":body,"timeS":138}
     proof=write(out,"measure",{"schema":"field-route/body-observations@1",**basis,"geometrySha256":geometry["sha256"],
              "observations":[{**event,"criterion":"red front cloth overlaps own barge zone","unit":"mm3","measurement":pin(nr,out),
-               "path":["parkClothInZoneMm3",body],"comparison":"above","threshold":0}]})
+               "path":[area,body],"comparison":"above","threshold":0}]})
     detector=write(out,"detector",{"schema":"field-route/events@1",**basis,"sourceEvidence":proof,"events":[event]})
-    x,y,_=observed["parkPose"]
+    x,y,_=observed["inboardPose" if inboard else "parkPose"]
     profile=read(ROOT/"kickoff/season-profile.json")["field"]
     cx=x-profile["length"]*.0254/2
     cz=profile["width"]*.0254/2-y
@@ -60,3 +61,4 @@ if __name__=="__main__":
     p.add_argument("output",type=Path)
     args=p.parse_args()
     (HERE/"park-event.json").write_text(json.dumps(replay(args.plugin,args.output),indent=2)+"\n",encoding="utf-8",newline="\n")
+    (HERE/"inboard-event.json").write_text(json.dumps(replay(args.plugin,args.output/"inboard",True),indent=2)+"\n",encoding="utf-8",newline="\n")
