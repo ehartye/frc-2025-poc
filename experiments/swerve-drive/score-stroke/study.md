@@ -8,6 +8,10 @@ The first obstruction is on the robot. The rear edge of the moving shelf rib ent
 
 ## Follow the pipe
 
+[Watch the pickup, extension and release film](receiver-motion.webm). The opening view places the two continuous-land parts in the numbered R4 swerve robot. The cutaway isolates the rack stages, gripping mechanism, pipe and target. It uses the achieved station pipe trace and independent dock fixture on their own clocks. At 1.340 s the receiving controller first reports the pipe in its seat. At the separate dock the carriage travels 370 mm, then retracts while the released pipe settles. The cut to the rim starts with the study's assumed belt exit speed. [Animation samples and source hashes](motion-track.json)
+
+The outer stage moves through the measured rack travel and the middle stage follows at half travel. The rendering treats the CAD as rigid. Individual belt teeth, guide vibration, elastic deflection of the structure and moving cable shapes are outside this visual model. The drawn trough shows the registered support and lip extents. The contact solver includes the mounting holes recorded in the target. The numbered robot's independently tested loaded transit reaches a camera-triggered stop before this dock. [Loaded transit and retained-pipe evidence](../transit/README.md)
+
 The strategy calls for two sequential L1 CORAL placements, one in each sector, at −180 and +220 mm along the face of the red reef. The signed inputs here are two alternative wheel calibrations carrying the **same first pipe**. Each input identifies its own corrected source-station pose, pipe center and axis at first wheel service at 27.035 seconds. For the scoring fixture we hold the chassis at a specified dock and settle the receiver under gravity. The route between those poses and the second pickup require their own attained states. Neither pipe earns match points in this study. [Selected strategic narrative](../../../kickoff/) · [Signed input and dynamics receipts](mechanics.json)
 
 | What the student can change | What the simulation shows |

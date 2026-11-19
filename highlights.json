@@ -93,9 +93,51 @@
       "label": "Camera-confirmed loaded motion after first feed",
       "revision": "R4 with four-module steering occlusion and reciprocal drive model",
       "url": "https://github.com/ehartye/frc-2025-poc/blob/b97d9fbc5ad3e35a70cbb540cb7a50c654b818ef/experiments/swerve-drive/motion/loaded-departure.json"
+    },
+    {
+      "id": "receiver-film",
+      "label": "Pickup and release film",
+      "revision": "Continuous-land candidate, positive wheel calibration",
+      "file": "experiments/swerve-drive/score-stroke/receiver-motion.webm",
+      "sha256": "24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414",
+      "shareable": true
+    },
+    {
+      "id": "receiver-poster",
+      "label": "Extending receiver cutaway",
+      "revision": "At 363 mm travel",
+      "file": "docs/robot/receiver-motion.png",
+      "sha256": "b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3",
+      "shareable": true
+    },
+    {
+      "id": "conditional-landing",
+      "label": "Conditional scoring fixture and 48 supported landings",
+      "revision": "Two wheel signs, two sectors and three launch times",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/a5903cc1a24ef94f83c52488aa2ef57737a2a2c1/experiments/swerve-drive/score-stroke/study.md"
+    },
+    {
+      "id": "loaded-stops",
+      "label": "Loaded wheel paths and observed stops",
+      "revision": "Attained pipe custody on the moving receiver",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/1b408dbbbb2d6e85ff73304d5fcff630fca43ce4/experiments/swerve-drive/transit/README.md"
     }
   ],
   "results": [
+    {
+      "basis": "modeled",
+      "claim": "The revised receiver extended 370 mm and a released pipe stayed in the trough",
+      "conditions": "Continuous underside lands cleared the two absorber caps. With a 54 mm greater dock setback, 48 modeled launches reached sustained support across both sectors.",
+      "limit": "The dock was supplied independently. The study assumes a belt exit speed and grants zero match deliveries.",
+      "source": "conditional-landing"
+    },
+    {
+      "basis": "modeled",
+      "claim": "The loaded robot braked with its first pipe still aboard",
+      "conditions": "On the two signed wheel paths the fixed camera lost its height bound. Encoders and gyro confirmed a stop at 31.960 or 30.120 s. The pipe moved at most 0.507 or 0.351 mm during each attempt.",
+      "limit": "The receiver has yet to carry the observed pipe from either stop to the scoring dock.",
+      "source": "loaded-stops"
+    },
     {
       "basis": "modeled",
       "claim": "The stowed fallback earned five points in both modeled matches",
@@ -150,6 +192,13 @@
     }
   ],
   "media": [
+    {
+      "asset": "receiver-film",
+      "poster": "receiver-poster",
+      "source": "conditional-landing",
+      "description": "Three-dimensional cutaways show a station feed seating the hollow pipe, the sliding receiver extending, and the released pipe settling in a red trough.",
+      "caption": "The station pickup plays at 2x. At the separate scoring dock, the 370 mm extension and the trough landing play in real time. A cut at the rim identifies the assumed belt exit speed."
+    },
     {
       "asset": "fallback-film",
       "source": "fallback",
