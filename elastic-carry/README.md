@@ -2,6 +2,8 @@
 
 **The shop robot has a modeled way to stop with the pipe aboard. The existing zero-belt policy loses it if the drive continues toward the reef.** On the slower powered route, both wheel calibrations roll the center of coral-A past the front edge at X165 mm, 9.504 seconds after the final station check. The simulation places this loss at match wall 36.536 s, before either robot reaches the reef. [Loaded motion](drive.json) · [Upstream powered station](../conditioned-match/README.md) · [Machined shelf](../shelf-structure/README.md)
 
+![Pipe position rising to the shelf edge during continued travel, with finite braking and hold intervals for the earlier roof alarms and later port alarm](carry.svg)
+
 ## What the robot can observe
 
 | Event on the same carry | Left wheel small | Right wheel small |
@@ -53,6 +55,7 @@ python integrated-slide/expose.py <artifacts>/elastic-carry <artifacts>/relieved
 python integrated-slide/observations.py field <artifacts>/elastic-carry <artifacts>/relieved-match <field.step> <jdk> <gradle-cache>
 python integrated-slide/observations.py packets <artifacts>/elastic-carry <artifacts>/relieved-match <field.step> <jdk> <gradle-cache>
 python elastic-carry/placement.py <artifacts>/elastic-carry elastic-carry/placement.json
+python elastic-carry/plot.py <artifacts>/elastic-carry elastic-carry/carry.svg
 ```
 
 The field command writes the full ray check to <artifacts>/elastic-carry/roof-field.json. The issued field.json is a copy of that original receipt. The camera choices include `roof`, `roof-front`, `roof-rear`, `roof-guard`, `roof-050`, `roof-same`, `fixed-native`, `fixed-marked`, `fixed-dark` and `fixed-same`. Each run uses the matching camera's source raster. Real wheel loading, cartridge force curves, mast/rail compliance, installed mass and station lighting remain receiving gates. The separate stationary-hoist and mast-splice inventory leaves 278.06 g after the example guide faces on the matched-stock upper model. The actual guide mounting and physical scale are still open. [Combined receiving account](../fixed-hoist/combined.json)
