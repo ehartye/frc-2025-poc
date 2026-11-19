@@ -1,0 +1,37 @@
+{
+  "schema": "frc-power-trace/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "trialId": "worn-selected",
+  "condition": "Screw-terminal band 5.16 to 5.20 V with total interface resistance bounded by 100 mOhm",
+  "units": {
+    "time": "s",
+    "voltage": "V",
+    "current": "A"
+  },
+  "provenance": {
+    "kind": "modeled",
+    "source": "Connector-resolved modeled load. Route SHA-256 727370130ca5586c5f88d107ccb12beef1c5f737ac898eb6b278ae07ef85326c"
+  },
+  "rows": [
+    {
+      "fromS": 0,
+      "toS": 0.02,
+      "voltages": [
+        {
+          "location": "camera-input",
+          "kind": "lower-bound",
+          "valueV": 4.957630212739572
+        }
+      ],
+      "currents": [
+        {
+          "id": "camera",
+          "kind": "source",
+          "valueA": 1.2
+        }
+      ]
+    }
+  ]
+}

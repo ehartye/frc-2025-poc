@@ -1,0 +1,136 @@
+{
+  "schema": "frc-power-review/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "window": {
+    "fromS": 0,
+    "toS": 0.02
+  },
+  "requiredLoads": [
+    "camera"
+  ],
+  "maxSampleIntervalS": 0.02,
+  "trials": [
+    {
+      "id": "old-band-with-taper",
+      "condition": "Screw-terminal band 5.13 to 5.20 V with total interface resistance bounded by 55 mOhm",
+      "status": "incomplete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "Connector-resolved modeled load. Route SHA-256 727370130ca5586c5f88d107ccb12beef1c5f737ac898eb6b278ae07ef85326c"
+      },
+      "trace": {
+        "file": "old-band-with-taper.json",
+        "sha256": "420bf51241f6a83596e14bdd1d2f2802663bfa8905b92e7222c8550d591ffae6"
+      },
+      "endpoints": [
+        {
+          "id": "camera-input",
+          "minV": 5,
+          "lowestEvidence": {
+            "location": "camera-input",
+            "fromS": 0,
+            "toS": 0.02,
+            "kind": "lower-bound",
+            "valueV": 4.981630212739572,
+            "minV": 5,
+            "marginV": -0.01836978726042826,
+            "currents": [
+              {
+                "id": "camera",
+                "kind": "source",
+                "valueA": 1.2
+              }
+            ]
+          },
+          "status": "incomplete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "camera-input",
+        "fromS": 0,
+        "toS": 0.02,
+        "kind": "lower-bound",
+        "valueV": 4.981630212739572,
+        "minV": 5,
+        "marginV": -0.01836978726042826,
+        "currents": [
+          {
+            "id": "camera",
+            "kind": "source",
+            "valueA": 1.2
+          }
+        ]
+      },
+      "unknowns": [
+        "Lower bound alone cannot establish a violation at camera-input",
+        "Missing qualifying voltage coverage at camera-input"
+      ],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    },
+    {
+      "id": "selected-screen",
+      "condition": "Screw-terminal band 5.16 to 5.20 V with total interface resistance bounded by 50 mOhm",
+      "status": "complete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "Connector-resolved modeled load. Route SHA-256 727370130ca5586c5f88d107ccb12beef1c5f737ac898eb6b278ae07ef85326c"
+      },
+      "trace": {
+        "file": "selected-screen.json",
+        "sha256": "22a04da15ffa22d41ef4bc12f2bed797c20e63f1aa8be58ea29c9d93fe26d347"
+      },
+      "endpoints": [
+        {
+          "id": "camera-input",
+          "minV": 5,
+          "lowestEvidence": {
+            "location": "camera-input",
+            "fromS": 0,
+            "toS": 0.02,
+            "kind": "lower-bound",
+            "valueV": 5.017630212739572,
+            "minV": 5,
+            "marginV": 0.017630212739572215,
+            "currents": [
+              {
+                "id": "camera",
+                "kind": "source",
+                "valueA": 1.2
+              }
+            ]
+          },
+          "status": "complete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "camera-input",
+        "fromS": 0,
+        "toS": 0.02,
+        "kind": "lower-bound",
+        "valueV": 5.017630212739572,
+        "minV": 5,
+        "marginV": 0.017630212739572215,
+        "currents": [
+          {
+            "id": "camera",
+            "kind": "source",
+            "valueA": 1.2
+          }
+        ]
+      },
+      "unknowns": [],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    }
+  ],
+  "interpretation": "Screw-terminal band 5.13 to 5.20 V with total interface resistance bounded by 55 mOhm (modeled electrical evidence) is incomplete. At camera-input (0\u20130.02 s), the lower-bound is 4.981630212739572 V against a 5 V floor. Coincident readings were camera source current 1.2 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. Lower bound alone cannot establish a violation at camera-input. Missing qualifying voltage coverage at camera-input. Screw-terminal band 5.16 to 5.20 V with total interface resistance bounded by 50 mOhm (modeled electrical evidence) is complete. At camera-input (0\u20130.02 s), the lower-bound is 5.017630212739572 V against a 5 V floor. Coincident readings were camera source current 1.2 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied."
+}
