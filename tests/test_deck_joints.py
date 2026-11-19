@@ -65,7 +65,9 @@ class DeckJoints(unittest.TestCase):
         self.assertTrue(260<a["stressAtTrialNotchFactor1_6MPa"]<270)
         self.assertGreater(b["stressAtTrialNotchFactor1_6MPa"],a["stressAtTrialNotchFactor1_6MPa"])
         self.assertGreater(data["oneTieUnavailable"]["maximumTieTensionN"],data["fullSection"]["jointSeparationNAt850NModelPreload"])
-        for side in data["contact"].values():
+        self.assertEqual(data["contactSourceSha256"],hashlib.sha256((ROOT/"shelf-contact/load.json").read_bytes()).hexdigest())
+        for key in ("leftSmall","rightSmall"):
+            side=data["contact"][key]
             self.assertLess(side["normalMaxN"],0)
             self.assertTrue(abs(side["lineAtDeckMm"][1])<45)
         self.assertIsNone(a["physicalYieldFatigueAndSeparation"])

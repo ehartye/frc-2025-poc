@@ -2,7 +2,7 @@
 from itertools import product
 import math
 import numpy as np
-from kit import AXES, HERE, j
+from kit import AXES, HERE, ROOT, j
 
 G=9.80665
 # Whole-machine envelope includes bumpers and cargo. It is intentionally much heavier than
@@ -77,11 +77,16 @@ def run():
     full=envelope(False)
     failed=envelope(True)
     impacts={}
-    for key,force,position,impulse in (("left",[247,202,-3387],[116.39,1.41,499.02],2.592),
-                                        ("right",[262,-209,-3384],[116.43,-1.70,499.03],2.592)):
+    source=ROOT/"shelf-contact/load.json"
+    for record in j.read(source):
+        key=record["case"]
+        force=record["peakRobotReactionXYZn"]
+        position=record["peakNormalCenterRobotMm"]
+        impulse=abs(record["pulseImpulseRobotXYZns"][2])
         r=joint_group(AXES,np.array(force),position)
         projection=[position[i]+(150-position[2])*force[i]/force[2] for i in (0,1)]
         impacts[key]={**r,"forceN":force,"appliedAtMm":position,"lineAtDeckMm":projection,
+                      "pulseSeconds":record["endFromLipS"]-record["startFromLipS"],
                       "modelVerticalImpulseNs":impulse,"wholeRobotRigidDeltaVMps":impulse/MASS}
     def integral(case):
         shear=case["maximumTieShearN"]
@@ -100,7 +105,7 @@ def run():
                 "physicalYieldFatigueAndSeparation":None}
     answer={"unmeasuredTrialPreloadN":PRELOAD,"fullGroup":full,"fullSection":section(full),
             "oneTieUnavailable":failed,"adverseSection":section(failed),"contact":impacts,
-            "integralAllSix":integral(full),"integralMissingOne":integral(failed),
+            "contactSourceSha256":j.digest(source),"integralAllSix":integral(full),"integralMissingOne":integral(failed),
             "calibratedImpulseOrAllowable":None}
     j.write(HERE/"load.json",answer)
     return answer
