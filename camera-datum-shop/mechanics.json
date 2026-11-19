@@ -1,0 +1,102 @@
+{
+  "source_load": "moving-observer/checks.json",
+  "derived_2g": {
+    "wall_mm": 2,
+    "steel_and_aluminum_scale": 1.05,
+    "young_pa": 69000000000.0,
+    "assumed_poisson": 0.33,
+    "I_m4": 2.9986666666666662e-09,
+    "J_m4_estimate": 4.3939999999999995e-09,
+    "tip_mass_kg": 0.22339416477016066,
+    "post_mm": 0.3121491258162123,
+    "crossbar_mm": 0.03790030176213,
+    "torsion_mm_at_lens": 0.00795825375205823,
+    "plate_mm": 0.005867438438046344,
+    "post_deg": 0.07307373661432702,
+    "crossbar_deg": 0.016563352654702063,
+    "torsion_deg": 0.010021414335979965,
+    "plate_deg": 0.01333116992727853,
+    "summed_tip_mm": 0.36387511976844683,
+    "summed_rotation_deg": 0.11298967353228759,
+    "post_base_outer_fiber_mpa": 3.9833515325576196,
+    "force_per_post_n": 5.4695876918672965,
+    "moment_per_post_nm": 1.5926324616394818
+  },
+  "datum_stack": {
+    "locating_radial_mm": 0.054999999999999716,
+    "boss_to_shelf_radial_mm": 0.1349999999999998,
+    "single_station_xy_mm": 0.2599999999999995,
+    "fixed_saddle_reseat_translation_mm": 0.10999999999999943,
+    "fixed_saddle_reseat_clock_deg": 0.03151267555466725,
+    "two_station_absolute_clock_deg": 0.07448447140744023,
+    "pad_pitch_at_0_04mm_over_47_deg": 0.048762353770036716,
+    "two_plain_camera_bolts_clock_deg": 0.3819662047290255,
+    "two_plain_foot_bolts_clock_deg": 0.6095065766751959,
+    "nominal_right_slot_travel_per_side_mm": 1.04,
+    "within_20K_if_differential_growth_below_per_K": 9.375e-05
+  },
+  "prior_1mm_section_under_new_upper_load": {
+    "wall_mm": 1,
+    "steel_and_aluminum_scale": 1.05,
+    "young_pa": 69000000000.0,
+    "assumed_poisson": 0.33,
+    "I_m4": 1.8386666666666665e-09,
+    "J_m4_estimate": 2.7439999999999992e-09,
+    "tip_mass_kg": 0.22339416477016066,
+    "post_mm": 0.5090814967082388,
+    "crossbar_mm": 0.06181129707253833,
+    "torsion_mm_at_lens": 0.012743646860985372,
+    "plate_mm": 0.005867438438046344,
+    "post_deg": 0.11917536885106701,
+    "crossbar_deg": 0.027013038520975297,
+    "torsion_deg": 0.01604741056570553,
+    "plate_deg": 0.01333116992727853,
+    "summed_tip_mm": 0.5895038790798088,
+    "summed_rotation_deg": 0.17556698786502636,
+    "post_base_outer_fiber_mpa": 6.496415951212534,
+    "force_per_post_n": 5.4695876918672965,
+    "moment_per_post_nm": 1.5926324616394818
+  },
+  "joint_demand": {
+    "whole_lateral_n": 10.939175383734593,
+    "locator_shear_demand_mpa": 0.3868941857045648,
+    "2mm_locator_bearing_projection_mpa": 1.0128866096050548,
+    "foot_heel_uplift_n_per_fastener": 33.885797056159184,
+    "foot_bolt_shear_n_each": 2.7347938459336483,
+    "metal_annulus_mm2": 37.69911184307752,
+    "trial_preloads": [
+      {
+        "installed_clamp_n_assumed": 25,
+        "residual_n": -8.885797056159184,
+        "compression_mpa": 1.5619942798989854,
+        "joint_seated_under_model": false,
+        "M4_tensile_stress_upper_mpa": 6.706810598651388,
+        "friction_mu_needed_if_keys_unloaded": null
+      },
+      {
+        "installed_clamp_n_assumed": 100,
+        "residual_n": 66.11420294384081,
+        "compression_mpa": 3.5514310685476773,
+        "joint_seated_under_model": true,
+        "M4_tensile_stress_upper_mpa": 15.248951828719727,
+        "friction_mu_needed_if_keys_unloaded": 0.04136469509065482
+      },
+      {
+        "installed_clamp_n_assumed": 300,
+        "residual_n": 266.11420294384084,
+        "compression_mpa": 8.85659583827752,
+        "joint_seated_under_model": true,
+        "M4_tensile_stress_upper_mpa": 38.027995108901955,
+        "friction_mu_needed_if_keys_unloaded": 0.010276767702289016
+      }
+    ],
+    "unsupported_cable_bracket_tip_load_N_per_10N": 10,
+    "extra_10N_heel_uplift_N": 38.244680851063826
+  },
+  "native_non_shelf_mass_kg": 0.5348984566383679,
+  "extra_upper_moving_mass_kg": 0.2590374625433498,
+  "no_credit_for_removed_polymer": true,
+  "prior_independent_R103_headroom_kg": 1.811139531750058,
+  "successor_upper_headroom_kg": 1.5521020692067082,
+  "weighed_robot": false
+}
