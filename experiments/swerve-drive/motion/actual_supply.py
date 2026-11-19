@@ -6,13 +6,13 @@ from pathlib import Path
 import numpy as np
 
 
-def supply_review(samples):
+def supply_review(samples, receiver="stowed"):
     path = Path(__file__).resolve().parents[1] / "power/electrical.py"
     spec = importlib.util.spec_from_file_location("opening_electrical", path)
     supply = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(supply)
     readings = np.asarray(samples)
-    watts = supply.other_watts(len(readings), receiver="stowed")
+    watts = supply.other_watts(len(readings), receiver=receiver)
     requests = {}
     for axis, phase_r, v_column, i_column in (
         ("Drive", supply.DRIVE_PHASE_R, 0, 1),
