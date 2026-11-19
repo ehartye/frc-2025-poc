@@ -38,4 +38,7 @@ python design/fixed-no-air/account.py $env:AGENT_FRC_PLUGIN_ROOT artifacts/fixed
 python design/fixed-no-air/balance.py
 python design/fixed-no-air/view.py
 python design/fixed-no-air/whole.py $env:SIGNAL_LIGHT_STEP --viewer artifacts/fixed-no-air/robot.html
+python design/fixed-no-air/export_robot.py $env:SIGNAL_LIGHT_STEP artifacts/fixed-no-air/placement.step
 ```
+
+The STEP export contains the complete 593-solid placement pose, including the supplied product geometry. Keep it with that local source. The exporter reopens all named solids, checks bounds, volume and centroids, and compares material directly for the light, modified deck, camera and shelf. Use `--pose receive` for the pickup configuration.
