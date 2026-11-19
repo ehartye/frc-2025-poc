@@ -11,6 +11,8 @@ The original scoring pose put both inner slide rails through the trough wall. A 
 
 The original material check uses the attained pose, actual native material and registered field occurrence. The revised sweep encloses the occupied sections through intermediate stroke and heading, then compares them with the field structures. These are different observations. The viewer illustrates the original intersection section and the engineered profile. It displays the computed full-sweep bound without treating a screen pixel as a measurement. [Original native counterexample](reef-material.json) · [Earlier stock, station and route bounds](clearance.json)
 
+The follow-on installation registers the real SP1-25 bracket pattern, captures the cable eye on a removable smooth pin and preserves the original shelf travel. [Draw-wire mounting and calibration](../sp1-mount/README.md)
+
 ## Make and inspect the kit
 
 Use robot X forward, Y left and Z up. The carriage height for this configuration is 560 mm. Source dimensions below are in millimetres. The STEP at zero stroke contains 18 manufactured solids. The existing SP1-25 and changing-length wire belong to the complete robot scene; their original purchasing identities carry forward. [Editable geometry](rail_profile.py) · [Material, round-trip and placement controls](kit.json)
