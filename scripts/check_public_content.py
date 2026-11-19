@@ -16,11 +16,35 @@ def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args])
+def committed_files(commit):
+ records = git('ls-tree', '-rz', commit).split(b'\0')
+ with subprocess.Popen(
+     ['git', '-C', str(ROOT), 'cat-file', '--batch'],
+     stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+ ) as stream:
+  try:
+   for record in filter(None, records):
+    header, path = record.split(b'\t', 1)
+    _, kind, oid = header.split()
+    if kind != b'blob':
+     raise ValueError('Unexpected Git object for ' + path.decode())
+    stream.stdin.write(oid + b'\n')
+    stream.stdin.flush()
+    actual_oid, actual_kind, size = stream.stdout.readline().split()
+    if actual_oid != oid or actual_kind != kind:
+     raise ValueError('Unexpected Git object in batch response')
+    data = stream.stdout.read(int(size))
+    if len(data) != int(size) or stream.stdout.read(1) != b'\n':
+     raise ValueError('Incomplete Git blob')
+    yield path.decode(), data
+  finally:
+   stream.stdin.close()
+  if stream.wait():
+   raise RuntimeError('Could not read the committed Git objects')
 def audit(revision='HEAD'):
+ commit=git('rev-parse','--verify','--end-of-options',revision+'^{commit}').decode().strip()
  failures=[]
- for raw in git('ls-tree','-rz','--name-only',revision).split(b'\0'):
-  if not raw:continue
-  path=raw.decode();data=git('show',revision+':'+path)
+ for path,data in committed_files(commit):
   if path==WRAPPER:
    if hashlib.sha256(data).hexdigest()!=WRAPPER_SHA:failures.append((path,['unreviewed-binary']))
    continue
@@ -28,7 +52,7 @@ def audit(revision='HEAD'):
   categories=findings(data)
   if categories:failures.append((path,categories))
  # Commit identity/message metadata, not source history rewriting.
- metadata=git('log','--format=%an <%ae> %cn <%ce> %s',revision)
+ metadata=git('log','--format=%an <%ae> %cn <%ce> %s',commit)
  if findings(metadata):failures.append(('commit metadata',findings(metadata)))
  return failures
 if __name__=='__main__':

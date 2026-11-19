@@ -12,6 +12,8 @@
 
 [Explore the four service stands under the winchless carriage](winchless/service.html) and [compare the inspection margins](winchless/README.md) with and without credit for the removed winch.
 
+[Extend the shelf and inspect its supports](extension-support/index.html). See when the fixed shock absorbers lose contact and how two captured rails carry the pipe at full reach.
+
 [Check the fixed-guide robot's inspection weight](winchless-bill/README.md). Trace the original winch bill, retained support material and fasteners to the selected prebuild estimate.
 
 [Explore six-wheel load sharing](wheel-loads/README.md). See how center-wheel stiffness, mass placement and battery condition change the simulated station approach.
