@@ -1,30 +1,50 @@
-"""Draw the left roof pupil's central scanline through the same attained pipe."""
+"""Draw a source-inspectable scanline through the two renders of one attained pipe."""
 
 import argparse
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
-
 from finish import select_views, witness
 
 
 def plot(cache, output):
+    source = witness.read(witness.HERE / "receiver-witness.json")
     row = next(
         r
-        for r in witness.read(witness.HERE / "receiver-witness.json")["cases"]
+        for r in source["cases"]
         if r["case"] == "plus" and r["finish"] == "matched" and r["stepUs"] == 31.25
     )
     frame = row["frames"][4]
-    card = Image.new("RGB", (900, 430), "#faf9f5")
-    pen = ImageDraw.Draw(card)
+    svg = ET.Element(
+        "svg", xmlns="http://www.w3.org/2000/svg", viewBox="0 0 900 430", role="img"
+    )
+    ET.SubElement(svg, "title").text = "The same pipe on matched and dark robot backing"
+    ET.SubElement(
+        svg, "desc"
+    ).text = "The occupied and empty scanlines overlap on equal-brightness surfaces. Darkening the surveyed robot part makes a rear edge visible in the overhead image."
+    ET.SubElement(svg, "rect", width="900", height="430", fill="#faf9f5")
 
-    def label(pos, text, size, color="#202529"):
-        pen.text(pos, text, fill=color, font=ImageFont.load_default(size=size))
+    def label(x, y, content, size, color="#202529"):
+        element = ET.SubElement(svg, "text", x=str(x), y=str(y), fill=color)
+        element.set("font-size", str(size))
+        element.set("font-family", "system-ui, sans-serif")
+        element.text = content
 
-    label((24, 14), "Can the camera see the back of the pipe?", 27)
+    def line(points, color, width):
+        element = ET.SubElement(
+            svg,
+            "polyline",
+            points=" ".join(f"{x:.2f},{y:.2f}" for x, y in points),
+            stroke=color,
+            fill="none",
+        )
+        element.set("stroke-width", str(width))
+
+    label(24, 38, "Can the camera see the back of the pipe?", 27)
     label(
-        (24, 54),
+        24,
+        67,
         "R4 left roof pupil  /  capture 5440 ms  /  same pipe pose and robot geometry",
         15,
     )
@@ -32,39 +52,51 @@ def plot(cache, output):
         (("Facing matches the pipe", 220), ("Dark bulk-polymer facing", 80))
     ):
         _, (actual, ref), _ = select_views(cache / "plus.npz", gray)
-        images = witness.sensor.silhouette(
+        image = witness.sensor.silhouette(
             actual, np.array(frame["trueCenterMm"]), np.array(frame["trueAxis"])
-        )
-        column = images[0].shape[1] // 2
-        observed = images[0][:, column].astype(float)
-        empty = ref[0][0][:, column].astype(float)
+        )[0]
+        column = image.shape[1] // 2
         x0 = 50 + index * 440
         top, bottom = 154, 334
-        label((x0 - 22, 96), title, 19)
-        pen.line((x0, top, x0, bottom, x0 + 376, bottom), fill="#555555", width=1)
+        label(x0 - 22, 114, title, 19)
+        line([(x0, top), (x0, bottom), (x0 + 376, bottom)], "#555555", 1)
         for value in (0, 128, 255):
             y = bottom - (bottom - top) * value / 255
-            pen.line((x0, y, x0 + 376, y), fill="#dedbd1")
-            label((x0 - 28, y - 8), str(value), 11)
-        for a, color, wide in ((empty, "#167a64", 4), (observed, "#a54c24", 2)):
-            pen.line(
+            line([(x0, y), (x0 + 376, y)], "#dedbd1", 1)
+            label(x0 - 28, y + 4, str(value), 11)
+        for values, color, width in (
+            (ref[0][0][:, column], "#167a64", 4),
+            (image[:, column], "#a54c24", 2),
+        ):
+            # Adjacent equal samples need only the endpoints of each horizontal run.
+            keep = {0, len(values) - 1}
+            for j in np.flatnonzero(np.diff(values)):
+                keep.update((int(j), int(j + 1)))
+            line(
                 [
-                    (x0 + 376 * i / (len(a) - 1), bottom - (bottom - top) * v / 255)
-                    for i, v in enumerate(a)
+                    (
+                        x0 + 376 * i / (len(values) - 1),
+                        bottom - (bottom - top) * float(values[i]) / 255,
+                    )
+                    for i in sorted(keep)
                 ],
-                fill=color,
-                width=wide,
+                color,
+                width,
             )
-        for j in (0, 120, 240, 360, len(observed) - 1):
-            label((x0 + 376 * j / (len(observed) - 1) - 8, bottom + 6), str(j), 11)
-    label((26, 375), "Green  empty robot reference", 15, "#167a64")
-    label((300, 375), "Orange  unmodified pipe in view", 15, "#a54c24")
+        for j in (0, 120, 240, 360, len(image) - 1):
+            label(x0 + 376 * j / (len(image) - 1) - 8, bottom + 19, str(j), 11)
+    label(26, 389, "Green  empty robot reference", 15, "#167a64")
+    label(300, 389, "Orange  unmodified pipe in view", 15, "#a54c24")
     label(
-        (26, 402),
-        "Horizontal axis: image row in pixels.  Vertical axis: simulated 8-bit grayscale.",
+        26,
+        417,
+        "Horizontal axis: image row in pixels. Vertical axis: simulated 8-bit grayscale.",
         13,
     )
-    card.save(output)
+    ET.indent(svg)
+    output.write_text(
+        ET.tostring(svg, encoding="unicode") + "\n", encoding="utf8", newline="\n"
+    )
 
 
 if __name__ == "__main__":

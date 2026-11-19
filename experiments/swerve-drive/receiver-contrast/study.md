@@ -2,7 +2,7 @@
 
 Specify the existing machined receiver facing in bulk-black polyethylene for a contrast prototype. The stationary and moving stereo cameras keep their four original pupils. At the issued positive and negative wheel errors, a genuinely equal-brightness pipe and shelf leave the robot's roof camera unable to locate the rear edge in any of 24 simulated exposures. Giving the **robot's facing alone** a dark response recovers that edge and a bounded angle in both eyes. This is a conditional prebuild observation at the station.
 
-![Two simulated roof-image scanlines. At matched brightness the occupied and empty profiles overlap. On dark backing the occupied scanline rises where the pipe crosses it.](scanline.png)
+![Two simulated roof-image scanlines. At matched brightness the occupied and empty profiles overlap. On dark backing the occupied scanline rises where the pipe crosses it.](scanline.svg)
 
 ## What changes in the robot
 
@@ -42,12 +42,12 @@ The static R4 rendering depicts each wheel at one angle. A separate projection o
 
 ## Repeat the simulated check
 
-Use the project's OCP, NumPy, VTK and Pillow environment. Supply a locally authorized 2025 field STEP. Its required SHA-256 is recorded in each result. The renderer rejects a different field file and stores only derived camera arrays in the specified scratch directory.
+Use the project's OCP, NumPy and VTK environment. Supply a locally authorized 2025 field STEP. Its required SHA-256 is recorded in each result. The renderer rejects a different field file and stores only derived camera arrays in the specified scratch directory.
 
 ```text
 python experiments/swerve-drive/receiver-contrast/native_scene.py FIELD.step SCRATCH
 python experiments/swerve-drive/receiver-contrast/finish.py SCRATCH issued-results.json
-python experiments/swerve-drive/receiver-contrast/scanline.py SCRATCH scanline.png
+python experiments/swerve-drive/receiver-contrast/scanline.py SCRATCH scanline.svg
 python experiments/swerve-drive/receiver-contrast/material.py
 python -m unittest discover -s tests -p test_receiver_contrast.py
 ```
