@@ -1,5 +1,7 @@
 # Make room for a removable drive-chain cover
 
+The [supported cover study](../cover-retention/README.md) adds the fasteners, service sequence and complete guard bill.
+
 The first 0.5 mm side panel cleared the tire, yet came within **0.425 mm of a rotating wheel-bolt tip**. Moving the front chain and both of its sprockets 3 mm inboard, then centering the panel between the new sprocket position and the bolt tips, gives **2.738 mm** to each. The resulting covers have a feasible rigid-body position. The light sheet leaves only **26.8 g** at the upper estimate for all attachments and outstanding equipment. Keep the guard out of the selected shop build until its retention, deflection, access and mass are established.
 
 ![Cross sections comparing the original and repacked cover face, with upper estimated skin mass for each gauge](cover-fit.svg)
