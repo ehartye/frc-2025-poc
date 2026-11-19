@@ -1,0 +1,16 @@
+# Drive the capture candidate in Fusion
+
+[Download the editable whole robot](Team-1780-public-captive-swerve.f3d) and open the file in Autodesk Fusion. Expand the root **Joints** folder. Right-click a joint and choose **Drive Joint**. The assembly opens stowed with the four pin tips outside the practice CORAL.
+
+| What to try | Joint to drive | What to watch |
+| --- | --- | --- |
+| Steer and roll a corner | **FL steer**, then **FL roll** | A positive steer angle rotates the fork about chassis +Z. The tread rotates about its local +Y axle. FR, RL and RR have their own joint pairs. |
+| Hold the seated pipe | **Left yoke close** from 0 to âˆ’35 mm | The left and right yokes move toward the pipe bore from opposite ends. A native motion link drives the right yoke +35 mm. |
+| Carry the pipe to the mouth | **Receiver outer** from 0 to 370 mm | The inner channel, pipe and yokes advance together. Another native link moves the middle stage 185 mm. Open the yokes at full extension to inspect the release opening. |
+| Inspect the discharge path | **CORAL feed and exit** from 0 to 180 mm | Moving this independent study joint slides the practice piece forward relative to the shelf. Return it to 0 before retracting. |
+
+Fusion reopened the exact published 14,606,833-byte archive. Each of the 1,001 robot solids and the separate practice piece retained its named occurrence. The capture includes four rigid module mounts, eight independently driven corner joints and five sliders. The signed axes were checked from the relative transforms of the actual two joint endpoints. At 185 and 370 mm extension the middle stage reached 92.5 and 185 mm. The two yokes reached âˆ’35 and +35 mm, then returned to their original open positions. The geometry uses direct-editable BReps. The two underside cam lands also have a separately editable feature source. [Native measurements](student-reopen.json) Â· [Component and rights register](public-handoff.json) Â· [Editable cam source](../../experiments/swerve-drive/score-stroke/cam-lands.f3d)
+
+The design starts from the numbered, four-module R4. This revision replaces two shelf parts with the machined receiver and adds 26 capture parts. Purchased modules, cameras and other equipment use Team 1780's original display geometry and clearance shapes. The supplier-detail archive remains in the authorized season artifacts. [Public R4 geometry](../full-swerve-r4/full-robot.step) Â· [Capture geometry and design assumptions](../../experiments/swerve-drive/retention/study.md)
+
+The public yokes display the rim probes at their uncompressed rest length. Their spring compression is modeled in the contact study. The captive CORAL slider demonstrates available motion. Assessing a scored delivery requires a timed transfer from actual acquisition through withdrawal and field-supported rest. The existing film lets students seek to three separate experiments. Its scoring fixture begins independently. [Inspect the simulated pickup, rack and landing](../../experiments/swerve-drive/score-stroke/study.md) Â· [Season scoring criteria](../../experiments/swerve-drive/motion/match-qualification.md)
