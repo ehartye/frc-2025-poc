@@ -235,12 +235,29 @@ def apply(plugin, src, dest):
 
 
 def run(plugin, inputs, outputs):
-    return {
-        s: apply(
-            plugin, inputs / s / "unknownGroupDeltaKg" / "selected.json", outputs / s
+    results = {}
+    for shelf in ("densityMatchedRemovalKg", "noCutCreditKg"):
+        source = inputs / shelf / "unknownGroupDeltaKg" / "selected.json"
+        row = apply(plugin, source, outputs / shelf)
+        returned = "return-lower-guide-arm" in read(source)["selected"]
+        record = ROOT / (
+            "guide-arm-route/accounting.json"
+            if returned
+            else "guide-setting/accounting.json"
         )
-        for s in ("densityMatchedRemovalKg", "noCutCreditKg")
-    }
+        cases = read(record)["cases"]
+        prior = (
+            cases["independentStock/" + shelf + "/unknownGroupDeltaKg"]
+            if returned
+            else cases[shelf]["unknownGroupDeltaKg"]
+        )
+        if not math.isclose(
+            row["zeroCreditMarginKg"], prior["marginKg"][0], abs_tol=1e-8
+        ):
+            raise ValueError("Changed guide variant or upstream mass")
+        row["upstreamGuideReceipt"] = {record.relative_to(ROOT).as_posix(): sha(record)}
+        results[shelf] = row
+    return results
 
 
 if __name__ == "__main__":
