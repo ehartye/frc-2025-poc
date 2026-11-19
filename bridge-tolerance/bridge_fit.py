@@ -11,10 +11,10 @@ def separated_by_background(indices, known, max_gap, allow_unknown_gaps):
     # Unknown background portions between actually observed bright pixels cannot
     # establish a break in a convex, single-object silhouette. Keep every
     # certified outer-edge/pixel-neighborhood check in the geometric fit.
-    for before, after in zip(indices[:-1], indices[1:]):
-        if after-before > max_gap and (not allow_unknown_gaps or np.any(known[before+1:after])):
-            return True
-    return False
+    large = np.flatnonzero(np.diff(indices) > max_gap)
+    if not allow_unknown_gaps:
+        return bool(len(large))
+    return any(np.any(known[indices[k]+1:indices[k+1]]) for k in large)
 
 
 def partial_fit(images,background,error=1.0, *, allow_unknown_gaps=False):
