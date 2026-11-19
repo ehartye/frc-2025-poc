@@ -18,6 +18,8 @@ One 1.97 lbf Lee LCF 025 06 050S and one 0.32 lbf LCF 130 04 025S supply 10.19 N
 
 The inherited moving hardware is 0.422–0.659 kg per side before new parts. The nominal moving-jaw calculation uses 0.50 kg with 10 N·s/m damping. The centered gauged case still indicates a seat at 0.42 and 0.70 kg and at 37.52 N·s/m. Positive native aluminum/steel additions plus two complete spring strips per jaw total 0.072 kg before a 0.120 kg allocation for clips, guards, hardware, leads and finishing. With maximum 0.0103 kg for steel gauge spacers, the conditional upper addition is **0.2024 kg**, leaving 0.4384 kg of the existing *represented* low-red mass margin. No removal credit or complete inspection margin is assumed. A pre-opening actuator and its latch remain unselected and unweighed. [Mass calculation and native identities](package.json) · [Fixed-low accounting](../design/fixed-height/review.json)
 
+The centered matched cases demand 5.59 N of peak longitudinal traction at each belt. Applying the issued per-motor model at each contact step yields 6.856 phase A, 4.402 V and 3.512 bus A maximum at the 9.5 V bus case and 3×10⁻⁶ kg m² input inertia. The 7×10⁻⁶ sensitivity demands 12.702 phase A and exceeds the 8 A limit. A misaligned long piece loads one belt up to 15.81 N and the other zero; motor current alone cannot establish dual contact. The current receipt covers acquisition after lip release and uses the earlier 0.4 N parasitic force and 80% drive efficiency. Measure rotor/load inertia, belt speed, current limiting and hot PVC traction before commanding this mechanism. [Coincident drive measurements](traction.json) · [Drive calculation](traction.py)
+
 ## What happens on entry?
 
 The finite annular contact patches carry the issued pipe spin and split tangential force between longitudinal and vertical slip. For the cassette, each area contributes an elastic normal from local penetration with a 0.67 N/mm² pressure cap. Spring, area stiffness, damping and pressure-cap values require a coupon test. In the quasi-static study the jaw instantaneously solves for force balance. In the finite-mass replay it integrates the independent force and speed of each jaw and spends finite time opening or closing. The simulation holds lateral position and yaw during the incoming disturbance. Free lateral translation, yaw, real elastic limits and deformation could change the result. [Contact model](grip_study.py)
@@ -47,6 +49,7 @@ python -B end-grip-length/cassette.py
 python -B end-grip-length/package.py
 python -B end-grip-length/gauges.py
 python -B end-grip-length/witness.py --jdk /path/to/jdk17 --output artifacts/end-grip-witness.json
+python -B end-grip-length/traction.py --jdk /path/to/jdk17 --output artifacts/end-grip-traction.json
 python -B end-grip-length/delivery.py --jdk /path/to/jdk17 --output artifacts/end-grip-delivery.json
 python -B -m unittest discover -s tests -p test_end_grip_length.py
 ```

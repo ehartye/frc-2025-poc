@@ -49,6 +49,12 @@ class EndGripLength(unittest.TestCase):
             self.assertEqual(r[item][0]["positive"],{})
         self.assertGreater(r["index-long-side"][0]["positive"]["grip-R-rear-riser"]["peakMm3"],2000)
         self.assertTrue(all(not any(row.values()) for row in read("mechanics")["prototype"].values()))
+        traction=read("traction")
+        matched=traction["long-matched"]
+        self.assertGreater(min(matched["peakBeltN"]),5.5)
+        self.assertLess(matched["perMotor"]["3e-06"]["phaseA"],8)
+        self.assertGreater(matched["perMotor"]["7e-06"]["phaseA"],12)
+        self.assertEqual(min(traction["long-misaligned"]["peakBeltN"]),0)
         cases=read("delivery")
         self.assertEqual({r["result"]["sourceId"] for r in cases},{"coral-A","coral-B"})
         self.assertTrue(all(r["result"]["firstContactOutcome"]=="receiver-recontact" for r in cases))
