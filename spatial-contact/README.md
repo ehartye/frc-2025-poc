@@ -1,5 +1,7 @@
 # Can we score after correcting the approach?
 
+The [second station feed](../return-station/README.md) now replays these five achieved returns, the real port sequence, and the independent stereo custody clock. [Try the receiver](../return-station/replay.html).
+
 **All five modeled approaches to sector A delivered the first pipe and parked for seven role points.** The robot earns three for leaving during AUTO, two for L1 CORAL and two for parking. Park finishes at wall 60.478 s. Both the kickoff and later rule editions count the pipe at wall 156 s, three seconds after the match ends. The second sector independently supports a delivery in the same five approach conditions. The second station feed still needs a trial from the position the robot actually reaches. [Interactive contact replay](replay.html) · [Field outcomes](match.json) · [Earlier approach and five-point fallback](../sector-alignment/README.md)
 
 | First-trip evidence | Result across five starts |
