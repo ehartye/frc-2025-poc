@@ -2,6 +2,8 @@
 
 Both signed swerve routes stop with the same identified station-fed pipe still in the receiver in the 31.25 μs simulation. The longer gauge preserves the four-pin capture during transit. The scoring stroke stays inhibited at both endpoints because the observed chassis positions miss the intended 54 mm setback on opposite sides. The earlier independent trough test and the five-point empty fallback remain separate. [Original capture and route](study.md) · [Loaded motion and fault results](held.json) · [Reef registration](reef-fix.json)
 
+The [corrected loaded approach](../reef-correction/study.md) subsequently checked individual corner errors and rejected three minus-case tag exposures. That revision supersedes the minus-case sensing interval below. It drives both simulated chassis to new observed stops while retaining the original pipe.
+
 ## What reaches the reef
 
 The chassis starts at each attained loaded stop from the first carry. Four 8 mm diameter tubes enter the opposing bores, with 35 mm yoke travel. Each end also has a spring-loaded rim feeler. The five-service capture, four wheel states, gyro, pipe momentum, guide modes and 21 shelf modes carry through the original route. The spring stays at 0.45 N/mm. The revised feeler has 8 mm of travel and the same force law throughout the earlier working range. The simulation continues the previous state exactly where its narrower indication first rejected a 4.6 mm reading. The two signs challenge separate calibrations of one robot and each carries its own instance of coral-A. [Original narrow-gauge negative](carry.json) · [Continuation solver](held.py)

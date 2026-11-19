@@ -17,3 +17,5 @@ Start with the rulebook and a robot-sized box. Follow one proposed scoring cycle
 The selected robot uses four swerve modules, a fixed-height sliding receiver, straight guide arms and the chassis gyro. The older [six-wheel campaign](../experiments/six-wheel/README.md) preserves its own parts and match histories. A result transfers to swerve only where the current project record identifies the shared source and checks the new configuration.
 
 The candidate bore pins and rim probes in the [capture study](../experiments/swerve-drive/retention/study.md) have a [loaded endpoint and dock-observation follow-up](../experiments/swerve-drive/retention/observer-study.md). The published R4 assembly shows the robot before that addition.
+
+The [observed reef correction](../experiments/swerve-drive/reef-correction/study.md) records the measured cargo and wheel stops, camera calibration and cam-shelf source change for the two development inputs.
