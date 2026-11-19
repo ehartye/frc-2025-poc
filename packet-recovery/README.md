@@ -1,5 +1,7 @@
 # Can the robot park after the second camera packet arrives late?
 
+The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mm³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](../selected-match/README.md)
+
 **Yes, for the registered second-feed trial when the roof camera still sees the same pipe.** The fixed camera's sixth exposure took 26 ms to arrive. The robot held its rack while the roof camera maintained the track. It withdrew only after a later fixed exposure cleared the entire robot front, confirmed stow at 100.845 seconds and parked at 110.878 seconds for nine modeled points. Moving the same fault one exposure later leaves the roof without a usable view. That robot holds at the reef. [Watch the shared six-robot field path](../relieved-match/replay.html) · [Compare controller events](events.csv)
 
 | Match time | Sensor or controller observation | Effect |

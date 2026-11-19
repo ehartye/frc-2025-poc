@@ -114,11 +114,18 @@ def hull_margins(extents):
     return [pair[0]-HULL[i] if i<3 else HULL[i]-pair[0] for i,pair in enumerate(extents)]
 
 
-def run(artifacts, lamp, field):
+def run(artifacts, lamp, field, corrected_shop=False):
     original = read("relieved-match/native-register.json")
     if digest(field) != original["fieldSha256"]:
         raise ValueError("Unregistered field")
     stowed, placed = poses(artifacts, lamp)
+    if corrected_shop:
+        from rail_profile import revised
+        joint = read("drive-side-attachment/fit.json")
+        joint_path = ROOT/"drive-side-attachment/inner-rail-joints.step"
+        for stroke, robot in ((0,stowed),(370,placed)):
+            add_exchange(robot,joint_path,joint["volumeMm3"],joint["stepSha256"])
+            robot.update(revised(robot,stroke))
     fixed, moving = wire_boxes()
     at_rest = {k:np.array(cad.bounds(v)) for k,v in stowed.items()}
     at_rest.update(fixed)
@@ -144,6 +151,22 @@ def run(artifacts, lamp, field):
         sweeps[k] = heading_sweep(unrotated[k],1.)
         if grip:
             at_rest[k] = b + [0,-grip,0,0,grip,0]
+    if corrected_shop:
+        # A long upper flange and lower flag share a fastening edge. Only the
+        # shorter leg can meet the low wall. Preserve both heights in the sweep.
+        del sweeps["slide-position-target"]
+        from rail_profile import WIRE_Y
+        for label,box in {"leg":[75,WIRE_Y-2,412,81,WIRE_Y+2,485],"flange":[75,WIRE_Y-6,481,119,WIRE_Y+6,485]}.items():
+            swept = np.asarray(box) + [-15,0,0,385,0,0]
+            sweeps["position-target-"+label] = heading_sweep(swept,1.)
+        from rail_profile import channel_sections
+        for side in ("L","R"):
+            del sweeps[f"drilled-slide-{side}-inner"]
+            for i,box in enumerate(channel_sections(side)):
+                # Each short cross-section travels with the full slide. This preserves
+                # its actual lower height as the rear of the rail approaches the wall.
+                box = np.array(box,dtype=float) + [-15,0,0,385,0,0]
+                sweeps[f"slide-{side}-section-{i}"] = heading_sweep(box,1.)
     bounds = extrema(at_rest)
     limits = hull_margins(bounds)
     navigation = read("relieved-match/navigation.json")["cases"]
@@ -159,14 +182,18 @@ def run(artifacts, lamp, field):
     sectors = {}
     structure_source = mod("shop_reef_geometry", ROOT/"moving-observer/clearance.py")
     reef = structure_source.reef_parts(field)
-    world_boxes = {k:native_box(b) for k,b in sweeps.items()}
+    # Apply the planar tracking error in the plane. Mounting and tip allowance also
+    # apply vertically. Subtracting the full planar error from a vertical gap can
+    # turn an otherwise established separation into an inconclusive bound.
+    drift = np.array([-11.526342,-11.526342,-1.526342,11.526342,11.526342,1.526342])
+    world_boxes = {k:native_box(np.array(b)+drift) for k,b in sweeps.items()}
     structures = {}
     for piece, sector in (("coral-A",-.18),("coral-B",.22)):
         nav = next(r for r in navigation if r["pipe"]==piece and r["mode"]=="nominal")
         normal, side, yaw = nav["actualStationMmDeg"]
         dock_checks[piece] = dock.native_dock(dock_scene,structure,structure_boxes,10-normal,yaw,-side)
         structures[piece] = structure_source.find_min(reef,native_pose(world_boxes,sector*1000))
-        structures[piece]["lowerMm"] = structures[piece]["minimum_mm"]-10-1-.526342
+        structures[piece]["lowerMm"] = structures[piece]["minimum_mm"]
         hits = check(layout,registered["stock"],sweeps,stationary(layout.routes(sector)[1].end))
         sectors[piece] = {k:{**v,"qualifiedLowerMm":v["lower_bound_mm"]-10-1-.526342} for k,v in hits.items()}
     witness = dock_checks["coral-A"]
@@ -188,6 +215,10 @@ def run(artifacts, lamp, field):
             "station-relief/geometry.json","station-relief/shims.json","relieved-match/navigation.json",
             "camera-disconnects/target_stock.py","moving-harness/routing.py","full-match/match.py",
             "relieved-match/native-register.json","relieved-match/match.json","full-match/installed-stock.json")},
+        "correctedShop":corrected_shop,
+        "configurationSources":{p:digest(ROOT/p) for p in
+            ("drive-side-attachment/fit.json","drive-side-attachment/inner-rail-joints.step","selected-match/rail_profile.py")
+        } if corrected_shop else {},
         "fieldSha256":digest(field), "lampSha256":digest(lamp), "nativeAndRotationalBodies":len(stowed),
         "additionalEnvelopeCount":len(fixed)+len(moving),"stowedHullMm":HULL,
         "stowedExtrema":bounds,"hullFaceMarginsMm":limits,"containedAtStow":min(limits)>=-1e-6,
@@ -204,6 +235,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for arg in ("artifacts","lamp","field","output"):
         parser.add_argument(arg,type=Path)
+    parser.add_argument("--corrected-shop",action="store_true")
     args = parser.parse_args()
-    report = run(args.artifacts,args.lamp,args.field)
+    report = run(args.artifacts,args.lamp,args.field,args.corrected_shop)
     args.output.write_text(json.dumps(report,indent=2,allow_nan=False)+"\n",encoding="utf-8",newline="\n")

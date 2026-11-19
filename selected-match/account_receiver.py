@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / "frame-corners"))
 from account import bind_sources, digest, read, write
 
 SELECTED = {"low-lock","deck-lamp","moving-camera","no-match-air","four-welded-corners",
-            "light","shop-supplies","axle-retention"}
+            "light","shop-supplies","axle-retention","inner-rail-joints"}
 
 
 def bind_inputs(mapping, baseline, output):
@@ -34,6 +34,53 @@ def bind_inputs(mapping, baseline, output):
         else:
             portable.append(source)
     bind_sources(portable,baseline,ROOT,output)
+
+
+def apply_clearance_kit(data, output):
+    kit = read(HERE/"kit.json")
+    if digest(HERE/"receiver-clearance-kit.step") != kit["kitSha256"]:
+        raise ValueError("Clearance kit differs from its reopened receipt")
+    old = kit["originalVolumeMm3"]
+    size = kit["volumeMm3"]
+    made = ["drilled-slide-L-inner","drilled-slide-R-inner","slide-position-saddle","slide-position-target"]
+    # The selected low-lock bridge and shop shelf remain installed and are drilled.
+    active_source = {s["id"] for s in data["instances"]}
+    if not set(made+["low-lock/slide-base-bridge","receiver-R6-ported"]) <= active_source:
+        raise ValueError("Different fixed-low bridge or receiver in shop map")
+    metal = {k:size[k]-v for k,v in old.items() if k!="receiver-R6-drilled-for-camera"}
+    shelf_cut = size["receiver-R6-drilled-for-camera"]-old["receiver-R6-drilled-for-camera"]
+    removed = sum(min(0,v) for v in metal.values())
+    added = sum(max(0,v) for v in metal.values())
+    # Use cut credits only at the lower end; at the high end retain the full
+    # previously booked stock. Gross cap for each received M3 screw and locknut.
+    fasteners = {"flag-M3":("M3 x 25 flat head",.00230),"sensor-saddle-M3":("M3 x 12 flat head",.00150),
+                 "flag-locknut":("M3 low locknut",.00090),"sensor-saddle-locknut":("M3 low locknut",.00090)}
+    articles = sorted({name for name,_ in fasteners.values()})
+    data["articles"].extend({"id":n,"sku":None,"unitsPerPack":None,"onHand":None} for n in articles)
+    names = []
+    caps = {}
+    for key in sorted(set(size)-set(old)):
+        article,cap = fasteners[key.rsplit("-",1)[0]]
+        caps[key] = cap
+        name = "clearance/"+key
+        data["instances"].append({"id":name,"presence":"candidate","disposition":"buy","article":article})
+        names.append(name)
+    for key in made:
+        name = "clearance/"+key
+        data["instances"].append({"id":name,"presence":"candidate","disposition":"make"})
+        names.append(name)
+    delta = [removed*2.85e-6+added*2.65e-6+min(shelf_cut,0)*1.0e-6,
+             added*2.85e-6+sum(caps.values())]
+    source = HERE/"clearance-mass.json"
+    write(source,{"kitSha256":kit["kitSha256"],"aluminumNetMm3":metal,"shelfCutMm3":shelf_cut,
+                  "fastenerUpperKg":caps,"budgetDeltaKg":delta,
+                  "inPlaceMachining":["low-lock/slide-base-bridge","receiver-R6-ported"]})
+    data["sources"].append({"id":"clearance-fit-mass","file":os.path.relpath(source,output).replace(os.sep,"/"),
+                            "sha256":digest(source)})
+    data["changes"].append({"id":"clearance-fit","revision":data["revision"],"configuration":data["configuration"],
+                            "remove":made,"add":names,"delta":{"source":"clearance-fit-mass","basis":"estimated",
+                            "pointer":"/budgetDeltaKg","rangeKg":delta}})
+    data["selected"].append("clearance-fit")
 
 
 def run(plugin, baseline, output):
@@ -73,6 +120,7 @@ def run(plugin, baseline, output):
                                                "pointer":"/budgetDeltaKg","rangeKg":delta}}
     data["changes"].append(change)
     data["selected"].append(change["id"])
+    apply_clearance_kit(data,output)
     target = output/"shop-receiver.json"
     write(target,data)
     evidence = json.loads(subprocess.check_output(["node",str(plugin/"scripts/assembly-accounting.mjs"),str(target)]))
@@ -80,7 +128,7 @@ def run(plugin, baseline, output):
     if any(coverage.values()):
         raise ValueError("Combined shop map has unmatched articles")
     write(HERE/"mass.json",{"installedVersion":read(plugin/"package.json")["version"],"addedShims":len(adds),
-                            "replacedAtExistingLocations":len(replaced),"retainedSpringsAndStops":len(retained),"upstreamSources":len(data["sources"])-1,
+                            "replacedAtExistingLocations":len(replaced),"retainedSpringsAndStops":len(retained),"upstreamSources":len(data["sources"])-2,
                             "coverage":coverage,"representedKg":evidence["mass"]["representedRangeKg"],
                             "representedMarginKg":evidence["mass"]["representedMarginKg"],
                             "physicalMarginKg":evidence["mass"]["configurationMarginKg"]})

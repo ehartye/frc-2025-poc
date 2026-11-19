@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mm³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](selected-match/README.md)
+
 [Can the robot still park after a late packet?](packet-recovery/README.md) The two-camera recovery works for one observed window during the second placement. Compare the delay that it tolerates with a fault one frame later that holds the robot at the reef.
 
 [Watch the two-pipe match](relieved-match/replay.html). The same 597-body robot takes both human feeds, reaches two L1 sectors and parks at 110.878 s for nine modeled points. Try the seven-point single-trip route or interrupt the second camera packet. [Engineering evidence and hardware limits](relieved-match/README.md).
