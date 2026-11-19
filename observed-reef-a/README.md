@@ -2,6 +2,8 @@
 
 The existing fixed head can register the A sector when it can see the surveyed face and a complete subset of its fasteners. At the terminal decision the left-small wheel case is inside an 8.53 mm position bound and the right-small case is inside 7.88 mm. Both heading bounds are 0.74°. These desktop results use the signed, powered station starts and the 85% loaded gyro schedule. The earlier [two-pipe match replay](../conditioned-match/replay.html) retains its original observers and stops.
 
+[Open the student camera replay](viewer.html). Select the wheel case and field input, then move the exposure slider. The two panels show the fasteners the camera measured at that instant.
+
 ## What the field camera can actually see
 
 The close approach frequently exposes both fasteners to one pupil and only one to the other. The control uses a 36h11 ID10 for coarse registration, keeps each head's native occurrence and pixel identity, and checks a padded, robot-depth-tested window around its measured face before accepting a centroid. Two distinct identified fasteners can transport the moving estimate. The final gate additionally requires two complete features in one eye and a corroborating measurement in the other. The planar pose interval uses the pixel rays of the entire complete eye and adds separate survey and stopping allowances. No image uses an interpolated fastener for an occluded one. [Field trials](field-trials.json) · [January field and source geometry](../sector-alignment/scene.json)
@@ -10,15 +12,46 @@ The robot receives 35 ms captures after 15 ms and integrates shaft travel at 5 m
 
 At the A approach, accounting for 10 mm planar displacement and 1° heading error leaves at least 135.06 mm to the occupied reef ball. The bound uses the 991-body stowed register, two actual guide plates, the finite carried-pipe enclosure and 629 optional fixed-harness boxes. The student robot stays stowed throughout this approach. The common power calculation retains the two-camera host, rack hold and both grip controllers. It allows up to 8 A phase at each grip and 0.032 m/s surface speed throughout carry. [Native stock bounds](stock.json) · [Six-robot, installed stock and bus](field.json)
 
+All twelve signed sector wheel histories repeat byte for byte after substituting the 998-body machined receiver raster with its painted reference marks and fixed harness. The machined stock check reopens the 998 bodies plus both fabricated guides. The guide remains closest to the mounted ball. The native field raster represents the nominal stowed shelf surface. Flexure-induced changes in partial fastener visibility require an independent camera or deformation calibration. All results concern the stowed rack at A. [Machined field captures](machined-field-trials.json) · [Machined stock](machined-stock.json)
+
+## Can the mechanism keep this particular pipe?
+
+A field localization permit and a pipe-custody permit come from separate cameras. The roof camera observes the tube ends every 17 ms. The images arrive after 15 ms and a 5 ms control loop commands the left and right belt cartridges individually. A lateral yaw difference changes the relative belt speeds. The common speed corrects longitudinal drift. The actuator retains the registered cartridge preload, finite end-wall footprints and per-cell friction. The physics carries the original pipe, its rates and angular momentum from the signed pickup.
+
+| Desktop challenge | Outcome |
+| --- | --- |
+| Effective shelf, continuous trim, 125 and 62.5 µs | Both signed starts reach the sector at 48.162 s. Each has 1,244 accepted roof samples and at least 10.71 mm clearance to the guide. |
+| Machined station, nominal painted roof and fixed stereo | Both starts have five supported fixed-eye frames and six overlapping roof frames before the initial departure. The optical witness depends on contrast and registration. |
+| Conservative 0.05 mm displacement mask or a matched-brightness finish | Neither start has a qualified initial roof witness. The controller holds the rack stowed at the station. If granted the earlier nominal handoff and then challenged, it inhibits on the first delivered observation at Java 5,475 ms. |
+| Both belt surfaces jam | The independent idler following errors latch at wall 28.642 and 27.757 s. The chassis stops at 29.652 and 28.522 s, respectively. Center travel after the inhibit is 0.294 and 83.379 mm on the registered, finite wheel brake. |
+
+Each idler has 4,096 angle counts per 60 mm of belt travel. A 200 Hz pulse-position controller waits for a full count of accumulated error, limits the pulse to 6 mm/s, and latches a 0.25 mm following error. On the upper modeled rotor inertia the old 26.25 m/s² slew needs 13.921 A. Capping slew at 2.4 m/s² requires up to 4.625 A, within the modeled 8 A limit. This bound assumes up to 0.25 m/s of contact approach speed, 1.4 mm spring travel, 0.40 friction and 0.4 N extra drag. The raw trajectories provide 1 ms samples for comparison. Idler traction, breakaway torque, gearbox backlash, roof calibration, shelf/pipe properties and continuous speed under impact still need measurements. [Actuator envelope](effort.json) · [Jam and wheel brake](cargo-stops.json) · [Same-pipe settling after inhibit](jam-settle.json) · [Optical overlap](station-bridge.json)
+
+The earlier fixed-clock release at 48.010 s precedes the new chassis stop. This study authorizes zero placements. The first pipe remains reserved while held, the second human feed stays unissued, and LEAVE supplies the conditional three-point subtotal. The separate south reservation retains a five-point LEAVE/PARK opportunity. The drive uses a 20:1 gear ratio and assumes 75% of wheel load on the outer axles. A legal station start, actual tire loading, traction and battery impedance remain independent acceptance conditions.
+
 ## Reproduce
 
 Use the project Python environment, registered field assets, and the original two signed pickup and drive traces produced by the [conditioned match](../conditioned-match/README.md).
 
 ```sh
+export OPENBLAS_NUM_THREADS=1
+python observed-reef-a/station_bridge.py "$ARTIFACTS" elastic-carry "$FIELD_STEP"
 python observed-reef-a/trials.py "$ARTIFACTS"
+python observed-reef-a/trials.py "$ARTIFACTS" --machined
 python observed-reef-a/native_bounds.py "$ARTIFACTS" "$LAMP_STEP"
+python observed-reef-a/native_bounds.py "$ARTIFACTS" "$LAMP_STEP" --machined
 python observed-reef-a/stock.py "$ARTIFACTS"
+python observed-reef-a/stock.py "$ARTIFACTS" --machined
 python observed-reef-a/field_screen.py "$ARTIFACTS"
 python observed-reef-a/retention.py "$ARTIFACTS"
 python observed-reef-a/retention.py "$ARTIFACTS" --fine
+python observed-reef-a/retention.py "$ARTIFACTS" --quantized --stuck
+python observed-reef-a/retention.py "$ARTIFACTS" --quantized --limited
+python observed-reef-a/retention.py "$ARTIFACTS" --quantized --limited --elastic elastic-carry
+python observed-reef-a/retention.py "$ARTIFACTS" --quantized --elastic elastic-carry --head roof-050
+python observed-reef-a/field_screen.py "$ARTIFACTS" --aborts
+python observed-reef-a/jam_hold.py "$ARTIFACTS"
+python observed-reef-a/effort.py "$ARTIFACTS"
+python observed-reef-a/outcome.py
+python observed-reef-a/student.py
 ```
