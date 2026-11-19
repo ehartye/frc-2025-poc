@@ -65,3 +65,5 @@ python -B -m unittest discover -s tests -p test_station_relief.py
 ```
 
 Scratch outputs reproduce the issued version. Each downstream script reads the checked-in inputs next to it and records its source where indicated.
+
+The [body-supported cradle comparison](../cradle-receiver/README.md) tests shorter and longer practice cuts through capture, carry and discharge.
