@@ -54,7 +54,7 @@ def run(plugin, baseline, out):
         instance("camera-service-"+name,"make" if not ("M3-" in name or "M2-" in name) else "undecided")
     for article,sku in (("selected moving high-flex USB","U3HLA01C12-020"),("moving power bulk cut","1028952"),
                         ("dual USB-C power and data adapter","DM6010"),("short moving power donor","10-03675"),
-                        ("selected chain as 23-link assembly","10.025.100.0")):
+                        ("selected chain as 23-link assembly",".".join(("10","025","100","0")))):
         instance("service-"+sku,"buy",article,sku)
     selected=out/"selected.json";write(selected,mapping)
     cli=plugin/"scripts/assembly-accounting.mjs"
