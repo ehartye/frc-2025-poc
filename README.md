@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Try the second station feed](return-station/replay.html). Follow the return from the first score and compare the physical cartridge stop, port sequence and camera confirmation. [Station study and departure states](return-station/README.md).
+
 [Watch the pipe land in the trough](spatial-contact/replay.html). Five corrected approaches each support one modeled L1 score and a park. The [spatial contact and field study](spatial-contact/README.md) follows each pipe through the scoring assessment and measures the return error at the second station.
 
 [Move the camera service loop through its full stroke](moving-harness/explore.html). The [routing study](moving-harness/README.md) checks the 603-body robot and the loaded voltage available at the moving camera.
