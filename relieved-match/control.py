@@ -24,7 +24,7 @@ def replace(text,old,new):
     return text.replace(old,new)
 
 
-def inputs(cache,folder):
+def inputs(cache,folder,output=HERE):
     stations=read(HERE/"station-images.json")["cases"]
     register=read(HERE/"camera-registration.json")
     policy={}
@@ -89,16 +89,16 @@ def inputs(cache,folder):
     for key in policy:
         for head in ("fixed","moving"):sources[key+"-"+head]=sha(cache/(key+"-"+head+".csv"))
     decision={"inputs":sources,"eligible":policy,"delayMs":15,"onsetReserveMs":40,"padThresholdMeasured":False,"qualification":"conditional synthetic pressure and image calibration"}
-    policyfile=HERE/"controller-register.json"
+    policyfile=output/"controller-register.json"
     policyfile.write_text(json.dumps(decision,indent=2)+"\n",encoding="utf8",newline="\n")
     regs=[sha(HERE/"station-images.json"),register["fixedPlaceSha256"],register["coMovingBackingSha256"],sha(policyfile)]
     (folder/"registers.txt").write_text("\n".join(regs),encoding="ascii")
     return regs,policy
 
 
-def run(cache,jdk,gradle):
+def run(cache,jdk,gradle,*,output=HERE,source_cache=None,configure=None):
     with tempfile.TemporaryDirectory() as td:
-        folder=Path(td);registers,policy=inputs(cache,folder)
+        folder=Path(td);registers,policy=inputs(source_cache or cache,folder,output)
         for name,place in (("MovingWitnessTest","moving-observer"),("PacketClockTest","moving-frame-timing"),("SlideFeedbackTest","slide-feedback"),("OpticalWindow","moving-frame-timing"),("PortAcquisition","observable-acquisition"),("CustodyEvidence","stereo-custody"),("Retreat","slide-feedback")):
             text=(ROOT/place/(name+".java")).read_text()
             if name=="PortAcquisition":text=port_program(True)
@@ -118,15 +118,17 @@ def run(cache,jdk,gradle):
         text=replace(text,"if(!seeded || broken)","if(!seeded || broken || !stationLive || w-lastStationService>20)")
         text=replace(text,"assertTrue(a.stowed, mode);assertEquals(mode.equals(\"nominal\"),b.stowed,mode);assertEquals(mode.equals(\"lateB\"),b.failed,mode);","assertFalse(b.issued && !a.stowed);")
         (folder/"IntegratedTest.java").write_text(text,encoding="utf8",newline="\n")
+        if configure is not None:
+            configure(folder)
         env=dict(os.environ,JAVA_HOME=str(jdk),GRADLE_USER_HOME=str(gradle),CUSTODY_SOURCE=str(folder),INTEGRATED_OUTPUT=str(cache.resolve()),
                  REEF_CONTROLS_SOURCE=str(ROOT/"competition-controls"),REEF_CONTROLS_BUILD=str(folder/"build"))
         env["PATH"]=str(jdk/"bin")+os.pathsep+env["PATH"]
         project=ROOT/"shared/examples/java-2026-sim";wrapper=project/("gradlew.bat" if os.name=="nt" else "gradlew")
         subprocess.run([str(wrapper),"--offline","--no-daemon","--project-cache-dir",str(folder/"gradle"),"-I",str(ROOT/"competition-controls/init.gradle"),"-I",str(ROOT/"stereo-custody/init.gradle"),"test","--tests","org.reefscape.controls.IntegratedTest"],cwd=project,env=env,check=True)
-        (HERE/"events.csv").write_text((cache/"events.csv").read_text(),encoding="ascii",newline="\n")
-        data={"registration":registers,"programs":{p.name:sha(p) for p in folder.glob("*.java")},"controllerInputs":{p.name:sha(p) for p in folder.glob("*.csv")},"events":sha(HERE/"events.csv"),
+        (output/"events.csv").write_text((cache/"events.csv").read_text(),encoding="ascii",newline="\n")
+        data={"registration":registers,"programs":{p.name:sha(p) for p in folder.glob("*.java")},"controllerInputs":{p.name:sha(p) for p in folder.glob("*.csv")},"events":sha(output/"events.csv"),
               "rackPaths":{p.name:sha(p) for p in cache.glob("path-*.csv")}}
-        (HERE/"hal.json").write_text(json.dumps(data,indent=2)+"\n",encoding="utf8",newline="\n")
+        (output/"hal.json").write_text(json.dumps(data,indent=2)+"\n",encoding="utf8",newline="\n")
 
 
 if __name__=="__main__":

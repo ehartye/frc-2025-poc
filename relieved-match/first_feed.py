@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "return-station"))
 from feed import port_program, trial
 
 
-def run(cache, jdk, piece):
+def run(cache, jdk, piece, output=HERE):
     cache.mkdir(parents=True, exist_ok=True)
     plans = json.loads((ROOT / "fixed-height-match/placements.json").read_bytes())["placements"]
     plan = next(row for row in plans if row["id"] == piece)
@@ -55,7 +55,7 @@ def run(cache, jdk, piece):
               "initialStationCondition": "registered AUTO arrives at issued datum with zero residual" if piece == "coral-A" else "wheel continuation from attained A reef pose",
               "epochWallUs": epoch, "humanReleaseWallS": 18 + plan["release"], "lipWallS": 18 + plan["lip"],
               "scheduledDriveWallS": 18 + plan["drive"], "javaSourceSha256": program_digest, "cases": records}
-    (HERE / (label+"-feed.json")).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8", newline="\n")
+    (output / (label+"-feed.json")).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8", newline="\n")
 
 
 if __name__ == "__main__":

@@ -37,14 +37,15 @@ def park_route(f, start, sector):
     return copied(f,model,start)
 
 
-def run(cache):
+def run(cache,*,modes=("nominal","lateB","single"),registration=HERE,landing=HERE,output=HERE,motion_cache=None):
+    raw=motion_cache or cache
     plans=read(ROOT/"fixed-height-match/placements.json")["placements"]
     f,auto,alliance,_=field.scenario(plans,inboard=True)
     nav=read(HERE/"navigation.json")["cases"]
     stock=read(ROOT/"full-match/installed-stock.json")["stock"]
     geometry=read(HERE/"native-register.json")
-    with (HERE/"events.csv").open() as file:hal=list(csv.DictReader(file))
-    with (HERE/"landing-observed.csv").open() as file:
+    with (registration/"events.csv").open() as file:hal=list(csv.DictReader(file))
+    with (landing/"landing-observed.csv").open() as file:
         placements={r["case"].split("/")[0]:r for r in csv.DictReader(file) if "/250/" in r["case"]}
     corrected={}
     for name,row in placements.items():
@@ -54,7 +55,7 @@ def run(cache):
         corrected[name]=dict(center=center.tolist(),branchLowerMm=ref["minimum_mm"]-delta,deltaMm=delta,supported=row["outcome"]=="supported")
     # Compare finite swept tubes near the shared trough. During other approaches the stowed
     # pipe stays inside the independently screened robot footprint.
-    history=np.load(cache/"coral-B-pads-edge-250.npy")
+    history=np.load(raw/"coral-B-pads-edge-250.npy")
     incoming=history[history[:,0]>=history[-1,0]-4.0]
     heading=incoming[:,-2]
     center_y=np.sin(heading)*incoming[:,1]+np.cos(heading)*incoming[:,2]+incoming[:,-3]-f.LIP[1]
@@ -63,7 +64,7 @@ def run(cache):
     low_b=min(float(placements["coral-B"]["swept_min_y_m"]),float(np.min(center_y-extent)))
     tube_clearance=1000*(low_b-float(placements["coral-A"]["swept_max_y_m"]))-4.5
     outcomes={}
-    for mode in ("nominal","lateB","single"):
+    for mode in modes:
         legs=[];scored=[];last=auto.end;cursor=18.;static=[];inventory=[];routes=[];cage=None;park_end=None
         def add_leg(t,tag,route,duration=None):
             nonlocal last,cursor
@@ -94,8 +95,8 @@ def run(cache):
             start=18+plan["drive"]
             add_leg(start,piece+" carry",before)
             screen("carry",before)
-            a=np.loadtxt(cache/(piece+"-nominal.csv"),delimiter=",",skiprows=1)
-            if sha(cache/(piece+"-nominal.csv"))!=n["motionSHA256"]:raise ValueError("Unregistered steering")
+            a=np.loadtxt(raw/(piece+"-nominal.csv"),delimiter=",",skiprows=1)
+            if sha(raw/(piece+"-nominal.csv"))!=n["motionSHA256"]:raise ValueError("Unregistered steering")
             data=a.copy();data[:,1:3]/=1000;data[:,1]+=f.LIP[0]-.490;data[:,2]+=f.LIP[1]
             class Steering:
                 def __init__(self,samples):
@@ -175,13 +176,13 @@ def run(cache):
         pieces=[{"id":p,"observedMs":138000,"touchesOwnTrough":corrected[p]["supported"] if mode!="lateB" else None,"touchesAlliedRobot":False if min(own_prior,other_pipe)>0 else None,"touchesOpponentRobot":False if other_pipe>0 else None,"scoredOnAnotherReefLevel":False if corrected[p]["branchLowerMm"]>0 else None} for p in scored]
         oracle={ed:assess_coral.assess({"schema":"reefscape-coral-observations/1","phase":"TELEOP","basis":"conditional 597-body physics, HAL and achieved field roster","samples":[{"timeMs":138000,"robotCommandActive":False,"inventoryComplete":False,"pieces":pieces}]},ed)["samples"][0]["pieces"] for ed in assess_coral.EDITIONS}
         eligible=sum(all(oracle[ed][j]["l1CriteriaAtInstant"]=="yes" for ed in oracle) for j in range(len(pieces)))
-        qualified=min(margin,min(static),min(inventory),own_prior,other_pipe)>0 and (mode!="nominal" or tube_clearance>0)
+        qualified=min(margin,min(static),min(inventory),own_prior,other_pipe)>0 and (mode in ("single","lateB") or tube_clearance>0)
         outcomes[mode]={"leave":leave,"parked":bool(parked),"parkWallS":park_end,"parkTapeOverlapMm":1000*over,"cage":cage,"scoredPieces":scored,"scoring":oracle,"points":3*leave+2*parked+2*eligible if qualified else None,"allRobotLowerMm":margin,"stowedFieldLowerMm":min(static),"stowedStockLowerMm":min(inventory),"priorTubeToRobotMm":own_prior,"otherRobotToTubeMm":other_pipe,"valid":qualified}
         outcomes[mode]["supportedBeforeUnresolvedFault"]=scored if mode=="lateB" else []
         outcomes[mode]["scoredPieces"]=[r["id"] for j,r in enumerate(pieces) if all(oracle[ed][j]["l1CriteriaAtInstant"]=="yes" for ed in oracle)]
         (cache/(mode+"-visual.json")).write_text(json.dumps(view,separators=(",",":")),encoding="utf8")
-    out={"actuationRegistration":sha(HERE/"hal.json"),"sourceToFinal":corrected,"successiveTubeLowerMm":tube_clearance,"assessedWallS":156,"cases":outcomes}
-    (HERE/"match.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf8",newline="\n")
+    out={"actuationRegistration":sha(registration/"hal.json"),"sourceToFinal":corrected,"successiveTubeLowerMm":tube_clearance,"assessedWallS":156,"cases":outcomes}
+    (output/"match.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf8",newline="\n")
     print([(k,r["points"],r["parkWallS"],r["allRobotLowerMm"],r["stowedFieldLowerMm"],r["stowedStockLowerMm"],r["priorTubeToRobotMm"]) for k,r in outcomes.items()],flush=True)
 
 if __name__=="__main__":
