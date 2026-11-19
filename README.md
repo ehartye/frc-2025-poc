@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Open the intact-guide reef approach](reef-inertial-observer/README.md) for the fixed-camera and gyro trial, the survey-offset counterexample and both signed match clocks.
+
 [See which intake guide blocks the scoring fastener](mounted-guide-vision/viewer.html). Select the mounted position and wheel case to compare the two field-camera pupils. [Station custody and optical controls](mounted-guide-vision/README.md)
 
 [See the robot’s approach to scoring sector A through its two field cameras](observed-reef-a/viewer.html). Choose a wheel case and watch the surveyed fasteners appear, disappear or become ambiguous. [Carry and scoring limits](observed-reef-a/README.md)

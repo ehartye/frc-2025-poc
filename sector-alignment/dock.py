@@ -26,7 +26,7 @@ def relative(a,b):
     return np.r_[rotation(-a[2])@(b[:2]-a[:2]),b[2]-a[2]]
 def compose(a,delta):
     return np.r_[a[:2]+rotation(a[2])@delta[:2],a[2]+delta[2]]
-def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK,observer=station_frame,features=None):
+def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK,observer=station_frame,features=None,yaw_sensor=None):
     sector=SECTORS[pipe];goal=np.array([0.,sector,0.])
     actual=np.array([-STRAIGHT+initial[0],sector+initial[1],math.radians(initial[2])])
     odom=np.array([-STRAIGHT,sector,0.]);pred=odom.copy()
@@ -39,6 +39,8 @@ def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=T
     closest=None;last_fit=None;complete=[];max_error=0.;max_rate=0.;max_acc=0.;last_pair=None
     seen_tag=0;seen_heads=0;origin=None;last_gate_frame=-1;final_fit=None;admission_truth_error=False;terminal_pixel_max=0.;last_error=0.
     for tick in range(0,round(STOP_S*1000)+650,5):
+        if yaw_sensor is not None and tick % 10 == 0:
+            yaw_sensor(tick, float(actual[2]))
         history[tick]=odom.copy()
         complete.append([tick,*actual])
         if tick%35==0 and tick<=STOP_S*1000:
