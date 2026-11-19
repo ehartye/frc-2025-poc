@@ -7,17 +7,7 @@ from design import optics as o
 full_fit=o.fit
 
 
-def separated_by_background(indices, known, max_gap, allow_unknown_gaps):
-    # Unknown background portions between actually observed bright pixels cannot
-    # establish a break in a convex, single-object silhouette. Keep every
-    # certified outer-edge/pixel-neighborhood check in the geometric fit.
-    large = np.flatnonzero(np.diff(indices) > max_gap)
-    if not allow_unknown_gaps:
-        return bool(len(large))
-    return any(np.any(known[indices[k]+1:indices[k+1]]) for k in large)
-
-
-def partial_fit(images,background,error=1.0, *, allow_unknown_gaps=False):
+def partial_fit(images,background,error=1.0):
     eps=error+.5
     peaks=[]
     tangents=[]
@@ -31,7 +21,7 @@ def partial_fit(images,background,error=1.0, *, allow_unknown_gaps=False):
         for row in range(3,o.H-3):
             hit=np.flatnonzero(signal[row])
             near=hit[hit<o.W//2] if eye==0 else hit[hit>o.W//2]
-            if len(near)<20 or separated_by_background(near, known[row], 2, allow_unknown_gaps):continue
+            if len(near)<20 or np.any(np.diff(near)>2):continue
             col=int(near[0] if eye==0 else near[-1]+1)
             if col<4 or col>o.W-4 or not np.all(known[row,col-3:col+3]):continue
             ends.append((row,abs(col-o.W/2)))
@@ -70,7 +60,7 @@ def partial_fit(images,background,error=1.0, *, allow_unknown_gaps=False):
         spans=(105,110,119,130,140)
         for col in [center,*[center+s*side for s in spans for side in (-1,1)]]:
             y=np.flatnonzero(signal[:,col])
-            if len(y)<35 or separated_by_background(y, known[:, col], 1, allow_unknown_gaps):continue
+            if len(y)<35 or np.any(np.diff(y)!=1):continue
             end=y[-1]+1
             if end>=o.H-3 or not np.all(known[end-3:end+3,col]):continue
             rear[col]=end

@@ -14,6 +14,7 @@ from station import (
     sensor,
     views,
     bridge_fit,
+    guarded_contour,
     yaw_interval,
 )
 
@@ -26,7 +27,7 @@ def measure(images, ref):
         np.where((g >= 185) & (g.astype(int) - base.astype(int) > 36), g, base)
         for g, (base, _) in zip(images, ref)
     ]
-    fit = bridge_fit.partial_fit(clean, ref, allow_unknown_gaps=True)
+    fit = guarded_contour.partial_fit(clean, ref)
     fit["registered"] = min(registration)
     fit["independentYawIntervalRad"] = yaw_interval(images, ref)
     return fit

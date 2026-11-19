@@ -17,6 +17,7 @@ from paths import O
 sys.path.insert(0, str(ROOT / "observed-reef-a"))
 from roof_trim import yaw_interval
 from exposures_check import bridge_fit
+import guarded_contour
 
 CANONICAL_PACKETS = ROOT / "guide-impact/station-frames.json"
 PACKET_SHA = "29b1631ee94959c01e273e30cd257d26f0c716feabe0489f296984998f0b064f"
@@ -265,7 +266,7 @@ def run(assets, field, setting=None, packet_path=CANONICAL_PACKETS):
                         ]
                     )
                     candidate = (
-                        bridge_fit.partial_fit(clean, ref, allow_unknown_gaps=True)
+                        guarded_contour.partial_fit(clean, ref)
                         if min(registration) >= 0.90
                         else {"status": "robot-reference-lost"}
                     )
