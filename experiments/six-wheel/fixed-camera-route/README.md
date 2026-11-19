@@ -1,9 +1,9 @@
 # Fixed-camera power and data routing
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The intact USB-C overmolds, removable guides and fixed 5 V branch fit below **Z1043.873 mm** on the registered shop robot. This leaves **15.127 mm** inside the 1,059 mm stowed height used by the field studies. The previous straight power-tail trial reached Z1064.735 mm. The fixed and moving OAK-D Lite heads retain their issued poses and independent identities. The fabricated loom and both streams still need receiving and robot tests. [Native body and extraction check](fit.json) · [Installed extents and mounting seats](installation.json) · [Predecessor mounts](../selected-optics/README.md)

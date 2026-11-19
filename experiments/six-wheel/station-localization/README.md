@@ -1,9 +1,9 @@
 # Can the robot locate its receiver at the station?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The current downward-facing release camera cannot see the four mounting bolts around station marker ID2. An upward-looking global-shutter camera on the right mast can see them in the registered model. Start with that single camera for a measurement fixture. A second on the left adds little margin for this task. Both arrangements depend on an independent survey tying the static panel, actual pipe path and loaded receiver together. The physical alignment decision remains **hold**. [Receiver entry windows and student docking lab](../station-supply/DOCKING.md) · [Native visibility](sightlines.json) · [Numerical uncertainty and controls](pose-study.json)

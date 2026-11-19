@@ -1,9 +1,9 @@
 # Can a second instrument see the seated pipe?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The issued fixed stereo camera can independently locate the centered pipe on the receiving shelf in this desktop experiment. The two ports alone confirmed at 1.280 s on the controller clock. Five fresh camera exposures corroborated the port result at **1.380 s**, across all 17 integer camera phases. Replaying those same port signals on an empty shelf, or during a weak-grip loss, produced **zero corroborated ticks**. The result is a position observation. A physical installation still needs image, timing and retention calibration before authorizing movement. [Acquisition experiment](../observable-acquisition/README.md) · [Timing and counterexamples](results.json)

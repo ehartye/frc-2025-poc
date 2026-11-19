@@ -1,9 +1,9 @@
 # What happens when the pipe hits the shelf?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The 40 mm guide can seat the incoming pipe under a stated shelf-contact model, including the two opposing wheel calibrations that reached the stop in the earlier rigid-shelf simulation. At the finest geometry and timestep tested, the left and right calibration cases require **0.514 and 0.304 mm** of outward cartridge travel against 1.40 mm available. The result depends on how the **actual pipe and shelf deform and rebound**. A lower-damping case fails the unchanged Java port sequence, and the reference model places a brief 3.4 kN reaction on the shelf. The match scoring decision stays open and the south LEAVE/PARK option remains available. [Previous rigid-contact counterexample](../station-guide/README.md) · [Fine numerical review](fine-review.json) · [Alternative start](../station-approach/README.md)

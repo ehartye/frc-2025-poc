@@ -1,9 +1,9 @@
 # Outside-diameter pickup with an opening lower support
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The fixed-low robot receives a horizontal pipe between two lower conveyors and a compliant powered hood. The lower cassettes separate laterally at the trough, leaving the space below the pipe open. **52 of 64 disturbance combinations** meet the modeled seat, carry and placement criteria. Twelve fail custody or delivery. The analysis supplies no physical score or authorization to move a real robot. [Simulation and controls](study.json) · [Editable dynamics](motion.py)

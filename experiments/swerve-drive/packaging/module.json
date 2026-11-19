@@ -1,0 +1,122 @@
+{
+  "assembly": "REV-21-3005 V1.1 with REV-21-2986, NEO V1.1, NEO 550 and V2 plastic wheel",
+  "role": "fixed-low station to reef and recovery",
+  "frame": "robot right handed, +X forward, +Y left, +Z up",
+  "order": [
+    "FL",
+    "FR",
+    "RL",
+    "RR"
+  ],
+  "modules": {
+    "FL": {
+      "xM": 0.282,
+      "yM": 0.277,
+      "groundZMm": 0.0,
+      "sourceXyzToRobot": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "FR": {
+      "xM": 0.282,
+      "yM": -0.277,
+      "groundZMm": 0.0,
+      "sourceXyzToRobot": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "RL": {
+      "xM": -0.282,
+      "yM": 0.277,
+      "groundZMm": 0.0,
+      "sourceXyzToRobot": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "RR": {
+      "xM": -0.282,
+      "yM": -0.277,
+      "groundZMm": 0.0,
+      "sourceXyzToRobot": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    }
+  },
+  "wheelDiameterM": 0.0762,
+  "driveMotorTurnsPerWheelTurn": 5.5,
+  "driveStages": {
+    "pinion": 12,
+    "spur": 22,
+    "bevelPinion": 15,
+    "wheelBevel": 45
+  },
+  "azimuthMotorTurnsPerModuleTurn": 46.423645320197046,
+  "sourceWheelAxis": "supplier +X; wheel center [0,0,0], azimuth +Y, shaft located on azimuth center",
+  "driveMotor": "REV-21-1650",
+  "steerMotor": "REV-21-1651",
+  "controllerPerCorner": [
+    "SPARK MAX",
+    "SPARK MAX"
+  ],
+  "absoluteEncoder": "REV-11-1271 at azimuth; 10 bit",
+  "geometryStatus": "initial native layout; inspect signed fit and revision scope before clearance transfer",
+  "sourceDrawing": "https://www.revrobotics.com/content/docs/REV-21-3005-DR.pdf",
+  "sourceRevision": "supplier assembly STEP 2022-11-14; separate V1.1 change inputs",
+  "sourceStepSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e"
+}

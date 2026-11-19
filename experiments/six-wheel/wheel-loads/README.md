@@ -1,9 +1,9 @@
 # Where the straight-guide robot carries its weight
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The selected robot fits both modeled weight limits. The no-shelf-credit upper estimate is **51.794 kg** under R103 and **59.294 kg** with bumpers under R408. Adding the battery gives **65.464 kg empty** on the field. One pipe takes that to **66.280 kg**. The historical drive model used 65.833 kg empty and 66.650 kg loaded. Its mass assumption therefore covers the selected upper bound by 369 g. It still needs independent assumptions about where the weight lands. [Fabrication bill](../winchless-bill/README.md) · [Mass conversion and contact cases](contact.json)

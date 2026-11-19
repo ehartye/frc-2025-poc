@@ -1,9 +1,9 @@
 # Attach the outer-slide measurement cable
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The fixed-low receiver uses a TE/Celesco SP1-25 to measure shelf travel independently of the rack motor. The #89 rail kit retained a box for the sensor and a solid tab for the cable end. Placing the eye pin through that tab produces 25.13 mm³ of solid interference. The new kit bolts the supplied L bracket to the bridge and captures the eye in double shear on the moving shelf. The [dimensioned shop drawing](shop-drawing.svg) and [seven-piece STEP](sp1-mount.step) use robot coordinates at zero stroke.

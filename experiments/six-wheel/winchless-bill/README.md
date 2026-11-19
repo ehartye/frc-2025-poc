@@ -1,9 +1,9 @@
 # Fixed-height robot mass at inspection
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The selected straight lower guide and existing camera gyro leave **369 g of modeled inspection headroom** even when the shelf receives no credit for removed stock and every possible shared hoist attachment is charged at the upper envelope below. The corresponding R103 estimate is **51.794 kg against 52.163 kg**. The issued fabrication drawings omit the old winch and all seven legacy brackets. Building exactly those drawings leaves 2.182 kg on the same shelf basis. These are prebuild results. [Selected bill](straight-guide.json) · [Inspection allowance](../design/assembly-accounting/inspection-limit.json)

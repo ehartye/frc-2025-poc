@@ -1,9 +1,9 @@
 # Removable competition bumpers
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Two rigid U modules protect all four faces of the 700 mm frame. Their two joints lie on the flat side faces. Each corner stays inside a single cover and contains a solid square of uncompressed foam. Either alliance uses the same mounting holes and the same 850 × 850 mm maximum footprint. [Blue review STEP](blue.step) · [Red review STEP](red.step) · [Regenerated clearance and mass receipt](review.json)

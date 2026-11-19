@@ -1,9 +1,9 @@
 # Returned guide-arm mechanics
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The closed front return preserves the two guide attachments at Z687 and Z787 mm. Its positive-Y lower spring is 11,721 N/m in this model. The opposite lower spring is 32,177 N/m. The first two assembled guide frequencies are 72.20 and 110.41 Hz on the modified side and 109.19 and 123.82 Hz on the opposite side. Each value uses the nominal aluminum sections, installed part volumes and the earlier 23.6% arm participation assumption. The physical modal frequencies are open.

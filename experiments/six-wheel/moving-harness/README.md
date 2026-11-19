@@ -1,9 +1,9 @@
 # Route the moving camera cables
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The existing anchor sequence needs at least **1,482.27 mm** at full extension even with zero cable thickness, arbitrary entry points within every anchor and perfectly sharp turns. Only 17.73 mm of the prior 1.50 m estimate remains for real bends, plugs and service slack. A right-side rolling return provides a different route. [Move the shelf through its stroke](explore.html) · [Existing anchor calculation](anchors.json)

@@ -1,0 +1,10 @@
+{
+  "schema": "reefscape-swerve-plant/1",
+  "scope": "Offline four-wheel contact model; gains and inertias are provisional prebuild inputs.",
+  "drive": {"stallTorqueNm": 2.6, "stallCurrentA": 105, "freeRpm": 5676, "freeCurrentA": 1.8, "ratio": 5.5, "efficiency": 0.83, "phaseLimitA": 40, "equivalentRotatingMassKg": 1.5, "speedGainNSPerM": 180},
+  "steer": {"stallTorqueNm": 0.97, "stallCurrentA": 100, "freeRpm": 11000, "freeCurrentA": 1.4, "ratio": 46.423645320197046, "efficiency": 0.72, "phaseLimitA": 20, "inertiaKgM2": 0.017, "dragCoefficient": 0.20, "dragArmM": 0.012, "rateLimitRadS": 6, "accelLimitRadS2": 28},
+  "control": {"periodS": 0.005, "physicsStepS": 0.001, "maxWheelMps": 1.25, "maxCommandAccelMps2": 1.15, "terminalVoltageCapV": 9.5},
+  "contact": {"diameterM": 0.0762, "mu": 0.8, "longitudinalNSPerM": 650, "lateralNSPerM": 500},
+  "chassis": {"testMassKg": 65, "testYawInertiaKgM2": 5, "provisionalCogHeightM": 0.34},
+  "sensors": {"angleCountsPerTurn": 1024, "driveCountsPerMotorTurn": 4096, "gyroRateScaleBound": 0.001, "gyroRateBiasBoundDegS": 0.02}
+}

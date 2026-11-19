@@ -1,9 +1,9 @@
 # Receiver load path in a shared lane
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The provisional station-fed robot retracts its shelf for travel. In that pose the shelf tip lies **260 mm inside** the front bumper outline. At the 240 mm receive stroke it lies **20 mm inside**. At the 370 mm placement stroke it projects **110 mm past** the outline. The respective shelf tops are 610, 880 and 500 mm above the floor. All are above the 190 mm bumper top, so a plan-view setback alone cannot establish protection from an elevated obstruction.

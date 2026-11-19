@@ -1,9 +1,9 @@
 # A passive lead-in for the station pipe
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Two short guide faces can center the incoming pipe in the desktop trial. With the guide included in the camera images, both opposing wheel-error arrivals stop at the station. The unchanged Java intake then reports a seated pipe on both ports at the 500, 250 and 125 µs contact steps. **A held-out 62.5 µs step reaches the 1.40 mm cartridge stop on both arrivals.** Keep the guide as a bench candidate. The reserved south start retains its conditional LEAVE and PARK opportunity. [Port and contact replay](seat-narrow.json) · [Independent refinement review](review.json) · [South-lane alternative](../station-approach/README.md)

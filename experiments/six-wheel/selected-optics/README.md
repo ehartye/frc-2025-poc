@@ -1,9 +1,9 @@
 # Seeing a pipe through the selected receiver
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The fixed camera can take over from the moving roof camera during the second modeled placement. That result needs two changes to the original robot drawing. Locate the fixed OAK-D Lite in its cradle with two removable shoes and apply two contrasting marks to the moving shelf. A 985-component optical scene includes the issued receiver machining, both native camera enclosures, roof support and modeled wiring. The resulting images reproduce the original controller events in all 28 desktop HAL cases. Physical optical accuracy and the installed fixed power-lead envelope remain open. [Exposure measurements](observations.json) · [Controller comparison](controller.json) · [Selected receiver](../selected-match/README.md)

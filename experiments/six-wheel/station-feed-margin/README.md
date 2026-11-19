@@ -1,9 +1,9 @@
 # Can the two shelf sensors save an off-center feed?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Keep the scoring-route feed on hold. The wheel-error trials briefly give the controller an early warning, but cutting or reversing the belt still lets the incoming pipe reach the cartridge stop. A separate 3 mm delivery shift reaches the stop before either sensor changes. Choose the reserved south start before the match if the team needs the demonstrated alternative. Its 543 mm drive preserves a conditional three-point LEAVE and two-point PARK and gives up two possible L1 placements worth four points. No points are assigned to the station approach. [Reserved south start](../station-approach/README.md)

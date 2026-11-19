@@ -1,9 +1,9 @@
 # Did the receiver shelf actually move?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The original detector acknowledged a stationary shelf **5 ms** after the withdrawal command. The motor-side encoder indicated motion while a repeatability change at the direct sensor crossed the four-count threshold. Actual modeled rack travel stayed at **0 mm**. The controller eventually faulted 130 ms after the command. The revised detector withheld the acknowledgement and faulted at 40 ms. [Two-trip scheduler results](results.json)

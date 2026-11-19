@@ -9,10 +9,10 @@ PATTERNS={
  'internal-coordination':r'/(?:root|user_notes)/|private[-_]workspace|home[ ]network',
  'credential':r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bgh[pousr]_[A-Za-z0-9]{20,}|\bgithub_pat_[A-Za-z0-9_]{20,}'
 }
-# Only the upstream Apache-licensed Gradle wrapper binary is permitted.
+# Reviewed binaries have exact, item-specific identities.
 WRAPPER='experiments/six-wheel/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
-SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '2d83b0cf0419e0a9a9f4df0248e38e45bb837379bca7b47f30468918d3839649', 'docs/robot/cad/assembly.stl.gz': '95bcf37c771eb2e5ba4b9b5ec17351fe20031d0b08ceea27cbf74bfa6eae7d31'}
+SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '06809f012ae860bd3341ff63a7dc634d628111689dee41335274bf2df73c321b', 'docs/robot/cad/assembly.stl.gz': 'c61f4f6f85849a320d55a7b8f1bd5a2d02a11833260a61d766b2933863b2ab7f', 'experiments/swerve-drive/packaging/tab-saddle.f3d': 'c15bf7f1923c892e96f5081a75d30dd7fa3c1b01d3616abef9bf057f5abfb232'}
 
 def findings(data):
  text=data.decode('utf-8',errors='replace')

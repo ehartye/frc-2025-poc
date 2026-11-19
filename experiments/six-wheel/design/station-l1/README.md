@@ -1,9 +1,9 @@
 # Review the station-fed robot
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 Open [the editable OpenSCAD assembly](station-l1.scad), select `stowed`, `receive`, `transport` or `place` in the Customizer, and press F5. Enter a part ID from [the bill of materials](bom.csv) to isolate it. The four named, colored STEP assemblies open in ordinary mechanical CAD. The right-hand view below removes the deck and bumpers to expose the two independent drive sides.

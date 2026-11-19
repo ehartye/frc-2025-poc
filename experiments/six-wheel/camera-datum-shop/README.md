@@ -1,9 +1,9 @@
 # Build and service the aft stereo bridge
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The removable bridge locates on a metal round peg at the left foot and a slot at the right. Four captive screws clamp the feet to steel bosses through the shelf. Two more captive screws hold the camera. Students can remove the frame or the device without handling a loose fastener. The package keeps the camera pupils at **X48, Y±37.5, Z842 mm**, on the 560 mm fixed-height end-belt robot at zero slide. [Five printable dimension sheets](drawings.html) · [32-solid engineering STEP](camera-shelf.step) · [Make/buy list](bom.csv)

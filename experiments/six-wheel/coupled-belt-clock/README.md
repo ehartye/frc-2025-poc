@@ -1,9 +1,9 @@
 # What happens when the real controller clock drives the pipe model?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The WPILib desktop controller commands **1.05 m/s** as soon as release begins. Both registered pipes then reach the inner riser in the 545-body contact model. An isolated **0.90 m/s** profile reaches the trough at a lower speed. Both pipes settle against its floor and lip **only when the model also withdraws the shelf on the independent clearance clock**. Leaving the shelf extended, as the ordinary controller does, brings it back into contact with both pipes. [20 ms controller trace](controller.csv) · [Numerical results](study.json)

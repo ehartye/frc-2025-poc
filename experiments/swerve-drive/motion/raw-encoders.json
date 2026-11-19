@@ -1,0 +1,245 @@
+{
+  "schema": "swerve-encoder-replay/v2",
+  "basis": "Project module centers and gearing. Two synchronized simulated raw rotor and quantized absolute samples per module; encoder polarity and carrier coupling are applied by the checker.",
+  "wheelDiameterM": 0.0762,
+  "motorTurnsPerPulleyTurn": 5.5,
+  "pulleyTurnsPerWheelTurn": 1.0,
+  "velocityToleranceMps": 0.003,
+  "modules": [
+    {
+      "id": "FL",
+      "xM": 0.282,
+      "yM": 0.277,
+      "encoderAtForwardDeg": 0.0,
+      "driveSign": 1,
+      "steerSign": 1,
+      "couplingMotorTurnsPerSteerTurn": 1.0
+    },
+    {
+      "id": "FR",
+      "xM": 0.282,
+      "yM": -0.277,
+      "encoderAtForwardDeg": 85.94366927,
+      "driveSign": -1,
+      "steerSign": -1,
+      "couplingMotorTurnsPerSteerTurn": -1.0
+    },
+    {
+      "id": "RL",
+      "xM": -0.282,
+      "yM": 0.277,
+      "encoderAtForwardDeg": -126.05071493,
+      "driveSign": 1,
+      "steerSign": -1,
+      "couplingMotorTurnsPerSteerTurn": 1.0
+    },
+    {
+      "id": "RR",
+      "xM": -0.282,
+      "yM": -0.277,
+      "encoderAtForwardDeg": 160.42818264,
+      "driveSign": -1,
+      "steerSign": 1,
+      "couplingMotorTurnsPerSteerTurn": -1.0
+    }
+  ],
+  "cases": [
+    {
+      "name": "Diagonal translation while turning",
+      "fieldVelocityMps": [
+        -0.02436369174869385,
+        0.6098412994577972
+      ],
+      "yawRateRadPerSec": 0.25,
+      "gyroDeg": 57.29577951308232,
+      "pivotM": [
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "timeS": 0.0,
+          "readings": [
+            [
+              "FL",
+              42.890625,
+              0.1195822807300332
+            ],
+            [
+              "FR",
+              50.625,
+              0.09775680843420373
+            ],
+            [
+              "RL",
+              202.1484375,
+              0.08810486685600105
+            ],
+            [
+              "RR",
+              5.2734375,
+              -0.43086002993304656
+            ]
+          ]
+        },
+        {
+          "timeS": 0.02,
+          "readings": [
+            [
+              "FL",
+              44.296875,
+              0.3996895961089497
+            ],
+            [
+              "FR",
+              49.5703125,
+              -0.22394028430349822
+            ],
+            [
+              "RL",
+              201.09375,
+              0.32755343438936496
+            ],
+            [
+              "RR",
+              6.6796875,
+              -0.13595803861124817
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Front left pivot",
+      "fieldVelocityMps": [
+        0.0,
+        0.0
+      ],
+      "yawRateRadPerSec": 1.4,
+      "gyroDeg": -40.10704565915762,
+      "pivotM": [
+        0.282,
+        0.277
+      ],
+      "frames": [
+        {
+          "timeS": 0.0,
+          "readings": [
+            [
+              "FL",
+              23.90625,
+              0.06652676621241226
+            ],
+            [
+              "FR",
+              85.078125,
+              0.0028647889756541166
+            ],
+            [
+              "RL",
+              323.0859375,
+              -0.24713521102434588
+            ],
+            [
+              "RR",
+              116.015625,
+              -0.12355874142600724
+            ]
+          ]
+        },
+        {
+          "timeS": 0.02,
+          "readings": [
+            [
+              "FL",
+              22.8515625,
+              0.06366197723675814
+            ],
+            [
+              "FR",
+              85.78125,
+              -0.3563901082632059
+            ],
+            [
+              "RL",
+              323.7890625,
+              0.11282314270839006
+            ],
+            [
+              "RR",
+              114.9609375,
+              -0.6350044405355871
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sideways with reversed wheel",
+      "fieldVelocityMps": [
+        0.0,
+        -0.75
+      ],
+      "yawRateRadPerSec": 0.0,
+      "gyroDeg": 0.0,
+      "pivotM": [
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "timeS": 0.0,
+          "readings": [
+            [
+              "FL",
+              90.0,
+              0.24999999999999994
+            ],
+            [
+              "FR",
+              355.78125,
+              0.25
+            ],
+            [
+              "RL",
+              323.7890625,
+              -0.25
+            ],
+            [
+              "RR",
+              70.3125,
+              -0.25
+            ]
+          ]
+        },
+        {
+          "timeS": 0.02,
+          "readings": [
+            [
+              "FL",
+              90.0,
+              -0.09462684527772613
+            ],
+            [
+              "FR",
+              355.78125,
+              0.5946268452777261
+            ],
+            [
+              "RL",
+              323.7890625,
+              0.09462684527772608
+            ],
+            [
+              "RR",
+              70.3125,
+              -0.5946268452777261
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "maxSteerRateDegPerS": 300,
+  "phaseResolutionDeg": 0.3515625
+}

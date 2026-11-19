@@ -1,9 +1,9 @@
 # Can the two station-fed pipes still score?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 [Scrub the source-to-target timeline](replay.html) to see where each pipe is at a given TELEOP time and try alternate stock, partner and spin conditions. The nominal simulation retains the nine-point opportunity. The first pipe stays supported at 32.06 s, the second at 82.15 s, and the robot parks at 94.02 s. Both stay in the trough through the 138 s assessment. Three points for LEAVE, four for the two TELEOP trough placements, and two for PARK depend on the assumed robot, partners, source and controls. The official points field is empty. [Full-field map and staging](../full-match/README.md) · [Edition-specific scoring observations](../scoring/README.md)

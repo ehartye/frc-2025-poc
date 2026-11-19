@@ -1,9 +1,9 @@
 # Driving the receiver and its two translating stages
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 The registered station-fed transfer requires two opposed belt speeds, an observable seated pipe, a 240 mm receiving position and a 370 mm placing position. This revision replaces the three earlier actuator boxes, four risers and four original shelf screws. It keeps the existing stock shelf, optical ports, rail lengths and bolt locations. The [place STEP](grip-slide-place.step) is the original editable layer's native export. Integrate each named part by its assigned frame. [Pose API](receiver_drives.py) · [BOM with mass bounds](bom.csv) · [Robot package](../station-l1/README.md)

@@ -1,9 +1,9 @@
 # When should the shelf try to seat a pipe again?
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 On the left station approach, the pipe touches Entry, moves over Seat, bounces clear of both ports and settles back over Seat. A 20 ms difference in that last transition can leave the original controller waiting until it faults. This desktop experiment uses the original two optical apertures and makes a bounded forward probe after observing that sequence. [Compare the timing](timing.html) · [Predecessor support and station model](../compliant-carriage/README.md)

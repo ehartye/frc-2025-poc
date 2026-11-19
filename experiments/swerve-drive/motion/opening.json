@@ -1,0 +1,992 @@
+{
+  "schema": "reefscape-swerve-opening/1",
+  "scope": "Prebuild station approach only. Staged pieces remain in field inventory. No pickup, transfer, delivery or scoring result.",
+  "samplesPerCase": 4220,
+  "sources": {
+    "experiments/six-wheel/station-landmark/native.json": "1c534d8d07a661834e6271cd5047adcf505054d8faf4fea180c22fd7c7211a2b",
+    "experiments/six-wheel/station-landmark/panel.py": "3857734be3ddd6005066f1114558f9d00cb84002116776acc822dfb9d9755523",
+    "experiments/six-wheel/station-landmark/field.py": "6dcee6b1dc4849d4fe8f7e9c1a842f170df9c22dee432f67861463576f7e03ad",
+    "experiments/six-wheel/full-match/installed-stock.json": "f4c4be4d987bb7cc01b579d699b62e9673fd05540c32fbd4326b78b8ab218589",
+    "experiments/six-wheel/fixed-height-match/placements.json": "65d1be7fd38161f6815814486cacac226eec92c0f9bd0835eb2e8a4736dae108",
+    "experiments/six-wheel/kickoff/rule-register-v0.json": "7d1cfd49b8a87c402aa5d1cad49cd7ef07afc456859d8db09addf3f064fad24b",
+    "experiments/six-wheel/mounted-guide-vision/setting-station.json": "1247097234642c26ce6559ae8a4c92b4ea831648b1ffa31cbf4bb3a17e22812c"
+  },
+  "cases": {
+    "plus": {
+      "case": "plus",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5599.324719886923,
+      "disabledYawDeg": 1.2536487181897511e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "c7f23c6811591f3b3e1de2463df9d2cdb576f692b91853b6d2c403385fb6ad34",
+      "csvRows": 16880,
+      "stationLockWallS": 20.285,
+      "actualTerminalMmMmDeg": [
+        0.4503911933159628,
+        -0.0636138470259118,
+        -0.0014140437931523713
+      ],
+      "estimatedTerminalMmMmDeg": [
+        0.5842942244020547,
+        -0.017936434618243385,
+        0.0007689511389577243
+      ],
+      "renderedDetections": 180,
+      "acceptedCameraFrames": 179,
+      "imagesTaken": 180,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          20.285,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.541022637233193,
+        "steerPhaseA": 3.0853068518820255,
+        "contactUtilization": 0.21365543341633686,
+        "wheelMps": 1.1201732239745463,
+        "azimuthRadS": 5.99999999974419
+      },
+      "disabledTravelMm": 0.0013754564011044781,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4094.814277378247,
+          "Red reef": 751.4466439550213,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 83.20177737824784,
+          "South cage 1": 729.4900326566304,
+          "South cage 2": 1681.2054662198252,
+          "South cage 3": 2589.704427580408,
+          "North cage 1": 526.2374494645136,
+          "North cage 2": 1010.5570967122428,
+          "North cage 3": 1586.1082719924407,
+          "blue wall": 9416.114277378247,
+          "red wall": 514.3181222724398,
+          "lower rail": 3449.7151792934815,
+          "upper rail": 415.4470644994856,
+          "Station wall \u00c2\u00b7 tag 12": 7614.80829941638,
+          "Station wall \u00c2\u00b7 tag 13": 6446.277662231061,
+          "Station wall \u00c2\u00b7 tag 1": 4675.078342291223,
+          "Station wall \u00c2\u00b7 tag 2": 9.876388278003935
+        },
+        "stockMm": {
+          "NAUO45": 8140.81539422596,
+          "NAUO46": 7988.415394225959,
+          "NAUO47": 4405.261249059077,
+          "NAUO48": 5075.506819009209,
+          "NAUO49": 4039.848178215058,
+          "NAUO50": 5103.796120469794,
+          "NAUO51": 4437.541742156627,
+          "NAUO52": 5403.480058908289,
+          "NAUO188": 8306.99921496975,
+          "NAUO189": 8364.852520626735,
+          "NAUO190": 8154.59921496975,
+          "NAUO191": 8212.452520626735,
+          "NAUO192": 2044.790418223732,
+          "NAUO193": 1892.3904182237322,
+          "NAUO194": 224.5169720073987,
+          "NAUO195": 3866.391876350766,
+          "NAUO196": 72.11697200739877,
+          "NAUO197": 3713.991876350766,
+          "NAUO198": 1685.2617675443855,
+          "NAUO199": 2006.373965820454,
+          "NAUO200": 2226.59679324433,
+          "NAUO201": 1417.282473001376,
+          "NAUO202": 1054.197172344155,
+          "NAUO203": 1021.3145102564482
+        },
+        "peerMm": {
+          "red1": 1373.7151792934808,
+          "red3": 39.04121531584508,
+          "blue1": 2229.855895291462,
+          "blue2": 1434.6142773782476,
+          "blue3": 2122.75692586191
+        },
+        "minimumBarrierMm": 9.876388278003935,
+        "minimumStockMm": 72.11697200739877,
+        "minimumPeerMm": 39.04121531584508,
+        "throughWallS": 21.1
+      }
+    },
+    "minus": {
+      "case": "minus",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 571.6540608972799,
+      "tapeGapMmAt15s": 5605.023850125282,
+      "disabledYawDeg": 7.85900005043773e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "18492b408d041450a115fecba6f2c8788edfdef558e83de8341c4e03dbad88d2",
+      "csvRows": 16880,
+      "stationLockWallS": 20.330000000000002,
+      "actualTerminalMmMmDeg": [
+        0.6579003370998772,
+        -0.126348662342912,
+        -0.009076213753818133
+      ],
+      "estimatedTerminalMmMmDeg": [
+        0.6815164380462317,
+        -0.11793862568839102,
+        -0.011376980933082504
+      ],
+      "renderedDetections": 180,
+      "acceptedCameraFrames": 179,
+      "imagesTaken": 180,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          20.33,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.533354308601254,
+        "steerPhaseA": 3.084767860442215,
+        "contactUtilization": 0.21398917221041314,
+        "wheelMps": 1.1200999928316844,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0013638910772251285,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4090.2636228297247,
+          "Red reef": 745.0030209266166,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 78.65112282972605,
+          "South cage 1": 731.77534622299,
+          "South cage 2": 1680.0082427743448,
+          "South cage 3": 2587.2908418019642,
+          "North cage 1": 522.9612802512306,
+          "North cage 2": 1010.9454463984764,
+          "North cage 3": 1589.0413530014437,
+          "blue wall": 9411.563622829724,
+          "red wall": 514.4782312343224,
+          "lower rail": 3452.9725721321447,
+          "upper rail": 415.5655169653715,
+          "Station wall \u00c2\u00b7 tag 12": 7617.191419509037,
+          "Station wall \u00c2\u00b7 tag 13": 6450.373886649042,
+          "Station wall \u00c2\u00b7 tag 1": 4660.682289266274,
+          "Station wall \u00c2\u00b7 tag 2": 10.140738816626135
+        },
+        "stockMm": {
+          "NAUO45": 8136.182806769304,
+          "NAUO46": 7983.7828067693035,
+          "NAUO47": 4401.151548449304,
+          "NAUO48": 5071.389134139939,
+          "NAUO49": 4035.1443061438385,
+          "NAUO50": 5098.573322192772,
+          "NAUO51": 4432.237972885056,
+          "NAUO52": 5398.815348374178,
+          "NAUO188": 8303.61074711373,
+          "NAUO189": 8359.158570473419,
+          "NAUO190": 8151.210747113729,
+          "NAUO191": 8206.75857047342,
+          "NAUO192": 2030.3735148456226,
+          "NAUO193": 1877.9735148456227,
+          "NAUO194": 209.69558529441844,
+          "NAUO195": 3852.270176666549,
+          "NAUO196": 57.29558529441852,
+          "NAUO197": 3699.870176666549,
+          "NAUO198": 1677.4769214337355,
+          "NAUO199": 2008.6119997087694,
+          "NAUO200": 2219.831526297867,
+          "NAUO201": 1418.2087323541089,
+          "NAUO202": 1047.1564786708118,
+          "NAUO203": 1016.3013128990267
+        },
+        "peerMm": {
+          "red1": 1376.9725721321438,
+          "red3": 41.30042720083853,
+          "blue1": 2235.2495069792662,
+          "blue2": 1430.0636228297255,
+          "blue3": 2119.901124141431
+        },
+        "minimumBarrierMm": 10.140738816626135,
+        "minimumStockMm": 57.29558529441852,
+        "minimumPeerMm": 41.30042720083853,
+        "throughWallS": 21.1
+      }
+    },
+    "blind": {
+      "case": "blind",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5598.590954444445,
+      "disabledYawDeg": 7.854057404851642e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "93c65907cc9e46bfefd4993a3daf4257558d70a21fb39285c388d9cdb23def4f",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        406.8122529303019,
+        -21.21313484759943,
+        0.03513600617702009
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.0559003707466,
+        -15.153387773881116,
+        0.0373378941431566
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.541022637233193,
+        "steerPhaseA": 3.0853068518820255,
+        "contactUtilization": 0.21365543341633686,
+        "wheelMps": 1.1201732239745463,
+        "azimuthRadS": 5.99999999974419
+      },
+      "disabledTravelMm": 0.001004727626422332,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4094.814277378247,
+          "Red reef": 751.4466439550213,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 83.20177737824784,
+          "South cage 1": 729.4900326566304,
+          "South cage 2": 1681.2054662198252,
+          "South cage 3": 2589.704427580408,
+          "North cage 1": 526.2374494645136,
+          "North cage 2": 1010.5570967122428,
+          "North cage 3": 1586.1082719924407,
+          "blue wall": 9416.114277378247,
+          "red wall": 770.2792341371351,
+          "lower rail": 3449.7151792934815,
+          "upper rail": 731.8803996870871,
+          "Station wall \u00c2\u00b7 tag 12": 7614.80829941638,
+          "Station wall \u00c2\u00b7 tag 13": 6446.277662231061,
+          "Station wall \u00c2\u00b7 tag 1": 4676.633436525626,
+          "Station wall \u00c2\u00b7 tag 2": 415.9714658156044
+        },
+        "stockMm": {
+          "NAUO45": 8140.81539422596,
+          "NAUO46": 7988.415394225959,
+          "NAUO47": 4405.261249059077,
+          "NAUO48": 5075.506819009209,
+          "NAUO49": 4039.848178215058,
+          "NAUO50": 5103.796120469794,
+          "NAUO51": 4437.541742156627,
+          "NAUO52": 5403.480058908289,
+          "NAUO188": 8306.99921496975,
+          "NAUO189": 8364.852520626735,
+          "NAUO190": 8154.59921496975,
+          "NAUO191": 8212.452520626735,
+          "NAUO192": 2044.790418223732,
+          "NAUO193": 1892.3904182237322,
+          "NAUO194": 224.52387607172457,
+          "NAUO195": 3866.391876350766,
+          "NAUO196": 72.12387607172465,
+          "NAUO197": 3713.991876350766,
+          "NAUO198": 1685.2617675443855,
+          "NAUO199": 2006.373965820454,
+          "NAUO200": 2226.59679324433,
+          "NAUO201": 1417.282473001376,
+          "NAUO202": 1054.197172344155,
+          "NAUO203": 1021.3145102564482
+        },
+        "peerMm": {
+          "red1": 1373.7151792934808,
+          "red3": 39.04121531584508,
+          "blue1": 2229.855895291462,
+          "blue2": 1434.6142773782476,
+          "blue3": 2122.75692586191
+        },
+        "minimumBarrierMm": 83.20177737824784,
+        "minimumStockMm": 72.12387607172465,
+        "minimumPeerMm": 39.04121531584508,
+        "throughWallS": 21.1
+      }
+    },
+    "late": {
+      "case": "late",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5598.590954444445,
+      "disabledYawDeg": 7.854057404851642e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "93c65907cc9e46bfefd4993a3daf4257558d70a21fb39285c388d9cdb23def4f",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        406.8122529303019,
+        -21.21313484759943,
+        0.03513600617702009
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.0559003707466,
+        -15.153387773881116,
+        0.0373378941431566
+      ],
+      "renderedDetections": 103,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.541022637233193,
+        "steerPhaseA": 3.0853068518820255,
+        "contactUtilization": 0.21365543341633686,
+        "wheelMps": 1.1201732239745463,
+        "azimuthRadS": 5.99999999974419
+      },
+      "disabledTravelMm": 0.001004727626422332,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4094.814277378247,
+          "Red reef": 751.4466439550213,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 83.20177737824784,
+          "South cage 1": 729.4900326566304,
+          "South cage 2": 1681.2054662198252,
+          "South cage 3": 2589.704427580408,
+          "North cage 1": 526.2374494645136,
+          "North cage 2": 1010.5570967122428,
+          "North cage 3": 1586.1082719924407,
+          "blue wall": 9416.114277378247,
+          "red wall": 770.2792341371351,
+          "lower rail": 3449.7151792934815,
+          "upper rail": 731.8803996870871,
+          "Station wall \u00c2\u00b7 tag 12": 7614.80829941638,
+          "Station wall \u00c2\u00b7 tag 13": 6446.277662231061,
+          "Station wall \u00c2\u00b7 tag 1": 4676.633436525626,
+          "Station wall \u00c2\u00b7 tag 2": 415.9714658156044
+        },
+        "stockMm": {
+          "NAUO45": 8140.81539422596,
+          "NAUO46": 7988.415394225959,
+          "NAUO47": 4405.261249059077,
+          "NAUO48": 5075.506819009209,
+          "NAUO49": 4039.848178215058,
+          "NAUO50": 5103.796120469794,
+          "NAUO51": 4437.541742156627,
+          "NAUO52": 5403.480058908289,
+          "NAUO188": 8306.99921496975,
+          "NAUO189": 8364.852520626735,
+          "NAUO190": 8154.59921496975,
+          "NAUO191": 8212.452520626735,
+          "NAUO192": 2044.790418223732,
+          "NAUO193": 1892.3904182237322,
+          "NAUO194": 224.52387607172457,
+          "NAUO195": 3866.391876350766,
+          "NAUO196": 72.12387607172465,
+          "NAUO197": 3713.991876350766,
+          "NAUO198": 1685.2617675443855,
+          "NAUO199": 2006.373965820454,
+          "NAUO200": 2226.59679324433,
+          "NAUO201": 1417.282473001376,
+          "NAUO202": 1054.197172344155,
+          "NAUO203": 1021.3145102564482
+        },
+        "peerMm": {
+          "red1": 1373.7151792934808,
+          "red3": 39.04121531584508,
+          "blue1": 2229.855895291462,
+          "blue2": 1434.6142773782476,
+          "blue3": 2122.75692586191
+        },
+        "minimumBarrierMm": 83.20177737824784,
+        "minimumStockMm": 72.12387607172465,
+        "minimumPeerMm": 39.04121531584508,
+        "throughWallS": 21.1
+      }
+    },
+    "jam": {
+      "case": "jam",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 349.94131422197404,
+      "disabledYawDeg": 0.0,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "8c834642446afe7eefca1bd556521e0276388d5d9e325a2619a4bf42490df8c7",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        4323.686762555525,
+        -3655.2165907288636,
+        -5.924873396966602
+      ],
+      "estimatedTerminalMmMmDeg": [
+        4328.727453076349,
+        -3654.5459771840747,
+        -5.925651513701327
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 0,
+      "events": [
+        [
+          3.19,
+          "azimuth response timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 35.00288178800569,
+        "steerPhaseA": 3.1079700109099764,
+        "contactUtilization": 1.0000000000000002,
+        "wheelMps": 0.9303955493187043,
+        "azimuthRadS": 5.9999999999659375
+      },
+      "disabledTravelMm": 0.0,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4092.3776083701437,
+          "Red reef": 1159.7544357481117,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 80.7651083701446,
+          "South cage 1": 729.4901552933864,
+          "South cage 2": 1688.1677974077604,
+          "South cage 3": 2607.4483862111924,
+          "North cage 1": 528.6273667620309,
+          "North cage 2": 1027.8702881770894,
+          "North cage 3": 1757.4682649535198,
+          "blue wall": 9413.677608370144,
+          "red wall": 6005.720936714415,
+          "lower rail": 3449.8324967389917,
+          "upper rail": 1759.122621073605,
+          "Station wall \u00c2\u00b7 tag 12": 7614.80830650207,
+          "Station wall \u00c2\u00b7 tag 13": 6805.031060516881,
+          "Station wall \u00c2\u00b7 tag 1": 6094.6025023256725,
+          "Station wall \u00c2\u00b7 tag 2": 4292.388723554729
+        },
+        "stockMm": {
+          "NAUO45": 8138.239761287394,
+          "NAUO46": 7985.839761287393,
+          "NAUO47": 4404.237677926212,
+          "NAUO48": 5074.220135573671,
+          "NAUO49": 4037.168834875734,
+          "NAUO50": 5100.7458392883245,
+          "NAUO51": 4434.491182225884,
+          "NAUO52": 5400.8522509227405,
+          "NAUO188": 8306.993095982838,
+          "NAUO189": 8361.91023802874,
+          "NAUO190": 8154.593095982838,
+          "NAUO191": 8209.51023802874,
+          "NAUO192": 5021.7681975912565,
+          "NAUO193": 4869.368197591256,
+          "NAUO194": 4731.156912943147,
+          "NAUO195": 5851.714563961886,
+          "NAUO196": 4578.756912943147,
+          "NAUO197": 5699.314563961886,
+          "NAUO198": 2548.9240209108707,
+          "NAUO199": 1991.0202190338684,
+          "NAUO200": 2552.370165197205,
+          "NAUO201": 1376.3887136360015,
+          "NAUO202": 1951.4953554824117,
+          "NAUO203": 1380.4465016239762
+        },
+        "peerMm": {
+          "red1": 1373.8324967389906,
+          "red3": 148.30059555727254,
+          "blue1": 2229.8558956223,
+          "blue2": 1432.1776083701438,
+          "blue3": 2102.9411847725783
+        },
+        "minimumBarrierMm": 80.7651083701446,
+        "minimumStockMm": 1376.3887136360015,
+        "minimumPeerMm": 148.30059555727254,
+        "throughWallS": 21.1
+      }
+    },
+    "misaligned": {
+      "case": "misaligned",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 568.7002002522036,
+      "tapeGapMmAt15s": 5567.251696953807,
+      "disabledYawDeg": 7.854057404851642e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "8ba5b725baff50cce96a7554f6be6f6da8a9b8960c74c1ea8ba7a14a19098116",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        366.6229345891064,
+        -90.56985887104757,
+        0.7151360061774358
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.055900370753,
+        -15.153387773880866,
+        0.037337894143309264
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.541022637233193,
+        "steerPhaseA": 3.0853068518820255,
+        "contactUtilization": 0.21365543341633744,
+        "wheelMps": 1.12017322397457,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0010047276479635164,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4096.387079885473,
+          "Red reef": 784.5375440075909,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 84.77457988547344,
+          "South cage 1": 727.6826286066675,
+          "South cage 2": 1687.6200212628378,
+          "South cage 3": 2603.911243444626,
+          "North cage 1": 520.23301712849,
+          "North cage 2": 993.9492201085316,
+          "North cage 3": 1560.3162988807615,
+          "blue wall": 9417.687079885472,
+          "red wall": 803.9452742652247,
+          "lower rail": 3451.871862415186,
+          "upper rail": 659.7695503495204,
+          "Station wall \u00c2\u00b7 tag 12": 7610.609602541579,
+          "Station wall \u00c2\u00b7 tag 13": 6416.470997328761,
+          "Station wall \u00c2\u00b7 tag 1": 4751.8226412503345,
+          "Station wall \u00c2\u00b7 tag 2": 370.7861084758061
+        },
+        "stockMm": {
+          "NAUO45": 8142.444387073255,
+          "NAUO46": 7990.044387073254,
+          "NAUO47": 4406.5850123444925,
+          "NAUO48": 5076.81552781983,
+          "NAUO49": 4041.5273529909196,
+          "NAUO50": 5105.877387900686,
+          "NAUO51": 4439.69820005673,
+          "NAUO52": 5405.131786936305,
+          "NAUO188": 8307.787945731372,
+          "NAUO189": 8367.355954567669,
+          "NAUO190": 8155.387945731372,
+          "NAUO191": 8214.95595456767,
+          "NAUO192": 2119.644648636626,
+          "NAUO193": 1967.2446486366257,
+          "NAUO194": 302.5131976844158,
+          "NAUO195": 3939.193761907291,
+          "NAUO196": 150.1131976844159,
+          "NAUO197": 3786.793761907291,
+          "NAUO198": 1729.1545775441696,
+          "NAUO199": 2015.342074822811,
+          "NAUO200": 2266.2073933752845,
+          "NAUO201": 1430.2732780817405,
+          "NAUO202": 1095.0766431111401,
+          "NAUO203": 1053.52203109172
+        },
+        "peerMm": {
+          "red1": 1375.8718624151852,
+          "red3": 17.06933520699324,
+          "blue1": 2219.104194031096,
+          "blue2": 1436.1870798854727,
+          "blue3": 2115.4721923372003
+        },
+        "minimumBarrierMm": 84.77457988547344,
+        "minimumStockMm": 150.1131976844159,
+        "minimumPeerMm": 17.06933520699324,
+        "throughWallS": 21.1
+      }
+    },
+    "heavy": {
+      "case": "heavy",
+      "assumedGrossMassKg": 72.0,
+      "assumedYawInertiaKgM2": 8.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5600.891737060822,
+      "disabledYawDeg": 3.3984887754311578e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "d8ec19652935c7e5bb80574695ca9244ce30273639ef618994acadcdad68aa7d",
+      "csvRows": 16880,
+      "stationLockWallS": 20.195,
+      "actualTerminalMmMmDeg": [
+        -1.3495349845957287,
+        -0.08731375401355428,
+        0.016448146716773256
+      ],
+      "estimatedTerminalMmMmDeg": [
+        -1.3737118541956483,
+        0.12050958466225446,
+        0.018638458909062395
+      ],
+      "renderedDetections": 181,
+      "acceptedCameraFrames": 180,
+      "imagesTaken": 181,
+      "events": [
+        [
+          5.3,
+          "entered waypoint"
+        ],
+        [
+          13.855,
+          "station acquisition range"
+        ],
+        [
+          20.195,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.929673257897064,
+        "steerPhaseA": 3.2621873092111517,
+        "contactUtilization": 0.19145591429982958,
+        "wheelMps": 1.1201949717197872,
+        "azimuthRadS": 5.999999999982606
+      },
+      "disabledTravelMm": 0.0035108143653092166,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4095.388911703858,
+          "Red reef": 750.3257336401483,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 83.77641170385849,
+          "South cage 1": 729.4950744367549,
+          "South cage 2": 1683.6170544591903,
+          "South cage 3": 2594.819674136396,
+          "North cage 1": 526.4975884844706,
+          "North cage 2": 1010.8745770270123,
+          "North cage 3": 1586.419833050042,
+          "blue wall": 9416.688911703857,
+          "red wall": 513.3089829778613,
+          "lower rail": 3449.8876694115047,
+          "upper rail": 414.00612712610524,
+          "Station wall \u00c2\u00b7 tag 12": 7614.810514410067,
+          "Station wall \u00c2\u00b7 tag 13": 6446.561317484324,
+          "Station wall \u00c2\u00b7 tag 1": 4674.774027226843,
+          "Station wall \u00c2\u00b7 tag 2": 7.944013702170735
+        },
+        "stockMm": {
+          "NAUO45": 8141.427482592254,
+          "NAUO46": 7989.027482592253,
+          "NAUO47": 4405.46103536204,
+          "NAUO48": 5075.843814148955,
+          "NAUO49": 4040.495009030249,
+          "NAUO50": 5104.700475775442,
+          "NAUO51": 4438.488874288692,
+          "NAUO52": 5404.1080377827375,
+          "NAUO188": 8307.064037273014,
+          "NAUO189": 8365.957730325348,
+          "NAUO190": 8154.6640372730135,
+          "NAUO191": 8213.557730325349,
+          "NAUO192": 2044.1806089795623,
+          "NAUO193": 1891.7806089795624,
+          "NAUO194": 223.97622942183196,
+          "NAUO195": 3865.7841576716514,
+          "NAUO196": 71.57622942183205,
+          "NAUO197": 3713.3841576716513,
+          "NAUO198": 1684.7254734763237,
+          "NAUO199": 2005.9235185268833,
+          "NAUO200": 2226.0415915040676,
+          "NAUO201": 1416.924005862666,
+          "NAUO202": 1053.6505436289874,
+          "NAUO203": 1020.7360007910069
+        },
+        "peerMm": {
+          "red1": 1373.8876694115038,
+          "red3": 39.46002059942805,
+          "blue1": 2229.856692913165,
+          "blue2": 1435.1889117038581,
+          "blue3": 2123.1378657311407
+        },
+        "minimumBarrierMm": 7.944013702170735,
+        "minimumStockMm": 71.57622942183205,
+        "minimumPeerMm": 39.46002059942805,
+        "throughWallS": 21.1
+      }
+    },
+    "upper-minus": {
+      "case": "upper-minus",
+      "assumedGrossMassKg": 72.0,
+      "assumedYawInertiaKgM2": 8.0,
+      "footprintRadiusPastTapeMmAtStart": 571.6540608972799,
+      "tapeGapMmAt15s": 5606.503553242307,
+      "disabledYawDeg": 2.495760788494492e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "df34e5c28265017608a4f6f99d37ad14c88d4e9f131c0ea5e15de8068767f71f",
+      "csvRows": 16880,
+      "stationLockWallS": 20.245,
+      "actualTerminalMmMmDeg": [
+        -1.4116677495371062,
+        -0.04613293702045423,
+        0.0091419626744261
+      ],
+      "estimatedTerminalMmMmDeg": [
+        -1.5262570537499265,
+        0.09011012697505559,
+        0.006830895341189789
+      ],
+      "renderedDetections": 181,
+      "acceptedCameraFrames": 180,
+      "imagesTaken": 181,
+      "events": [
+        [
+          5.3,
+          "entered waypoint"
+        ],
+        [
+          13.855,
+          "station acquisition range"
+        ],
+        [
+          20.245,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 6.915830977925095,
+        "steerPhaseA": 3.2617462189113233,
+        "contactUtilization": 0.19155836513492142,
+        "wheelMps": 1.1200997519767986,
+        "azimuthRadS": 5.999999999982606
+      },
+      "disabledTravelMm": 0.003445860066660691,
+      "geometry": {
+        "barriersMm": {
+          "Blue reef": 4090.8349474564734,
+          "Red reef": 744.6310747708908,
+          "Barge center support \u00c2\u00b7 assumed exclusion": 79.22244745647357,
+          "South cage 1": 731.7810561787447,
+          "South cage 2": 1682.5193747959356,
+          "South cage 3": 2591.2983617655573,
+          "North cage 1": 523.2285433889717,
+          "North cage 2": 1011.2395899859907,
+          "North cage 3": 1589.3117062160072,
+          "blue wall": 9412.134947456472,
+          "red wall": 513.2271327900719,
+          "lower rail": 3453.1418956751263,
+          "upper rail": 413.96802674504426,
+          "Station wall \u00c2\u00b7 tag 12": 7617.193621348121,
+          "Station wall \u00c2\u00b7 tag 13": 6450.615644201883,
+          "Station wall \u00c2\u00b7 tag 1": 4660.519027197237,
+          "Station wall \u00c2\u00b7 tag 2": 7.936044804386097
+        },
+        "stockMm": {
+          "NAUO45": 8136.791858390999,
+          "NAUO46": 7984.391858390998,
+          "NAUO47": 4401.333692309122,
+          "NAUO48": 5071.642931816778,
+          "NAUO49": 4035.788481617679,
+          "NAUO50": 5099.4843100744065,
+          "NAUO51": 4433.190723759427,
+          "NAUO52": 5399.44135720615,
+          "NAUO188": 8303.672496735484,
+          "NAUO189": 8360.279929832685,
+          "NAUO190": 8151.272496735483,
+          "NAUO191": 8207.879929832685,
+          "NAUO192": 2029.8604060801488,
+          "NAUO193": 1877.460406080149,
+          "NAUO194": 209.2884433633315,
+          "NAUO195": 3851.6658433184557,
+          "NAUO196": 56.88844336333159,
+          "NAUO197": 3699.2658433184556,
+          "NAUO198": 1676.9176949667349,
+          "NAUO199": 2008.1402613156665,
+          "NAUO200": 2219.2572977575487,
+          "NAUO201": 1417.842181614587,
+          "NAUO202": 1046.586404890155,
+          "NAUO203": 1015.7224497749991
+        },
+        "peerMm": {
+          "red1": 1377.1418956751252,
+          "red3": 41.6446071004876,
+          "blue1": 2235.250251781875,
+          "blue2": 1430.6349474564731,
+          "blue3": 2120.5148298200916
+        },
+        "minimumBarrierMm": 7.936044804386097,
+        "minimumStockMm": 56.88844336333159,
+        "minimumPeerMm": 41.6446071004876,
+        "throughWallS": 21.1
+      }
+    }
+  }
+}

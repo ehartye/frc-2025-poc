@@ -1,9 +1,9 @@
 # Two cameras on the outside-diameter receiver
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 **Retain the end-belt receiver for the low-role robot.** The outside-diameter (OD) design accommodates variation in pipe length and conditionally places the centered and long, yawed pipe. Installing the three proposed camera power converters puts its conservative inspection estimate **748 g over** the R103 limit. The end-belt robot retains **1.061 kg** under the same accounting. A new camera bridge solves the mechanical interference and improves the view at the trough. The remaining mass, power and clearance-observation limits make this a fixture candidate. [Inspection and power comparison](budget.json) · [Original receiver and 52/64 disturbance grid](../od-gate/README.md)
