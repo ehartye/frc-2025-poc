@@ -1,3 +1,4 @@
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path
@@ -37,4 +38,32 @@ class NumberedSwerve(unittest.TestCase):
                 nx,ny,_=witness["outwardNormal"]
                 self.assertEqual([-ny,nx,0],witness["readerRight"])
         self.assertEqual(read(ROOT/"cad/component-palette.json")["colors"]["bumper-lettering"],"#FFFFFF")
+
+    def test_independently_reopened_fusion_tracks_the_issued_sources(self):
+        receipt = read(NUMBERED / "native-reopen.json")
+        register = read(NUMBERED / "appearances.json")
+        self.assertEqual(receipt["configuration"], register["configuration"])
+        self.assertEqual(receipt["source"]["publicStepSha256"], register["sourceSha256"])
+        register_hash = hashlib.sha256((NUMBERED / "appearances.json").read_bytes()).hexdigest()
+        self.assertEqual(receipt["source"]["publicRegisterSha256"], register_hash)
+
+        originals = [row for row in register["solids"] if not row["representation"].startswith("public-")]
+        counts = Counter(row["role"] for row in originals)
+        measured = receipt["originalGeometry"]
+        actual = {row["role"]: (row["count"], row["rgb"]) for row in measured["roles"]}
+        self.assertEqual({role: result[0] for role, result in actual.items()}, counts)
+        self.assertEqual(actual["bumper-lettering"], (16, "#FFFFFF"))
+        self.assertEqual(actual["bumper-red"], (2, "#D71920"))
+        self.assertEqual(measured["registeredSingleBodyOccurrences"], len(originals))
+        self.assertEqual(measured["visible"], len(originals))
+        self.assertLess(measured["maximumPlacedBoundErrorMm"], 0.000014)
+        for key in ("missing", "duplicates", "discrepancies"):
+            self.assertEqual(measured[key], [])
+
+        supplier = receipt["supplierModules"]
+        self.assertEqual(supplier["referenceBodies"], 4 * 274)
+        self.assertEqual(supplier["referenceBodies"], supplier["reopenedBodies"])
+        self.assertEqual(supplier["referenceWheelCentersMm"], supplier["issuedWheelCentersMm"])
+        self.assertEqual(set(supplier["issuedWheelCentersMm"]), {"FL", "FR", "RL", "RR"})
+        self.assertEqual(supplier["changedOrMissing"], [])
 
