@@ -15,7 +15,7 @@
 const canvas = document.querySelector('canvas');
 const status = document.querySelector('#status');
 async function start() {
-  const layout = {"bounds": [-425.05, 425.05, -425.05, 425.05, 0.0, 1043.7227439380001], "groups": [[137212, "#A6ACB0", "fastener"], [39656, "#9EAFBB", "plate"], [2304, "#445971", "drive"], [1336, "#28343B", "wheel"], [64316, "#537798", "electrical"], [48592, "#D47D3D", "lift-drive"], [10080, "#D7B067", "bearing"], [69824, "#77899A", "frame"], [13632, "#A3AEBB", "alloy"], [152, "#D71920", "bumper-red"], [4552, "#E4E3D8", "foam"], [576, "#FFFFFF", "bumper-lettering"], [8928, "#647181", "steel"], [7388, "#9E6EA7", "slide"], [15604, "#51938D", "compute"], [25668, "#378985", "sensing"], [800, "#277E77", "belt"], [25552, "#5C7E69", "receiver"], [54552, "#B5C5D5", "guide"], [2792, "#BCBDCA", "shaft"], [12, "#2A323D", "battery"], [34482, "#E5AE4C", "shelf"], [14876, "#99763C", "rack"]], "backdrop": {"center": "#405F86", "edge": "#142F63"}};
+  const layout = {"bounds": [-425.05, 425.05, -425.05, 425.05, 0.0, 1043.7227439380001], "groups": [[137212, "#A6ACB0", "fastener"], [39656, "#9EAFBB", "plate"], [2304, "#445971", "drive"], [1336, "#28343B", "wheel"], [64316, "#537798", "electrical"], [48592, "#D47D3D", "lift-drive"], [10080, "#D7B067", "bearing"], [69824, "#77899A", "frame"], [13632, "#A3AEBB", "alloy"], [152, "#D71920", "bumper-red"], [4552, "#E4E3D8", "foam"], [576, "#FFFFFF", "bumper-lettering", "appearance-overlay"], [8928, "#647181", "steel"], [7388, "#9E6EA7", "slide"], [15604, "#51938D", "compute"], [25668, "#378985", "sensing"], [800, "#277E77", "belt"], [25552, "#5C7E69", "receiver"], [54552, "#B5C5D5", "guide"], [2792, "#BCBDCA", "shaft"], [12, "#2A323D", "battery"], [34482, "#E5AE4C", "shelf"], [14876, "#99763C", "rack"]], "backdrop": {"center": "#405F86", "edge": "#142F63"}};
   if(document.body.classList.contains('cad-viewer') && self !== top) document.body.classList.add('embedded');
   if(layout.backdrop){
     const {center,edge}=layout.backdrop;
@@ -43,7 +43,7 @@ async function start() {
   if (!Array.isArray(ranges) || ranges.some(([n,color]) => !Number.isSafeInteger(n) || n < 1 ||
       (color !== null && !/^#[0-9a-f]{6}$/i.test(color))) ||
       ranges.reduce((sum,[n]) => sum+n, 0) !== count) throw Error('Invalid color ranges');
-  const batches = ranges.map(([n,color]) => [n,color ? [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255) : [.63,.8,.87]]);
+  const batches = ranges.map(([n,color,role,kind]) => [n,color ? [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255) : [.63,.8,.87], kind === 'appearance-overlay']);
   const center = [0,2,4].map(i=>(bounds[i]+bounds[i+1])/2);
   const radius = Math.hypot(...[0,2,4].map(i=>(bounds[i+1]-bounds[i])/2));
   for (let i=0; i<count; i++) {
@@ -83,9 +83,12 @@ async function start() {
     gl.uniformMatrix3fv(basis,false,[-b,-a*d,a*c,a,-b*d,b*c,0,c,d]);
     gl.uniform2f(scale,zoom*Math.min(1,h/w),zoom*Math.min(1,w/h));
     let start=0;
-    for(const [triangles,rgb] of batches){
+    for(const [triangles,rgb,overlay] of batches){
+      // Printed surfaces can share a raster depth with their support at oblique angles.
+      if(overlay){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-1);}
       gl.uniform3fv(tint,rgb);
       gl.drawArrays(gl.TRIANGLES,start,triangles*3);
+      if(overlay) gl.disable(gl.POLYGON_OFFSET_FILL);
       start+=triangles*3;
     }
   }

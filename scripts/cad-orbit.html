@@ -43,7 +43,7 @@ async function start() {
   if (!Array.isArray(ranges) || ranges.some(([n,color]) => !Number.isSafeInteger(n) || n < 1 ||
       (color !== null && !/^#[0-9a-f]{6}$/i.test(color))) ||
       ranges.reduce((sum,[n]) => sum+n, 0) !== count) throw Error('Invalid color ranges');
-  const batches = ranges.map(([n,color]) => [n,color ? [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255) : [.63,.8,.87]]);
+  const batches = ranges.map(([n,color,role,kind]) => [n,color ? [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255) : [.63,.8,.87], kind === 'appearance-overlay']);
   const center = [0,2,4].map(i=>(bounds[i]+bounds[i+1])/2);
   const radius = Math.hypot(...[0,2,4].map(i=>(bounds[i+1]-bounds[i])/2));
   for (let i=0; i<count; i++) {
@@ -83,9 +83,12 @@ async function start() {
     gl.uniformMatrix3fv(basis,false,[-b,-a*d,a*c,a,-b*d,b*c,0,c,d]);
     gl.uniform2f(scale,zoom*Math.min(1,h/w),zoom*Math.min(1,w/h));
     let start=0;
-    for(const [triangles,rgb] of batches){
+    for(const [triangles,rgb,overlay] of batches){
+      // Printed surfaces can share a raster depth with their support at oblique angles.
+      if(overlay){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-1);}
       gl.uniform3fv(tint,rgb);
       gl.drawArrays(gl.TRIANGLES,start,triangles*3);
+      if(overlay) gl.disable(gl.POLYGON_OFFSET_FILL);
       start+=triangles*3;
     }
   }

@@ -120,7 +120,14 @@ def validated_groups(root, record, packed):
                 raise ValueError("CAD color range does not match the exported facets")
         if facets.read(1):
             raise ValueError("Unassigned CAD facets")
-    return [[g["triangles"], g["color"], g["role"]] for g in groups]
+    solid_roles = {row["role"] for row in rows if row.get("representation") != "appearance-overlay"}
+    ranges = []
+    for group in groups:
+        entry = [group["triangles"], group["color"], group["role"]]
+        if group["role"] not in solid_roles:
+            entry.append("appearance-overlay")
+        ranges.append(entry)
+    return ranges
 
 
 if __name__ == "__main__":
