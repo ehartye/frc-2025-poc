@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Axle retention and service</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f6f1;color:#182b34;font:16px/1.55 system-ui,sans-serif}main{max-width:1080px;margin:auto;padding:32px 24px}h1,h2,p{margin:0 0 .65em}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1}h2{font-size:1.15rem}section{border-top:1px solid #b8c1bd;padding:22px 0}button{font:inherit;color:#152e39;border:1px solid #8c9a9c;background:#fff;padding:.42em .86em;border-radius:4px}button[aria-pressed=true]{color:#fff;background:#254e5a}button:focus-visible{outline:3px solid #ce7523;outline-offset:3px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.view{display:block;width:100%;height:auto;background:#fff;border:1px solid #bbc7c4;border-radius:6px}.view text{font:15px system-ui,sans-serif;fill:#243941}.key{display:flex;gap:7px 16px;flex-wrap:wrap;font-size:.88rem;margin:10px 0}.key span:before{content:"";display:inline-block;width:.8em;height:.8em;background:var(--color);margin-right:.4em}.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}a{color:#175263}.note{font-variant-numeric:tabular-nums;color:#244651}footer{font-size:.9rem;color:#4e6267}@media(max-width:650px){main{padding:20px 12px}.cols{grid-template-columns:1fr;gap:10px}.view text{font-size:18px}}@media print{body{background:#fff}.actions,footer{display:none}main{padding:0}section{break-inside:avoid}}
+</style></head><body><main>
+<h1>What keeps the axle in place?</h1>
+<p>The gearbox drives a rounded hex shaft. A radial clip limits outward travel, and a screw and shim limit inward travel. Follow the center axle from the wheel to the outside of the frame.</p>
+<section aria-label="Center axle section"><div class="actions" aria-label="Service stage"><button aria-pressed="true" data-mode="assembled">Assembled</button><button aria-pressed="false" data-mode="service">Remove retainers</button><button aria-pressed="false" data-mode="withdrawn">Withdraw shaft</button></div>
+<svg class="view" id="section" viewBox="0 0 900 350" role="img" aria-labelledby="drawing-title drawing-desc"><title id="drawing-title">Left center axle, longitudinal section</title><desc id="drawing-desc">Positive Y points outward. The clip sits inside the wheel bay. The stationary keeper holds the outer rim of the bearing.</desc></svg>
+<div class="key"><span style="--color:#2c7880">Shaft and end screw</span><span style="--color:#d78b32">Removable clip</span><span style="--color:#ad6d4e">Spacers and thrust washers</span><span style="--color:#4f627b">Bearing</span><span style="--color:#9bafaa">Carrier and keeper</span></div>
+<p id="stage" class="note" aria-live="polite"></p></section>
+<div class="cols"><section><h2>Set the bearing keeper</h2><p>Machine four holes on a 37.80 mm bolt circle at 14°, 104°, 194° and 284°. The M3 × 8 screws sit flush. The 3.10 mm cover has a Ø26.80 opening and a Ø32.00 × 1.65 pocket for the flange.</p><p>The cover bears on the stationary outer rim. The rotating shim has a Ø15.00 to Ø16.70 annular nose. Check both faces on the received bearing.</p></section>
+<section><h2>Check the groove and play</h2><p>Turn the groove to Ø11.43 × 1.03 mm wide with R0.10 roots. The inboard flank is 12.81 mm from the shaft’s outer end. A 2.18 mm thrust washer gives about 0.15 mm outward axle travel before the modeled stop.</p><p>Measure the actual ring, groove, endplay and remaining socket engagement. A seated clip, a free-spinning shaft and repeatable removal are required at the bench.</p></section></div>
+<footer><a href="README.md">Fabrication, loads and service traveler</a> · <a href="axle-kit.step">Axle STEP</a> · <a href="bearing-keepers.step">Bearing keeper STEP</a></footer>
+</main>
+<script>
+const svg=document.querySelector("#section"), ns="http://www.w3.org/2000/svg";
+const color={shaft:"#2c7880",clip:"#d78b32",pad:"#ad6d4e",bearing:"#4f627b",shell:"#9bafaa"};
+const captions={assembled:"The center shaft retains 9.85 mm nominal gearbox engagement at its outward stop. Amber shows the rotational envelope of the retaining clip.",
+ service:"With the robot supported, remove both bumper halves for center access. Remove the end screw and outer shim. Support the wheel stack and take the radial clip out from below.",
+ withdrawn:"The shaft clears the bare outer rail during a 160 mm pull. Support the stationary spacers and sprockets on a guide while the shaft is out."};
+function element(tag,properties,parent){const el=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(properties))el.setAttribute(k,v);parent.appendChild(el);return el}
+function draw(mode){
+ svg.querySelector("g")?.remove();const g=element("g",{},svg);
+ const X=y=>48+(y-309)*30, Z=r=>170-r*6.0;
+ const line=(x1,y1,x2,y2,stroke="#53676d",dash="")=>element("line",{x1,y1,x2,y2,stroke,"stroke-dasharray":dash},g);
+ function label(x,y,word){element("text",{x,y},g).textContent=word}
+ function rect(y0,y1,r0,r1,fill){element("rect",{x:X(y0),y:Z(r1),width:(y1-y0)*30,height:(r1-r0)*6,fill,stroke:"#263c43","stroke-width":.8},g)}
+ function bands(y0,y1,r0,r1,fill){rect(y0,y1,r0,r1,fill);rect(y0,y1,-r1,-r0,fill)}
+ line(22,170,881,170,"#8d9e9f","5 4");
+ bands(319,325,14.31,19.2,color.shell);
+ bands(315.9,317.35,13.4,17.5,color.shell);bands(317.35,319,16,17.5,color.shell);
+ bands(317.4125,319,12.7,15.5575,color.bearing);bands(319,325.35,12.7,14.29,color.bearing);
+ bands(317.4125,325.35,6.875,9.525,color.bearing);bands(317.9205,324.842,9.525,12.7,"#c7cfd3");
+ bands(310.70,314.05,7.1,9,color.pad);bands(315.18,317.06,6.95,8.35,color.pad);bands(317.06,317.36,7.5,8.35,color.pad);
+ if(mode!=="withdrawn"){rect(309,314.19,-6.35,6.35,color.shaft);rect(314.19,315.22,-5.715,5.715,color.shaft);rect(315.22,327,-6.35,6.35,color.shaft)}
+ if(mode==="assembled"){bands(314.2605,315.1495,5.715,7.5,color.clip);bands(325.45,325.75,7.5,8.35,color.pad);bands(325.75,327,6.95,8.35,color.pad);rect(327,330.8,-8.5,8.5,color.shaft)}
+ if(mode==="service"){const x=X(314.7);line(x,289,x,235,"#b46b18");line(x,289,x-5,282,"#b46b18");line(x,289,x+5,282,"#b46b18");label(45,322,"Clip access from below")}
+ if(mode==="withdrawn"){line(470,170,794,170,"#2c7880");line(794,170,782,164,"#2c7880");line(794,170,782,176,"#2c7880");label(590,202,"160 mm outward pull")}
+ label(25,29,"Wheel side");label(650,29,"Outside of frame →");label(320,320,"Center section · radial detail enlarged");
+ document.querySelector("#stage").textContent=captions[mode];
+ for(const button of document.querySelectorAll("[data-mode]"))button.setAttribute("aria-pressed",String(button.dataset.mode===mode));
+}
+for(const button of document.querySelectorAll("[data-mode]"))button.addEventListener("click",()=>draw(button.dataset.mode));
+draw("assembled");
+</script></body></html>
