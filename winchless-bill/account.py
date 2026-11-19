@@ -225,6 +225,7 @@ def apply(plugin, src, dest):
             "productionOption": "integrated BMI270",
             "additionalMassKg": 0.0,
             "cameraSource": sha(ROOT / "station-landmark/README.md"),
+            "straightApproachRateModel": sha(ROOT / "reef-inertial-observer/rate.py"),
             "unitConfirmed": False,
             "kickstarterProvidesGyro": False,
         },

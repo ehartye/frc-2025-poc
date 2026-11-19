@@ -83,6 +83,10 @@ class WinchlessMassBill(unittest.TestCase):
                     sha(ROOT / "station-landmark/README.md"),
                 )
                 self.assertFalse(r["fixedGyro"]["kickstarterProvidesGyro"])
+                self.assertEqual(
+                    r["fixedGyro"]["straightApproachRateModel"],
+                    sha(ROOT / "reef-inertial-observer/rate.py"),
+                )
                 self.assertLess(r["zeroCreditMarginKg"], 0)
                 out = r["outcomes"]
                 self.assertLess(out["opaqueReserveAlsoPresentKg"]["upperMarginKg"], 0)
