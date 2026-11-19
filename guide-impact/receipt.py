@@ -85,6 +85,11 @@ def collect(group, raw):
                     "guideSlopeTable",
                 )
             }
+        if r["lastJavaMs"] >= 1500:
+            index = int(np.argmin(abs(trace[:, 0] - 1500)))
+            if abs(trace[index, 0] - 1500) > 1e-6:
+                raise ValueError("Missing common acquisition sample")
+            obs["pipeAtJava1500Mm"] = trace[index, 1:4].tolist()
         obs["shelfModeCount"] = modes
         obs["guideModel"] = [
             r["binding"]["layout"],

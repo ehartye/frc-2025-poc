@@ -1,6 +1,9 @@
 """Protect coupling, real issued geometry, independent clocks and conditional custody."""
 
 import json
+import hashlib
+from functools import lru_cache
+import subprocess
 from pathlib import Path
 import sys
 import unittest
@@ -9,9 +12,41 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "guide-impact"
-sys.path.insert(0, str(HERE))
-import beam
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+@lru_cache(maxsize=1)
+def flexure_check():
+    # Run the project plant through its own executable import path. Other study
+    # directories also contain modules named replay and feed.
+    program = """
+import json
+import numpy as np
+from beam import Beam,ROOT
 from backing import GuideResponse
+b=Beam(ROOT/'guide-mounts','folded')
+s=GuideResponse(b)
+f=np.zeros_like(s.q)
+f[0,0]=.4
+s.first_loaded=0.
+for _ in range(32):
+    s.advance(.00003125,f)
+energy=s.energy().copy()
+error=s.input-s.dissipated-energy
+s.advance(.2,np.zeros_like(f))
+print(json.dumps([b.receipt(),energy.tolist(),error.tolist(),s.energy().tolist(),s.dissipated.tolist()]))
+"""
+    result = subprocess.run(
+        [sys.executable, "-c", program],
+        cwd=HERE,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return json.loads(result.stdout)
 
 
 def read(name):
@@ -23,10 +58,10 @@ class GuideImpactTests(unittest.TestCase):
         s = read("section.json")
         self.assertEqual(s["parts"], 58)
         self.assertEqual(
-            s["stepSha256"], beam.digest(ROOT / "guide-mounts/guide-mounts.step")
+            s["stepSha256"], digest(ROOT / "guide-mounts/guide-mounts.step")
         )
         self.assertEqual(
-            s["alternateThroatDatum"], beam.digest(ROOT / "guide-mounts/datum.json")
+            s["alternateThroatDatum"], digest(ROOT / "guide-mounts/datum.json")
         )
         self.assertEqual(s["faceZmm"], [625, 813])
         self.assertEqual(s["yCenterPlaneMm"], 150.5125)
@@ -35,32 +70,23 @@ class GuideImpactTests(unittest.TestCase):
         )
 
     def test_live_point_compliance_and_mass(self):
-        b = beam.Beam(ROOT / "guide-mounts", "folded")
-        self.assertTrue(100 < b.w[0] / (2 * np.pi) < 120)
-        self.assertTrue(0.025 < b.distributed < 0.035)
-        self.assertEqual(len(b.w), 5)
-        for reference, full, retained in b.check.values():
+        b = flexure_check()[0]
+        self.assertTrue(100 < b["frequenciesHz"][0] < 120)
+        self.assertTrue(0.025 < b["distributedMassPerSideKg"] < 0.035)
+        self.assertEqual(len(b["frequenciesHz"]), 5)
+        checks = b["staticMmPerN_referenceFullRetained"]
+        for reference, full, retained in checks.values():
             self.assertAlmostEqual(reference, full, delta=0.000002)
             self.assertLess(abs(reference - retained) / reference, 0.01)
-        self.assertGreater(b.check["625"][0], b.check["687"][0] * 6)
+        self.assertGreater(checks["625"][0], checks["687"][0] * 6)
 
     def test_transient_work_and_release(self):
-        b = beam.Beam(ROOT / "guide-mounts", "folded")
-        state = GuideResponse(b)
-        force = np.zeros_like(state.q)
-        force[0, 0] = 0.4
-        state.first_loaded = 0.0
-        for _ in range(32):
-            state.advance(0.00003125, force)
-        positive = state.energy()[0]
-        self.assertGreater(positive, 0)
-        self.assertEqual(state.energy()[1], 0.0)
-        np.testing.assert_allclose(
-            state.input, state.dissipated + state.energy(), atol=1e-15, rtol=1e-9
-        )
-        state.advance(0.2, np.zeros_like(force))
-        self.assertLess(state.energy()[0], positive * 0.002)
-        self.assertGreater(state.dissipated[0], 0.0)
+        _, peak, error, final, dissipation = flexure_check()
+        self.assertGreater(peak[0], 0)
+        self.assertEqual(peak[1], 0)
+        np.testing.assert_allclose(error, [0.0, 0.0], atol=1e-15)
+        self.assertLess(final[0], peak[0] * 0.002)
+        self.assertGreater(dissipation[0], 0)
 
     def test_layout_and_width_have_independent_inputs(self):
         d = read("results.json")
@@ -139,8 +165,32 @@ class GuideImpactTests(unittest.TestCase):
             self.assertEqual(r["portTransitions"][-1][2:4], [False, True])
             self.assertIn("shelfDisplacementSlopeTable", r["modalTables"])
 
+    def test_recovery_keeps_the_same_physical_source(self):
+        rows = read("results.json")["cases"]
+        recovery = json.loads(
+            (ROOT / "split-guide-acquisition/signals.json").read_bytes()
+        )["programSha256"]
+        for dt in (15.625, 31.25):
+            for side in ("leftSmall", "rightSmall"):
+                pair = [
+                    r
+                    for r in rows
+                    if r["carriageSupport"] and r["stepUs"] == dt and r["case"] == side
+                ]
+                old = next(r for r in pair if r["programSha256"] != recovery)
+                new = next(r for r in pair if r["programSha256"] == recovery)
+                self.assertEqual(old["guideHistorySha256"], new["guideHistorySha256"])
+                self.assertEqual(old["modalTables"], new["modalTables"])
+                self.assertEqual(old["case"], new["case"])
+                self.assertEqual(new["lastJavaMs"], 5460)
+                self.assertTrue(new["eligibleForStationImageReplay"])
+                if side == "rightSmall":
+                    self.assertEqual(old["trajectorySha256"], new["trajectorySha256"])
+                else:
+                    self.assertEqual(new["firstBandMs"], 1340)
+
     def test_root_reconstruction_and_belt_force_are_finite(self):
-        identifier = beam.digest(HERE / "results.json")
+        identifier = digest(HERE / "results.json")
         root = read("root-loads.json")
         self.assertEqual(root["input"], identifier)
         self.assertEqual(len(root["cases"]), 4)
@@ -161,7 +211,7 @@ class GuideImpactTests(unittest.TestCase):
     def test_optical_handoff_retains_unknown_observations(self):
         r = read("results.json")
         packets = read("station-frames.json")
-        self.assertEqual(packets["source"], beam.digest(HERE / "results.json"))
+        self.assertEqual(packets["source"], digest(HERE / "results.json"))
         byid = {v["id"]: v for v in r["cases"]}
         self.assertTrue(packets["packets"])
         for p in packets["packets"]:
