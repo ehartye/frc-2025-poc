@@ -14,6 +14,16 @@ At each integration step, the openly ended pipe contributes 512 candidate quadra
 
 The input contact law keeps the earlier 10 N/mm and 200 N·s/m distributed coefficients, friction coefficient 0.1 and 0.02 m/s friction transition. The nominal guides use a modal damping ratio of 0.03. The pipe falls with its attained velocity, meets finite-preload belt cartridges, and drives the existing 20 ms Java acquisition program through two moving aperture rays. The first tick at the chute lip is Java 100 ms. A fault ends that case. A seated case continues until the scheduled Java 5,460 ms sample. The backing's retained modes advance exactly for a load held over one plant step. Contact forces, local normals and belt traction change each step. [Powered approach poses](../conditioned-match/elastic.json) · [Controller replay](replay.py)
 
+![Guide normal force and lateral backing displacement for the nominal fold, wider opening and flat backing](impact.svg)
+
+## Where the work goes
+
+On the nominal 31.25 µs left and right arrivals, contact begins 104.91 and 100.88 ms after the chute lip and ends at 211.59 and 211.66 ms. The faces remove 30.52 and 33.86 mJ from the pipe under the modeled end-contact law. Sliding friction accounts for 28.19 and 30.80 mJ. The guide springs receive and return energy during the event. Their net guide input, including modal damping, is 11.43 and 15.67 µJ. The remaining pipe energy exchange includes the local damped liner law. Total station impact also acts at the shelf and cartridges. [Signed work and impulses](results.json)
+
+The two belt cartridges use 11.5 N nominal preload per end, a friction coefficient of 0.4, and finite relative slip. Reopening the belt contact on the original-boundary nominal 31.25 µs traces gives approximately −9.19 to +9.19 N of total longitudinal traction after the last guide load, sampled every millisecond. The full-trajectory upper bounds are 19.36 N left and 19.18 N right. These include a conservative allowance for the guide impulse that precedes each belt step. The original plant prescribes rate-limited belt speed. Available motor force, current, heating and the safe probe force still require measurement. [Belt force screen](traction.json)
+
+Replaying the registered nominal pipe states recovers the time-dependent guide forces to within 0.0000001 N, allowing the four mounting spring histories to be resolved independently. The largest arm-root spring force is +2.19 N and the most negative rebound is −0.35 N. The largest gross lever moment about a root is 0.554 N·m. These figures model transverse spring transfer under this arrival. Joint friction, clamp preload, fixed mast motion and local weld stress need separate measurements. [Individual root loads](root-loads.json)
+
 ## Reproduce the study
 
 Use the project Python, native CAD and desktop JDK environments. Set the numerical library to one thread for a reproducible modal basis. The following commands run from the project root. Replace the angle-bracket paths with the local JDK and private artifact folders.
@@ -22,9 +32,20 @@ Use the project Python, native CAD and desktop JDK environments. Set the numeric
 python guide-impact/section.py guide-impact/section.json
 python guide-impact/replay.py <jdk> <raw> <raw>/folded.json --layouts folded --steps 62.5 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/controls.json --layouts flat half-couple unribbed --steps 62.5 31.25
+python guide-impact/replay.py <jdk> <raw> <raw>/folded-finest.json --layouts folded --steps 15.625
+python guide-impact/replay.py <jdk> <raw> <raw>/modal-refinement.json --layouts folded --steps 31.25 --cutoff 3500
 python guide-impact/replay.py <jdk> <raw> <raw>/rigid.json --layouts rigid --steps 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/opening-gauge.json --layouts folded --outward .315 --steps 62.5 31.25
+python guide-impact/replay.py <jdk> <raw> <raw>/serial-carriage.json --support compliant-carriage --layouts folded --steps 31.25 15.625
+python guide-impact/replay.py <jdk> <raw> <raw>/serial-recovery.json --support compliant-carriage --recovery split-guide-acquisition --layouts folded --steps 31.25 15.625
+python guide-impact/receipt.py <raw> guide-impact/results.json <raw>/folded.json <raw>/folded-finest.json <raw>/controls.json <raw>/rigid.json <raw>/opening-gauge.json <raw>/modal-refinement.json <raw>/serial-carriage.json <raw>/serial-recovery.json
+python guide-impact/handoff.py guide-impact/results.json <raw> guide-impact/station-frames.json
+python guide-impact/roots.py guide-impact/results.json <raw> guide-impact/root-loads.json
+python guide-impact/traction.py guide-impact/results.json <raw> guide-impact/traction.json
+python guide-impact/plot.py guide-impact/results.json <raw> guide-impact/impact.svg
 ```
+
+To rebuild a dropped group summary, pass `--collect` with the identical options. This checks the signed pose, beam, registration and three raw hashes for every case.
 
 Each run preserves the pipe trajectory, its orientations and velocities, the shelf and plunger restart state, and a guide force/work history under its own configuration ID. The guide history has 15 columns in this order. Time is seconds from the lip, followed by both normal forces in N, both force-weighted heights in m, both lower-tip displacements in m, both upper-tip displacements in m, both peak absolute face displacements in m, both modal energies in J and both cumulative guide input works in J. Paired values always follow chassis −Y, then +Y. Peak travel uses a 1 mm height grid during possible pipe/guide overlap. The result includes one exact free decay to the final pipe clock. The installed modal damping, friction, preload, material law and receiver lash all require measurements.
 

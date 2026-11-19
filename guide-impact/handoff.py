@@ -71,6 +71,7 @@ def run(register, kit, raw):
             {
                 "id": name,
                 "case": row["case"],
+                "programSha256": row["programSha256"],
                 "guideModel": row["guideModel"],
                 "outwardPerSideMm": row["outwardPerSideMm"],
                 "carriageSupport": row["carriageSupport"],

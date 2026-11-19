@@ -117,6 +117,46 @@ class GuideImpactTests(unittest.TestCase):
                 atol=1e-12,
             )
 
+    def test_sensor_fault_survives_the_two_stage_support(self):
+        source = json.loads((ROOT / "station-landmark/feed.json").read_bytes())[
+            "programSha256"
+        ]
+        rows = [
+            r
+            for r in read("results.json")["cases"]
+            if r["carriageSupport"]
+            and r["case"] == "leftSmall"
+            and r["programSha256"] == source
+        ]
+        self.assertEqual({r["stepUs"] for r in rows}, {31.25, 15.625})
+        for r in rows:
+            self.assertEqual(
+                (r["lastState"], r["lastJavaMs"], r["reason"]),
+                ("FAULT", 1020, "incoming-edges-unresolved"),
+            )
+            self.assertFalse(r["eligibleForStationImageReplay"])
+            self.assertEqual(r["portTransitions"][-1][2:4], [False, True])
+            self.assertIn("shelfDisplacementSlopeTable", r["modalTables"])
+
+    def test_root_reconstruction_and_belt_force_are_finite(self):
+        identifier = beam.digest(HERE / "results.json")
+        root = read("root-loads.json")
+        self.assertEqual(root["input"], identifier)
+        self.assertEqual(len(root["cases"]), 4)
+        for v in root["cases"]:
+            self.assertLess(v["maxGuideReplayForceErrorN"], 1e-7)
+            self.assertLess(v["maxGuideReplayWorkErrorJ"], 1e-10)
+            self.assertGreater(np.max(v["peakPositiveSpringN"]), 0)
+            self.assertLess(np.min(v["peakNegativeSpringN"]), 0)
+        traction = read("traction.json")
+        self.assertEqual(traction["register"], identifier)
+        for r in traction["cases"]:
+            self.assertGreater(
+                r["completeTrajectoryAbsXUpperN"],
+                max(abs(x) for x in r["postGuideSampledTotalXN"]),
+            )
+            self.assertIsNone(r["verifiedMotorForceLimitN"])
+
     def test_optical_handoff_retains_unknown_observations(self):
         r = read("results.json")
         packets = read("station-frames.json")

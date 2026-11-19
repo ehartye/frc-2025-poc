@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import numpy as np
-from beam import digest
+from beam import ROOT, digest
 
 
 def read(p):
@@ -13,7 +13,8 @@ def read(p):
 
 def collect(group, raw):
     rows = []
-    for r in read(group)["cases"]:
+    register = read(group)
+    for r in register["cases"]:
         folder = raw / r["id"]
         history = folder / "guide.npy"
         body = folder / (r["id"] + ".npy")
@@ -63,6 +64,15 @@ def collect(group, raw):
                 "stateSha256",
             )
         }
+        obs["programSha256"] = register["controller"]
+        if (
+            r.get(
+                "programSha256",
+                read(ROOT / "station-landmark/feed.json")["programSha256"],
+            )
+            != register["controller"]
+        ):
+            raise ValueError("Individual result has different program")
         obs["outwardPerSideMm"] = r.get("outwardPerSideMm", 0.0)
         obs["carriageSupport"] = r.get("carriageSupport", {})
         if obs["carriageSupport"]:
@@ -133,7 +143,7 @@ def run(groups, raw):
     source = {}
     for file in groups:
         run = read(file)
-        for k in ("stationSource", "controller", "shelfBasis", "upstreamTrajectories"):
+        for k in ("stationSource", "shelfBasis", "upstreamTrajectories"):
             if k in source and source[k] != run[k]:
                 raise ValueError("Mixed station sources")
             source[k] = run[k]

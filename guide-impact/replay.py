@@ -48,6 +48,8 @@ def trial(job):
         support,
         outward,
         collect,
+        recovery,
+        program,
     ) = job
     dt = micros * 1e-6
     beam = Beam(kit, layout, cutoff, arm_fraction=moving)
@@ -62,6 +64,8 @@ def trial(job):
         name += f"-out-{outward:g}mm"
     if support:
         name += "-serial-carriage"
+    if recovery:
+        name += "-recover"
     folder = cache / name
     folder.mkdir(exist_ok=True, parents=True)
     base = coupled.CoupledPipe
@@ -78,7 +82,8 @@ def trial(job):
     if collect:
         r = json.loads((folder / "result.json").read_bytes())
         if (
-            r["id"] != name
+            r.get("programSha256", program) != program
+            or r["id"] != name
             or r["poseMmDeg"] != pose
             or r["binding"] != beam.receipt()
             or r.get("outwardPerSideMm", 0.0) != outward
@@ -172,6 +177,7 @@ def trial(job):
             transitions.append(row)
     row = {
         "id": name,
+        "programSha256": program,
         "case": case,
         "poseMmDeg": pose,
         "layout": layout,
@@ -228,10 +234,22 @@ def run(a):
     with tempfile.TemporaryDirectory() as tmp:
         cls = Path(tmp)
         code = cls / "PortAcquisition.java"
-        code.write_text(feed.port_program(True), encoding="utf8", newline="\n")
+        program = feed.port_program(True)
+        if a.recovery:
+            spec = importlib.util.spec_from_file_location(
+                "registered_recovery", a.recovery / "split_controller.py"
+            )
+            factory = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(factory)
+            program = factory.candidate(feed)
+        code.write_text(program, encoding="utf8", newline="\n")
         expected = json.loads((ROOT / "station-landmark/feed.json").read_bytes())[
             "programSha256"
         ]
+        if a.recovery:
+            expected = json.loads((a.recovery / "signals.json").read_bytes())[
+                "programSha256"
+            ]
         if digest(code) != expected:
             raise ValueError("Wrong custody program")
         subprocess.run(
@@ -260,6 +278,8 @@ def run(a):
                 a.support,
                 a.outward,
                 a.collect,
+                bool(a.recovery),
+                expected,
             )
             for dt in a.steps
             for layout in a.layouts
@@ -286,6 +306,11 @@ if __name__ == "__main__":
         "--collect",
         action="store_true",
         help="Verify the cached input identities and three captured data files for each requested trial",
+    )
+    p.add_argument(
+        "--recovery",
+        type=Path,
+        help="Optional independently tested recovered-edge Java source directory",
     )
     p.add_argument("jdk", type=Path)
     p.add_argument("cache", type=Path)

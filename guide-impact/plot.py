@@ -20,6 +20,7 @@ def plot(results, raw, out):
         and x["guideModel"][1:] == [1800, 0.236]
         and (x["layout"] == "folded" or x["layout"] == "flat")
     ]
+    choose.sort(key=lambda x: (x["layout"] == "flat", bool(x["outwardPerSideMm"])))
     if len(choose) != 3:
         raise ValueError("Need folded, flat and outboard catches")
     mpl.rcParams.update(
@@ -63,7 +64,7 @@ def plot(results, raw, out):
             lw=1.5,
         )
     a.set(
-        title="Guide force during the right-small-wheel approach",
+        title="Guide force during the approach with the smaller right wheel",
         ylabel="Normal force (N)",
     )
     a.legend(loc="upper right", frameon=False)
