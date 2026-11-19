@@ -26,7 +26,7 @@ def sha(p):
         return hashlib.file_digest(f, "sha256").hexdigest()
 
 
-def feeds(raw, destination):
+def feeds(raw, destination, split=None):
     energy = read(HERE / "energy.json")["cases"]
     rows = []
     for case in CASES:
@@ -45,6 +45,8 @@ def feeds(raw, destination):
             ):
                 raise ValueError("Mismatched signed feed or solver clock")
             rows.append(row)
+            if split is not None:
+                write(split / f"{case}-{step:g}us/feed.json", {"attempts": [row]})
     write(
         destination,
         dict(
@@ -132,6 +134,7 @@ if __name__ == "__main__":
     collect = sub.add_parser("collect")
     collect.add_argument("raw", type=Path)
     collect.add_argument("output", type=Path)
+    collect.add_argument("--split", type=Path)
     for stage in ("service", "wheels", "pipe", "vision"):
         a = sub.add_parser(stage)
         a.add_argument("case", choices=CASES)
@@ -146,6 +149,6 @@ if __name__ == "__main__":
             a.add_argument("--wheel-mask", type=Path)
     a = p.parse_args()
     if a.stage == "collect":
-        feeds(a.raw, a.output)
+        feeds(a.raw, a.output, a.split)
     else:
         main(a)

@@ -67,3 +67,48 @@ class FixedMask(unittest.TestCase):
         (received,), (reference,) = mask_fixed_contour([image], [background], [mask])
         self.assertEqual(np.count_nonzero(received[0] != reference[0]), 40)
         self.assertTrue((received[1:] == reference[1:]).all())
+
+
+class PublishedDeparture(unittest.TestCase):
+    def test_four_reached_routes_and_irrevocable_fault_brake(self):
+        import json
+        import hashlib
+
+        record = json.loads((MOTION / "loaded-departure.json").read_bytes())
+        for name, key in (
+            ("loaded-witness.json", "stationWitnessSha256"),
+            ("loaded-feed.json", "registeredFeedSha256"),
+            ("wheel-visibility.json", "wheelVisibilityRegisterSha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((MOTION / name).read_bytes()).hexdigest(), record[key]
+            )
+        self.assertEqual(
+            {(r["case"], r["stepUs"]) for r in record["cases"]},
+            {(side, dt) for side in ("plus", "minus") for dt in (15.625, 31.25)},
+        )
+        for row in record["cases"]:
+            self.assertEqual(row["pipe"], "coral-A")
+            self.assertTrue(row["guardedPermit"])
+            self.assertFalse(row["latePermit"] or row["matchedFinishPermit"])
+            self.assertEqual(row["options"]["observed"], 600)
+            self.assertEqual(row["options"]["firstMovingFixedEyeDrop"], 30)
+            self.assertEqual(row["lateOrMatchedChassis"]["distanceMm"], 0)
+            self.assertEqual(row["qualifiedDeliveries"], 0)
+            normal = row["routes"]["600"]
+            self.assertEqual(
+                normal["vision"]["acceptedFrames"], len(normal["vision"]["frames"])
+            )
+            self.assertFalse(normal["vision"]["dropout"]["frame"]["accepted"])
+            self.assertGreater(normal["wheel"]["distanceMm"], 70)
+            self.assertLess(normal["wheel"]["relativeOdometryErrorMm"], 0.10)
+            for item in row["routes"].values():
+                self.assertGreater(
+                    item["wheel"]["battery"]["weak"]["minimumControllerV"], 9.5
+                )
+                self.assertGreater(min(item["wheel"]["fieldMinimumMm"].values()), 0)
+                self.assertIsNone(item["pipe"]["hardStop"])
+                self.assertIsNone(item["pipe"]["lost"])
+                self.assertLess(item["pipe"]["peakTravelMm"], 0.30)
+            self.assertLess(row["routes"]["30"]["wheel"]["distanceMm"], 0.25)
+        self.assertTrue(all(not r["granted"] for r in record["wholeScanlineControls"]))

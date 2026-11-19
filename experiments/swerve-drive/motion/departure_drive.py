@@ -75,7 +75,7 @@ def run(case, clock_dir, lease, destination, service):
     shares = (empty * shares0 + cargo * cargo_shares) / mass
     cg0 = shares0 @ xy
     cg = shares @ xy
-    # Conservative tube yaw inertia adds m LÃƒâ€šÃ‚Â²/12 and parallel-axis shift.
+    # Include the tube transverse inertia and the parallel-axis shift.
     inertia = (
         issued["assumedYawInertiaKgM2"]
         + empty * np.sum((cg - cg0) ** 2)

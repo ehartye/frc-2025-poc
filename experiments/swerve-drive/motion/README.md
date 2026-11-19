@@ -10,9 +10,51 @@
 
 The receiver follows the corrected signed opening poses into the same first station feed at 21.10 s. The field robot is held stationary during feeding. Its last incoming wheel trace bounds the residual chassis and wheel rates at 10⁻⁵ m/s or rad/s. At 27.035 s the five-frame stereo decision can enable a short combined reverse and lateral motion on the four real module centers. The target ramps to 0.15 m/s reverse and 0.025 m/s lateral in 250 ms, then commands a stop at 600 ms or sooner if custody expires. Wheel-radius error, absolute encoder quantization, yaw scale and bias remain signed. The chassis carries coral-A's 0.816466 kg at its attained center. Tire/contact and bus calculations assume the same supported tread conditions as the opening.
 
-The moving simulation preserves tube pose, velocity and momentum, 21 shelf/carriage coordinates and rates, both plungers and both five-mode guides. The stowed slide and zero belt command stay engaged. The contact solver takes the attained four-module chassis acceleration, yaw rate and yaw acceleration on 5 ms intervals. The effective chassis mass and inertia include the piece as a lumped load. Small cargo motions change its force distribution within the receiver. The drive does not feed those internal transients back into the wheel model. Stereo uses the registered public stowed body, two calibrated optical windows, the actual field station and a 0.05 mm guarded facing. The public wheel artwork has an illustrative forward pose. Unmodeled pupil calibration, changing tread appearance and untested ambient light remain assumptions.
+The moving simulation preserves tube pose, velocity and momentum, 21 shelf/carriage coordinates and rates, both plungers and both five-mode guides. The stowed slide and zero belt command stay engaged. The contact solver takes the attained four-module chassis acceleration, yaw rate and yaw acceleration on 5 ms intervals. The effective chassis mass and inertia include the piece as a lumped load. Small cargo motions change its force distribution within the receiver. The drive does not feed those internal transients back into the wheel model. Stereo uses the registered public stowed body, two calibrated optical windows, the actual field station and a 0.05 mm guarded facing. The public wheel artwork shows the modules pointing forward. The [all-angle visibility check](wheel-visibility.json) removes those six depictions per corner, projects all 300 supplier sweep envelopes and marks any pixel that might see moving material. A five-pixel neighborhood also excludes adjacent edge and registration samples. The fixed estimator drops any scanline whose uncertain region reaches the observed pipe or its three-pixel edge witness. The roof estimator masks 5,792 left and 6,601 right pixels in the images and their reference depths. Actual pupil calibration, surface reflectance and untested lighting remain assumptions.
 
 Each 17 ms exposure must describe the same pipe on both cameras. Delivery takes 15 ms and the controller runs every 5 ms. An invalid frame or one more than 40 ms old latches a stop. The simulation reruns the actual wheel and pipe braking path from the first rejected service time. The matched-brightness and late station controls withhold the initial permit. The missing-eye challenge tests a packet arriving after motion has begun.
+
+With the same pipe aboard, the chassis moved 71.79–71.80 mm during the nominal 600 ms command and finite brake. Each of the four simulated trials retained optical custody in all 88 moving exposures. Relative to the receiver, its center moved at most 0.249 mm in the four contact runs. Independently integrated wheel rotors, absolute azimuth and gyro measured field displacement within 0.087 mm of chassis truth. Losing one fixed eye on the first moving capture commanded braking at 27.065 s, after 30 ms. Total displacement from departure, including the coast, was at most 0.225 mm. The nearest modeled field barrier, stock and peer stayed 9.86 mm, 354.46 mm and 4.04 m away over the departure. The next decision is whether the moving receiver can retain an independently observed pipe over a registered transit to the reef.
+
+[Loaded wheel, camera and cargo results](loaded-departure.json) · [Corrected station feeds](loaded-feed.json) · [Both stereo heads and matched controls](loaded-witness.json)
+
+To reproduce the departure, place the eight corrected wheel CSVs under `$wheels` and use a working directory for the local contact traces, masks and images. The public register contains source hashes. The field STEP and the local JDK are supplied separately.
+
+```powershell
+foreach ($side in 'plus','minus') {
+    foreach ($us in 31.25,15.625) {
+        python feed.py $jdk $wheels $raw $side $us --opening energy.json --out "$raw/$side-$us.json"
+    }
+}
+python loaded_departure.py collect $raw $feeds --split $work
+python wheel_visibility.py "$work/wheel-visibility.json"
+python receiver_witness.py $raw $field $witness --opening energy.json --feed-register $feeds --wheel-mask "$work/wheel-visibility.json"
+python receiver_witness.py $raw $field "$work/whole-row-control.json" --opening energy.json --feed-register $feeds --wheel-mask "$work/wheel-visibility.json" --whole-scanlines
+```
+
+For each signed contact timestep, the service checkpoint precedes the wheel, contact and image calculations. A zero-duration wheel command reproduces the denied departure. The 30 ms lease reproduces the missing-eye stop. The 600 ms command is the nominal trial.
+
+```powershell
+python loaded_departure.py service $side $us $raw $feeds $witness $work
+foreach ($ms in 0,30,600) {
+    python loaded_departure.py wheels $side $us $raw $feeds $witness $work --wheels $wheels --lease-ms $ms
+    if ($ms -gt 0) {
+        python loaded_departure.py pipe $side $us $raw $feeds $witness $work --lease-ms $ms
+    }
+}
+python loaded_departure.py vision $side $us $raw $feeds $witness $work --field $field --wheel-mask "$work/wheel-visibility.json"
+```
+
+Rebuild the illustrated-forward control using the per-case subset made by `--split`, then collect the complete register once every case has run.
+
+```powershell
+$trial = Join-Path $work "$side-${us}us"
+python receiver_witness.py $raw $field "$trial/station.json" --opening energy.json --feed-register "$trial/feed.json"
+python loaded_departure.py vision $side $us $raw "$trial/feed.json" "$trial/station.json" $work --field $field
+python review_departure.py $work $feeds $witness $result
+```
+
+The compact register preserves the separate native-image and attained shaft, wheel, tube and structure hashes.
 
 ## Signed motor and transmission replay
 
