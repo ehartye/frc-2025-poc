@@ -10,6 +10,8 @@
 
 [Can the receiving shelf absorb the station drop?](shelf-structure/README.md) Compare the stock shelf with a lighter machined insert and two stowed shock absorbers. Follow the load through the slide and mast and see which capture assumptions still need a fixture.
 
+[How does the locked receiver resist pitch?](carriage-support/README.md) Inspect the two fixed brackets, their machining drawing and the deflection that changes the station-impact calculation.
+
 [How do the receiver masts carry load into the rails?](mast-attachment/README.md) See the splice drawing, the reversible removal path and what happens when one side loses support.
 
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.
