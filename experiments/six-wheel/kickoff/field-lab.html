@@ -35,6 +35,7 @@ select{width:100%;font:inherit;color:inherit;padding:5px;border:1px solid #869bb
 .replay-robot select,.replay-robot button{font-size:14px}.replay-robot output{display:block;font-size:14px;margin:5px 0}
 .replay-tools label{font-size:13px}.replay-tools select{width:auto;margin-left:5px}#replayQueue,#replayNotice{font-size:14px}
 header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px)/2));color:white;background:var(--navy);border-bottom:4px solid var(--gold)}header p{color:#dce8f6}h1,h2,h3,legend{font-family:var(--display)}h1{letter-spacing:-.035em}main>details:first-child{background:white;border:1px solid var(--edge);border-left:5px solid var(--blue);padding:12px 16px;margin-bottom:18px}button:hover:enabled{border-color:var(--blue)}nav button:hover:enabled{border-color:var(--gold)}:focus-visible{outline:3px solid #ad6200;outline-offset:3px}figure :focus-visible{outline-color:var(--gold)}#modelSummary{overflow-x:auto}.layout>*{min-width:0}button.primary{border-color:#b78125}.replay-robot{border-radius:4px}.slider output,#replayClock{font-family:"IBM Plex Mono",Consolas,monospace}
+#numbers label[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -55,6 +56,7 @@ header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px
 <figure class="rehearsal-board"><canvas id="replayField" aria-label="Timed overhead field showing labeled blue and red robots, structures and blocked positions. The roster below describes each robot."></canvas>
 <figcaption>Blue and red rectangles show occupied robot footprints. Amber circles mark accumulated waiting. Hatched obstacles block the selected height or reserve uncertain space. Dotted lines show planned robot paths.</figcaption></figure>
 <div class="replay-tools"><b id="replayClock" aria-label="Remaining match period time"></b>
+<label>Match series<select id="replaySeriesSource"></select></label>
 <button id="replaySeries">Play match series at 10×</button><button id="replayRun" class="primary">Start period</button><button id="replayStep">Step 1 s</button>
 <button id="replayFast">Run to period end</button><button id="replayReset">Reset match</button><button id="replaySave">Save rehearsal snapshot</button>
 <label>Obstacle setup<select id="replaySetup"></select></label></div>
@@ -64,7 +66,7 @@ header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px
 <article id="opportunity"><h2>What can we score in this window?</h2>
 <p id="inventory"></p><p class="muted" id="scoreSource"></p>
 <div class="fields" id="choices"></div>
-<p class="muted">Allocate pieces to this robot at A for a shuttle or at B for locally staged supply. Each empty return follows the loaded route at the same assumed speed. Service time includes handling and release. Enter other non-scoring time once per window.</p>
+<p class="muted">Choose single-piece shuttles, supply staged at B, or one batch loaded at A before traveling to B. Each empty return follows the loaded route at the same assumed speed. Service time includes handling and release. Enter other non-scoring time once per window.</p>
 <div class="fields" id="numbers"></div>
 <label>Supply and timing assumptions<input id="allocation" type="text" placeholder="Where are the pieces, who else needs them, and when can they arrive?"></label>
 <h3>Route and mechanism exposure</h3><p>The model suggests a pickup-to-goal route. Amber marks show possible shared corridors. Move the robot and mark A or B to compare another route.</p>
@@ -589,12 +591,13 @@ function createFieldRehearsal(profile) {
   return {supported,behaviors,defaults,create,advance,nextPhase,assessRoute,geom,dt,periods:phases,
     phaseSeconds:name=>duration(name)*dt};
 }
-function createMatchSeries(engine, matches) {
+function createMatchSeries(engine, matches, {allowEmptyRoster = false} = {}) {
   if (!Array.isArray(matches) || !matches.length) throw Error('Supply at least one project-authored match');
   const ids=new Set();
   const configs=matches.map(match=>{
     if (typeof match.id!=='string' || !match.id.trim() || ids.has(match.id) || !match.basis?.trim() ||
-        !Array.isArray(match.roster) || !match.roster.length) throw Error('Specify unique match IDs, behavior basis and roster');
+        !Array.isArray(match.roster) || (!allowEmptyRoster && !match.roster.length))
+      throw Error('Specify unique match IDs, behavior basis and roster');
     ids.add(match.id);
     const roster=match.roster.map(row=>{
       if (!row.plans || !engine.periods.every(p=>Object.hasOwn(engine.behaviors,row.plans[p.name])))
@@ -630,6 +633,30 @@ function createMatchSeries(engine, matches) {
     }
   }
   return {get sim(){return sim;},get match(){return configs[index];},get done(){return results.length===configs.length;},results,advance};
+}
+function createRehearsalSetup(engine, initialRoster, initialSetup, publishedMatches = []) {
+  let roster = initialRoster, setup = initialSetup;
+  function edit(nextRoster, nextSetup) {
+    const sim = engine.create(nextRoster, nextSetup);
+    roster = structuredClone(nextRoster);
+    setup = nextSetup;
+    return sim;
+  }
+  function reset() {
+    return engine.create(structuredClone(roster), setup);
+  }
+  function series(source) {
+    if (source === 'published') return createMatchSeries(engine, publishedMatches);
+    if (source !== 'student') throw Error('Choose a match series');
+    const trials = [1, 2, 3].map(i => ({
+      id: 'Trial ' + i,
+      basis: 'Repeat the student roster, period behaviors and obstacle setup',
+      roster: structuredClone(roster),
+      setup
+    }));
+    return createMatchSeries(engine, trials, {allowEmptyRoster: true});
+  }
+  return {edit, reset, series, get roster(){return structuredClone(roster);}, get setup(){return setup;}};
 }
 const rehearsal=createFieldRehearsal(profile); const rehearsalNotes=[];
 // Orthographic projection of field coordinates in inches. Z is up.
@@ -879,6 +906,26 @@ function analyzeWindow(s) {
   }
   if (s.opening+s.incoming>s.stock) throw Error('Allocated pieces exceed the distinct match inventory.');
   if (s.cap !== null && !whole(s.cap)) throw Error('Target capacity must be a whole count.');
+  if (s.delivery==='loaded-batch') {
+    if (!whole(s.carryCapacity) || !s.carryCapacity) throw Error('Enter a positive whole-piece carrying capacity for the one loaded trip.');
+    const slots=s.cap ?? s.stock;
+    function departure(time,offered) {
+      const load=Math.min(offered,s.carryCapacity);
+      const ready=time+s.travel+s.setup;
+      const usable=Math.max(0,s.window-ready);
+      const available=Math.min(load,slots);
+      return {time,load,ready,usable,available,delivered:Math.min(available,Math.floor(usable/s.cycle+1e-10))};
+    }
+    const early=departure(0,s.opening);
+    const late=departure(s.arrival,s.opening+s.incoming);
+    // Leaving early forfeits the later load. Keep the two one-trip alternatives mutually exclusive.
+    const best=early.delivered>=late.delivered ? early : late;
+    const target=early.available>=s.goal ? early : late;
+    return {ready:target.ready,usable:target.usable,available:late.available,
+      rate:target.available>=s.goal && target.usable>0 ? s.goal/target.usable : Infinity,
+      delivered:best.delivered,attainable:best.delivered>=s.goal,points:best.delivered*s.points,
+      early,late,bestDepartureS:best.time,targetDepartureS:target.available>=s.goal?target.time:null};
+  }
   if (s.delivery==='shuttle') {
     const returning=s.returnTravel ?? s.travel;
     if(!finite(returning)) throw Error('Return transit must be finite and nonnegative.');
@@ -1103,7 +1150,7 @@ function control(group,id,title,options) {
 const targetBox=control('choices','opTarget','Scoring target',scoring?.targets.map(t=>t.name) || ['Custom opportunity']);
 const phaseBox=control('choices','opPhase','Match phase',scoring?.phases.map(v=>v.name) || ['Custom window']);
 const delivery=control('choices','opDelivery','Piece delivery',
-  ['Shuttle · fetch one piece from A for every score at B','Staged at B · transit once, then score locally']);
+  ['Shuttle · fetch one piece from A for every score at B','Staged at B · transit once, then score locally','One batch loaded at A · carry it to B']);
 const inputs={};
 for(const [key,title,initial] of [
   ['stock','Distinct pieces in match',null],['points','Points per scored piece',null],
@@ -1112,12 +1159,23 @@ for(const [key,title,initial] of [
   ['goal','Pieces this robot aims to score',1],['setup','Non-scoring time beyond transit (s)',0],
   ['speed','Assumed average transit speed (in/s)',profile.rehearsal?.defaults?.speed ?? null],['cycle','Non-travel service per piece (s)',1],
   ['bumper','Trial bumper projection per side (in)',profile.rehearsal?.defaults?.bumper ?? null],
-  ['capacity','Open target slots (optional)',null]
+  ['capacity','Open target slots (optional)',null],['carryCapacity','Robot carrying capacity (pieces per trip)',null]
 ]){
   const input=control('numbers','op-'+key,title);input.min=0;input.step='any';
   if(initial!==null) input.value=initial;
   inputs[key]=input;
 }
+const loadedBatch=()=>delivery.value==='2';
+function syncDelivery(){
+  const batch=loadedBatch();
+  inputs.carryCapacity.parentElement.hidden=!batch;
+  inputs.opening.parentElement.firstChild.textContent=batch?'Pieces ready to ride at A at window start':'Accessible here at start';
+  inputs.incoming.parentElement.firstChild.textContent=batch?'Additional pieces ready to ride at A':'Additional pieces arriving here';
+  inputs.arrival.parentElement.firstChild.textContent=batch?'Time additional pieces are aboard at A (s)':'Their arrival time from window start (s)';
+  inputs.setup.parentElement.firstChild.textContent=batch?'Setup at B after loaded transit (s)':'Non-scoring time beyond transit (s)';
+  inputs.cycle.parentElement.firstChild.textContent=batch?'Scoring service at B per piece (s)':'Non-travel service per piece (s)';
+}
+syncDelivery();
 const overrides={};
 let study, clearance;
 const read=key=>inputs[key].value===''?NaN:Number(inputs[key].value);
@@ -1165,7 +1223,8 @@ function evaluate() {
   const trial={};
   for(const key of ['stock','opening','incoming','goal','window','cycle','arrival','setup','points']) trial[key]=read(key);
   trial.cap=cap;trial.travel=study.length?study.length/speed:0;
-  trial.delivery=delivery.value==='0'?'shuttle':'staged';
+  trial.delivery=loadedBatch()?'loaded-batch':delivery.value==='0'?'shuttle':'staged';
+  if(loadedBatch())trial.carryCapacity=read('carryCapacity');
   const result=analyzeWindow(trial);
   const n=v=>Number(v.toFixed(3));
   const rate=Number.isFinite(result.rate)?n(result.rate)+' pieces/s':'unattainable in the remaining time';
@@ -1174,15 +1233,23 @@ function evaluate() {
     'Footprint clearance unknown.';
   const lines=[routeStatus,
     'Supply and target ceiling: '+result.available+' pieces · goal '+trial.goal+'.',
+    loadedBatch()?(result.targetDepartureS===null?'The target exceeds the available load or open slots. ':
+      'For the goal, depart A at '+n(result.targetDepartureS)+' s. ')+
+      'Transit '+n(trial.travel)+' s then setup '+n(trial.setup)+' s at B. '+n(result.usable)+' s of service after departure and setup.':
     trial.delivery==='shuttle'?'Goal requires '+result.outboundLegs+' loaded and '+result.returnLegs+' empty legs ('+
       n(result.goalTransit)+' s transit). After setup, '+n(result.usable)+' s remain for service.':
       'One transit '+n(trial.travel)+' s + other non-scoring time '+trial.setup+' s leaves '+n(result.usable)+' s.',
-    'Required throughput: '+rate+(result.rate>0 && Number.isFinite(result.rate)?' (at most '+n(1/result.rate)+' s/piece).':'.'),
+    loadedBatch() && result.targetDepartureS===null?'Required throughput: no service rate can fill the goal with this load and target capacity.':
+      'Required throughput: '+rate+(result.rate>0 && Number.isFinite(result.rate)?' (at most '+n(1/result.rate)+' s/piece).':'.'),
     'Candidate: '+n(1/trial.cycle)+' pieces/s. At most '+result.delivered+' scored for '+result.points+' points. '+
       (result.available<trial.goal?'Supply or scoring slots rule out this goal.':
         !result.attainable?'Candidate misses this window.':clearance.status==='clear'?'Meets the arithmetic screen.':
         'Arithmetic bound only. A feasible route is required.')
   ];
+  if(loadedBatch()){
+    lines.splice(2,0,'One outbound trip. Pieces must be aboard at A before departure. Capacity '+trial.carryCapacity+' pieces. Leave at 0 s for at most '+result.early.delivered+
+      ' scored, or wait until '+n(result.late.time)+' s for at most '+result.late.delivered+'. Best departure '+n(result.bestDepartureS)+' s.');
+  }
   if(!study.line.length) lines.unshift('Transit unknown. The rate below assumes zero travel time.');
   return {lines,trial};
 }
@@ -1195,7 +1262,7 @@ for(const name of ['A','B']) byId('mark'+name).onclick=()=>{
 };
 byId('clearRoute').textContent='Restore modeled route';
 byId('clearRoute').onclick=()=>{delete overrides.a;delete overrides.b;updateRoute();};
-targetBox.onchange=selectOpportunity;phaseBox.onchange=selectOpportunity;delivery.onchange=reviewWindow;
+targetBox.onchange=selectOpportunity;phaseBox.onchange=selectOpportunity;delivery.onchange=()=>{syncDelivery();reviewWindow();};
 Object.values(inputs).forEach(input=>input.oninput=reviewWindow);
 inputs.bumper.oninput=updateRoute;
 for(const key of ['width','length','height','heading']) sliders.get(key).input.addEventListener('input',updateRoute);
@@ -1209,7 +1276,8 @@ byId('saveWindow').onclick=()=>{
     'Distinct inventory '+trial.stock+'. Opening allocation '+trial.opening+', plus '+trial.incoming+' at '+trial.arrival+
     ' s. Window '+trial.window+' s. Value '+trial.points+' points/piece. Slots '+(trial.cap ?? 'unspecified')+'.',
     'Assumptions: '+notes,'Delivery: '+delivery.selectedOptions[0].textContent+
-    '. For a shuttle, incoming pieces arrive at A and the empty return uses the same route and assumed speed. For staged supply, incoming pieces arrive at B.',
+    (loadedBatch()?'. The arrival clock is confirmed loaded readiness at A up to the robot capacity. The single loaded A→B trip follows; setup and scoring follow arrival at B. Empty return is outside this window.':
+      '. For a shuttle, incoming pieces arrive at A and the empty return uses the same route and assumed speed. For staged supply, incoming pieces arrive at B.'),
     'Route: '+byId('routeLabel').textContent+' at assumed '+inputs.speed.value+' in/s.',
     'Traffic inference: '+study.traffic+'. '+(scoring?.fieldMap?.basis || ''),
     'Trial box '+state.length+' × '+state.width+' × '+state.height+' in, heading '+state.heading+'°, bumper projection '+(Number.isFinite(read('bumper'))?read('bumper')+' in per side':'unknown')+'. Candidate non-travel cycle '+trial.cycle+' s/piece.',
@@ -1230,9 +1298,14 @@ selectOpportunity();
   const rosterBox=byId('replayRoster'), clock=byId('replayClock'),notice=byId('replayNotice');
   panel.hidden=false;
   let roster=[rehearsal.defaults('blue',1),rehearsal.defaults('red',1)];
-  let setup=profile.rehearsal.setups[0],sim=rehearsal.create(roster,setup),frame=null,lastTime=0;
+  let setup=profile.rehearsal.setups[0],frame=null,lastTime=0;
   let series=null,seriesPaused=false;
   const config=profile.rehearsal, L=profile.field.length,W=profile.field.width;
+  const student=createRehearsalSetup(rehearsal,roster,setup,config.series?.matches);
+  let sim=student.reset(),activeSource='';
+  const seriesSource=byId('replaySeriesSource');
+  if(config.series?.matches?.length)seriesSource.add(new Option('Published scenarios','published'));
+  seriesSource.add(new Option('My roster · 3 matches','student'));
   for(const setup of config.setups)byId('replaySetup').add(new Option(setup,setup));
   byId('replayBasis').textContent=config.basis+' '+config.boundsNote+
     ' The default bumper adds '+config.defaults.bumper+' in per side. Priorities follow request time, then robot ID for same-tick requests. Completed trips count arrivals and service, with scoring evaluated separately by the project station model.';
@@ -1355,7 +1428,7 @@ selectOpportunity();
   }
   function setRoster(newRoster,newSetup=setup){
     try{
-      const next=rehearsal.create(newRoster,newSetup);
+      const next=student.edit(newRoster,newSetup);
       roster=newRoster;setup=newSetup;sim=next;notice.textContent='';
     } catch(e){notice.textContent=e.message;}
     byId('replaySetup').value=setup;
@@ -1411,11 +1484,11 @@ selectOpportunity();
     const end=sim.ended;
     byId('replayRun').disabled=!roster.length || (end && sim.phaseIndex===config.periods.length-1);
     if(series)byId('replayRun').disabled=true;
-    byId('replaySeries').disabled=!roster.length;
+    seriesSource.disabled=Boolean(series && !series.done);
     byId('replaySeries').textContent=series && !series.done ? (seriesPaused?'Resume series at 10×':'Pause series') : 'Play match series at 10×';
     byId('replayScore').textContent=(config.stations?.length?'Modeled rehearsal score · Blue '+sim.game.score.blue+' · Red '+sim.game.score.red+
       '. '+config.stations.filter(s=>s.kind==='retrieval').map(s=>s.label+' '+sim.game.stock[s.id].length+' '+s.piece+' available').join(' · '):
-      'This profile has no registered piece or scoring stations.')+(series?' · Match '+series.match.id+' · '+series.match.basis:'');
+      'This profile has no registered piece or scoring stations.')+(series?' · '+activeSource+' · Match '+series.match.id+' · '+series.match.basis:'');
     for(const s of stations){
       const count=s.kind==='retrieval'?sim.game.stock[s.id].length+' available':
         sim.game.attempts[s.id]+' attempted'+(s.capacity===undefined?'':' · '+sim.game.occupied[s.id]+'/'+s.capacity+' occupied');
@@ -1456,9 +1529,10 @@ selectOpportunity();
     stopFrame();
     if(series && !series.done){seriesPaused=!seriesPaused;}
     else{
-      const matches=config.series?.matches ?? [1,2,3].map(i=>({id:'Trial '+i,basis:'Repeat current prescribed behavior',roster,setup}));
-      try{series=createMatchSeries(rehearsal,matches);}catch(error){notice.textContent=error.message;return;}
-      sim=series.sim;setup=sim.setup;roster=series.match.roster;seriesPaused=false;listRoster();seriesResults();
+      try{series=student.series(seriesSource.value);}catch(error){notice.textContent=error.message;return;}
+      activeSource=seriesSource.selectedOptions[0].text;
+      sim=series.sim;setup=sim.setup;roster=series.match.roster;seriesPaused=false;
+      byId('replaySetup').value=setup;notice.textContent='';listRoster();seriesResults();
     }
     lastTime=performance.now();if(!seriesPaused)frame=requestAnimationFrame(playSeries);render();
   };
@@ -1478,7 +1552,12 @@ selectOpportunity();
   function advancePaused(seconds){sim.paused=false;rehearsal.advance(sim,seconds);sim.paused=true;render();}
   byId('replayStep').onclick=()=>advancePaused(1);
   byId('replayFast').onclick=()=>advancePaused(rehearsal.phaseSeconds(sim.phase));
-  byId('replayReset').onclick=()=>{stopFrame();series=null;seriesPaused=false;seriesResults();setRoster(roster,setup);notice.textContent='Same roster and behaviors restored at '+sim.phase+' start.';};
+  byId('replayReset').onclick=()=>{
+    stopFrame();series=null;seriesPaused=false;activeSource='';seriesResults();
+    sim=student.reset();roster=student.roster;setup=student.setup;
+    byId('replaySetup').value=setup;listRoster();render();
+    notice.textContent='Your roster, period behaviors and obstacle setup are restored at '+sim.phase+' start.';
+  };
   byId('replaySave').onclick=()=>{
     const id='MATCH-'+(rehearsalNotes.length+1);
     const lines=[id+' · '+profile.game+' '+profile.edition+' prescribed rehearsal',
@@ -1489,6 +1568,7 @@ selectOpportunity();
         'Position '+r.p.map(x=>x.toFixed(2)).join(', ')+' in. '+r.visits+' completed trips, '+(r.wait*rehearsal.dt).toFixed(2)+
         ' s waiting; '+(r.blocked || r.action || 'at start')+'.'),
       queues()];
+    if(series)lines.push('Match series: '+activeSource+'.');
     for(const summary of sim.phaseHistory)lines.push(summary.phase+' cutoff at '+summary.seconds+' s: '+
       summary.robots.map(r=>r.id+' '+r.visits+' trips, '+r.waitSeconds.toFixed(2)+' s waiting').join('; ')+'.');
     const waits=sim.hotspots.slice().sort((a,b)=>b.ticks-a.ticks).slice(0,3);

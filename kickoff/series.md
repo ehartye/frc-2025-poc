@@ -1,6 +1,6 @@
 # Three REEFSCAPE matches
 
-In the [field lab](field-lab.html#rehearsal), select **Play match series at 10×**. The three games use the same 50 ms simulation steps as the single-match controls. Each has 15 seconds of AUTO and 135 seconds of TELEOP. The modeled clock covers those two active phases; disabled transitions, fouls, endgame and ranking points are outside the series. To change the roster yourself, reset the rehearsal and use **Add blue robot** or **Add red robot**.
+In the [field lab](field-lab.html#rehearsal), choose the published series or your edited roster under **Match series**, then play at 10×. Reset restores your edited robots and obstacles after a published scenario. The three games use the same 50 ms simulation steps as the single-match controls. Each has 15 seconds of AUTO and 135 seconds of TELEOP. The modeled clock covers those two active phases; disabled transitions, fouls, endgame and ranking points are outside the series. To change the roster yourself, reset the rehearsal and use **Add blue robot** or **Add red robot**.
 
 | Match | Blue | Red | What changes |
 |---|---:|---:|---|
@@ -18,4 +18,4 @@ The studied robot’s [primary loaded route](../experiments/swerve-drive/transit
 
 ### Reproduce
 
-Use the project’s [season profile](season-profile.json) with Agent FRC 0.31.1 at commit `266805cd793fa5be4dbc68700e7b275bf782a60e`. `node <plugin>/scripts/rehearsal-series.mjs kickoff/season-profile.json <new-receipt.json>` reproduces the [three-game ledger](match-series.json), including stock, cargo, clock and scores. `node <plugin>/scripts/kickoff.mjs --profile kickoff/season-profile.json --output <new-field-lab.html>` regenerates the standalone lab at a new path. The current and historical lab links both ship these same bytes. The project’s [registration script](register_series.py) recreates the season profile from the archived field geometry and the native inventory.
+Use the project’s [season profile](season-profile.json) with Agent FRC 0.35.0 at commit `0fbf18d8ebb00e34fbd55f06a98e9169509cfca1`. `node <plugin>/scripts/rehearsal-series.mjs kickoff/season-profile.json <new-receipt.json>` reproduces the [three-game ledger](match-series.json), including stock, cargo, clock and scores. `node <plugin>/scripts/kickoff.mjs --profile kickoff/season-profile.json --output <new-field-lab.html>` regenerates the standalone lab at a new path. The current and historical lab links both ship these same bytes. The project’s [registration script](register_series.py) recreates the season profile from the archived field geometry and the native inventory.
