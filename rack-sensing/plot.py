@@ -45,6 +45,8 @@ def figure(raw, destination):
     fig.tight_layout()
     fig.savefig(destination, format="svg", metadata={"Date": None})
     plt.close(fig)
+    lines = destination.read_text(encoding="utf8").splitlines()
+    destination.write_text("\n".join(line.rstrip() for line in lines) + "\n", encoding="utf8", newline="\n")
 
 
 if __name__ == "__main__":
