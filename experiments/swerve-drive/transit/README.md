@@ -6,6 +6,8 @@
 **Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
+[Test a mechanical retainer from both measured stops](../retention/study.md).
+
 [Compare the three wheel paths on the match clock](index.html). The four-module robot begins at 28.535 s with coral-A on its stowed receiver. Each trial starts at the true and estimated poses reached in the [first loaded departure](../motion/loaded-departure.json), with the attained steering angles, rotor turns, motor targets, gyro and residual wheel rates. The sign identifies the two opposing wheel-radius and gyro error patterns.
 
 | Wheel controller | Distance traveled | Smallest structural clearance | Smallest stock clearance | Smallest peer clearance |
