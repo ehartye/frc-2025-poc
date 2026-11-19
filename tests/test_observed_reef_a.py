@@ -93,6 +93,16 @@ class ObservedReefApproach(unittest.TestCase):
                 self.assertGreater(row["minGuideGapMm"], 10)
                 self.assertAlmostEqual(row["finalWallS"], 48.16217, places=4)
 
+    def test_quantized_custody_survives_time_refinement_on_both_shelves(self):
+        rows = read("refinement")
+        self.assertEqual(len({(r["wheelCase"], r["shelf"]) for r in rows}), 4)
+        for row in rows:
+            self.assertTrue(row["bothReachedSector"])
+            self.assertTrue(row["sameDeliveredCaptureTimesAndCustodyStates"])
+            self.assertEqual((row["coarseFrames"], row["fineFrames"]), (1244, 1244))
+            self.assertLess(row["maxResampledCenterDifferenceMm"], 0.10)
+            self.assertLess(row["maxResampledAxisDifferenceDeg"], 0.05)
+
     def test_actuator_limits_and_jam_stop(self):
         result = read("effort")
         self.assertLess(result["driveAt006Mps"]["2.4"]["phase_A"], 8)
