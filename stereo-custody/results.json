@@ -1,0 +1,772 @@
+{
+  "schema": "station-independent-position/1",
+  "pose_sha256": {
+    "stowed": "193c7976d115fcc2f437f24b437ef3bac0b6aa4720125ca799a5abe67a60f6d4",
+    "receive": "6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73",
+    "transport": "27b8181e635de5c605e5ec3af2e8c3a337dbae593b42b22e80fbdaaf99b509e4",
+    "place": "bb3d42bb18b57de7900b636e83ba2d46bc7d85e51ed18402f1aa0c5d37cebd7e"
+  },
+  "source_sha256": {
+    "stereo-custody/studies.py": "e92288645b68f6896c5c61c9e3a361c13be9b040a9e0e9762d4adc3409487710",
+    "stereo-custody/observe.py": "b881192541d7b62064c11f4f4e0229edb6d5dda19c55b5f7076f4f015908e593",
+    "stereo-custody/clock.py": "36cd848c0a937096dc9e97c210578c51cb10bcc2c200a17f2cc49c308ed45661",
+    "stereo-custody/imaging.py": "7110b3c162eeb88d35867a95a83966adcb93e92b1c0e376413bc3a9d37b0c26b",
+    "stereo-custody/application.csv": "ca21f3d02588998c34539b5c32d118a756cb137f0a832bca75f8e4e9885d03d4",
+    "stereo-custody/camera.csv": "a04870b232d31f27c2e19626b0f4387dde8c81c74ec6620fe0130cb245c364dc",
+    "design/competition-package/shop-duplex/red/robot.html": "ab3ff27f7f78e7bd3e77eb093d2d29b9e3039c9efc3661b8d6aa82b3d1720728",
+    "observable-acquisition/ticks.csv": "f06b62562804c529ee316f138ae143f3407b422803ccff6c5d430605a1abf1f5",
+    "observable-acquisition/results.json": "13f02c6eb7f95f3c070f23f1d0d24937a69d084f6086d0b88d51e5bb7ca352b7",
+    "observable-acquisition/study.py": "bd528292623730ff0f20d30a8be46eb673e43855ba554dd180e44d2b05d39593",
+    "release-observer/stereo.py": "1a6213000e68803051c2329fbd27f05c6184a8929d877fd0e1d3c63537b9c4cd",
+    "design/installed-procurement/installed.csv": "92d18a54fad902c1b2457e34f3014611f53586af24d2778f1d3b95cf33e1b44c"
+  },
+  "schedule": {
+    "nominal": {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    "different-pose": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "invalid-frame-clock-or-identity"
+    },
+    "replayed-ports-empty-shelf": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "insufficient-stereo-contour"
+    },
+    "replayed-ports-weak-grip": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "insufficient-stereo-contour"
+    },
+    "replayed-ports-pipe-at-rear-edge": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "outside-custody-envelope"
+    },
+    "repeated-camera-capture": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "invalid-frame-clock-or-identity"
+    },
+    "true-ports-weak-grip": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "insufficient-stereo-contour"
+    },
+    "uncalibrated": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "uncalibrated-or-moving"
+    },
+    "moving": {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1400,
+      "positive_ticks": 2,
+      "first_revoked_ms": 1420,
+      "last_status": "uncalibrated-or-moving"
+    },
+    "camera-disconnected": {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1400,
+      "positive_ticks": 2,
+      "first_revoked_ms": 1420,
+      "last_status": "independent-position-corroborated"
+    },
+    "old-attempt": {
+      "first_corroborated_ms": null,
+      "last_corroborated_ms": null,
+      "positive_ticks": 0,
+      "first_revoked_ms": null,
+      "last_status": "invalid-frame-clock-or-identity"
+    }
+  },
+  "frames": {
+    "seated": {
+      "status": "position-witness",
+      "u_interval_mm": [
+        67.5,
+        88.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -6.649999999999999,
+        7.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.747194744701922,
+        2.747194744701922
+      ],
+      "scanlines": 93,
+      "cells": 155
+    },
+    "wrong-forward": {
+      "status": "outside-custody-envelope",
+      "u_interval_mm": [
+        102.5,
+        124.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -7.649999999999999,
+        8.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.727854969815361,
+        2.727854969815361
+      ],
+      "scanlines": 88,
+      "cells": 186
+    },
+    "behind-seat": {
+      "status": "outside-custody-envelope",
+      "u_interval_mm": [
+        23.5,
+        42.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -6.649999999999999,
+        6.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.5917108566464435,
+        2.5917108566464435
+      ],
+      "scanlines": 100,
+      "cells": 126
+    },
+    "airborne": {
+      "status": "outside-custody-envelope",
+      "u_interval_mm": [
+        67.5,
+        88.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        22.35,
+        43.35
+      ],
+      "y_interval_mm": [
+        -2.708527503179745,
+        2.708527503179745
+      ],
+      "scanlines": 72,
+      "cells": 224
+    },
+    "lateral": {
+      "status": "inconsistent-stereo-shape",
+      "scanlines": 86
+    },
+    "missing-eye": {
+      "status": "insufficient-stereo-contour",
+      "scanlines": 0
+    },
+    "lit-empty": {
+      "status": "insufficient-stereo-contour",
+      "scanlines": 0
+    },
+    "flat-clutter": {
+      "status": "ambiguous-disparity"
+    },
+    "contrast-lost": {
+      "status": "insufficient-stereo-contour",
+      "scanlines": 8
+    },
+    "yaw-8": {
+      "status": "unbounded-contour"
+    },
+    "loose-errors": {
+      "status": "outside-custody-envelope",
+      "u_interval_mm": [
+        54.5,
+        100.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -10.649999999999999,
+        12.350000000000001
+      ],
+      "y_interval_mm": [
+        -5.4206247031072365,
+        5.4206247031072365
+      ],
+      "scanlines": 93,
+      "cells": 686
+    },
+    "stowed": {
+      "status": "position-witness",
+      "u_interval_mm": [
+        70.5,
+        82.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -5.649999999999999,
+        5.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.1308967968952572,
+        2.1308967968952572
+      ],
+      "scanlines": 140,
+      "cells": 51
+    },
+    "transport": {
+      "status": "position-witness",
+      "u_interval_mm": [
+        69.5,
+        83.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -6.649999999999999,
+        5.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.32378348803681,
+        2.32378348803681
+      ],
+      "scanlines": 105,
+      "cells": 89
+    },
+    "place": {
+      "status": "outside-custody-envelope",
+      "u_interval_mm": [
+        63.5,
+        96.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -13.649999999999999,
+        12.350000000000001
+      ],
+      "y_interval_mm": [
+        -3.4634031961909173,
+        3.4634031961909173
+      ],
+      "scanlines": 58,
+      "cells": 467
+    }
+  },
+  "example_packet": {
+    "sequence": 89,
+    "capture_ms": 1513,
+    "arrived_ms": 1528,
+    "epoch": "trial",
+    "pose_sha256": "6389d766ad3d4d65b885bccb615a23807cadd8ef4f14d846214cea8a4dd96f73",
+    "observation": {
+      "status": "position-witness",
+      "u_interval_mm": [
+        67.5,
+        88.5
+      ],
+      "bottom_relative_to_shelf_mm": [
+        -6.649999999999999,
+        7.350000000000001
+      ],
+      "y_interval_mm": [
+        -2.747194744701922,
+        2.747194744701922
+      ],
+      "scanlines": 93,
+      "cells": 155
+    }
+  },
+  "all_integer_stereo_phases": [
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    },
+    {
+      "first_corroborated_ms": 1380,
+      "last_corroborated_ms": 1520,
+      "positive_ticks": 8,
+      "first_revoked_ms": null,
+      "last_status": "independent-position-corroborated"
+    }
+  ],
+  "observations_nominal": [
+    [
+      0,
+      "insufficient-stereo-contour"
+    ],
+    [
+      17,
+      "insufficient-stereo-contour"
+    ],
+    [
+      34,
+      "insufficient-stereo-contour"
+    ],
+    [
+      51,
+      "insufficient-stereo-contour"
+    ],
+    [
+      68,
+      "insufficient-stereo-contour"
+    ],
+    [
+      85,
+      "insufficient-stereo-contour"
+    ],
+    [
+      102,
+      "outside-custody-envelope"
+    ],
+    [
+      119,
+      "outside-custody-envelope"
+    ],
+    [
+      136,
+      "outside-custody-envelope"
+    ],
+    [
+      153,
+      "outside-custody-envelope"
+    ],
+    [
+      170,
+      "position-witness"
+    ],
+    [
+      187,
+      "outside-custody-envelope"
+    ],
+    [
+      204,
+      "outside-custody-envelope"
+    ],
+    [
+      221,
+      "outside-custody-envelope"
+    ],
+    [
+      238,
+      "outside-custody-envelope"
+    ],
+    [
+      255,
+      "outside-custody-envelope"
+    ],
+    [
+      272,
+      "outside-custody-envelope"
+    ],
+    [
+      289,
+      "outside-custody-envelope"
+    ],
+    [
+      306,
+      "outside-custody-envelope"
+    ],
+    [
+      323,
+      "outside-custody-envelope"
+    ],
+    [
+      340,
+      "outside-custody-envelope"
+    ],
+    [
+      357,
+      "outside-custody-envelope"
+    ],
+    [
+      374,
+      "outside-custody-envelope"
+    ],
+    [
+      391,
+      "outside-custody-envelope"
+    ],
+    [
+      408,
+      "outside-custody-envelope"
+    ],
+    [
+      425,
+      "outside-custody-envelope"
+    ],
+    [
+      442,
+      "outside-custody-envelope"
+    ],
+    [
+      459,
+      "outside-custody-envelope"
+    ],
+    [
+      476,
+      "outside-custody-envelope"
+    ],
+    [
+      493,
+      "outside-custody-envelope"
+    ],
+    [
+      510,
+      "outside-custody-envelope"
+    ],
+    [
+      527,
+      "outside-custody-envelope"
+    ],
+    [
+      544,
+      "outside-custody-envelope"
+    ],
+    [
+      561,
+      "outside-custody-envelope"
+    ],
+    [
+      578,
+      "outside-custody-envelope"
+    ],
+    [
+      595,
+      "outside-custody-envelope"
+    ],
+    [
+      612,
+      "outside-custody-envelope"
+    ],
+    [
+      629,
+      "outside-custody-envelope"
+    ],
+    [
+      646,
+      "outside-custody-envelope"
+    ],
+    [
+      663,
+      "outside-custody-envelope"
+    ],
+    [
+      680,
+      "outside-custody-envelope"
+    ],
+    [
+      697,
+      "outside-custody-envelope"
+    ],
+    [
+      714,
+      "outside-custody-envelope"
+    ],
+    [
+      731,
+      "outside-custody-envelope"
+    ],
+    [
+      748,
+      "outside-custody-envelope"
+    ],
+    [
+      765,
+      "outside-custody-envelope"
+    ],
+    [
+      782,
+      "outside-custody-envelope"
+    ],
+    [
+      799,
+      "outside-custody-envelope"
+    ],
+    [
+      816,
+      "outside-custody-envelope"
+    ],
+    [
+      833,
+      "outside-custody-envelope"
+    ],
+    [
+      850,
+      "outside-custody-envelope"
+    ],
+    [
+      867,
+      "outside-custody-envelope"
+    ],
+    [
+      884,
+      "outside-custody-envelope"
+    ],
+    [
+      901,
+      "outside-custody-envelope"
+    ],
+    [
+      918,
+      "outside-custody-envelope"
+    ],
+    [
+      935,
+      "outside-custody-envelope"
+    ],
+    [
+      952,
+      "outside-custody-envelope"
+    ],
+    [
+      969,
+      "outside-custody-envelope"
+    ],
+    [
+      986,
+      "position-witness"
+    ],
+    [
+      1003,
+      "position-witness"
+    ],
+    [
+      1020,
+      "position-witness"
+    ],
+    [
+      1037,
+      "position-witness"
+    ],
+    [
+      1054,
+      "position-witness"
+    ],
+    [
+      1071,
+      "position-witness"
+    ],
+    [
+      1088,
+      "position-witness"
+    ],
+    [
+      1105,
+      "position-witness"
+    ],
+    [
+      1122,
+      "position-witness"
+    ],
+    [
+      1139,
+      "position-witness"
+    ],
+    [
+      1156,
+      "position-witness"
+    ],
+    [
+      1173,
+      "position-witness"
+    ],
+    [
+      1190,
+      "position-witness"
+    ],
+    [
+      1207,
+      "position-witness"
+    ],
+    [
+      1224,
+      "position-witness"
+    ],
+    [
+      1241,
+      "position-witness"
+    ],
+    [
+      1258,
+      "position-witness"
+    ],
+    [
+      1275,
+      "position-witness"
+    ],
+    [
+      1292,
+      "position-witness"
+    ],
+    [
+      1309,
+      "position-witness"
+    ],
+    [
+      1326,
+      "position-witness"
+    ],
+    [
+      1343,
+      "position-witness"
+    ],
+    [
+      1360,
+      "position-witness"
+    ],
+    [
+      1377,
+      "position-witness"
+    ],
+    [
+      1394,
+      "position-witness"
+    ],
+    [
+      1411,
+      "position-witness"
+    ],
+    [
+      1428,
+      "position-witness"
+    ],
+    [
+      1445,
+      "position-witness"
+    ],
+    [
+      1462,
+      "position-witness"
+    ],
+    [
+      1479,
+      "position-witness"
+    ],
+    [
+      1496,
+      "position-witness"
+    ],
+    [
+      1513,
+      "position-witness"
+    ]
+  ],
+  "real_calibration": false,
+  "physical_load_measured": false,
+  "carry_permission": false
+}

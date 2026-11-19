@@ -1,0 +1,5 @@
+allprojects {
+    afterEvaluate {
+        sourceSets.test.java.srcDir(new File(System.getenv('CUSTODY_SOURCE')))
+    }
+}
