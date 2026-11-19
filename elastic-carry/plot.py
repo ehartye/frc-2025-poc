@@ -1,4 +1,4 @@
-"""Draw the unslipped forecast and the independently simulated finite stops."""
+"""Draw the zero-belt forecast and the independently simulated finite stops."""
 
 import argparse
 import hashlib
@@ -116,6 +116,12 @@ def plot(folder, out):
         axis.grid(axis="x", color="#dce1e5", linewidth=0.7)
         axis.set_axisbelow(True)
     fig.savefig(out, format="svg", metadata={"Date": None})
+    out.write_text(
+        "\n".join(line.rstrip() for line in out.read_text(encoding="utf8").splitlines())
+        + "\n",
+        encoding="utf8",
+        newline="\n",
+    )
     plt.close(fig)
 
 
