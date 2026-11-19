@@ -1,6 +1,10 @@
 # Student Fusion design
 
-## Drive the full receiver in Fusion
+## Download the editable student robot
+
+[Open the public capture assembly](swerve-captive/Team-1780-public-captive-swerve.f3d) to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
+
+## Drive the earlier supplier-detail receiver in Fusion
 
 Open `artifacts/swerve-articulation/FRC-2025-Team-1780-articulated-swerve.f3d` from the season project artifacts. In the colored project hardware component, right-click **Receiver / slide**, choose **Drive Joint**, and move from 0 to 370 mm. The second stage moves 185 mm. Watch the shelf camera, end grippers and machined receiver travel together while the numbered bumper and four MAXSwerve assemblies stay at their original locations. Return the slide to zero to inspect the stowed robot. [Native measurements and reconstruction](swerve-articulation/study.md) · [Watch the pickup and release study](../experiments/swerve-drive/score-stroke/receiver-motion.webm)
 
