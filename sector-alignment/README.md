@@ -1,5 +1,7 @@
 # Final scoring-sector approach
 
+The [spatial contact follow-up](../spatial-contact/README.md) carries these signed approach states through withdrawal, scoring assessment and parking. [Watch the pipe land](../spatial-contact/replay.html).
+
 [Open the student replay](replay.html). Move the robot 35 mm off its route, choose either reef sector, or inject a bad observation. The view plots the measured chassis path and the time at which the controller can decide.
 
 **All ten healthy software trials entered the 10 mm position disk and 1° heading window before extension.** The affirmative result applies to the 593-body fixed-low robot with its X48 moving camera and the existing fixed stereo. Under the light and calibration assumptions below, the complete deployed robot retains at least 16.48 mm clearance to occupied stock at A and 24.89 mm at B. The two independent pipe continuations reach first trough contact. The revised route still lacks a complete two-score qualification.
