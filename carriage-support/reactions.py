@@ -106,12 +106,12 @@ def evaluate(t,f,m,sections,share):
         flexure=np.trapezoid(np.stack([v for _,v in vertical_flexure]),x=[x for x,_ in vertical_flexure],axis=0)
         front_up=max(float(front[:,2].max()),0.)
         rear_up=max(float(rear[:,2].max()),0.)
-        # All rebound taken by one front screw; 2.5 mm remaining sheet at the
+        # All rebound taken by one front screw; 2.0 mm minimum remaining sheet (2.25 mm nominal) at the
         # head flank is a minimum first-article acceptance, not an acquired fact.
         rows['left' if s==1 else 'right']={'frontVerticalN':[float(front[:,2].min()),float(front[:,2].max())],
             'rearVerticalN':[float(rear[:,2].min()),float(rear[:,2].max())], 'chordBuckling':columns,
             'sampledSpanBendingDeflectionMm':[float(flexure.min()),float(flexure.max())],
-            'oneForwardFastenerTensionMPa':(PRELOAD+front_up)/14.2,'oneForwardHeadPunchingMPa':front_up/(np.pi*9*2.5),
+            'oneForwardFastenerTensionMPa':(PRELOAD+front_up)/14.2,'oneForwardHeadPunchingMPa':front_up/(np.pi*9*2.0),
             'rearTappedJointTensionMPa':(PRELOAD+rear_up)/20.1,
             'rearThreadStrippingMPaAt12mmFullEngagement':(PRELOAD+rear_up)/(.5*np.pi*4.92*12),
             'rearResidualIfTappedScrewMissingN':rear_up,'mastConnections':root,'frontCantileverSection':governing,
