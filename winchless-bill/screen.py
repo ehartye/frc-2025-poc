@@ -24,6 +24,8 @@ def blank(stock):
 
 
 def evaluate(schedule, stock, margin_before_residual):
+    if set(schedule) != {"allOtherPrimaryHardware", "actualScaleKg", "sites"}:
+        raise ValueError("Unknown or missing schedule field; account for every item")
     if schedule.get("allOtherPrimaryHardware") != "omitted" or set(
         schedule.get("sites", {})
     ) != set(stock["retainedStock"]):
@@ -32,6 +34,8 @@ def evaluate(schedule, stock, margin_before_residual):
         raise ValueError("This prebuild screen accepts modeled dimensions only")
     total = 0.0
     for name, row in schedule["sites"].items():
+        if set(row) != {"residualSizeMm", "maxDensityKgM3", "throughSets"}:
+            raise ValueError("Unsupported hardware field at " + name)
         dims = row.get("residualSizeMm")
         if (
             not isinstance(dims, list)

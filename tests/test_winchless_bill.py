@@ -140,6 +140,14 @@ class WinchlessMassBill(unittest.TestCase):
             del bad["sites"][remove]
             with self.assertRaises(ValueError):
                 evaluate(bad)
+        bad = copy.deepcopy(start)
+        bad["sites"]["mount-riser"]["extraMotor"] = 1
+        with self.assertRaises(ValueError):
+            evaluate(bad)
+        bad = copy.deepcopy(start)
+        bad["unassignedHardware"] = ["pawl cylinder"]
+        with self.assertRaises(ValueError):
+            evaluate(bad)
         start["allOtherPrimaryHardware"] = "unknown"
         with self.assertRaises(ValueError):
             evaluate(start)
