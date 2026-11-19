@@ -41,4 +41,4 @@ python design/fixed-no-air/whole.py $env:SIGNAL_LIGHT_STEP --viewer artifacts/fi
 python design/fixed-no-air/export_robot.py $env:SIGNAL_LIGHT_STEP artifacts/fixed-no-air/placement.step
 ```
 
-The STEP export contains the complete 593-solid placement pose, including the supplied product geometry. Keep it with that local source. The exporter reopens all named solids, checks bounds, volume and centroids, and compares material directly for the light, modified deck, camera and shelf. Use `--pose receive` for the pickup configuration.
+The STEP export contains the complete 593-solid placement pose, including the supplied product geometry. Keep it with that local source. Two readers reopened 593 solids. The exporter checked every part’s bounds, volume and centroid and compared native material for the modified deck, camera bridge and shelf. All 1,002 light faces matched by surface type, bounds, area and centroid. Of these, 987 had interior grid samples, giving 10,458 point-to-trimmed-face checks in both directions. Use `--pose receive` for the pickup configuration. [Round-trip measurements](exchange.json)
