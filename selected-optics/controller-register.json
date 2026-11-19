@@ -1,0 +1,66 @@
+{
+  "inputs": {
+    "camera-registration.json": "393c9c8f00b5e711d9cfa1b05898d04fbd5424718068eb31c3c9e357a2a2bef9",
+    "station-images.json": "9b555809abdfee4c0dc6611732e28d07473c78130c01efc78f1ef4b5c1123ec6",
+    "landing-windows.csv": "aabad4a54f18ac5f7ba17ed458b8480678e4ac4b4799dcac2e7a93d81771f468",
+    "first-feed.json": "a8eaabdbcedacc7f8c06f4cd77e3066d85b780819af131b7d6259c4950b466f4",
+    "return-feed.json": "26651bd3c001f8c7df9d1df338f60f560b3354e8dbbcf20cd9489ff068ec5eb6",
+    "probe-native.json": "e3005be2a3d658c07e0416e79624331b1bb4b75c0410beb40890d93f6187647f",
+    "hold-native.json": "f8a411416f02ed5f589f7e959c5c494f41d2fd0c8dca549edd010befc085950b",
+    "coral-A-fixed": "83a34064462862a2efa7ba5120a398f88127d780f096b51ec8c888821e017d42",
+    "coral-A-moving": "b5e5c129dea7a6d5bfe4a8f3911c1a9401d0ed2b017b6959065615df451ec4a1",
+    "coral-B-fixed": "69256bac2c00c7065df666b6d0471c94ab46198cb442f08fd144c15523eee123",
+    "coral-B-moving": "2a4b5154570b3b1244ea37c801bb708cb33356ba2e6743310310471a0a76cb66"
+  },
+  "eligible": {
+    "coral-A": {
+      "priorLowerMs": 26587,
+      "eligibleCaptureMs": [
+        26707,
+        26724
+      ],
+      "releaseCameraMs": 26437.979639181893,
+      "forceThresholdsMs": {
+        "250": {
+          "0.25": 26590.99963531428,
+          "1.0": 26590.99963531428,
+          "3.0": 26590.99963531428,
+          "8.0": null
+        },
+        "500": {
+          "0.25": 26590.49963531428,
+          "1.0": 26590.49963531428,
+          "3.0": null,
+          "8.0": null
+        }
+      }
+    },
+    "coral-B": {
+      "priorLowerMs": 26297,
+      "eligibleCaptureMs": [
+        26401,
+        26418,
+        26435
+      ],
+      "releaseCameraMs": 26145.026363347723,
+      "forceThresholdsMs": {
+        "250": {
+          "0.25": 26300.75010264087,
+          "1.0": 26300.75010264087,
+          "3.0": 26300.75010264087,
+          "8.0": null
+        },
+        "500": {
+          "0.25": 26300.50010264087,
+          "1.0": 26300.50010264087,
+          "3.0": 26300.50010264087,
+          "8.0": null
+        }
+      }
+    }
+  },
+  "delayMs": 15,
+  "onsetReserveMs": 40,
+  "padThresholdMeasured": false,
+  "qualification": "conditional synthetic pressure and image calibration"
+}
