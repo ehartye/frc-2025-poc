@@ -25,6 +25,8 @@ Use the same 21 bridge components, fixed-focus head, USB system and brackets. On
 
 Use a fresh blank or an independently qualified repair. The proposed +26 mm bores are only 3 mm from the original +29 mm bores. At this spacing, each pair of Ø4.5 mm holes shares 52.27 mm³ through a 15 mm shelf. Redrilling the installed shelf would leave a merged hole. The four new holes remove the same volume, and the translated articles retain their individual masses. The no-air robot's represented inspection upper headroom is still 1.811 kg, with a paired range margin of 2.611 kg. The complete build requires a new weight, loading and cable check. [Inspection record](../design/fixed-no-air/inspection.json)
 
+The [whole-robot export](export_assembly.py) rebuilds any of the three no-air poses from the matching signal-light source. The selected placement STEP reopened in independent readers with 593 named solids and 571 unchanged native bodies. The largest independent material-volume error was 0.00262 mm³. The local STEP includes source-owned light geometry. Its SHA-256 is `74656e040965df4dc6d5aafcedb58ae6f1442828eac5bec015c3a3ace15b578b`. [Placement verification](native-place.json)
+
 ## Measure the pipe after the move
 
 ![Shelf seen by the aft stereo head before and during the edge-of-travel observation](view.svg)
@@ -35,7 +37,7 @@ For a 359.5 mm cantilever, the ideal tip slope is 1.5 times tip displacement div
 
 ## What the controller could still observe
 
-Both original trajectories remained inside their decoded position intervals in all **2,924 exposures**. The 20 ms desktop command scheduler admitted all 1,049 drive-to-release ticks for A and all 1,034 for B. At 15 ms delivery every tested release exposure and command tick agreed with the issued control study. The 5 ms service loop retained all camera and scheduler alignments through 18 ms of constant delivery. At 19 ms, one of 170 alignments missed. At 24 ms, all were held. The rerun exercised 1,428 desktop HAL trials and 59,364 additional cases on the same packet consumer. Some A alignments improved on the 20 ms service when delivery varied. The controller's 15 ms evidence and the actuator-feedback qualification remain separate. [Travel supervision](travel-hal.json) · [Latency profiles and faults](timing.json) · [Source and configuration comparison](register.json)
+Both original trajectories remained inside their decoded position intervals in all **2,924 exposures**. The 20 ms desktop command scheduler admitted all 1,049 drive-to-release ticks for A and all 1,034 for B. At 15 ms delivery every tested release exposure and command tick agreed with the issued control study. The 5 ms service loop retained all camera and scheduler alignments through 18 ms of constant delivery. At 19 ms, one of 170 alignments missed. At 24 ms, all were held. The rerun exercised 1,428 desktop HAL trials and 59,364 additional cases on the same packet consumer. At 21, 22 and 23 ms delivery, A gained one of the 85 alignments at each delay on the 5 ms loop. Eleven A counts also changed on the 20 ms sweep. B retained its original counts throughout. The controller's 15 ms evidence and the actuator-feedback qualification remain separate. [Travel supervision](travel-hal.json) · [Latency profiles and faults](timing.json) · [Source and configuration comparison](register.json)
 
 The unbacked forward edge, a dark pipe, an empty shelf, one missing camera, a flat bright patch, excessive yaw and the wrong camera pose each withhold the appropriate observation. The reported controller results use the two existing modeled trajectories and nominal optical calibration. The 48 displaced stereo pairs exercise selected physical conditions. They do not substitute for an entire match run with a moving, miscalibrated camera or establish real actuator timing.
 
@@ -49,6 +51,7 @@ python bridge-tolerance/field.py --field "$FIELD_STEP" --lamp "$SIGNAL_LIGHT_STE
 python bridge-tolerance/calibration.py
 python bridge-tolerance/replay_candidate.py --scratch artifacts/fixed-height-observation --lamp "$SIGNAL_LIGHT_STEP" --jdk "$JAVA_HOME" --gradle "$GRADLE_USER_HOME"
 python bridge-tolerance/view.py
+python bridge-tolerance/export_assembly.py --lamp "$SIGNAL_LIGHT_STEP" --output artifacts/bridge-tolerance/place.step
 python bridge-tolerance/register.py
 python -m unittest discover -s tests -p test_bridge_tolerance.py
 ```

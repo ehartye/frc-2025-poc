@@ -22,6 +22,8 @@ class BridgeToleranceTest(unittest.TestCase):
         self.assertAlmostEqual(manifest["neighbor_bore_common_mm3_per_pair"], 52.2700101)
         self.assertLess(manifest["largest_native_translation_error_mm"], .001)
         self.assertEqual(read("mount.json")["positive_or_unresolved_interference"], [])
+        native = read("native-place.json")
+        self.assertEqual((native["reopened_named_solids"], native["independent_root_solids"], native["unchanged_native_bodies"]), (593,593,571))
 
     def test_real_collision_and_continuous_successor_bounds(self):
         result = read("field.json")
