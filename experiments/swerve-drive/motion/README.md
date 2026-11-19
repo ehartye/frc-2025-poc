@@ -1,5 +1,11 @@
 # Four-module opening to the red station
 
+<!-- cad-still -->
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 ## Signed motor and transmission replay
 
 The current opening controller uses the [reciprocal motor and four-corner energy replay](energy.json). At 65 kg it reached the station at 20.285 and 20.330 s for the two signed tire and gyro variations. At 72 kg it reached at 20.180 and 20.245 s. Missing or late observations, a stalled steer axis and a misaligned start each withheld the feed. The closest represented field barrier in the four reached cases was 7.93 mm away. All eight paths used the original stock, other five robot reservations, stowed receiver loads and 21.10 s feed-slot deadline.
@@ -15,13 +21,6 @@ foreach ($case in 'plus','minus','heavy','upper-minus','blind','late','jam','mis
 python opening.py $artifacts "$raw/historical" --case plus --model historical
 python energy_review.py $raw $pluginRoot $outputJson
 ```
-
-
-<!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
 
 [Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.285 and 20.330 s. A 72 kg test with higher yaw inertia also reached the station on both signed calibration cases.
 
