@@ -11,29 +11,12 @@ import panel
 
 def qualify(directory):
     data = read(ROOT / "swerve-package/envelopes.json")
-    controllers = read(ROOT / "swerve-power/controller-fit.json")
-    cables = read(ROOT / "swerve-power/paths.json")
+    power=read(ROOT/"swerve-power/envelopes.json")
     groups = {
         "rotating_and_fixed_modules": data["cornerBoundsMm"],
         "changed_structure": data["frameBoundsMm"],
-        "controllers_trays_and_service": {
-            mid + "/" + p: r["boundsMm"]
-            for mid, d in controllers["corners"].items()
-            for p, r in d["fit"].items()
-        },
+        "controllers_trays_and_wiring":power["stationaryBoundsMm"],
     }
-    wire = {}
-    unresolved = {}
-    for d in ("groupedSupplyTargets", "motorAndSensorTargets"):
-        for key, r in cables[d].items():
-            if "polylineVerticesMm" not in r:
-                unresolved[key] = r["unresolved"]
-                continue
-            points = np.array(r["polylineVerticesMm"])
-            wire[key] = np.r_[
-                points.min(axis=0) - r["radiusMm"], points.max(axis=0) + r["radiusMm"]
-            ]
-    groups["modeled_wiring"] = wire
     f, _, _, _ = n.route.route.field.scenario(
         read(ROOT / "fixed-height-match/placements.json")["placements"], inboard=True
     )
@@ -80,8 +63,7 @@ def qualify(directory):
             p: sha(ROOT / p)
             for p in (
                 "swerve-package/envelopes.json",
-                "swerve-power/controller-fit.json",
-                "swerve-power/paths.json",
+                "swerve-power/envelopes.json",
                 "station-landmark/native.json",
             )
         },
@@ -90,7 +72,7 @@ def qualify(directory):
         paddedRayLengthMm=reach,
         lowestUpperHoleRayIncluding14PixelAllowanceMm=lowest,
         groups=register,
-        unresolvedLocalRuns=unresolved,
+
     )
 
 

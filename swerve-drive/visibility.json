@@ -2,8 +2,7 @@
   "scope": "Material added or changed in these maps, including local modeled wires. Earlier robot and station registration retained. Unmodeled connector tails, glare, extrinsic drift, wear and physical sightlines remain open.",
   "inputs": {
     "swerve-package/envelopes.json": "b250f223bbc9f1f1c01620b9cbaaa87f30ae4b18b38e741715710cbd717eecac",
-    "swerve-power/controller-fit.json": "5ac8727d313f64e7592c51776e3e205011e5d90fae2bb369176c01a2dd791902",
-    "swerve-power/paths.json": "af485f8a11a53e89b00ab13fad6ba2845cbc1b554eb510bbd3758ba92d1eebfd",
+    "swerve-power/envelopes.json": "66246777ea3cc3830612d8985b34315ee0f6ddbdc54555341d3ea49641a0f993",
     "station-landmark/native.json": "1c534d8d07a661834e6271cd5047adcf505054d8faf4fea180c22fd7c7211a2b"
   },
   "sourceBackground": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
@@ -36,32 +35,18 @@
       "upperRayGapMm": 667.599343092252,
       "insetFromAssumedBumperMm": 79.0
     },
-    "controllers_trays_and_service": {
-      "items": 20,
+    "controllers_trays_and_wiring": {
+      "items": 64,
       "boundsMm": [
-        -182.0,
+        -285.06,
         -347.0,
         150.0,
-        182.0,
+        285.06,
         347.0,
-        222.5
+        306.06
       ],
-      "upperRayGapMm": 599.099343092252,
+      "upperRayGapMm": 515.539343092252,
       "insetFromAssumedBumperMm": 78.0
-    },
-    "modeled_wiring": {
-      "items": 12,
-      "boundsMm": [
-        -285.0,
-        -315.0,
-        183.0,
-        285.0,
-        315.0,
-        306.0
-      ],
-      "upperRayGapMm": 515.599343092252,
-      "insetFromAssumedBumperMm": 110.0
     }
-  },
-  "unresolvedLocalRuns": {}
+  }
 }
