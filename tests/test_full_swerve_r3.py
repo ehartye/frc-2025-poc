@@ -74,3 +74,9 @@ class FullSwerveR3(unittest.TestCase):
                 self.assertEqual(before,override.read_bytes())
 
 
+    def test_native_and_public_registration_sources_match(self):
+        register = read(DESIGN/"source-register.json")
+        for source, expected in register["projectSources"].items():
+            self.assertEqual(hashlib.sha256((ROOT/source).read_bytes()).hexdigest(),expected,source)
+        self.assertEqual(register["historicalBumper"]["sRGB"],self.colors["bumper-red"])
+        self.assertEqual(register["representedPublicSolids"]["public-module-representation"],24)
