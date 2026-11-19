@@ -6,7 +6,7 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow both station-fed pipes through the updated 545-body match](sourced-match/replay.html). The new timeline preserves their feeder states and lets students compare axial spin, a late feed and a blocked park. [Conditional scoring evidence](sourced-match/README.md)
 
-[Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome.
+[Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome. [Compare the WPILib controller’s actual 20 ms belt commands](coupled-belt-clock/README.md) with the modeled acquisition and placement.
 
 [Compare the installed articles and inspection weight estimates](design/assembly-accounting/README.md) for both alliance configurations and the proposed carrier and stop hardware.
 
