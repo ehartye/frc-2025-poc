@@ -13,17 +13,17 @@ sys.path.insert(0,str(ROOT/"spatial-contact"))
 from physics import panel_file
 
 
-def run(cache,jdk,rack,issued=None,flat=False,field_trace=False):
+def run(cache,jdk,rack,issued=None,flat=False,field_trace=False,*,scenario="nominal",registration=HERE,output=None):
     cache.mkdir(exist_ok=True)
     read=lambda p:json.loads(p.read_bytes())
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     panel_file(read(ROOT/"mission/target.json"),cache/"panels.csv")
     if issued:
-        registration=read(HERE/"hal.json")
+        registration=read(registration/"hal.json")
         if sha(issued)!=registration["events"]:
             raise ValueError("Unregistered controller events")
         for piece in ("coral-A","coral-B"):
-            name=f"path-nominal-{piece}.csv"
+            name=f"path-{scenario}-{piece}.csv"
             if sha(cache/name)!=sha(rack) or sha(rack)!=registration["rackPaths"][name]:
                 raise ValueError("Rack traces disagree with the issued controller output")
     cases=[]
@@ -38,7 +38,7 @@ def run(cache,jdk,rack,issued=None,flat=False,field_trace=False):
                 cases.append([f"{piece}/{resolution}/{delay}",*state,delay/1000,3,.00020,9,.35])
             if issued:
                 commands=list(csv.DictReader(issued.open()))
-                command=next((int(x["wall_ms"])/1000 for x in commands if x["scenario"]=="nominal" and x["piece"]==piece and x["event"]=="withdraw"),None)
+                command=next((int(x["wall_ms"])/1000 for x in commands if x["scenario"]==scenario and x["piece"]==piece and x["event"]=="withdraw"),None)
                 wait=10000 if command is None else command-row["wallS"]
                 cases.append([f"{piece}/{resolution}/observed",*state,wait,156-row["wallS"],.00020,9,.35])
     label="field" if field_trace else "observed" if issued else "windows"
@@ -50,7 +50,7 @@ def run(cache,jdk,rack,issued=None,flat=False,field_trace=False):
     extra=[".0005",".23"] if field_trace else ["sweep-y"] if issued else []
     subprocess.run([str(jdk/"bin/java"),"-cp",str(local),"SpatialContact",str(cache/"panels.csv"),str(rack),str(local/"cases.csv"),str(local/"results.csv"),str(local/"trace.csv"),*extra],check=True)
     rows=list(csv.DictReader((local/"results.csv").open()))
-    location=HERE/"flat-control" if flat else HERE
+    location=output if output is not None else HERE/"flat-control" if flat else HERE
     with (location/("landing-"+label+".csv")).open("w",newline="") as f:
         out=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n")
         out.writeheader()
