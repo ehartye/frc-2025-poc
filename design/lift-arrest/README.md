@@ -2,6 +2,8 @@
 
 **Decision. Keep powered travel and unsupported service on hold.** This study identifies a placement interference, registers an independent end-stop candidate and specifies a separate midtravel arrest. Both proposed devices require qualification. The original [401-body controls qualification](../../full-match/) applies only to its registered assembly.
 
+The [fully mounted terminal study](../terminal-mounts/README.md) adds the machined mast, sleeves, screws, washers and double-locknut bore mount. It preserves this earlier source and tests both alliance assemblies.
+
 ## Where a falling carriage strikes
 
 The source at commit 03e7015633de57ab845be7bcb48834347c69db81 comprises four 545-body red shop/duplex STEP exports, identified by raw SHA-256 and the part-frame hash. All dimensions below are in robot coordinates, millimeters. The registered carriage dry lower estimate is 7.951 kg. The loaded upper estimate is 12.204 kg. Weighing, assembled harness tension and a final mass ledger remain open. [Source package](../competition-package/shop-duplex/) · [Mass and load-path input](../receiver-lift/delivery-retention.json) · [Machine results](study.json)
