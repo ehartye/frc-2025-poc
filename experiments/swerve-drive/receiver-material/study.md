@@ -41,6 +41,8 @@ The low-friction positive arrival also held on an empty image, a locally shadowe
 
 ## What actually retains the pipe
 
+Each of the four already-issued healthy continuations at the two opposed density/friction corners and both signed arrivals stayed on the shelf throughout the drive and brake. Their peak center travel ranged from 0.224 to 0.257 mm. These four cases bound the observed sample, with no claim about untested disturbances.
+
 At the wheel-service boundary, the low-friction positive arrival gives two histories the same full pipe, carriage and guide state, wheel trajectory and preceding images. In one, the end belts keep their issued tangential contact. In the other, the belt coefficient becomes zero. With the same 600 ms drive lease and 900 ms braking tail, the healthy pipe moves at most 0.254 mm. The faulted pipe moves 48.698 mm and ends at X122.73, Y−16.58 mm. Both simulations still have the pipe on the shelf. Their centers first differ by more than 1, 4 and 8 mm at 131, 213 and 266 ms. The peak translational acceleration of 1.147 m/s² requires 0.937 N for the 0.816 kg pipe. Even placing its full weight on the low-friction shelf gives only 0.400 N in the ideal sliding-force comparison. The contact solver supplies the actual motion, including rotation. Both continuations are diagnostic inputs, irrespective of the camera's later hold. [Loaded replay](loaded_material.py) · [Comparison and registered signals](premise.py)
 
 | Candidate or installed evidence | What changes the next decision | Remaining ambiguity |
