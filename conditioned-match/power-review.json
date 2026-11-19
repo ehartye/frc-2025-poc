@@ -1,0 +1,277 @@
+{
+  "version": "0.22.2",
+  "cases": {
+    "leftSmall": {
+      "requestSha256": "c3324f50dbc66ed3f967adfb8d582c74cfe1e5d52509eef0222ed8de02b37568",
+      "review": {
+        "schema": "frc-power-review/v1",
+        "actionId": "corrected-opening-leftSmall",
+        "busId": "loaded-pack",
+        "clockId": "field-wall",
+        "window": {
+          "fromS": 10.75,
+          "toS": 10.755
+        },
+        "requiredLoads": [
+          "pack"
+        ],
+        "maxSampleIntervalS": 0.005001,
+        "trials": [
+          {
+            "id": "screened",
+            "condition": "11.8 V with 27 milliohm common resistance",
+            "status": "complete",
+            "provenance": {
+              "kind": "modeled",
+              "source": "Recorded 5 ms drive window from opening.json, SHA256 f5fbbb8aecaafbb267c70bad852d4bf00fc988e75a0d49a631bdd90cd28d051c"
+            },
+            "trace": {
+              "file": "screened.json",
+              "sha256": "bfb57addd1c1aa34675b4d74fad27004bfb93064a7fe67be7123866223f3deb0"
+            },
+            "endpoints": [
+              {
+                "id": "right-drive",
+                "minV": 9.5,
+                "lowestEvidence": {
+                  "location": "right-drive",
+                  "fromS": 10.75,
+                  "toS": 10.755,
+                  "kind": "lower-bound",
+                  "valueV": 9.935483255753393,
+                  "minV": 9.5,
+                  "marginV": 0.4354832557533932,
+                  "currents": [
+                    {
+                      "id": "pack",
+                      "kind": "source",
+                      "valueA": 52.84308493744802
+                    }
+                  ]
+                },
+                "status": "complete",
+                "violation": null
+              }
+            ],
+            "limiting": {
+              "location": "right-drive",
+              "fromS": 10.75,
+              "toS": 10.755,
+              "kind": "lower-bound",
+              "valueV": 9.935483255753393,
+              "minV": 9.5,
+              "marginV": 0.4354832557533932,
+              "currents": [
+                {
+                  "id": "pack",
+                  "kind": "source",
+                  "valueA": 52.84308493744802
+                }
+              ]
+            },
+            "unknowns": [],
+            "outcome": {
+              "status": "unknown",
+              "description": "No functional outcome supplied"
+            }
+          },
+          {
+            "id": "weak",
+            "condition": "11.8 V with 32 milliohm common resistance",
+            "status": "complete",
+            "provenance": {
+              "kind": "modeled",
+              "source": "Recorded 5 ms drive window from opening.json, SHA256 f5fbbb8aecaafbb267c70bad852d4bf00fc988e75a0d49a631bdd90cd28d051c"
+            },
+            "trace": {
+              "file": "weak.json",
+              "sha256": "3a45bd12218536a613625c1143610b37e781e30336fffb06e2af1b4a0664c220"
+            },
+            "endpoints": [
+              {
+                "id": "right-drive",
+                "minV": 9.5,
+                "lowestEvidence": {
+                  "location": "right-drive",
+                  "fromS": 10.75,
+                  "toS": 10.755,
+                  "kind": "lower-bound",
+                  "valueV": 9.596838625428948,
+                  "minV": 9.5,
+                  "marginV": 0.09683862542894772,
+                  "currents": [
+                    {
+                      "id": "pack",
+                      "kind": "source",
+                      "valueA": 54.68627725848711
+                    }
+                  ]
+                },
+                "status": "complete",
+                "violation": null
+              }
+            ],
+            "limiting": {
+              "location": "right-drive",
+              "fromS": 10.75,
+              "toS": 10.755,
+              "kind": "lower-bound",
+              "valueV": 9.596838625428948,
+              "minV": 9.5,
+              "marginV": 0.09683862542894772,
+              "currents": [
+                {
+                  "id": "pack",
+                  "kind": "source",
+                  "valueA": 54.68627725848711
+                }
+              ]
+            },
+            "unknowns": [],
+            "outcome": {
+              "status": "unknown",
+              "description": "No functional outcome supplied"
+            }
+          }
+        ],
+        "interpretation": "11.8 V with 27 milliohm common resistance (modeled electrical evidence) is complete. At right-drive (10.75\u201310.755 s), the lower-bound is 9.935483255753393 V against a 9.5 V floor. Coincident readings were pack source current 52.84308493744802 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. 11.8 V with 32 milliohm common resistance (modeled electrical evidence) is complete. At right-drive (10.75\u201310.755 s), the lower-bound is 9.596838625428948 V against a 9.5 V floor. Coincident readings were pack source current 54.68627725848711 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied."
+      }
+    },
+    "rightSmall": {
+      "requestSha256": "446a05d1bfa76af324ec7cdd52b38ae1a2afb492247cbe763a816486a6401b8a",
+      "review": {
+        "schema": "frc-power-review/v1",
+        "actionId": "corrected-opening-rightSmall",
+        "busId": "loaded-pack",
+        "clockId": "field-wall",
+        "window": {
+          "fromS": 10.75,
+          "toS": 10.755
+        },
+        "requiredLoads": [
+          "pack"
+        ],
+        "maxSampleIntervalS": 0.005001,
+        "trials": [
+          {
+            "id": "screened",
+            "condition": "11.8 V with 27 milliohm common resistance",
+            "status": "complete",
+            "provenance": {
+              "kind": "modeled",
+              "source": "Recorded 5 ms drive window from opening.json, SHA256 f5fbbb8aecaafbb267c70bad852d4bf00fc988e75a0d49a631bdd90cd28d051c"
+            },
+            "trace": {
+              "file": "screened.json",
+              "sha256": "187bb2dbfb016913d9dd6389323bc4c62e090fa994e54b68dccda2c7402bb3c2"
+            },
+            "endpoints": [
+              {
+                "id": "right-drive",
+                "minV": 9.5,
+                "lowestEvidence": {
+                  "location": "right-drive",
+                  "fromS": 10.75,
+                  "toS": 10.755,
+                  "kind": "lower-bound",
+                  "valueV": 9.933929561963923,
+                  "minV": 9.5,
+                  "marginV": 0.4339295619639234,
+                  "currents": [
+                    {
+                      "id": "pack",
+                      "kind": "source",
+                      "valueA": 52.91095081460771
+                    }
+                  ]
+                },
+                "status": "complete",
+                "violation": null
+              }
+            ],
+            "limiting": {
+              "location": "right-drive",
+              "fromS": 10.75,
+              "toS": 10.755,
+              "kind": "lower-bound",
+              "valueV": 9.933929561963923,
+              "minV": 9.5,
+              "marginV": 0.4339295619639234,
+              "currents": [
+                {
+                  "id": "pack",
+                  "kind": "source",
+                  "valueA": 52.91095081460771
+                }
+              ]
+            },
+            "unknowns": [],
+            "outcome": {
+              "status": "unknown",
+              "description": "No functional outcome supplied"
+            }
+          },
+          {
+            "id": "weak",
+            "condition": "11.8 V with 32 milliohm common resistance",
+            "status": "complete",
+            "provenance": {
+              "kind": "modeled",
+              "source": "Recorded 5 ms drive window from opening.json, SHA256 f5fbbb8aecaafbb267c70bad852d4bf00fc988e75a0d49a631bdd90cd28d051c"
+            },
+            "trace": {
+              "file": "weak.json",
+              "sha256": "59813db24d293aa89174f979c6a647b2b15083273195fbe8a57a71b8b3208bab"
+            },
+            "endpoints": [
+              {
+                "id": "right-drive",
+                "minV": 9.5,
+                "lowestEvidence": {
+                  "location": "right-drive",
+                  "fromS": 10.75,
+                  "toS": 10.755,
+                  "kind": "lower-bound",
+                  "valueV": 9.594730608035277,
+                  "minV": 9.5,
+                  "marginV": 0.09473060803527744,
+                  "currents": [
+                    {
+                      "id": "pack",
+                      "kind": "source",
+                      "valueA": 54.760273197882555
+                    }
+                  ]
+                },
+                "status": "complete",
+                "violation": null
+              }
+            ],
+            "limiting": {
+              "location": "right-drive",
+              "fromS": 10.75,
+              "toS": 10.755,
+              "kind": "lower-bound",
+              "valueV": 9.594730608035277,
+              "minV": 9.5,
+              "marginV": 0.09473060803527744,
+              "currents": [
+                {
+                  "id": "pack",
+                  "kind": "source",
+                  "valueA": 54.760273197882555
+                }
+              ]
+            },
+            "unknowns": [],
+            "outcome": {
+              "status": "unknown",
+              "description": "No functional outcome supplied"
+            }
+          }
+        ],
+        "interpretation": "11.8 V with 27 milliohm common resistance (modeled electrical evidence) is complete. At right-drive (10.75\u201310.755 s), the lower-bound is 9.933929561963923 V against a 9.5 V floor. Coincident readings were pack source current 52.91095081460771 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. 11.8 V with 32 milliohm common resistance (modeled electrical evidence) is complete. At right-drive (10.75\u201310.755 s), the lower-bound is 9.594730608035277 V against a 9.5 V floor. Coincident readings were pack source current 54.760273197882555 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied."
+      }
+    }
+  }
+}

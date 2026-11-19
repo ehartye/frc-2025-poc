@@ -17,8 +17,8 @@ STRAIGHT=942.1634807291674
 LEG_S=1.772158270517589
 STOP_S=LEG_S+1.5
 SECTORS={"coral-A":-180.,"coral-B":220.}
-def integrate(p,left,right):
-    turn=(right-left)/TRACK
+def integrate(p,left,right,track_mm=TRACK):
+    turn=(right-left)/track_mm
     heading=p[2]+turn/2
     ds=(left+right)/2*np.sinc(turn/(2*np.pi))
     return p+np.array([ds*np.cos(heading),ds*np.sin(heading),turn])
@@ -26,12 +26,14 @@ def relative(a,b):
     return np.r_[rotation(-a[2])@(b[:2]-a[:2]),b[2]-a[2]]
 def compose(a,delta):
     return np.r_[a[:2]+rotation(a[2])@delta[:2],a[2]+delta[2]]
-def tracecase(pipe,initial,mode,ctx,cache):
+def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK):
     sector=SECTORS[pipe];goal=np.array([0.,sector,0.])
     actual=np.array([-STRAIGHT+initial[0],sector+initial[1],math.radians(initial[2])])
     odom=np.array([-STRAIGHT,sector,0.]);pred=odom.copy()
     wheels=np.zeros(2);distance=np.zeros(2);old_ticks=np.zeros(2)
     bias=np.array([.998,1.002]) if mode=="wheel-bias" else np.ones(2)
+    if wheel_scale is not None:
+        bias = np.asarray(wheel_scale, dtype=float)
     history={};packets=deque();path=[];assoc=False;last_seen=-10000
     source=None;bad=None;finished=None;strong=0;issued=0;rejected=0;optical_max=0.
     closest=None;last_fit=None;complete=[];max_error=0.;max_rate=0.;max_acc=0.;last_pair=None
@@ -134,7 +136,7 @@ def tracecase(pipe,initial,mode,ctx,cache):
         ticks=np.rint(distance/.158)*.158
         nxt=integrate(odom,*(ticks-old_ticks));pred=compose(pred,relative(odom,nxt))
         old_ticks=ticks;odom=nxt
-        actual=integrate(actual,*(step*bias))
+        actual=integrate(actual,*(step*bias),track_mm=physical_track_mm)
         if mode=="lateral-kick" and 760<=tick<880:
             phase=(tick-760)/120
             actual[1]+=6*(math.cos(math.pi*phase)-math.cos(math.pi*(phase+5/120)))

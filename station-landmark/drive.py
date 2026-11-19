@@ -34,7 +34,7 @@ def propagate(q,ds,track_width):
     return q+[-increment*math.cos(angle),-increment*math.sin(angle),turn]
 
 
-def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,side_bias=0,deadline=21.1):
+def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,side_bias=0,deadline=21.1,wheel_accel_mm_s2=420.):
     # An independent terminal stereo pose seeds a new field estimate; until that
     # measurement passes, the commanded wheel targets stay at zero.
     wheels=np.zeros(2)
@@ -117,16 +117,17 @@ def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,
             gap=10+pred[0]-425*(abs(math.cos(pred[2]))+abs(math.sin(pred[2]))-1)
             allowance=gap-5-425*math.radians(.3)
             gain=1+2*math.hypot(425,425)/578
-            safe_speed=max(0., math.sqrt(max(0,2*420*allowance/gain))-.025*420*2)
+            safe_speed=max(0., math.sqrt(max(0,2*wheel_accel_mm_s2*allowance/gain))-.025*wheel_accel_mm_s2*2)
             max_want=max(abs(wanted))
             if max_want>safe_speed and max_want>0:wanted*=safe_speed/max_want
             if allowance<0:
                 stop="wall guard";wanted[:]=0
         if wall<15:
-            max_before_disable=max(0,420*(15-wall-.035))
+            max_before_disable=max(0,wheel_accel_mm_s2*(15-wall-.035))
             wanted=np.clip(wanted,-max_before_disable,max_before_disable)
         old=wheels.copy()
-        wheels+=np.clip(wanted-wheels,-4.2,4.2)
+        limit=wheel_accel_mm_s2*DT
+        wheels+=np.clip(wanted-wheels,-limit,limit)
         ds=.5*(old+wheels)*DT
         q=propagate(q,ds*scale,track_width)
         shaft+=ds

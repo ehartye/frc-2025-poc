@@ -100,15 +100,15 @@ def detect(frame):
     for last,edge in zip(np.roll(lines,1,axis=0),lines):
         intersection=np.cross(last,edge);result.append(intersection[:2]/intersection[2])
     return np.array(result)
-def estimate(pair,points):
-    by_eye=np.array([unproject(q,points[:,2],eye) for q,eye in zip(pair,EYES)])
+def estimate(pair,points,eyes=EYES):
+    by_eye=np.array([unproject(q,points[:,2],eye) for q,eye in zip(pair,eyes)])
     b=by_eye.mean(axis=0);w=points[:,:2]
     a=b-b.mean(axis=0); target=w-w.mean(axis=0)
     yaw=math.atan2(np.sum(a[:,0]*target[:,1]-a[:,1]*target[:,0]),np.sum(a*target))
     xy=w.mean(axis=0)-rotation(yaw)@b.mean(axis=0)
     pose=np.array([*xy,yaw])
     def predicted(p):
-        return np.concatenate([project(points,p,lens)[0].ravel() for lens in EYES])
+        return np.concatenate([project(points,p,lens)[0].ravel() for lens in eyes])
     observed=np.asarray(pair).ravel()
     for _ in range(3):
         pred=predicted(pose)
@@ -116,7 +116,7 @@ def estimate(pair,points):
         pose+=np.linalg.lstsq(jac,observed-pred,rcond=None)[0]
     return pose
 def station_frame(pose,ctx,tag=10,ambiguous=False,hide=False,save=None):
-    projected=[]; measured=[]; tagquads=[]; diagnostics=[]; frames=[]
+    projected=[]; measured=[]; tagquads=[]; detected_eyes=[]; diagnostics=[]; frames=[]
     for n,eye in zip(("left","right"),EYES):
         frame,tag_truth=render(ctx["points"],pose,eye,ctx[n],ctx[n+"_z"],tag,[])
         bolt_pixels,zs=project(ctx["bolts"],pose,eye)
@@ -142,13 +142,14 @@ def station_frame(pose,ctx,tag=10,ambiguous=False,hide=False,save=None):
         if save is not None: frames.append(frame)
         obs=detect(frame)
         if obs is not None:
-            tagquads.append(obs);diagnostics.append(float(np.max(abs(obs-tag_truth))))
+            tagquads.append(obs);detected_eyes.append(eye);diagnostics.append(float(np.max(abs(obs-tag_truth))))
         blobs=find_heads(frame)
         projected.append(bolt_pixels);measured.append(blobs)
     if save is not None:cv2.imwrite(str(save),np.column_stack(frames))
-    pose_tag=estimate(tagquads,ctx["points"]) if len(tagquads)==2 else None
+    minimum_eyes = 1 if ctx.get("allowSingleEyeId", False) else 2
+    pose_tag=estimate(tagquads,ctx["points"],detected_eyes) if len(tagquads)>=minimum_eyes else None
     if pose_tag is not None:
-        reprojection=max(np.max(abs(project(ctx["points"],pose_tag,e)[0]-q)) for e,q in zip(EYES,tagquads))
+        reprojection=max(np.max(abs(project(ctx["points"],pose_tag,e)[0]-q)) for e,q in zip(detected_eyes,tagquads))
         if reprojection>.35:pose_tag=None
     return pose_tag,measured,projected,diagnostics
 

@@ -8,11 +8,12 @@ from route import wheel_steps
 
 
 def staged(raw,scale,width,bias=.0,gain_error=.0,start_heading_deg=0,latency_ms=20,drop_s=None,
-           stage_mm=420,side_mm=0):
+           stage_mm=420,side_mm=0,pace=1.):
     f,r=path(raw,stage_mm,side=side_mm)
     dt=.005
-    t=np.arange(math.ceil((r.duration+.55)/dt)+1)*dt
-    nominal=np.array([r.at(min(s,r.duration))[0] for s in t])
+    duration=r.duration/pace
+    t=np.arange(math.ceil((duration+.55)/dt)+1)*dt
+    nominal=np.array([r.at(min(s*pace,r.duration))[0] for s in t])
     nominal[:,2]=np.unwrap(nominal[:,2])
     ff=wheel_steps(nominal)*1000/dt
     truth=np.array([*r.start[:2],r.start[2]+math.radians(start_heading_deg)])
@@ -36,7 +37,7 @@ def staged(raw,scale,width,bias=.0,gain_error=.0,start_heading_deg=0,latency_ms=
         yaw_request=np.clip(6*(nominal[i,2]-estimated),-.45,.45)
         targets=ff[i]+np.array([-1.,1.])*TRACK*yaw_request/2
         targets=np.clip(targets,-1250,1250)
-        if latch or not received or now>r.duration+.30:targets[:]=0
+        if latch or not received or now>duration+.30:targets[:]=0
         old=w.copy()
         # Source wheel ramp includes straight acceleration up to 1.20 m/s²;
         # retain the slower 0.64 m/s² wheel ramp during in-place turns.

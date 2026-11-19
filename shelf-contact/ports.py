@@ -11,9 +11,9 @@ import tempfile
 from experiment import CompliantPipe,Shelf,GUIDE,source,ROOT,HERE,feed
 
 
-def replay(job):
+def replay(job, *, attained_pose=None):
     name,cfg,dt,cls,jdk,cache,high=job
-    delta,shift=source(name)
+    delta,shift=source(name) if attained_pose is None else (attained_pose,0.)
     g=replace(GUIDE,sectors=128,radial_bins=4) if high else GUIDE
     old_law=feed.cfg
     if high:feed.cfg=replace(feed.cfg,slices=10)
