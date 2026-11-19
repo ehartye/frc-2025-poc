@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Will the pipe stay in the trough?</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui;color:#f2f5ed;background:#121d21}body{margin:0 auto;max-width:960px;padding:clamp(16px,4vw,44px)}h1{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-.05em;margin:.3em 0}.controls,header{display:flex;gap:1em;flex-wrap:wrap;align-items:end}select,button,input{font:inherit;accent-color:#faba75}select,button{background:#26363b;color:#f2f5ed;padding:.55em;border:1px solid #557070;border-radius:5px}label{display:grid;gap:.25em;font-size:.9rem}canvas{display:block;width:100%;background:#15272d;margin:20px 0 10px;border:1px solid #486067;border-radius:8px}.scrub{display:flex;align-items:center;gap:12px}.scrub input{width:100%}p{line-height:1.5;max-width:83ch}output{font-variant-numeric:tabular-nums;white-space:nowrap}a{color:#ffc593}#result{font-weight:650;color:#ffcd9c}h2{margin-bottom:0}small{color:#c4d3cf}
+</style>
+<main><p><a href="README.md">Study notes</a> · <a href="../sector-alignment/replay.html">Drive the approach</a></p>
+<h1>Will the pipe stay in the trough?</h1><p>Follow one pipe from the shelf edge into the reef. Change the rack timing and inspect when the front of the robot clears the pipe.</p>
+<div class="controls"><label>Pipe<select id="piece"><option value="coral-A">A · first delivery</option><option value="coral-B">B · second sector</option></select></label>
+<label>Approach<select id="mode"><option value="nominal">Centered</option><option value="positive">Positive offset</option><option value="negative">Negative offset</option><option value="wheel-bias">Wheel-scale error</option><option value="lateral-kick">Side slip</option></select></label>
+<label>Rack<select id="policy"><option value="scheduled">Observed withdrawal</option><option value="held">Held extended</option></select></label></div>
+<canvas id="canvas" width="900" height="330" aria-label="Side view of the moving pipe, trough and robot front"></canvas>
+<div class="scrub"><button id="play" type="button">Play</button><input id="time" type="range" aria-label="Time since leaving shelf" min="0" max="60" value="0" step="1"><output id="stamp"></output></div>
+<p id="sample"></p><h2>Match outcome</h2><p id="result" aria-live="polite"></p><p><small>Desktop model of the 593-body robot with the X48 camera. Material friction, field survey, camera accuracy, traction and feeder variability still need physical measurements.</small></p></main>
+<script>
+const data=/*DATA*/;
+const q=id=>document.getElementById(id),cv=q("canvas"),ctx=cv.getContext("2d");
+let timer=null,frames=[],study,match;
+function update(){
+ const key=[q("piece").value,q("mode").value,q("policy").value].join("-");
+ frames=data.traces[key];study=data.cases.find(x=>x.case===key);match=data.match.find(x=>x.pipe===q("piece").value&&x.mode===q("mode").value);
+ q("time").max=frames.length-1;q("time").value=Math.min(+q("time").value,frames.length-1);draw();
+ const status=study.outcome==="supported"?"The pipe stays supported by the floor and lip.":"The robot-front clearance bound closes. This trace withholds score credit.";
+ q("result").textContent=status+" "+(study.outcome!=="supported"?"":match.pipe==="coral-A"?(match.conditionalRolePoints==null?"This route has an unresolved field condition.":match.conditionalRolePoints+" modeled role points including AUTO leave and parking."):"This second-sector result depends on reaching the station and acquiring pipe B.");
+}
+function draw(){
+ const [t,x,y,z,ax,az,gap]=frames[+q("time").value];q("stamp").textContent=t.toFixed(2)+" s";
+ ctx.clearRect(0,0,900,330);const X=v=>245+2.2*v,Z=v=>310-1.38*(v-390);
+ function line(x1,z1,x2,z2,color,width){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(X(x1),Z(z1));ctx.lineTo(X(x2),Z(z2));ctx.stroke()}
+ line(16,404.91+.26795*16,246,404.91+.26795*246,"#77c6ba",6);line(0,400,0,457.2,"#77c6ba",6);line(0,457.2,12.7,457.2,"#77c6ba",6);
+ const front=x-57.15-150.8125*Math.abs(ax)-gap;
+ line(front,414,front,492,"#faaf71",3);
+ ctx.fillStyle="#c3dbe6";ctx.font="17px system-ui";ctx.fillText("Robot front",Math.max(8,X(front)-95),Z(411));ctx.fillText("Trough",X(185),Z(431));
+ ctx.fillStyle="#eadfc9";ctx.strokeStyle="#0d1d22";ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(X(x),Z(z),2.2*57.15,1.38*57.15,0,0,2*Math.PI);ctx.fill();ctx.stroke();ctx.fillStyle="#15272d";ctx.beginPath();ctx.ellipse(X(x),Z(z),2.2*50.8,1.38*50.8,0,0,2*Math.PI);ctx.fill();
+ q("sample").textContent="Pipe center across the field "+y.toFixed(3)+" mm. "+(t<study.first_floor_s?"The pipe is in flight.":"Robot-front separation "+gap.toFixed(1)+" mm.")+" Maximum modeled compression "+(1000*study.max_compression_m).toFixed(2)+" mm.";
+}
+function pause(){clearInterval(timer);timer=null;q("play").textContent="Play"}
+for(const el of ["piece","mode","policy"])q(el).onchange=()=>{pause();q("time").value=0;update()};
+q("time").oninput=draw;q("play").onclick=()=>{if(timer){pause();return}if(+q("time").value>=frames.length-1)q("time").value=0;q("play").textContent="Pause";timer=setInterval(()=>{if(+q("time").value>=frames.length-1){pause();return}q("time").value=+q("time").value+1;draw()},50)};update();
+</script></html>
