@@ -1,0 +1,431 @@
+{
+  "schema": "station-cheek-relief/1",
+  "sourceSha256": {
+    "station-supply/receiver-stops.step": "b49aef99691eab7148b149844102a854ad692772ba72cdccb8b6026a78471446",
+    "station-supply/entry-window.json": "b5263783d4b77da56289487beb5f2ba7d7ac03f5e41d14c5b27a46e7e09a68fe",
+    "design/competition-package/shop-duplex/red/source-register.json": "27da02ff7052b9364eeafd3f1dd0aab2045126d701beeafff289259dd2b0b280",
+    "station-supply/transfer.json": "19c14207324a2ee9d0b7b0ab48095f206fa1b1c4fcc1fe5f1275d6b0213e67e7",
+    "design/receiver-drives/receiver_drives.py": "402d758ee69447ad3eddc4ccf274536fafb46601badc05eb861505db8cce7c4c"
+  },
+  "sourceBodies": 545,
+  "reopenedStepSha256": "50e3bb1c563ae0469623c1957bdc66ba6050d5dfc1889ca4bd462e0d85e70fd8",
+  "stock": {
+    "grip-L-upper-cheek": {
+      "removed_mm3": 415.1249999994543,
+      "remaining_mm3": 16688.713551929697
+    },
+    "grip-L-lower-cheek": {
+      "removed_mm3": 407.88677052560524,
+      "remaining_mm3": 16390.337648062337
+    },
+    "grip-R-upper-cheek": {
+      "removed_mm3": 415.12500000057116,
+      "remaining_mm3": 16688.71355192858
+    },
+    "grip-R-lower-cheek": {
+      "removed_mm3": 407.886770526693,
+      "remaining_mm3": 16390.33764806125
+    },
+    "grip-L-upper-replaceable-offset-insert": {
+      "removed_mm3": 36.0000000000241,
+      "remaining_mm3": 580.3385519291314
+    },
+    "grip-L-lower-replaceable-offset-insert": {
+      "removed_mm3": 36.0000000000241,
+      "remaining_mm3": 580.3385519291314
+    },
+    "grip-R-upper-replaceable-offset-insert": {
+      "removed_mm3": 35.99999999997772,
+      "remaining_mm3": 580.3385519291778
+    },
+    "grip-R-lower-replaceable-offset-insert": {
+      "removed_mm3": 35.99999999997772,
+      "remaining_mm3": 580.3385519291778
+    }
+  },
+  "reliefMm": 0.45,
+  "inwardWorstMm": 0.6,
+  "outwardAvailableMm": 1.4,
+  "cases": {
+    "retained-insert-web": [
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.5,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.15154539332007744,
+        "closest_body": "grip-L-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.073275032242449
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.75,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.8713
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.8713
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 0.6634
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 0.6634
+          }
+        },
+        "max_belt_excursion_mm": 1.323275032242449
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.8,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.3454
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.3454
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.21
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.21
+          }
+        },
+        "max_belt_excursion_mm": 1.3732750322424487
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.9,
+        "yaw_deg": 0.2,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.2693
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.2693
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.2375
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.2375
+          }
+        },
+        "max_belt_excursion_mm": 1.3586205496834869
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.0,
+        "yaw_deg": 0.15,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.1924
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 7.1924
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.2582
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.2582
+          }
+        },
+        "max_belt_excursion_mm": 1.343965717865026
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.15,
+        "yaw_deg": 0.1,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 9.4897
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 9.4897
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.745
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 1.745
+          }
+        },
+        "max_belt_excursion_mm": 1.379310624101708
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.25,
+        "yaw_deg": 0.15,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-lower-cheek",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 19.2329
+          },
+          "grip-R-upper-cheek": {
+            "chord": 3,
+            "envelope_overlap_mm3": 19.2329
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 3.7419
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 3.7419
+          }
+        },
+        "max_belt_excursion_mm": 1.593965717865026
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 2,
+        "yaw_deg": 0.5,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-backing-strip",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 2,
+            "envelope_overlap_mm3": 0.9145
+          },
+          "grip-R-upper-cheek": {
+            "chord": 2,
+            "envelope_overlap_mm3": 0.9145
+          },
+          "grip-L-idler-20T": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.4606
+          },
+          "grip-L-upper-replaceable-offset-insert": {
+            "chord": 3,
+            "envelope_overlap_mm3": 40.4872
+          },
+          "grip-R-idler-20T": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.4606
+          },
+          "grip-R-upper-replaceable-offset-insert": {
+            "chord": 3,
+            "envelope_overlap_mm3": 40.4872
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 29.4693
+          },
+          "grip-L-lower-replaceable-offset-insert": {
+            "chord": 4,
+            "envelope_overlap_mm3": 7.4768
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 29.4693
+          },
+          "grip-R-lower-replaceable-offset-insert": {
+            "chord": 4,
+            "envelope_overlap_mm3": 7.4768
+          },
+          "grip-L-backing-strip": {
+            "chord": 5,
+            "envelope_overlap_mm3": 139.7553
+          },
+          "grip-R-backing-strip": {
+            "chord": 5,
+            "envelope_overlap_mm3": 139.7553
+          },
+          "grip-L-front-support-foot": {
+            "chord": 6,
+            "envelope_overlap_mm3": 1.2648
+          },
+          "grip-L-wear-strip-foot-65": {
+            "chord": 6,
+            "envelope_overlap_mm3": 15.4669
+          },
+          "grip-R-front-support-foot": {
+            "chord": 6,
+            "envelope_overlap_mm3": 1.2648
+          },
+          "grip-R-wear-strip-foot-65": {
+            "chord": 6,
+            "envelope_overlap_mm3": 15.4669
+          }
+        },
+        "max_belt_excursion_mm": 3.146539150154642
+      }
+    ],
+    "revised-pocket": [
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.5,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.5637834732820579,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.073275032242449
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.75,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.31378347328200107,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.323275032242449
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.8,
+        "yaw_deg": 0.25,
+        "hardware_lower_mm": 0.26378347328204654,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.3732750322424487
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 0.9,
+        "yaw_deg": 0.2,
+        "hardware_lower_mm": 0.27088560634499004,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.3586205496834869
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.0,
+        "yaw_deg": 0.15,
+        "hardware_lower_mm": 0.2779880656615319,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.343965717865026
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.15,
+        "yaw_deg": 0.1,
+        "hardware_lower_mm": 0.24542833348402304,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.379310624101708
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 1.25,
+        "yaw_deg": 0.15,
+        "hardware_lower_mm": 0.02798806566153189,
+        "closest_body": "grip-R-upper-cheek",
+        "unresolved_material": {},
+        "max_belt_excursion_mm": 1.593965717865026
+      },
+      {
+        "normal_mm": 5,
+        "lateral_mm": 2,
+        "yaw_deg": 0.5,
+        "hardware_lower_mm": 0.0,
+        "closest_body": "grip-L-backing-strip",
+        "unresolved_material": {
+          "grip-L-upper-cheek": {
+            "chord": 2,
+            "envelope_overlap_mm3": 0.9145
+          },
+          "grip-R-upper-cheek": {
+            "chord": 2,
+            "envelope_overlap_mm3": 0.9145
+          },
+          "grip-L-idler-20T": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.4606
+          },
+          "grip-L-upper-replaceable-offset-insert": {
+            "chord": 3,
+            "envelope_overlap_mm3": 18.9565
+          },
+          "grip-R-idler-20T": {
+            "chord": 3,
+            "envelope_overlap_mm3": 4.4606
+          },
+          "grip-R-upper-replaceable-offset-insert": {
+            "chord": 3,
+            "envelope_overlap_mm3": 18.9565
+          },
+          "grip-L-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 27.6746
+          },
+          "grip-L-lower-replaceable-offset-insert": {
+            "chord": 4,
+            "envelope_overlap_mm3": 3.111
+          },
+          "grip-R-lower-cheek": {
+            "chord": 4,
+            "envelope_overlap_mm3": 27.6746
+          },
+          "grip-R-lower-replaceable-offset-insert": {
+            "chord": 4,
+            "envelope_overlap_mm3": 3.111
+          },
+          "grip-L-backing-strip": {
+            "chord": 5,
+            "envelope_overlap_mm3": 139.7553
+          },
+          "grip-R-backing-strip": {
+            "chord": 5,
+            "envelope_overlap_mm3": 139.7553
+          },
+          "grip-L-front-support-foot": {
+            "chord": 6,
+            "envelope_overlap_mm3": 1.2648
+          },
+          "grip-L-wear-strip-foot-65": {
+            "chord": 6,
+            "envelope_overlap_mm3": 15.4669
+          },
+          "grip-R-front-support-foot": {
+            "chord": 6,
+            "envelope_overlap_mm3": 1.2648
+          },
+          "grip-R-wear-strip-foot-65": {
+            "chord": 6,
+            "envelope_overlap_mm3": 15.4669
+          }
+        },
+        "max_belt_excursion_mm": 3.146539150154642
+      }
+    ]
+  }
+}
