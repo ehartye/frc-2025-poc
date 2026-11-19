@@ -98,12 +98,15 @@ def stop_feedback(measured, estimates, enc, tick):
     )
 
 
-def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
+def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9, continuation=None):
     row, reached, wheels, cargo = prior(raw, case, step)
     if hold < 0.9 or (
         cut is not None and (cut < 0 or abs(cut / DT - round(cut / DT)) > 1e-8)
     ):
         raise ValueError("Invalid wheel service time or brake window")
+    if continuation is not None:
+        wheels = continuation["wheel"]
+        cargo = continuation["pipe"]
     first_wheels = wheels
     plant, enc, odom, gyro = restore(wheels, reached, case)
     layout = dock.ROOT / "fixed-height-match/placements.json"
@@ -119,8 +122,12 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
     if policy == "south-offset":
         gx, gy = goals[1]
         goals[1] = (gx, gy - 0.45)
+    if continuation is not None:
+        goals[-1] = (goals[-1][0] + .300 - continuation["reefSetbackM"], goals[-1][1])
     heading0 = odom.pose[2]
     start = reached["wheel"]["startWallS"] + reached["wheel"]["elapsedS"]
+    if continuation is not None:
+        start = continuation["startWallS"]
     sign = 1 if case == "plus" else -1
     velocity = [plant.velocity.copy()]
     poses = [plant.pose.copy()]
@@ -128,13 +135,15 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
     observed = [np.r_[*plant.sensors(), gyro]]
     command = np.zeros(3)
     marks = []
-    index = 0
+    index = 0 if continuation is None else continuation["nextWaypoint"]
     end = None
-    for tick in range(round(40 / DT)):
+    max_run = 40 if continuation is None else 85
+    for tick in range(round(max_run / DT)):
         elapsed = tick * DT
         if cut is not None and elapsed + 1e-10 >= cut and end is None:
             end = elapsed
-        if end is None:
+        restrained = continuation is not None and elapsed < continuation["holdS"] - 1e-10
+        if end is None and not restrained:
             target = np.array(goals[index])
             error = target - odom.pose[:2]
             heading = heading0 if index < 2 else 0.0
@@ -162,19 +171,23 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
                 if index == len(goals):
                     end = elapsed
             speed = min(0.68, math.sqrt(0.48 * length)) if policy != "crossing" else 0.8
+            if continuation is not None:
+                speed = min(speed, continuation["maxSpeedMps"])
             gain = 1.35 if policy != "crossing" else 2.0
             desired = np.r_[
                 dock.velocity(error, speed, gain), np.clip(2 * dyaw, -0.65, 0.65)
             ]
-            command[:2] += dock.velocity(desired[:2] - command[:2], 0.45 * DT, 1.0)
-            command[2] += np.clip(desired[2] - command[2], -0.65 * DT, 0.65 * DT)
-        if end is not None:
+            linear_accel = 0.45 if continuation is None else continuation["maxAccelerationMps2"]
+            yaw_accel = 0.65 if continuation is None else continuation["maxYawAccelerationRadS2"]
+            command[:2] += dock.velocity(desired[:2] - command[:2], linear_accel * DT, 1.0)
+            command[2] += np.clip(desired[2] - command[2], -yaw_accel * DT, yaw_accel * DT)
+        if end is not None or restrained:
             command[:] = 0.0
         angle = enc.angle(plant.sensors()[1], 1024)
         plant.advance(
             np.r_[dock.field_to_body(command[:2], odom.pose[2]), command[2]],
             angle,
-            stopped=end is not None,
+            stopped=end is not None or restrained,
         )
         gyro += DT * (
             (1 + sign * 0.001) * plant.velocity[2] + sign * math.radians(0.02)
