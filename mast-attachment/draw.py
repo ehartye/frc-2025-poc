@@ -12,7 +12,7 @@ def draw():
     text(35,76,"Robot X/Z in millimetres. View each side from outside; dimensions govern. The fore/aft hole pattern is shared.")
     for s,offset in ((1,53),(-1,639)):
         body,ribs=profile(s)
-        def pos(p):return (offset+44+(p[0]+136)*1.72,146+(275-p[1])*1.72)
+        def pos(p):return (offset+44+(p[0]+136)*2.06,159+(229-p[1])*2.06)
         def poly(points,fill):
             pts=" ".join(f"{x:.1f},{y:.1f}" for x,y in map(pos,points))
             shapes.append(f'<polygon points="{pts}" fill="{fill}" stroke="#273f46" stroke-width="1.25"/>')
@@ -31,13 +31,13 @@ def draw():
         for pts,diam in ((RAIL,6.50),(MAST,6.50)):
             for p in pts:
                 x,y=pos(p)
-                shapes.append(f'<circle cx="{x}" cy="{y}" r="{diam*1.72/2}" fill="#f4f6ef" stroke="#162f38"/>')
+                shapes.append(f'<circle cx="{x}" cy="{y}" r="{diam*2.06/2}" fill="#f4f6ef" stroke="#162f38"/>')
         for z in (150,154):
             left,y=pos((-136,z));right,_=pos((69,z))
             shapes.append(f'<path d="M{left:.1f} {y:.1f} H{right:.1f}" fill="none" stroke="#794413" stroke-width="1" stroke-dasharray="5 3"/>')
         text(offset,432,"Dashed lines show the 4 mm deck.",16)
     text(35,479,"Hole centers",21,bold=True)
-    text(35,510,"Rail   X −116 and +42  ×  Z128 and 141.5. Mast   X −51 and −33  ×  Z194 and 263.")
+    text(35,510,"Rail   X −116 and +42  ×  Z128 and 141.5. Mast   X −51 and −33  ×  Z165 and 217.")
     text(35,540,"Splice Ø6.50 throughout. Mast Ø10.10 both walls for Ø10/6.20 × 25 sleeves. Rail Ø6.50 through its 6 mm web.")
     text(35,570,"Stock 8 mm 7075-T7351. Base 3 mm, ribs 8 mm total. Match the STEP contours; deburr and gauge real stock.")
     text(35,600,"Deck slots X −135…+68, |Y|235.0…238.6. Keep the original rail land. Lift the disengaged splice 35 mm.",17)

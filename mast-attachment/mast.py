@@ -15,7 +15,7 @@ from OCP.BRep import BRep_Builder
 from OCP.TopoDS import TopoDS_Compound
 
 RAIL=[(-116,128),(-116,141.5),(42,128),(42,141.5)]
-MAST=[(-51,194),(-33,194),(-51,263),(-33,263)]
+MAST=[(-51,165),(-33,165),(-51,217),(-33,217)]
 PROFILE=[(-132,121),(67,121),(67,146),
          (-20,267),(-20,275),(-70,275),(-70,267),(-132,146)]
 SLOT=(-135.,68.,235.,238.6)
@@ -25,16 +25,25 @@ def prism(s,polygon,start,stop):
     return j.extrude([(x,s*start,z) for x,z in polygon],(0,s*(stop-start),0))
 
 
-def profile(s):
+def clip_below(poly,height):
+    clipped=[]
+    for a,b in zip(poly,poly[1:]+poly[:1]):
+        if a[1]<=height:clipped.append(a)
+        if (a[1]<height)!=(b[1]<height):
+            clipped.append((a[0]+(b[0]-a[0])*(height-a[1])/(b[1]-a[1]),height))
+    return clipped
+
+
+def profile(s,full=False):
     perimeter=PROFILE if s>0 else PROFILE[:-1]+[(-81,194),(-87,168),(-132,146)]
     rear_rib=([(-125,158),(-117,158),(-63,249),(-70,252)] if s>0 else
               [(-80,192),(-73,192),(-63,249),(-70,252)])
     ribs=[rear_rib,[(28,158),(36,158),(-20,252),(-27,249)]]
-    return perimeter,ribs
+    return (perimeter,ribs) if full else (clip_below(perimeter,229.),[clip_below(p,225.) for p in ribs])
 
 
-def plate(s):
-    perimeter,ribs=profile(s)
+def plate(s,full=False):
+    perimeter,ribs=profile(s,full)
     part=prism(s,perimeter,235,238)
     # Large asymmetric rounded tooling can accommodate these triangular empty panels.
     # Preserve the full lower chord and a 22 mm wide load path to each mast edge.
@@ -48,7 +57,8 @@ def plate(s):
     # Integral external stiffeners, machined from the same 8 mm stock above the sheet.
     for rib in ribs:
         part=j.fuse(part,prism(s,rib,238,243))
-    for x,z in RAIL+MAST:
+    old=[(-51,194),(-33,194),(-51,263),(-33,263)]
+    for x,z in RAIL+(old if full else MAST):
         part=j.cut(part,j.rod(x,s,234,245,z,3.25))
     return part
 
@@ -79,8 +89,8 @@ def lateral_jog(s,dx):
     return compound(allparts)
 
 
-def outward_removal(s,dx=0):
-    perimeter,ribs=profile(s)
+def outward_removal(s,dx=0,full=False):
+    perimeter,ribs=profile(s,full)
     groups=[(perimeter,235.,238.25)]+[(r,238.,243.25) for r in ribs]
     return compound([prism(s,[(x+dx,z+35) for x,z in p],y,y2+220.) for p,y,y2 in groups])
 

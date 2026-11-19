@@ -1,5 +1,5 @@
 """Reconstruct two rejected details against the released cover mount and camera trough."""
-from mast import HERE, ROOT, j, prism
+from mast import HERE, ROOT, j, prism,plate
 
 
 def run():
@@ -17,6 +17,16 @@ def run():
         "tray-upper-R","post--120_64-R","base-screw--120_64-R","post--120_88-R")},
         "unrelievedRibMm3":{k:j.cad.intersection(rib,source[k]) for k in ("roof-host-trough-01","roof-host-trough-02")}}
     if any(v<=0 for row in data.values() for v in row.values()):raise ValueError(data)
+    ds=ROOT/"design/receiver-lift"
+    ids=j.read(ds/"duplex-inventory.json")["poses"]["place"]
+    stock=j.cad.read_named(ds/"duplex-place.step",[{"id":k} for k in ids])
+    data["trueTallExtraction"]={}
+    for side,sign in (("L",1),("R",-1)):
+        tall=plate(sign,full=True)
+        target=stock["backup-"+side+"-bearing-support"]
+        trials={dy:round(j.cad.intersection(j.cad.translated(tall,[0,sign*dy,35]),target),5) for dy in (20.,40.,60.)}
+        if max(trials.values())<=0:raise ValueError(trials)
+        data["trueTallExtraction"][side]={"lateralOffsetMmAndCommonMm3":trials,"bearingSha256":j.digest(ds/"duplex-place.step")}
     j.write(HERE/"controls.json",data)
 
 

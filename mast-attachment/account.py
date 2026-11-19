@@ -26,7 +26,7 @@ def run(plugin,path,out):
         raise ValueError("Require issued deck ties, fixed optical lead and supported rails")
     fitted=read(HERE/"fit.json")
     if sha(HERE/"mast-joints.step")!=fitted["stepSha256"]:raise ValueError("Changed mast hardware")
-    ribbed=any(i["id"]=="integral-rib-deck" and i["id"] in c["add"] for c in data["changes"] if c["id"] in selected for i in data["instances"] if i["id"]=="integral-rib-deck")
+    ribbed=any("integral-rib-deck" in c["add"] for c in data["changes"] if c["id"] in selected)
     prior_deck="integral-rib-deck" if ribbed else "tie-machined-deck-main"
     removed=[prior_deck]+["supported-covers/drive-rail-inner-"+s for s in ("L","R")]+["low-lock/backup-"+s+"-drilled-mast" for s in ("L","R")]
     for ref in data["sources"]:

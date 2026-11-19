@@ -66,6 +66,7 @@ def run(art,lamp,rib):
     svc={}
     service_controls={}
     service_paths={}
+    tall_control={}
     for side,sign in (("L",1),("R",-1)):
         prefix="mast-base-"+side+"-"
         moving=upward_removal(sign)
@@ -77,16 +78,17 @@ def run(art,lamp,rib):
         line_skip={"roof-host","roof-host-form"} if sign<0 else set()
         service_controls[side+"/upward"]=screen(moving,ignore)
         service_controls[side+"/directOutward"]=screen(outward_removal(sign),ignore|opened|bumper,line_skip)
+        tall_control[side]=round(j.cad.intersection(outward_removal(sign,full=True),obs["backup-"+side+"-bearing-support"]),4)
         svc[side+"/upward"]=screen(moving,ignore|opened|bumper,line_skip)
-        for dx in (115.,-135.,155.,-170.):
-            jog=screen(lateral_jog(sign,dx),ignore|opened|bumper,line_skip)
+        for dx in (0.,115.,-135.):
+            jog=screen(lateral_jog(sign,dx),ignore|opened|bumper,line_skip) if dx else None
             out=screen(outward_removal(sign,dx),ignore|opened|bumper,line_skip)
-            if all(not r["overlapMm3"] and (not r["closeRoutedLeadMarginMm"] or r["closeRoutedLeadMarginMm"][0]>=0) for r in (jog,out)):
-                svc[side+"/jog"]=jog
+            if all(not r["overlapMm3"] and (not r["closeRoutedLeadMarginMm"] or r["closeRoutedLeadMarginMm"][0]>=0) for r in (jog,out) if r):
+                if jog:svc[side+"/jog"]=jog
                 svc[side+"/outward"]=out
                 service_paths[side]=dx
                 break
-            service_controls[side+"/jog"+str(dx)]=jog
+            if jog:service_controls[side+"/jog"+str(dx)]=jog
             service_controls[side+"/out"+str(dx)]=out
         for index,(x,z) in enumerate(RAIL+MAST):
             top=index>=len(RAIL)
@@ -119,6 +121,7 @@ def run(art,lamp,rib):
     row={"sources":{**pins,"deck-through-ties.step":tied["stepSha256"],"ribbed-deck.step":rib_meta["stepSha256"]},
          "counts":counts,"stepSha256":j.digest(path),"ribbedSlottedSha256":j.digest(alt_path),"volumeMm3":volumes,
          "material":checks,"tools":svc,"serviceControls":service_controls,"extractionJogXmm":service_paths,
+         "tallBracketBearingMm3":tall_control,
          "halfMmBearingChainCommonMm3":witness,"unrelievedDeckCommonMm3":negative,
          "stockRemovedMm3":{k:j.cad.volume(src[k])[0]-v for k,v in {
              main:volumes["mast-slotted-deck"],

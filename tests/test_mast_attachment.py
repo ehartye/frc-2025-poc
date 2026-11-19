@@ -17,7 +17,7 @@ class MastAttachment(unittest.TestCase):
         for name,key in (("mast-joints.step","stepSha256"),("slotted-ribbed-deck.step","ribbedSlottedSha256")):
             self.assertEqual(hashlib.sha256((HERE/name).read_bytes()).hexdigest(),f[key])
         self.assertEqual(len(f["volumeMm3"]),63)
-        self.assertEqual(set(f["extractionJogXmm"]),{"L","R"})
+        self.assertEqual(f["extractionJogXmm"],{"L":0,"R":0})
         for group in ("material","tools"):
             for row in f[group].values():
                 self.assertFalse(row["overlapMm3"])
@@ -27,10 +27,12 @@ class MastAttachment(unittest.TestCase):
         self.assertTrue(all(min(q.values())>3 for q in f["halfMmBearingChainCommonMm3"].values()))
         self.assertAlmostEqual(f["ribbedDeckRemovedMm3"],f["stockRemovedMm3"]["tie-machined-deck-main"],places=2)
         for side in ("L","R"):
-            self.assertGreater(f["serviceControls"][side+"/directOutward"]["overlapMm3"]["backup-"+side+"-bearing-support"],1000)
+            self.assertGreater(f["tallBracketBearingMm3"][side],1000)
         ctl=read("controls.json")
         self.assertGreater(ctl["deepLegFromZ60Mm3"]["post--120_64-R"],100)
         self.assertGreater(ctl["unrelievedRibMm3"]["roof-host-trough-01"],20)
+        for row in ctl["trueTallExtraction"].values():
+            self.assertGreater(min(row["lateralOffsetMmAndCommonMm3"].values()),290)
         ElementTree.parse(HERE/"shop.svg")
 
     def test_signed_combination_and_unilateral_failure(self):
@@ -44,7 +46,7 @@ class MastAttachment(unittest.TestCase):
             for r in paired:
                 self.assertEqual(len(r["group"]["rail"]),5)
         adverse=data["independentAdverseSingleSide"]
-        self.assertGreater(min(r["sectionMPa"] for r in adverse.values()),2000)
+        self.assertGreater(min(r["sectionMPa"] for r in adverse.values()),4*data["certifiedYieldAndFastenerProofMPa"][0])
         d=read("damper.json")
         self.assertTrue(d["includesBothPlungersOnce"])
         for row in d["cases"].values():
@@ -68,4 +70,7 @@ class MastAttachment(unittest.TestCase):
             self.assertEqual(row["charge"]["deltaKg"],delta)
             self.assertLess(row["representedMarginKg"][0],0)
             self.assertIsNone(row["physicalMarginKg"])
-        self.assertTrue(.63<delta[1]<.65)
+        groups=row["charge"]["groupsKg"]
+        self.assertEqual(set(groups),{"short","long","sleeve","washer","nut","splice"})
+        for index in (0,1):
+            self.assertAlmostEqual(delta[index],sum(pair[index] for pair in groups.values()))

@@ -102,7 +102,7 @@ def states(trace):
 
 def run(csv_dir,registration):
     data=j.read(registration)
-    sections={s:[cross_section(s,z) for z in (145,146,152,158,164,168,176,182,188,190)] for s in (1,-1)}
+    sections={s:[cross_section(s,z) for z in (145,146,149,152,155,158,159.5)] for s in (1,-1)}
     rows={}
     for case in data["cases"]:
         path=csv_dir/case["file"]
