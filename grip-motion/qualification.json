@@ -1,0 +1,269 @@
+{
+  "registeredInputs": {
+    "split-guide-acquisition/candidate.json": "22e8860f678ecb9a4416502893002b4a5d989eae4bdbc430ec72cc70bbbb7c0f",
+    "split-guide-acquisition/locked.json": "732002d59797cf44f209be08af5eb7c25ce3f640da37c381fde0dc0ba82de2dc",
+    "split-guide-acquisition/traction.json": "58b02241a0003f13a83fdad0c0e3fb008aaf656f83025b15e4ea1e8c82ae9cec"
+  },
+  "watchSources": {
+    "GuardedAcquisition.java": "ddf84f168d4892c7b4d3567b702024264e44027474e0a92e39c97e57cd8ac661",
+    "IdlerWatch.java": "3ec67fc0b13daf55b787f674aaf7b0b1372b5b37bf24c503ba6d13428b06ded0",
+    "WatchBoundaryTest.java": "44e3278ebc406f886a4760063cb445c47404d6474f0fc74c1a58b62950ff2772",
+    "WatchFixture.java": "83de40dbb0c7edb5d0e0c29e5feb4227199a9726d0fe7d960fdf07b8aed6934e"
+  },
+  "compiledPortProgramSha256": "9e29d95f57b0e45164916d9b97ff1ea1a3d0e2303bff85641f4afa2251df4a94",
+  "sweepSha256": "4f62047a6fcd5035a342be89eee85e56c22211da6ab1eabf474631c8cc69ca85",
+  "sampledCases": 2422,
+  "joinedSource": {
+    "candidate-leftSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1340",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1340,
+      "originalLastJavaMs": 5460
+    },
+    "candidate-leftSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1340",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1340,
+      "originalLastJavaMs": 5460
+    },
+    "candidate-rightSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1360",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1360,
+      "originalLastJavaMs": 5460
+    },
+    "candidate-rightSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1360",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1360,
+      "originalLastJavaMs": 5460
+    },
+    "locked-leftSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "fault_ms": "640",
+      "state_or_command_differences": "1",
+      "outcome": "FAULT",
+      "reason": "independent-idler-travel-missing",
+      "last_command": "0.00000",
+      "originalOutcome": "FAULT",
+      "originalFirstBandMs": null,
+      "originalLastJavaMs": 1340
+    },
+    "locked-leftSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "fault_ms": "640",
+      "state_or_command_differences": "1",
+      "outcome": "FAULT",
+      "reason": "independent-idler-travel-missing",
+      "last_command": "0.00000",
+      "originalOutcome": "FAULT",
+      "originalFirstBandMs": null,
+      "originalLastJavaMs": 1340
+    },
+    "traction-leftSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "-1",
+      "fault_ms": "700",
+      "state_or_command_differences": "0",
+      "outcome": "FAULT",
+      "reason": "lost-probe-seat",
+      "last_command": "0.00000",
+      "originalOutcome": "FAULT",
+      "originalFirstBandMs": null,
+      "originalLastJavaMs": 700
+    },
+    "traction-leftSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "-1",
+      "fault_ms": "880",
+      "state_or_command_differences": "0",
+      "outcome": "FAULT",
+      "reason": "lost-probe-seat",
+      "last_command": "0.00000",
+      "originalOutcome": "FAULT",
+      "originalFirstBandMs": null,
+      "originalLastJavaMs": 880
+    }
+  },
+  "digitalControls": {
+    "single locked idler": {
+      "fault_ms": "640",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "independent-idler-travel-missing",
+      "outcome": "FAULT"
+    },
+    "wrong right polarity": {
+      "fault_ms": "640",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "independent-idler-travel-missing",
+      "outcome": "FAULT"
+    },
+    "missing ADC channel": {
+      "fault_ms": "620",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "stale conversion": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "uncommissioned": {
+      "fault_ms": "580",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "replayed angle with jammed ports": {
+      "fault_ms": "1340",
+      "confirmed_ms": "640",
+      "band_ms": "-1",
+      "reason": "probe-timeout",
+      "outcome": "FAULT"
+    },
+    "empty with good port and angle replay": {
+      "fault_ms": "-1",
+      "confirmed_ms": "640",
+      "band_ms": "1340",
+      "reason": "",
+      "outcome": "IN_BAND"
+    },
+    "disabled": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "unqualified-or-stale-frame",
+      "outcome": "FAULT"
+    },
+    "stale port": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "unqualified-or-stale-frame",
+      "outcome": "FAULT"
+    },
+    "ADC code outside range": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "future conversion": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "failed ADC transaction": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "duplicated frame": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "uncalibrated-stale-or-invalid-idler",
+      "outcome": "FAULT"
+    },
+    "lost dock": {
+      "fault_ms": "600",
+      "confirmed_ms": "-1",
+      "band_ms": "-1",
+      "reason": "unqualified-or-stale-frame",
+      "outcome": "FAULT"
+    }
+  },
+  "onsetGrid": {
+    "healthy": {
+      "trials": 960,
+      "millisecondsAfterProbe": [
+        60,
+        60
+      ],
+      "outcomes": {
+        "PROBE": 960
+      }
+    },
+    "locked": {
+      "trials": 960,
+      "millisecondsAfterProbe": [
+        60,
+        60
+      ],
+      "outcomes": {
+        "FAULT": 960
+      }
+    }
+  },
+  "laterPersistentStall": {
+    "cases": 480,
+    "sampledDelayMs": [
+      39.0,
+      61.0
+    ],
+    "conservativeContinuousMs": 79.5
+  },
+  "guaranteedBounds": {
+    "angleErrorDegEach": 3,
+    "quantized4095SensorAnd1650AnalogPairMm": 1.051015651015651,
+    "thresholdMm": 1.5,
+    "minHealthyStationaryStartReadMm": 2.8364843489843494,
+    "minRollingSpeedMps": 0.14,
+    "minAccelerationMps2": 16,
+    "differentialDriveLashMm": 0.4,
+    "maxFrameGapMs": 5.25,
+    "maxTransferMs": 4,
+    "maxEffectiveSensorLagMs": 3,
+    "perStampClockErrorMs": 1,
+    "scope": "conditional on installed signal, motion and timing acceptance; stationary only inside the modeled supplier/coupling error envelope"
+  },
+  "installedCalibration": null,
+  "chassisAuthority": false,
+  "sensorIncrementalMassKg": 0.0
+}
