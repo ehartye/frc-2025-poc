@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Replay the 593-body fixed-low match](integrated-match/replay.html). Follow two identified pipes on one controller clock, inject a late camera frame, or park after the first delivery. The [engineering record](integrated-match/README.md) explains the nine-, five- and seven-point modeled outcomes.
+
 Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.html) or [red robot](design/competition-package/shop-duplex/red/robot.html) in 3D. Select a carriage pose or isolate a part to follow the pipe from station to trough. The [engineering record](design/competition-package/shop-duplex/README.md) includes the fastened chassis and duplex lift, full STEP files, normal travel, weight bounds and open docking and arrest limits.
 
 [Run the leave-and-park fallback](leave-park/replay.html) with a stowed receiver and empty station. Compare a reserved lane, a blocked approach and a late endgame decision. [Tracking limits and match points](leave-park/README.md)
