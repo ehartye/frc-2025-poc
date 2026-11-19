@@ -4,6 +4,8 @@
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
 
+[Can the receiving shelf absorb the station drop?](shelf-structure/README.md) Compare the stock shelf with a lighter machined insert and two stowed shock absorbers. Follow the load through the slide and mast and see which capture assumptions still need a fixture.
+
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.
 
 [Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
