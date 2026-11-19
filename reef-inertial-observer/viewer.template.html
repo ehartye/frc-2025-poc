@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approaching the reef with one visible fastener</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f3ee;color:#172d31;font:17px/1.55 "Atkinson Hyperlegible Next",Arial,sans-serif}main{max-width:920px;margin:4vh auto;padding:20px}h1{font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.05;letter-spacing:-.045em;max-width:780px;margin:0 0 20px}label{display:inline-grid;gap:4px;margin:0 18px 12px 0;font-weight:700}select,input{font:inherit;accent-color:#07675e}select{background:white;color:inherit;padding:6px;border:1px solid #668383;border-radius:4px}figure{margin:10px 0;background:#e2eae4;border:1px solid #a0b5ae;padding:16px}svg{width:100%;height:auto}line{stroke:#8da6a0}.path{fill:none;stroke:#537e75;stroke-width:3}circle{fill:#004f4c;stroke:#fff;stroke-width:2}.goal{fill:#9a370f}figcaption{font-size:.9rem}input{width:100%}p{max-width:78ch}.report{border-left:4px solid #9a370f;padding-left:12px}output{font-variant-numeric:tabular-nums}</style>
+<main><h1>Approaching the reef with one visible fastener</h1>
+<p>When the guide arm hides the second fastener, the fixed camera can still see the first one. A timestamped gyro measurement carries forward the heading measured when both fasteners were visible.</p>
+<label>Wheel case<select id="side"><option value="leftSmall">Smaller left wheel</option><option value="rightSmall">Smaller right wheel</option></select></label>
+<label>Field input<select id="mode"><option value="nominal">Registered field</option><option value="gyro-dropout">Gyro stops reporting</option><option value="shared-survey-shift">Map shifted 14 mm</option><option value="lateral-kick">Chassis pushed sideways</option><option value="ambiguous">Duplicate feature</option><option value="dropout">Missing features</option><option value="stale">Late image</option><option value="wrong-face">Wrong tag</option></select></label>
+<figure><svg viewBox="0 0 650 185" role="img" aria-labelledby="desc"><title id="desc">Distance and lateral error along the simulated field approach</title><line x1="20" x2="620" y1="90" y2="90"/><line x1="605" x2="605" y1="20" y2="145"/><text x="573" y="172">target</text><path class="path" id="curve"/><circle r="6" id="robot"/></svg><figcaption>The dot is the independently simulated chassis. Vertical displacement is magnified to show lateral error.</figcaption></figure>
+<label style="display:block">Capture time <output id="time"></output><input type="range" id="frame" min="0" step="1"></label><p id="measurement"></p><p class="report" id="verdict" aria-live="polite"></p>
+<p>Scoring also needs a retained pipe and a separately confirmed placement. These trials end with the rack stowed.</p></main>
+<script>
+const data=DATA_PAYLOAD;
+const el=id=>document.getElementById(id), sx=x=>605+x*.60, sy=y=>90-y*2.3;
+function draw(reset) {
+ const caseData=data[el('side').value][el('mode').value], frames=caseData.frames;
+ const slider=el('frame');slider.max=frames.length-1;if(reset)slider.value=frames.length-1;
+ const [t,x,y,n,w]=frames[+slider.value];
+ el('curve').setAttribute('d',frames.map((f,i)=>(i?'L':'M')+sx(f[1])+','+sy(f[2])).join(' '));
+ el('robot').setAttribute('cx',sx(x));el('robot').setAttribute('cy',sy(y));el('time').value=(t/1000).toFixed(3)+' s';
+ el('measurement').textContent=n?'The estimator uses '+n+' surveyed fastener'+(n===1?'':'s')+' at this capture. The heading interval spans '+w.toFixed(3)+'°.':'This capture supplies no registered gyro and feature estimate.';
+ el('verdict').textContent=caseData.accepted?(caseData.correct?'Three fresh measurements permit the simulated approach. The position bound at the decision is '+caseData.bound[0].toFixed(2)+' mm.':'False alignment. A shared 14 mm map shift fools both cameras and the gyro. Independent field survey is required.'):'The robot brakes and holds. '+caseData.reason+'.';
+}
+el('side').onchange=el('mode').onchange=()=>draw(true);el('frame').oninput=()=>draw(false);draw(true);
+</script></html>
