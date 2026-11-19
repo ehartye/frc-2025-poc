@@ -27,4 +27,5 @@ Use the [manufacturer's light STEP](https://documents.andymark.com/6dc6d4c850e6c
 ```sh
 python design/signal-light/inspect_light.py SUPPLIED_STEP --mount-step design/signal-light/deck-mount.step
 python design/signal-light/accounting.py PLUGIN_ROOT artifacts/signal-light/maps
+python design/signal-light/view_light.py SUPPLIED_STEP artifacts/signal-light/robot.html
 ```
