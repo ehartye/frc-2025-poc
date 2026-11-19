@@ -26,7 +26,7 @@ def relative(a,b):
     return np.r_[rotation(-a[2])@(b[:2]-a[:2]),b[2]-a[2]]
 def compose(a,delta):
     return np.r_[a[:2]+rotation(a[2])@delta[:2],a[2]+delta[2]]
-def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK):
+def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK,observer=station_frame):
     sector=SECTORS[pipe];goal=np.array([0.,sector,0.])
     actual=np.array([-STRAIGHT+initial[0],sector+initial[1],math.radians(initial[2])])
     odom=np.array([-STRAIGHT,sector,0.]);pred=odom.copy()
@@ -47,7 +47,7 @@ def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=T
             hide=mode=="dropout" and tick>=1600
             image_pose=actual.copy()
             if mode=="shared-survey-shift": image_pose[1]-=14
-            sample=station_frame(image_pose,ctx,tag,duplicate,hide)
+            sample=observer(image_pose,ctx,tag,duplicate,hide)
             delay=75 if mode=="stale" and tick>=1500 else 15
             packets.append((tick+delay,tick,sample))
         while packets and packets[0][0]<=tick:

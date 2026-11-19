@@ -84,8 +84,10 @@ def outbound(piece, source, wheel_case, cache, ctx, use_gyro=False, pace=1.):
                 math.degrees(corrected().short(endpoint[2]-marker[2]))]
     cache.mkdir(exist_ok=True, parents=True)
     np.savez_compressed(cache/"transit.npz", times=times, poses=poses, wheels_mm_s=wheels)
+    from coarse_vision import coarse_observation
+    observer=coarse_observation if ctx.get("allowSingleEyeId",False) else sector.station_frame
     result = sector.tracecase(piece, observed, "nominal", ctx, cache, wheel_scale=cfg["wheelScale"],
-                              physical_track_mm=cfg["effectiveTrackMm"])
+                              physical_track_mm=cfg["effectiveTrackMm"],observer=observer)
     result.pop("path")
     result.update(stationPoseMmDeg=source, wheelScale=cfg["wheelScale"], trackMm=cfg["effectiveTrackMm"],
                   transitDurationS=float(times[-1]), gyroFeedback=use_gyro, pace=pace, transitSha256=sha(cache/"transit.npz"))

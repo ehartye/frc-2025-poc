@@ -1,0 +1,978 @@
+{
+  "clock": "field wall seconds; TELEOP starts at 18, final assessment 156",
+  "archivedTwoTripSchedule": [
+    {
+      "piece": "coral-A",
+      "event": "feed",
+      "wallS": 21.1
+    },
+    {
+      "piece": "coral-A",
+      "event": "seat",
+      "wallS": 23.08
+    },
+    {
+      "piece": "coral-A",
+      "event": "carry",
+      "wallS": 27.032
+    },
+    {
+      "piece": "coral-A",
+      "event": "release",
+      "wallS": 48.01
+    },
+    {
+      "piece": "coral-A",
+      "event": "withdraw",
+      "wallS": 48.295
+    },
+    {
+      "piece": "coral-A",
+      "event": "motion",
+      "wallS": 48.33
+    },
+    {
+      "piece": "coral-A",
+      "event": "stow",
+      "wallS": 50.765
+    },
+    {
+      "piece": "coral-B",
+      "event": "feed",
+      "wallS": 71.501
+    },
+    {
+      "piece": "coral-B",
+      "event": "seat",
+      "wallS": 73.46
+    },
+    {
+      "piece": "coral-B",
+      "event": "carry",
+      "wallS": 77.434
+    },
+    {
+      "piece": "coral-B",
+      "event": "release",
+      "wallS": 98.101
+    },
+    {
+      "piece": "coral-B",
+      "event": "withdraw",
+      "wallS": 98.375
+    },
+    {
+      "piece": "coral-B",
+      "event": "motion",
+      "wallS": 98.41
+    },
+    {
+      "piece": "coral-B",
+      "event": "stow",
+      "wallS": 100.845
+    }
+  ],
+  "cases": [
+    {
+      "wheelCase": "leftSmall",
+      "material": "effective",
+      "sourceBasis": "software",
+      "pipeA": "bd9ba31251c7b338feb588b05636b19ef02d96bab2f0788c69cc71ff1bed7f09",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "loaded path interrupted",
+      "detectionOnlyDrive": true,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.97167263531428,
+          "action": "ports A",
+          "evidence": "The same tube enters the dual-port seat state."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "optical custody",
+          "evidence": "Stereo and roof coverage agree."
+        },
+        {
+          "wallS": 27.032172635314282,
+          "action": "conditional drive",
+          "evidence": "The supplied pipe state continues under the effective contact law."
+        },
+        {
+          "wallS": 38.556672635314285,
+          "action": "cargo view lost",
+          "evidence": "The first missing roof witness ends the demonstrated continuous custody. The subsequent chassis and pipe positions are unverified."
+        },
+        {
+          "wallS": 43.34848513531428,
+          "action": "cargo limit",
+          "evidence": "62.5 microsecond cargo continuation reaches a physical model limit."
+        },
+        {
+          "wallS": 44.672672635314285,
+          "action": "cargo limit",
+          "evidence": "125 microsecond cargo continuation reaches a physical model limit."
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 48.16217263531428,
+          "action": "projected reef stop",
+          "evidence": "Wheel-only projection ends without sector registration. Earlier cargo limits withhold credit for this position."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "leftSmall",
+      "material": "lower-damping",
+      "sourceBasis": "software",
+      "pipeA": "e47ee7faf86a3cd8bebd06153b1329720de0df59f5fb41ce15aedef53e9e6f59",
+      "portState": "FAULT",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.591672635314282,
+          "action": "station hold",
+          "evidence": "incoming-edges-unresolved"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "leftSmall",
+      "material": "elastic-stock",
+      "sourceBasis": "software",
+      "pipeA": "a4dbb72c9f336ee2130e763d164662aa6012db0fca17b715378f2b40a22cf842",
+      "portState": "BRAKE",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.191672635314283,
+          "action": "station hold",
+          "evidence": "outside-flat-shelf"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "leftSmall",
+      "material": "elastic-insert",
+      "sourceBasis": "software",
+      "pipeA": "4bfe3c263a9726eb2396f2ec3554b7e889ad5ae619787302bb9040bf984f2e77",
+      "portState": "BRAKE",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.051672635314283,
+          "action": "station hold",
+          "evidence": "cartridge stop"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "leftSmall",
+      "material": "elastic-damped",
+      "sourceBasis": "software",
+      "pipeA": "432e59c818caab95e0e284dceb42d119910eac8d991f171d20d83ff6a7d2fac8",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 27.031672635314283,
+          "action": "station hold",
+          "evidence": "independent custody unavailable"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "leftSmall",
+      "material": "machined-damped",
+      "sourceBasis": "software",
+      "pipeA": "154a05ac7dde457de7bd9008f88f747312c9b5b00a3ca0361f7bc8c65ddc0b8b",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.35,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.931672635314282,
+          "action": "ports A",
+          "evidence": "The two shelf ports report a seat on the machined contact model."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: native",
+          "evidence": "Fixed stereo encloses the nominal pipe center."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: dark",
+          "evidence": "Fixed stereo encloses the nominal pipe center."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: pipe-intensity",
+          "evidence": "Fixed stereo does not establish independent custody."
+        },
+        {
+          "wallS": 27.031672635314283,
+          "action": "station hold",
+          "evidence": "Independent moving-roof custody and loaded continuation on the machined elastic shelf remain unverified."
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "effective",
+      "sourceBasis": "software",
+      "pipeA": "ba266dac70c475baf2e59f376bf9f48938b6eaefd4889e54b372700ec78b9030",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "loaded path interrupted",
+      "detectionOnlyDrive": true,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.97167263531428,
+          "action": "ports A",
+          "evidence": "The same tube enters the dual-port seat state."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "optical custody",
+          "evidence": "Stereo and roof coverage agree."
+        },
+        {
+          "wallS": 27.032172635314282,
+          "action": "conditional drive",
+          "evidence": "The supplied pipe state continues under the effective contact law."
+        },
+        {
+          "wallS": 45.40667263531428,
+          "action": "cargo view lost",
+          "evidence": "The first missing roof witness ends the demonstrated continuous custody. The subsequent chassis and pipe positions are unverified."
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 48.16217263531428,
+          "action": "projected reef stop",
+          "evidence": "Wheel-only projection ends without sector registration. Earlier cargo limits withhold credit for this position."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "lower-damping",
+      "sourceBasis": "software",
+      "pipeA": "a2735b3c2c794c6005ffc7a8788792f2820bf8e17c90aefee02be18494688d34",
+      "portState": "FAULT",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.591672635314282,
+          "action": "station hold",
+          "evidence": "incoming-edges-unresolved"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "elastic-stock",
+      "sourceBasis": "software",
+      "pipeA": "6a5a20834f938d51f238b961593d509fe186e8ec8498827c472f7602ec8145cb",
+      "portState": "BRAKE",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.171672635314284,
+          "action": "station hold",
+          "evidence": "outside-flat-shelf"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "elastic-insert",
+      "sourceBasis": "software",
+      "pipeA": "c2dbdb9460812bef5ae561834834179dba88b50af0393dcf2cdf69e5037f843e",
+      "portState": "BRAKE",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.11167263531428,
+          "action": "station hold",
+          "evidence": "outside-flat-shelf"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "elastic-damped",
+      "sourceBasis": "software",
+      "pipeA": "f7c15dd25a7c1c25a21d2491afa6cee16365ad7f01d0edf988b0d8821ee24791",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 27.031672635314283,
+          "action": "station hold",
+          "evidence": "independent custody unavailable"
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    },
+    {
+      "wheelCase": "rightSmall",
+      "material": "machined-damped",
+      "sourceBasis": "software",
+      "pipeA": "cf01a7512533205d794adadf9332f3cf42fb32a27dcb8f933a1cd1985ead3305",
+      "portState": "IN_BAND",
+      "released": [],
+      "secondPipe": "coral-B stays at station",
+      "location": "station hold",
+      "detectionOnlyDrive": false,
+      "conditionalLeavePoints": 3,
+      "placementPoints": 0,
+      "parkPoints": 0,
+      "hardwareQualified": false,
+      "events": [
+        {
+          "wallS": 0.0,
+          "action": "start",
+          "evidence": "Both named pipes are in station stock."
+        },
+        {
+          "wallS": 15.0,
+          "action": "leave",
+          "evidence": "The entire bumper clears the starting tape."
+        },
+        {
+          "wallS": 20.51,
+          "action": "dock",
+          "evidence": "The fixed stereo confirms the stationary lower-panel pose."
+        },
+        {
+          "wallS": 21.1,
+          "action": "feed A",
+          "evidence": "The human feeds coral-A. Coral-B remains reserved at the station."
+        },
+        {
+          "wallS": 22.931672635314282,
+          "action": "ports A",
+          "evidence": "The two shelf ports report a seat on the machined contact model."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: native",
+          "evidence": "Fixed stereo encloses the nominal pipe center."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: dark",
+          "evidence": "Fixed stereo encloses the nominal pipe center."
+        },
+        {
+          "wallS": 27.026672635314284,
+          "action": "fixed stereo: pipe-intensity",
+          "evidence": "Fixed stereo does not establish independent custody."
+        },
+        {
+          "wallS": 27.031672635314283,
+          "action": "station hold",
+          "evidence": "Independent moving-roof custody and loaded continuation on the machined elastic shelf remain unverified."
+        },
+        {
+          "wallS": 48.01,
+          "action": "placement A withheld",
+          "evidence": "No verified placement or rack withdrawal."
+        },
+        {
+          "wallS": 50.765,
+          "action": "return withheld",
+          "evidence": "The rack never extended. The controller has no confirmed departure from an A placement."
+        },
+        {
+          "wallS": 71.501,
+          "action": "feed B withheld",
+          "evidence": "No certified return from sector A. Coral-B stays in station stock."
+        },
+        {
+          "wallS": 98.101,
+          "action": "placement B withheld",
+          "evidence": "The second pipe remains at the station."
+        },
+        {
+          "wallS": 156.0,
+          "action": "assessment",
+          "evidence": "Zero confirmed pipe placements. No late park credit."
+        }
+      ]
+    }
+  ],
+  "preselectedSouth": {
+    "leave": 3,
+    "park": 2,
+    "placement": 0,
+    "scope": "source bounded pre-match alternative",
+    "sourceSha256": "5a0941b0f5dec7e751a645d4366113af9505d1915fb92ab15002cd4a2307101d"
+  }
+}

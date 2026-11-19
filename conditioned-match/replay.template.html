@@ -7,7 +7,7 @@
 <main><header><h1>Two pipes on one match clock</h1><p>Can the robot establish custody, reach a scoring face and return for a second pipe? Compare the station contact models and see which actions each one supports.</p></header>
 <section class="controls"><label>Wheel calibration <select id="wheel"><option value="leftSmall">Left wheel smaller</option><option value="rightSmall">Right wheel smaller</option></select></label>
 <label>Station contact <select id="material"></select></label></section>
-<article><canvas id="field" width="900" height="365" aria-label="Overhead field diagram showing the reached chassis route"></canvas><small>The red square is the studied robot. The thin line traces the reached chassis center. The amber ring marks the station. Field coordinates are in metres.</small>
+<article><canvas id="field" width="900" height="365" aria-label="Overhead field diagram showing the reached chassis route"></canvas><small>The red square is the studied robot. The thin line follows the chassis while the model and sensors still support its position. After a custody interruption the square marks the last supported point. The amber ring marks the station. Small red and blue squares are the five scheduled peers. Light dots mark installed field stock. Field coordinates are in metres.</small>
 <section class="controls"><button id="play">Play</button><output id="time"></output></section><input id="clock" type="range" min="0" max="156" step=".05" aria-label="Field wall time"><p id="event"></p></article>
 <section style="margin:22px 0"><h2>Evidence on this clock</h2><ol id="list"></ol></section>
 <p>The separate south reservation starts on a different tape position and keeps a conditional five-point LEAVE/PARK opportunity. <a href="../station-approach/README.md">South start and qualification</a> · <a href="README.md">Mechanics, optics and power</a></p></main>
@@ -15,7 +15,7 @@
 <script>
 'use strict';
 const src=JSON.parse(document.querySelector('#data').textContent), $=id=>document.getElementById(id);
-const names={'effective':'Effective pipe and shelf','lower-damping':'Lower damping','elastic-stock':'Flexible original shelf','elastic-insert':'Flexible insert','elastic-damped':'Damped insert candidate'};
+const names={'effective':'Effective pipe and shelf','lower-damping':'Lower damping','elastic-stock':'Flexible original shelf','elastic-insert':'Flexible insert','elastic-damped':'Damped insert candidate','machined-damped':'Machined insert and dampers'};
 let go=false,prior=0,selected;
 function configure(){const cases=src.match.cases.filter(x=>x.wheelCase===$('wheel').value),old=$('material').value;
  $('material').replaceChildren(...cases.map(c=>new Option(names[c.material],c.material)));if(cases.some(x=>x.material===old))$('material').value=old;choose()}
@@ -25,7 +25,10 @@ function draw(){const t=Number($('clock').value),events=selected.events;let z=0;
  $('time').textContent=t.toFixed(2)+' s / 156.00 s';$('event').textContent=events[z].evidence;Array.from($('list').children).forEach((e,i)=>e.classList.toggle('current',i===z));
  const cv=$('field'),c=cv.getContext('2d'),W=cv.width,H=cv.height,scale=Math.min((W-50)/17.55,(H-32)/8.05);const px=x=>(W-17.55*scale)/2+x*scale,py=y=>(H+8.05*scale)/2-y*scale;
  c.clearRect(0,0,W,H);c.strokeStyle='#bed5ca';c.lineWidth=2;c.strokeRect(px(0),py(8.05),17.55*scale,8.05*scale);c.setLineDash([6,8]);c.beginPath();c.moveTo(px(8.775),py(0));c.lineTo(px(8.775),py(8.05));c.stroke();c.setLineDash([]);
- const raw=src.paths[selected.wheelCase],path=selected.detectionOnlyDrive?raw.out:raw.station;let p=path[0];c.strokeStyle='#7fdcb7';c.lineWidth=2;c.beginPath();c.moveTo(px(p[1]),py(p[2]));for(const q of path){if(q[0]>t)break;c.lineTo(px(q[1]),py(q[2]));p=q}c.stroke();
+ c.fillStyle='#335858';c.strokeStyle='#96aea2';c.lineWidth=1;for(const poly of src.geometry.polygons){c.beginPath();poly.forEach(([x,y],i)=>i?c.lineTo(px(x),py(y)):c.moveTo(px(x),py(y)));c.closePath();c.fill();c.stroke()}
+ for(const [type,x,y] of src.geometry.stock){c.fillStyle=type==='floor-pipe'?'#f4f0d5':'#cadc90';c.beginPath();c.arc(px(x),py(y),type==='floor-pipe'?2:3,0,Math.PI*2);c.fill()}
+ for(const [name,samples] of Object.entries(src.geometry.peers)){const q=samples[Math.min(samples.length-1,Math.round(t*4))];c.save();c.translate(px(q[0]),py(q[1]));c.rotate(-q[2]);c.fillStyle=name.startsWith('blue')?'#68aaf0':'#c6867d';c.fillRect(-.34*scale,-.34*scale,.68*scale,.68*scale);c.restore()}
+ const raw=src.paths[selected.wheelCase],path=selected.detectionOnlyDrive?raw.out:raw.station;const hold=selected.events.find(e=>['cargo limit','cargo view lost'].includes(e.action));const drawTime=hold?Math.min(t,hold.wallS):t;let p=path[0];c.strokeStyle='#7fdcb7';c.lineWidth=2;c.beginPath();c.moveTo(px(p[1]),py(p[2]));for(const q of path){if(q[0]>drawTime)break;c.lineTo(px(q[1]),py(q[2]));p=q}c.stroke();
  const s=raw.station.at(-1);c.strokeStyle='#ffc46c';c.beginPath();c.arc(px(s[1]),py(s[2]),10,0,Math.PI*2);c.stroke();c.save();c.translate(px(p[1]),py(p[2]));c.rotate(-p[3]);c.fillStyle='#f0685a';c.fillRect(-.425*scale,-.425*scale,.85*scale,.85*scale);c.fillStyle='white';c.fillRect(.23*scale,-.08*scale,.18*scale,.16*scale);c.restore();
 }
 $('wheel').onchange=configure;$('material').onchange=choose;$('clock').oninput=draw;$('play').onclick=()=>{go=!go;$('play').textContent=go?'Pause':'Play';prior=0;if(go)requestAnimationFrame(step)};

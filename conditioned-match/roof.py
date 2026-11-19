@@ -12,7 +12,7 @@ sys.path.insert(0,str(ROOT/"selected-optics"))
 from exposures_check import optics,camera,background,silhouette,fit_row
 from cameras import mount
 
-def run(assets,carry=False):
+def run(assets,carry=False,slow=False):
     reg=json.loads((ROOT/"selected-optics/mount.json").read_bytes())
     scenes=assets/"integrated-slide/issue/marked"
     info=json.loads((scenes/"scenes.json").read_bytes())
@@ -39,19 +39,29 @@ def run(assets,carry=False):
         reference.append((gray,np.minimum(guaranteed,dist)))
         pixels.append(int(visible.sum()))
     output={}
-    inputs=json.loads((HERE/("corrected-cargo.json" if carry else "feeds.json")).read_bytes())
+    inputs=json.loads((HERE/("slow-cargo.json" if slow else "corrected-cargo.json" if carry else "feeds.json")).read_bytes())
     for r in inputs:
         if carry:
             if r["dtS"]!=.0000625 or "relativePipeSha256" not in r:continue
             side=r["wheelCase"]
-            raw=assets/"conditioned-match"/side/"corrected/A/cargo-62500ns.npy"
+            raw=assets/"conditioned-match"/side/("slow/A/cargo-62500ns.npy" if slow else "corrected/A/cargo-62500ns.npy")
             source_hash=r["relativePipeSha256"]
             source=np.load(raw,mmap_mode="r")
             # Carry time starts on Java 5460, preserving the fixed 17 ms capture phase.
             clock=5460+1000*source[:,0]
             positions=source[:,1:4]*1000
             axes=source[:,4:7]
-            ticks=range(17*int(np.ceil(clock[0]/17)),int(clock[-1])+1,17)
+            # The 5457 ms exposure is acquired on the seated pipe and arrives after departure.
+            # Preserve that frame between the last admitted 5440 ms capture and the moving replay.
+            feed_raw=assets/"conditioned-match/corrected-feeds"/(side+"-400000-4-31.25.npy")
+            if hashlib.sha256(feed_raw.read_bytes()).hexdigest()!=r["feedTrajectorySha256"]:
+                raise ValueError("Changed pipe at the final stationary exposure")
+            supply=np.load(feed_raw,mmap_mode="r")
+            last=17*int(np.floor(5460/17))
+            prior=np.array([np.interp(last,supply[:,0],v) for v in supply[:,1:7].T])
+            clock=np.r_[last,clock]
+            positions=np.vstack((prior[:3],positions)); axes=np.vstack((prior[3:],axes))
+            ticks=range(last,int(clock[-1])+1,17)
         else:
             if r["state"]!="IN_BAND" or r["dtS"]!=.00003125:continue
             side=r["case"]
@@ -75,10 +85,10 @@ def run(assets,carry=False):
             if carry and not inside:break
         output[side]={"pipe":"coral-A","sourceSha256":source_hash,"stowedGuideVisiblePixels":pixels,
                       "frameCount":len(frames),"uniqueImages":len(memo),"counts":counts,"firstFailedJavaMs":lost[:1],
-                      "lastUsableJavaMs":frames[-1][0]+15 if frames and frames[-1][2] else None,"frames":frames,
+                      "lastUsableJavaMs":5*int(np.ceil((frames[-1][0]+15)/5)) if frames and frames[-1][2] else None,"frames":frames,
                       "empty":fit_row([g for g,_ in actual],reference,True,0)[0]}
         print(side,counts,lost[:2],flush=True)
-    (HERE/("carry-roof.json" if carry else "roof.json")).write_text(json.dumps(output,indent=2)+"\n",encoding="utf8",newline="\n")
+    (HERE/("slow-roof.json" if slow else "carry-roof.json" if carry else "roof.json")).write_text(json.dumps(output,indent=2)+"\n",encoding="utf8",newline="\n")
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("assets",type=Path);p.add_argument("--carry",action="store_true");a=p.parse_args();run(a.assets,a.carry)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("assets",type=Path);p.add_argument("--carry",action="store_true");p.add_argument("--slow",action="store_true");a=p.parse_args();run(a.assets,a.carry or a.slow,a.slow)

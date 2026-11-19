@@ -35,7 +35,7 @@ def trajectory(assets, side, mode):
 
 def replay(job):
     assets,side,mode,dt = job
-    revised = mode.startswith("corrected")
+    revised = mode.startswith("corrected") or mode=="slow"
     if revised:
         source = next(r for r in nav.read(HERE/"feeds.json") if r["case"]==side and r["dtS"]==.00003125)
         if source["state"] != "IN_BAND":
@@ -107,9 +107,9 @@ def replay(job):
 if __name__ == "__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("assets",type=Path)
-    p.add_argument("--fine",action="store_true");p.add_argument("--corrected",action="store_true");args=p.parse_args()
-    jobs=[(args.assets,side,"corrected" if args.corrected else "gyro",dt) for side in ("leftSmall","rightSmall") for dt in ((.000125,.0000625) if args.corrected else (.0000625,.00003125) if args.fine else (.00025,.000125))]
+    p.add_argument("--fine",action="store_true");p.add_argument("--corrected",action="store_true");p.add_argument("--slow",action="store_true");args=p.parse_args()
+    jobs=[(args.assets,side,"slow" if args.slow else "corrected" if args.corrected else "gyro",dt) for side in ("leftSmall","rightSmall") for dt in ((.000125,.0000625) if args.corrected or args.slow else (.0000625,.00003125) if args.fine else (.00025,.000125))]
     with ProcessPoolExecutor(max_workers=4) as pool:
         rows=list(pool.map(replay,jobs))
-    (HERE/("corrected-cargo.json" if args.corrected else "fine-cargo.json" if args.fine else "cargo.json")).write_text(json.dumps(rows,indent=2)+"\n",encoding="utf8",newline="\n")
+    (HERE/("slow-cargo.json" if args.slow else "corrected-cargo.json" if args.corrected else "fine-cargo.json" if args.fine else "cargo.json")).write_text(json.dumps(rows,indent=2)+"\n",encoding="utf8",newline="\n")
     for row in rows:print(row["wheelCase"],row["dtS"],row.get("endWallS"),row.get("loss"),row.get("stop"),flush=True)

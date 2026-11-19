@@ -56,8 +56,24 @@ class ConditionedMatchTests(unittest.TestCase):
             self.assertEqual(case["placementPoints"]+case["parkPoints"], 0)
             self.assertEqual(case["events"][-1]["wallS"], 156)
             self.assertEqual([e["wallS"] for e in case["events"]], sorted(e["wallS"] for e in case["events"]))
-            if case["material"].startswith("elastic") or case["material"]=="lower-damping":
+            if case["material"]!="effective":
                 self.assertFalse(case["detectionOnlyDrive"])
+        self.assertEqual(len(ledger["cases"]), 12)
+        for side, pack in read("slow-power.json").items():
+            self.assertGreater(read("carry-power.json")[side]["screened"]["peakMotorPhaseA"], 38)
+            self.assertIsNone(pack["screened"]["firstReferenceInhibitWallS"])
+            self.assertIsNone(pack["weak"]["firstReferenceInhibitWallS"])
+            self.assertLess(pack["screened"]["peakMotorPhaseA"], 38)
+            self.assertGreater(read("occupancy.json")[side+"-slow"]["outbound"]["minimumStockMm"], 150)
+            self.assertEqual(read("slow-navigation.json")[side]["decodedTagFrames"], 0)
+        for side,r in read("slow-roof.json").items():
+            self.assertEqual(r["frames"][0][0], 5457)
+            self.assertTrue(all(b[0]-a[0]==17 for a,b in zip(r["frames"],r["frames"][1:])))
+            expected=16966 if side=="leftSmall" else 23817
+            self.assertEqual(r["firstFailedJavaMs"], [expected])
+            carried=[x for x in read("slow-cargo.json") if x["wheelCase"]==side]
+            self.assertTrue(all(x["loss"]=="outside-flat-shelf" for x in carried) if side=="leftSmall" else
+                            all(x["loss"] is None and x["stop"] is None for x in carried))
         high = [v for v in read("feeds.json") if v["dtS"] == .00003125]
         self.assertEqual(len(high), 2)
         for row in high:
@@ -67,6 +83,27 @@ class ConditionedMatchTests(unittest.TestCase):
                 self.assertEqual(pair["trajectorySha256"], row["trajectorySha256"])
                 self.assertEqual(len(pair["frames"]), 5)
                 self.assertTrue(all(f["containsSimulatedCenter"] for f in pair["frames"]))
+
+    def test_separate_elastic_shipments_preserve_the_attained_poses_and_images(self):
+        tested=read("elastic.json")["cases"]
+        for side,img in read("machined-images.json").items():
+            rows=[r for r in tested if r["case"]==side]
+            machined=[r for r in rows if "machined" in r["id"]]
+            self.assertEqual(sorted(r["stepS"] for r in machined), [.00003125,.0000625])
+            self.assertTrue(all(r["sourceRobotMmDeg"]==read("opening.json")[side]["sourceRobotMmDeg"] for r in rows))
+            high=next(r for r in machined if r["stepS"]==.00003125)
+            self.assertEqual(img["trajectorySha256"], high["trajectorySha256"])
+            if high["lastState"]=="IN_BAND":
+                for finish in img["finishes"].values():
+                    self.assertEqual(len(finish["frames"]),5)
+                    self.assertNotEqual(finish["empty"], "position-witness")
+                    self.assertTrue(all(f["oneEyeBlank"]!="position-witness" for f in finish["frames"]))
+                    self.assertEqual(finish["frames"][-1]["firstServiceMs"],5455)
+                for name,count in (("native",5),("dark",5),("pipe-intensity",0)):
+                    self.assertEqual(sum(frame["containsSimulatedCenter"] for frame in img["finishes"][name]["frames"]),count)
+                self.assertEqual(img["fixedLeadEnclosures"],629)
+            self.assertTrue(any(abs(r["runningGapMm"]-.2)<1e-7 and r["lastState"]=="FAULT"
+                                for r in rows if r["stowDamperSlopeNsPerM"]>0))
 
     def test_historical_positive_and_source_specific_negatives_remain_replayable(self):
         original=json.loads((ROOT/"relieved-match/match.json").read_bytes())["cases"]["nominal"]

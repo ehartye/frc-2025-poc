@@ -19,7 +19,7 @@ def check(assets):
     results={}
     origin=18+plan[0]["drive"]
     for side in ("leftSmall","rightSmall"):
-        for mode in ("shaft","gyro","corrected","corrected-mono"):
+        for mode in ("shaft","gyro","corrected","corrected-mono","slow"):
             times,pose=trajectory(assets,side,mode)
             gaps=screen(f,origin+times,pose,stock,team,origin+times[-1])
             hold=parked_peers(team,pose[-1],origin+times[-1])
@@ -28,7 +28,7 @@ def check(assets):
             wait=np.r_[wait,origin]
             wait_gap=screen(f,wait,np.tile(pose[0],(len(wait),1)),stock,team,origin)
             results[side+"-"+mode]={"outbound":gaps,"stationHold":wait_gap,"atRestPeerMm":hold,
-                   "reachedStopFieldXYHeadingRad":pose[-1].tolist(),"approachThrough21p1":({k:n.read(n.HERE/"opening.json")[side]["clearance"][k] for k in ("minimumBarrierMm","minimumStockMm","minimumPeerMm")} if mode.startswith("corrected") else opening[side]["fieldMinimumMm"]),
+                   "reachedStopFieldXYHeadingRad":pose[-1].tolist(),"approachThrough21p1":({k:n.read(n.HERE/"opening.json")[side]["clearance"][k] for k in ("minimumBarrierMm","minimumStockMm","minimumPeerMm")} if mode.startswith("corrected") or mode=="slow" else opening[side]["fieldMinimumMm"]),
                    "lastWheelAtWallS":origin+times[-1],"fieldAndStockSha256":n.sha(n.ROOT/"full-match/installed-stock.json")}
             print(side,mode,gaps["minimumBarrierMm"],gaps["minimumStockMm"],gaps["minimumPeerMm"],min(hold.values()),flush=True)
     return results
