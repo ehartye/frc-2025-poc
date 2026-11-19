@@ -18,6 +18,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Compare two fixed-carriage configurations](design/fixed-height/README.md) and review how receiver height, counterfeed and slide extension change the reachable station and L1 outcomes. [Follow the camera evidence through both low-carriage placements](low-observation/README.md) to see where the controller can identify a pipe and which withdrawal timings it can test.
 
+[Fit the selected signal light](design/signal-light/README.md) to the keyed electronics deck. Compare the mast-height failure and the shelf's effect on field-side visibility before building the fixed-height robot.
+
 Explore the earlier [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
 
 Open the [registered two-pipe field replay](mission/registered-field.html) or inspect its [route, robot-clearance and timing evidence](mission/REGISTERED-FIELD.md). This candidate runs from the red station to two demonstrated reef sectors within the modeled TELEOP clock.
