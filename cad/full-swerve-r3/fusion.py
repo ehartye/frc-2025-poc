@@ -67,31 +67,40 @@ def run(context):
     vendors={}
     optics=[]
     visible={}
+    ancestor_bindings={}
     for top in root.occurrences:
         family=top.component.name
         purchased="REV MAXSwerve" in family
-        queue=[top]
+        queue=[(top,None)]
         while queue:
-            occ=queue.pop()
-            queue.extend(list(occ.childOccurrences))
+            occ,parent_key=queue.pop()
             component=occ.component
+            raw=component.name.split(" (")[0]
+            key=raw if raw in roster else (parent_key or raw)
+            queue.extend((child,key) for child in occ.childOccurrences)
             if not component.bRepBodies.count:continue
-            key=component.name.split(" (")[0]
             if purchased:
-                if "REV-21-3004-P01" in key:
+                if "REV-21-3004-P01" in raw:
                     wheels[family[:2]]=[x*10 for x in occ.bRepBodies.item(0).physicalProperties.centerOfMass.asArray()]
                 vendors[family]=vendors.get(family,0)+component.bRepBodies.count
                 continue
             if family==SUPPLIER:
-                optics.append(key)
+                optics.append(raw)
                 continue
             if key not in roster:
                 unknown.append(key);continue
+            if command=="inspect" and key!=raw:
+                real=occ.preciseBoundingBox
+                limits=[v*10 for v in real.minPoint.asArray()+real.maxPoint.asArray()]
+                diff=max(abs(a-b) for a,b in zip(limits,roster[key]["boundsMm"]))
+                ancestor_bindings[key]=diff
+                if diff>.015:errors.append("Named parent has different placed bounds: "+key)
             if key in touched:errors.append("Duplicated project solid "+key)
             touched.add(key)
             role=roster[key]["role"]
             for body in component.bRepBodies:
-                if command=="color":body.appearance=appearances[role]
+                if command=="color" and (body.appearance is None or body.appearance.name!=appearances[role].name):
+                    body.appearance=appearances[role]
                 ap=body.appearance
                 if ap is None or ap.name!="FRC 2025 - "+role:
                     errors.append("Different role appearance on "+key)
@@ -112,7 +121,7 @@ def run(context):
         if max(abs(a-b) for a,b in zip(pt,[x,y,38.1]))>.01:errors.append("Displaced tread "+name)
     result={"configuration":c["configuration"],"document":doc.name,"nativeRootGroups":[o.component.name for o in root.occurrences],
             "projectColoredSolids":sum(counts.values()),"roleCounts":dict(counts),"supplierModuleBodyCounts":vendors,"wheelCentersMm":wheels,
-            "supplierOpticalAndLampSolids":len(optics),"registeredVisualChecks":visible,"missing":missing,"unexpected":unknown,"errors":errors}
+            "supplierOpticalAndLampSolids":len(optics),"registeredVisualChecks":visible,"namedAncestorPlacedBounds":ancestor_bindings,"missing":missing,"unexpected":unknown,"errors":errors}
     (work/(command+"-result.json")).write_text(json.dumps(result,indent=2))
     if len(wheels)!=4 or len(vendors)!=4 or len(optics)<27 or missing or unknown or errors:
         raise ValueError("See "+command+"-result.json")

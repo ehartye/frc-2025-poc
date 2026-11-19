@@ -5,6 +5,7 @@ import hashlib
 import json
 import re
 import sys
+import subprocess
 from pathlib import Path
 from OCP.BRep import BRep_Builder
 from OCP.BRepTools import BRepTools
@@ -25,7 +26,6 @@ SIX=ROOT/"experiments/six-wheel"
 SW=ROOT/"experiments/swerve-drive"
 sys.path.insert(0,str(SIX/"design/station-l1"))
 import build_assembly as cad
-from mechanical import COLORS
 ORIGINAL_ROLES={p['id']:p['group'] for p in cad.PARTS}
 CONFIG="fixed-low-straight-arm-swerve-R3-stowed-red"
 
@@ -72,11 +72,17 @@ def envelope(shapes):
     all_bounds=[cad.bounds(s) for s in shapes]
     return [min(row[i] for row in all_bounds) if i<3 else max(row[i] for row in all_bounds) for i in range(6)]
 
-def palette():
-    colors={**COLORS,"lift-drive":"#D47D3D","sensing":"#378985","receiver":"#5C7E69",
-            "rack":"#99763C","electrical":"#537798","alloy":"#A3AEBB","steel":"#647181",
-            "foam":"#E4E3D8","bumper-blue":"#1B48A3","bumper-red":"#D71920"}
-    return {k:v.upper() for k,v in colors.items()}
+def resolve_project_palette(root, plugin):
+    """Use the installed Agent FRC defaults and the student's read-only override."""
+    helper = plugin / "scripts" / "component_palette.py"
+    if not helper.is_file():
+        raise ValueError("Supply the Agent FRC 0.25.0 or compatible installation")
+    command = [sys.executable, str(helper), str(root)]
+    resolved = json.loads(subprocess.check_output(command, encoding="utf8"))
+    if resolved.get("schema") != "agent-frc/component-palette@1":
+        raise ValueError("Unexpected component palette")
+    return resolved
+
 
 def role(part, source, bumpers):
     s=part.lower()
@@ -104,7 +110,7 @@ def role(part, source, bumpers):
     if "motor" in s or "fork" in s or "gear" in s:return "drive"
     return "frame"
 
-def build(artifacts, local):
+def build(artifacts, local, plugin):
     local.mkdir(exist_ok=True,parents=True)
     raw=local/"registered"
     account=read(artifacts/"swerve-package/accounting-source.json")
@@ -205,8 +211,9 @@ def build(artifacts, local):
         put(key+"-display-drive-motor",tube([x,y,84],[0,0,1],30,59),f,"public-module-representation")
         put(key+"-display-steer-motor",tube([x+(-1 if x>0 else 1)*44,y,84],[0,0,1],17.5,46),f,"public-module-representation")
     bumpers={r["solid"]:r["material"] for r in csv.DictReader((SIX/"design/bumper-kit/mass.csv").open())}
-    colors=palette()
-    save(ROOT/"cad/component-palette.json",{"schema":"agent-frc/component-palette@1","colors":colors})
+    resolved = resolve_project_palette(ROOT, plugin)
+    save(local / "effective-palette.json", resolved)
+    colors = resolved["colors"]
     public=HERE/"full-robot.step"
     solids=write_step(public,records,colors,bumpers)
     save(HERE/"appearances.json",{"schema":"agent-frc/assembly-appearances@1","sourceSha256":sha(public),"configuration":CONFIG,"units":"mm","solids":solids})
@@ -252,6 +259,7 @@ def write_step(path,objects,colors,bumpers,paint=True):
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("artifacts",type=Path)
+    p.add_argument("plugin",type=Path,help="Installed Agent FRC with the component palette resolver")
     a=p.parse_args()
-    build(a.artifacts,a.artifacts/"full-swerve-fusion")
+    build(a.artifacts,a.artifacts/"full-swerve-fusion",a.plugin)
 
