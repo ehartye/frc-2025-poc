@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 SETTINGS = json.loads((HERE / "model.json").read_bytes())
 
 
-def available_torque(demand, rate, motor, voltage):
+def historical_torque(demand, rate, motor, voltage):
     """Four-quadrant motor controller, back EMF and phase current at the actual rotor speed."""
     r = 12 / motor["stallCurrentA"]
     kt = motor["stallTorqueNm"] / motor["stallCurrentA"]
@@ -30,6 +30,32 @@ def available_torque(demand, rate, motor, voltage):
     volts = np.clip(emf + r * amp, -voltage, voltage)
     amp = np.clip((volts - emf) / r, -motor["phaseLimitA"], motor["phaseLimitA"])
     return kt * amp, amp, volts
+
+
+def motor_constants(motor):
+    resistance = 12 / motor["stallCurrentA"]
+    free_rate = motor["freeRpm"] * TAU / 60
+    constant = (12 - resistance * motor["freeCurrentA"]) / free_rate
+    viscous_drag = constant * motor["freeCurrentA"] / free_rate
+    return resistance, constant, viscous_drag
+
+
+def available_torque(demand, rate, motor, voltage):
+    """Fit free speed/current and stalled resistance with reciprocal SI constants."""
+    resistance, constant, drag = motor_constants(motor)
+    emf = constant * rate
+    limit = motor["phaseLimitA"]
+    lower = np.maximum(-limit, (-voltage - emf) / resistance)
+    upper = np.minimum(limit, (voltage - emf) / resistance)
+    if np.any(lower > upper):
+        raise ValueError("No current satisfies both terminal-voltage and phase limits")
+    current = np.clip((demand + drag * rate) / constant, lower, upper)
+    return constant * current - drag * rate, current, emf + resistance * current
+
+
+def transmission_factor(power, efficiency):
+    """Torque factor from motor to joint for forward power or backdrive."""
+    return np.where(power < 0, 1 / efficiency, efficiency)
 
 
 class Plant:
@@ -47,7 +73,20 @@ class Plant:
         encoder_map=None,
         support=None,
         initial_angles=None,
+        model="reciprocal",
     ):
+        if model not in ("historical", "reciprocal"):
+            raise ValueError("Unknown motor model")
+        self.reciprocal = model == "reciprocal"
+        self.motor = available_torque if self.reciprocal else historical_torque
+        self.power_samples = []
+        self.balance = {
+            "maxMotorIdentityErrorW": 0.0,
+            "minGearLossW": None,
+            "reverseGearInputJ": 0.0,
+            "gearLossJ": 0.0,
+            "observations": 0,
+        }
         self.xy = np.asarray(centers, dtype=float)
         self.matrix = vector_matrix(self.xy)
         self.mass, self.yaw_inertia, self.mu = mass, inertia, mu
@@ -156,19 +195,23 @@ class Plant:
                 + self.coupling * self.azimuth_rate
             )
             requested = ds["speedGainNSPerM"] * (self.target_speed - self.wheel_speed)
-            motor, drive_a, drive_v = available_torque(
-                requested * self.radius / (ds["ratio"] * ds["efficiency"]),
+            df = ds["efficiency"]
+            if self.reciprocal:
+                df = transmission_factor(requested * drive_rate, df)
+            motor, drive_a, drive_v = self.motor(
+                requested * self.radius / (ds["ratio"] * df),
                 drive_rate,
                 ds,
                 voltage,
             )
             if disabled:
-                motor, drive_a, drive_v = available_torque(
+                motor, drive_a, drive_v = self.motor(
                     -1e6 * np.sign(drive_rate), drive_rate, ds, 0.0
                 )
-            wheel_acc = (
-                motor * ds["ratio"] * ds["efficiency"] / self.radius - longitudinal
-            ) / ds["equivalentRotatingMassKg"]
+            if self.reciprocal:
+                df = transmission_factor(motor * drive_rate, ds["efficiency"])
+            wheel_force = motor * ds["ratio"] * df / self.radius
+            wheel_acc = (wheel_force - longitudinal) / ds["equivalentRotatingMassKg"]
             drag = (
                 ss["dragCoefficient"]
                 * self.load
@@ -180,24 +223,74 @@ class Plant:
                 -ss["accelLimitRadS2"],
                 ss["accelLimitRadS2"],
             )
-            coupling_torque = motor * self.coupling * ds["efficiency"]
+            coupling_torque = motor * self.coupling * df
             steer_torque = ss["inertiaKgM2"] * steer_acc + drag - coupling_torque
-            output, steer_a, steer_v = available_torque(
-                steer_torque / (ss["ratio"] * ss["efficiency"]),
+            steer_rate = self.azimuth_rate * ss["ratio"]
+            sf = ss["efficiency"]
+            if self.reciprocal:
+                sf = transmission_factor(steer_torque * steer_rate, sf)
+            output, steer_a, steer_v = self.motor(
+                steer_torque / (ss["ratio"] * sf),
                 self.azimuth_rate * ss["ratio"],
                 ss,
                 voltage,
             )
             if disabled:
-                output, steer_a, steer_v = available_torque(
+                output, steer_a, steer_v = self.motor(
                     -1e6 * np.sign(self.azimuth_rate),
                     self.azimuth_rate * ss["ratio"],
                     ss,
                     0.0,
                 )
-            actual_acc = (
-                output * ss["ratio"] * ss["efficiency"] + coupling_torque - drag
-            ) / ss["inertiaKgM2"]
+            if self.reciprocal:
+                sf = transmission_factor(output * steer_rate, ss["efficiency"])
+            swivel_torque = output * ss["ratio"] * sf
+            if self.reciprocal:
+                self.power_samples.append((drive_v, drive_a, steer_v, steer_a))
+                for cfg_motor, torque, rate, current, volt, joint_w in (
+                    (
+                        ds,
+                        motor,
+                        drive_rate,
+                        drive_a,
+                        drive_v,
+                        wheel_force * self.wheel_speed
+                        + coupling_torque * self.azimuth_rate,
+                    ),
+                    (
+                        ss,
+                        output,
+                        steer_rate,
+                        steer_a,
+                        steer_v,
+                        swivel_torque * self.azimuth_rate,
+                    ),
+                ):
+                    resistance, _, friction = motor_constants(cfg_motor)
+                    shaft_w = torque * rate
+                    loss = shaft_w - joint_w
+                    error = (
+                        volt * current
+                        - shaft_w
+                        - resistance * current**2
+                        - friction * rate**2
+                    )
+                    ledger = self.balance
+                    ledger["maxMotorIdentityErrorW"] = max(
+                        ledger["maxMotorIdentityErrorW"], np.max(abs(error))
+                    )
+                    minimum = np.min(loss)
+                    ledger["minGearLossW"] = (
+                        minimum
+                        if ledger["minGearLossW"] is None
+                        else min(ledger["minGearLossW"], minimum)
+                    )
+                    ledger["reverseGearInputJ"] += dt * np.sum(
+                        np.maximum(0.0, -joint_w)
+                    )
+                    ledger["gearLossJ"] += dt * np.sum(loss)
+                    ledger["observations"] += len(loss)
+            actual_acc = (swivel_torque + coupling_torque - drag) / ss["inertiaKgM2"]
             old_azimuth = self.azimuth_rate.copy()
             self.azimuth_rate += actual_acc * dt
             if locked_steer is not None:

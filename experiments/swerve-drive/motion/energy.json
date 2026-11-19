@@ -1,0 +1,1257 @@
+{
+  "schema": "reefscape-swerve-energy/1",
+  "priorOpeningSha256": "ecf1d57d02b98189d9f2178b30e20e596f23592b96b8182e9474dd32467262e0",
+  "sourceSha256": {
+    "model.json": "f4cdd01c862d1b2a0410416eb03b1f6e1b3527d03410b9e03dc4e7ab7450646b",
+    "plant.py": "9e5e186185d7f84a66911a04f255be0685c8bc1f4a794d7f639aa88211067c88",
+    "opening.py": "ba7552e458e9582e13e0034b83d17f1ffe833f1f4b688ff3281965a248146321",
+    "actual_supply.py": "61af0e2b6bb6150b54b6319092f12500e5bdba842a28894608c3c56441c1fd83",
+    "../power/electrical.py": "2d15c7c72fb07aa2c3a681ad0490a966a1e3c6289346330fc2e918a5ce09dd71",
+    "../power/loads.py": "20c33ad9ff94d136082c8863218e4cfb9022d69bc9bc369c30a6a9dfdce74ef0",
+    "../packaging/module.json": "8381b28b85332d4929dbff5c2545edbef593558211b97e82d23f620dd06e8b7f"
+  },
+  "pluginVersion": "0.27.1",
+  "exercises": {
+    "shaft_power.py": {
+      "sha256": "6c26272d047a8eab9b66e93e4dbab69534e74f7df9b03ddf68cdd7bb76eb308b",
+      "outcome": {
+        "signedTrials": [
+          {
+            "jointRadS": [
+              3,
+              0
+            ],
+            "shaftRadS": [
+              12.0,
+              0
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": 9.600000000000001,
+            "jointW": 9.600000000000001,
+            "residualW": 0.0
+          },
+          {
+            "jointRadS": [
+              -3,
+              0
+            ],
+            "shaftRadS": [
+              -12.0,
+              0
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": -9.600000000000001,
+            "jointW": -9.600000000000001,
+            "residualW": 0.0
+          },
+          {
+            "jointRadS": [
+              0,
+              2
+            ],
+            "shaftRadS": [
+              3.0,
+              16
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": -1.5999999999999996,
+            "jointW": -1.5999999999999996,
+            "residualW": 0.0
+          },
+          {
+            "jointRadS": [
+              0,
+              -2
+            ],
+            "shaftRadS": [
+              -3.0,
+              -16
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": 1.5999999999999996,
+            "jointW": 1.5999999999999996,
+            "residualW": 0.0
+          },
+          {
+            "jointRadS": [
+              3,
+              -2
+            ],
+            "shaftRadS": [
+              9.0,
+              -16
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": 11.2,
+            "jointW": 11.200000000000001,
+            "residualW": -1.7763568394002505e-15
+          },
+          {
+            "jointRadS": [
+              -3,
+              2
+            ],
+            "shaftRadS": [
+              -9.0,
+              16
+            ],
+            "jointNm": [
+              3.2,
+              -0.7999999999999998
+            ],
+            "shaftW": -11.2,
+            "jointW": -11.200000000000001,
+            "residualW": 1.7763568394002505e-15
+          }
+        ],
+        "reversedTorqueMap": {
+          "shaftRadS": [
+            9.0,
+            -16
+          ],
+          "jointNm": [
+            3.2,
+            -3.2
+          ],
+          "shaftW": 11.2,
+          "jointW": 16.0,
+          "residualW": -4.800000000000001
+        },
+        "reversedBothMaps": {
+          "shaftRadS": [
+            -3.0,
+            16
+          ],
+          "jointNm": [
+            3.2,
+            -3.2
+          ],
+          "shaftW": -6.4,
+          "jointW": -6.4,
+          "residualW": 0.0
+        },
+        "motoring": {
+          "terminalW": 15,
+          "shaftW": 10.0,
+          "copperW": 5.0,
+          "otherLossW": 0.0
+        },
+        "shortedBraking": {
+          "terminalW": 0,
+          "shaftW": -20,
+          "copperW": 20.0,
+          "otherLossW": 0.0
+        },
+        "returningAtLeads": {
+          "terminalW": -5,
+          "shaftW": -10.0,
+          "copperW": 5.0,
+          "otherLossW": 0.0
+        },
+        "hiddenSurplus": [
+          {
+            "terminalW": 15,
+            "shaftW": 13.0,
+            "copperW": 5.0,
+            "otherLossW": -3.0
+          },
+          {
+            "terminalW": 15,
+            "shaftW": 6.0,
+            "copperW": 5.0,
+            "otherLossW": 4.0
+          }
+        ]
+      }
+    },
+    "loaded_motion.py": {
+      "sha256": "9cdc705225a7101c313a5ab6d44c575ce0b917bab6d84febba90945954a18e81",
+      "outcome": {
+        "firm": {
+          "firstDwellS": 0.652,
+          "firstClearOfPadsS": null,
+          "attainedOverlapS": 1.212,
+          "loadedOverlapS": 1.0919999999999999,
+          "finalHeld": true,
+          "finalPieceHeightM": 0.22937553715499076
+        },
+        "weak": {
+          "firstDwellS": 0.652,
+          "firstClearOfPadsS": 1.438,
+          "attainedOverlapS": 1.212,
+          "loadedOverlapS": 0.0,
+          "finalHeld": false,
+          "finalPieceHeightM": 0.0
+        }
+      }
+    }
+  },
+  "motorFit": {
+    "drive": {
+      "ohm": 0.11428571428571428,
+      "reciprocalSI": 0.01984269420366487,
+      "dragNmPerRadS": 6.008999112255281e-05,
+      "impliedStallNm": 2.0834828913848114,
+      "dataSheetStallNm": 2.6
+    },
+    "steer": {
+      "ohm": 0.12,
+      "reciprocalSI": 0.010271570654527124,
+      "dragNmPerRadS": 1.2483707673708576e-05,
+      "impliedStallNm": 1.0271570654527125,
+      "dataSheetStallNm": 0.97
+    }
+  },
+  "ports": {
+    "drive-historical": [
+      {
+        "demandNm": 0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": 0.20000000000000004,
+        "phaseA": 8.076923076923078,
+        "volts": 2.90734634344341,
+        "terminalW": 23.482412773966008,
+        "shaftW": 20.000000000000004,
+        "copperW": 7.4556213017751505,
+        "otherLossW": -3.9732085278091462
+      },
+      {
+        "demandNm": -0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": -0.20000000000000004,
+        "phaseA": -8.076923076923078,
+        "volts": 1.0611924972895639,
+        "terminalW": -8.57117017041571,
+        "shaftW": -20.000000000000004,
+        "copperW": 7.4556213017751505,
+        "otherLossW": 3.9732085278091427
+      },
+      {
+        "demandNm": 0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": 0.20000000000000004,
+        "phaseA": 8.076923076923078,
+        "volts": -1.0611924972895639,
+        "terminalW": -8.57117017041571,
+        "shaftW": -20.000000000000004,
+        "copperW": 7.4556213017751505,
+        "otherLossW": 3.9732085278091427
+      },
+      {
+        "demandNm": -0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": -0.20000000000000004,
+        "phaseA": -8.076923076923078,
+        "volts": -2.90734634344341,
+        "terminalW": 23.482412773966008,
+        "shaftW": 20.000000000000004,
+        "copperW": 7.4556213017751505,
+        "otherLossW": -3.9732085278091462
+      },
+      {
+        "demandNm": 0.0,
+        "radS": 100.0,
+        "capV": 0.0,
+        "actualNm": -0.4299250410794056,
+        "phaseA": -17.362357428206764,
+        "volts": 0.0,
+        "terminalW": -0.0,
+        "shaftW": -42.99250410794056,
+        "copperW": 34.45159491026361,
+        "otherLossW": 8.540909197676953
+      }
+    ],
+    "drive-reciprocal": [
+      {
+        "demandNm": 0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": 0.2,
+        "phaseA": 10.382108245875513,
+        "volts": 3.1707960770379744,
+        "terminalW": 32.91954809740568,
+        "shaftW": 20.0,
+        "copperW": 12.31864818618015,
+        "otherLossW": 0.6008999112255307
+      },
+      {
+        "demandNm": -0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": -0.2,
+        "phaseA": -9.776444614658997,
+        "volts": 0.8669614644054588,
+        "terminalW": -8.475800739803626,
+        "shaftW": -20.0,
+        "copperW": 10.923299348970847,
+        "otherLossW": 0.6008999112255271
+      },
+      {
+        "demandNm": 0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": 0.2,
+        "phaseA": 9.776444614658997,
+        "volts": -0.8669614644054588,
+        "terminalW": -8.475800739803626,
+        "shaftW": -20.0,
+        "copperW": 10.923299348970847,
+        "otherLossW": 0.6008999112255271
+      },
+      {
+        "demandNm": -0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": -0.2,
+        "phaseA": -10.382108245875513,
+        "volts": -3.1707960770379744,
+        "terminalW": 32.91954809740568,
+        "shaftW": 20.0,
+        "copperW": 12.31864818618015,
+        "otherLossW": 0.6008999112255307
+      },
+      {
+        "demandNm": 0.0,
+        "radS": 100.0,
+        "capV": 0.0,
+        "actualNm": -0.35052494821489133,
+        "phaseA": -17.362357428206764,
+        "volts": -2.220446049250313e-16,
+        "terminalW": 3.8552177957133535e-15,
+        "shaftW": -35.052494821489134,
+        "copperW": 34.45159491026361,
+        "otherLossW": 0.6008999112255324
+      }
+    ],
+    "steer-historical": [
+      {
+        "demandNm": 0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": 0.194,
+        "phaseA": 20.0,
+        "volts": 3.4271570654527124,
+        "terminalW": 68.54314130905425,
+        "shaftW": 19.400000000000002,
+        "copperW": 48.0,
+        "otherLossW": 1.1431413090542435
+      },
+      {
+        "demandNm": -0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": -0.194,
+        "phaseA": -20.0,
+        "volts": -1.3728429345472875,
+        "terminalW": 27.45685869094575,
+        "shaftW": -19.400000000000002,
+        "copperW": 48.0,
+        "otherLossW": -1.1431413090542435
+      },
+      {
+        "demandNm": 0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": 0.194,
+        "phaseA": 20.0,
+        "volts": 1.3728429345472875,
+        "terminalW": 27.45685869094575,
+        "shaftW": -19.400000000000002,
+        "copperW": 48.0,
+        "otherLossW": -1.1431413090542435
+      },
+      {
+        "demandNm": -0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": -0.194,
+        "phaseA": -20.0,
+        "volts": -3.4271570654527124,
+        "terminalW": 68.54314130905425,
+        "shaftW": 19.400000000000002,
+        "copperW": 48.0,
+        "otherLossW": 1.1431413090542435
+      },
+      {
+        "demandNm": 0.0,
+        "radS": 100.0,
+        "capV": 0.0,
+        "actualNm": -0.0830285294574276,
+        "phaseA": -8.559642212105938,
+        "volts": 0.0,
+        "terminalW": -0.0,
+        "shaftW": -8.30285294574276,
+        "copperW": 8.792096975911901,
+        "otherLossW": -0.4892440301691412
+      }
+    ],
+    "steer-reciprocal": [
+      {
+        "demandNm": 0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": 0.2,
+        "phaseA": 19.59275533763398,
+        "volts": 3.3782877059687904,
+        "terminalW": 66.18996448318327,
+        "shaftW": 20.0,
+        "copperW": 46.06512740644619,
+        "otherLossW": 0.12483707673708722
+      },
+      {
+        "demandNm": -0.2,
+        "radS": 100.0,
+        "capV": 9.5,
+        "actualNm": -0.19999999999999998,
+        "phaseA": -19.349682333639084,
+        "volts": -1.2948048145839777,
+        "terminalW": 25.05406184626642,
+        "shaftW": -20.0,
+        "copperW": 44.929224769529334,
+        "otherLossW": 0.12483707673708722
+      },
+      {
+        "demandNm": 0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": 0.19999999999999998,
+        "phaseA": 19.349682333639084,
+        "volts": 1.2948048145839777,
+        "terminalW": 25.05406184626642,
+        "shaftW": -20.0,
+        "copperW": 44.929224769529334,
+        "otherLossW": 0.12483707673708722
+      },
+      {
+        "demandNm": -0.2,
+        "radS": -100.0,
+        "capV": 9.5,
+        "actualNm": -0.2,
+        "phaseA": -19.59275533763398,
+        "volts": -3.3782877059687904,
+        "terminalW": 66.18996448318327,
+        "shaftW": 20.0,
+        "copperW": 46.06512740644619,
+        "otherLossW": 0.12483707673708722
+      },
+      {
+        "demandNm": 0.0,
+        "radS": 100.0,
+        "capV": 0.0,
+        "actualNm": -0.08916934052648985,
+        "phaseA": -8.559642212105938,
+        "volts": 0.0,
+        "terminalW": -0.0,
+        "shaftW": -8.916934052648985,
+        "copperW": 8.792096975911901,
+        "otherLossW": 0.12483707673708366
+      }
+    ]
+  },
+  "historicalRebuiltCsvSha256": "c7f23c6811591f3b3e1de2463df9d2cdb576f692b91853b6d2c403385fb6ad34",
+  "cases": {
+    "plus": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 78.11266445593442,
+        "gearLossJ": 32.6583421437575,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.06650891186793,
+          "minControllerV": 12.031703964299675,
+          "minMotorHeadroomV": 8.347874885524385,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.419240895588487,
+          "minControllerV": 11.382450679373957,
+          "minMotorHeadroomV": 7.698621600598667,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.345782414569573,
+          "minControllerV": 11.3087524389967,
+          "minMotorHeadroomV": 7.624923360221411,
+          "supplied": true
+        }
+      },
+      "case": "plus",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5599.324719887393,
+      "disabledYawDeg": 1.2138136702484805e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "0a08acfb61da40ac8bb4e962cd8a160c86664c9d8a3978d52a74ad717159a700",
+      "csvRows": 16880,
+      "stationLockWallS": 20.285,
+      "actualTerminalMmMmDeg": [
+        0.4338661728538711,
+        -0.06304448034885539,
+        -0.0015006022410847188
+      ],
+      "estimatedTerminalMmMmDeg": [
+        0.5842942664183208,
+        -0.01885487509136716,
+        0.0006823526303361643
+      ],
+      "renderedDetections": 180,
+      "acceptedCameraFrames": 179,
+      "imagesTaken": 180,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          20.285,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.214317932425923,
+        "steerPhaseA": 2.9838359960718353,
+        "contactUtilization": 0.21365543341633725,
+        "wheelMps": 1.120173223974567,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.001182336777046143,
+      "geometricMinMm": {
+        "minimumBarrierMm": 9.860505095785166,
+        "minimumPeerMm": 39.04121531587416,
+        "minimumStockMm": 72.11697573682525
+      },
+      "historicalCsvSha256": "c7f23c6811591f3b3e1de2463df9d2cdb576f692b91853b6d2c403385fb6ad34"
+    },
+    "minus": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 78.12065215955938,
+        "gearLossJ": 32.6792586271353,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.06648020355193,
+          "minControllerV": 12.031659635505093,
+          "minMotorHeadroomV": 8.342969107548626,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.419207937427243,
+          "minControllerV": 11.382401185306787,
+          "minMotorHeadroomV": 7.693710657350319,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.345742823471804,
+          "minControllerV": 11.308696181021585,
+          "minMotorHeadroomV": 7.6200056530651175,
+          "supplied": true
+        }
+      },
+      "case": "minus",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 571.6540608972799,
+      "tapeGapMmAt15s": 5605.023850125481,
+      "disabledYawDeg": 8.120765934609352e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "fa211aa79204c5c782fc05340f483082c596aae9d0c86886ed4ab51d114e4281",
+      "csvRows": 16880,
+      "stationLockWallS": 20.330000000000002,
+      "actualTerminalMmMmDeg": [
+        0.6581182527635927,
+        -0.12701898820645915,
+        -0.009077653496599902
+      ],
+      "estimatedTerminalMmMmDeg": [
+        0.681516431488777,
+        -0.11795387452449575,
+        -0.011378419596282236
+      ],
+      "renderedDetections": 180,
+      "acceptedCameraFrames": 179,
+      "imagesTaken": 180,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          20.33,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.204793800538129,
+        "steerPhaseA": 2.983217257580973,
+        "contactUtilization": 0.21398917221041347,
+        "wheelMps": 1.1200999928316593,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0011723975873479504,
+      "geometricMinMm": {
+        "minimumBarrierMm": 10.140967544895965,
+        "minimumPeerMm": 41.30042720086545,
+        "minimumStockMm": 57.29558759123133
+      },
+      "historicalCsvSha256": "18492b408d041450a115fecba6f2c8788edfdef558e83de8341c4e03dbad88d2"
+    },
+    "heavy": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 85.2624279753037,
+        "gearLossJ": 35.74644824427514,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.04829666944181,
+          "minControllerV": 12.01004264697445,
+          "minMotorHeadroomV": 8.28551420927068,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.398310436177521,
+          "minControllerV": 11.357859819374383,
+          "minMotorHeadroomV": 7.633331381670613,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.320626851525551,
+          "minControllerV": 11.279896651885954,
+          "minMotorHeadroomV": 7.5553682141821845,
+          "supplied": true
+        }
+      },
+      "case": "heavy",
+      "assumedGrossMassKg": 72.0,
+      "assumedYawInertiaKgM2": 8.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5600.891737060655,
+      "disabledYawDeg": 3.3838276015159525e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "becf70e3b0a47023631fcdbad5f1a905875679eababe6261b6adeacc4174d591",
+      "csvRows": 16880,
+      "stationLockWallS": 20.18,
+      "actualTerminalMmMmDeg": [
+        -1.3570941756787203,
+        -0.08794769798874742,
+        0.01789239120983831
+      ],
+      "estimatedTerminalMmMmDeg": [
+        -1.4997950082081113,
+        0.06632453943781634,
+        0.02008316920341877
+      ],
+      "renderedDetections": 181,
+      "acceptedCameraFrames": 180,
+      "imagesTaken": 181,
+      "events": [
+        [
+          5.3,
+          "entered waypoint"
+        ],
+        [
+          13.855,
+          "station acquisition range"
+        ],
+        [
+          20.18,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.6877175407328,
+        "steerPhaseA": 3.123809029800591,
+        "contactUtilization": 0.1914559142998297,
+        "wheelMps": 1.120194971719761,
+        "azimuthRadS": 5.999999999982606
+      },
+      "disabledTravelMm": 0.00301837719831517,
+      "geometricMinMm": {
+        "minimumBarrierMm": 7.925746893204393,
+        "minimumPeerMm": 39.460020599427935,
+        "minimumStockMm": 71.57622942339717
+      },
+      "historicalCsvSha256": "d8ec19652935c7e5bb80574695ca9244ce30273639ef618994acadcdad68aa7d"
+    },
+    "upper-minus": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 85.25288373366897,
+        "gearLossJ": 35.76984843101444,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.048322145412486,
+          "minControllerV": 12.010122937355804,
+          "minMotorHeadroomV": 8.2814439970453,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.398339705951276,
+          "minControllerV": 11.357947091406828,
+          "minMotorHeadroomV": 7.629268151096324,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.320662041677442,
+          "minControllerV": 11.279990270233228,
+          "minMotorHeadroomV": 7.551311329922723,
+          "supplied": true
+        }
+      },
+      "case": "upper-minus",
+      "assumedGrossMassKg": 72.0,
+      "assumedYawInertiaKgM2": 8.0,
+      "footprintRadiusPastTapeMmAtStart": 571.6540608972799,
+      "tapeGapMmAt15s": 5606.503553242309,
+      "disabledYawDeg": 2.5884152762252803e-06,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "499c6b5b6e0e4fa6e83ee44853aade6a41dd53b6a456cf72a995000986de34b1",
+      "csvRows": 16880,
+      "stationLockWallS": 20.245,
+      "actualTerminalMmMmDeg": [
+        -1.415647934920884,
+        -0.04547280745661911,
+        0.008983813662193764
+      ],
+      "estimatedTerminalMmMmDeg": [
+        -1.5288942756944528,
+        0.08875317715917752,
+        0.006672847727814142
+      ],
+      "renderedDetections": 181,
+      "acceptedCameraFrames": 180,
+      "imagesTaken": 181,
+      "events": [
+        [
+          5.3,
+          "entered waypoint"
+        ],
+        [
+          13.855,
+          "station acquisition range"
+        ],
+        [
+          20.245,
+          "station observation and wheel-speed gate"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.67912323598527,
+        "steerPhaseA": 3.123415408858418,
+        "contactUtilization": 0.19155836513492167,
+        "wheelMps": 1.1200997519768003,
+        "azimuthRadS": 5.999999999982606
+      },
+      "disabledTravelMm": 0.002962534938005557,
+      "geometricMinMm": {
+        "minimumBarrierMm": 7.933237176520126,
+        "minimumPeerMm": 41.64460710048716,
+        "minimumStockMm": 56.888443363531124
+      },
+      "historicalCsvSha256": "df34e5c28265017608a4f6f99d37ad14c88d4e9f131c0ea5e15de8068767f71f"
+    },
+    "blind": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 74.47037242973387,
+        "gearLossJ": 30.596139205102862,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.06650891186793,
+          "minControllerV": 12.031703964299675,
+          "minMotorHeadroomV": 8.347874885524385,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.419240895588487,
+          "minControllerV": 11.382450679373957,
+          "minMotorHeadroomV": 7.698621600598667,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.345782414569573,
+          "minControllerV": 11.3087524389967,
+          "minMotorHeadroomV": 7.624923360221411,
+          "supplied": true
+        }
+      },
+      "case": "blind",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5598.590954444914,
+      "disabledYawDeg": 7.685375542320539e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "1d8b32177405a7daf6d82dc1925fdfb595bc7dbc3d95b1f51c2c3326739cfe1e",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        406.812345065039,
+        -21.213241675324234,
+        0.035136023050880455
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.05590037074944,
+        -15.153387773879007,
+        0.037337911025286406
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.214317932425923,
+        "steerPhaseA": 2.9838359960718353,
+        "contactUtilization": 0.21365543341633725,
+        "wheelMps": 1.120173223974567,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0008636608303252943,
+      "geometricMinMm": {
+        "minimumBarrierMm": 83.20177737824784,
+        "minimumPeerMm": 39.04121531587416,
+        "minimumStockMm": 72.12388971813172
+      },
+      "historicalCsvSha256": "93c65907cc9e46bfefd4993a3daf4257558d70a21fb39285c388d9cdb23def4f"
+    },
+    "late": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 5.329070518200751e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 74.47037242973387,
+        "gearLossJ": 30.596139205102862,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.06650891186793,
+          "minControllerV": 12.031703964299675,
+          "minMotorHeadroomV": 8.347874885524385,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.419240895588487,
+          "minControllerV": 11.382450679373957,
+          "minMotorHeadroomV": 7.698621600598667,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.345782414569573,
+          "minControllerV": 11.3087524389967,
+          "minMotorHeadroomV": 7.624923360221411,
+          "supplied": true
+        }
+      },
+      "case": "late",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 5598.590954444914,
+      "disabledYawDeg": 7.685375542320539e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "1d8b32177405a7daf6d82dc1925fdfb595bc7dbc3d95b1f51c2c3326739cfe1e",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        406.812345065039,
+        -21.213241675324234,
+        0.035136023050880455
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.05590037074944,
+        -15.153387773879007,
+        0.037337911025286406
+      ],
+      "renderedDetections": 103,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.214317932425923,
+        "steerPhaseA": 2.9838359960718353,
+        "contactUtilization": 0.21365543341633725,
+        "wheelMps": 1.120173223974567,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0008636608303252943,
+      "geometricMinMm": {
+        "minimumBarrierMm": 83.20177737824784,
+        "minimumPeerMm": 39.04121531587416,
+        "minimumStockMm": 72.12388971813172
+      },
+      "historicalCsvSha256": "93c65907cc9e46bfefd4993a3daf4257558d70a21fb39285c388d9cdb23def4f"
+    },
+    "jam": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 2.142730437526552e-14,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 28.343710852788178,
+        "gearLossJ": 17.327757045051378,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 11.648633108657535,
+          "minControllerV": 11.532134050020359,
+          "minMotorHeadroomV": 8.425828740763707,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 10.934498058334082,
+          "minControllerV": 10.81021910063199,
+          "minMotorHeadroomV": 7.775082891019212,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 10.756940063764024,
+          "minControllerV": 10.630560770677466,
+          "minMotorHeadroomV": 7.700711193893211,
+          "supplied": true
+        }
+      },
+      "case": "jam",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 570.8977172541192,
+      "tapeGapMmAt15s": 349.9413142219634,
+      "disabledYawDeg": 0.0,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "bd95d35a3ffa04bafa2a1d9d9cfb25f3e81709f009e9abfff415b09940a1ac3d",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        4323.686762555532,
+        -3655.2165907288713,
+        -5.924873396966348
+      ],
+      "estimatedTerminalMmMmDeg": [
+        4328.727453076351,
+        -3654.5459771840756,
+        -5.925651513701276
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 0,
+      "events": [
+        [
+          3.19,
+          "azimuth response timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 29.83842731808631,
+        "steerPhaseA": 2.9800535548021565,
+        "contactUtilization": 1.0000000000000002,
+        "wheelMps": 0.9303955493187043,
+        "azimuthRadS": 5.9999999999659375
+      },
+      "disabledTravelMm": 0.0,
+      "geometricMinMm": {
+        "minimumBarrierMm": 80.7651083701446,
+        "minimumPeerMm": 148.30059555726555,
+        "minimumStockMm": 1376.3887136360017
+      },
+      "historicalCsvSha256": "8c834642446afe7eefca1bd556521e0276388d5d9e325a2619a4bf42490df8c7"
+    },
+    "misaligned": {
+      "motorModel": "reciprocal",
+      "energy": {
+        "maxMotorIdentityErrorW": 4.884981308350689e-15,
+        "minGearLossW": -0.0,
+        "reverseGearInputJ": 74.47037242973438,
+        "gearLossJ": 30.596139205103068,
+        "observations": 168800
+      },
+      "battery": {
+        "nominal": {
+          "minBusV": 12.06650891186793,
+          "minControllerV": 12.031703964299679,
+          "minMotorHeadroomV": 8.347874885524426,
+          "supplied": true
+        },
+        "screened": {
+          "minBusV": 11.419240895588485,
+          "minControllerV": 11.382450679373957,
+          "minMotorHeadroomV": 7.698621600598704,
+          "supplied": true
+        },
+        "weak": {
+          "minBusV": 11.345782414569573,
+          "minControllerV": 11.308752438996702,
+          "minMotorHeadroomV": 7.62492336022145,
+          "supplied": true
+        }
+      },
+      "case": "misaligned",
+      "assumedGrossMassKg": 65.0,
+      "assumedYawInertiaKgM2": 5.0,
+      "footprintRadiusPastTapeMmAtStart": 568.7002002522036,
+      "tapeGapMmAt15s": 5567.251696953667,
+      "disabledYawDeg": 7.685375542320539e-07,
+      "centersMm": [
+        [
+          282.0,
+          277.0
+        ],
+        [
+          282.0,
+          -277.0
+        ],
+        [
+          -282.0,
+          277.0
+        ],
+        [
+          -282.0,
+          -277.0
+        ]
+      ],
+      "backgroundSha256": "4a5b0651da07f65650917bd87123f1efb30ea67fca39353b935a69e2b8a0773a",
+      "csvSha256": "a15beed7e945532df13507a6d473402053b99e8bcbae8e3c6becc7e5029243c9",
+      "csvRows": 16880,
+      "stationLockWallS": null,
+      "actualTerminalMmMmDeg": [
+        366.62302798166195,
+        -90.56996460119557,
+        0.7151360230509654
+      ],
+      "estimatedTerminalMmMmDeg": [
+        413.055900370748,
+        -15.15338777388006,
+        0.0373379110257444
+      ],
+      "renderedDetections": 0,
+      "acceptedCameraFrames": 0,
+      "imagesTaken": 103,
+      "events": [
+        [
+          5.32,
+          "entered waypoint"
+        ],
+        [
+          13.915,
+          "station acquisition range"
+        ],
+        [
+          18.0,
+          "station observation timeout"
+        ]
+      ],
+      "peaks": {
+        "drivePhaseA": 8.214317932425923,
+        "steerPhaseA": 2.9838359960718353,
+        "contactUtilization": 0.21365543341633736,
+        "wheelMps": 1.1201732239745792,
+        "azimuthRadS": 5.999999999744191
+      },
+      "disabledTravelMm": 0.0008636608237810057,
+      "geometricMinMm": {
+        "minimumBarrierMm": 84.77457988547344,
+        "minimumPeerMm": 17.069335206975467,
+        "minimumStockMm": 150.11321422056363
+      },
+      "historicalCsvSha256": "8ba5b725baff50cce96a7554f6be6f6da8a9b8960c74c1ea8ba7a14a19098116"
+    }
+  }
+}
