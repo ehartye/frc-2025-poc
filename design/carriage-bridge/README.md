@@ -12,6 +12,8 @@ Start with 6061-T6 sheet and register its rear edge, robot-right edge and lower 
 
 The geometry study preserves eleven nominal material contacts, including the rails, lift shoes, rack bed, motor bracket, bearing, sensor saddle, both end stops and drilled crossbar. Reopening all four complete red STEP files gives the same contact topology. For each contact, a 0.05 mm translation into its mate tests whether the locally occupied material has changed. A trial window through the rack removed **64.0 mm³** from a **96.76 mm³** witness. The registered candidate retains the entire witness and is contained within the original plate at each pose. This gives a clearance argument at intermediate heights because it moves rigidly with the same lift frame. Direct measuring, real hole registration and load transfer through the as-built attachments are still required.
 
+The [later mounted-stop accounting](../terminal-mounts/README.md) combines this bridge and the light carriers with modeled mast drilling and all proposed mounting hardware.
+
 ## Mass reconciliation
 
 | Configuration | Calculated value |
