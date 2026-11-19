@@ -20,6 +20,8 @@
 
 [Watch the carriage take the station load](compliant-carriage/chart.html) and compare how two independently moving guide stages change what the acquisition sensors see. [Model, clocks and bench checks](compliant-carriage/README.md)
 
+[Can the receiver tell a settled pipe from a stalled belt?](split-guide-acquisition/timing.html) Step through each digital observation and compare the bounded recovery with the two physical fault models.
+
 [How do the receiver masts carry load into the rails?](mast-attachment/README.md) See the splice drawing, the reversible removal path and what happens when one side loses support.
 
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.

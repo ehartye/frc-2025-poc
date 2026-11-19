@@ -1,0 +1,186 @@
+{
+  "programSha256": "9e29d95f57b0e45164916d9b97ff1ea1a3d0e2303bff85641f4afa2251df4a94",
+  "portFixture": "b096e52ff948979ccd67245ecadfc929c778aabeb4c69aa6eec815fc998518ea",
+  "cases": {
+    "empty": {
+      "firstFault": {
+        "t": 1200,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "entry-timeout"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "occupied-at-wake": {
+      "firstFault": {
+        "t": 0,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "occupied-at-wake"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "lost-during-dwell": {
+      "firstFault": {
+        "t": 1160,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "lost-dual-return"
+      },
+      "positiveProbeTickCount": 23,
+      "firstProbeMs": 580
+    },
+    "seat-first": {
+      "firstFault": {
+        "t": 320,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "seat-before-observed-entry"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "frozen-seat-only": {
+      "firstFault": {
+        "t": 1020,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "incoming-edges-unresolved"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "lost-entry": {
+      "firstFault": {
+        "t": 500,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "seat-before-observed-entry"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "one-dark-flicker": {
+      "firstFault": {
+        "t": 1020,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "incoming-edges-unresolved"
+      },
+      "positiveProbeTickCount": 0,
+      "firstProbeMs": null
+    },
+    "both-too-soon": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "ambiguous-probe-edges"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "stale": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "docking-lost": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "disabled": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "uncalibrated": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "not-valid": {
+      "firstFault": {
+        "t": 600,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "gap-in-clock": {
+      "firstFault": {
+        "t": 620,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "unqualified-or-stale-frame"
+      },
+      "positiveProbeTickCount": 1,
+      "firstProbeMs": 580
+    },
+    "clear-after-probe": {
+      "firstFault": {
+        "t": 640,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "lost-probe-seat"
+      },
+      "positiveProbeTickCount": 3,
+      "firstProbeMs": 580
+    },
+    "part-way-jam": {
+      "firstFault": {
+        "t": 1340,
+        "state": "FAULT",
+        "enabled": false,
+        "command": 0.0,
+        "reason": "probe-timeout"
+      },
+      "positiveProbeTickCount": 38,
+      "firstProbeMs": 580
+    },
+    "empty-with-replayed-good-bits": {
+      "firstBandMs": 1360,
+      "independentCustody": false
+    }
+  }
+}
