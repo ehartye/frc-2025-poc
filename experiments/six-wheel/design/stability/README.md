@@ -1,9 +1,9 @@
 # Chassis balance and turn traction
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The robot can stay upright and still skid before it completes a scheduled turn. The 401-solid design has a positive modeled tipping margin in each of its four nominal poses on level carpet. Its current bill of materials leaves enough uncertainty in mass placement that the planned turn still needs a balance and traction measurement. The tighter design target for loaded carry requires a modeled longitudinal friction coefficient of 0.681 or greater against the earlier carpet assumption of 0.90. [Pose results and input hashes](review.json) · [Drivetrain equations and assumptions](../drivetrain/README.md)

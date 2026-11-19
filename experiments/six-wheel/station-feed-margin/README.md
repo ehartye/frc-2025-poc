@@ -1,9 +1,9 @@
 # Can the two shelf sensors save an off-center feed?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Keep the scoring-route feed on hold. The wheel-error trials briefly give the controller an early warning, but cutting or reversing the belt still lets the incoming pipe reach the cartridge stop. A separate 3 mm delivery shift reaches the stop before either sensor changes. Choose the reserved south start before the match if the team needs the demonstrated alternative. Its 543 mm drive preserves a conditional three-point LEAVE and two-point PARK and gives up two possible L1 placements worth four points. No points are assigned to the station approach. [Reserved south start](../station-approach/README.md)

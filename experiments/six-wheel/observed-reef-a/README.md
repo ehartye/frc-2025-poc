@@ -1,9 +1,9 @@
 # Can the shop robot see scoring sector A while carrying coral-A?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The existing fixed head can register the A sector when it can see the surveyed face and a complete subset of its fasteners. At the terminal decision the left-small wheel case is inside an 8.53 mm position bound and the right-small case is inside 7.88 mm. Both heading bounds are 0.74°. These desktop results use the signed, powered station starts and the 85% loaded gyro schedule. The earlier [two-pipe match replay](../conditioned-match/replay.html) retains its original observers and stops.

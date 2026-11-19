@@ -1,9 +1,9 @@
 # The opening station dock using the cameras already aboard
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **At a 250 µs contact timestep, five of seven wheel-calibration trials brought the first human-fed pipe into the two-port seat window.** Refining the timestep changes which arrivals hit the mechanical stop. The [sensor and contact study](../station-feed-margin/README.md) keeps station-fed scoring on hold. All seven first reached an image-confirmed, stationary dock before the scheduled 21.100 s feed. In two, the actual incoming pipe pushed a cartridge past its stop before the controller saw both ports. A successful chassis approach alone cannot release the loaded drive. The south-lane leave and park remains available as a separate pre-match role. [Feed replay](feed.json) · [South-lane fallback](../station-approach/README.md)

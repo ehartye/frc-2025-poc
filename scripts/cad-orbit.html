@@ -4,7 +4,7 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0e161d;color:#e9f1f3;font:16px/1.5 system-ui}main{max-width:76rem;margin:auto;padding:1.3rem}h1{font-size:clamp(1.6rem,4vw,3rem);margin:.2rem 0}p{margin:.35rem 0 1rem}figure{margin:0;position:relative;border:1px solid #546772;background:#0e161d}canvas,img{width:100%;height:min(62vh,42rem);display:block;object-fit:contain}canvas{touch-action:none;cursor:grab}canvas:active{cursor:grabbing}[hidden]{display:none}button{color:inherit;background:#223940;border:1px solid #627d88;border-radius:.3rem;padding:.45rem .8rem;font:inherit}nav{display:flex;gap:.5rem;margin:.7rem 0}a{color:#a2dbed}small{color:#afc4cd}
 #legend{display:flex;flex-wrap:wrap;gap:.35rem 1rem;padding:0;list-style:none}#legend[hidden]{display:none}#legend li{display:flex;align-items:center;gap:.4rem}#legend i{width:.8rem;height:.8rem;border:1px solid #afc4cd;border-radius:.1rem}
-</style>
+</style></head><body class="cad-viewer">
 <main><h1>{{title}}</h1><p>{{scope}}</p>
 <figure><img id="poster" src="assembly.png" alt="{{title}} rendered from the source CAD"><canvas tabindex="0" aria-label="Orbit the CAD assembly. Arrow keys rotate, plus and minus zoom, Home resets." hidden></canvas></figure>
 <ul id="legend" aria-label="Component appearances" hidden></ul>
@@ -16,7 +16,12 @@ const canvas = document.querySelector('canvas');
 const status = document.querySelector('#status');
 async function start() {
   const layout = {{bounds}};
-  if (!Array.isArray(layout)) {
+  if(document.body.classList.contains('cad-viewer') && self !== top) document.body.classList.add('embedded');
+  if(layout.backdrop){
+    const {center,edge}=layout.backdrop;
+    document.querySelector('figure').style.background=`radial-gradient(ellipse at 50% 48%, ${center} 0%, ${edge} 72%)`;
+  }
+  if (layout.groups) {
     const legend=document.querySelector('#legend');
     for(const [,color,role] of layout.groups){
       const item=document.createElement('li'), swatch=document.createElement('i');
@@ -34,7 +39,7 @@ async function start() {
   if (!count || view.byteLength !== 84+50*count) throw Error('Invalid mesh');
   const vertices = new Float32Array(count*18);
   const bounds = Array.isArray(layout) ? layout : layout.bounds;
-  const ranges = Array.isArray(layout) ? [[count, null]] : layout.groups;
+  const ranges = layout.groups || [[count, null]];
   if (!Array.isArray(ranges) || ranges.some(([n,color]) => !Number.isSafeInteger(n) || n < 1 ||
       (color !== null && !/^#[0-9a-f]{6}$/i.test(color))) ||
       ranges.reduce((sum,[n]) => sum+n, 0) !== count) throw Error('Invalid color ranges');
@@ -71,7 +76,8 @@ async function start() {
     const w=Math.max(1,Math.round(canvas.clientWidth*Math.min(devicePixelRatio,2)));
     const h=Math.max(1,Math.round(canvas.clientHeight*Math.min(devicePixelRatio,2)));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
-    gl.viewport(0,0,w,h); gl.enable(gl.DEPTH_TEST); gl.clearColor(.055,.085,.115,1);
+    gl.viewport(0,0,w,h); gl.enable(gl.DEPTH_TEST);
+    if(layout.backdrop) gl.clearColor(0,0,0,0); else gl.clearColor(.055,.085,.115,1);
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
     const a=Math.cos(yaw),b=Math.sin(yaw),c=Math.cos(tilt),d=Math.sin(tilt);
     gl.uniformMatrix3fv(basis,false,[-b,-a*d,a*c,a,-b*d,b*c,0,c,d]);

@@ -1,9 +1,9 @@
 # Receiving CORAL on its outside diameter
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **Reject this cradle as a replacement for the issued receiver.** Two support rails let a short or long pipe seat against its curved surface. The centered geometry carries it and tips it into both modeled low troughs. However, at 4° relative yaw a rail still intersects the pipe after the calculated release, 20 of 64 disturbance cases miss the combined capture/target criterion, and the conservative selected mass estimate exceeds its represented allowance by 58 g before adding an impact latch. These are independent reasons to keep withdrawal, operation and scoring unqualified.

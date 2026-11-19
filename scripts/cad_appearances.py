@@ -7,9 +7,21 @@ import gzip
 import struct
 import json
 import math
+import re
 from pathlib import Path
 
 from component_palette import palette_digest, resolve_palette
+
+
+def backdrop_colors(config):
+    if "backdrop" not in config:
+        return None
+    backdrop = config["backdrop"]
+    if (not isinstance(backdrop, dict) or set(backdrop) != {"center", "edge"}
+            or not all(isinstance(color, str) and re.fullmatch(r"#[0-9A-Fa-f]{6}", color)
+                       for color in backdrop.values())):
+        raise ValueError("CAD backdrop needs center and edge sRGB colors")
+    return {key: backdrop[key].upper() for key in ("center", "edge")}
 
 
 def load_assignments(root, relative, source_hash):

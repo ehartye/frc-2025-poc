@@ -1,9 +1,9 @@
 # Pipe length on the fixed-height end grips
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **A gauged pair of jaw stops can receive three centered practice cuts. The mechanism still fails the mixed-length, off-axis and scoring requirements.** With the 295.275, 301.625 and 307.975 mm cuts each matched to its own stop set, the actual low-pose Java gate indicates a seat and the sampled finite pipe clears the rigid receiver. All six combinations of a cut with the wrong gauge fail. Both identified mission handoffs recontact the receiver on the historical and shaped releases. Keep the existing low receiver as the issued configuration. [Prior end-grip modification](../station-relief/README.md) · [Centered fixed-height baseline](../design/fixed-height/README.md) · [Body-supported alternative](../cradle-receiver/README.md)

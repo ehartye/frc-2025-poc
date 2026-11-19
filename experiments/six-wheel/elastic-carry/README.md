@@ -1,9 +1,9 @@
 # How far can the machined shelf carry the first pipe?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **The shop robot has a modeled way to stop with the pipe aboard. The existing zero-belt policy loses it if the drive continues toward the reef.** On the slower powered route, both wheel calibrations roll the center of coral-A past the front edge at X165 mm, 9.504 seconds after the final station check. The simulation places this loss at match wall 36.536 s, before either robot reaches the reef. [Loaded motion](drive.json) · [Upstream powered station](../conditioned-match/README.md) · [Machined shelf](../shelf-structure/README.md)

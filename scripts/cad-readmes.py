@@ -47,6 +47,14 @@ def run(root, update, template):
         layout = dict(bounds=layout, groups=validated_groups(root, receipt, folder / "assembly.stl.gz"))
     elif receipt.get("schema") != "agent-frc/cad-still@1":
         raise ValueError("Unknown CAD receipt schema")
+    if "backdrop" in config or "backdrop" in receipt:
+        from cad_appearances import backdrop_colors
+        backdrop = backdrop_colors(config)
+        if not backdrop or backdrop != backdrop_colors(receipt):
+            raise ValueError("CAD backdrop changed. Regenerate the still and mesh.")
+        if isinstance(layout, list):
+            layout = {"bounds": layout}
+        layout["backdrop"] = backdrop
     fields = dict(title=html.escape(config["title"]), scope=html.escape(config["scope"]),
                   facts=f'{receipt["solids"]:,} solids · {receipt["triangles"]:,} triangles · {receipt["chordMm"]} mm chord setting',
                   bounds=json.dumps(layout), mesh=base64.b64encode(mesh).decode("ascii"))

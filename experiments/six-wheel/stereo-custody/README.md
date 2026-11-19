@@ -1,9 +1,9 @@
 # Can a second instrument see the seated pipe?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The issued fixed stereo camera can independently locate the centered pipe on the receiving shelf in this desktop experiment. The two ports alone confirmed at 1.280 s on the controller clock. Five fresh camera exposures corroborated the port result at **1.380 s**, across all 17 integer camera phases. Replaying those same port signals on an empty shelf, or during a weak-grip loss, produced **zero corroborated ticks**. The result is a position observation. A physical installation still needs image, timing and retention calibration before authorizing movement. [Acquisition experiment](../observable-acquisition/README.md) · [Timing and counterexamples](results.json)

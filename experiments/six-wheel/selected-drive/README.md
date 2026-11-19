@@ -1,9 +1,9 @@
 # Can the shop robot drive the two-pipe match?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The selected 20:1 drivetrain can supply the nominal wheel profile at the estimated upper mass on a screened battery. **A small wheel calibration error still drives the robot into the station before the first feed.** The short near-tape alternative avoids that station approach. This study assigns no points to the shop configuration. Its scoring mechanism and cameras have separate geometry and observation gates. [Drive results](results.json) · [Native bumper contact](dock.json) · [Original student match](../relieved-match/replay.html)

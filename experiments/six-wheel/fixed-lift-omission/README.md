@@ -1,9 +1,9 @@
 # Keep the deck and omit the unused lift motor
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The selected 560 mm receiver takes in and places both pipes at one height. Its two permanent shoulder pins transmit vertical load into the masts. A dedicated fixed-height build can omit the third NEO while keeping both drivetrain NEOs, the passive winch, its shaft and both permanent locks. The original motor, pinion and shaft leave as one assembly. An original blind input cover closes the retained long motor block. The deck keeps its full 4 mm thickness. [Input-cover drawing](shop.svg) · [Editable geometry](cap_fit.py) · [Reopened STEP](input-cap.step)
