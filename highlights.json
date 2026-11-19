@@ -1,0 +1,71 @@
+{
+  "schema": "agent-frc/robot-highlights@1",
+  "title": "2025 REEFSCAPE robot",
+  "role": "Drive from the starting area to the coral station, align the receiver and hold position through the first feed. Explore the chassis and see where the prebuild simulation evidence stops.",
+  "revision": "Four-module swerve · station opening study",
+  "cad": {
+    "receipt": "docs/robot/cad/receipt.json",
+    "title": "Swerve frame and module mounts",
+    "scope": "Project-designed structural solids exported from CAD. The open frame shows where each module mounts. The student Fusion assembly also includes the supplier geometry.",
+    "shareable": true
+  },
+  "sources": [
+    {
+      "id": "opening",
+      "label": "Station approach runs",
+      "revision": "Swerve opening, eight cases",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/3568f4fa8f8803c6d5019b59de5e4e867bb3c174/experiments/swerve-drive/motion/opening.json"
+    },
+    {
+      "id": "feed",
+      "label": "First-feed simulation record",
+      "revision": "Two approaches, two solver steps",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/3568f4fa8f8803c6d5019b59de5e4e867bb3c174/experiments/swerve-drive/motion/first-feed.json"
+    },
+    {
+      "id": "fusion",
+      "label": "Open the student Fusion handoff",
+      "revision": "Swerve chassis",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/3568f4fa8f8803c6d5019b59de5e4e867bb3c174/cad/FUSION.md"
+    },
+    {
+      "id": "film",
+      "label": "Opening replay film",
+      "revision": "Nominal positive approach",
+      "file": "experiments/swerve-drive/motion/opening.webm",
+      "sha256": "5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c",
+      "shareable": true
+    }
+  ],
+  "results": [
+    {
+      "basis": "modeled",
+      "claim": "Both 65 kg approaches docked before the first feed",
+      "conditions": "The mirrored approaches reached the docking gate at 20.285 s and 20.330 s. The first feed was scheduled for 21.100 s.",
+      "limit": "Four adverse cases missed the docking gate. The film follows one nominal approach.",
+      "source": "opening"
+    },
+    {
+      "basis": "modeled",
+      "claim": "The receiver held the first piece through 27.03 s",
+      "conditions": "Both simulated approach signs reached the in-band receiver state at 22.912 s. Two solver step sizes reproduced it.",
+      "limit": "The simulation ends at the station. Loaded departure, delivery and a scored piece still need evidence.",
+      "source": "feed"
+    }
+  ],
+  "build": [
+    {
+      "subsystem": "Drivetrain",
+      "configuration": "Four swerve modules on a 564 mm wheelbase and 554 mm track. Each wheel steers and rolls independently. The handoff identifies the supplier model revision and links the editable mounting saddle.",
+      "source": "fusion"
+    }
+  ],
+  "media": [
+    {
+      "asset": "film",
+      "source": "opening",
+      "caption": "Nominal approach at real time. The field view shows the path to the station. The four-wheel diagram follows simulated steering and rolling speeds at 10 frames per second.",
+      "description": "A field replay beside four labeled wheel directions, with the match clock and station event visible."
+    }
+  ]
+}

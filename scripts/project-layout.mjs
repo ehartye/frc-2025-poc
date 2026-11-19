@@ -5,7 +5,7 @@ import {pathToFileURL} from 'node:url';
 
 export const folders = ['kickoff','cad','controls','sim','experiments','tests','scripts','docs','artifacts'];
 const files = new Set(['README.md','LICENSE','LICENSE.md','AGENTS.md','.gitattributes','.gitignore',
-  'run.ps1','cad-showcase.json','project-layout.json','package.json','package-lock.json','pyproject.toml',
+  'run.ps1','cad-showcase.json','highlights.json','project-layout.json','package.json','package-lock.json','pyproject.toml',
   'requirements.txt','pytest.ini','settings.gradle','build.gradle','gradlew','gradlew.bat']);
 const toolFolders = new Set(['.github','.vscode','.wpilib','src','gradle','vendordeps']);
 
@@ -37,4 +37,3 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
   if (issues.length) { console.error(issues.join('\n')); process.exitCode = 1; }
   else console.log('Project layout passed.');
 }
-

@@ -10,6 +10,7 @@ Start with the [release-day field lab and match opportunities](kickoff/README.md
 
 | To explore | Open |
 | --- | --- |
+| Student robot showcase | [Rotate the swerve CAD, watch the station approach and inspect the first-feed results](https://ehartye.github.io/frc-2025-poc/) |
 | Rules, field and scoring windows | [Kickoff model](kickoff/rules-v0.json) and [interactive field lab](kickoff/field-lab.html) |
 | Current CAD and student handoff | [Open the Fusion swerve chassis and editable mounting saddle](cad/FUSION.md) |
 | Previous robot and replays | [Six-wheel campaign](experiments/six-wheel/README.md), including scoring studies, design iterations and checks |

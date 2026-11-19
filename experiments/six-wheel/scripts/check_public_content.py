@@ -14,6 +14,8 @@ WRAPPER='experiments/six-wheel/shared/examples/java-2026-sim/gradle/wrapper/grad
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '06809f012ae860bd3341ff63a7dc634d628111689dee41335274bf2df73c321b', 'docs/robot/cad/assembly.stl.gz': 'c61f4f6f85849a320d55a7b8f1bd5a2d02a11833260a61d766b2933863b2ab7f', 'experiments/swerve-drive/packaging/tab-saddle.f3d': 'c15bf7f1923c892e96f5081a75d30dd7fa3c1b01d3616abef9bf057f5abfb232'}
 
+SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]
