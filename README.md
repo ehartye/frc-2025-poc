@@ -6,6 +6,8 @@
 **Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
+**[Open the field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html)** to move a robot on the 2025 field and try both alliances' match plans. From a local checkout, open [the offline lab](kickoff/field-lab.html).
+
 Start with the [release-day field lab and match opportunities](kickoff/README.md). The [four-module swerve candidate](experiments/swerve-drive/README.md) has an editable Fusion assembly and a [student opening-drive replay](experiments/swerve-drive/motion/index.html). Check the conditional inspection-weight result before carrying it into a match design.
 
 | To explore | Open |
