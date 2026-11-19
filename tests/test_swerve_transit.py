@@ -8,6 +8,36 @@ STUDY = Path(__file__).resolve().parents[1] / "experiments/swerve-drive/transit"
 
 
 class LoadedCorridor(unittest.TestCase):
+    def test_observation_loss_and_real_slip_are_distinct(self):
+        record = json.loads((STUDY / "decision-evidence.json").read_bytes())
+        source = STUDY.parents[2] / "cad/full-swerve-r4/appearances.json"
+        self.assertEqual(record["r4"], json.loads(source.read_bytes())["sourceSha256"])
+        for case in record["cases"]:
+            self.assertLess(case["travelSinceDepartureMm"], 0.5)
+            for result in case["trials"].values():
+                self.assertFalse(result["accepted"])
+                self.assertEqual(result["roof"], "inside")
+        self.assertGreater(record["unobservedDriveControl"]["travelMm"], 20)
+        beams = {row["name"]: row for row in record["nonImaging"]}
+        self.assertTrue(all(beams["rear-limit"]["rawBeamStates"]["attained-rear-stop"]))
+        for beam in beams.values():
+            self.assertEqual(beam["stowedBroadphaseCandidates"], [])
+            self.assertEqual(
+                beam["rawBeamStates"]["plus"],
+                beam["rawBeamStates"]["24mm-transverse-control"],
+            )
+
+    def test_measured_stops_grant_no_onward_motion(self):
+        stops = json.loads((STUDY / "stops.json").read_bytes())["cases"]
+        for case in stops.values():
+            self.assertTrue(case["stopFeedback"]["confirmed"])
+            self.assertAlmostEqual(
+                case["stopFeedback"]["wallS"] - case["brakeWallS"], 0.9
+            )
+            self.assertIsNone(case["cargo"]["lost"])
+            self.assertFalse(case["resumed"])
+            self.assertEqual(case["deliveries"], 0)
+
     def test_common_start_and_distinct_clearances(self):
         record = json.loads((STUDY / "corridor.json").read_bytes())
         previous = STUDY.parent / "motion/loaded-departure.json"

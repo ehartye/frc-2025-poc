@@ -22,7 +22,12 @@ def backgrounds(field, cache=None):
         "field": sha(field),
         "r4": sha(camera.PROJECT / "cad/full-swerve-r4/full-robot.step"),
         "appearances": sha(camera.PROJECT / "cad/full-swerve-r4/appearances.json"),
-        "renderFunctions": hashlib.sha256("\n".join(inspect.getsource(fn).rstrip() for fn in (camera.source_parts,camera.render)).encode("utf8")).hexdigest(),
+        "renderFunctions": hashlib.sha256(
+            "\n".join(
+                inspect.getsource(fn).rstrip()
+                for fn in (camera.source_parts, camera.render)
+            ).encode("utf8")
+        ).hexdigest(),
         "station": sha(Path(camera.field_mesh.__code__.co_filename)),
         "pupils": sha(camera.LEGACY / "selected-optics/mount.json"),
     }

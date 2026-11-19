@@ -67,29 +67,43 @@ def restore(state, route, side):
 
 def stop_feedback(measured, estimates, enc, tick):
     if tick < 10:
-        return {"confirmed":False}
-    window=np.asarray(measured[tick-10:tick+1])
-    wheels=window[:,:4]
-    angles=enc.angle(window[:,4:8],1024)
-    rolling=enc.delta_distance(np.diff(wheels,axis=0),dock.wrapped(np.diff(angles,axis=0)))
-    speeds=np.sum(abs(rolling),axis=0)/.05
-    gyro_rate=np.sum(abs(np.diff(window[:,8])))/.05
-    field_speed=np.sum(np.linalg.norm(np.diff(np.asarray(estimates[tick-10:tick+1])[:,:2],axis=0),axis=1))/.05
-    return dict(wheelSpeedMps=speeds.tolist(),gyroRadS=gyro_rate,fieldSpeedMps=field_speed,
-                confirmed=bool(max(speeds)<.006 and field_speed<.006 and gyro_rate<math.radians(.5)))
+        return {"confirmed": False}
+    window = np.asarray(measured[tick - 10 : tick + 1])
+    wheels = window[:, :4]
+    angles = enc.angle(window[:, 4:8], 1024)
+    rolling = enc.delta_distance(
+        np.diff(wheels, axis=0), dock.wrapped(np.diff(angles, axis=0))
+    )
+    speeds = np.sum(abs(rolling), axis=0) / 0.05
+    gyro_rate = np.sum(abs(np.diff(window[:, 8]))) / 0.05
+    field_speed = (
+        np.sum(
+            np.linalg.norm(
+                np.diff(np.asarray(estimates[tick - 10 : tick + 1])[:, :2], axis=0),
+                axis=1,
+            )
+        )
+        / 0.05
+    )
+    return dict(
+        wheelSpeedMps=speeds.tolist(),
+        gyroRadS=gyro_rate,
+        fieldSpeedMps=field_speed,
+        confirmed=bool(
+            max(speeds) < 0.006
+            and field_speed < 0.006
+            and gyro_rate < math.radians(0.5)
+        ),
+    )
 
 
-def run(raw, out, case, step, cut=None, policy="south-offset", hold=.9, resume=None):
+def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9):
     row, reached, wheels, cargo = prior(raw, case, step)
-    if hold < .9 or (cut is not None and (cut < 0 or abs(cut/DT-round(cut/DT))>1e-8)):
+    if hold < 0.9 or (
+        cut is not None and (cut < 0 or abs(cut / DT - round(cut / DT)) > 1e-8)
+    ):
         raise ValueError("Invalid wheel service time or brake window")
-    first_wheels=wheels
-    if resume:
-        prior_route=read(resume/"route.json")
-        wheels=resume/"end-wheels.npz"
-        if not (sha(wheels)==prior_route["terminalWheels"] and prior_route["sourceWheel"]==sha(first_wheels)
-                and prior_route["stopFeedback"]["confirmed"] and prior_route["stepUs"]==step):
-            raise ValueError("Cannot resume an unconfirmed wheel stop")
+    first_wheels = wheels
     plant, enc, odom, gyro = restore(wheels, reached, case)
     layout = dock.ROOT / "fixed-height-match/placements.json"
     stock = dock.ROOT / "full-match/installed-stock.json"
@@ -104,18 +118,16 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=.9, resume=N
     if policy == "south-offset":
         gx, gy = goals[1]
         goals[1] = (gx, gy - 0.45)
-    heading0 = prior_route["headingDatum"] if resume else odom.pose[2]
+    heading0 = odom.pose[2]
     start = reached["wheel"]["startWallS"] + reached["wheel"]["elapsedS"]
-    if resume:
-        start=prior_route["endWallS"]
     sign = 1 if case == "plus" else -1
     velocity = [plant.velocity.copy()]
     poses = [plant.pose.copy()]
     estimates = [odom.pose.copy()]
-    observed=[np.r_[*plant.sensors(),gyro]]
+    observed = [np.r_[*plant.sensors(), gyro]]
     command = np.zeros(3)
     marks = []
-    index = len(prior_route["waypoints"]) if resume else 0
+    index = 0
     end = None
     for tick in range(round(40 / DT)):
         elapsed = tick * DT
@@ -166,9 +178,9 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=.9, resume=N
         gyro += DT * (
             (1 + sign * 0.001) * plant.velocity[2] + sign * math.radians(0.02)
         )
-        raw,absolute=plant.sensors()
-        odom.update(raw,absolute,gyro)
-        observed.append(np.r_[raw,absolute,gyro])
+        raw, absolute = plant.sensors()
+        odom.update(raw, absolute, gyro)
+        observed.append(np.r_[raw, absolute, gyro])
         poses.append(plant.pose.copy())
         estimates.append(odom.pose.copy())
         velocity.append(plant.velocity.copy())
@@ -196,18 +208,34 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=.9, resume=N
         bodyAcceleration=body,
         stationMmMmRad=[dock.station(q, f) for q in pose],
     )
-    telemetry=out/"feedback.npz"
-    np.savez_compressed(telemetry, relativeS=times, rotorAbsoluteGyro=np.array(observed))
-    endpoint=out/"end-wheels.npz"
+    telemetry = out / "feedback.npz"
+    np.savez_compressed(
+        telemetry, relativeS=times, rotorAbsoluteGyro=np.array(observed)
+    )
+    endpoint = out / "end-wheels.npz"
     with np.load(first_wheels) as initial:
-        static_shares=initial["staticShares"]
-    np.savez(endpoint,pose=plant.pose,velocity=plant.velocity,angle=plant.angle,
-             azimuth_rate=plant.azimuth_rate,wheel_speed=plant.wheel_speed,wheel_turns=plant.wheel_turns,
-             target_speed=plant.target_speed,load=plant.load,radii=plant.radius,staticShares=static_shares,
-             gyro=gyro,estimatedPose=odom.pose,odomAngles=odom.angles,odomRotor=odom.rotor,odomAbsolute=odom.absolute)
-    checked=round((end+.9)/DT)
-    stop_state=stop_feedback(observed,estimates,enc,checked)
-    stop_state["wallS"]=start+checked*DT
+        static_shares = initial["staticShares"]
+    np.savez(
+        endpoint,
+        pose=plant.pose,
+        velocity=plant.velocity,
+        angle=plant.angle,
+        azimuth_rate=plant.azimuth_rate,
+        wheel_speed=plant.wheel_speed,
+        wheel_turns=plant.wheel_turns,
+        target_speed=plant.target_speed,
+        load=plant.load,
+        radii=plant.radius,
+        staticShares=static_shares,
+        gyro=gyro,
+        estimatedPose=odom.pose,
+        odomAngles=odom.angles,
+        odomRotor=odom.rotor,
+        odomAbsolute=odom.absolute,
+    )
+    checked = round((end + 0.9) / DT)
+    stop_state = stop_feedback(observed, estimates, enc, checked)
+    stop_state["wallS"] = start + checked * DT
     gaps = dock.screen(
         f, start + times, pose, read(stock)["stock"], team, start + times[-1]
     )
@@ -216,8 +244,12 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=.9, resume=N
         stepUs=step,
         policy=policy,
         piece=row["pipe"],
-        sourceWheel=sha(wheels),originalWheel=sha(first_wheels),
-        terminalWheels=sha(endpoint), feedback=sha(telemetry),headingDatum=heading0,stopFeedback=stop_state,
+        sourceWheel=sha(wheels),
+        originalWheel=sha(first_wheels),
+        terminalWheels=sha(endpoint),
+        feedback=sha(telemetry),
+        headingDatum=heading0,
+        stopFeedback=stop_state,
         sourcePipe=sha(cargo),
         sourceMatchRegister=sha(MOTION / "loaded-departure.json"),
         sourceFieldStock=sha(stock),
@@ -254,7 +286,8 @@ if __name__ == "__main__":
         default="south-offset",
     )
     p.add_argument("--cut", type=float, help="Elapsed seconds to initiate a fault stop")
-    p.add_argument("--hold",type=float,default=.9)
-    p.add_argument("--resume",type=Path)
+    p.add_argument("--hold", type=float, default=0.9)
     a = p.parse_args()
-    write(a.out / "route.json", run(a.raw, a.out, a.case, a.step, a.cut, a.policy, a.hold, a.resume))
+    write(
+        a.out / "route.json", run(a.raw, a.out, a.case, a.step, a.cut, a.policy, a.hold)
+    )

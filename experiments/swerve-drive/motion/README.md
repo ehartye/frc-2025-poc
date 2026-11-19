@@ -152,3 +152,5 @@ With Agent FRC 0.24.1, the raw check reads two synchronized 20 ms shaft and abso
 
 [All eight clock receipts](opening.json) · [Project encoder input](encoders.json) · [Finite contact plant](plant.py) · [Controller and field registration](opening.py)
 
+
+[Compare the loaded transit paths, the two observed stops and the retention decision](../transit/README.md).

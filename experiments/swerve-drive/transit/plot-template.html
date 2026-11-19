@@ -6,13 +6,13 @@
 body{max-width:58rem;margin:clamp(1rem,4vw,3rem) auto;padding:0 1rem}h1{font-size:clamp(1.6rem,5vw,2.7rem);line-height:1.12}form{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
 label{font-weight:600}select{font:inherit;max-width:100%}canvas{display:block;width:100%;height:auto;border-radius:.55rem;background:#142f49;margin-top:.8rem}
 input{width:min(35rem,100%)}output{display:block;font-variant-numeric:tabular-nums}small{display:block;margin:.6rem 0}</style>
-<main><h1>Loaded wheel routes to the reef</h1><p>Compare the chassis paths from the first station departure. A negative clearance means the modeled robot entered another robot’s reservation, the field structure or its installed stock. The successful chassis proposal stops 300 mm upstream of the scoring target.</p>
+<main><h1>Loaded wheel routes to the reef</h1><p>Compare the chassis paths from the first station departure. A negative clearance means the modeled robot entered another robotâ€™s reservation, the field structure or its installed stock. The shifted chassis proposal stops 300 mm upstream of the original scoring target. The onboard cameras inhibit true cargo transport earlier, at 31.060 s or 29.220 s for the two signed errors.</p>
 <form><label>Controller <select id="policy"><option value="south-offset">Settled, shifted south</option><option value="settled">Settled, original lane</option><option value="full">Cross at speed</option></select></label>
 <label>Wheel and gyro errors <select id="side"><option value="plus">Positive</option><option value="minus">Negative</option></select></label></form>
 <canvas width="920" height="520" aria-label="Red station and reef approach wheel trajectory, in field coordinates"></canvas>
 <label for="clock">Match clock</label> <input id="clock" type="range" min="0" max="1000" value="1000" step="1">
 <output id="timing" aria-live="polite"></output><output id="margins"></output>
-<small>Field coordinates in meters. Gray paths show both other controller proposals for the same signed error. The square shows the 850 mm stowed bumper footprint. The chart shows wheels and traffic geometry. Optical and mechanical custody are assessed separately.</small>
+<small>Field coordinates in meters. Gray paths show both other controller proposals for the same signed error. The square shows the 850 mm stowed bumper footprint. The chart shows wheels and traffic geometry. Optical and mechanical custody are assessed separately. <a href="README.md">Custody decision and alternatives</a>.</small>
 </main><script>
 const runs=/*REGISTER*/null;
 const canvas=document.querySelector('canvas'), ctx=canvas.getContext('2d'), scale=117;
@@ -27,8 +27,8 @@ function draw(){
  for(const [name,v] of Object.entries(run)){ctx.lineWidth=name===variant?5:2;ctx.strokeStyle=name===variant?'#60dbc2':'#8a99a9';ctx.beginPath();v.path.forEach((p,k)=>{let [u,y]=screen(p[1],p[2]);k?ctx.lineTo(u,y):ctx.moveTo(u,y)});ctx.stroke()}
  const [u,v]=screen(q[1],q[2]);ctx.save();ctx.translate(u,v);ctx.rotate(-q[3]);let size=.85*scale;ctx.fillStyle='#f3c15a66';ctx.strokeStyle='#f7c650';ctx.lineWidth=2;ctx.fillRect(-size/2,-size/2,size,size);ctx.strokeRect(-size/2,-size/2,size,size);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(size/2,0);ctx.stroke();ctx.restore();
  ctx.fillStyle='#fff';ctx.fillText('Station',...screen(16.2,7.55));ctx.fillText('Reef approach',...screen(11.25,3.63));
- document.querySelector('#timing').value=time.toFixed(3)+' s · X '+q[1].toFixed(3)+' m · Y '+q[2].toFixed(3)+' m';
- document.querySelector('#margins').value='Minimum over the whole route · Other robots '+selected.peer.toFixed(1)+' mm · Stock '+selected.stock.toFixed(1)+' mm · Field '+selected.wall.toFixed(1)+' mm';
+ document.querySelector('#timing').value=time.toFixed(3)+' s Â· X '+q[1].toFixed(3)+' m Â· Y '+q[2].toFixed(3)+' m';
+ document.querySelector('#margins').value='Minimum over the whole route Â· Other robots '+selected.peer.toFixed(1)+' mm Â· Stock '+selected.stock.toFixed(1)+' mm Â· Field '+selected.wall.toFixed(1)+' mm';
 }
 document.querySelectorAll('select,input').forEach(e=>e.addEventListener('input',draw));draw();
 </script></html>

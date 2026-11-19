@@ -42,18 +42,24 @@ def run(
     pipe = np.load(pipe_path)
     with np.load(wheel_path) as st:
         times, poses = st["relativeS"], st["stationMmMmRad"]
-    cache=out.parent.parent/"native-scene"
+    cache = out.parent.parent / "native-scene"
     if internal:
         from inside_camera import setup
         from fixed_contour import read_pair
-        fixed,roof,masks=setup(raw,cache)
-        def observe(q,center,axis,fault):
-            return camera.observe(fixed,roof,center,axis,fault,masks,fixed_reader=read_pair)
+
+        fixed, roof, masks = setup(raw, cache)
+
+        def observe(q, center, axis, fault):
+            return camera.observe(
+                fixed, roof, center, axis, fault, masks, fixed_reader=read_pair
+            )
     else:
-        view=backgrounds(field,cache)
-        masks=camera.load_wheel_mask(raw/"wheel-visibility.json")
-        def observe(q,center,axis,fault):
-            return observation(view,masks,q,center,axis,fault)
+        view = backgrounds(field, cache)
+        masks = camera.load_wheel_mask(raw / "wheel-visibility.json")
+
+        def observe(q, center, axis, fault):
+            return observation(view, masks, q, center, axis, fault)
+
     start = contact["startWallS"]
     if resume_clock is None:
         if (
@@ -146,7 +152,7 @@ if __name__ == "__main__":
     p.add_argument("--resume-clock", type=Path)
     p.add_argument("--resume-contact", type=Path)
     p.add_argument("--missing-eye-after", type=float)
-    p.add_argument("--internal",action="store_true")
+    p.add_argument("--internal", action="store_true")
     a = p.parse_args()
     run(
         a.raw,
