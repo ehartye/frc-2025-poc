@@ -10,6 +10,7 @@
 <p class="legend">The diagrams show a cropped 175 × 198 pixel window from each camera. Small gray circles are measured candidates. Gold and green rings identify the two surveyed heads whose visible face passes the foreground check.</p>
 <label for="clock">Capture time after sector guidance begins <output id="time"></output></label><input type="range" id="clock" min="0" step="1"><p id="quality"></p></article>
 <p id="result" aria-live="polite"></p><p><a href="README.md">Study evidence and physical limits</a> · <a href="../conditioned-match/replay.html">Earlier full match and station alternatives</a></p></main>
+<section aria-labelledby="carry-title" style="max-width:965px;margin:1.5rem auto;padding:0 1rem"><h2 id="carry-title">Where is coral-A?</h2><p id="cargo-summary" aria-live="polite"></p><p><a href="README.md">Read the carry, power and calibration evidence</a></p></section>
 <script id="samples" type="application/json">SENSOR_SAMPLES</script><script>
 const data=JSON.parse(document.getElementById('samples').textContent),get=id=>document.getElementById(id);let current;
 function select(){current=data.find(r=>r.wheelCase===get('wheel').value&&r.mode===get('mode').value);get('clock').max=current.studentFrames.length-1;get('clock').value=get('clock').max;draw()}
@@ -20,6 +21,10 @@ function draw(){const frame=current.studentFrames[Number(get('clock').value)],c=
  for(const q of frame.detections[eye]){const [x,y]=xy(...q);c.fillStyle='#b3c3bf';c.beginPath();c.arc(x,y,3.6,0,Math.PI*2);c.fill()}
  for(const [e,j,u,v] of frame.features){if(e!==eye)continue;const [x,y]=xy(u,v);c.strokeStyle=j?'#86e0bb':'#ffcc6c';c.lineWidth=2.5;c.beginPath();c.arc(x,y,7.3,0,Math.PI*2);c.stroke()}
  c.restore()}
+ const m=current.material;
+ get('cargo-summary').textContent=current.mode==='nominal'
+ ? (m.nominalHeldAtSectorOnJointClock?'The modeled cartridges hold the pipe at the sector stop at '+m.nominalCarryEndsWallS.toFixed(3)+' s. ':'The modeled material trial ends before a joint sector handoff. ')+(m.guardedStationDeparture?'':'Adding a 0.05 mm roof-reference uncertainty removes the initial custody witness, so the robot stays at the station. ')+'The scoring rack stays stowed; coral-B stays in stock.'
+ : 'The field-camera fault inhibits the final approach. The scoring rack stays stowed and the second feed stays reserved.';
  get('time').textContent=(frame.captureMs/1000).toFixed(3)+' s';
  get('quality').textContent=frame.ambiguous?'A competing candidate makes this field observation ambiguous.':frame.viable?frame.features.length+' measured feature rays support the update.':'This frame cannot establish both physical fasteners.';
  get('result').textContent=current.accepted?'Sector A position admitted under the surveyed field and camera assumptions. Final outer bound '+current.latestQualifiedInterval[0].toFixed(2)+' mm and '+current.latestQualifiedInterval[1].toFixed(2)+'°. Pipe custody and placement have separate gates.':'The controller held the scoring rack because of '+current.reason+'.';}
