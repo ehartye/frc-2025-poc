@@ -22,6 +22,22 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def bind_sources(sources, baseline, checkout, output):
+    # The selected map can be generated elsewhere. Reopen its inventory in this checkout.
+    crosswalk = next(s for s in sources if s["id"]=="crosswalk")
+    anchor = (baseline.parent/crosswalk["file"]).resolve()
+    relative = Path("design/installed-procurement/installed.csv")
+    project = anchor.parents[len(relative.parts)-1]
+    if anchor.relative_to(project) != relative:
+        raise ValueError("Expected the installed purchasing crosswalk as the project anchor")
+    for source in sources:
+        original = (baseline.parent/source["file"]).resolve()
+        local = checkout/original.relative_to(project)
+        if digest(local) != source["sha256"]:
+            raise ValueError("Checkout source has changed: "+source["id"])
+        source["file"] = os.path.relpath(local,output).replace(os.sep,"/")
+
+
 def apply(plugin, baseline, output):
     output.mkdir(parents=True,exist_ok=True)
     data = read(baseline)
@@ -31,11 +47,7 @@ def apply(plugin, baseline, output):
         or not any(c["delta"]["source"]=="connector-installation" for c in active)
         or "four-welded-corners" in data["selected"]):
         raise ValueError("Select the issued moving harness and apply the frame changes exactly once")
-    for source in data["sources"]:
-        path = (baseline.parent/source["file"]).resolve()
-        if digest(path) != source["sha256"]:
-            raise ValueError("Baseline source has changed: "+source["id"])
-        source["file"] = os.path.relpath(path,output).replace(os.sep,"/")
+    bind_sources(data["sources"],baseline,HERE.parent,output)
     fit = read(HERE/"weld-fit.json")
     evidence = {"cornerStudySha256":digest(HERE/"weld-fit.json"),"nominalNetKg":fit["nominalNetKg"],
                 "estimatedNetRangeKg":[0,.020],"scaleVerified":False,
