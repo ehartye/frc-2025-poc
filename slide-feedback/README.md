@@ -34,4 +34,3 @@ python slide-feedback/contact.py --java-home "$JDK"
 python -m unittest discover -s tests -p test_slide_feedback.py
 ```
 The no-air installation separately retains the forward envelope and moving rack mass used here. At 0, 185 and 370 mm, 590 component B-reps match in the 598- and 593-body installations. The shared bumper or shelf governs all three fronts (425, 425 and 535 mm). All removals/changes are fixed-base and the revised deck and lamp reach only 337 mm. Run the standalone comparison with the issued native register. The control signature and optical approval remain on the 598-body fixture. [No-air transfer](no-air.json) · [Register check](compare.py)
-

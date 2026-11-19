@@ -100,7 +100,7 @@ class SlideFeedbackTest {
                         scheduler.setPeriod(cfg.period/1000.);
                         scheduler.schedule(run);
                         var path=new ArrayList<Double>();
-                        
+
                         for(int ms=0;ms<=3100;ms++){
                             if(ms>0) SimHooks.stepTiming(.001);
                             if(ms%cfg.period==0) scheduler.run();
