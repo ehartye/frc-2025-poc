@@ -1,0 +1,253 @@
+{
+  "sourceRegister": "d1c891e1d4faf181c241a32a19d5ed1bb912271f640e5c2f2fd21142588959c5",
+  "field": "c64ef7021499a9305f10a922a89472643b0d2b568803483f72e38ecda4fe5757",
+  "programAndInputs": "8f5c40a6b60256180ff0af1c81fc24c6ec4eb9af2340a9c28bfb69554da04443",
+  "scenarioCount": 28,
+  "sameEventsAsReference": true,
+  "packetEventSha256": "f15af1b12377e7168f949548c0fcc7e43916c2799891963360f75d1a007a5916",
+  "historicalNominal": {
+    "sameEventsAsReference": true,
+    "finalB": {
+      "scenario": "nominal",
+      "piece": "coral-B",
+      "wall_ms": "100845",
+      "local_ms": "28890",
+      "event": "stow",
+      "witness": "endpoint and speed confirmed"
+    },
+    "withdrawWallMs": 98375
+  },
+  "fieldCaptures": {
+    "coral-A": {
+      "station": 10,
+      "reef": 17
+    },
+    "coral-B": {
+      "station": 10,
+      "reef": 18
+    }
+  },
+  "BDesktopFrames": {
+    "26180": {
+      "moving": [
+        "inside",
+        72.62633904191526,
+        79.44450776608198,
+        -5.131644647045491,
+        3.7692439833062537,
+        -4.452671037173673,
+        7.075973975349029
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        63.5,
+        96.5,
+        -3.4634031961909173,
+        3.4634031961909173,
+        -13.649999999999999,
+        12.350000000000001
+      ]
+    },
+    "26197": {
+      "moving": [
+        "inside",
+        76.60548752003619,
+        83.24419863670289,
+        -4.827904038754426,
+        3.7692439833062537,
+        -4.452671037173673,
+        6.448984956374488
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        67.5,
+        101.5,
+        -3.605589358065359,
+        3.605589358065359,
+        -14.649999999999999,
+        11.350000000000001
+      ]
+    },
+    "26214": {
+      "moving": [
+        "inside",
+        83.26183389104241,
+        89.56151579422429,
+        -3.7269406087081762,
+        3.7269406087081762,
+        -4.452671037173673,
+        4.17634849589183
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        73.5,
+        108.5,
+        -3.4850405444705927,
+        3.4802291410073565,
+        -14.649999999999999,
+        11.350000000000001
+      ]
+    },
+    "26231": {
+      "moving": [
+        "inside",
+        93.30215536620014,
+        99.39117652762452,
+        -3.7269406087081762,
+        3.7269406087081762,
+        -4.452671037173673,
+        4.17634849589183
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        84.5,
+        118.5,
+        -3.4162794414491557,
+        3.4162794414491557,
+        -15.649999999999999,
+        10.350000000000001
+      ]
+    },
+    "26248": {
+      "moving": [
+        "unresolved-end-curvature"
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        96.5,
+        131.5,
+        -3.6733359448014085,
+        3.6733359448014085,
+        -13.649999999999999,
+        12.350000000000001
+      ]
+    },
+    "26401": {
+      "moving": [
+        "unbacked-end"
+      ],
+      "fixed": [
+        "outside-custody-envelope",
+        229.5,
+        275.5,
+        -3.9018101081569228,
+        3.919269842151742,
+        -61.65,
+        -24.65
+      ]
+    }
+  },
+  "replay": {
+    "coral-A-fixed-barrel-nominal-critical": {
+      "sha256": "2c76acff96b686b9a181b1f8b3724e7c30768fd02c913ce2c12928e5ceb4653e",
+      "frames": 17,
+      "statuses": {
+        "outside-custody-envelope": 17
+      },
+      "sourceTrajectorySha256": "618cf4573bf131a69d7454ee5847cc78190539877927e90607c2ce5679d112cb",
+      "csv": "83a34064462862a2efa7ba5120a398f88127d780f096b51ec8c888821e017d42"
+    },
+    "coral-A-moving-barrel-nominal-all-bounded": {
+      "sha256": "e66bd7337d025b2a812a5db6def68cb7b9efa1088d573f95087ed52ebad54630",
+      "frames": 1493,
+      "statuses": {
+        "inside": 1481,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "618cf4573bf131a69d7454ee5847cc78190539877927e90607c2ce5679d112cb",
+      "csv": "0bc4b31507419a0808abc5736ae6eba2a2e15d6f89661b5050d420b7a43e73ea"
+    },
+    "coral-A-seat-barrel-nominal-all": {
+      "sha256": "535501bebf67a7d14990684b8a3a46c19022c08668590cf08989068509b5665e",
+      "frames": 246,
+      "statuses": {
+        "position-witness": 246
+      },
+      "sourceTrajectorySha256": "618cf4573bf131a69d7454ee5847cc78190539877927e90607c2ce5679d112cb",
+      "csv": "2ca5aad4628a002bb2b50e0eb930f875e3f3499d4fe02e6d83ff7a0a258f86f4"
+    },
+    "coral-B-fixed-barrel-nominal-critical": {
+      "sha256": "89cf661c96f546c364926b0712ff2b295c2e8c874c48a7f21b803cf13178edb8",
+      "frames": 18,
+      "statuses": {
+        "outside-custody-envelope": 18
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "69256bac2c00c7065df666b6d0471c94ab46198cb442f08fd144c15523eee123"
+    },
+    "coral-B-moving-barrel-lost-eye-critical": {
+      "sha256": "d8050c8552ee85ac8e1eb8f9c95a06e47d335f5fcd0841542cea1e337762d499",
+      "frames": 70,
+      "statuses": {
+        "unbacked-end": 63,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "027f7414f25da72b557dab6f826fc16fbfa17f0ab016e52e5fa00a8ab8e4a49d"
+    },
+    "coral-B-moving-barrel-nominal-all-bounded": {
+      "sha256": "3bdbb2aee6daf8364f523edc60f48be0e25bd2bece65beaa65826f82306eb4fe",
+      "frames": 1476,
+      "statuses": {
+        "inside": 1464,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "7ba93a9aa8b105e7445c8f891c10d6698d511facd73e92a36eca9b1e0fced4c9"
+    },
+    "coral-B-moving-barrel-stale-roof-critical": {
+      "sha256": "d2b45270e4bc292e53e353540c9e8cfd86c0028ef73da8fa92fcf40516c9c7dd",
+      "frames": 70,
+      "statuses": {
+        "inside": 58,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "d2c1dd1000f3b4dfa361a49ed9ce98807cae1fc6dabb01b95ce492b0cde71899"
+    },
+    "coral-B-moving-barrel-swapped-eyes-critical": {
+      "sha256": "9fd28c26e59d7b0c09338cf92b2f256cf4aa2b52f4a5cac9638458dea0fd36e3",
+      "frames": 70,
+      "statuses": {
+        "robot-reference-lost": 70
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "fb3faca478a1544a08d5dd8ab1de4830302c72578c84c474cace5d8a309cc874"
+    },
+    "coral-B-moving-front-nominal-critical": {
+      "sha256": "df591e54034062251357ff867126dd768f3d7a23a2d6632e37f341fdf0bacae3",
+      "frames": 70,
+      "statuses": {
+        "inside": 58,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "907d8306faa30d9625b3b52ae572aa570b2df11a75376d5866673baa90868c56"
+    },
+    "coral-B-moving-rear-nominal-critical": {
+      "sha256": "89711c67882356d6bd557ebd6fcd09e80539ca1f3b73017ffa648be1fb64e761",
+      "frames": 70,
+      "statuses": {
+        "inside": 58,
+        "unbacked-end": 5,
+        "unresolved-end-curvature": 7
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "aae238116522f97f28b178fd1afb11241b983ccdf849d4ad9219c8abd52ee5bf"
+    },
+    "coral-B-seat-barrel-nominal-all": {
+      "sha256": "7124adf8f037694bc40f3bd1268aa8c441fa41d7c179744e785bbb544bfd2e7e",
+      "frames": 246,
+      "statuses": {
+        "position-witness": 246
+      },
+      "sourceTrajectorySha256": "2923b37af373bfce110c0dd279dfe9c0e6c71226385f3a75868e00b979a55bf8",
+      "csv": "258e67b15afc361d69c7bbf9a53cdfbdf1f4b61463170ba0275106c56d4b36f3"
+    }
+  },
+  "actualScoredPipe": null
+}
