@@ -79,7 +79,7 @@ class GuideImpactTests(unittest.TestCase):
             {
                 (side, dt)
                 for side in ("leftSmall", "rightSmall")
-                for dt in (31.25, 62.5)
+                for dt in (15.625, 31.25, 62.5)
             },
         )
         for r in nominal:

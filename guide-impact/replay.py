@@ -5,6 +5,7 @@ from concurrent.futures import ProcessPoolExecutor
 from dataclasses import replace
 import json
 import importlib.util
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -46,6 +47,7 @@ def trial(job):
         moving,
         support,
         outward,
+        collect,
     ) = job
     dt = micros * 1e-6
     beam = Beam(kit, layout, cutoff, arm_fraction=moving)
@@ -72,6 +74,25 @@ def trial(job):
         base = module.FlexiblePipe
         base.settings = (1.0, 5e6, 1.0, 0.002, 0.0001, 1.0, 2)
         support_pins = {k: digest(support / k) for k in ("model.py", "boundary.json")}
+
+    if collect:
+        r = json.loads((folder / "result.json").read_bytes())
+        if (
+            r["id"] != name
+            or r["poseMmDeg"] != pose
+            or r["binding"] != beam.receipt()
+            or r.get("outwardPerSideMm", 0.0) != outward
+            or r.get("carriageSupport", {}) != support_pins
+        ):
+            raise ValueError("Stored trial uses different inputs")
+        for item, attr in (
+            (name + ".npy", "trajectorySha256"),
+            ("state.npz", "stateSha256"),
+            ("guide.npy", "guideHistorySha256"),
+        ):
+            if digest(folder / item) != r[attr]:
+                raise ValueError("Stored trial data changed")
+        return r
 
     class FlexibleGuidePipe(MovingGuides, base):
         pass
@@ -172,6 +193,15 @@ def trial(job):
         "peakShelfNormalN": pipe.peak_shelf_n,
         "damperWorkJ": pipe.plunger_energy.tolist(),
         "carriageSupport": support_pins,
+        "shelfDisplacementSlopeTable": hashlib.sha256(
+            np.asarray(pipe.table, dtype="<f8").tobytes()
+        ).hexdigest(),
+        "guideDisplacementTable": hashlib.sha256(
+            np.asarray(beam.phi, dtype="<f8").tobytes()
+        ).hexdigest(),
+        "guideSlopeTable": hashlib.sha256(
+            np.asarray(beam.slope_phi, dtype="<f8").tobytes()
+        ).hexdigest(),
         "peakBeltCellN": pipe.peak_load,
         "peakCartridgeTravelMm": float(pipe.peak),
         "guide": result if layout != "rigid" else {"peakGuideN": pipe.peak_guiding_n},
@@ -229,6 +259,7 @@ def run(a):
                 a.arm_fraction,
                 a.support,
                 a.outward,
+                a.collect,
             )
             for dt in a.steps
             for layout in a.layouts
@@ -251,6 +282,11 @@ def run(a):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument(
+        "--collect",
+        action="store_true",
+        help="Verify the cached input identities and three captured data files for each requested trial",
+    )
     p.add_argument("jdk", type=Path)
     p.add_argument("cache", type=Path)
     p.add_argument("out", type=Path)

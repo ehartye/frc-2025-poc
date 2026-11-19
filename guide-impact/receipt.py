@@ -65,6 +65,15 @@ def collect(group, raw):
         }
         obs["outwardPerSideMm"] = r.get("outwardPerSideMm", 0.0)
         obs["carriageSupport"] = r.get("carriageSupport", {})
+        if obs["carriageSupport"]:
+            obs["modalTables"] = {
+                k: r[k]
+                for k in (
+                    "shelfDisplacementSlopeTable",
+                    "guideDisplacementTable",
+                    "guideSlopeTable",
+                )
+            }
         obs["shelfModeCount"] = modes
         obs["guideModel"] = [
             r["binding"]["layout"],
