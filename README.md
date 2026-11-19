@@ -28,6 +28,8 @@
 
 [Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
 
+[Measure both ends of the station pipe](guide-setting/review.html). Shift both guides sideways and see why a width measurement can miss a lost contact. [Setting pins and shop survey](guide-setting/README.md).
+
 [See where the moving power cable crossed the original guide.](guide-mounts/guide.html) Compare the shorter faces and removable mast arms, then [check their deflection and mass allowance](guide-mounts/README.md).
 
 [Can the two shelf sensors save a missed station feed?](station-feed-margin/README.md) See what the sensors observe before the mechanical stop and why the reserved south-lane leave and park is the supported fallback.
