@@ -1,5 +1,9 @@
 # Student Fusion design
 
+## Drive the full receiver in Fusion
+
+Open `artifacts/swerve-articulation/FRC-2025-Team-1780-articulated-swerve.f3d` from the season project artifacts. In the colored project hardware component, right-click **Receiver / slide**, choose **Drive Joint**, and move from 0 to 370 mm. The second stage moves 185 mm. Watch the shelf camera, end grippers and machined receiver travel together while the numbered bumper and four MAXSwerve assemblies stay at their original locations. Return the slide to zero to inspect the stowed robot. [Native measurements and reconstruction](swerve-articulation/study.md) · [Watch the pickup and release study](../experiments/swerve-drive/score-stroke/receiver-motion.webm)
+
 ## Open the full Team 1780 robot
 
 Open `artifacts/numbered-swerve-fusion/FRC-2025-Team-1780-full-swerve-R4.f3d` from the season project artifacts. Select the stowed Team 1780 assembly to inspect the receiver, straight guides, chassis, repaired rear electronics and four REV MAXSwerve modules. The numbered red bumper covers carry the team's 2024 artwork on four outward faces. The archive is 134,437,517 bytes with SHA-256 `1eb7a281eba9173d91e2ff47c3175a03c4f05c7d2374c1c4c494ad2b80f5064a`. The companion Fusion image is `artifacts/numbered-swerve-fusion/full-swerve-R4.png`. [Reopen and appearance measurements](full-swerve-r4/native-reopen.json)
