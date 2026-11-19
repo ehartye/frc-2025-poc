@@ -42,3 +42,5 @@ python design/fixed-height/handoff.py
 python design/fixed-height/field.py
 python design/fixed-height/review.py --plugin-root "$env:AGENT_FRC_PLUGIN_ROOT"
 ```
+
+The dedicated low configuration also has a reviewed third-motor omission with a dimensioned long-block input cap, two-sided lock checks and separate grouped-versus-weighed mass cases. [Fixed-height motor omission](../../fixed-lift-omission/README.md)
