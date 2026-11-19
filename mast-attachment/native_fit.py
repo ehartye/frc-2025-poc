@@ -1,6 +1,7 @@
 """Check two gussets, both deck options and staged fastener access against registered hardware."""
 import argparse
 import numpy as np
+from OCP.BRepCheck import BRepCheck_Analyzer
 from mast import HERE,ROOT,MAST,RAIL,PROFILE,deck,j,overlay,slot,prism,compound,upward_removal,outward_removal,lateral_jog
 from pathlib import Path
 
@@ -45,15 +46,19 @@ def run(art,lamp,rib):
     j.write_step(path,manufactured)
     j.finalize_step(path)
     parts=reopen(path,manufactured,j.digest(path))
+    if any(j.cad.solid_count(v)!=1 or not BRepCheck_Analyzer(v).IsValid() for v in [*parts.values(),alt]):
+        raise ValueError("Invalid manufactured single solid")
     volumes={k:round(j.cad.volume(s)[0],4) for k,s in parts.items()}
     if max(abs(v-j.cad.volume(manufactured[k])[0]) for k,v in volumes.items())>.002:
         raise ValueError("STEP reopen failed")
     before={main,*["backup-"+s+"-drilled-mast" for s in ("L","R")],*["drive-rail-inner-"+s for s in ("L","R")]}
     obs={**{k:v for k,v in src.items() if k not in before},**parts}
     boxes={k:j.cad.bounds(s) for k,s in obs.items()}
+    alt_bounds=j.cad.bounds(alt)
     def screen(shape,skip=(),line_skip=()):
         result=deck.screen(shape,obs,{k:v for k,v in boxes.items() if k not in skip})
         a=j.cad.bounds(shape)
+        result["alternativeDeckCommonMm3"]=round(j.cad.intersection(shape,alt),4) if j.lower_bound(a,alt_bounds)<.001 else 0
         gaps=[(j.distance(shape,e)-r,k) for k,e,b,r in edges if k not in line_skip and j.lower_bound(a,b)<r+12]
         result["closeRoutedLeadMarginMm"]=min(gaps,default=None)
         return result
@@ -61,7 +66,6 @@ def run(art,lamp,rib):
     for k,s in parts.items():
         if k.endswith(("-mast","-rail","-deck")): continue
         row=screen(s,{k})
-        row["alternativeDeckCommonMm3"]=round(j.cad.intersection(s,alt),4) if j.lower_bound(j.cad.bounds(s),j.cad.bounds(alt))<.001 else 0
         checks[k]=row
     svc={}
     service_controls={}

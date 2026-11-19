@@ -21,7 +21,7 @@ class MastAttachment(unittest.TestCase):
         for group in ("material","tools"):
             for row in f[group].values():
                 self.assertFalse(row["overlapMm3"])
-                self.assertEqual(row.get("alternativeDeckCommonMm3",0),0)
+                self.assertEqual(row["alternativeDeckCommonMm3"],0)
                 if row["closeRoutedLeadMarginMm"]:
                     self.assertGreaterEqual(row["closeRoutedLeadMarginMm"][0],0)
         self.assertTrue(all(min(q.values())>3 for q in f["halfMmBearingChainCommonMm3"].values()))

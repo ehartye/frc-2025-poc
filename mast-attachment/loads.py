@@ -76,7 +76,7 @@ def report(t,force,moment,origin,side,section):
                         "coincidentForceN":force[idx].tolist(),"coincidentSectionNm":m[idx].tolist()}
     envelope=np.max(span,axis=0)
     # The outer straight plate edges narrow monotonically between the low and
-    # high fastener bands. Include the kink at Z168 and conservatively pair the
+    # high fastener bands. Include the perimeter kink at Z146 and conservatively pair the
     # greatest station moments with the weakest section at the same load clock.
     bounded=abs(force[:,2])/min(c["areaMm2"] for c in section)
     bounded+=envelope[:,0]*1000/min(c["weakZmm3"] for c in section)
