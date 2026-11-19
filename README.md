@@ -36,6 +36,8 @@
 
 [Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
 
+[Rotate the lower guide arm through three designs](guide-arm-route/compare.html). See how the mount affects the docking camera and the support under the pipe. [Field and mechanical checks](guide-arm-route/README.md).
+
 [Measure both ends of the station pipe](guide-setting/review.html). Shift both guides sideways and see why a width measurement can miss a lost contact. [Setting pins and shop survey](guide-setting/README.md).
 
 [See where the moving power cable crossed the original guide.](guide-mounts/guide.html) Compare the shorter faces and removable mast arms, then [check their deflection and mass allowance](guide-mounts/README.md).

@@ -24,8 +24,8 @@ PACKET_SHA = "29b1631ee94959c01e273e30cd257d26f0c716feabe0489f296984998f0b064f"
 INSTALLATIONS = {"nominal": 0.0, "outward": 0.315}
 
 
-def station_packets(path):
-    if digest(path) != PACKET_SHA:
+def station_packets(path, expected_sha=PACKET_SHA):
+    if digest(path) != expected_sha:
         raise ValueError("Changed registered station exposure packet")
     return read(path)["packets"]
 
@@ -90,8 +90,8 @@ def mesh(installation, setting=None):
     return {"parts": parts}, fit["stepSha256"], setting_sha
 
 
-def views(assets, installation, setting=None, *, write_labels=True):
-    kit, sha, setting_sha = mesh(installation, setting)
+def views(assets, installation, setting=None, *, write_labels=True, mesh_builder=mesh, output=None):
+    kit, sha, setting_sha = mesh_builder(installation, setting)
     station_base = assets / "observed-reef-a/machined-fixed.npz"
     if (
         digest(station_base)
@@ -111,7 +111,7 @@ def views(assets, installation, setting=None, *, write_labels=True):
         coded.append([key, group, "#" + shade, vertices, triangles])
     masks = sensor.camera.images_for_pose({"parts": coded})
     key = ("set-" if setting else "") + installation
-    labels = assets / "mounted-guide-vision" / (key + "-labels.npz")
+    labels = (output or assets / "mounted-guide-vision") / (key + "-labels.npz")
     if write_labels:
         np.savez_compressed(
             labels,
@@ -168,19 +168,20 @@ def views(assets, installation, setting=None, *, write_labels=True):
     )
 
 
-def run(assets, field, setting=None, packet_path=CANONICAL_PACKETS):
+def run(assets, field, setting=None, packet_path=CANONICAL_PACKETS, *, mesh_builder=mesh,
+        output=None, installations=None, packet_sha=PACKET_SHA, packet_label="guide-impact/station-frames.json"):
     field_sha = read(ROOT / "full-match/installed-stock.json")["field_step_sha256"]
     if digest(field) != field_sha:
         raise ValueError("Different field")
     field_shape = field_mesh(field)
     arrivals = read(ROOT / "conditioned-match/opening.json")
-    folder = assets / "mounted-guide-vision"
+    folder = output or assets / "mounted-guide-vision"
     folder.mkdir(exist_ok=True)
     out = {}
-    signed = station_packets(packet_path)
-    for installation, fit_shift in INSTALLATIONS.items():
+    signed = station_packets(packet_path, packet_sha)
+    for installation, fit_shift in (INSTALLATIONS if installations is None else installations).items():
         packets = [case for case in signed if case["outwardPerSideMm"] == fit_shift]
-        fixed, roof, register = views(assets, installation, setting)
+        fixed, roof, register = views(assets, installation, setting, mesh_builder=mesh_builder, output=folder)
         key = ("set-" if setting else "") + installation
         target = folder / (key + "-fixed.npz")
         np.savez_compressed(
@@ -192,7 +193,7 @@ def run(assets, field, setting=None, packet_path=CANONICAL_PACKETS):
         )
         register.update(
             fixedBackgroundSha256=digest(target),
-            sourcePacketSha256=PACKET_SHA,
+            sourcePacketSha256=packet_sha,
             fieldSha256=field_sha,
         )
         cases = []
@@ -304,8 +305,8 @@ def run(assets, field, setting=None, packet_path=CANONICAL_PACKETS):
                     "modalStateSha256": packet["modeStateSha256"],
                     "controllerSha256": packet.get("programSha256"),
                     "bearingSupport": packet["carriageSupport"],
-                    "packetSha256": PACKET_SHA,
-                    "packetFile": "guide-impact/station-frames.json",
+                    "packetSha256": packet_sha,
+                    "packetFile": packet_label,
                     "maxFreeGuideDeflectionMm": max(
                         max(f["allFaceModeledAbsUpperMm"]) for f in packet["frames"]
                     ),
