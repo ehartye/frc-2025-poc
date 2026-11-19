@@ -9,14 +9,23 @@ from opening import HERE, ROOT, sha, read, n
 import panel
 
 
-def qualify(directory):
+def qualify(directory, rear_electronics=False):
     data = read(HERE.parent / "packaging/envelopes.json")
-    power=read(HERE.parent/"power/envelopes.json")
+    power = read(HERE.parent / "power/envelopes.json")
     groups = {
         "rotating_and_fixed_modules": data["cornerBoundsMm"],
         "changed_structure": data["frameBoundsMm"],
-        "controllers_trays_and_wiring":power["stationaryBoundsMm"],
+        "controllers_trays_and_wiring": power["stationaryBoundsMm"],
     }
+    inputs = [
+        HERE.parent / "packaging/envelopes.json",
+        HERE.parent / "power/envelopes.json",
+        ROOT / "station-landmark/native.json",
+    ]
+    if rear_electronics:
+        rear_file = HERE.parent / "packaging/rear-electronics.json"
+        groups["revised_rear_plates_host_and_guides"] = read(rear_file)["boundsMm"]
+        inputs.append(rear_file)
     f, _, _, _ = n.route.route.field.scenario(
         read(ROOT / "fixed-height-match/placements.json")["placements"], inboard=True
     )
@@ -59,14 +68,12 @@ def qualify(directory):
         )
     return dict(
         scope="Material added or changed in these maps, including local modeled wires. Earlier robot and station registration retained. Unmodeled connector tails, glare, extrinsic drift, wear and physical sightlines remain open.",
-        inputs={p.relative_to(HERE.parents[2]).as_posix():sha(p) for p in (
-            HERE.parent/"packaging/envelopes.json", HERE.parent/"power/envelopes.json", ROOT/"station-landmark/native.json")},
+        inputs={p.relative_to(HERE.parents[2]).as_posix(): sha(p) for p in inputs},
         sourceBackground=directory.joinpath("plus.json").is_file()
         and read(directory / "plus.json")["backgroundSha256"],
         paddedRayLengthMm=reach,
         lowestUpperHoleRayIncluding14PixelAllowanceMm=lowest,
         groups=register,
-
     )
 
 
@@ -74,7 +81,14 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("raw", type=Path)
     p.add_argument("out", type=Path)
+    p.add_argument(
+        "--rear-electronics",
+        action="store_true",
+        help="Include the second revision’s reopened rear mounts, computers and cable guides",
+    )
     a = p.parse_args()
     a.out.write_text(
-        json.dumps(qualify(a.raw), indent=2) + "\n", encoding="utf8", newline="\n"
+        json.dumps(qualify(a.raw, a.rear_electronics), indent=2) + "\n",
+        encoding="utf8",
+        newline="\n",
     )
