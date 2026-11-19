@@ -1,0 +1,613 @@
+{
+  "assemblyCheckerVersion": "0.24.2",
+  "registeredRosterSha256": "a769014424d6ab9354b6eb810106939cb2fbf054141f02670c96bba154798da5",
+  "originalSourcePins": {
+    "primary-hoist-rebill": "eaf2af231d6c6fe897ac9670d150e79b78ed88cad3ac504a516f8cb0b507f7b2",
+    "shelf-insert-stock": "707c9ff1c5cced0be5bef1fc6aaf334525c7f293719b59b4bb4cea55a1a6a9fb",
+    "swerve-rebill": "f18326985b50ca5257adab6dcb1978c40f8495947119ab6e05b7bdd53cc39357"
+  },
+  "sourceEvidence": {
+    "experiments/six-wheel/winchless-bill/original.json": "a1cb2f6ba823c3d0c72360c847805454c7b76aeb54d73e3808d4bfe179af761b",
+    "experiments/six-wheel/design/competition-package/shop-duplex/mass.json": "3121ae2178c7d66181242a3f0fff102f77a68920d19930ce3c831e508725fdae",
+    "experiments/six-wheel/design/shop-package/native-review.json": "64aefdf9c6294975a573892c121876b0e4177cbd683a7af3b803f30b556c8349",
+    "experiments/six-wheel/design/shop-package/proposed-joints.step": "fc8b3941e51b547c1812ea575967bbaf22a73e03c2b30314a6995ece4657a456",
+    "experiments/swerve-drive/packaging/retirement.json": "984c08cc38f53d86ed783878ceacf0afb980a50c633b60c98698738b4db29cc8",
+    "experiments/swerve-drive/power/mass.json": "15b6eab3e49a53a1356fc4de4cd3fb0ed3667e691515dc6fcc3e68c7b7c75259",
+    "experiments/six-wheel/winchless-bill/stock.json": "595cf390a90b4f624afc445398c66a186fe1f139ac351379f4a7e8d9f47bac48",
+    "experiments/six-wheel/shelf-structure/installed.json": "298915848ca5ef1ac548036974ba13e1d961ad3afb78fce5912b8d0dc77807de",
+    "experiments/six-wheel/selected-match/receiver-clearance-kit.step": "c784f396ec061ec6bf3f59072739c6500af78944d978394559f9caf2bfaadf05",
+    "experiments/six-wheel/shelf-structure/stow-receiver.step": "69960175cc8845b4eef4fed67538908091450369ede93adbfd0e1dc85b042b01",
+    "experiments/six-wheel/shelf-structure/native.json": "785041bdc19496eb6dd36c9a0e7a3087418eab28f5ef4d4d7b2c1e337341fe8a",
+    "experiments/six-wheel/design/drivetrain/review/bom.csv": "690d667aa5fabd371d54105dc3e50c99de9d3af6d23f1600eeedb7d2d96def6f",
+    "experiments/swerve-drive/power/installed.json": "e808335948ba6e9844635434b7075f039e0509157973f1bd26d4282f4d94ab8a",
+    "experiments/swerve-drive/power/harness.json": "c0bf4b16266aad252368109205f2af79270c82743c086fd60fa82f388b21064a",
+    "experiments/swerve-drive/power/paths.json": "af485f8a11a53e89b00ab13fad6ba2845cbc1b554eb510bbd3758ba92d1eebfd",
+    "experiments/swerve-drive/packaging/rear-electronics.json": "77f0d38186ddebd8246625280f47ea3cca6477d10518879353e03bda5332109c",
+    "experiments/swerve-drive/packaging/rear-electronics.step": "e5797a0eba85623c3992317879e3b9b1e1851d3c5acd84a2421c5d1bca41e60d"
+  },
+  "originalMaterial": {
+    "formerOuterClampVolumesMm3": {
+      "center-L-nut-saddle": 9288.481469282031,
+      "center-L-screw--19_-17": 597.8843518863052,
+      "center-L-screw--19_17": 597.8843518863054,
+      "center-L-screw-19_-17": 597.8843518863052,
+      "center-L-screw-19_17": 597.8843518863054,
+      "center-L-washer--19_-17": 56.47798192991176,
+      "center-L-washer--19_17": 56.4779819299117,
+      "center-L-washer-19_-17": 56.47798192991176,
+      "center-L-washer-19_17": 56.4779819299117,
+      "center-R-nut-saddle": 9288.481469282016,
+      "center-R-screw--19_-17": 597.8843518863052,
+      "center-R-screw--19_17": 597.8843518863054,
+      "center-R-screw-19_-17": 597.8843518863052,
+      "center-R-screw-19_17": 597.8843518863054,
+      "center-R-washer--19_-17": 56.47798192991176,
+      "center-R-washer--19_17": 56.477981929911714,
+      "center-R-washer-19_-17": 56.47798192991176,
+      "center-R-washer-19_17": 56.477981929911714,
+      "front-L-nut-saddle": 9288.48146928203,
+      "front-L-screw--19_-17": 597.8843518863056,
+      "front-L-screw--19_17": 597.8843518863057,
+      "front-L-screw-19_-17": 597.8843518863055,
+      "front-L-screw-19_17": 597.8843518863057,
+      "front-L-washer--19_-17": 56.477981929911735,
+      "front-L-washer--19_17": 56.47798192991169,
+      "front-L-washer-19_-17": 56.47798192991182,
+      "front-L-washer-19_17": 56.47798192991179,
+      "front-R-nut-saddle": 9288.481469282015,
+      "front-R-screw--19_-17": 597.8843518863056,
+      "front-R-screw--19_17": 597.8843518863057,
+      "front-R-screw-19_-17": 597.8843518863055,
+      "front-R-screw-19_17": 597.8843518863057,
+      "front-R-washer--19_-17": 56.477981929911735,
+      "front-R-washer--19_17": 56.47798192991169,
+      "front-R-washer-19_-17": 56.477981929911834,
+      "front-R-washer-19_17": 56.47798192991179,
+      "rear-L-nut-saddle": 9288.481469282027,
+      "rear-L-screw--19_-17": 597.8843518863055,
+      "rear-L-screw--19_17": 597.8843518863057,
+      "rear-L-screw-19_-17": 597.8843518863056,
+      "rear-L-screw-19_17": 597.8843518863057,
+      "rear-L-washer--19_-17": 56.477981929911834,
+      "rear-L-washer--19_17": 56.47798192991178,
+      "rear-L-washer-19_-17": 56.477981929911735,
+      "rear-L-washer-19_17": 56.47798192991169,
+      "rear-R-nut-saddle": 9288.481469282013,
+      "rear-R-screw--19_-17": 597.8843518863055,
+      "rear-R-screw--19_17": 597.8843518863057,
+      "rear-R-screw-19_-17": 597.8843518863055,
+      "rear-R-screw-19_17": 597.8843518863057,
+      "rear-R-washer--19_-17": 56.477981929911834,
+      "rear-R-washer--19_17": 56.47798192991178,
+      "rear-R-washer-19_-17": 56.477981929911735,
+      "rear-R-washer-19_17": 56.47798192991169
+    },
+    "originalShopOuterClampOnlyKg": 0.560769,
+    "retainedSlideJointDeltaKg": 0.031338,
+    "possibleWinchResidue": {
+      "anchor-tab-L": {
+        "parent": "support-machined-crossbar",
+        "robotBoundsMm": [
+          -97.0,
+          240.0,
+          418.0,
+          -59.0,
+          258.0,
+          424.0
+        ],
+        "originalSolidMm3": 4104.0,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          39.0,
+          19.0,
+          7.0
+        ],
+        "finishedStockUpperKg": 0.0420147
+      },
+      "anchor-tab-R": {
+        "parent": "support-machined-crossbar",
+        "robotBoundsMm": [
+          -97.0,
+          -258.0,
+          418.0,
+          -59.0,
+          -240.0,
+          424.0
+        ],
+        "originalSolidMm3": 4104.0,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          39.0,
+          19.0,
+          7.0
+        ],
+        "finishedStockUpperKg": 0.0420147
+      },
+      "bearing-arm-L": {
+        "parent": "match-drilled/guide-L-machined-mast",
+        "robotBoundsMm": [
+          -110.0,
+          216.0,
+          312.0,
+          -70.0,
+          224.0,
+          348.0
+        ],
+        "originalSolidMm3": 6387.7912,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          41.0,
+          9.0,
+          37.0
+        ],
+        "finishedStockUpperKg": 0.1105893
+      },
+      "bearing-arm-R": {
+        "parent": "match-drilled/guide-R-machined-mast",
+        "robotBoundsMm": [
+          -110.0,
+          -224.0,
+          312.0,
+          -70.0,
+          -216.0,
+          348.0
+        ],
+        "originalSolidMm3": 6387.7912,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          41.0,
+          9.0,
+          37.0
+        ],
+        "finishedStockUpperKg": 0.1105893
+      },
+      "sheave-support-L": {
+        "parent": "match-drilled/guide-L-machined-mast",
+        "robotBoundsMm": [
+          -92.6125,
+          235.0,
+          966.0,
+          -13.6125,
+          245.0,
+          984.0
+        ],
+        "originalSolidMm3": 12949.23834,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          80.0,
+          11.0,
+          19.0
+        ],
+        "finishedStockUpperKg": 0.135432
+      },
+      "sheave-support-R": {
+        "parent": "match-drilled/guide-R-machined-mast",
+        "robotBoundsMm": [
+          -92.6125,
+          -245.0,
+          966.0,
+          -13.6125,
+          -235.0,
+          984.0
+        ],
+        "originalSolidMm3": 12949.23834,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          80.0,
+          11.0,
+          19.0
+        ],
+        "finishedStockUpperKg": 0.135432
+      },
+      "mount-riser": {
+        "parent": "mast-slotted-ribbed-deck",
+        "robotBoundsMm": [
+          -55.0,
+          66.0,
+          154.0,
+          -35.0,
+          74.0,
+          300.0
+        ],
+        "originalSolidMm3": 23360.0,
+        "materialSharedWithParentMm3": 0.0,
+        "maxSizeMm": [
+          21.0,
+          9.0,
+          147.0
+        ],
+        "finishedStockUpperKg": 0.2250423
+      }
+    },
+    "legacyWinchBlankUpperKg": 0.8011143000000001,
+    "legacyThroughSetUpperKg": 0.072264266076899,
+    "allPossibleWinchResidueKg": 1.812814025076586,
+    "unknownRetainedKg": [
+      2.0,
+      5.0
+    ],
+    "originalPEChargeKg": 1.578,
+    "drilledParentVolumeMm3": 1655363.0813103402,
+    "retainedFaceVolumeMm3": 665611.928603498,
+    "receiverInsertVolumeMm3": 302117.53679441236,
+    "removedPEVolumeMm3": 989751.1527068422,
+    "materialDensityKgM3": {
+      "polymer": [
+        930,
+        980
+      ],
+      "aluminum": [
+        2650,
+        2850
+      ]
+    },
+    "densityMatchedR6CreditKg": 0.9204685720173632,
+    "absorberAndRetentionUpperKg": 0.044,
+    "insertUpperKg": 0.8610349798640753
+  },
+  "parentPhysicalRosterCount": 927,
+  "registeredCheckerIndependentParentRangeKg": [
+    34.494519918218685,
+    57.77764858268243
+  ],
+  "activePhysicalCoverage": {
+    "missing": [],
+    "duplicates": [],
+    "orphanIncluded": [],
+    "unattached": []
+  },
+  "construction": {
+    "supplyExtensionPerConductorMetres": {
+      "FL": 0.8,
+      "FR": 0.95,
+      "RL": 0.55,
+      "RR": 0.9
+    },
+    "allowanceBeyondCheckedCenterlineMetres": {
+      "FL": 0.47526119041116904,
+      "FR": 0.4720474550383435,
+      "RL": 0.45410100780980034,
+      "RR": 0.46118184544769647
+    },
+    "bundleWitnessAwgXYmm": [
+      [
+        10,
+        -2.8,
+        1.6
+      ],
+      [
+        10,
+        2.8,
+        1.6
+      ],
+      [
+        14,
+        -2.2,
+        -3.3
+      ],
+      [
+        14,
+        2.2,
+        -3.3
+      ],
+      [
+        22,
+        -6.0,
+        -1.1
+      ],
+      [
+        22,
+        6.0,
+        -1.1
+      ]
+    ],
+    "minimumInterJacketGapMm": 0.09999999999999964,
+    "straightRunMaximumRadialSheathThicknessMm": 0.8500000000000005,
+    "referenceR103LimitKg": 52.16312255,
+    "referenceR408LimitKg": 61.23496995,
+    "batteryKg": 6.17,
+    "bumperUpperKg": 7.5,
+    "issuedWireUpperKg": 1.492097134484474,
+    "maximumWireUpperKg": 1.8191274769587196,
+    "originalUnidentifiedKg": [
+      2.0,
+      5.0
+    ],
+    "maximumUniformSupplyMetres": 1.1741992075741903
+  },
+  "cases": {
+    "priorLong": {
+      "r103UpperKg": 55.81309727487112,
+      "r103MarginKg": -3.6499747248711216,
+      "r408UpperKg": 63.31309727487112,
+      "r408MarginKg": -2.0781273248711187,
+      "wireUpperKg": 2.175050604735893,
+      "omittedHoistResidueKg": 0,
+      "matchedShelfCreditKg": 0,
+      "retiredOuterClampCreditKg": 0
+    },
+    "priorShort": {
+      "r103UpperKg": 54.79229683938361,
+      "r103MarginKg": -2.629174289383613,
+      "r408UpperKg": 62.29229683938361,
+      "r408MarginKg": -1.05732688938361,
+      "wireUpperKg": 1.1542501692483822,
+      "omittedHoistResidueKg": 0,
+      "matchedShelfCreditKg": 0,
+      "retiredOuterClampCreditKg": 0
+    },
+    "drawingSelected": {
+      "r103UpperKg": 51.83609220752575,
+      "r103MarginKg": 0.3270303424742451,
+      "r408UpperKg": 59.33609220752575,
+      "r408MarginKg": 1.898877742474248,
+      "wireUpperKg": 1.492097134484474,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "uniformOneMetre": {
+      "r103UpperKg": 52.01088164366287,
+      "r103MarginKg": 0.15224090633712706,
+      "r408UpperKg": 59.51088164366287,
+      "r408MarginKg": 1.72408830633713,
+      "wireUpperKg": 1.6668865706215907,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "uniformOnePointTwoMetres": {
+      "r103UpperKg": 52.18567107979999,
+      "r103MarginKg": -0.022548529799991,
+      "r408UpperKg": 59.68567107979999,
+      "r408MarginKg": 1.549298870200012,
+      "wireUpperKg": 1.8416760067587077,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "longFullSurrender": {
+      "r103UpperKg": 52.51904567777717,
+      "r103MarginKg": -0.3559231277771744,
+      "r408UpperKg": 60.01904567777717,
+      "r408MarginKg": 1.2159242722228285,
+      "wireUpperKg": 2.175050604735893,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "priorShortFullSurrender": {
+      "r103UpperKg": 51.49824524228966,
+      "r103MarginKg": 0.6648773077103343,
+      "r408UpperKg": 58.99824524228966,
+      "r408MarginKg": 2.236724707710337,
+      "wireUpperKg": 1.1542501692483822,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "drawingsWithNoShelfCredit": {
+      "r103UpperKg": 52.756560779543115,
+      "r103MarginKg": -0.5934382295431178,
+      "r408UpperKg": 60.256560779543115,
+      "r408MarginKg": 0.9784091704568851,
+      "wireUpperKg": 1.492097134484474,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "drawingsWithAllWinchResidue": {
+      "r103UpperKg": 53.648906232602336,
+      "r103MarginKg": -1.4857836826023387,
+      "r408UpperKg": 61.148906232602336,
+      "r408MarginKg": 0.08606371739766416,
+      "wireUpperKg": 1.492097134484474,
+      "omittedHoistResidueKg": 0,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "drawingsWithAllSevenBlanks": {
+      "r103UpperKg": 52.637206507525754,
+      "r103MarginKg": -0.4740839575257567,
+      "r408UpperKg": 60.137206507525754,
+      "r408MarginKg": 1.0977634424742462,
+      "wireUpperKg": 1.492097134484474,
+      "omittedHoistResidueKg": 1.0116997250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0.560769
+    },
+    "drawingsWithoutOldClampCorrection": {
+      "r103UpperKg": 52.39686120752575,
+      "r103MarginKg": -0.2337386575257554,
+      "r408UpperKg": 59.89686120752575,
+      "r408MarginKg": 1.3381087424742475,
+      "wireUpperKg": 1.492097134484474,
+      "omittedHoistResidueKg": 1.8128140250765838,
+      "matchedShelfCreditKg": 0.9204685720173632,
+      "retiredOuterClampCreditKg": 0
+    }
+  },
+  "fieldEmptyUpperKg": 65.50609220752575,
+  "fieldLoadedUpperKg": 66.32255847352576,
+  "measuredInspectionKg": null,
+  "rearElectronics": {
+    "stepSha256": "e5797a0eba85623c3992317879e3b9b1e1851d3c5acd84a2421c5d1bca41e60d",
+    "sourceReceiptSha256": "77f0d38186ddebd8246625280f47ea3cca6477d10518879353e03bda5332109c",
+    "oldGuideSourceSha256": "598cdac2f0493f15fb56e797dc7c4b4ef78bb1c57ed9e8c50f5a62883fc3085d",
+    "changedNativeBodies": {
+      "electrical-backplate": "edge-pocket-electrical-backplate",
+      "observer-pi-and-converter-backplate": "edge-pocket-host-converter-backplate",
+      "swerve/swerve-relieved-ribbed-deck": "host-drilled-swerve-deck",
+      "fixed-leads/base-guide-rib-0": "routed-base-guide-rib-0",
+      "fixed-leads/base-guide-rib-1": "routed-base-guide-rib-1"
+    },
+    "relocatedNativeBodies": {
+      "fixed-leads/host-post--39--245": "lifted-host-post--39--245",
+      "fixed-leads/host-post--39-245": "lifted-host-post--39-245",
+      "fixed-leads/host-post-19--245": "lifted-host-post-19--245",
+      "fixed-leads/host-post-19-245": "lifted-host-post-19-245",
+      "fixed-leads/base-guide-foot": "lifted-base-guide-foot"
+    },
+    "replacementLeadRoles": {
+      "shop-fixed-camera-usb-lead": "fixed-host-data-lead",
+      "service-U3HLA01C12-020": "roof-host-data-lead"
+    },
+    "positiveNewMaterialKg": {
+      "elevated-host-plate": 0.03321462230576632,
+      "host-nut-1": 0.0012195014256512174,
+      "host-nut-2": 0.0012195014256512183,
+      "host-nut-3": 0.0012195014256512174,
+      "host-nut-4": 0.0012195014256512183,
+      "host-through-screw-1": 0.004986247502484282,
+      "host-through-screw-2": 0.004986247502484275,
+      "host-through-screw-3": 0.004986247502484282,
+      "host-through-screw-4": 0.004986247502484275,
+      "host-upright-1": 0.0027053236087766566,
+      "host-upright-2": 0.0027053236087766545,
+      "host-upright-3": 0.0027053236087766566,
+      "host-upright-4": 0.0027053236087766545,
+      "host-washer-1": 0.0003083181021381718,
+      "host-washer-2": 0.00030831810213817094,
+      "host-washer-3": 0.0003083181021381718,
+      "host-washer-4": 0.00030831810213817094
+    },
+    "machiningCreditKg": 0,
+    "additionalCableAndFinishKg": 0.08,
+    "upperAllowanceKg": 0.15710140334816436,
+    "lowerAllowanceKg": 0.0,
+    "parentCount": 927,
+    "installedCount": 944,
+    "drawingKitShapes": 27,
+    "incomingDataPathQualified": null
+  },
+  "joinedCases": {
+    "priorLong": {
+      "r103UpperKg": 55.97019867821928,
+      "r103MarginKg": -3.807076128219286,
+      "r408UpperKg": 63.47019867821928,
+      "r408MarginKg": -2.2352287282192833,
+      "wireUpperKg": 2.175050604735893
+    },
+    "priorShort": {
+      "r103UpperKg": 54.949398242731775,
+      "r103MarginKg": -2.7862756927317776,
+      "r408UpperKg": 62.449398242731775,
+      "r408MarginKg": -1.2144282927317747,
+      "wireUpperKg": 1.1542501692483822
+    },
+    "drawingSelected": {
+      "r103UpperKg": 51.99319361087392,
+      "r103MarginKg": 0.16992893912608054,
+      "r408UpperKg": 59.49319361087392,
+      "r408MarginKg": 1.7417763391260834,
+      "wireUpperKg": 1.492097134484474
+    },
+    "uniformOneMetre": {
+      "r103UpperKg": 52.167983047011035,
+      "r103MarginKg": -0.004860497011037523,
+      "r408UpperKg": 59.667983047011035,
+      "r408MarginKg": 1.5669869029889654,
+      "wireUpperKg": 1.6668865706215907
+    },
+    "uniformOnePointTwoMetres": {
+      "r103UpperKg": 52.34277248314815,
+      "r103MarginKg": -0.17964993314815558,
+      "r408UpperKg": 59.84277248314815,
+      "r408MarginKg": 1.3921974668518473,
+      "wireUpperKg": 1.8416760067587077
+    },
+    "longFullSurrender": {
+      "r103UpperKg": 52.676147081125336,
+      "r103MarginKg": -0.513024531125339,
+      "r408UpperKg": 60.176147081125336,
+      "r408MarginKg": 1.058822868874664,
+      "wireUpperKg": 2.175050604735893
+    },
+    "priorShortFullSurrender": {
+      "r103UpperKg": 51.65534664563783,
+      "r103MarginKg": 0.5077759043621697,
+      "r408UpperKg": 59.15534664563783,
+      "r408MarginKg": 2.0796233043621726,
+      "wireUpperKg": 1.1542501692483822
+    },
+    "drawingsWithNoShelfCredit": {
+      "r103UpperKg": 52.91366218289128,
+      "r103MarginKg": -0.7505396328912823,
+      "r408UpperKg": 60.41366218289128,
+      "r408MarginKg": 0.8213077671087206,
+      "wireUpperKg": 1.492097134484474
+    },
+    "drawingsWithAllWinchResidue": {
+      "r103UpperKg": 53.8060076359505,
+      "r103MarginKg": -1.6428850859505033,
+      "r408UpperKg": 61.3060076359505,
+      "r408MarginKg": -0.07103768595050042,
+      "wireUpperKg": 1.492097134484474
+    },
+    "drawingsWithAllSevenBlanks": {
+      "r103UpperKg": 52.79430791087392,
+      "r103MarginKg": -0.6311853608739213,
+      "r408UpperKg": 60.29430791087392,
+      "r408MarginKg": 0.9406620391260816,
+      "wireUpperKg": 1.492097134484474
+    },
+    "drawingsWithoutOldClampCorrection": {
+      "r103UpperKg": 52.55396261087392,
+      "r103MarginKg": -0.39084006087392,
+      "r408UpperKg": 60.05396261087392,
+      "r408MarginKg": 1.181007339126083,
+      "wireUpperKg": 1.492097134484474
+    }
+  },
+  "joinedUniformSupplyLimitMetres": 0.9944384544987895,
+  "joinedFieldEmptyUpperKg": 65.66319361087392,
+  "joinedFieldLoadedUpperKg": 66.47965987687392,
+  "matchedInstalledChecker": {
+    "representedRangeKg": [
+      35.898302226030026,
+      51.9931936108739
+    ],
+    "coverage": {
+      "missing": [],
+      "duplicates": [],
+      "orphanIncluded": [],
+      "unattached": []
+    },
+    "installedCount": 944,
+    "ruleLimitKg": 52.16312255,
+    "estimatedMarginKg": [
+      0.16992893912609475,
+      16.26482032396997
+    ],
+    "physicalMarginKg": null,
+    "frozenSelectedChanges": [
+      "low-lock",
+      "deck-lamp",
+      "moving-camera",
+      "no-match-air",
+      "four-welded-corners",
+      "light",
+      "shop-supplies",
+      "axle-retention",
+      "inner-rail-joints",
+      "shop-relieved-receiver",
+      "selected-optics",
+      "sp1-install",
+      "fixed-lead-install",
+      "supported-drive-covers",
+      "fixed-lift-motor-omitted",
+      "deck-through-ties",
+      "integral-deck",
+      "mast-foot-splices",
+      "fixed-secondary-haul",
+      "underside-shelf-insert",
+      "fixed-carriage-supports",
+      "winchless",
+      "supported-guides",
+      "match-drilled-guide",
+      "captured-rail-fixture",
+      "four-module-swerve",
+      "elevated-rear-camera-host"
+    ]
+  }
+}

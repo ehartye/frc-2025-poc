@@ -13,6 +13,7 @@
 | Watch the four wheels rotate and reverse while the robot holds its heading; try a jammed corner or a delayed camera. | [Interactive field replay](motion/index.html) and [eight controller trials](motion/README.md) |
 | Inspect wheel centers, rear-module interference, steering sweep, frame cuts and attachment hardware. | [Native packaging](packaging/) and [Fusion model and supplier revision](../../cad/FUSION.md) |
 | Compare a fast turn with a gradual turn on the same four tires. Review motor demand, loaded battery voltage, and wiring allocations. | [Power, traction and mass](power/README.md) |
+| Build a four-corner conductor cut list and see which retired parts change inspection weight. The repaired upper is 51.993 kg, leaving 170 g under R103. | [Drawing, stock and inspection mass](mass-closure/README.md) |
 | Follow the first identified pipe from its timed release into the retained two-stage receiver. | [Source-bound feed receipts](motion/first-feed.json) and [desktop port-controller replay](motion/feed.py) |
 
 The earlier abrupt turn required a tire coefficient of 0.836 in one supported mass and stiffness case. Slowing for the waypoint and the final 35 mm gives a physical 65 kg opening with peak coefficient near 0.171. Both calibration signs and a higher 72 kg / 8 kg·m² comparison passed the independently varied pack and drivetrain demand checks.
