@@ -1,0 +1,97 @@
+{
+  "assumedContinuousClosureMaxMps": 0.25,
+  "assumedRotorInertiaKgM2": 7e-06,
+  "upperForceIncludingDragN": 9.872,
+  "preloadN": 11.5,
+  "travelLimitMm": 1.4,
+  "frictionCoefficient": 0.4,
+  "viscousNsPerM": 37.52,
+  "gearRatio": 5.230769230769231,
+  "samplePeriodMs": 1,
+  "motorSourceSha256": "597a3577c21a6ce57d0e89ba0e1f8e40fcc3cab8c98a25bb27bfe875f3b1e13a",
+  "contactSourceSha256": "6912400c9e91e99aee075788017a23cd4f4996490ea7c43d50d40b0d968ba533",
+  "driveAt006Mps": {
+    "2.4": {
+      "rpm": 31.38,
+      "phase_A": 4.625,
+      "terminal_V": 0.589,
+      "input_W": 3.03,
+      "bus_A_at_9p5V": 0.319,
+      "feasible": true
+    },
+    "26.25": {
+      "rpm": 31.38,
+      "phase_A": 13.921,
+      "terminal_V": 1.704,
+      "input_W": 26.36,
+      "bus_A_at_9p5V": 2.775,
+      "feasible": false
+    }
+  },
+  "trajectories": {
+    "cargo-nominal-active-fine": [
+      {
+        "case": "leftSmall",
+        "trajectorySha256": "9494c70c2445b07aa7d7f59f84cd1d8f548251ed36f3f7c7ec7029627a8f1231",
+        "maxSampledClosureBoundMps": 0.0016823991076365418,
+        "peakCartridgeMm": 0.027508668038411788,
+        "insideAnalyticalInputsAtSamples": true
+      },
+      {
+        "case": "rightSmall",
+        "trajectorySha256": "693e8498f7625634e574720b81ae93e7ea39588772d518214777dd7fbff207d9",
+        "maxSampledClosureBoundMps": 0.0017410083013684407,
+        "peakCartridgeMm": 0.035640446560653016,
+        "insideAnalyticalInputsAtSamples": true
+      }
+    ],
+    "cargo-nominal-active": [
+      {
+        "case": "leftSmall",
+        "trajectorySha256": "936852a2def08c1b14edf2735f9b3fdd0a29260a17e3bf72817e8157738f8c9d",
+        "maxSampledClosureBoundMps": 0.0019676980753563543,
+        "peakCartridgeMm": 0.02744205271651423,
+        "insideAnalyticalInputsAtSamples": true
+      },
+      {
+        "case": "rightSmall",
+        "trajectorySha256": "135fa301a55efaf29920dc790712d931739790802e43243c5e92f6a5d8ea2f1d",
+        "maxSampledClosureBoundMps": 0.0014971874228183457,
+        "peakCartridgeMm": 0.035491489945610466,
+        "insideAnalyticalInputsAtSamples": true
+      }
+    ],
+    "machined-roof-050-quantized-cargo-nominal-active": [
+      {
+        "case": "leftSmall",
+        "trajectorySha256": "4f9f4ab6b17cf6b497a4e19f1289434bb438387e806e6beca8ba88c5376842a7",
+        "maxSampledClosureBoundMps": 0.0006120444080480742,
+        "peakCartridgeMm": 0,
+        "insideAnalyticalInputsAtSamples": true
+      },
+      {
+        "case": "rightSmall",
+        "trajectorySha256": "35369ad1a9683ce6e683bb72c45bf9c7d05960ad7df3c0e56ec93d41693c5592",
+        "maxSampledClosureBoundMps": 0.0005650481111567926,
+        "peakCartridgeMm": 0,
+        "insideAnalyticalInputsAtSamples": true
+      }
+    ],
+    "quantized-stuck-cargo-nominal-active": [
+      {
+        "case": "leftSmall",
+        "trajectorySha256": "811a1ec9cb4353ed968ef7bc5a772409fd75fc32c7d7ea3d5f88781c4ab1f323",
+        "maxSampledClosureBoundMps": 0.000817964946173122,
+        "peakCartridgeMm": 0.023833980101611862,
+        "insideAnalyticalInputsAtSamples": true
+      },
+      {
+        "case": "rightSmall",
+        "trajectorySha256": "883b6a32be8499ad7e2abcffa5ff751ff0c0f3743a7f5013edc5b1316471ed19",
+        "maxSampledClosureBoundMps": 0.00046955509459843225,
+        "peakCartridgeMm": 0.0002486962943637483,
+        "insideAnalyticalInputsAtSamples": true
+      }
+    ]
+  }
+}

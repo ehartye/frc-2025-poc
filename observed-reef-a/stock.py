@@ -11,8 +11,9 @@ from field_screen import DRIVE
 from field import screen
 
 
-def check(assets):
-    dims=nav.read(HERE/"bounds.json")
+def check(assets,machined=False):
+    source=HERE/("machined-bounds.json" if machined else "bounds.json")
+    dims=nav.read(source)
     names=list(dims["boxesMm"])
     limits=np.array([dims["boxesMm"][name] for name in names])
     # Include the entire seated-pipe enclosure in both field and body accounting.
@@ -55,10 +56,10 @@ def check(assets):
             "otherStockLowerWith10Mm1DegMm":min(v for k,v in other["stockMm"].items() if k!="NAUO201")-stowed,
             "barrierLowerWith10Mm1DegMm":other["minimumBarrierMm"]-stowed,
             "peerLowerWith10Mm1DegMm":other["minimumPeerMm"]-stowed,
-            "limitingBody":best[1],"wallS":best[2],"sourceBoundsSha256":nav.sha(HERE/"bounds.json")}
+            "limitingBody":best[1],"wallS":best[2],"sourceBoundsSha256":nav.sha(source)}
     return out
 
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("assets",type=Path);a=p.parse_args()
-    (HERE/"stock.json").write_text(json.dumps(check(a.assets),indent=2)+"\n",encoding="utf8",newline="\n")
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("assets",type=Path);p.add_argument("--machined",action="store_true");a=p.parse_args()
+    (HERE/("machined-stock.json" if a.machined else "stock.json")).write_text(json.dumps(check(a.assets,a.machined),indent=2)+"\n",encoding="utf8",newline="\n")

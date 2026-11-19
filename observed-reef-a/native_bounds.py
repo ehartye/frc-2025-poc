@@ -18,7 +18,7 @@ def sha(p):
         return hashlib.file_digest(handle,"sha256").hexdigest()
 
 
-def run(assets,lamp):
+def run(assets,lamp,machined=False):
     model=scenes.load_assembly(ROOT/"selected-match/clearance.py")
     sys.path.insert(0,str(ROOT/"relieved-match"))
     from cameras import mount
@@ -26,7 +26,12 @@ def run(assets,lamp):
     baseline=json.loads((ROOT/"station-guide/background.json").read_bytes())
     if sha(lamp)!=baseline["sourceSha256"]["supplied lamp STEP"]:
         raise ValueError("Unregistered signaling lamp")
-    body,_=select(model,assets,lamp)
+    if machined:
+        sys.path.insert(0,str(ROOT/"shelf-structure"))
+        from background import installed_poses
+        body,_=installed_poses(model,assets,lamp)
+    else:
+        body,_=select(model,assets,lamp)
     fixed,moving=model.wire_boxes()
     for name in ("roof-camera-envelope","observer-camera-proxy","observer-slotted-cradle-weldment"):
         del body[name]
@@ -43,7 +48,7 @@ def run(assets,lamp):
         transform=pose(key,original,eyes.mean(axis=0))
         for i,part in enumerate(supplier):
             body[f"{key}-vendor-{i}"]=vendor.transform(part,*transform)
-    if len(body)!=baseline["hardware"]["selectedPartsIncludingWire"]:
+    if len(body)!=baseline["hardware"]["selectedPartsIncludingWire"]+(7 if machined else 0):
         raise ValueError("Unreconciled stowed native inventory")
     guide=ROOT/"station-guide/narrow-face.step"
     body.update(model.cad.read_named(guide,[{"id":"guide-positive-y"},{"id":"guide-negative-y"}]))
@@ -59,9 +64,11 @@ def run(assets,lamp):
         out[f"optional-fixed-harness-{i}"]=list(box)
     packet={"nativeBodyCount":len(body),"optionalCableEnvelopeCount":len(boxes),"guideSha256":sha(guide),
         "cableSceneSha256":sha(harness),"backgroundSources":baseline["sourceSha256"],"boxesMm":out}
-    (HERE/"bounds.json").write_text(json.dumps(packet,separators=(",",":"))+"\n",encoding="utf8",newline="\n")
+    if machined:
+        packet["machinedReceiverSha256"]=sha(ROOT/"shelf-structure/stow-receiver.step")
+    (HERE/("machined-bounds.json" if machined else "bounds.json")).write_text(json.dumps(packet,separators=(",",":"))+"\n",encoding="utf8",newline="\n")
 
 
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("assets",type=Path);p.add_argument("lamp",type=Path)
-    a=p.parse_args();run(a.assets,a.lamp)
+    p.add_argument("--machined",action="store_true");a=p.parse_args();run(a.assets,a.lamp,a.machined)

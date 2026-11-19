@@ -27,11 +27,15 @@ def sha(path):
         return hashlib.file_digest(file, "sha256").hexdigest()
 
 
-def checked_scene(assets, use_guide=True):
+def checked_scene(assets, use_guide=True, *, registered_background=None):
     plan = read(ROOT / "station-guide/optics-narrow.json")
     raw = assets / "station-guide/selected-background/stowed-robot-fixed.npz"
     if sha(raw) != plan["registeredReceiverDepthSha256"]:
         raise ValueError("Shop camera does not match the station trial")
+    if registered_background is not None:
+        raw, expected = registered_background
+        if sha(raw) != expected:
+            raise ValueError("Different registered field-camera background")
     sys.path.insert(0, str(ROOT / "station-guide"))
     from optics import depth
     ctx = context(assets / "sector-alignment")

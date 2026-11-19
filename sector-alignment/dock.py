@@ -64,7 +64,7 @@ def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=T
             begin=compose(pred,relative(odom,history[capt]))
             heads_pair=None
             if assoc:
-                heads_pair=associate(heads,ctx["bolts"],begin) if features is None else features.identify(heads,begin)
+                heads_pair=associate(heads,ctx["bolts"],begin) if features is None else features.identify(heads,begin,capt)
             if heads_pair is not None:
                 # Only identified, ordered observations enter the estimate. Truth is used later for audit.
                 raw=estimate(heads_pair,ctx["bolts"]) if features is None else features.pose(heads_pair,begin)

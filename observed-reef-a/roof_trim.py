@@ -65,9 +65,14 @@ def yaw_interval(images,reference):
     return (lower,upper) if lower<=upper else None
 
 
-def serve(assets):
+def serve(assets,elastic=None,head="roof"):
     import hashlib
-    actual, reference = prepare(assets)
+    if elastic:
+        sys.path.insert(0,str(elastic))
+        from carry_images import camera_views
+        actual,reference=camera_views(assets,assets/"elastic-carry",head)
+    else:
+        actual,reference=prepare(assets)
     previous = {}
     for line in sys.stdin:
         q = np.array(json.loads(line), dtype=float)
@@ -80,4 +85,4 @@ def serve(assets):
 
 
 if __name__ == "__main__":
-    serve(Path(sys.argv[1]))
+    serve(Path(sys.argv[1]),Path(sys.argv[2]) if len(sys.argv)>2 else None,sys.argv[3] if len(sys.argv)>3 else "roof")

@@ -83,10 +83,17 @@ if __name__=="__main__":
     a=p.parse_args();rows=[]
     for side in ("leftSmall","rightSmall"):
         if a.aborts:
-            q=nav.read(HERE/"cargo-nominal-active-fine.json")
-            trial=next(r for r in q if r["wheelCase"]==side)
-            if trial["firstFault"]:
-                tick=trial["firstFault"][0];rows.append(reconcile(a.assets,side,"nominal",21.571672635314284+tick/1000))
+            for label in ("quantized-stuck-cargo-nominal-active","limited-quantized-stuck-cargo-nominal-active"):
+                source=HERE/(label+".json")
+                if not source.exists():
+                    continue
+                trial=next(r for r in nav.read(source) if r["wheelCase"]==side)
+                if trial["firstFault"]:
+                    tick=trial["firstFault"][0]
+                    row=reconcile(a.assets,side,"nominal",21.571672635314284+tick/1000)
+                    row["faultSource"]=label
+                    row["pipeTrajectorySha256"]=trial["trajectorySha256"]
+                    rows.append(row)
         else:
             for typ in ("nominal","wrong-face","dropout","ambiguous","stale","shared-survey-shift"):
                 rows.append(reconcile(a.assets,side,typ))

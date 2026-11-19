@@ -40,6 +40,7 @@ class Pipe:
         self.v=np.array([-lip["velocity_x_mps"]*c,lip["velocity_x_mps"]*s,lip["velocity_z_mps"]])
         self.a=np.array([s,c,0.])
         self.l=-I*src["spin"]*self.a
+        self.belt_drive=None
         self.belt=0.;self.touch=None;self.peak=0;self.hard=None;self.peak_tilt=0;self.low=1;self.max_pen=0
         self.first_belts=[None,None];self.time=0.;self.peak_load=0.;self.max_axis_rotation=0
         self.loss=None
@@ -73,6 +74,8 @@ class Pipe:
         return points
 
     def belt_surface_speeds(self, target, dt):
+        if self.belt_drive is not None:
+            return self.belt_drive.advance(target,dt)
         self.belt += min(cfg.belt_accel*dt,max(-cfg.belt_accel*dt,target-self.belt))
         return self.belt,self.belt
 

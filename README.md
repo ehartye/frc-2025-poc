@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[See the robot’s approach to scoring sector A through its two field cameras](observed-reef-a/viewer.html). Choose a wheel case and watch the surveyed fasteners appear, disappear or become ambiguous. [Carry and scoring limits](observed-reef-a/README.md)
+
 [Replay the shop robot’s conditioned scoring attempt](conditioned-match/replay.html). Follow coral-A from a powered station dock, see where the material and field-camera trials diverge, and check why coral-B stays in stock. [Match evidence](conditioned-match/README.md)
 
 [See how the fixed hoist retains both drums](fixed-hoist/README.md) and what the combined mast, shelf and hoist leave in the inspection bill.

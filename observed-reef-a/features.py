@@ -8,8 +8,9 @@ class VisibleFasteners:
         self.scene = scene
         self.points = scene["bolts"]
         self.audit = []
+        self.observations = []
 
-    def identify(self, detections, prediction):
+    def identify(self, detections, prediction, capture):
         rays = []
         ambiguous = False
         for index, (eye, name, detected) in enumerate(zip(vision.EYES, ("left", "right"), detections)):
@@ -33,7 +34,11 @@ class VisibleFasteners:
                 raster = self.scene[name+"_z"][y0:y1,x0:x1]
                 if np.min(raster) > depth.max()+12:
                     rays.append((index,target,pixel))
-        if ambiguous or len({target for _,target,_ in rays}) != 2:
+        viable=not ambiguous and len({target for _,target,_ in rays})==2
+        self.observations.append({"captureMs":int(capture),"viable":viable,"ambiguous":ambiguous,
+            "detections":[np.asarray(eye).round(3).tolist() for eye in detections],
+            "features":[[e,j,*np.round(pixel,3).tolist()] for e,j,pixel in rays]})
+        if not viable:
             return None
         return rays
 
