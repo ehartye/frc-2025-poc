@@ -1,0 +1,61 @@
+# Positively attach both receiver masts to the inner chassis rails
+
+Two original machined side splices join the existing low-lock mast tubes directly to the removable 6 mm drive rails. Both foot interfaces can now transmit downward load, rebound and fore/aft pitch in metal bearing. The ribs and cable relief are different on the two sides. The proposed robot is overweight in every issued inspection configuration. Losing an entire side overloads the surviving splice; this is a two-sided prototype, with physical qualification still open. [Shop views](shop.svg) · [Editable geometry](mast.py) · [63-solid shop assembly](mast-joints.step) · [Slotted ribbed-deck alternative](slotted-ribbed-deck.step)
+
+## Machine and assemble the joint
+
+Use robot X forward, Y left, Z up. The unchanged mast feet are X−70…−20, |Y|210…235 at Z154. The outside face of each 50 × 25 mast and its 6 mm inner rail share |Y|235. The splice seats on this plane. There is no assumed tensile bond between the mast and deck.
+
+- Make one left and one right plate from certified 8 mm 7075-T7351 plate. Require at least 400 MPa yield on the lot. Mill to a 3 mm base with the integral 8 mm stiffener contours in the shop STEP. Leave the full ligament between the two fastening bands. Dress cut edges and machine feasible inside radii. The simplified relief corners are idealized; an actual toolpath that removes more material requires a renewed section check. Keep the mating face flat to 0.10 mm and check bearing transfer with marking blue. [Kaiser plate data](https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1017/Kaiser_Aluminum_7075_Sheet_Coil_and_Plate.pdf)
+- In each supported inner rail, match-drill the four Ø6.50 mm holes at X−116 and +42, Z128 and 141.5. At each mast use X−51 and −33, Z165 and 217. Drill both mast walls Ø10.10 mm for four fitted sleeves. Match-drill splice holes Ø6.50 through; use a fixture, clamp the actual rail and mast, and require ≤0.10 mm coaxial mismatch. Align both masts to their existing pin and shelf datums before drilling. Inspect around nearby receiver and cover holes. No machining credit is taken.
+- Turn eight aluminum crush sleeves Ø10.00 (−0.05/+0), bore Ø6.20 (+0.05/0). Individually face each one to the measured outside-to-outside mast width, nominally 25 mm, minus 0–0.05 mm. A long sleeve props the plate off the mast, and a short one can crush the thin tube. Use bore gauges and inspect both tube walls.
+- Fit eight M6×20 class 8.8 rail screws finished to 18.5 mm underhead and eight M6×40 class 8.8 mast bolts finished to 37.5 mm. Restore the thread lead/finish; verify the actual plain grip and thread runout. Each gets one steel ISO 7089 washer, 6.4/12 × 1.6, and one class 8 or stronger M6 prevailing-torque nut within the 10 AF × 6 mm reservation. Inspect at least the locking-insert engagement and the 1.9 mm nominal projection (allow for the trimmed-end chamfer) on the assembled real stack; exchange any inadequate length and repeat socket checks. Fit heads on the inboard faces. The native exchange reserves the major thread diameter. [Short screw](https://www.fabory.com/en_NL/hexagon-head-screw-iso-4017-din-933-steel-zinc-plated-8-8-m6x20/p/01210060020) · [Long bolt](https://www.fabory.com/en_NL/hexagon-head-bolt-din-931-steel-plain-8-8-m6x40/p/01000060040) · [Washer](https://www.blohm-gmbh.de/de/en/Products/Product-overview/Machine-and-fixture-components/Screws-nuts-and-washers/Washersmedium-DIN-EN-ISO-7089-A.html) · [Nut family](https://www.fabory.com/en_GB/Standards/DIN-standards/DIN-985/c/DIN985)
+- In **only the installed deck**, open two clearance slots X−135…+68, |Y|235.0…238.6 through its 4 mm outboard land. Hold the inner slot edge +0/−0.10 mm from the actual outer rail face; inspect at least 5.9 mm of the rail’s 6 mm bearing land. Deburr, verify sliding clearance by hand and restore protective finish. The integral-deck machining removes the same volume as the original tied sheet. The exchange preserves both alternatives and all six deck through-ties. [Stock deck attachment](../deck-joints/) · [Integral deck](../ribbed-deck/)
+
+The installed CAD includes the machined deck, two machined rails, two machined masts, two splices, eight sleeves and 48 pieces of threaded hardware. The receiver-to-frame load chain passes from the two drilled mast walls into the sleeve, the M6, the splice, a second M6 and the drilled inner rail. Moving each adjacent pair ±0.5 mm in Z produces positive interference at all five interfaces. The reversible rail ears then connect the inner rails to the welded end members. The guide/carriage itself remains independently vulnerable to lift-off during rebound. [Joint receipt](fit.json) · [Inner rail joints](../drive-side-attachment/)
+
+## Service and physical inspection
+
+De-energize and block the robot. Support the carriage and each mast independently. The side plates make the masts structural members during rehearsal. Take the load off the joint before removing one screw. Measure actual socket OD and hand access. The screened 10 AF sockets have a maximum 14 mm OD. Their local seating envelopes, each screw withdrawal and each sleeve withdrawal are itemized in the native receipt.
+
+The check also carries the brushless drivetrain covers, the fixed and moving camera wiring, and the sensor/cable reservations. The moving cable’s earlier large bounding rectangle is replaced by its registered centerline and radial envelope where the optical routing actually supersedes it. The right-hand USB branch needs to be disconnected and removed with its removable troughs for service. The retained fixed mounts, bearing support and shaft remain obstacles. Reinstall the complete branch using its original strain relief, bend radii and inspection route. Remove both bumper halves. With the screws and sleeves withdrawn and the mast blocked, shift the plate 0.25 mm outboard into its deck slot. Lift it 35 mm, then pull 220 mm straight outboard. Both sides clear continuously with zero fore/aft jog. Reverse the procedure to install. A taller preliminary plate ran into the retained bearing support by 293.60 mm³ on each side at 20, 40 and 60 mm of outward travel. The released upper edge is Z229. [Fixed wiring service](../fixed-camera-route/) · [Bumper location and removal](../design/bumper-kit/)
+
+A first layout with legs extending to Z60 intersected each guard support post by 101 mm³. The stiffener on the right also entered two roof-camera troughs. Keeping those components in place required shallower legs above the tray, a shifted lower mast row and a cable-side relief. The earlier steel and aluminum hardware remains charged to its original subsystem. [Reproducible rejected details](controls.json)
+
+## Reaction, flexure and fastener evidence
+
+The stock shelf and insert share two mast lines. The signed tables retain every 15.625 µs sample of the modeled load and ringdown. At each clock, the actual vertical rails receive their signed left/right reactions; the model distributes remaining moment and lateral load equally between the two mast lines. A second calculation moves the entire signed resultant to one mast. It then resolves shear, axial force and pitch/roll moments on the four-fastener mast and rail groups, including reruns with each bolt unavailable. This equal-stiffness, friction-independent model assumes studs seated in bearing. Slip to contact, uncertain fit, fatigue, prying, local weld behavior and thin-wall distortion need measured evidence. [Load model](loads.py) · [Force and moment envelopes](load.json)
+
+The static exercise with independent signed 1.9 kN vertical and 431 N·m pitch loads is retained alongside the actual simultaneous cases. Applying a centerline load to one mast adds a roll moment across approximately 236 mm. Two-side axial load sharing disappears. A bolt-group calculation alone would miss the out-of-plane bending of the 3 mm splice across the deck. Both signs of lift and every missing-bolt position are screened. Positive attachment to **both** rails is required for the reviewed two-side behavior; the single-side result exceeds the material limit. A one-bolt calculation does not authorize operating with a missing bolt.
+
+The stowed damper prototype's two 31.25 µs traces already include both plunger forces. The two 750 N model caps are included once. The maximum downward chassis reaction passes 2.23 kN. Because its output gives summed forces and pitch/roll, the comparison tests two plausible splits: balancing roll through differential vertical reactions at Y±222.5, and sharing roll between the feet. Unreported yaw is exercised at ±50 N·m. The coupled yaw and actual side stiffness remain unknown. The isolated supplier body reservation and source manufacturing STEP clear the mast kit by at least 159.5 mm in Z during both horizontal extension and service. [Coupled support replay](damper.json) · [Vertical clearance](damper-clearance.json) · [Shelf study and immutable trace references](https://github.com/ehartye/frc-2025-poc/pull/109)
+
+Before any release, fixture the true rail, mast and splice with the same washers, sleeves and fasteners. Establish a measured torque/preload process; the model's 1.50 kN trial preload is an assumption. Load both sides together with the simultaneous vertical, shear and pitch reactions in both directions, including reversal. Record relative slip at sleeves, mast/rail motion, bolt axial strain and plate strain at the deck-height web. Inspect for permanent set, cracks, tube crushing, lost preload and fretting after representative cycles. The corresponding rail torsion, end-weld/ear reaction, lock chain, shelf contact and motion/inspection results remain separate qualification gates.
+
+Across the four undamped traces, the bilateral gross section bound reaches 156.4 MPa; the conservative ±50 N·m yaw sensitivity with two dampers reaches 208.4 MPa. Screening the same damper cases with each single joint fastener omitted reaches 327.6 MPa equivalent fastener stress at the assumed preload. The coupled one-side cases exceed 2 GPa in the remaining plate. None of these gross-section values includes a measured cut-edge concentration or fatigue allowance.
+
+## Configuration accounting
+
+| Deck and existing lift motor treatment | Modeled R103 excess with the splice kit |
+|---|---:|
+| Tied flat deck, motor retained | 914.798 g |
+| Tied flat deck, motor omitted without credit | 968.798 g |
+| Tied flat deck, matched surrendered motor | 568.798 g |
+| Integral ribbed deck, motor retained | 443.504 g |
+| Integral ribbed deck, motor omitted without credit | 497.504 g |
+| Integral ribbed deck, matched surrendered motor | **97.504 g** |
+
+The estimated fixed hardware charge is **450.150–578.122 g**, including allowances for actual stock, finish, screws and locknuts. These six configurations use the existing shelf, fixed harness and positively attached guards. The shelf insert, extra dampers and a change of hoist inventory each need their own selected delta. An inspection-scale measurement is unavailable.
+
+The installed 0.22.2 checker exchanges exactly the five installed predecessors, including the chosen flat or integral deck and both already-supported drive rails. It adds two plates, eight sleeves, 16 screws, 16 washers and 16 nuts. The whole predecessors' original mass stays charged and neither slot nor drilling chips receive credit. The two deck rows are alternatives. Turning the same mass into a second shelf, motor or hoist allowance is unsupported. [Six retained accounting cases](comparison.json)
+
+```text
+python mast-attachment/native_fit.py <private-artifacts> <owner-lamp-step> ribbed-deck
+python mast-attachment/controls.py
+python mast-attachment/loads.py <signed-reaction-folder> <transfer.json>
+python mast-attachment/damper.py <coupled-trace-folder> <coupled-mounts.json>
+python mast-attachment/shelf_clearance.py <authoritative-shelf-study-folder>
+python mast-attachment/account.py <installed-plugin> <tied-maps> <ribbed-maps> <output>
+```
+
+Use the released study's own commands to materialize private or derived upstream inputs. Reopening the manufactured exchange requires no vendor CAD. The issued mass, service, fixture load and physical inspection outcomes remain estimates pending those first-article checks.

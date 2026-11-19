@@ -6,6 +6,8 @@
 
 [Can the receiving shelf absorb the station drop?](shelf-structure/README.md) Compare the stock shelf with a lighter machined insert and two stowed shock absorbers. Follow the load through the slide and mast and see which capture assumptions still need a fixture.
 
+[How do the receiver masts carry load into the rails?](mast-attachment/README.md) See the splice drawing, the reversible removal path and what happens when one side loses support.
+
 [How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.
 
 [Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
