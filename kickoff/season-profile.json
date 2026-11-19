@@ -204,7 +204,8 @@
     "boundsNote": "The four tag planes approximate the inward station faces. The central support uses an assumed full-depth by 56 in exclusion. Cage lanes reserve the full 44 in barge depth. The truss excludes robots within 8 in below its 62 in reference. Verify installed contours, truss underside, cage swing and bumper shape before relying on physical clearance.",
     "sources": [
       "https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf",
-      "https://github.com/wpilibsuite/allwpilib/blob/b65f159c3fdfdfce9ec126cf79dfd9a16d1e66e9/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape.json"
+      "https://github.com/wpilibsuite/allwpilib/blob/b65f159c3fdfdfce9ec126cf79dfd9a16d1e66e9/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape.json",
+      "V0 game rules and Table 6-2 for inventory and points. Floor/reef setup uses project FE-2025 native inventory. Approach centers, chute split, dwell and peer action outcomes are teaching assumptions."
     ],
     "surveyHash": "82d7cbd386faadca3a7de04b5cf36e98685ca4602b44c95f8138761fd730fe89",
     "resourceLabel": "shared cage lane",
@@ -520,7 +521,8 @@
         "passage",
         "station",
         "processor"
-      ]
+      ],
+      "capacity": 1
     },
     "programs": {
       "hold": {
@@ -528,122 +530,103 @@
         "steps": []
       },
       "station": {
-        "label": "Station to reef",
-        "loop": true,
+        "label": "Cycle lower chute CORAL to the trough",
         "steps": [
           {
-            "at": {
-              "default": [
-                64,
-                53
-              ],
-              "slots": {
-                "3": [
-                  64,
-                  264
-                ]
-              }
+            "at": [
+              64,
+              53
+            ],
+            "label": "Collect chute-low",
+            "dwell": 0.75,
+            "station": {
+              "blue": "blue-chute-low",
+              "red": "red-chute-low"
             },
-            "label": "Load at station",
-            "dwell": 0.6
+            "operation": "acquire"
           },
           {
             "at": [
-              122,
+              235,
               158.5
             ],
-            "label": "Approach reef",
-            "dwell": 0.5
+            "label": "Attempt l1",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l1",
+              "red": "red-l1"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
           }
         ],
-        "byPeriod": {
-          "AUTO": [
-            {
-              "at": {
-                "default": [
-                  64,
-                  88
-                ],
-                "slots": {
-                  "3": [
-                    64,
-                    229
-                  ]
-                }
-              },
-              "label": "Collect staged coral",
-              "dwell": 0.6
-            },
-            {
-              "at": [
-                122,
-                158.5
-              ],
-              "label": "Approach reef",
-              "dwell": 0.5
-            }
-          ]
-        }
+        "loop": true
       },
       "processor": {
-        "label": "Algae to processor",
-        "loop": true,
+        "label": "Clear south floor ALGAE for the processor",
         "steps": [
           {
-            "at": {
-              "default": [
-                176.75,
-                101
-              ],
-              "slots": {
-                "3": [
-                  176.75,
-                  216
-                ]
-              }
+            "at": [
+              69.99952086667514,
+              86.5
+            ],
+            "label": "Collect floor-algae-low",
+            "dwell": 0.75,
+            "station": {
+              "blue": "blue-floor-algae-low",
+              "red": "red-floor-algae-low"
             },
-            "label": "Collect at reef",
-            "dwell": 0.6
+            "operation": "acquire"
           },
           {
             "at": [
               236,
               24
             ],
-            "label": "Approach processor",
-            "dwell": 0.6
+            "label": "Attempt processor",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-processor",
+              "red": "red-processor"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
           }
-        ]
+        ],
+        "loop": false
       },
       "net": {
-        "label": "Algae to net",
-        "loop": true,
+        "label": "Remove one reef ALGAE and score in the net",
         "steps": [
           {
-            "at": {
-              "default": [
-                176.75,
-                101
-              ],
-              "slots": {
-                "3": [
-                  176.75,
-                  216
-                ]
-              }
+            "at": [
+              206.74081577239085,
+              210.4668256612477
+            ],
+            "label": "Collect reef-algae-1",
+            "dwell": 0.75,
+            "station": {
+              "blue": "blue-reef-algae-1",
+              "red": "red-reef-algae-1"
             },
-            "label": "Collect at reef",
-            "dwell": 0.6
+            "operation": "acquire"
           },
           {
             "at": [
-              304,
+              306,
               213
             ],
-            "label": "Approach net",
-            "dwell": 0.6
+            "label": "Attempt net",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-net",
+              "red": "red-net"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
           }
-        ]
+        ],
+        "loop": false
       },
       "passage": {
         "label": "Cross the shared cage lane",
@@ -710,7 +693,1164 @@
             "release": true
           }
         ]
+      },
+      "preload-l2": {
+        "label": "Place one preloaded CORAL on L2",
+        "steps": [
+          {
+            "at": [
+              205.5,
+              108
+            ],
+            "label": "Attempt l2",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l2",
+              "red": "red-l2"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
+          }
+        ],
+        "loop": false
+      },
+      "preload-l3": {
+        "label": "Place one preloaded CORAL on L3",
+        "steps": [
+          {
+            "at": [
+              147.5,
+              209
+            ],
+            "label": "Attempt l3",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l3",
+              "red": "red-l3"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
+          }
+        ],
+        "loop": false
+      },
+      "preload-l4": {
+        "label": "Place one preloaded CORAL on L4",
+        "steps": [
+          {
+            "at": [
+              119,
+              158.5
+            ],
+            "label": "Attempt l4",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l4",
+              "red": "red-l4"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
+          }
+        ],
+        "loop": false
+      },
+      "preload-l1": {
+        "label": "Place one preloaded CORAL in the trough",
+        "steps": [
+          {
+            "at": [
+              235,
+              158.5
+            ],
+            "label": "Attempt l1",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l1",
+              "red": "red-l1"
+            },
+            "operation": "attempt",
+            "outcome": "credited"
+          }
+        ],
+        "loop": false
+      },
+      "coral-high-miss": {
+        "label": "Try upper chute CORAL and miss L1",
+        "steps": [
+          {
+            "at": [
+              64,
+              264
+            ],
+            "label": "Collect chute-high",
+            "dwell": 0.75,
+            "station": {
+              "blue": "blue-chute-high",
+              "red": "red-chute-high"
+            },
+            "operation": "acquire"
+          },
+          {
+            "at": [
+              235,
+              158.5
+            ],
+            "label": "Attempt l1",
+            "dwell": 0.9,
+            "station": {
+              "blue": "blue-l1",
+              "red": "red-l1"
+            },
+            "operation": "attempt",
+            "outcome": "missed"
+          }
+        ],
+        "loop": false
+      },
+      "stow-at-station": {
+        "label": "R4 rehearsal: take CORAL and hold",
+        "steps": [
+          {
+            "at": [
+              64,
+              53
+            ],
+            "label": "Collect chute-low",
+            "dwell": 0.75,
+            "station": {
+              "blue": "blue-chute-low",
+              "red": "red-chute-low"
+            },
+            "operation": "acquire"
+          }
+        ],
+        "loop": false
+      },
+      "keep-lane": {
+        "label": "Clear the east reef face and hold a traffic lane",
+        "steps": [
+          {
+            "at": [
+              290,
+              158.5
+            ],
+            "label": "Back out of the trough approach",
+            "dwell": 0.5
+          }
+        ],
+        "loop": false
+      },
+      "approach-chute": {
+        "label": "R4 rehearsal: stage outside the lower station",
+        "steps": [
+          {
+            "at": [
+              94,
+              67
+            ],
+            "label": "Stage outside the supply chute",
+            "dwell": 0.5
+          }
+        ],
+        "loop": false
       }
+    },
+    "stations": [
+      {
+        "id": "blue-chute-low",
+        "label": "Blue low corner chute",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          64,
+          53
+        ],
+        "displayAt": [
+          33.51,
+          25.8
+        ],
+        "radiusIn": 6,
+        "stock": 30
+      },
+      {
+        "id": "red-chute-low",
+        "label": "Red low corner chute",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          626.875,
+          264
+        ],
+        "displayAt": [
+          657.365,
+          291.2
+        ],
+        "radiusIn": 6,
+        "stock": 30
+      },
+      {
+        "id": "blue-chute-high",
+        "label": "Blue high corner chute",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          64,
+          264
+        ],
+        "displayAt": [
+          33.51,
+          291.2
+        ],
+        "radiusIn": 6,
+        "stock": 30
+      },
+      {
+        "id": "red-chute-high",
+        "label": "Red high corner chute",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          626.875,
+          53
+        ],
+        "displayAt": [
+          657.365,
+          25.80000000000001
+        ],
+        "radiusIn": 6,
+        "stock": 30
+      },
+      {
+        "id": "blue-floor-coral-mid",
+        "label": "Blue floor coral mid",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          158.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          158.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO45"
+      },
+      {
+        "id": "blue-floor-algae-mid",
+        "label": "Blue floor algae mid",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          158.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          158.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO46"
+      },
+      {
+        "id": "blue-reef-algae-5",
+        "label": "Blue reef algae 5",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          206.7425784980902,
+          106.53419167340994
+        ],
+        "displayAt": [
+          190.11862385157136,
+          135.3372250920249
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO47"
+      },
+      {
+        "id": "blue-reef-algae-4",
+        "label": "Blue reef algae 4",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          146.744342049527,
+          106.54174280290748
+        ],
+        "displayAt": [
+          163.37307878745128,
+          135.33631820325095
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO48"
+      },
+      {
+        "id": "blue-reef-algae-0",
+        "label": "Blue reef algae 0",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          236.75,
+          158.5000000000023
+        ],
+        "displayAt": [
+          203.49061099491456,
+          158.50000000000102
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO49"
+      },
+      {
+        "id": "blue-reef-algae-2",
+        "label": "Blue reef algae 2",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          146.73905679836088,
+          210.4552046300271
+        ],
+        "displayAt": [
+          163.37150801001795,
+          181.66096113042968
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO50"
+      },
+      {
+        "id": "blue-reef-algae-1",
+        "label": "Blue reef algae 1",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          206.74081577239085,
+          210.4668256612477
+        ],
+        "displayAt": [
+          190.11705307413789,
+          181.66186801920367
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO51"
+      },
+      {
+        "id": "blue-reef-algae-3",
+        "label": "Blue reef algae 3",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          116.75000013791966,
+          158.4959317867878
+        ],
+        "displayAt": [
+          149.99952086667517,
+          158.49818622245178
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO52"
+      },
+      {
+        "id": "blue-floor-coral-low",
+        "label": "Blue floor coral low",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          86.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          86.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO188"
+      },
+      {
+        "id": "blue-floor-coral-high",
+        "label": "Blue floor coral high",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          230.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          230.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO189"
+      },
+      {
+        "id": "blue-floor-algae-low",
+        "label": "Blue floor algae low",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          86.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          86.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO190"
+      },
+      {
+        "id": "blue-floor-algae-high",
+        "label": "Blue floor algae high",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "retrieval",
+        "at": [
+          69.99952086667514,
+          230.5
+        ],
+        "displayAt": [
+          47.99952086667514,
+          230.5
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO191"
+      },
+      {
+        "id": "red-floor-coral-mid",
+        "label": "Red floor coral mid",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333249,
+          158.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333249,
+          158.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO192"
+      },
+      {
+        "id": "red-floor-algae-mid",
+        "label": "Red floor algae mid",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333249,
+          158.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333249,
+          158.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO193"
+      },
+      {
+        "id": "red-floor-coral-low",
+        "label": "Red floor coral low",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333243,
+          230.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333243,
+          230.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO194"
+      },
+      {
+        "id": "red-floor-coral-high",
+        "label": "Red floor coral high",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333254,
+          86.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333254,
+          86.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO195"
+      },
+      {
+        "id": "red-floor-algae-low",
+        "label": "Red floor algae low",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333243,
+          230.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333243,
+          230.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO196"
+      },
+      {
+        "id": "red-floor-algae-high",
+        "label": "Red floor algae high",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          620.8754791333254,
+          86.50000000000207
+        ],
+        "displayAt": [
+          642.8754791333254,
+          86.50000000000207
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO197"
+      },
+      {
+        "id": "red-reef-algae-3",
+        "label": "Red reef algae 3",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          574.1249998620804,
+          158.50406821321437
+        ],
+        "displayAt": [
+          540.8754791333248,
+          158.5018137775492
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO198"
+      },
+      {
+        "id": "red-reef-algae-1",
+        "label": "Red reef algae 1",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          484.1341842276072,
+          106.53317433875344
+        ],
+        "displayAt": [
+          500.7579469258624,
+          135.3381319807989
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO199"
+      },
+      {
+        "id": "red-reef-algae-2",
+        "label": "Red reef algae 2",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          544.1359432016421,
+          106.54479536997462
+        ],
+        "displayAt": [
+          527.5034919899823,
+          135.339038869573
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO200"
+      },
+      {
+        "id": "red-reef-algae-0",
+        "label": "Red reef algae 0",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          454.125,
+          158.50000000000225
+        ],
+        "displayAt": [
+          487.3843890050855,
+          158.500000000001
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO201"
+      },
+      {
+        "id": "red-reef-algae-4",
+        "label": "Red reef algae 4",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          544.1306579504699,
+          210.4582571970943
+        ],
+        "displayAt": [
+          527.5019212125485,
+          181.6636817967518
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO202"
+      },
+      {
+        "id": "red-reef-algae-5",
+        "label": "Red reef algae 5",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "retrieval",
+        "at": [
+          484.1324215019122,
+          210.46580832659143
+        ],
+        "displayAt": [
+          500.75637614842856,
+          181.66277490797768
+        ],
+        "radiusIn": 6,
+        "stock": 1,
+        "nativeStockId": "NAUO203"
+      },
+      {
+        "id": "blue-l1",
+        "label": "Blue Reef trough (L1)",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          235,
+          158.5
+        ],
+        "displayAt": [
+          209.5,
+          158.5
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 3,
+          "TELEOP": 2
+        },
+        "criterion": "CORAL contacts the trough and clears robot contact."
+      },
+      {
+        "id": "red-l1",
+        "label": "Red Reef trough (L1)",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          455.875,
+          158.5
+        ],
+        "displayAt": [
+          481.375,
+          158.5
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 3,
+          "TELEOP": 2
+        },
+        "criterion": "CORAL contacts the trough and clears robot contact."
+      },
+      {
+        "id": "blue-l2",
+        "label": "Blue Reef L2 branches",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          205.5,
+          108
+        ],
+        "displayAt": [
+          193.125,
+          130.14
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 4,
+          "TELEOP": 3
+        },
+        "criterion": "CORAL is fully supported on the selected L2 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "red-l2",
+        "label": "Red Reef L2 branches",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          485.375,
+          209
+        ],
+        "displayAt": [
+          497.75,
+          186.86
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 4,
+          "TELEOP": 3
+        },
+        "criterion": "CORAL is fully supported on the selected L2 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "blue-l3",
+        "label": "Blue Reef L3 branches",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          147.5,
+          209
+        ],
+        "displayAt": [
+          160.375,
+          186.86
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 6,
+          "TELEOP": 4
+        },
+        "criterion": "CORAL is fully supported on the selected L3 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "red-l3",
+        "label": "Red Reef L3 branches",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          543.375,
+          108
+        ],
+        "displayAt": [
+          530.5,
+          130.14
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 6,
+          "TELEOP": 4
+        },
+        "criterion": "CORAL is fully supported on the selected L3 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "blue-l4",
+        "label": "Blue Reef L4 branches",
+        "piece": "CORAL",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          119,
+          158.5
+        ],
+        "displayAt": [
+          144,
+          158.5
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 7,
+          "TELEOP": 5
+        },
+        "criterion": "CORAL is fully supported on the selected L4 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "red-l4",
+        "label": "Red Reef L4 branches",
+        "piece": "CORAL",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          571.875,
+          158.5
+        ],
+        "displayAt": [
+          546.875,
+          158.5
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 7,
+          "TELEOP": 5
+        },
+        "criterion": "CORAL is fully supported on the selected L4 branch.",
+        "capacity": 1
+      },
+      {
+        "id": "blue-processor",
+        "label": "Blue Processor",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          236,
+          24
+        ],
+        "displayAt": [
+          236,
+          0
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 6,
+          "TELEOP": 6
+        },
+        "criterion": "ALGAE passes through the processor opening."
+      },
+      {
+        "id": "red-processor",
+        "label": "Red Processor",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          454.875,
+          293
+        ],
+        "displayAt": [
+          454.875,
+          317
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 6,
+          "TELEOP": 6
+        },
+        "criterion": "ALGAE passes through the processor opening."
+      },
+      {
+        "id": "blue-net",
+        "label": "Blue Net",
+        "piece": "ALGAE",
+        "side": "blue",
+        "kind": "scoring",
+        "at": [
+          306,
+          213
+        ],
+        "displayAt": [
+          345.4375,
+          213
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 4,
+          "TELEOP": 4
+        },
+        "criterion": "ALGAE rests in the alliance net."
+      },
+      {
+        "id": "red-net",
+        "label": "Red Net",
+        "piece": "ALGAE",
+        "side": "red",
+        "kind": "scoring",
+        "at": [
+          384.875,
+          104
+        ],
+        "displayAt": [
+          345.4375,
+          104
+        ],
+        "radiusIn": 6,
+        "points": {
+          "AUTO": 4,
+          "TELEOP": 4
+        },
+        "criterion": "ALGAE rests in the alliance net."
+      }
+    ],
+    "series": {
+      "matches": [
+        {
+          "id": "Qual 1",
+          "basis": "Station cycling and mixed ALGAE duties; prescribed peer scoring outcomes.",
+          "setup": "mixed",
+          "roster": [
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "preload-l2",
+                "TELEOP": "station"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "processor"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l3",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "blue-chute-high",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "preload-l2",
+                "TELEOP": "coral-high-miss"
+              },
+              "preload": {
+                "station": "red-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "processor"
+              },
+              "preload": {
+                "station": "red-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l4",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "red-chute-high",
+                "quantity": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "Qual 2",
+          "basis": "Deeper cages. The red partner clears the trough lane for repeated CORAL cycles; blue misses a trough attempt.",
+          "setup": "deep",
+          "roster": [
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "preload-l2",
+                "TELEOP": "coral-high-miss"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "processor"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l4",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "blue-chute-high",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "preload-l2",
+                "TELEOP": "station"
+              },
+              "preload": {
+                "station": "red-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "keep-lane"
+              },
+              "preload": {
+                "station": "red-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l3",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "red-chute-high",
+                "quantity": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "Qual 3",
+          "basis": "Red slot 1 holds its first pipe; other robots are rehearsal surrogates.",
+          "setup": "shallow",
+          "roster": [
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "preload-l2",
+                "TELEOP": "station"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "processor"
+              },
+              "preload": {
+                "station": "blue-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l3",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "blue-chute-high",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "approach-chute",
+                "TELEOP": "stow-at-station"
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "preload-l1",
+                "TELEOP": "processor"
+              },
+              "preload": {
+                "station": "red-chute-low",
+                "quantity": 1
+              }
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "preload-l3",
+                "TELEOP": "net"
+              },
+              "preload": {
+                "station": "red-chute-high",
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "field": {
