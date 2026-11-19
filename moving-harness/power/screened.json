@@ -1,0 +1,37 @@
+{
+  "schema": "frc-power-trace/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "trialId": "screened",
+  "condition": "1.9 m moving-camera lead with 0 ohm added interface resistance",
+  "units": {
+    "time": "s",
+    "voltage": "V",
+    "current": "A"
+  },
+  "provenance": {
+    "kind": "modeled",
+    "source": "fixed-low-power/dual_camera.py SHA-256 48ded1cd70777bed2f820e44f2e727d09007fda9bd5c6353b63f36dd67e94f94. Conditional DC budget on the regulator output, steady 1.20 A equivalent load. The selected cable must meet the modeled loop resistance under temperature and flex."
+  },
+  "rows": [
+    {
+      "fromS": 0,
+      "toS": 0.02,
+      "voltages": [
+        {
+          "location": "camera-input",
+          "kind": "lower-bound",
+          "valueV": 5.0067698
+        }
+      ],
+      "currents": [
+        {
+          "id": "camera",
+          "kind": "source",
+          "valueA": 1.2
+        }
+      ]
+    }
+  ]
+}

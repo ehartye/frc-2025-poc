@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moving camera service loop</title>
+<style>
+*{box-sizing:border-box}body{font:16px/1.55 system-ui,sans-serif;background:#edf2f2;color:#183234;margin:0}main{max-width:1020px;margin:auto;padding:clamp(18px,4vw,48px)}h1{font:600 clamp(2.3rem,6vw,4rem)/1.05 Georgia,serif;margin:0 0 12px}p{margin:.5rem 0 1.2rem}figure{margin:18px 0 0;background:#fdfdf9;border:1px solid #b8c8c6;border-radius:10px;overflow:hidden}svg{display:block;width:100%;height:auto}figcaption,.controls{padding:14px 20px;border-top:1px solid #d7e1de}.controls{display:grid;gap:.45rem}label{font-weight:650}output{font-variant-numeric:tabular-nums}input{width:100%;accent-color:#00776b}dl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}dt{font-weight:650}dd{margin:0;font-size:1.5rem;font-variant-numeric:tabular-nums}footer{font-size:.92rem}a{color:#085d58}.grid{stroke:#e1e8e5;stroke-width:1}.lab{font:17px system-ui;fill:#183234}.small{font:14px system-ui;fill:#465c5a}@media(max-width:600px){dl{grid-template-columns:1fr;gap:5px}dd{font-size:1.1rem}.lab{font-size:20px}}
+</style></head><body><main>
+<h1>Moving camera service loop</h1>
+<p>Extend the shelf and follow the cable as it changes direction. The bend advances half as far as the camera, keeping the managed cable length constant.</p>
+<figure>
+<svg viewBox="-430 -897 900 372" role="img" aria-label="Side elevation of the camera cable carrier. The fixed end is below the moving end. Both straight sections join the same return bend.">
+<defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" class="grid"/></pattern></defs>
+<rect x="-430" y="-897" width="900" height="372" fill="url(#grid)"/>
+<rect x="-389.42" y="-831.5" width="761.92" height="243" fill="#dfece7" fill-opacity=".45" stroke="#69958c" stroke-dasharray="5 5"/>
+<text class="small" x="-377" y="-848">Carrier clearance envelope · side elevation</text>
+<path id="outer" fill="none" stroke="#294d51" stroke-width="23" stroke-linecap="butt"/>
+<path id="links" fill="none" stroke="#c1d7d2" stroke-width="17" stroke-dasharray="2 28.5"/>
+<path id="wire" fill="none" stroke="#f6b255" stroke-width="4"/>
+<circle cx="-5" cy="-600" r="8" fill="#fff" stroke="#225d61" stroke-width="3"/>
+<text class="lab" x="11" y="-566">Fixed end</text>
+<g id="end"><circle cx="0" cy="-800" r="8" fill="#00776b" stroke="white" stroke-width="3"/>
+<text class="lab" text-anchor="middle" x="0" y="-861">Moving end</text><path d="M0 -851V-812" stroke="#00776b"/></g>
+<path d="M-390 -548h100m-100 -4v8m100 -8v8" stroke="#465c5a"/><text class="small" x="-278" y="-542">100 mm</text>
+</svg>
+<div class="controls"><label for="stroke">Shelf extension <output id="value" for="stroke">0 mm</output></label><input type="range" id="stroke" min="0" max="370" value="0" step="1"></div>
+<figcaption>The shaded envelope includes carrier width in the 3-D check and upper-run camber. The closest part is the backup lift return line. The drawing shows the ideal cable centerline. Individual link seating and end brackets require a fit check.</figcaption></figure>
+<dl><div><dt>Managed length</dt><dd>701.5 mm</dd></div><div><dt>Carrier bend radius</dt><dd>100 mm</dd></div><div><dt>Minimum modeled clearance</dt><dd>11.41 mm</dd></div></dl>
+<footer>The inboard route cuts into the service-pin rail at pickup. Moving the carrier outward clears the rail throughout 370 mm of travel on the 603-body model. <a href="geometry.json">CAD results</a> · <a href="power/budget.json">Camera voltage budget</a></footer>
+</main><script>
+const stroke=document.querySelector('#stroke');
+function draw(){
+  const x=Number(stroke.value)-72.5;
+  const turn=(-5+x+Math.PI*100-701.5)/2;
+  const path='M-5 -600 H'+turn+' A100 100 0 0 1 '+turn+' -800 H'+x;
+  for(const id of ['outer','links','wire'])document.getElementById(id).setAttribute('d',path);
+  document.getElementById('end').setAttribute('transform','translate('+x+' 0)');
+  document.getElementById('value').value=stroke.value+' mm';
+}
+stroke.addEventListener('input',draw);draw();
+</script></body></html>

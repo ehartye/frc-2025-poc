@@ -2,6 +2,8 @@
 
 [Watch the pipe land in the trough](spatial-contact/replay.html). Five corrected approaches each support one modeled L1 score and a park. The [spatial contact and field study](spatial-contact/README.md) follows each pipe through the scoring assessment and measures the return error at the second station.
 
+[Move the camera service loop through its full stroke](moving-harness/explore.html). The [routing study](moving-harness/README.md) checks the 603-body robot and the loaded voltage available at the moving camera.
+
 [Drive the final approach to the reef](sector-alignment/replay.html). Try a 35 mm starting error, a missing camera frame or a shifted field survey. The [docking and stowed-park evidence](sector-alignment/README.md) follows the aft-camera robot onto the match clock.
 
 [Replay the 593-body fixed-low match](integrated-match/replay.html). Follow two identified pipes on one controller clock, inject a late camera frame, or park after the first delivery. The [engineering record](integrated-match/README.md) explains the nine-, five- and seven-point modeled outcomes.

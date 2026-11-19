@@ -1,0 +1,38 @@
+{
+  "schema": "frc-power-comparison/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "window": {
+    "fromS": 0,
+    "toS": 0.02
+  },
+  "maxSampleIntervalS": 0.02,
+  "requiredLoads": [
+    "camera"
+  ],
+  "locations": [
+    {
+      "id": "camera-input",
+      "minV": 5.0
+    }
+  ],
+  "trials": [
+    {
+      "id": "screened",
+      "condition": "1.9 m moving-camera lead with 0 ohm added interface resistance",
+      "trace": {
+        "file": "screened.json",
+        "sha256": "b8249cb85bb9ffeae0a43535e20d2e99c9789b3ba720b9899c20e06ac7371761"
+      }
+    },
+    {
+      "id": "worn",
+      "condition": "1.9 m moving-camera lead with 0.05 ohm added interface resistance",
+      "trace": {
+        "file": "worn.json",
+        "sha256": "6561c9200a6a84c2f29b4e689dc969a7d5880005154769ff7fa3ab281a500d84"
+      }
+    }
+  ]
+}
