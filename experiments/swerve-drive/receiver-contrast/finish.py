@@ -98,7 +98,7 @@ def inspect(views, frame, challenge=None):
     return {"captureJavaMs": frame["captureJavaMs"], **row}
 
 
-def freeze(folder, out, one=False, docks=None):
+def freeze(folder, out, docks=None):
     source = witness.HERE / "receiver-witness.json"
     baseline = witness.read(source)
     feeds, cases, sources = inputs(docks)
@@ -142,10 +142,7 @@ def freeze(folder, out, one=False, docks=None):
                 fixed_finish=label != "issuedMatched",
                 whole_part=label not in ("topOnly", "issuedMatched"),
             )
-            frames = [
-                inspect(views, frame)
-                for frame in (old["frames"][4:5] if one else old["frames"])
-            ]
+            frames = [inspect(views, frame) for frame in old["frames"]]
             if label == "issuedMatched":
                 reference = [
                     f
@@ -164,20 +161,17 @@ def freeze(folder, out, one=False, docks=None):
                 "gate45ms": witness.service_gate(frames, feed, 45),
             }
             print(name, old["stepUs"], label, [f["roof"] for f in frames], flush=True)
-        if not one:
-            for challenge in (
-                "empty",
-                "off-center",
-                "yaw-7-deg",
-                "fixed-left-drop",
-                "roof-right-drop",
-                "opaque-guard",
-            ):
-                views = select_views(path, 80, blocked=challenge == "opaque-guard")
-                row["controls"][challenge] = inspect(views, old["frames"][4], challenge)
+        for challenge in (
+            "empty",
+            "off-center",
+            "yaw-7-deg",
+            "fixed-left-drop",
+            "roof-right-drop",
+            "opaque-guard",
+        ):
+            views = select_views(path, 80, blocked=challenge == "opaque-guard")
+            row["controls"][challenge] = inspect(views, old["frames"][4], challenge)
         result.append(row)
-        if one:
-            break
     record = {"surfaces": meta, "sourceObservationSha256": sources, "cases": result}
     out.write_text(
         json.dumps(record, indent=2, allow_nan=False) + "\n",
@@ -190,7 +184,6 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("scene", type=Path)
     p.add_argument("result", type=Path)
-    p.add_argument("--one", action="store_true")
     p.add_argument("--docks", type=Path)
     a = p.parse_args()
-    freeze(a.scene, a.result, a.one, a.docks)
+    freeze(a.scene, a.result, a.docks)
