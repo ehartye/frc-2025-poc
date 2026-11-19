@@ -17,7 +17,7 @@ from OCP.gp import gp_Pnt
 # The first field half, tape at the barge boundary and starting tape support the wheels.
 SUPPORTS = {"NAUO2:FE-2024-01","NAUO16:tape_Truss1_Red","NAUO31:tape_AutoLine"}
 SEARCH_MM = 350
-TRIALS = {"issued":(365,95.5625),"shorter":(370,95.5625),
+TRIALS = {"issued":(365,95.5625),"shorter":(370,95.5625),"near-tape":(372,95.5625),
           "shared-100":(370,100),"shared-105":(370,105),"shared-110":(370,110)}
 INCH = 25.4
 

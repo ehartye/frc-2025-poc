@@ -2,6 +2,24 @@
 
 [Open the interactive leave and park replay](replay.html). Red 2 begins empty on its starting tape. Its receiver stays stowed at the issued height throughout. This role uses only the drivetrain. A team deciding before the match can use it when the station, pipe capture or release observer is unavailable. Switching into it from an arbitrary mid-match pose would require a new route.
 
+## Trade tape clearance for cage clearance
+
+Choose **Stop closer to the tape** in the replay. Keep Red 1 in the reassigned middle slot and Red 2 in the south lane. Red 2 drives straight for **0.543 m in 1.345 s** and holds at field X 372 in. Compared with X 370 in, the shorter drive gives the hanging hardware another **47.71 mm** of movement allowance. At the assumed 3° sway, the robot still clears its starting tape by **32.29 mm** after tracking error and keeps **28.74 mm** of clearance to the hanging hardware. Its front cover overlaps the parking zone through the buzzer.
+
+| Red 2 stop | Hanging hardware movement available after tracking | Remaining clearance with 3° assumed sway | Tape clearance after tracking |
+|---|---:|---:|---:|
+| Reserved lane, X 370 in | 62.89 mm | −18.96 mm | 80.16 mm |
+| Reserved lane, X 372 in | 110.60 mm | 28.74 mm | 32.29 mm |
+| South partner keeps slot, X 370 in | 29.74 mm | −52.11 mm | 80.16 mm |
+
+Move the **Sway allowance** slider to compare the entire drawn paths. The native field has six fixed eye nuts, six cages, four chains and ten carabiners. A 131.39 mm radius encloses each hanging assembly about its registered axis at any twist. For an assumed angle θ, the screen adds 1,561.84 mm × tan(θ) horizontally in every direction, using the highest fixed eye and the floor. For field use, the centerlines of the hanging cage, clips and chain must stay within that cone below the eye throughout the reservation. Survey the anchor positions and bound the entire assembly, including its bottom during tilt. A single cage-face angle cannot establish that condition. The full-height projection covers either team-selectable cage depth. At 4.1° the new route exhausts the allowance. The kickoff planning polygons still reserve the wider lane, and the robot's actual tracking, cage motion and partner commitments require field evidence.
+
+An exhausted allowance leaves the outcome unresolved. A separate solid test shows a real intersection for the partner-retained route. Tilting its adjacent deep cage 6° toward the parked robot, about a trial pivot in the vertical overlap of the upper clip and eye, puts **665.02 mm³** of cage material inside the front bumper cover. The same two bodies have zero common volume at 0° and 4°. These are specified poses. The study does not predict field swing amplitude or contact forces. [Hanging inventory, route bounds and material trials](cage-motion.json)
+
+The high, double-pinned carriage uses the same outer footprint. The check reopens the stowed robot and replacement kit, measures the resulting 583-body assembly, and repeats the bumper, stock and wheel checks on the X 372 in route. It clears all 24 installed pieces. Running the two 49.68–65.22 kg mass endpoints through the wheel model requires a tire friction coefficient of 0.272, up to 11.72 A phase current per drive and at least 11.83 V modeled bus voltage. The installed Agent FRC body-event review remains registered to the 545-body source revision. [Locked assembly](../design/fixed-height) · [Installed route checks](body-route-review.json)
+
+To rebuild, run `python leave-park/native_park.py FIELD_STEP`, `python leave-park/cage_motion.py FIELD_STEP` and `python leave-park/view_data.py`. Supply the registered field STEP.
+
 ## Stop five inches sooner
 
 In the replay, choose **Shorter straight AUTO** and toggle **Static cage bounds**. Red 2 starts at the same point in the reserved south lane and stops at field X 370 in. It travels 0.594 m in 1.407 s. Its bumper clears the starting tape by 117.93 mm and still overlaps the scoring zone at the end of the match.

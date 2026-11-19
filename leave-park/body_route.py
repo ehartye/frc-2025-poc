@@ -100,7 +100,8 @@ def main():
     args=parser.parse_args()
     plugin=args.plugin.resolve()
     cases={key:replay(plugin,args.output/key,trial,adverse) for key,trial,adverse in
-           [("issued","issued",False),("shorter","shorter",False),("retained-partner","shared-105",False),("occupied-start","issued",True)]}
+           [("issued","issued",False),("shorter","shorter",False),("near-tape","near-tape",False),
+            ("retained-partner","shared-105",False),("occupied-start","issued",True)]}
     report={"plugin":read(plugin/"package.json")["version"],"cases":cases}
     write(args.output,"review",report)
     print(json.dumps(report,indent=2))
