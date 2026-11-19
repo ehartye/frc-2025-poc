@@ -45,3 +45,9 @@ class LeavePark(unittest.TestCase):
         self.assertGreater(direct["minimum_centerline_clearance_m"],0)
         self.assertLess(direct["drive"]["friction_required"],.27)
         self.assertGreater(direct["middle_slot_drive"]["friction_required"],1.3)
+        tight,loose=direct["wheel_error_cases"]
+        self.assertGreater(tight["remaining_field_margin_m"],0)
+        self.assertLess(loose["remaining_field_margin_m"],0)
+        self.assertGreater(tight["remaining_end_auto_tape_clearance_m"],0)
+        self.assertGreater(tight["start_cover_in_eroded_tape_mm3"],0)
+        self.assertGreater(tight["end_cover_in_eroded_zone_mm3"],0)

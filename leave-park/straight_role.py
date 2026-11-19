@@ -48,6 +48,30 @@ def wheel_load(paths):
             "parameter_cases_clear":all(r["parameterCaseClears"] for r in rows)}
 
 
+def wheel_error_budget(f,direct,hull,tape,zone,shapes,overlap,field_gap,fraction):
+    distance=direct.segments[0]["demand"]
+    radius=math.hypot(hull[3],hull[4])/1000
+    heading=math.radians(.4)
+    placement=.005
+    # At distance s the differential wheel scale mismatch is bounded by 2 e s / track.
+    # Integrating this ramp bounds center displacement throughout the straight.
+    wheel_yaw=2*fraction*distance/f.DRIVE["trackM"]
+    center=placement+fraction*distance+distance*(1+fraction)*(heading+wheel_yaw/2)
+    body=center+2*radius*math.sin((heading+wheel_yaw)/2)
+    initial=placement+2*radius*math.sin(heading/2)
+    def eroded(region,error):
+        x0,y0,x1,y1=region
+        return (x0+error/f.IN,y0+error/f.IN,x1-error/f.IN,y1-error/f.IN)
+    start_cover=sum(overlap(f,shapes,direct.start,eroded(tape,initial)).values())
+    parked_cover=sum(overlap(f,shapes,direct.end,eroded(zone,body)).values())
+    tape_gap=(tape[0]*f.IN-direct.end[0]-hull[3]/1000)-body
+    return {"wheel_scale_fraction_each":fraction,"initial_position_radius_m":placement,
+            "initial_heading_deg":math.degrees(heading),"center_error_bound_m":center,
+            "max_heading_deg":math.degrees(heading+wheel_yaw),"footprint_error_bound_m":body,
+            "remaining_field_margin_m":field_gap-body,"remaining_end_auto_tape_clearance_m":tape_gap,
+            "start_cover_in_eroded_tape_mm3":start_cover,"end_cover_in_eroded_zone_mm3":parked_cover}
+
+
 def analyze(f,leave,park,shapes,boxes,hull,stock,tape,zone,overlap):
     direct=path(f)
     peers=team_at_teleop(f,direct)
@@ -70,5 +94,7 @@ def analyze(f,leave,park,shapes,boxes,hull,stock,tape,zone,overlap):
             "min_teleop_pair_gap_m":roster["min_separating_bound_m"],
             "start_overlap_if_partner_keeps_south_slot_m":-collision,
             "minimum_centerline_clearance_m":direct.end[0]-.425-f.PROFILE["field"]["length"]*.5*f.IN,
+            "wheel_error_cases":[wheel_error_budget(f,direct,hull,tape,zone,shapes,overlap,field["gap_m"],e)
+                                 for e in (.0025,.005)],
             "drive":load,"middle_slot_drive":wheel_load([leave,park]),
             "potential_points":5 if geometry and load["parameter_cases_clear"] else None}
