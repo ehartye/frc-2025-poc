@@ -96,7 +96,7 @@ def enclose(fit, keys, truth):
     )
 
 
-def observe(fixed, roof, center, axis, fault=None, wheel_mask=None):
+def observe(fixed, roof, center, axis, fault=None, wheel_mask=None, *, fixed_reader=read_pair):
     sensor.scenes.fixed_pose(O)
     empty = [gray for gray, _ in fixed]
     fixed_images = empty if center is None else silhouette(fixed, center, axis)
@@ -109,7 +109,7 @@ def observe(fixed, roof, center, axis, fault=None, wheel_mask=None):
             wheel_mask["fixed"],
             wheel_mask.get("wholeScanlines", False),
         )
-    position = read_pair(fixed_images, empty, 560, 0)
+    position = fixed_reader(fixed_images, empty, 560, 0)
     sensor.optics.configure()
     actual, reference = roof
     roof_images = (
