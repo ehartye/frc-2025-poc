@@ -1,5 +1,7 @@
 # Station-to-L1 differential drive engineering review
 
+The [chain-cover fit study](../../chain-covers/README.md) repositions the front loop and checks removable cover skins against the installed wheel fasteners.
+
 The first loaded station-to-reef transfer calls for four straight runs and three turns. At 62 kg the selected six-wheel candidate reproduces the signed 8.9488 m path in 17.081 s within the modeled motor, electrical, traction and chain limits. The tightest field assumption is turn traction. The replay requires a longitudinal coefficient of 0.810 against an assumed 0.90, with lateral scrub fixed at 0.38. The project's previous 96-part configuration remains the reference for the earlier pipe-custody experiment. [Registered route](../../mission/field-registration.json) · [Candidate calculations and adverse cases](route-receipt.json) · [Earlier robot](../station-l1/README.md)
 
 Open [the editable OpenSCAD assembly](review/station-l1.scad) and use its pose and part selectors. Inspect the native solids in [stowed](review/stowed.step), [receive](review/receive.step), [transport](review/transport.step) or [place](review/place.step). All dimensions below are millimetres in robot coordinates, with +X forward and +Y left. Use the component table for exact candidate identities and primary drawings. [Components](SOURCES.md) · [Itemized BOM](review/bom.csv)
