@@ -16,7 +16,7 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Compare the two fixed-height inspection inventories](design/shared-height/README.md), including the shared mast CAD, the strength cost of drilling a second lock position and the six loose pieces required when presenting the low robot.
 
-[Inspect the moving-shelf stereo bridge](moving-observer/README.md) to see both pipes through transport and extension and check which release frames meet the deadline.
+[Inspect the moving-shelf stereo bridge](moving-observer/README.md) to see both pipes through transport and extension. [Explore camera delivery deadlines](moving-frame-timing/README.md) for the 5 ms and 20 ms desktop controllers.
 
 ## Design highlights
 
