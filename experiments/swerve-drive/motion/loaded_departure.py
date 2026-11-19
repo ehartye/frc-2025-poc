@@ -113,9 +113,17 @@ def main(args):
         from departure_vision import run
 
         decision = run(
-            args.field, f, service, initial, read(trial / ds), read(trial / cs), trial
+            args.field,
+            f,
+            service,
+            initial,
+            read(trial / ds),
+            read(trial / cs),
+            trial,
+            wheel_mask_path=args.wheel_mask,
         )
-        write(trial / f"images-{args.lease_ms}.json", decision)
+        prefix = "swept-images" if args.wheel_mask else "images"
+        write(trial / f"{prefix}-{args.lease_ms}.json", decision)
 
 
 if __name__ == "__main__":
@@ -135,6 +143,7 @@ if __name__ == "__main__":
             a.add_argument("--wheels", type=Path, required=True)
         if stage == "vision":
             a.add_argument("--field", type=Path, required=True)
+            a.add_argument("--wheel-mask", type=Path)
     a = p.parse_args()
     if a.stage == "collect":
         feeds(a.raw, a.output)

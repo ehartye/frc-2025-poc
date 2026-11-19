@@ -14,9 +14,11 @@ PROJECT = HERE.parents[2]
 LEGACY = HERE.parents[1] / "six-wheel"
 sys.path.insert(0, str(LEGACY / "straight-guide-match"))
 from camera import sensor, measure, peak
+from controls import bridge_fit
 from station import field_mesh, read_pair, silhouette, O
 from station_scene import scene
 from station_clock import service_gate
+from wheel_visibility import load_wheel_mask, mask_fixed_contour
 
 sensor.scenes.camera = sensor.camera
 
@@ -94,12 +96,19 @@ def enclose(fit, keys, truth):
     )
 
 
-def observe(fixed, roof, center, axis, fault=None):
+def observe(fixed, roof, center, axis, fault=None, wheel_mask=None):
     sensor.scenes.fixed_pose(O)
     empty = [gray for gray, _ in fixed]
     fixed_images = empty if center is None else silhouette(fixed, center, axis)
     if fault == "fixed-left-drop":
         fixed_images[0] = np.zeros_like(empty[0])
+    if wheel_mask is not None:
+        fixed_images, empty = mask_fixed_contour(
+            fixed_images,
+            empty,
+            wheel_mask["fixed"],
+            wheel_mask.get("wholeScanlines", False),
+        )
     position = read_pair(fixed_images, empty, 560, 0)
     sensor.optics.configure()
     actual, reference = roof
@@ -110,7 +119,19 @@ def observe(fixed, roof, center, axis, fault=None):
     )
     if fault == "roof-right-drop":
         roof_images[1] = np.zeros_like(actual[1][0])
+    if wheel_mask is not None:
+        # Uncertain received pixels cannot establish either a contour or a reference.
+        roof_images = [
+            np.where(mask, 32, im) for mask, im in zip(wheel_mask["roof"], roof_images)
+        ]
+        reference = [
+            (np.where(mask, 32, gr), np.where(mask, 3500.0, depth))
+            for mask, (gr, depth) in zip(wheel_mask["roof"], reference)
+        ]
     fit = measure(roof_images, reference, peak_bound=peak)
+    # Pose-specific calibration images are discarded after this measurement.
+    # The historical registration cache otherwise keeps every full stereo pair.
+    bridge_fit._registered.pop(tuple(id(gray) for gray, _ in reference), None)
     angle = fit.get("independentYawIntervalRad")
     accepted = (
         position["status"] == "position-witness"
@@ -152,7 +173,17 @@ def observe(fixed, roof, center, axis, fault=None):
     }
 
 
-def run(source_dir, field, opening=None, feeds=None):
+def run(
+    source_dir,
+    field,
+    opening=None,
+    feeds=None,
+    wheel_mask_path=None,
+    whole_scanlines=False,
+):
+    wheel_mask = None if wheel_mask_path is None else load_wheel_mask(wheel_mask_path)
+    if wheel_mask is not None:
+        wheel_mask["wholeScanlines"] = whole_scanlines
     opening = opening or HERE / "opening.json"
     feeds = feeds or HERE / "first-feed.json"
     field_hash = read(LEGACY / "full-match/installed-stock.json")["field_step_sha256"]
@@ -208,7 +239,7 @@ def run(source_dir, field, opening=None, feeds=None):
         for mode, roof in modes.items():
             outcomes = []
             for stamp, center, axis in states:
-                obs = observe(fixed, roof, center, axis)
+                obs = observe(fixed, roof, center, axis, wheel_mask=wheel_mask)
                 outcomes.append(
                     dict(
                         captureJavaMs=stamp,
@@ -243,7 +274,7 @@ def run(source_dir, field, opening=None, feeds=None):
             ("fixed-left-drop", center, axis),
             ("roof-right-drop", center, axis),
         ]:
-            outcome = observe(fixed, modes["guarded"], q, v, name)
+            outcome = observe(fixed, modes["guarded"], q, v, name, wheel_mask)
             if outcome["accepted"]:
                 raise ValueError("A failed challenge was granted: " + name)
             controls.append(
@@ -266,6 +297,11 @@ def run(source_dir, field, opening=None, feeds=None):
         cameraMountSha256=digest(LEGACY / "selected-optics/mount.json"),
         cases=results,
         controls=controls,
+        **(
+            {"wheelMaskRegisterSha256": digest(wheel_mask_path)}
+            if wheel_mask_path
+            else {}
+        ),
         **({"withheld": withheld} if withheld else {}),
     )
 
@@ -277,10 +313,23 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument("--opening", type=Path)
     parser.add_argument("--feed-register", type=Path)
+    parser.add_argument("--wheel-mask", type=Path)
+    parser.add_argument(
+        "--whole-scanlines",
+        action="store_true",
+        help="Conservative entire-row control for the fixed stereo",
+    )
     args = parser.parse_args()
     args.output.write_text(
         json.dumps(
-            run(args.feeds, args.field, args.opening, args.feed_register),
+            run(
+                args.feeds,
+                args.field,
+                args.opening,
+                args.feed_register,
+                args.wheel_mask,
+                args.whole_scanlines,
+            ),
             indent=2,
             allow_nan=False,
         )

@@ -19,6 +19,7 @@ def run(
     folder,
     finish="guarded",
     render_cache=None,
+    wheel_mask_path=None,
 ):
     if (
         camera.digest(field)
@@ -56,6 +57,9 @@ def run(
     mesh, fixed_robot, roof_robot = render_cache
     first = service["wallS"]
     epoch = feed["javaEpochWallS"]
+    wheel_mask = (
+        None if wheel_mask_path is None else camera.load_wheel_mask(wheel_mask_path)
+    )
     witness = []
     lost_eye = None
     stamp = 5474
@@ -79,10 +83,12 @@ def run(
         roof = camera.sensor.shelf_guard(
             actual, ref, camera.sensor.optics.ORIGIN[2], finish == "matched", 0.05
         )
-        outcome = camera.observe(fixed, roof, 1000 * physical[:3], axis)
+        outcome = camera.observe(
+            fixed, roof, 1000 * physical[:3], axis, wheel_mask=wheel_mask
+        )
         if lost_eye is None:
             bad = camera.observe(
-                fixed, roof, 1000 * physical[:3], axis, "fixed-left-drop"
+                fixed, roof, 1000 * physical[:3], axis, "fixed-left-drop", wheel_mask
             )
             if bad["accepted"]:
                 raise ValueError("Missing eye authorized a fresh moving capture")
@@ -102,6 +108,11 @@ def run(
         start, [lost_eye] if lost_eye else [], first, first + chassis["leaseS"]
     )
     return dict(
+        **(
+            {"wheelMaskRegisterSha256": camera.digest(wheel_mask_path)}
+            if wheel_mask_path
+            else {}
+        ),
         dropout={
             "frame": lost_eye,
             "stopWallS": dropout_tick,

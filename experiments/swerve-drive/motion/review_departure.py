@@ -54,7 +54,26 @@ def run(raw, feeds, witness):
                 or service["incoming"] != feed["pipeStateSha256"]
             ):
                 raise ValueError("Changed first wheel-service state")
-            images = read(folder / "images-600.json")
+            images = read(folder / "swept-images-600.json")
+            mask_register = sha(raw / "wheel-visibility.json")
+            if (
+                images.get("wheelMaskRegisterSha256") != mask_register
+                or optics.get("wheelMaskRegisterSha256") != mask_register
+            ):
+                raise ValueError("Moving and stationary camera masks differ")
+            no_move = read(folder / "drive-0.json")
+            if (
+                no_move["distanceMm"] != 0.0
+                or no_move["serviceState"] != service["outgoing"]
+            ):
+                raise ValueError("Denied-custody branch moved")
+            row["lateOrMatchedChassis"] = no_move
+            row["illustrativeWheelsControl"] = {
+                k: v
+                for k, v in read(folder / "images-600.json").items()
+                if k in ("stopWallS", "acceptedFrames", "chassis", "contact")
+            }
+
             ms = lambda t: round((t - service["wallS"]) * 1000)
             options = {
                 "forwardTrial": 600,
@@ -63,12 +82,20 @@ def run(raw, feeds, witness):
             }
             if not 0 <= min(options.values()) <= max(options.values()) <= 600:
                 raise ValueError("Invalid lease")
-            row.update(service=service, options=options, routes={})
+            row.update(
+                service=service,
+                options=options,
+                routes={},
+                forwardIllustrationFeedSha256=sha(folder / "feed.json"),
+                forwardIllustrationStationWitnessSha256=sha(folder / "station.json"),
+            )
             for duration in dict.fromkeys(options.values()):
                 wheels = read(folder / f"drive-{duration}.json")
                 cargo = read(folder / f"contact-{duration}.json")
                 if (
                     wheels["trajectory"] != sha(folder / f"{side}-{duration}.npz")
+                    or wheels["wheelStateAndEncoderTrace"]
+                    != sha(folder / f"{side}-{duration}-wheels.npz")
                     or wheels["trajectory"] != cargo["chassis"]
                     or wheels["serviceState"] != service["outgoing"]
                     or cargo["serviceState"] != service["outgoing"]
@@ -79,7 +106,7 @@ def run(raw, feeds, witness):
                     raise ValueError("Changed chassis, pipe clock or terminal state")
                 compact = {"wheel": wheels, "pipe": cargo}
                 if duration == options["observed"] or duration == 600:
-                    obs = read(folder / f"images-{duration}.json")
+                    obs = read(folder / f"swept-images-{duration}.json")
                     if (
                         obs["chassis"] != wheels["trajectory"]
                         or obs["contact"] != cargo["sha256"]
@@ -106,6 +133,19 @@ def run(raw, feeds, witness):
         stationWitnessSha256=sha(witness),
         scope="Prebuild first loaded departure at the red station. Guarded shelf finish, registered two-head images, stowed slide and first source-fed pipe. No placement or second trip.",
         cases=records,
+        wheelVisibilityRegisterSha256=sha(raw / "wheel-visibility.json"),
+        wholeScanlineControlSha256=sha(raw / "whole-row-control.json"),
+        wholeScanlineControls=[
+            dict(
+                case=r["case"],
+                stepUs=r["stepUs"],
+                granted=r["gate"]["accepted"],
+                fixed=[f["fixed"] for f in r["frames"]],
+                roof=[f["roof"] for f in r["frames"]],
+            )
+            for r in read(raw / "whole-row-control.json")["cases"]
+            if r["finish"] == "guarded"
+        ],
     )
 
 

@@ -75,7 +75,7 @@ def run(case, clock_dir, lease, destination, service):
     shares = (empty * shares0 + cargo * cargo_shares) / mass
     cg0 = shares0 @ xy
     cg = shares @ xy
-    # Conservative tube yaw inertia adds m LÃ‚Â²/12 and parallel-axis shift.
+    # Conservative tube yaw inertia adds m LÃƒâ€šÃ‚Â²/12 and parallel-axis shift.
     inertia = (
         issued["assumedYawInertiaKgM2"]
         + empty * np.sum((cg - cg0) ** 2)
@@ -103,6 +103,11 @@ def run(case, clock_dir, lease, destination, service):
     gyro = start[2]
     phase_origin = service["wallS"]
     dt = 0.005
+    estimated_q = issued["estimatedTerminalMmMmDeg"]
+    estimated_start = dock.world([*estimated_q[:2], math.radians(estimated_q[2])], f)
+    odom = dock.Odometry(plant, estimated_start, mapping, gyro)
+    raw_turns, raw_azimuth = plant.sensors()
+    encoder_rows = [[*raw_turns, *raw_azimuth, gyro, *odom.pose]]
     pose = [start.copy()]
     velocity = [plant.velocity.copy()]
     for k in range(math.ceil((lease + 0.90) / dt)):
@@ -118,6 +123,9 @@ def run(case, clock_dir, lease, destination, service):
         gyro += dt * (
             (1 + sign * 0.001) * plant.velocity[2] + sign * math.radians(0.02)
         )
+        raw_turns, raw_azimuth = plant.sensors()
+        odom.update(raw_turns, raw_azimuth, gyro)
+        encoder_rows.append([*raw_turns, *raw_azimuth, gyro, *odom.pose])
         pose.append(plant.pose.copy())
         velocity.append(plant.velocity.copy())
     pose = np.array(pose)
@@ -141,6 +149,29 @@ def run(case, clock_dir, lease, destination, service):
         bodyAcceleration=sp,
         stationMmMmRad=np.array([dock.station(p, f) for p in pose]),
     )
+    wheel_file = out.with_name(out.stem + "-wheels.npz")
+    np.savez(
+        wheel_file,
+        relativeS=times,
+        rotorAbsoluteGyroEstimatedWorld=np.asarray(encoder_rows),
+        pose=plant.pose,
+        velocity=plant.velocity,
+        angle=plant.angle,
+        azimuth_rate=plant.azimuth_rate,
+        wheel_speed=plant.wheel_speed,
+        wheel_turns=plant.wheel_turns,
+        target_speed=plant.target_speed,
+        load=plant.load,
+        gyro=gyro,
+        estimatedPose=odom.pose,
+        odomAngles=odom.angles,
+        odomRotor=odom.rotor,
+        odomAbsolute=odom.absolute,
+        headingDatum=start[2],
+        radii=plant.radius,
+        staticShares=shares,
+    )
+    estimated_delta = odom.pose[:2] - estimated_start[:2]
     field = dock.screen(
         f,
         phase_origin + times,
@@ -189,6 +220,11 @@ def run(case, clock_dir, lease, destination, service):
             1000 * dock.field_to_body(pose[-1, :2] - pose[0, :2], pose[0, 2])
         ).tolist(),
         trajectory=dock.sha(out),
+        wheelStateAndEncoderTrace=dock.sha(wheel_file),
+        odometryDisplacementMm=float(1000 * np.linalg.norm(estimated_delta)),
+        relativeOdometryErrorMm=float(
+            1000 * np.linalg.norm(estimated_delta - (pose[-1, :2] - pose[0, :2]))
+        ),
         initialBodyYawRad=start[2],
         incomingMaxLinearOrAngularRate=residual,
         loadedMassKg=mass,
