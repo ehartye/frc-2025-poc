@@ -28,6 +28,8 @@ The [student lab](dock-lab.html) converts two sideways readings 200 mm apart plu
 
 The [robot-mounted station survey](../station-localization/README.md) checks which landmarks the robot can see, how much image error the entry tolerances allow, and how the team can independently register the chute.
 
+The [mechanically tolerant pickup](../station-relief/README.md) relieves the jaw plates, sets the springs and checks the incoming pipe through seating across the wider entry windows.
+
 ## Reproduce the geometry studies
 
 Supply the January field STEP used in the [source receipt](transfer.json). From the project root, use the CAD Python environment that can import OCP.
