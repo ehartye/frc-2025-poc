@@ -65,6 +65,14 @@ def inventory(plugin, src, out, receipt):
     alu = sum(v for k, v in hardware.items() if "saddle" in k or "welded-thread-boss" in k)
     steel = sum(hardware.values()) - alu
     metal = np.array([alu * 2.60e-6 + steel * 7.2e-6, alu * 2.85e-6 + steel * 8.10e-6 + 0.040])
+    source_budget = read(package / "mount-budget.json")
+    if source_budget["sourceFrameSha256"] != frame["stepSha256"]:
+        raise ValueError("Mount budget belongs to a different manufactured frame")
+    issued = source_budget["mass"]
+    if not np.isclose(issued["newKitOnlyKg"], alu * 2.7e-6 + steel * 7.85e-6, rtol=0, atol=1e-8):
+        raise ValueError("Registered positive metal no longer matches the fixture")
+    metal[1] = issued["zeroChipCreditUpperKg"]
+    credit[1] = metal[1] - issued["matchedStockUpperKg"]
     trays = sum(v["volumeMm3"] for v in fit["corners"].values())
     plates = np.array([trays * 2.60e-6, trays * 2.85e-6 + 0.010])
     # Eight blind inserts, screws and collars, sixteen controller straps and
@@ -235,6 +243,7 @@ def inventory(plugin, src, out, receipt):
                 for p in (
                     package / "retirement.json",
                     package / "frame.json",
+                    package / "mount-budget.json",
                     HERE / "controller-fit.json",
                     HERE / "paths.json",
                     HERE / "harness.json",

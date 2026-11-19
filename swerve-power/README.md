@@ -1,6 +1,6 @@
 # Power, weight and tire grip for four-module swerve
 
-The revised opening fits the simulated power and tire limits at **65 kg and 72 kg**, for both signed module calibrations. Inspection weight remains the binding design constraint. With the shorter wiring target the dressed R103 upper endpoint is **54.628 kg**, 2.464 kg over the 52.163 kg limit. The 72 kg opening covers even the longer wiring estimate with the battery, 7.5 kg bumpers and one pipe, although that trial drives an empty robot. [Reconciled mass](installed.json) · [Four achieved opening clocks and adverse control](routes.json)
+The revised opening fits the simulated power and tire limits at **65 kg and 72 kg**, for both signed module calibrations. Inspection weight remains the binding design constraint. With the shorter wiring target the dressed R103 upper endpoint is **54.792 kg**, 2.629 kg over the 52.163 kg limit. The 72 kg opening covers even the longer wiring estimate with the battery, 7.5 kg bumpers and one pipe, although that trial drives an empty robot. [Reconciled mass](installed.json) · [Four achieved opening clocks and adverse control](routes.json)
 
 ## Why slow the transition into the turn?
 
@@ -35,14 +35,14 @@ Four 16 mm diameter supply corridors and eight 10 mm local phase/sensor corridor
 
 ## Reconcile inspection weight
 
-The source assembly has 1,199 identities. Retire the six-wheel drive and substitute the seven revised rail/deck parts. Two existing NEOs and their two SPARK MAX controllers remain in the swerve installation. Count the four furnished modules at an incoming 1.634–1.806 kg per module, with both motors included in each weight. Charge only six additional controllers at 108–120 g each. The old two motor mass rows are transferred into the populated-module budget. Credit the named original drive rows, their selected light carriers and axle-retention parts, the 36 wheel-hub screws and the complete formed guard hardware. The 22 camera carrier links and mast ear set remain. Credits for machining use the exact supplier-independent frame/deck volumes under a matched-stock assumption. [Original R103 row exchange](mass.json) · [Installed item partition](installed.json)
+The final mount drawing charges 1.496 kg for the eight saddles, bolts, bosses, receiving spread and weld/finish before any chip credit. Its same-stock upper charge is 1.279 kg. The preliminary upper estimates at commit 460607a were 55.648 kg long and 54.628 kg short. The source assembly has 1,199 identities. Retire the six-wheel drive and substitute the seven revised rail/deck parts. Two existing NEOs and their two SPARK MAX controllers remain in the swerve installation. Count the four furnished modules at an incoming 1.634–1.806 kg per module, with both motors included in each weight. Charge only six additional controllers at 108–120 g each. The old two motor mass rows are transferred into the populated-module budget. Credit the named original drive rows, their selected light carriers and axle-retention parts, the 36 wheel-hub screws and the complete formed guard hardware. The 22 camera carrier links and mast ear set remain. Credits for machining use the exact supplier-independent frame/deck volumes under a matched-stock assumption. [Original R103 row exchange](mass.json) · [Installed item partition](installed.json)
 
 | Condition | Upper R103 estimate | Margin |
 |---|---:|---:|
-| Complete longer harness, including all positive mount/fastener charges | 55.648 kg | −3.485 kg |
-| Shorter target, allocated tails and accepted individual leads | 54.628 kg | −2.464 kg |
+| Complete longer harness, including all positive mount/fastener charges | 55.813 kg | −3.650 kg |
+| Shorter target, allocated tails and accepted individual leads | 54.792 kg | −2.629 kg |
 
-At the shorter endpoint, the inherited 2–5 kg reserve for unitemized routing, transmission, latches and hardware must stay at or below **2.536 kg** to fit the inspection cap. This is a break-even procurement requirement. The selected shared bill still keeps its full 5 kg upper allowance. With the longer wiring, full bumpers and the 6.17 kg battery, the upper field case is **69.318 kg empty**. Add 0.8165 kg for a pipe. The assembly tool also emits a wider, independently varying interval for the same item exchange. Direct matched source-row endpoints avoid crossing independent maxima and minima of a part with its own retirement. Physical weight, loaded four-pad distribution and mounting qualification remain open. [Mass solver](installed.py)
+At the shorter endpoint, the inherited 2–5 kg reserve for unitemized routing, transmission, latches and hardware must stay at or below **2.371 kg** to fit the inspection cap. This is a break-even procurement requirement. The selected shared bill still keeps its full 5 kg upper allowance. With the longer wiring, full bumpers and the 6.17 kg battery, the upper field case is **69.483 kg empty**. Add 0.8165 kg for a pipe. The assembly tool also emits a wider, independently varying interval for the same item exchange. Direct matched source-row endpoints avoid crossing independent maxima and minima of a part with its own retirement. Physical weight, loaded four-pad distribution and mounting qualification remain open. [Mass solver](installed.py)
 
 ## Reproduce
 
