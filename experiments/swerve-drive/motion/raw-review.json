@@ -1,0 +1,37 @@
+{
+  "installedVersion": "0.24.1",
+  "checkerPath": "examples/swerve/check-encoders.mjs",
+  "checkerSha256": "b995d787e9510d609778058504f13186e34ee4a63738a2598c771c607dbf048d",
+  "clockSpacingS": 0.02,
+  "toleranceMps": 0.003,
+  "cases": {
+    "registered": {
+      "exportOptions": [
+        "--raw"
+      ],
+      "fixtureSha256": "c985a54581580674397fde944fc1bd94c8684fe791aa5e23b5932802abb784d8",
+      "exitCode": 0,
+      "lines": [
+        "Diagonal translation while turning at 0.02 s: max vector error 1.662e-3 m/s",
+        "Front left pivot at 0.02 s: max vector error 2.966e-3 m/s",
+        "Sideways with reversed wheel at 0.02 s: max vector error 2.126e-3 m/s"
+      ]
+    },
+    "invertedFrontRightDrive": {
+      "exportOptions": [
+        "--raw",
+        "--wrong-polarity"
+      ],
+      "fixtureSha256": "757c88d545c0dd4ad6a25e13223eeb87176157be1e4e5a381d5fbdcbf6201c67",
+      "exitCode": 1,
+      "lines": [
+        "Diagonal translation while turning at 0.02 s: FR vector error 1.4014413564820567 m/s",
+        "Diagonal translation while turning at 0.02 s: max vector error 1.401e+0 m/s",
+        "Front left pivot at 0.02 s: FR vector error 1.561683498159728 m/s",
+        "Front left pivot at 0.02 s: max vector error 1.562e+0 m/s",
+        "Sideways with reversed wheel at 0.02 s: FR vector error 1.4999984932852386 m/s",
+        "Sideways with reversed wheel at 0.02 s: max vector error 1.500e+0 m/s"
+      ]
+    }
+  }
+}
