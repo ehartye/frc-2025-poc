@@ -1,0 +1,356 @@
+{
+  "source_sha256": {
+    "moving-observer/mount.json": "f66bd20caa354a39b1a06364617b7f1e4b85802757652c536716617cf4b38e36",
+    "moving-observer/moving-bridge.step": "3e71cf6f2834d96b901857db9af947c1bc6606c0cc13444cdfab4395ccc6d1b2",
+    "moving-observer/checks.json": "a60354a55f0b0d11d92fadb4379d6fa5829dd2b2e990dddc489b270ca0b6bbfa",
+    "moving-observer/optics.py": "2c143f1593169668536bb2cef7dd77bf4e19ae02313994caa5a4b78846cf4abc",
+    "moving-observer/replay.py": "a37461c8caaafa3f39293bb1fc272024e007dba0e39a10f4457aacdf47211001",
+    "moving-observer/MovingWitnessTest.java": "f67611cc5b660cf876903253b01a224c04381686080c5dc8e3de81df886bd8b1",
+    "fixed-height-match/native.json": "ac7a5e4d5d4891e7b2e97a16146e306a4a4418e8582e727510345f41d2cabe18",
+    "design/fixed-no-air/whole-robot.json": "8d7c1d153591966b59ff6ef8f1404057f737b809f2b7cd0db551fd8c6957b15a",
+    "design/fixed-no-air/inspection.json": "9c6d10dc173128a9c34a6f3b75a0e945cc99f01d84b65e3cba39c53906771a26",
+    "moving-frame-timing/results.json": "723b94be5dc697a05fa3c35df0878054641cece9feefa95af30d6b729081df2d",
+    "moving-frame-timing/PacketClockTest.java": "cce45cf92609c9aeea649cad1095e2a7e9ca7b832a1325e908af2450ed487673",
+    "moving-frame-timing/OpticalWindow.java": "390a354b02b41927fa24f75953a9ab1b84dd2fa9a6ab808195bd01fc2a9e89d2",
+    "moving-frame-timing/verify.py": "d871213dfc90a3f5ae3f7cc0cdbe0b71798efcec288cae345d3786815d9ebd18",
+    "low-observation/results.json": "de59084725ce1c6478a22919327cdde9e2af8aa8011f4cdeb9d298c010a8b648",
+    "full-match/installed-stock.json": "f4c4be4d987bb7cc01b579d699b62e9673fd05540c32fbd4326b78b8ab218589",
+    "leave-park/study.json": "c9fcab84bb56865b2c7a622fa840408e84841faa0429b286187321f1283bf2b5"
+  },
+  "candidate_sha256": {
+    "design.py": "daea8074374d84a441c4921ef089687a8775cdf86a8f2c5aa432f77131742e38",
+    "field.py": "707afa243c533b7f8dd84637b1294553d651cf356f98da3c56a3d2af655dc4fa",
+    "replay_candidate.py": "706d74f309ad5e1e5d093232e9f0386ae87283df9b59d68fa5a72dd24b6e3691",
+    "bridge_fit.py": "6549f51fe6240191940d2edd72c9135130c15015395fe000f69de483633d57d5",
+    "calibration.py": "8da30acf0b81ba04dcb839d9faaf501f27085213e4fd789f42936a0080dd5f13",
+    "moving-bridge.step": "0acdd96138290be1a40e1838cc18a02244abb9369e6b3d99655b88e22f6c2707",
+    "field.json": "7f1bd1d0be1e4130894a3b03e22bd79a71fe0f002f8d02c6776548cb2513964d",
+    "replay.json": "088456ffd35fb7c6d13ce6ac5575461652a8440d1b6d21a7b5192c15ea9f7b2d",
+    "travel-hal.json": "c3ba39a28d81a0cc45ecd807cb72e56ac5c0a0e98ac7eac76d40a2c89b1be6f4",
+    "timing.json": "940b3cacaea2482db2118a39d5b11d2912cfb3b4f6215f53953132540a17f11f",
+    "calibration.json": "9621212850a2d508a2c3e47fa6aa05c687e9e541c7ea88c5ab7d35c062f5bd06",
+    "mount.json": "eb407ec36786d4bb92fea789312d73cdf2519f91839d8647262720f780fed56c",
+    "contexts.csv": "d7ff24fb92adb0143345979660df1592d9aa58475c747939e020c11d45564f88",
+    "frames.csv": "d966b9f1eb9e24824e784d7c5af8177c5e44ae886b18f796fb3fa88d1e64d47d",
+    "exposures.csv": "995f6773629a8ef14bbf93736968cbfc3d8366750426f37b4c450cca9d2a754b"
+  },
+  "unchanged_article_count": 21,
+  "largest_native_translation_error_mm": 0.0,
+  "unchanged_removed_shelf_mm3": 954.2587685279002,
+  "credible_fit_on_existing_bored_shelf": false,
+  "neighbor_bore_common_mm3_per_pair": 52.27001010188653,
+  "low_camera_mass": {
+    "represented_items": 604,
+    "checker_mass_kg": [
+      35.3793089737626,
+      50.35198301824994
+    ],
+    "checker_upper_headroom_kg": 1.811139531750058,
+    "paired_R103_kg": [
+      36.1793089737626,
+      49.551983018249935
+    ],
+    "paired_upper_headroom_kg": 2.6111395317500694,
+    "paired_R408_kg": [
+      42.0793089737626,
+      57.051983018249935
+    ],
+    "paired_bumper_on_upper_headroom_kg": 4.182986931750065,
+    "finished_margin_kg": null
+  },
+  "hal_all_phase_ticks_and_results_identical": true,
+  "changed_offset_sweep_counts": {
+    "20ms/constant/coral-A": {
+      "7": {
+        "issued": [
+          324,
+          340
+        ],
+        "aft": [
+          327,
+          340
+        ]
+      },
+      "8": {
+        "issued": [
+          313,
+          340
+        ],
+        "aft": [
+          319,
+          340
+        ]
+      },
+      "9": {
+        "issued": [
+          300,
+          340
+        ],
+        "aft": [
+          309,
+          340
+        ]
+      },
+      "10": {
+        "issued": [
+          286,
+          340
+        ],
+        "aft": [
+          297,
+          340
+        ]
+      },
+      "11": {
+        "issued": [
+          262,
+          340
+        ],
+        "aft": [
+          274,
+          340
+        ]
+      },
+      "12": {
+        "issued": [
+          242,
+          340
+        ],
+        "aft": [
+          250,
+          340
+        ]
+      },
+      "13": {
+        "issued": [
+          222,
+          340
+        ],
+        "aft": [
+          226,
+          340
+        ]
+      },
+      "18": {
+        "issued": [
+          130,
+          340
+        ],
+        "aft": [
+          131,
+          340
+        ]
+      },
+      "19": {
+        "issued": [
+          109,
+          340
+        ],
+        "aft": [
+          112,
+          340
+        ]
+      },
+      "20": {
+        "issued": [
+          89,
+          340
+        ],
+        "aft": [
+          94,
+          340
+        ]
+      },
+      "21": {
+        "issued": [
+          70,
+          340
+        ],
+        "aft": [
+          77,
+          340
+        ]
+      }
+    },
+    "20ms/fixed-delay/coral-A": {
+      "7": {
+        "issued": [
+          324,
+          340
+        ],
+        "aft": [
+          327,
+          340
+        ]
+      },
+      "8": {
+        "issued": [
+          313,
+          340
+        ],
+        "aft": [
+          319,
+          340
+        ]
+      },
+      "9": {
+        "issued": [
+          300,
+          340
+        ],
+        "aft": [
+          309,
+          340
+        ]
+      },
+      "10": {
+        "issued": [
+          286,
+          340
+        ],
+        "aft": [
+          297,
+          340
+        ]
+      },
+      "11": {
+        "issued": [
+          262,
+          340
+        ],
+        "aft": [
+          274,
+          340
+        ]
+      },
+      "12": {
+        "issued": [
+          242,
+          340
+        ],
+        "aft": [
+          250,
+          340
+        ]
+      },
+      "13": {
+        "issued": [
+          222,
+          340
+        ],
+        "aft": [
+          226,
+          340
+        ]
+      },
+      "18": {
+        "issued": [
+          130,
+          340
+        ],
+        "aft": [
+          131,
+          340
+        ]
+      },
+      "19": {
+        "issued": [
+          109,
+          340
+        ],
+        "aft": [
+          112,
+          340
+        ]
+      },
+      "20": {
+        "issued": [
+          89,
+          340
+        ],
+        "aft": [
+          94,
+          340
+        ]
+      },
+      "21": {
+        "issued": [
+          70,
+          340
+        ],
+        "aft": [
+          77,
+          340
+        ]
+      }
+    },
+    "5ms/constant/coral-A": {
+      "21": {
+        "issued": [
+          77,
+          85
+        ],
+        "aft": [
+          78,
+          85
+        ]
+      },
+      "22": {
+        "issued": [
+          68,
+          85
+        ],
+        "aft": [
+          69,
+          85
+        ]
+      },
+      "23": {
+        "issued": [
+          58,
+          85
+        ],
+        "aft": [
+          59,
+          85
+        ]
+      }
+    },
+    "5ms/fixed-delay/coral-A": {
+      "21": {
+        "issued": [
+          77,
+          85
+        ],
+        "aft": [
+          78,
+          85
+        ]
+      },
+      "22": {
+        "issued": [
+          68,
+          85
+        ],
+        "aft": [
+          69,
+          85
+        ]
+      },
+      "23": {
+        "issued": [
+          58,
+          85
+        ],
+        "aft": [
+          59,
+          85
+        ]
+      }
+    },
+    "20ms/constant/coral-B": {},
+    "20ms/fixed-delay/coral-B": {},
+    "5ms/constant/coral-B": {},
+    "5ms/fixed-delay/coral-B": {}
+  }
+}
