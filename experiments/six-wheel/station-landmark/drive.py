@@ -34,7 +34,7 @@ def propagate(q,ds,track_width):
     return q+[-increment*math.cos(angle),-increment*math.sin(angle),turn]
 
 
-def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,side_bias=0,deadline=21.1,wheel_accel_mm_s2=420.):
+def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,side_bias=0,deadline=21.1,wheel_accel_mm_s2=420., *, observation_policy=None):
     # An independent terminal stereo pose seeds a new field estimate; until that
     # measurement passes, the commanded wheel targets stay at zero.
     wheels=np.zeros(2)
@@ -60,7 +60,10 @@ def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,
             # Perturb the relative camera-to-chassis registration without telling the controller.
             exposure[1]+=side_bias
             frames=render(exposure,depths,contrast=(fault!="noContrast"))
-            mark=acquire(frames) if not seen else track(frames,pred,synthetic_bias)
+            if observation_policy is None:
+                mark=acquire(frames) if not seen else track(frames,pred,synthetic_bias)
+            else:
+                mark=observation_policy.observe(frames,pred if seen else None,synthetic_bias)
             transit=.18 if fault=="late" and t>.4 else delay
             if fault=="interrupt" and t>.4:mark=None
             pending.append((t+transit,t,mark,shaft.copy()))
@@ -72,6 +75,7 @@ def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,
             # Last good estimator pose is a numerical starting guess only.
             base=pred if pred is not None else np.array([800.,0.,0.])
             pose,residual=fit(mark,synthetic_bias,base)
+            if observation_policy is not None: observation_policy.fit_events.append([float(wall),float(residual),pose.tolist(),None if pred is None else pred.tolist()])
             if residual>1.0 or not np.isfinite(pose).all():continue
             if seen and (np.linalg.norm(pose[:2]-pred[:2])>80 or abs(pose[2]-pred[2])>.12):continue
             pred=propagate(pose,shaft-at_capture,TRACK)
@@ -80,7 +84,7 @@ def approach(q,age,scale,track_width,depths,synthetic_bias,delay=.03,fault=None,
             seen=True;last=capture
             narrow=(abs(pred[0]-1.4)<=1.7 and abs(pred[1])<1.0 and abs(pred[2])<math.radians(.15))
             if narrow and max(abs(wheels))<9:arrived=True
-            if narrow and arrived and max(abs(wheels))<1e-8 and np.isfinite(mark[:,:,0]).sum()>=6:
+            if narrow and arrived and max(abs(wheels))<1e-8 and (np.isfinite(mark[:,:,0]).sum()>=6 if observation_policy is None else observation_policy.can_confirm(mark)):
                 confirm.append(capture)
             else:confirm.clear()
         if stop is None and not seen and last_packet is None and t>.12:stop="no fresh camera packet"

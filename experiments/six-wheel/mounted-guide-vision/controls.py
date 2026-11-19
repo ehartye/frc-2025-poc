@@ -19,7 +19,7 @@ from station import (
 )
 
 
-def measure(images, ref):
+def measure(images, ref, *, peak_bound=None):
     registration = bridge_fit.registration_scores(images, ref)
     if min(registration) < 0.90:
         return {"status": "robot-reference-lost", "registered": min(registration)}
@@ -27,13 +27,13 @@ def measure(images, ref):
         np.where((g >= 185) & (g.astype(int) - base.astype(int) > 36), g, base)
         for g, (base, _) in zip(images, ref)
     ]
-    fit = guarded_contour.partial_fit(clean, ref)
+    fit = guarded_contour.partial_fit(clean, ref, peak_bound=peak_bound)
     fit["registered"] = min(registration)
     fit["independentYawIntervalRad"] = yaw_interval(images, ref)
     return fit
 
 
-def run(assets, packet_path=CANONICAL_PACKETS):
+def run(assets, packet_path=CANONICAL_PACKETS, *, peak_bound=None):
     signed = station_packets(packet_path)
     result = []
     for installation, shift in INSTALLATIONS.items():
@@ -74,7 +74,7 @@ def run(assets, packet_path=CANONICAL_PACKETS):
                     images[0] = np.zeros_like(images[0])
                 if name == "wrong-field-reference":
                     images = [np.full_like(x, 220) for x in images]
-                fit = measure(images, ref)
+                fit = measure(images, ref, peak_bound=peak_bound)
                 permit = (
                     fit["status"] == "inside"
                     and fit.get("independentYawIntervalRad") is not None

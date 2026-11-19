@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Straight-guide match rehearsal</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#13242c;color:#f2f4ee}*{box-sizing:border-box}body{max-width:1100px;margin:auto;padding:clamp(15px,4vw,48px)}a{color:#a9dbe9}h1{font:600 clamp(2.1rem,5vw,3.8rem)/1.04 Georgia,serif;letter-spacing:-.045em;margin:.6em 0 .22em}p{line-height:1.55;max-width:74ch}header{margin-bottom:1.4em}.controls{display:flex;gap:1em;align-items:center;flex-wrap:wrap}.controls label{display:grid;gap:.35em}select,button{font:inherit;background:#213a44;color:inherit;border:1px solid #87a5ad;border-radius:.35em;padding:.52em .7em}button{cursor:pointer}figure{margin:1.25em 0}canvas{width:100%;height:auto;background:#192f37;border:1px solid #719399;border-radius:.5em}figcaption{font-size:.9em;color:#c2d2cf;margin:.5em 0}.bar{display:flex;align-items:center;gap:12px}input{flex:1;accent-color:#ffd48a}output{font-variant-numeric:tabular-nums;min-width:5em}h2{font-size:1.1em;margin-bottom:.25em}#event{font:normal 1.5em Georgia,serif;margin:.25em 0 .6em}ul{padding-left:1.2em}li{margin:.35em 0}li button{padding:.18em .5em}section{margin:1.5em 0}footer{border-top:1px solid #59727b;padding-top:1em}@media(max-width:500px){body{padding:12px}#event{font-size:1.15em}}
+</style></head><body>
+<header><a href="README.md">Study and source evidence</a><h1>Can the straight-guide robot score?</h1><p>Follow coral-A from the starting line through the first station reservation. Compare the two wheel errors and watch how the camera changes the next allowed move.</p></header>
+<div class="controls"><label>Wheel calibration<select id="side"><option value="leftSmall">Smaller left wheel</option><option value="rightSmall">Smaller right wheel</option></select></label><label>Trial<select id="trial"></select></label></div>
+<figure><canvas id="map" width="900" height="465" role="img" aria-label="Overhead field replay with six robots, obstacles and installed stock"></canvas><figcaption>The amber outline marks the study robot's 850 mm bumper. The line shows distance already traveled. Red and blue robots follow their reserved paths. Circles show installed stock. The dashed line marks the starting tape and the shaded strip is the red PARK zone.</figcaption></figure>
+<div class="bar"><button id="play">Play</button><input type="range" id="clock" min="0" max="156" step=".1" value="0" aria-label="Match clock"><output id="time">0.0 s</output></div>
+<section><h2 id="period"></h2><p id="event"></p><div id="score"></div><ul id="jumps" aria-label="Jump to event"></ul></section>
+<footer><a href="../station-approach/README.md">Compare the reserved south leave-and-park role</a></footer>
+<script>
+const data = /*MATCH_DATA*/;
+const get = id => document.getElementById(id);
+const context = get("map").getContext("2d");
+const floor = data.field;
+let run;
+let timer = null;
+
+function casesForSide() {
+  return data.cases.filter(item => item.side === get("side").value);
+}
+
+function trialName(item) {
+  if (item.condition === "nominal") return "Nominal · " + item.stepUs + " µs feed";
+  if (item.condition === "idler-jam") return "Seized belt idlers";
+  return "Late station images";
+}
+
+function updateMenu() {
+  const options = casesForSide().map((item, i) => new Option(trialName(item), String(i)));
+  get("trial").replaceChildren(...options);
+  chooseTrial();
+}
+
+function chooseTrial() {
+  run = casesForSide()[Number(get("trial").value)];
+  get("clock").value = 0;
+  stop();
+  const events = run.events.map(([time, description]) => {
+    const item = document.createElement("li");
+    const jump = document.createElement("button");
+    jump.textContent = time.toFixed(2) + " s";
+    jump.onclick = () => {
+      get("clock").value = time;
+      draw();
+    };
+    item.append(jump, " " + description);
+    return item;
+  });
+  get("jumps").replaceChildren(...events);
+  draw();
+}
+
+function stop() {
+  if (timer !== null) clearInterval(timer);
+  timer = null;
+  get("play").textContent = "Play";
+}
+
+function currentPose(rows, time) {
+  const i = rows.findIndex(row => row[0] >= time);
+  if (i < 0) return rows.at(-1).slice(1);
+  if (i === 0) return rows[0].slice(1);
+  const prior = rows[i - 1], next = rows[i];
+  const fraction = (time - prior[0]) / (next[0] - prior[0]);
+  return prior.slice(1).map((value, j) => value + (next[j + 1] - value) * fraction);
+}
+
+function line(a, b, color, width) {
+  context.beginPath();
+  context.moveTo(...a);
+  context.lineTo(...b);
+  context.strokeStyle = color;
+  context.lineWidth = width;
+  context.stroke();
+}
+
+function drawField() {
+  context.setTransform(1, 0, 0, 1, 0, 0);
+  context.clearRect(0, 0, 900, 465);
+  const scale = 850 / floor[0];
+  context.translate(25, 445);
+  context.scale(scale, -scale);
+  context.lineWidth = .034;
+  context.strokeStyle = "#9db1ac";
+  context.strokeRect(0, 0, ...floor);
+  line([floor[0] / 2, 0], [floor[0] / 2, floor[1]], "#48616a", .034);
+  context.fillStyle = "#7b4d524d";
+  context.fillRect(...data.parkRect);
+  context.save();
+  context.setLineDash([.14, .09]);
+  line([data.tapeX, 0], [data.tapeX, floor[1]], "#e6dbaa", .034);
+  context.restore();
+  for (const [a, b] of data.walls) line(a, b, "#c1c9c1", .06);
+  for (const [, polygon] of data.obstacles) {
+    if (polygon.length === 0) continue;
+    context.beginPath();
+    context.moveTo(...polygon[0]);
+    for (const p of polygon.slice(1)) context.lineTo(...p);
+    context.closePath();
+    context.fillStyle = "#3d5058";
+    context.strokeStyle = "#8c9994";
+    context.fill();
+    context.stroke();
+  }
+  for (const [group, x, y] of data.stock) {
+    const isPipe = group.includes("pipe");
+    context.beginPath();
+    context.arc(x, y, isPipe ? .10 : .16, 0, 2 * Math.PI);
+    context.fillStyle = isPipe ? "#edead5" : "#76c1a7";
+    context.fill();
+  }
+}
+
+function drawRobot(pose, color, focused) {
+  context.save();
+  context.translate(pose[0], pose[1]);
+  context.rotate(pose[2]);
+  context.fillStyle = color;
+  context.fillRect(-.425, -.425, .85, .85);
+  context.strokeStyle = focused ? "#ffd48a" : "#cad8d5";
+  context.lineWidth = focused ? .075 : .02;
+  context.strokeRect(-.425, -.425, .85, .85);
+  line([.05, 0], [.4, 0], context.strokeStyle, context.lineWidth);
+  context.restore();
+}
+
+function draw() {
+  const time = Number(get("clock").value);
+  drawField();
+  for (const [id, poses] of Object.entries(data.peers)) {
+    drawRobot(poses[Math.round(time)], id.startsWith("red") ? "#bf6058" : "#5d8ec4", false);
+  }
+  const reached = currentPose(run.pose, time);
+  context.beginPath();
+  context.strokeStyle = "#ffd48a";
+  context.lineWidth = .045;
+  context.moveTo(run.pose[0][1], run.pose[0][2]);
+  for (const [stamp, x, y] of run.pose) {
+    if (stamp > time) break;
+    context.lineTo(x, y);
+  }
+  context.lineTo(reached[0], reached[1]);
+  context.stroke();
+  drawRobot(reached, "#ac4c42", true);
+  const periods = [[0, "Autonomous"], [15, "Disabled transition"], [18, "Teleoperated"], [153, "Final assessment"]];
+  get("time").textContent = time.toFixed(1) + " s";
+  get("period").textContent = periods.filter(([start]) => start <= time).at(-1)[1];
+  get("event").textContent = run.events.filter(([stamp]) => stamp <= time + .00001).at(-1)[1];
+  get("score").textContent = time < 15 ? "Awaiting LEAVE assessment" : run.points.leave + " LEAVE points · 0 L1 · 0 PARK";
+}
+
+get("side").onchange = updateMenu;
+get("trial").onchange = chooseTrial;
+get("clock").oninput = draw;
+get("play").onclick = () => {
+  if (timer !== null) {
+    stop();
+    return;
+  }
+  if (Number(get("clock").value) >= 156) get("clock").value = 0;
+  get("play").textContent = "Pause";
+  timer = setInterval(() => {
+    get("clock").value = Math.min(156, Number(get("clock").value) + .2);
+    draw();
+    if (Number(get("clock").value) >= 156) stop();
+  }, 60);
+};
+updateMenu();
+</script></body></html>
