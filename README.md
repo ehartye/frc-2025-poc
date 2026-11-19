@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Can the two shelf sensors save a missed station feed?](station-feed-margin/README.md) See what the sensors observe before the mechanical stop and why the reserved south-lane leave and park is the supported fallback.
+
 [Did the receiver shelf actually move?](rack-sensing/README.md) Compare a stationary rack that fooled the original detector with the calibrated withdrawal and its high-drag limit.
 
 The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mm³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](selected-match/README.md)

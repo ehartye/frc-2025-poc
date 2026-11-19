@@ -1,0 +1,464 @@
+{
+  "portEpochWallUs": 21571673,
+  "issuedFeedSha256": "c1dd5eacf4bc9911fef75eaa945aed9c42df2a74e88b15a4cca6303598826d8c",
+  "programSha256": "da6210d980c351d57d65bda287d21e8d17916c630cc0115babf93b2f838cb1b1",
+  "trials": {
+    "nominal": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          1,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          480,
+          0,
+          1,
+          "BRAKE",
+          -0.14
+        ],
+        [
+          620,
+          0,
+          0,
+          "PROBE",
+          0.16
+        ],
+        [
+          660,
+          0,
+          1,
+          "PROBE",
+          0.16
+        ],
+        [
+          1180,
+          1,
+          1,
+          "DWELL",
+          0.0
+        ],
+        [
+          1420,
+          1,
+          1,
+          "IN_BAND",
+          0.0
+        ]
+      ],
+      "stopAtControllerMs": null,
+      "observedThroughMs": 5460,
+      "traceSha256": "f2c203ba19658ed96ea2b1461479e629fde6c7e9318f0bb60274445a0ae34358"
+    },
+    "shiftedHumanSource": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ]
+      ],
+      "stopAtControllerMs": 302.0,
+      "observedThroughMs": 300,
+      "traceSha256": "d3dd11f96fe5c95d74751631f7c8008439d6fd6b2f2d458b698b2d315dcbb991",
+      "indistinguishableBeforeStop": [
+        "nominal",
+        "trackOnly",
+        "bothLarge",
+        "bothSmall",
+        "crossedDrift"
+      ]
+    },
+    "leftSmall": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          0,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ]
+      ],
+      "stopAtControllerMs": 367.75,
+      "observedThroughMs": 360,
+      "traceSha256": "4445db0f9c9a30c44a09b4a9e710ce2ef8936095968e2227e67ffcae0f5e9f16",
+      "indistinguishableBeforeStop": []
+    },
+    "rightSmall": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          0,
+          0,
+          "BRAKE",
+          0.65
+        ]
+      ],
+      "stopAtControllerMs": 356.5,
+      "observedThroughMs": 340,
+      "traceSha256": "312dceb4518cad59c141905f37f37f48353c41a2e043627742b28e2da2473393",
+      "indistinguishableBeforeStop": []
+    },
+    "trackOnly": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          1,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          480,
+          0,
+          1,
+          "BRAKE",
+          -0.14
+        ],
+        [
+          600,
+          0,
+          0,
+          "PROBE",
+          0.16
+        ],
+        [
+          640,
+          0,
+          1,
+          "PROBE",
+          0.16
+        ],
+        [
+          1160,
+          1,
+          1,
+          "DWELL",
+          0.0
+        ],
+        [
+          1400,
+          1,
+          1,
+          "IN_BAND",
+          0.0
+        ]
+      ],
+      "stopAtControllerMs": null,
+      "observedThroughMs": 5460,
+      "traceSha256": "bab0c5beca8a91eeb028bf0509dc1530d2dba5ec66e5c24a93e606bc07536e90"
+    },
+    "bothLarge": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          1,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          480,
+          0,
+          1,
+          "BRAKE",
+          -0.14
+        ],
+        [
+          600,
+          0,
+          0,
+          "PROBE",
+          0.16
+        ],
+        [
+          640,
+          0,
+          1,
+          "PROBE",
+          0.16
+        ],
+        [
+          1160,
+          1,
+          1,
+          "DWELL",
+          0.0
+        ],
+        [
+          1400,
+          1,
+          1,
+          "IN_BAND",
+          0.0
+        ]
+      ],
+      "stopAtControllerMs": null,
+      "observedThroughMs": 5460,
+      "traceSha256": "c58b794ebb7153870950a957c9567961ed0c57df9b50373e9702eaea5f313491"
+    },
+    "bothSmall": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          1,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          480,
+          0,
+          1,
+          "BRAKE",
+          -0.14
+        ],
+        [
+          620,
+          0,
+          0,
+          "PROBE",
+          0.16
+        ],
+        [
+          660,
+          0,
+          1,
+          "PROBE",
+          0.16
+        ],
+        [
+          1180,
+          1,
+          1,
+          "DWELL",
+          0.0
+        ],
+        [
+          1420,
+          1,
+          1,
+          "IN_BAND",
+          0.0
+        ]
+      ],
+      "stopAtControllerMs": null,
+      "observedThroughMs": 5460,
+      "traceSha256": "c50e749bf3343e07bf50c6300eef25a14e71ff96ab4283fc8cac5a0f6b7ee70f"
+    },
+    "crossedDrift": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ],
+        [
+          320,
+          1,
+          0,
+          "BRAKE",
+          0.65
+        ],
+        [
+          340,
+          1,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          360,
+          0,
+          1,
+          "BRAKE",
+          0.65
+        ],
+        [
+          480,
+          0,
+          1,
+          "BRAKE",
+          -0.14
+        ],
+        [
+          580,
+          0,
+          0,
+          "PROBE",
+          0.16
+        ],
+        [
+          620,
+          0,
+          1,
+          "PROBE",
+          0.16
+        ],
+        [
+          1120,
+          1,
+          1,
+          "DWELL",
+          0.0
+        ],
+        [
+          1360,
+          1,
+          1,
+          "IN_BAND",
+          0.0
+        ]
+      ],
+      "stopAtControllerMs": null,
+      "observedThroughMs": 5460,
+      "traceSha256": "f5a95cd2ef2e2a520c739452c1f1abdf2d3e28d8c46383bb9dfccf39a39a95d8"
+    },
+    "badRegistration": {
+      "controllerEdges": [
+        [
+          0,
+          0,
+          0,
+          "WAIT_ENTRY",
+          0.65
+        ]
+      ],
+      "stopAtControllerMs": 302.0,
+      "observedThroughMs": 300,
+      "traceSha256": "2c55cd7f7d1af49eab288472c4425c1dddc78c79b167e2012909a60c48c799be",
+      "indistinguishableBeforeStop": [
+        "nominal",
+        "trackOnly",
+        "bothLarge",
+        "bothSmall",
+        "crossedDrift"
+      ]
+    }
+  }
+}
