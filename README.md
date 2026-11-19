@@ -2,6 +2,8 @@
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
 
+[How is the deck held to the welded frame?](deck-joints/README.md) See the six removable through-ties, their machining drawing and the remaining weight allowance on the wired, guarded robot.
+
 [Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
 
 [Can the two shelf sensors save a missed station feed?](station-feed-margin/README.md) See what the sensors observe before the mechanical stop and why the reserved south-lane leave and park is the supported fallback.
