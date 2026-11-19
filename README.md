@@ -6,6 +6,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow the closed-loop slide withdrawal across both pipes and all 17 camera phases](slide-feedback/README.md).
 
+[Compare the actively opening outside-diameter receiver](od-gate/README.md) with the earlier end grips and passive cradle. The finite pipe and complete robot give different release times under a yawed approach.
+
 [Review the fixed-low match battery, power and protection study](fixed-low-power/README.md) for the two-pipe park, station hold and weakened-pack trials.
 
 [Open the complete 2025 match replay](full-match/replay.html). Scrub from AUTO through the end of TELEOP, compare the earlier starting-stack collision, and try a blocked park or a return to station. The [full-match evidence](full-match/README.md) explains how the two pipe identities, contact and clock were qualified.

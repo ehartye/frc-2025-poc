@@ -1,0 +1,141 @@
+{
+  "studySha256": "cea56385d24b9717690bcafec9ae845f14c699ff98b90584c9fe1c67746f4388",
+  "nativeSha256": "a49cd822ac35f426d3ba540bcc5a081226d8f236a6cc766baaab97ffb06d66bd",
+  "mass": {
+    "representedStockByMaterialKg": {
+      "Al": [
+        1.273231171214535,
+        1.3549101520094287
+      ],
+      "steel": [
+        0.4539338009017143,
+        0.4686719113206011
+      ],
+      "poly": [
+        0.14170944000000002,
+        0.15249168000000002
+      ],
+      "foam": [
+        0.07147356914186892,
+        0.1786839228546723
+      ],
+      "rubber": [
+        0.23747681143837726,
+        0.2595198548698905
+      ],
+      "bearing": [
+        0.06387077789154882,
+        0.15668300201520574
+      ],
+      "sensor": [
+        0.0019296000000000005,
+        0.004824
+      ],
+      "motor": [
+        0.42599999999999993,
+        0.44999999999999996
+      ],
+      "gearbox": [
+        0.36,
+        0.66
+      ]
+    },
+    "nongeometricAllowanceKg": {
+      "fasteners-guards-covers": [
+        0.08,
+        0.22
+      ],
+      "limit-inputs-hood-load-sensors-electronics": [
+        0.04,
+        0.14
+      ],
+      "motor-couplers-bearings-retainers": [
+        0.08,
+        0.18
+      ],
+      "sensor-and-moving-power-loom": [
+        0.09,
+        0.22
+      ]
+    },
+    "newPartsKg": [
+      3.3196251705880435,
+      4.445784523069798
+    ],
+    "retiredOriginalGripMinimumKg": 1.12032,
+    "retiredShelfMinimumKg": 1.578,
+    "conservativeNetAdditionKg": 1.747464523069798,
+    "cases": {
+      "red-low-light-and-shared-masts": {
+        "startingRepresentedMarginKg": 0.5209540053414372,
+        "afterUpperReplacementKg": -1.2265105177283608
+      },
+      "red-low-light-dedicated-masts-physically-deleted-pneumatics": {
+        "startingRepresentedMarginKg": 2.3158065978271978,
+        "afterUpperReplacementKg": 0.5683420747573997
+      }
+    },
+    "newCassetteMassUpperBothKg": 0.6247524634751961,
+    "retainedControllers": [
+      "spark-left-grip",
+      "spark-right-grip",
+      "spark-lift"
+    ],
+    "noAir": {
+      "inspectionSha256": "9c6d10dc173128a9c34a6f3b75a0e945cc99f01d84b65e3cba39c53906771a26",
+      "deletionSha256": "3514b27455878db4bd38ff9bfbd1711fa9cc8071a7a056af5ba28979d39913c1",
+      "removedIds": [
+        "gauge-regulator-dump-reserve",
+        "regulated-pawl-valve",
+        "tank-avt-pp-35",
+        "tank-saddle-front",
+        "tank-saddle-rear",
+        "viair-90c"
+      ],
+      "pneumaticHubRetained": true,
+      "removedIdsDisjointFromReceiverRetirements": true
+    },
+    "finishedConfigurationMarginKg": null
+  },
+  "opening": {
+    "upperSlidingNormalN": 76.60215755769573,
+    "lateralFrictionAssumption": 0.7,
+    "forceN": 68.17609192046207,
+    "speedMps": 0.6160714285714286,
+    "phaseA": 10.168000844437552,
+    "currentLimitA": 15,
+    "terminalV": 8.16675750392991,
+    "voltageAllocationV": 9.5,
+    "withinAllocations": true
+  },
+  "hood": {
+    "peakUpperRollerNormalN": 90.0002237999777,
+    "torqueNm": 9.165093391050046,
+    "phaseA": 17.614055672101518,
+    "currentLimitA": 20,
+    "terminalV": 4.4630915939854585,
+    "voltageAllocationV": 9.5,
+    "withinAllocations": true
+  },
+  "commonDrive": {
+    "phaseLimitA": 8,
+    "simulatedPeakTerminalV": 4.585976164398407,
+    "supplyReserveV": 9.5
+  },
+  "shaft": {
+    "shockTangentialN": 410.699777592104,
+    "shaftNmUpper": 11.304078039963057,
+    "hollowHexTorsionMPa": 33.3579120721542,
+    "assumedWorkingShearMPa": 80,
+    "ratioToAssumedWorkingShear": 2.3982316347305406
+  },
+  "guide": {
+    "worstLowerNormalN": 586.71396798872,
+    "singleGuideBendingMPa": 312.81727264407203,
+    "singleGuideMidspanSagMm": 0.7711988494918522,
+    "fourWayIdealMPa": 78.20431816101801,
+    "fourWayIdealSagMm": 0.19279971237296306
+  },
+  "twoSampledODCompressionMm": "12 mm relieved tread plus 22 mm sectional rear pads. Contact curves, foam shear, adhesive peel, heat and single-sided roll are unmeasured.",
+  "physicalAuthorization": false
+}
