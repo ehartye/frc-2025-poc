@@ -16,6 +16,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Compare the two fixed-height inspection inventories](design/shared-height/README.md), including the shared mast CAD, the strength cost of drilling a second lock position and the six loose pieces required when presenting the low robot.
 
+[Inspect the moving-shelf stereo bridge](moving-observer/README.md) to see both pipes through transport and extension and check which release frames meet the deadline.
+
 ## Design highlights
 
 [Replay the two-pipe fixed-carriage match](fixed-height-match/replay.html) with six moving robots, late stock, an occupied parking lane and two endgame choices. [Timing, contact evidence and qualification limits](fixed-height-match/README.md)
