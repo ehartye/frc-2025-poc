@@ -35,7 +35,7 @@ def shared(voltage,ohms,watts):
     return names,supply,term,current
 
 
-def screen(t,arcs,labels,events,mass,mode,pack,raw,*,scrub=.38,side=.44,outer=.75,speed_scale=1,cap_grip_speed=False,calibrated=False,trace=None,rack_case=None):
+def screen(t,arcs,labels,events,mass,mode,pack,raw,*,scrub=.38,side=.44,outer=.75,speed_scale=1,cap_grip_speed=False,calibrated=False,trace=None,rack_case=None,rack_paths=None):
     # Mid-interval speed, two adjacent acceleration estimates. Keep the more demanding
     # electrical/traction endpoint when the wheel torque changes sign.
     n=len(arcs);speed=arcs/DT*speed_scale
@@ -102,8 +102,9 @@ def screen(t,arcs,labels,events,mass,mode,pack,raw,*,scrub=.38,side=.44,outer=.7
         if "withdraw" in ev:
             case=rack_case or ("bridge26" if mode=="bridge26" else "nominal")
             path=raw/("path-"+case+"-"+piece+".csv")
-            reg=read(HERE/"rack.json")["cases"][case][piece]
-            if sha(path)!=reg["rawSHA256"]:raise ValueError("Unregistered selected moving-mass rack trace")
+            expected=(read(HERE/"rack.json")["cases"][case][piece]["rawSHA256"]
+                      if rack_paths is None else rack_paths[path.name])
+            if sha(path)!=expected:raise ValueError("Unregistered selected moving-mass rack trace")
             signal=np.genfromtxt(path,delimiter=",",names=True)
             for rec in signal:
                 k=int((round(1000*ev["withdraw"])+int(rec["ms"]))//5)
