@@ -1,0 +1,674 @@
+{
+  "cases": {
+    "nominal": {
+      "nominalProgramClear": true,
+      "parkCageScreen": {
+        "uprightUnlimitedYawLowerMm": 145.32645729157375,
+        "closest": "NAUO260",
+        "legTimeS": 10.028431499518213,
+        "comparisonTrackingMm": 34.83855269935742,
+        "remainingLateralSwingMm": 110.48790459221632,
+        "assumedConeDeg": 4.046499555704497
+      },
+      "sixRobotPaths": {
+        "red1": [
+          "vacate parking lane"
+        ],
+        "red2": [
+          "carrying coral-A",
+          "return",
+          "carrying coral-B",
+          "park"
+        ],
+        "red3": [
+          "partner takes shared corridor",
+          "partner clears north lane"
+        ],
+        "blue1": [
+          "back away from midfield"
+        ],
+        "blue2": [
+          "back away from midfield"
+        ],
+        "blue3": [
+          "opponent crosses cage gap"
+        ]
+      },
+      "autoTimeS": 13.49159843948311,
+      "finishTeleopS": 92.89912499603031,
+      "finiteIds": [
+        "coral-A",
+        "coral-B"
+      ],
+      "conditionalPoints": 9,
+      "pairBound": [
+        0.10546741801438872,
+        "red2",
+        "red3",
+        42.75
+      ],
+      "firstOverlap": null,
+      "otherRobotToSettledPipeBoundM": 1.6185819827586208,
+      "finalPose": [
+        9.4488,
+        2.4272875,
+        3.141592653589793
+      ],
+      "park": true,
+      "leave": true,
+      "assessments": {
+        "kickoff-v0": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          },
+          {
+            "id": "coral-B",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ],
+        "archive-compiled": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          },
+          {
+            "id": "coral-B",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ]
+      },
+      "field": [
+        {
+          "role": "red2",
+          "leg": "AUTO",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 902.7900281274165
+          }
+        },
+        {
+          "role": "red1",
+          "leg": "vacate parking lane",
+          "minimumStaticM": 0.2338124999999991,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 3529.931922703268,
+            "floor-ball": 3377.531922703268,
+            "reef-ball": 1175.5604137172181
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "carrying coral-A",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.850000000003746
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "return",
+          "minimumStaticM": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.85000000000386
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "carrying coral-B",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.850000000003746
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "park",
+          "minimumStaticM": 0.025849999999999707,
+          "closest": "South cage 1",
+          "stockBoundsMm": {
+            "floor-pipe": 4109.7236892572855,
+            "floor-ball": 3957.323689257285,
+            "reef-ball": 7.85000000000386
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner takes shared corridor",
+          "minimumStaticM": 0.07209293208196565,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 4668.4570678359905,
+            "floor-ball": 4516.05706783599,
+            "reef-ball": 1445.0578237644831
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner clears north lane",
+          "minimumStaticM": 0.16095923599143502,
+          "closest": "upper rail",
+          "stockBoundsMm": {
+            "floor-pipe": 2941.1563341034616,
+            "floor-ball": 2788.7563341034615,
+            "reef-ball": 1438.3962621474552
+          }
+        },
+        {
+          "role": "blue1",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5506.480279446989,
+            "floor-ball": 5354.080279446989,
+            "reef-ball": 2184.332502673598
+          }
+        },
+        {
+          "role": "blue2",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "Barge center support \u00c2\u00b7 assumed exclusion",
+          "stockBoundsMm": {
+            "floor-pipe": 5505.162169986452,
+            "floor-ball": 5352.762169986451,
+            "reef-ball": 1403.28848072917
+          }
+        },
+        {
+          "role": "blue3",
+          "leg": "opponent crosses cage gap",
+          "minimumStaticM": 0.02743749999999956,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5204.53322699373,
+            "floor-ball": 5052.13322699373,
+            "reef-ball": 2358.683283680204
+          }
+        }
+      ],
+      "runtimeDeliveries": 2,
+      "uncredited": [],
+      "fieldStockMinimumMm": 7.850000000003746,
+      "staticObstacleMinimumMm": 10.000000000001009,
+      "stockPieces": 24,
+      "stowMarginMs": {
+        "coral-A": 10.83930198095186,
+        "coral-B": 5.696769307542127
+      }
+    },
+    "lateB": {
+      "nominalProgramClear": true,
+      "parkCageScreen": null,
+      "sixRobotPaths": {
+        "red1": [
+          "vacate parking lane"
+        ],
+        "red2": [
+          "carrying coral-A",
+          "return",
+          "carrying coral-B"
+        ],
+        "red3": [
+          "partner takes shared corridor",
+          "partner clears north lane"
+        ],
+        "blue1": [
+          "back away from midfield"
+        ],
+        "blue2": [
+          "back away from midfield"
+        ],
+        "blue3": [
+          "opponent crosses cage gap"
+        ]
+      },
+      "autoTimeS": 13.49159843948311,
+      "finishTeleopS": 135.0,
+      "finiteIds": [
+        "coral-A"
+      ],
+      "conditionalPoints": 5,
+      "pairBound": [
+        0.10546741801438872,
+        "red2",
+        "red3",
+        42.75
+      ],
+      "firstOverlap": null,
+      "otherRobotToSettledPipeBoundM": 1.6185819827586208,
+      "finalPose": [
+        11.737163480729167,
+        4.2459,
+        6.283185307179586
+      ],
+      "park": false,
+      "leave": true,
+      "assessments": {
+        "kickoff-v0": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ],
+        "archive-compiled": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ]
+      },
+      "field": [
+        {
+          "role": "red2",
+          "leg": "AUTO",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 902.7900281274165
+          }
+        },
+        {
+          "role": "red1",
+          "leg": "vacate parking lane",
+          "minimumStaticM": 0.2338124999999991,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 3529.931922703268,
+            "floor-ball": 3377.531922703268,
+            "reef-ball": 1175.5604137172181
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "carrying coral-A",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.850000000003746
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "return",
+          "minimumStaticM": 0.010000000000001064,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.85000000000386
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "carrying coral-B",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.850000000003746
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner takes shared corridor",
+          "minimumStaticM": 0.07209293208196565,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 4668.4570678359905,
+            "floor-ball": 4516.05706783599,
+            "reef-ball": 1445.0578237644831
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner clears north lane",
+          "minimumStaticM": 0.16095923599143502,
+          "closest": "upper rail",
+          "stockBoundsMm": {
+            "floor-pipe": 2941.1563341034616,
+            "floor-ball": 2788.7563341034615,
+            "reef-ball": 1438.3962621474552
+          }
+        },
+        {
+          "role": "blue1",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5506.480279446989,
+            "floor-ball": 5354.080279446989,
+            "reef-ball": 2184.332502673598
+          }
+        },
+        {
+          "role": "blue2",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "Barge center support \u00c2\u00b7 assumed exclusion",
+          "stockBoundsMm": {
+            "floor-pipe": 5505.162169986452,
+            "floor-ball": 5352.762169986451,
+            "reef-ball": 1403.28848072917
+          }
+        },
+        {
+          "role": "blue3",
+          "leg": "opponent crosses cage gap",
+          "minimumStaticM": 0.02743749999999956,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5204.53322699373,
+            "floor-ball": 5052.13322699373,
+            "reef-ball": 2358.683283680204
+          }
+        }
+      ],
+      "runtimeDeliveries": 1,
+      "uncredited": [
+        "coral-B"
+      ],
+      "fieldStockMinimumMm": 7.850000000003746,
+      "staticObstacleMinimumMm": 10.000000000001009,
+      "stockPieces": 24,
+      "stowMarginMs": {
+        "coral-A": 10.83930198095186
+      }
+    },
+    "single": {
+      "nominalProgramClear": true,
+      "parkCageScreen": {
+        "uprightUnlimitedYawLowerMm": 145.32646197096477,
+        "closest": "NAUO260",
+        "legTimeS": 9.708431607264567,
+        "comparisonTrackingMm": 34.83855269935742,
+        "remainingLateralSwingMm": 110.48790927160735,
+        "assumedConeDeg": 4.046499726512811
+      },
+      "sixRobotPaths": {
+        "red1": [
+          "vacate parking lane"
+        ],
+        "red2": [
+          "carrying coral-A",
+          "park"
+        ],
+        "red3": [
+          "partner takes shared corridor",
+          "partner clears north lane"
+        ],
+        "blue1": [
+          "back away from midfield"
+        ],
+        "blue2": [
+          "back away from midfield"
+        ],
+        "blue3": [
+          "opponent crosses cage gap"
+        ]
+      },
+      "autoTimeS": 13.49159843948311,
+      "finishTeleopS": 42.48926752870371,
+      "finiteIds": [
+        "coral-A"
+      ],
+      "conditionalPoints": 7,
+      "pairBound": [
+        0.1258852868891133,
+        "red2",
+        "blue3",
+        19.01
+      ],
+      "firstOverlap": null,
+      "otherRobotToSettledPipeBoundM": 1.6185819827586208,
+      "finalPose": [
+        9.4488,
+        2.4272875,
+        3.141592653589793
+      ],
+      "park": true,
+      "leave": true,
+      "assessments": {
+        "kickoff-v0": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ],
+        "archive-compiled": [
+          {
+            "id": "coral-A",
+            "controlledByFocalRobot": "unknown",
+            "countsTowardCoralLimit": "unknown",
+            "l1CriteriaAtInstant": "yes"
+          }
+        ]
+      },
+      "field": [
+        {
+          "role": "red2",
+          "leg": "AUTO",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 902.7900281274165
+          }
+        },
+        {
+          "role": "red1",
+          "leg": "vacate parking lane",
+          "minimumStaticM": 0.2338124999999991,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 3529.931922703268,
+            "floor-ball": 3377.531922703268,
+            "reef-ball": 1175.5604137172181
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "carrying coral-A",
+          "minimumStaticM": 0.010000000000001008,
+          "closest": "Station wall \u00c2\u00b7 tag 2",
+          "stockBoundsMm": {
+            "floor-pipe": 363.4537289677306,
+            "floor-ball": 211.05372896773073,
+            "reef-ball": 7.850000000003746
+          }
+        },
+        {
+          "role": "red2",
+          "leg": "park",
+          "minimumStaticM": 0.025849999999999707,
+          "closest": "South cage 1",
+          "stockBoundsMm": {
+            "floor-pipe": 4109.7236892572855,
+            "floor-ball": 3957.323689257285,
+            "reef-ball": 7.85000000000386
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner takes shared corridor",
+          "minimumStaticM": 0.07209293208196565,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 4668.4570678359905,
+            "floor-ball": 4516.05706783599,
+            "reef-ball": 1445.0578237644831
+          }
+        },
+        {
+          "role": "red3",
+          "leg": "partner clears north lane",
+          "minimumStaticM": 0.16095923599143502,
+          "closest": "upper rail",
+          "stockBoundsMm": {
+            "floor-pipe": 2941.1563341034616,
+            "floor-ball": 2788.7563341034615,
+            "reef-ball": 1438.3962621474552
+          }
+        },
+        {
+          "role": "blue1",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "South cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5506.480279446989,
+            "floor-ball": 5354.080279446989,
+            "reef-ball": 2184.332502673598
+          }
+        },
+        {
+          "role": "blue2",
+          "leg": "back away from midfield",
+          "minimumStaticM": 0.23381249999999998,
+          "closest": "Barge center support \u00c2\u00b7 assumed exclusion",
+          "stockBoundsMm": {
+            "floor-pipe": 5505.162169986452,
+            "floor-ball": 5352.762169986451,
+            "reef-ball": 1403.28848072917
+          }
+        },
+        {
+          "role": "blue3",
+          "leg": "opponent crosses cage gap",
+          "minimumStaticM": 0.02743749999999956,
+          "closest": "North cage 2",
+          "stockBoundsMm": {
+            "floor-pipe": 5204.53322699373,
+            "floor-ball": 5052.13322699373,
+            "reef-ball": 2358.683283680204
+          }
+        }
+      ],
+      "runtimeDeliveries": 1,
+      "uncredited": [],
+      "fieldStockMinimumMm": 7.850000000003746,
+      "staticObstacleMinimumMm": 10.000000000001009,
+      "stockPieces": 24,
+      "stowMarginMs": {
+        "coral-A": 10.83930198095186
+      }
+    }
+  },
+  "sixStartingPositions": {
+    "red1": {
+      "xyIn": [
+        393.375,
+        65.0
+      ],
+      "headingDeg": 180.0,
+      "proxyTapeOverlapMm": 50.8
+    },
+    "red2": {
+      "xyIn": [
+        393.375,
+        158.5
+      ],
+      "headingDeg": 180.0,
+      "proxyTapeOverlapMm": 50.8
+    },
+    "red3": {
+      "xyIn": [
+        393.375,
+        252.0
+      ],
+      "headingDeg": 180.0,
+      "proxyTapeOverlapMm": 50.8
+    },
+    "blue1": {
+      "xyIn": [
+        297.5,
+        65.0
+      ],
+      "headingDeg": 0.0,
+      "proxyTapeOverlapMm": 50.8
+    },
+    "blue2": {
+      "xyIn": [
+        297.5,
+        158.5
+      ],
+      "headingDeg": 0.0,
+      "proxyTapeOverlapMm": 50.8
+    },
+    "blue3": {
+      "xyIn": [
+        297.5,
+        252.0
+      ],
+      "headingDeg": 0.0,
+      "proxyTapeOverlapMm": 50.8
+    }
+  },
+  "firstPipeToSecondExtendedRobot": {
+    "originalMovingStrokeMm": 37.18749999999986,
+    "newBodiesMm": [
+      55.5637381534723,
+      "right-foot"
+    ],
+    "combinedLowerMm": 37.18749999999986
+  },
+  "nativeStartingTapeAndPark": {
+    "startBumperTapeMm3": {
+      "bumper-cover-front-red": 23574.399999999325,
+      "bumper-cover-rear-red": 0.0
+    },
+    "autoEndWholeHullToStartTapeLowerM": 5.847332661673718,
+    "inboardClothInZoneMm3": {
+      "bumper-cover-front-red": 200576.60530127454,
+      "bumper-cover-rear-red": 0.0
+    }
+  },
+  "sourceSha256": {
+    "integrated-match/hal.json": "68a8f731889ba5f75f567faa2ffc8b4741739e1d9ada678bb5f0ebfbf8889410",
+    "integrated-match/events.csv": "b5b73b52dcb3e3886e6a5972afe00d937095d2ef20602abc7e60b1fb9ac70b52",
+    "integrated-match/contact.json": "97e8c65440503e3891fffad0975ab1be4cbba1b144e4c5db36ca883861e7e7a1",
+    "integrated-match/optics.json": "96dbe49bb34761ebfa5270e400140e1a794c178a5ef17e3d0000cb4b8dce689c",
+    "fixed-height-match/placements.json": "65d1be7fd38161f6815814486cacac226eec92c0f9bd0835eb2e8a4736dae108",
+    "fixed-height-match/native.json": "ac7a5e4d5d4891e7b2e97a16146e306a4a4418e8582e727510345f41d2cabe18",
+    "full-match/installed-stock.json": "f4c4be4d987bb7cc01b579d699b62e9673fd05540c32fbd4326b78b8ab218589",
+    "slide-feedback/no-air.json": "2e2400d71498e05b7720d5bb93dadc549960b78e21d8db3e0c271091be440192",
+    "moving-observer/clearance.json": "f8d4150440a1ef8bfd9432d95fa85b6eb268303dc70944d5d77dbd5da2dad19c",
+    "design/fixed-no-air/balance.json": "dc0e8b5fc918868c9c946e62dfcf345b1d671da5cfb3bcfbcfdb33fc0a724576",
+    "design/fixed-no-air/inspection.json": "9c6d10dc173128a9c34a6f3b75a0e945cc99f01d84b65e3cba39c53906771a26"
+  }
+}
