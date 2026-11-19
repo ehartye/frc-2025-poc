@@ -17,7 +17,7 @@ from OCP.gp import gp_Pnt
 # The first field half, tape at the barge boundary and starting tape support the wheels.
 SUPPORTS = {"NAUO2:FE-2024-01","NAUO16:tape_Truss1_Red","NAUO31:tape_AutoLine"}
 SEARCH_MM = 350
-TRIALS = {"issued":(365,95.5625),"shorter":(370,95.5625),"near-tape":(372,95.5625),
+TRIALS = {"issued":(365,95.5625),"shorter":(370,95.5625),
           "shared-100":(370,100),"shared-105":(370,105),"shared-110":(370,110)}
 INCH = 25.4
 
@@ -82,7 +82,7 @@ def distance(shape,other):
     return calc.Value()
 
 
-def run(field):
+def run(field, trials=TRIALS):
     f=corrected()
     prior=json.loads((HERE/"study.json").read_bytes())
     if digest(KIT/"stowed.step")!=prior["stowed_step_sha256"]: raise ValueError("Unexpected robot")
@@ -93,7 +93,7 @@ def run(field):
     if hull!=prior["hull_mm"] or len(robot)!=prior["body_count"]: raise ValueError("Stowed robot changed")
     startX=f.routes(-.18)[0].start[0]
     routes={}
-    for key,(x,y) in TRIALS.items():
+    for key,(x,y) in trials.items():
         route=f.Route((startX,y*f.IN,math.pi))
         route.go((x*f.IN,y*f.IN))
         routes[key]=route
@@ -148,6 +148,9 @@ def run(field):
 if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("field",type=Path)
-    parser.add_argument("--output",type=Path,default=HERE/"native-park.json")
+    parser.add_argument("--near-tape",action="store_true",help="measure the X 372 in route separately")
+    parser.add_argument("--output",type=Path)
     args=parser.parse_args()
-    args.output.write_bytes((json.dumps(run(args.field),indent=2,allow_nan=False)+"\n").encode())
+    output=args.output or HERE/("near-tape.json" if args.near_tape else "native-park.json")
+    trials={"near-tape":(372,95.5625)} if args.near_tape else TRIALS
+    output.write_bytes((json.dumps(run(args.field,trials),indent=2,allow_nan=False)+"\n").encode())

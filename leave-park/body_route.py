@@ -38,7 +38,7 @@ def separate(a,b):
 
 
 def replay(plugin,out,trial,adverse=False):
-    source=HERE/"native-park.json"
+    source=HERE/("near-tape.json" if trial=="near-tape" else "native-park.json")
     data=read(source)
     row=data["cases"][trial]
     ids=list(read(KIT/"part-frames.json"))
@@ -97,11 +97,12 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("plugin",type=Path)
     parser.add_argument("output",type=Path,help="directory for generated project inputs and compact result")
+    parser.add_argument("--near-tape",action="store_true",help="replay the separate X 372 in route")
     args=parser.parse_args()
     plugin=args.plugin.resolve()
-    cases={key:replay(plugin,args.output/key,trial,adverse) for key,trial,adverse in
-           [("issued","issued",False),("shorter","shorter",False),("near-tape","near-tape",False),
-            ("retained-partner","shared-105",False),("occupied-start","issued",True)]}
+    trials=[("near-tape","near-tape",False)] if args.near_tape else [
+        ("issued","issued",False),("shorter","shorter",False),("retained-partner","shared-105",False),("occupied-start","issued",True)]
+    cases={key:replay(plugin,args.output/key,trial,adverse) for key,trial,adverse in trials}
     report={"plugin":read(plugin/"package.json")["version"],"cases":cases}
     write(args.output,"review",report)
     print(json.dumps(report,indent=2))

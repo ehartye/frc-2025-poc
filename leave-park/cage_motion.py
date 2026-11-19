@@ -151,14 +151,18 @@ def check_locked_robot(folder, robot, row):
 def measure(field, locks=ROOT / "design/fixed-height"):
     path = HERE / "native-park.json"
     route_data = json.loads(path.read_bytes())
-    if route_data["field_step_sha256"] != FIRST_SHA or digest(KIT / "stowed.step") != route_data["robot_step_sha256"]:
-        raise ValueError("Field and parked robot must match the route registration")
+    near_path = HERE / "near-tape.json"
+    near = json.loads(near_path.read_bytes())
+    for registration in (near, route_data):
+        if registration["field_step_sha256"] != FIRST_SHA or digest(KIT / "stowed.step") != registration["robot_step_sha256"]:
+            raise ValueError("Field and parked robot must match the route registration")
+    routes = {**route_data["cases"], "near-tape": near["cases"]["near-tape"]}
     stations, shapes = hanging_inventory(field)
     # Use the widest actual assembly for every slot, covering a change of cage height.
     section_radius = max(station["radius_mm"] for station in stations.values())
     upper_height = max(station["eye_box_mm"][4] for station in stations.values())
     cases = {}
-    for key, route in route_data["cases"].items():
+    for key, route in routes.items():
         box = route["native_swept_box_mm"]
         limiting = min(stations, key=lambda s: clearance(stations[s]["axis_mm"], box))
         fixed_axis_gap = clearance(stations[limiting]["axis_mm"], box) - section_radius
@@ -171,11 +175,11 @@ def measure(field, locks=ROOT / "design/fixed-height"):
     ids = json.loads((KIT / "part-frames.json").read_bytes())
     robot = cad.read_named(KIT / "stowed.step", [{"id": key} for key in ids])
     trial = contact_trial(station, shapes[station["cage"]], route_data["cases"]["shared-105"], robot)
-    locked = check_locked_robot(locks, robot, route_data["cases"]["near-tape"])
+    locked = check_locked_robot(locks, robot, routes["near-tape"])
     if trial["overlap_mm3_by_degrees"]["0"] > 0.05 or max(trial["overlap_mm3_by_degrees"].values()) <= 0.05:
         raise ValueError("Expected a clear registered pose and at least one material collision")
     return {"field_sha256": FIRST_SHA, "robot_sha256": route_data["robot_step_sha256"],
-            "route_sha256": digest(path), "stations": stations, "radius_mm": section_radius,
+            "route_sha256": digest(path), "near_tape_sha256": digest(near_path), "stations": stations, "radius_mm": section_radius,
             "upper_height_mm": upper_height, "cases": cases, "tilt_trial": trial, "high_locked_robot": locked}
 
 

@@ -31,7 +31,8 @@ def main():
     cases = {}
     native=json.loads((HERE/"native-park.json").read_bytes())
     motion=json.loads((HERE/"cage-motion.json").read_bytes())
-    if motion["route_sha256"] != digest(HERE/"native-park.json"):
+    near=json.loads((HERE/"near-tape.json").read_bytes())
+    if motion["route_sha256"] != digest(HERE/"native-park.json") or motion["near_tape_sha256"] != digest(HERE/"near-tape.json"):
         raise ValueError("Rebuild the cage motion study for this route revision")
     def track_refs(team,case):
         refs={}
@@ -46,7 +47,7 @@ def main():
         cases[name]=dict(row,robots=track_refs(team,name))
     from straight_role import team_at_teleop
     for name,trial in (("direct","issued"),("shorter","shorter"),("near-tape","near-tape"),("shared","shared-105")):
-        row=native["cases"][trial]
+        row=(near if trial=="near-tape" else native)["cases"][trial]
         direct=f.Route(row["start"])
         direct.go(row["finish"][:2])
         peers=team_at_teleop(f,direct,move_partner=not row["red1_keeps_south"])
@@ -71,6 +72,8 @@ def main():
     obj={"auto":auto,"hardware":hardware,"cases":cases,"programs":programs,"leave":study["auto_tape_clearance_m"],
          "cages":{name:station["axis_mm"] for name,station in motion["stations"].items()},
          "cageRadius":motion["radius_mm"],"eyeHeight":motion["upper_height_mm"],
+         "sharedTiltVolume":motion["tilt_trial"]["overlap_mm3_by_degrees"]["6"],
+         "lockedBodies":motion["high_locked_robot"]["installed_bodies"],
          "zone":[v*f.IN for v in ZONE],"tape":[v*f.IN for v in TAPE],
          "field":[f.PROFILE["field"][k]*f.IN for k in ("length","width")],
          "obstacles":[[n,poly] for n,poly in f.obstacles()],"pieces":pieces}
