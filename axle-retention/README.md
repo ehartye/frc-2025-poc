@@ -38,6 +38,8 @@ On a center axle the inboard groove flank presses the clip outward against the s
 
 An integral-shoulder alternative closed the geometric stop but blocked the ordinary outward pull. With the packed drivetrain, 1 mm outward reached the outer bearing and 0.20 mm inward reached the spacer. Removing an entire 88-body drivetrain side was feasible in nominal geometry with 14 mm inward translation and a 180 mm drop. It required a reversible 660 mm inner-rail joint and gang alignment fixture that the shop has yet to qualify. [Original free-shaft control](original.json) · [Preliminary integral-shoulder contact study](shoulder.json)
 
+For a wheel change, remove both bumper halves and support the loose spacers. The [six-wheel removal procedure](wheel-service/README.md) covers the supported 8.8 mm drop, removal of one hub screw, and the alternate center-wheel route that moves the sleeve 1.50 mm. The 0.05 mm minimum nominal clearance requires a measured trial on the first assembly. [CAD clearance results](wheel-service/clearances.json)
+
 ## Loads and weight
 
 The project drive screen supplies 747 N inner and 520 N outer radial reaction, 17.67 N·m peak bending and 19.15 N·m torsion. The axle sample uses a conservative Ø5 major-bore reservation at the minimum groove section. With 500 N axial force, applying the full historic bending and torque at the groove gives 179.74 MPa nominal equivalent stress. Limiting bending to the outboard reaction and its local 11.19 mm lever gives 129.23 MPa with the same pessimistic torque. Groove notch effects, fatigue, bearing thrust capacity, clip prying, startup reversals and local stress peaks remain test inputs.

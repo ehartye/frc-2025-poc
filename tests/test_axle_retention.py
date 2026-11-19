@@ -119,3 +119,18 @@ class AxleRetentionTests(unittest.TestCase):
             self.assertNotEqual(attempt.returncode, 0)
             self.assertIn("Stale selected-shop input", attempt.stderr)
             self.assertFalse((output / "selected-axles.json").exists())
+
+    def test_wheel_removal_rejects_trapped_hub_screws(self):
+        report = receipt("wheel-service/clearances.json")
+        self.assertEqual(set(report["cases"]), WHEELS)
+        for file in ("service.json", "axle-kit.step", "bearing-keepers.step"):
+            self.assertEqual(report["sha256"]["axle-retention/" + file], sha(file))
+        for wheel, case in report["cases"].items():
+            self.assertTrue(case["straightSixControl"]["overlapMm3"])
+            self.assertGreater(case["cradleRaisedPoint2ControlMm3"], 0)
+            for stage in ("lower8p8", "clockAtService", "lowestScrewExtraction", "withdrawWithFive"):
+                self.assertFalse(case[stage]["overlapMm3"])
+                self.assertGreater(case[stage]["gapMm"], 0)
+            if wheel.startswith("center"):
+                self.assertGreater(case["centerStraightDrop"]["gapMm"], 0)
+                self.assertGreater(case["centerAnyPhaseDrop"]["gapMm"], 0)
