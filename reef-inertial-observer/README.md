@@ -30,4 +30,3 @@ python reef-inertial-observer/clearance.py "$ARTIFACTS"
 python reef-inertial-observer/decision.py
 python reef-inertial-observer/student.py "$ARTIFACTS"
 ```
-
