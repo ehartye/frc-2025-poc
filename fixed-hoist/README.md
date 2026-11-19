@@ -2,7 +2,7 @@
 
 The shortened common shaft retains both primary drums, both primary lines, the ratchet, inboard bearings and the service-pin assembly. Two nonrotating spacers bear against the fixed bearing arms. Two pinned stops keep the drums captive from outside. The fixed-height match build removes its two secondary hauls, four hanger mounts per side and their dedicated fasteners. The source bill identifies 48 retired CAD occurrences grouped into 36 installed articles. The separately budgeted shaft extension is shortened by 80 mm. [Native exchange](stationary-shaft.step) · [Drum and bearing source](../design/receiver-lift/) · [Permanent low locks](../design/fixed-height/README.md)
 
-![Two native sections through the left bearing, recessed spacer, original drum and cross-pinned shaft](drum-retention.png)
+![Two native sections through the left bearing, recessed spacer, original drum and cross-pinned shaft](drum-retention.svg)
 
 ## Assembly and service
 

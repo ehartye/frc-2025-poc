@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from OCP.BRepAdaptor import BRepAdaptor_Curve
 from OCP.BRepAlgoAPI import BRepAlgoAPI_Section
+from OCP.GeomAbs import GeomAbs_Line
 from OCP.gp import gp_Pln, gp_Pnt, gp_Dir
 from OCP.TopAbs import TopAbs_EDGE
 from OCP.TopExp import TopExp_Explorer
@@ -27,11 +28,13 @@ def edges(shape, axis, level):
     while walk.More():
         curve = BRepAdaptor_Curve(TopoDS.Edge(walk.Current()))
         a,b = curve.FirstParameter(),curve.LastParameter()
-        yield [curve.Value(a+(b-a)*i/40).Coord() for i in range(41)]
+        steps = 1 if curve.GetType()==GeomAbs_Line else 40
+        yield [curve.Value(a+(b-a)*i/steps).Coord() for i in range(steps+1)]
         walk.Next()
 
 
 def draw():
+    matplotlib.rcParams.update({"svg.fonttype":"none","svg.hashsalt":"fixed-hoist-native-sections"})
     volumes = j.read(HERE/"fit.json")["volumeMm3"]
     kit = j.cad.read_named(HERE/"stationary-shaft.step",[{"id":name} for name in volumes])
     primary = routing(560)
@@ -55,7 +58,10 @@ def draw():
         ax.spines[["right","top"]].set_visible(False)
     fig.legend([Line2D([],[],color=c,lw=3) for c in COLORS.values()],list(COLORS),
                loc="lower center",ncol=3,frameon=False)
-    fig.savefig(HERE/"drum-retention.png",dpi=150)
+    target = HERE/"drum-retention.svg"
+    fig.savefig(target,metadata={"Date":None})
+    lines = target.read_text(encoding="utf8").splitlines()
+    target.write_text("\n".join(line.rstrip() for line in lines)+"\n",encoding="utf8",newline="\n")
     plt.close(fig)
 
 
