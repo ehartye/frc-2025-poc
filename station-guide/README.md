@@ -32,10 +32,10 @@ The two native face volumes allocate 14,400 mm³ to 0.8 mm aluminum backs and 54
 |---|---:|
 | Selected sensor and optics baseline plus guide faces | +95.10 g |
 | Add light chain covers | −39.10 g |
-| Add fixed-camera harness instead | −88.65 g |
-| Include guide, covers and harness together | −222.85 g |
+| Add fixed-camera harness instead | −89.49 g |
+| Include guide, covers and harness together | −223.69 g |
 
-These rows share one base mass. The fixed-camera harness and chain cover remain separate candidate installations. The competition assembly still needs actual weighed parts, mounting, measured stiffness, fastener retention and a service check. [Cover mass](../chain-covers/accounting.json) · [Baseline mass](../sp1-mount/optics-mass.json)
+These rows share one base mass. The fixed-camera harness includes the reseated lamp-platform foot and rerouted brace. Its issued upper addition is 184.594 g. The fixed-camera harness and chain cover remain separate candidate installations. The competition assembly still needs actual weighed parts, mounting, measured stiffness, fastener retention and a service check. [Cover mass](../chain-covers/accounting.json) · [Baseline mass](../sp1-mount/optics-mass.json)
 
 ## Reproduce
 
