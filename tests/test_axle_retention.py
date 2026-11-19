@@ -2,6 +2,9 @@
 import hashlib
 import json
 import math
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -76,6 +79,7 @@ class AxleRetentionTests(unittest.TestCase):
         demand = receipt("load-demand.json")
         self.assertEqual([row["axialN"] for row in demand["loads"]], [250, 500])
         for row in demand["loads"]:
+            self.assertAlmostEqual(4 * row["keeperLipFullRingStripMPa"], row["keeperLipQuarterRingStripMPa"])
             self.assertAlmostEqual(row["axialN"] / demand["minimumGrooveFaceAreaMm2"], row["clipToGrooveMeanUpperMPa"])
             self.assertAlmostEqual(row["axialN"] / (math.pi * (8.35**2 - 7.50**2)), row["thrustFaceMeanMPa"])
         mass = receipt("mass-input.json")
@@ -91,3 +95,27 @@ class AxleRetentionTests(unittest.TestCase):
         self.assertIsNone(account["physicalMarginKg"])
         self.assertAlmostEqual(52.16312255 - account["representedMassKg"][1], account["representedMarginKg"][0])
         self.assertLess(account["representedMarginKg"][0] - 6 * (.55 - .30), 0)
+
+
+    def test_stale_upstream_map_is_rejected_before_accounting(self):
+        selected = [
+            "low-lock", "deck-lamp", "moving-camera", "no-match-air",
+            "four-welded-corners", "light", "shop-supplies",
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            (base / "shop.json").write_text("{}", encoding="utf-8")
+            baseline = base / "map.json"
+            baseline.write_text(json.dumps({
+                "selected": selected, "changes": [],
+                "sources": [{"id": "selected-shop-mass", "file": "shop.json",
+                             "sha256": hashlib.sha256(b"old").hexdigest()}],
+            }), encoding="utf-8")
+            output = base / "generated"
+            attempt = subprocess.run(
+                [sys.executable, str(PACKAGE / "mass.py"), str(base), str(baseline), str(output)],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertNotEqual(attempt.returncode, 0)
+            self.assertIn("Stale selected-shop input", attempt.stderr)
+            self.assertFalse((output / "selected-axles.json").exists())

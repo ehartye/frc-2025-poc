@@ -15,6 +15,18 @@ def stress(moment,torque,axial,diameter,bore):
     return math.sqrt(sigma*sigma+3*tau*tau)
 
 
+def keeper_lip_screen(axial_force, fraction):
+    # A full annular band is contained in both flat faces at 0.25 mm offset.
+    # The circular lip is idealized as radial strips clamped at the pocket edge.
+    inner_radius = 13.4
+    outer_radius = 15.5575 - .25
+    contact_area = math.pi * (outer_radius**2 - inner_radius**2) * fraction
+    pressure = axial_force / contact_area
+    span = 16.0 - inner_radius
+    thickness = 3.10 - 1.65
+    return 3 * pressure * span**2 / thickness**2
+
+
 def run(archive):
     route=json.loads((HERE.parent/"design/drivetrain/route-receipt.json").read_bytes())["candidate"]["supportScreen"]
     face=report(archive,250)
@@ -44,6 +56,8 @@ def run(archive):
                      "thrustFaceMeanMPa":force/(math.pi*(8.35**2-7.5**2)),
                      "keeperAxialPerScrewUniformN":force/4,
                      "keeperTwoScrewShareN":force/2,
+                     "keeperLipFullRingStripMPa":keeper_lip_screen(force,1.0),
+                     "keeperLipQuarterRingStripMPa":keeper_lip_screen(force,.25),
                      "averageEndThreadShearDemandMPa":force/(.5*math.pi*4.04*12.7)})
     # Select the cut washer against the actual groove flank and ring with the
     # gearbox fully engaged. Rechecked after shimming by dial indicator.
