@@ -29,34 +29,41 @@ def main():
     study = json.loads((HERE/"study.json").read_bytes())
     programs = {}
     cases = {}
-    for name,row in study["scenarios"].items():
-        team = prepare(f,leave,park,row["lane_reserved"],row["decision_teleop_s"],row["attempt"])
-        refs = {}
+    native=json.loads((HERE/"native-park.json").read_bytes())
+    def track_refs(team,case):
+        refs={}
         for key,program in team.items():
-            data = keyframes(program)
-            ref = next((r for r,v in programs.items() if v==data),name+"-"+key)
-            programs[ref] = data
+            data=keyframes(program)
+            ref=next((r for r,v in programs.items() if v==data),case+"-"+key)
+            programs[ref]=data
             refs[key]=ref
-        cases[name] = dict(row, robots=refs)
-    from straight_role import path,team_at_teleop
-    direct=path(f)
-    straight=study["preassigned_straight"]
-    peers=team_at_teleop(f,direct)
-    refs={}
-    for key,program in peers.items():
-        data=keyframes(program)
-        ref=next((r for r,v in programs.items() if v==data),"direct-"+key)
-        programs[ref]=data
-        refs[key]=ref
-    cases["direct"]={"robots":refs,"leave_points":3,"park_points":straight["potential_points"]-3,
-                     "attempt":True,"decision_teleop_s":0,"first_sampled_overlap":None}
+        return refs
+    for name,row in study["scenarios"].items():
+        team=prepare(f,leave,park,row["lane_reserved"],row["decision_teleop_s"],row["attempt"])
+        cases[name]=dict(row,robots=track_refs(team,name))
+    from straight_role import team_at_teleop
+    for name,trial in (("direct","issued"),("shorter","shorter"),("shared","shared-105")):
+        row=native["cases"][trial]
+        direct=f.Route(row["start"])
+        direct.go(row["finish"][:2])
+        peers=team_at_teleop(f,direct,move_partner=not row["red1_keeps_south"])
+        cases[name]={"robots":track_refs(peers,name),"leave_points":3,"park_points":2,"auto":auto_frames(direct),
+                     "attempt":True,"decision_teleop_s":0,"first_sampled_overlap":None,
+                     "staticGap":row["static_field_lower_bound_mm"],"planningGap":row["planning_field"]["gap_m"]*1000,
+                     "partnerGap":min(row["auto_focal_to_each_peer_m"].values())*1000}
+    hardware=[]
+    for extent in native["local_hardware_native_boxes_mm"].values():
+        u,v,w,uu,vv,ww=extent
+        left,bottom=f.field_from_native(u/25.4,ww/25.4)
+        right,top=f.field_from_native(uu/25.4,w/25.4)
+        hardware.append([left,bottom,right,top])
     auto=auto_frames(leave)
     stock=json.loads(STOCK.read_bytes())
     pieces=[]
     for part in stock["stock"].values():
         x,_,z=part["native_center_mm"]
         pieces.append([part["group"],*f.field_from_native(x/25.4,z/25.4)])
-    obj={"auto":auto,"directAuto":auto_frames(direct),"cases":cases,"programs":programs,"leave":study["auto_tape_clearance_m"],
+    obj={"auto":auto,"hardware":hardware,"cases":cases,"programs":programs,"leave":study["auto_tape_clearance_m"],
          "zone":[v*f.IN for v in ZONE],"tape":[v*f.IN for v in TAPE],
          "field":[f.PROFILE["field"][k]*f.IN for k in ("length","width")],
          "obstacles":[[n,poly] for n,poly in f.obstacles()],"pieces":pieces}
