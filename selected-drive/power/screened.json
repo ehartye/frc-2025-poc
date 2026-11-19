@@ -1,0 +1,37 @@
+{
+  "schema": "frc-power-trace/v1",
+  "actionId": "selected-drive-spin",
+  "busId": "main-pack",
+  "clockId": "match-wall",
+  "trialId": "screened",
+  "condition": "11.8 V pack with 27 milliohm common source",
+  "units": {
+    "time": "s",
+    "voltage": "V",
+    "current": "A"
+  },
+  "provenance": {
+    "kind": "modeled",
+    "source": "Held five-millisecond aggregate model demand from results.json b41a0d86c0930fcedaab1b581117158ec9833eb3276e29a50d2e1b0f50196da9"
+  },
+  "rows": [
+    {
+      "fromS": 40.325,
+      "toS": 40.33,
+      "voltages": [
+        {
+          "location": "drive-right",
+          "kind": "lower-bound",
+          "valueV": 9.546311695272315
+        }
+      ],
+      "currents": [
+        {
+          "id": "pack",
+          "kind": "source",
+          "valueA": 64.36426481104806
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema": "frc-power-review/v1",
+  "actionId": "selected-drive-spin",
+  "busId": "main-pack",
+  "clockId": "match-wall",
+  "window": {
+    "fromS": 40.325,
+    "toS": 40.33
+  },
+  "requiredLoads": [
+    "pack"
+  ],
+  "maxSampleIntervalS": 0.005001,
+  "trials": [
+    {
+      "id": "screened",
+      "condition": "11.8 V pack with 27 milliohm common source",
+      "status": "complete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "Held five-millisecond aggregate model demand from results.json b41a0d86c0930fcedaab1b581117158ec9833eb3276e29a50d2e1b0f50196da9"
+      },
+      "trace": {
+        "file": "screened.json",
+        "sha256": "c16dc5296a5a8bfc4545132c94d2c2f792922d7924d3b685061c28f02ea61726"
+      },
+      "endpoints": [
+        {
+          "id": "drive-right",
+          "minV": 9.5,
+          "lowestEvidence": {
+            "location": "drive-right",
+            "fromS": 40.325,
+            "toS": 40.33,
+            "kind": "lower-bound",
+            "valueV": 9.546311695272315,
+            "minV": 9.5,
+            "marginV": 0.04631169527231549,
+            "currents": [
+              {
+                "id": "pack",
+                "kind": "source",
+                "valueA": 64.36426481104806
+              }
+            ]
+          },
+          "status": "complete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "drive-right",
+        "fromS": 40.325,
+        "toS": 40.33,
+        "kind": "lower-bound",
+        "valueV": 9.546311695272315,
+        "minV": 9.5,
+        "marginV": 0.04631169527231549,
+        "currents": [
+          {
+            "id": "pack",
+            "kind": "source",
+            "valueA": 64.36426481104806
+          }
+        ]
+      },
+      "unknowns": [],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    },
+    {
+      "id": "weak",
+      "condition": "11.8 V pack with 32 milliohm common source",
+      "status": "incomplete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "Held five-millisecond aggregate model demand from results.json b41a0d86c0930fcedaab1b581117158ec9833eb3276e29a50d2e1b0f50196da9"
+      },
+      "trace": {
+        "file": "weak.json",
+        "sha256": "f20d2e6ed6650f98b39b66a50a3e37274d6a445b00efc573d8e95ad7ba0c0e32"
+      },
+      "endpoints": [
+        {
+          "id": "drive-right",
+          "minV": 9.5,
+          "lowestEvidence": {
+            "location": "drive-right",
+            "fromS": 40.325,
+            "toS": 40.33,
+            "kind": "lower-bound",
+            "valueV": 9.099857817863336,
+            "minV": 9.5,
+            "marginV": -0.40014218213666375,
+            "currents": [
+              {
+                "id": "pack",
+                "kind": "source",
+                "valueA": 67.46813843939644
+              }
+            ]
+          },
+          "status": "incomplete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "drive-right",
+        "fromS": 40.325,
+        "toS": 40.33,
+        "kind": "lower-bound",
+        "valueV": 9.099857817863336,
+        "minV": 9.5,
+        "marginV": -0.40014218213666375,
+        "currents": [
+          {
+            "id": "pack",
+            "kind": "source",
+            "valueA": 67.46813843939644
+          }
+        ]
+      },
+      "unknowns": [
+        "Lower bound alone cannot establish a violation at drive-right",
+        "Missing qualifying voltage coverage at drive-right"
+      ],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    }
+  ],
+  "interpretation": "11.8 V pack with 27 milliohm common source (modeled electrical evidence) is complete. At drive-right (40.325\u201340.33 s), the lower-bound is 9.546311695272315 V against a 9.5 V floor. Coincident readings were pack source current 64.36426481104806 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. 11.8 V pack with 32 milliohm common source (modeled electrical evidence) is incomplete. At drive-right (40.325\u201340.33 s), the lower-bound is 9.099857817863336 V against a 9.5 V floor. Coincident readings were pack source current 67.46813843939644 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. Lower bound alone cannot establish a violation at drive-right. Missing qualifying voltage coverage at drive-right."
+}
