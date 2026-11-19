@@ -10,6 +10,7 @@
 
 | What students can investigate | Evidence |
 | --- | --- |
+| Find the first loaded scoring-stroke obstruction, adjust the docking distance and compare two machined absorber lands. | [R4 scoring end and native geometry](score-stroke/study.md) |
 | Watch the four wheels rotate and reverse while the robot holds its heading; try a jammed corner or a delayed camera. | [Interactive field replay](motion/index.html) and [eight controller trials](motion/README.md) |
 | Inspect wheel centers, rear-module interference, steering sweep, frame cuts and attachment hardware. | [Native packaging](packaging/) and [Fusion model and supplier revision](../../cad/FUSION.md) |
 | Compare a fast turn with a gradual turn on the same four tires. Review motor demand, loaded battery voltage, and wiring allocations. | [Power, traction and mass](power/README.md) |

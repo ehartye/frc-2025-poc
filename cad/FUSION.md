@@ -18,4 +18,6 @@ The selected product is MAXSwerve V1.1 with a V2 wheel, a 12-tooth pinion, NEO d
 
 For a directly downloadable native exercise, open [tab-saddle.f3d](../experiments/swerve-drive/packaging/tab-saddle.f3d) in Fusion. This project-designed saddle has four native sketches and extrusions, with six editable dimensions. Its volume agrees with its independently reopened structural STEP body to within 0.006 mm³. [Saddle evidence](../experiments/swerve-drive/packaging/saddle-fusion.json)
 
+The scoring-stroke study also includes a [downloadable native cam-land assembly](../experiments/swerve-drive/score-stroke/cam-lands.f3d). Open either of its two components to see how the underside lands and relief are machined. The candidate has six editable Fusion extrudes and one shared lane-width parameter. [Compare its dimensions, cap clearance and station trials](../experiments/swerve-drive/score-stroke/study.md)
+
 [Rotate the current numbered robot](../docs/robot/cad/index.html) · [Open the structural STEP](../experiments/swerve-drive/packaging/swerve-frame.step) · [See the previous six-wheel campaign](../experiments/six-wheel/README.md)
