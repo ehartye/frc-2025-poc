@@ -143,6 +143,9 @@ def run(artifacts, lamp, field, out):
     result={"source":{f:digest(ROOT/f) for f in ("selected-match/kit.json","selected-match/corrected-clearance.json","sp1-mount/sp1_hardware.py","sp1-mount/service_fit.py","sp1-mount/check.py")},
             "priorKitSha256":old["kitSha256"],"fieldSha256":digest(field),"stepSha256":digest(step),
             "volumeMm3":volumes,"supplierExcluded":sorted(supplied(0)),
+            "boundsMm":{str(stroke):{k:[round(float(n),6) for n in cad.bounds(shape)]
+                                     for k,shape in {**manufactured(stroke),**supplied(stroke)}.items()}
+                        for stroke in (0,370)},
             "nativeScan":checked,"installation":installation,"oldTargetControl":controls,"registeredDocks":clearance(field)}
     (out/"fit.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf8",newline="\n")
     print("Docks",result["registeredDocks"],flush=True)

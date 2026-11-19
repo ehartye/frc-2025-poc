@@ -48,6 +48,11 @@ class SP1MountTests(unittest.TestCase):
         self.assertEqual(source["combinedRangeKg"],[sum(v) for v in zip(source["budgetDeltaKg"],source["priorRangeKg"])])
         self.assertAlmostEqual(mass["representedMarginKg"][0],.1838042,places=6)
         self.assertIsNone(mass["physicalMarginKg"])
+        optics=read("optics-mass.json")
+        self.assertEqual(optics["budgetDeltaKg"],mass["budgetDeltaKg"])
+        self.assertEqual(len(optics["retainedOpticalInstances"]),4)
+        self.assertAlmostEqual(optics["representedMarginKg"][0],.1609836,places=6)
+        self.assertEqual(fit["boundsMm"]["370"]["sp1-shelf-clevis"][3],489)
         text=" ".join(ElementTree.parse(STUDY/"shop-drawing.svg").getroot().itertext())
         for datum in ("Z427.2","X −31.3","Ø4.10","10.80","3.2 × 7 × 0.5"):
             self.assertIn(datum,text)

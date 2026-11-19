@@ -15,7 +15,9 @@ from account import digest, read, write, bind_sources
 def run(plugin, baseline, output):
     output.mkdir(parents=True,exist_ok=True)
     data=read(baseline)
-    if data["selected"][-1]!="clearance-fit" or "sp1-install" in data["selected"]:
+    with_optics="selected-optics" in data["selected"]
+    suffix=["clearance-fit","selected-optics"] if with_optics else ["clearance-fit"]
+    if data["selected"][-len(suffix):]!=suffix or "sp1-install" in data["selected"]:
         raise ValueError("Requires the issued shop-receiver selection exactly once")
     pinned=next(s for s in data["sources"] if s["id"]=="clearance-fit-mass")
     if pinned["sha256"]!=digest(ROOT/"selected-match/clearance-mass.json"):
@@ -82,12 +84,25 @@ def run(plugin, baseline, output):
     target=output/"sp1-install.json"
     write(target,data)
     check=json.loads(subprocess.check_output(["node",str(plugin/"scripts/assembly-accounting.mjs"),str(target)]))
-    report={"installedVersion":read(plugin/"package.json")["version"],"coverage":check["coverage"],
+    coverage={k:check["coverage"][k] for k in ("total","covered","roles","missing","duplicates","unattached","orphanIncluded")}
+    report={"installedVersion":read(plugin/"package.json")["version"],"coverage":coverage,
             "budgetDeltaKg":delta,"representedKg":check["mass"]["representedRangeKg"],
             "representedMarginKg":check["mass"]["representedMarginKg"],"physicalMarginKg":check["mass"]["configurationMarginKg"]}
     if any(report["coverage"][k] for k in ("missing","duplicates","orphanIncluded","unattached")):
         raise ValueError("Selected SP1 kit no longer reconciles")
-    write(HERE/"mass.json",report)
+    if with_optics:
+        optical=read(ROOT/"selected-optics/mass.json")
+        prior_optics=next(c for c in data["changes"] if c["id"]=="selected-optics")
+        retained=set(prior_optics["add"])
+        effective=set(check["make"])
+        effective.update(k for row in check["buy"] for k in row["instances"])
+        if retained!=set(optical["addedInstalled"]) or not retained<=effective:
+            raise ValueError("An issued optical fitting or screw disappeared from the configured inventory")
+        for i in range(2):
+            if abs(report["representedKg"][i]-optical["representedKg"][i]-delta[i])>1.e-8:
+                raise ValueError("Optical baseline and physical sensor delta did not reconcile")
+        report.update(retainedOpticalInstances=sorted(retained),opticsMassSha256=digest(ROOT/"selected-optics/mass.json"))
+    write(HERE/("optics-mass.json" if with_optics else "mass.json"),report)
 
 
 if __name__=="__main__":

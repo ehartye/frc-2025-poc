@@ -47,7 +47,10 @@ Use the registered project artifact directory, the matching signal-light STEP an
 ```sh
 python sp1-mount/check.py artifacts "$SIGNAL_LIGHT_STEP" "$FIELD_STEP" sp1-mount
 python sp1-mount/account.py "$AGENT_FRC_PLUGIN_ROOT" artifacts/selected-match-clearance/maps/shop-receiver.json artifacts/sp1-mount/maps
+python sp1-mount/account.py "$AGENT_FRC_PLUGIN_ROOT" artifacts/selected-optics/issued/maps/registered-optics.json artifacts/sp1-mount/optics-maps
 python -m unittest discover -s tests -p test_sp1_mount.py
 ```
 
 The mass program verifies the #89 source and applies the final selected physical instances once. The included factory bracket and cable remain in the existing 0.12–0.19 kg sensor budget. The source plugin accepts a flat alternative from the original assembly baseline, so the map retains the other #89 additions and its signed mass interval when replacing the two machined mounting parts. The incremental modeled range is +23.24 to +61.57 g. The upper robot estimate is 51.97932 kg, with 183.80 g of represented headroom. The physical scale margin is unknown. The generated map is `artifacts/sp1-mount/maps/sp1-install.json`. [Accounting adapter](account.py) · [Source mass calculation](mass-input.json)
+
+Against the independently registered camera kit, the second map verifies that the two fixed-camera shoes and both M4 screws remain in the selected installed inventory. It reproduces the same SP1 delta, an upper estimate of 52.002139 kg, and 160.984 g of represented headroom. Physical mass and combined optical behavior remain open. [Camera-inclusive mass receipt](optics-mass.json) · [Issued optical scene](../selected-optics/README.md)
