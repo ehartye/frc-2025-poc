@@ -63,7 +63,7 @@ python fit.py <assets>/swerve-package
 python backplates.py <assets>/swerve-package
 python rear_fit.py <assets>/swerve-package
 python service.py <assets>/swerve-package FL
-python -m unittest discover -s . -p "test*.py"
+python ../../../tests/test_swerve_packaging.py
 ```
 
 The [source placement](module_placement.py) checks the 4×4 coordinate transforms. Native STEP measures material intersections, returned topology, volumes and datums. The Fusion archive independently checks the student's view of editable geometry. Physical inspection, installed weight and field scoring remain separate evidence.

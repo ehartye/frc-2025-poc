@@ -5,7 +5,7 @@ import math
 from pathlib import Path
 import unittest
 
-HERE=Path(__file__).resolve().parent
+HERE = Path(__file__).resolve().parents[1] / 'experiments/swerve-drive/packaging'
 
 
 def read(name):

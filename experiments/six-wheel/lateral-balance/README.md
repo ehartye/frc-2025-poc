@@ -1,9 +1,9 @@
 # Balance the straight-guide robot on its station approach
 
 <!-- cad-still -->
-[![Shop-duplex assembly in its stowed pose](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
 
-**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
 **The 44% lighter-side target is achievable under a specific prebuild mass allocation.** With opposite wheels matched within 20 g per axle, opposite gearboxes within 25 g, the battery construction bound below, and the remaining material centered within Y±10 mm, the lighter side retains at least **44.239%** across both signed approaches. The upper empty-mass endpoint alone gives **45.180%**. The installed bill still leaves enough mass without individual positions to prevent certifying the 44% target from CAD alone. [Student experiment](index.html) · [Signed load-line calculations](transfer.json)
