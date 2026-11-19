@@ -42,7 +42,7 @@ class GripperMotionWitness(unittest.TestCase):
             self.assertEqual(digest(ROOT / name), pin)
         for label, r in runs.items():
             self.assertEqual(int(r["probe_ms"]), 580)
-            if label.startswith("candidate"):
+            if label.startswith(("candidate", "folded")):
                 self.assertEqual(r["state_or_command_differences"], "0")
                 self.assertEqual(r["fault_ms"], "-1")
                 self.assertEqual(int(r["band_ms"]), r["originalFirstBandMs"])
@@ -56,7 +56,7 @@ class GripperMotionWitness(unittest.TestCase):
                 self.assertEqual(r["state_or_command_differences"], "0")
                 self.assertEqual(r["confirmed_ms"], "640")
                 self.assertEqual(r["originalLastJavaMs"], int(r["fault_ms"]))
-        self.assertEqual(len(runs), 8)
+        self.assertEqual(len(runs), 12)
 
     def test_grid_and_continuous_bounds(self):
         for state, kind in (("PROBE", "healthy"), ("FAULT", "locked")):

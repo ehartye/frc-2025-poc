@@ -24,22 +24,47 @@ def write(p, d):
     )
 
 
+def folded_histories(path):
+    """Expand the source's lossless change-only register back to its 20 ms service."""
+    for row in read(path)["cases"]:
+        if not row["id"].endswith("-serial-carriage-recover"):
+            continue
+        transitions = {point[0]: point[1:] for point in row["portTransitions"]}
+        ticks = []
+        held = None
+        for ms in range(0, row["lastJavaMs"] + 1, 20):
+            held = transitions.get(ms, held)
+            ticks.append([ms, *held])
+        yield (
+            f"folded-{row['case']}-{row['stepUs']:g}",
+            {
+                "portTicks": ticks,
+                "sourceProgramSha256": row["programSha256"],
+                "state": row["lastState"],
+                "firstBandJavaMs": row["firstBandMs"],
+            },
+        )
+
+
 def analyze(jdk, artifacts):
     artifacts.mkdir(parents=True, exist_ok=True)
     inputs = artifacts / "ports.csv"
     raw = artifacts / "sweep.csv"
     pins = {}
     sources = {}
+    for file in ("candidate", "locked", "traction"):
+        p = ROOT / "split-guide-acquisition" / (file + ".json")
+        pins[p.relative_to(ROOT).as_posix()] = digest(p)
+        for r in read(p)["cases"]:
+            sources[f"{file}-{r['side']}-{r['stepS'] * 1e6:g}"] = r
+    folded = ROOT / "guide-impact/results.json"
+    pins[folded.relative_to(ROOT).as_posix()] = digest(folded)
+    sources.update(folded_histories(folded))
     with inputs.open("w", encoding="ascii", newline="") as f:
         w = csv.writer(f, lineterminator="\n")
-        for file in ("candidate", "locked", "traction"):
-            p = ROOT / "split-guide-acquisition" / (file + ".json")
-            pins[str(p.relative_to(ROOT)).replace(chr(92), "/")] = digest(p)
-            for r in read(p)["cases"]:
-                key = f"{file}-{r['side']}-{r['stepS'] * 1e6:g}"
-                sources[key] = r
-                for ms, state, entry, seat, belt in r["portTicks"]:
-                    w.writerow([key, ms, int(entry), int(seat), state, belt])
+        for key, r in sources.items():
+            for ms, state, entry, seat, belt in r["portTicks"]:
+                w.writerow([key, ms, int(entry), int(seat), state, belt])
     with tempfile.TemporaryDirectory() as td:
         classes = Path(td)
         port = classes / "PortAcquisition.java"

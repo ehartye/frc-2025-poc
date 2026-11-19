@@ -2,7 +2,8 @@
   "registeredInputs": {
     "split-guide-acquisition/candidate.json": "22e8860f678ecb9a4416502893002b4a5d989eae4bdbc430ec72cc70bbbb7c0f",
     "split-guide-acquisition/locked.json": "732002d59797cf44f209be08af5eb7c25ce3f640da37c381fde0dc0ba82de2dc",
-    "split-guide-acquisition/traction.json": "58b02241a0003f13a83fdad0c0e3fb008aaf656f83025b15e4ea1e8c82ae9cec"
+    "split-guide-acquisition/traction.json": "58b02241a0003f13a83fdad0c0e3fb008aaf656f83025b15e4ea1e8c82ae9cec",
+    "guide-impact/results.json": "8115ea71a07f6d210edde2b33baab1d25a5c951e87247bff59a844a1ca668d93"
   },
   "watchSources": {
     "GuardedAcquisition.java": "ddf84f168d4892c7b4d3567b702024264e44027474e0a92e39c97e57cd8ac661",
@@ -11,8 +12,8 @@
     "WatchFixture.java": "83de40dbb0c7edb5d0e0c29e5feb4227199a9726d0fe7d960fdf07b8aed6934e"
   },
   "compiledPortProgramSha256": "9e29d95f57b0e45164916d9b97ff1ea1a3d0e2303bff85641f4afa2251df4a94",
-  "sweepSha256": "4f62047a6fcd5035a342be89eee85e56c22211da6ab1eabf474631c8cc69ca85",
-  "sampledCases": 2422,
+  "sweepSha256": "95c280b6eb2f05e67a00fb4b058328ff2606a6949a63b27f14e0ce969cd466c3",
+  "sampledCases": 2426,
   "joinedSource": {
     "candidate-leftSmall-31.25": {
       "probe_ms": "580",
@@ -117,6 +118,58 @@
       "originalOutcome": "FAULT",
       "originalFirstBandMs": null,
       "originalLastJavaMs": 880
+    },
+    "folded-leftSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1340",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1340,
+      "originalLastJavaMs": 5460
+    },
+    "folded-rightSmall-31.25": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1360",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1360,
+      "originalLastJavaMs": 5460
+    },
+    "folded-leftSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1340",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1340,
+      "originalLastJavaMs": 5460
+    },
+    "folded-rightSmall-15.625": {
+      "probe_ms": "580",
+      "confirmed_ms": "640",
+      "band_ms": "1360",
+      "fault_ms": "-1",
+      "state_or_command_differences": "0",
+      "outcome": "IN_BAND",
+      "reason": "",
+      "last_command": "0.00000",
+      "originalOutcome": "IN_BAND",
+      "originalFirstBandMs": 1360,
+      "originalLastJavaMs": 5460
     }
   },
   "digitalControls": {
