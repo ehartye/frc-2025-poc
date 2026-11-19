@@ -1,0 +1,512 @@
+{
+  "sources": {
+    "design/signal-light/review.json": "c86400be1e3d294a65866a8e1e386f951e9b332e2f4b14b3a38e54cd1bd948ea",
+    "design/signal-light/deck-mount.step": "3872dcf1c1e5a52d07bac3cc1b220a83c2d9dd06c42765ffb34f84c6175a80d2",
+    "design/fixed-height/native.json": "4a449e5fbe0cfc7166a0bac7c9684cb1c7ab60eb1acc2ee62e449943e25ee325",
+    "design/receiver-lift/duplex.py": "ff8206eb7a3118bf2bb172e10ff654f0cc73a606717c8a9ac30a443c80eb3c1d",
+    "moving-observer/mount.json": "f66bd20caa354a39b1a06364617b7f1e4b85802757652c536716617cf4b38e36",
+    "moving-observer/moving-bridge.step": "3e71cf6f2834d96b901857db9af947c1bc6606c0cc13444cdfab4395ccc6d1b2"
+  },
+  "pit_step_sha256": "ad37cbdace29cfa8ca098450fec85368803184b59d4ec9992ef2725d132155b1",
+  "cases": {
+    "high": {
+      "match_bodies": 578,
+      "camera_kit": null,
+      "air_installed_neighbours_within_2mm": {
+        "gauge-regulator-dump-reserve": {
+          "deck-main": 0.0
+        },
+        "regulated-pawl-valve": {
+          "front-electronics-platform": 0.0
+        },
+        "tank-avt-pp-35": {
+          "tank-saddle-front": 0.0,
+          "tank-saddle-rear": 0.0
+        },
+        "tank-saddle-front": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "tank-saddle-rear": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "viair-90c": {
+          "deck-main": 0.0
+        }
+      },
+      "pit_support": {
+        "L": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-L-service-pin-rail": 11.326468755818125,
+            "backup-L-service-pin-bushing-940": 6.080706512397976
+          },
+          "lateral_tool_hits_mm3": {
+            "backup-L-running-line": 9.843332440197086
+          },
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999988955,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.758964190925326,
+          "bearing_at_2mm_down_mm3": 36.26494031820887,
+          "seated_shank_at_half_mm_mm3": 34.27809124502345,
+          "head_at_1mm_forward_mm3": 42.20101411567275,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801698668,
+          "wrong_height_carriage_gap_mm": 378.91382925409306,
+          "bending": {
+            "selected": {
+              "one_pin_force_N": 244.79481771572577,
+              "sections": {
+                "bushing_exit": {
+                  "loaded_arm_mm": 24.3,
+                  "area_mm2": 50.26548245743387,
+                  "section_modulus_mm3": 50.265482455178066,
+                  "nominal_stress_MPa": 118.34192730163188
+                },
+                "keeper_bore": {
+                  "loaded_arm_mm": 19.5,
+                  "area_mm2": 32.12775659008429,
+                  "section_modulus_mm3": 26.74016399018737,
+                  "nominal_stress_MPa": 178.51419861180904
+                }
+              }
+            },
+            "long_control": {
+              "one_pin_force_N": 244.79481771572577,
+              "sections": {
+                "bushing_exit": {
+                  "loaded_arm_mm": 46.3,
+                  "area_mm2": 50.26548245743387,
+                  "section_modulus_mm3": 50.265482455178066,
+                  "nominal_stress_MPa": 225.4827668339735
+                },
+                "keeper_bore": {
+                  "loaded_arm_mm": 41.5,
+                  "area_mm2": 32.12775659008429,
+                  "section_modulus_mm3": 26.74016399018737,
+                  "nominal_stress_MPa": 379.9148329430808
+                }
+              }
+            }
+          }
+        },
+        "R": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-R-service-pin-rail": 11.326468755818125,
+            "backup-R-service-pin-bushing-940": 6.080706512397976
+          },
+          "lateral_tool_hits_mm3": {},
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999988955,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.758964190925326,
+          "bearing_at_2mm_down_mm3": 36.26494031820887,
+          "seated_shank_at_half_mm_mm3": 34.27809124502345,
+          "head_at_1mm_forward_mm3": 42.20101411567275,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801698668,
+          "wrong_height_carriage_gap_mm": 378.91382925409306
+        }
+      }
+    },
+    "low-receive": {
+      "match_bodies": 572,
+      "camera_kit": null,
+      "air_installed_neighbours_within_2mm": {
+        "gauge-regulator-dump-reserve": {
+          "deck-main": 0.0
+        },
+        "regulated-pawl-valve": {
+          "front-electronics-platform": 0.0
+        },
+        "tank-avt-pp-35": {
+          "tank-saddle-front": 0.0,
+          "tank-saddle-rear": 0.0
+        },
+        "tank-saddle-front": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "tank-saddle-rear": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "viair-90c": {
+          "deck-main": 0.0
+        }
+      },
+      "pit_support": {
+        "L": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-L-service-pin-rail": 11.326468755817965,
+            "backup-L-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {
+            "backup-L-running-line": 9.84333244060159
+          },
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995701,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.278091245023525,
+          "head_at_1mm_forward_mm3": 42.20101411567193,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722294,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        },
+        "R": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-R-service-pin-rail": 11.326468755817965,
+            "backup-R-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {},
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995701,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.278091245023525,
+          "head_at_1mm_forward_mm3": 42.20101411567193,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722294,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        }
+      }
+    },
+    "low-place": {
+      "match_bodies": 572,
+      "camera_kit": null,
+      "air_installed_neighbours_within_2mm": {
+        "gauge-regulator-dump-reserve": {
+          "deck-main": 0.0
+        },
+        "regulated-pawl-valve": {
+          "front-electronics-platform": 0.0
+        },
+        "tank-avt-pp-35": {
+          "tank-saddle-front": 0.0,
+          "tank-saddle-rear": 0.0
+        },
+        "tank-saddle-front": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "tank-saddle-rear": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "viair-90c": {
+          "deck-main": 0.0
+        }
+      },
+      "pit_support": {
+        "L": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-L-service-pin-rail": 11.326468755817967,
+            "backup-L-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {
+            "backup-L-running-line": 9.84333244060159
+          },
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995964,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.27809124502317,
+          "head_at_1mm_forward_mm3": 42.20101411567266,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722287,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        },
+        "R": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-R-service-pin-rail": 11.326468755817967,
+            "backup-R-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {},
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995964,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.27809124502317,
+          "head_at_1mm_forward_mm3": 42.20101411567266,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722287,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        }
+      }
+    },
+    "low-receive-camera": {
+      "match_bodies": 593,
+      "camera_kit": {
+        "native_sha256": "3e71cf6f2834d96b901857db9af947c1bc6606c0cc13444cdfab4395ccc6d1b2",
+        "new_bodies": 21,
+        "removed_shelf_mm3": 954.2587685270701
+      },
+      "air_installed_neighbours_within_2mm": {
+        "gauge-regulator-dump-reserve": {
+          "deck-main": 0.0
+        },
+        "regulated-pawl-valve": {
+          "front-electronics-platform": 0.0
+        },
+        "tank-avt-pp-35": {
+          "tank-saddle-front": 0.0,
+          "tank-saddle-rear": 0.0
+        },
+        "tank-saddle-front": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "tank-saddle-rear": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "viair-90c": {
+          "deck-main": 0.0
+        }
+      },
+      "pit_support": {
+        "L": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-L-service-pin-rail": 11.326468755817965,
+            "backup-L-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {
+            "backup-L-running-line": 9.84333244060159
+          },
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995701,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.278091245023525,
+          "head_at_1mm_forward_mm3": 42.20101411567193,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722294,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        },
+        "R": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-R-service-pin-rail": 11.326468755817965,
+            "backup-R-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {},
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995701,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.278091245023525,
+          "head_at_1mm_forward_mm3": 42.20101411567193,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722294,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        }
+      }
+    },
+    "low-place-camera": {
+      "match_bodies": 593,
+      "camera_kit": {
+        "native_sha256": "3e71cf6f2834d96b901857db9af947c1bc6606c0cc13444cdfab4395ccc6d1b2",
+        "new_bodies": 21,
+        "removed_shelf_mm3": 954.2587685273029
+      },
+      "air_installed_neighbours_within_2mm": {
+        "gauge-regulator-dump-reserve": {
+          "deck-main": 0.0
+        },
+        "regulated-pawl-valve": {
+          "front-electronics-platform": 0.0
+        },
+        "tank-avt-pp-35": {
+          "tank-saddle-front": 0.0,
+          "tank-saddle-rear": 0.0
+        },
+        "tank-saddle-front": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "tank-saddle-rear": {
+          "deck-main": 0.0,
+          "tank-avt-pp-35": 0.0
+        },
+        "viair-90c": {
+          "deck-main": 0.0
+        }
+      },
+      "pit_support": {
+        "L": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-L-service-pin-rail": 11.326468755817967,
+            "backup-L-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {
+            "backup-L-running-line": 9.84333244060159
+          },
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995964,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.27809124502317,
+          "head_at_1mm_forward_mm3": 42.20101411567266,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722287,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        },
+        "R": {
+          "nominal_hardware_hits_mm3": {
+            "pin": {},
+            "keeper": {},
+            "nut": {}
+          },
+          "pin_sweep_hits_mm3": {},
+          "keeper_sweep_hits_mm3": {},
+          "pin_bolt_overlap_mm3": 0.0,
+          "keeper_sweep_pin_overlap_mm3": 0.0,
+          "nut_tool_hits_mm3": {},
+          "head_tool_hits_mm3": {},
+          "prior_tool_hits_mm3": {
+            "backup-R-service-pin-rail": 11.326468755817967,
+            "backup-R-service-pin-bushing-560": 6.08070651240142
+          },
+          "lateral_tool_hits_mm3": {},
+          "pin_nut_overlap_mm3": 0.0,
+          "bolt_nut_overlap_mm3": 0.0,
+          "gap_to_carriage_mm": 1.0,
+          "minimum_pin_to_bushing_mm": 0.09999999999995964,
+          "nominal_plate_engagement_mm": 10.000000099999994,
+          "adverse_plate_engagement_mm": 6.000000099999994,
+          "adverse_bearing_at_2mm_down_mm3": 21.75896419092531,
+          "bearing_at_2mm_down_mm3": 36.26494031820885,
+          "seated_shank_at_half_mm_mm3": 34.27809124502317,
+          "head_at_1mm_forward_mm3": 42.20101411567266,
+          "keeper_at_3mm_withdrawal_mm3": 1.7580979801722287,
+          "wrong_height_carriage_gap_mm": 356.97015281392925
+        }
+      }
+    }
+  }
+}
