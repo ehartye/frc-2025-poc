@@ -1,0 +1,136 @@
+{
+  "schema": "frc-power-review/v1",
+  "actionId": "loaded-camera-on-moving-shelf",
+  "busId": "camera-converter-output",
+  "clockId": "steady-load-budget",
+  "window": {
+    "fromS": 0,
+    "toS": 0.02
+  },
+  "requiredLoads": [
+    "camera"
+  ],
+  "maxSampleIntervalS": 0.02,
+  "trials": [
+    {
+      "id": "screened",
+      "condition": "1.9 m moving-camera lead with 0 ohm added interface resistance",
+      "status": "complete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "fixed-low-power/dual_camera.py SHA-256 48ded1cd70777bed2f820e44f2e727d09007fda9bd5c6353b63f36dd67e94f94. Conditional DC budget on the regulator output, steady 1.20 A equivalent load. The selected cable must meet the modeled loop resistance under temperature and flex."
+      },
+      "trace": {
+        "file": "screened.json",
+        "sha256": "b8249cb85bb9ffeae0a43535e20d2e99c9789b3ba720b9899c20e06ac7371761"
+      },
+      "endpoints": [
+        {
+          "id": "camera-input",
+          "minV": 5,
+          "lowestEvidence": {
+            "location": "camera-input",
+            "fromS": 0,
+            "toS": 0.02,
+            "kind": "lower-bound",
+            "valueV": 5.0067698,
+            "minV": 5,
+            "marginV": 0.006769799999999826,
+            "currents": [
+              {
+                "id": "camera",
+                "kind": "source",
+                "valueA": 1.2
+              }
+            ]
+          },
+          "status": "complete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "camera-input",
+        "fromS": 0,
+        "toS": 0.02,
+        "kind": "lower-bound",
+        "valueV": 5.0067698,
+        "minV": 5,
+        "marginV": 0.006769799999999826,
+        "currents": [
+          {
+            "id": "camera",
+            "kind": "source",
+            "valueA": 1.2
+          }
+        ]
+      },
+      "unknowns": [],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    },
+    {
+      "id": "worn",
+      "condition": "1.9 m moving-camera lead with 0.05 ohm added interface resistance",
+      "status": "incomplete",
+      "provenance": {
+        "kind": "modeled",
+        "source": "fixed-low-power/dual_camera.py SHA-256 48ded1cd70777bed2f820e44f2e727d09007fda9bd5c6353b63f36dd67e94f94. Conditional DC budget on the regulator output, steady 1.20 A equivalent load. The selected cable must meet the modeled loop resistance under temperature and flex."
+      },
+      "trace": {
+        "file": "worn.json",
+        "sha256": "6561c9200a6a84c2f29b4e689dc969a7d5880005154769ff7fa3ab281a500d84"
+      },
+      "endpoints": [
+        {
+          "id": "camera-input",
+          "minV": 5,
+          "lowestEvidence": {
+            "location": "camera-input",
+            "fromS": 0,
+            "toS": 0.02,
+            "kind": "lower-bound",
+            "valueV": 4.9467698,
+            "minV": 5,
+            "marginV": -0.05323019999999978,
+            "currents": [
+              {
+                "id": "camera",
+                "kind": "source",
+                "valueA": 1.2
+              }
+            ]
+          },
+          "status": "incomplete",
+          "violation": null
+        }
+      ],
+      "limiting": {
+        "location": "camera-input",
+        "fromS": 0,
+        "toS": 0.02,
+        "kind": "lower-bound",
+        "valueV": 4.9467698,
+        "minV": 5,
+        "marginV": -0.05323019999999978,
+        "currents": [
+          {
+            "id": "camera",
+            "kind": "source",
+            "valueA": 1.2
+          }
+        ]
+      },
+      "unknowns": [
+        "Lower bound alone cannot establish a violation at camera-input",
+        "Missing qualifying voltage coverage at camera-input"
+      ],
+      "outcome": {
+        "status": "unknown",
+        "description": "No functional outcome supplied"
+      }
+    }
+  ],
+  "interpretation": "1.9 m moving-camera lead with 0 ohm added interface resistance (modeled electrical evidence) is complete. At camera-input (0\u20130.02 s), the lower-bound is 5.0067698 V against a 5 V floor. Coincident readings were camera source current 1.2 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. 1.9 m moving-camera lead with 0.05 ohm added interface resistance (modeled electrical evidence) is incomplete. At camera-input (0\u20130.02 s), the lower-bound is 4.9467698 V against a 5 V floor. Coincident readings were camera source current 1.2 A. The modeled outcome (unknown) for the action \u2014 No functional outcome supplied. Lower bound alone cannot establish a violation at camera-input. Missing qualifying voltage coverage at camera-input."
+}
