@@ -6,7 +6,9 @@
 **Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
 <!-- /cad-still -->
 
-The revised opening fits the simulated power and tire limits at **65 kg and 72 kg**, for both signed module calibrations. Inspection weight remains the binding design constraint. With the shorter wiring target the dressed R103 upper endpoint is **54.792 kg**, 2.629 kg over the 52.163 kg limit. The 72 kg opening covers even the longer wiring estimate with the battery, 7.5 kg bumpers and one pipe, although that trial drives an empty robot. [Reconciled mass](installed.json) · [Four achieved opening clocks and adverse control](routes.json)
+The revised opening fits the simulated power and tire limits at **65 kg and 72 kg**, for both signed module calibrations. The original four-module comparison with the shorter wiring target put the dressed R103 upper endpoint at **54.792 kg**, 2.629 kg over the 52.163 kg limit. The 72 kg opening covers even the longer wiring estimate with the battery, 7.5 kg bumpers and one pipe, although that trial drives an empty robot. [Reconciled mass](installed.json) · [Four achieved opening clocks and adverse control](routes.json)
+
+The later fixed-height drawing uses the full 5 kg reserve and includes the elevated rear host. Its upper reaches 51.993 kg, leaving 170 g under R103. Four uniform 1 m supply cuts exceed the limit by 5 g on the same build. [Build selection and measured CAD volumes](../mass-closure/README.md)
 
 ## Why slow the transition into the turn?
 
