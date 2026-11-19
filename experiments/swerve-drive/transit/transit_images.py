@@ -1,6 +1,8 @@
 """Reproject the R4 custody cameras at attained field poses and audit the wheel-service clock."""
 
 import argparse
+import hashlib
+import inspect
 import math
 from pathlib import Path
 
@@ -10,21 +12,66 @@ from register import prior, read, sha, write
 import receiver_witness as camera
 
 
-def backgrounds(field):
+def backgrounds(field, cache=None):
     if (
         sha(field)
         != read(camera.LEGACY / "full-match/installed-stock.json")["field_step_sha256"]
     ):
         raise ValueError("Field edition changed")
+    bound = {
+        "field": sha(field),
+        "r4": sha(camera.PROJECT / "cad/full-swerve-r4/full-robot.step"),
+        "appearances": sha(camera.PROJECT / "cad/full-swerve-r4/appearances.json"),
+        "renderFunctions": hashlib.sha256("\n".join(inspect.getsource(fn).rstrip() for fn in (camera.source_parts,camera.render)).encode("utf8")).hexdigest(),
+        "station": sha(Path(camera.field_mesh.__code__.co_filename)),
+        "pupils": sha(camera.LEGACY / "selected-optics/mount.json"),
+    }
+    if cache is not None:
+        record = cache / "scene.json"
+        raw = cache / "scene.npz"
+        if record.is_file():
+            registered = read(record)
+            if registered["sources"] != bound or registered["bytes"] != sha(raw):
+                raise ValueError(
+                    "Camera or field cache differs from registered sources"
+                )
+            with np.load(raw, allow_pickle=False) as data:
+                mesh = [
+                    (key, data[f"v{i}"], data[f"f{i}"].tolist())
+                    for i, key in enumerate(registered["keys"])
+                ]
+                heads = [
+                    [(data[f"{head}{eye}g"], data[f"{head}{eye}z"]) for eye in range(2)]
+                    for head in ("fixed", "roof")
+                ]
+            mount = read(camera.LEGACY / "selected-optics/mount.json")["registrations"][
+                "roof"
+            ]
+            camera.sensor.optics.ORIGIN = np.asarray(mount["assumedRectifiedOriginMm"])
+            camera.sensor.optics.configure()
+            return mesh, *heads
     parts = camera.source_parts()
-    return (
+    scene = (
         camera.field_mesh(field),
         camera.render(parts, "fixed"),
         camera.render(parts, "roof"),
     )
+    if cache is not None:
+        cache.mkdir(parents=True, exist_ok=True)
+        arrays = {}
+        for i, (_, vs, fs) in enumerate(scene[0]):
+            arrays[f"v{i}"], arrays[f"f{i}"] = vs, fs
+        for head, images in zip(("fixed", "roof"), scene[1:]):
+            for i, (g, z) in enumerate(images):
+                arrays[f"{head}{i}g"], arrays[f"{head}{i}z"] = g, z
+        np.savez_compressed(raw, **arrays)
+        write(
+            record, dict(sources=bound, bytes=sha(raw), keys=[x[0] for x in scene[0]])
+        )
+    return scene
 
 
-def observation(frames, masked, q, center, axis):
+def observation(frames, masked, q, center, axis, fault=None):
     mesh, fixed_blank, roof_blank = frames
     delta = [-q[0], -q[1], math.degrees(q[2])]
     camera.sensor.scenes.fixed_pose(camera.O)
@@ -38,7 +85,7 @@ def observation(frames, masked, q, center, axis):
     roof = camera.sensor.shelf_guard(
         roof, ref, camera.sensor.optics.ORIGIN[2], False, 0.05
     )
-    return camera.observe(fixed, roof, center, axis, wheel_mask=masked)
+    return camera.observe(fixed, roof, center, axis, fault=fault, wheel_mask=masked)
 
 
 def probe(raw, run, field, out, case, step, interval):
