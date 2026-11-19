@@ -1,13 +1,15 @@
 """Material accounting, impact and motor upper screens for the installed replacement."""
+import argparse
 import csv
 import json
 import math
-from gate_cad import local,cad,ROOT,HERE,sha,ARM
+from pathlib import Path
+from gate_cad import base,local,cad,ROOT,HERE,sha,ARM
 from motion import Case
 
 def read(path):return json.loads(path.read_bytes())
 
-def aggregate():
+def aggregate(air_folder):
     lo_by_id={};hi_by_id={}
     # Measured native volumes for stock. Hardware reserves use component masses, not housing fill.
     density={"Al":(2.65,2.82),"steel":(7.7,7.95),"foam":(.2,.5),"poly":(.92,.99),
@@ -32,17 +34,24 @@ def aggregate():
         shelf=next(row for row in csv.reader(stream) if row[0]=="receiver-R6-ported")
     retire=prior["retiredKg"][0]+float(shelf[4])
     margin=read(ROOT/"design/shared-height/inspection.json")["cases"]["red"]["low"]["R103UpperHeadroomKg"]
-    no_air=ROOT/"design/fixed-no-air/inspection.json"
+    no_air=air_folder/"inspection.json"
     receipts={"red-low-light-and-shared-masts":margin}
     if no_air.is_file():
-        ids=set(read(no_air.with_name("deletion.json"))["removed"])
+        deletion=no_air.with_name("deletion.json")
+        ids=set(read(deletion)["removed"])
+        installed=set(base(370))
+        if not ids<=installed or len(ids)!=6:raise ValueError("Air component absent from original receiver configuration")
         if ids.intersection(set(prior["retiredIds"])|{"receiver-R6-ported"}):
             raise ValueError("Overlapping removal credit")
         receipts["red-low-light-dedicated-masts-physically-deleted-pneumatics"]=read(no_air)["cases"]["low-red"]["checker_upper_headroom_kg"]
+    else:raise FileNotFoundError("Source-bound fixed-no-air inspection and deletion receipts required")
     cases={k:{"startingRepresentedMarginKg":v,"afterUpperReplacementKg":v+retire-high} for k,v in receipts.items()}
     return {"representedStockByMaterialKg":groups,"nongeometricAllowanceKg":allowance,"newPartsKg":[low,high],
             "retiredOriginalGripMinimumKg":prior["retiredKg"][0],"retiredShelfMinimumKg":float(shelf[4]),
             "conservativeNetAdditionKg":high-retire,"cases":cases,"newCassetteMassUpperBothKg":moving,
+            "retainedControllers":["spark-left-grip","spark-right-grip","spark-lift"],
+            "noAir":{"inspectionSha256":sha(no_air),"deletionSha256":sha(deletion),"removedIds":sorted(ids),
+                     "pneumaticHubRetained":True,"removedIdsDisjointFromReceiverRetirements":True},
             "finishedConfigurationMarginKg":None}
 
 def motor(torque,speed,ratio,efficiency,current_limit):
@@ -52,8 +61,8 @@ def motor(torque,speed,ratio,efficiency,current_limit):
     return {"phaseA":phase,"currentLimitA":current_limit,"terminalV":voltage,"voltageAllocationV":9.5,
             "withinAllocations":phase<=current_limit and voltage<=9.5}
 
-def build():
-    stock=aggregate();rows=[r for r in read(HERE/"study.json")["rows"] if r["id"].startswith("grid")]
+def build(air_folder):
+    stock=aggregate(air_folder);rows=[r for r in read(HERE/"study.json")["rows"] if r["id"].startswith("grid")]
     lower=max(r["peakNormalN"].get("belt",0) for r in rows)
     shear=max(r["peakSingleSurfaceTractionN"] for r in rows)
     opened=max(r["openingBeltNormalN"] for r in rows);hood=max(r["peakNormalN"].get("hood",0) for r in rows)
@@ -85,4 +94,6 @@ def build():
             "twoSampledODCompressionMm":"12 mm relieved tread plus 22 mm sectional rear pads. Contact curves, foam shear, adhesive peel, heat and single-sided roll are unmeasured.",
             "physicalAuthorization":False}
 if __name__=="__main__":
-    (HERE/"engineering.json").write_text(json.dumps(build(),indent=2)+"\n",encoding="utf8",newline="\n")
+    parser=argparse.ArgumentParser();parser.add_argument("--air-folder",type=Path,default=ROOT/"design/fixed-no-air")
+    args=parser.parse_args()
+    (HERE/"engineering.json").write_text(json.dumps(build(args.air_folder),indent=2)+"\n",encoding="utf8",newline="\n")

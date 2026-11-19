@@ -4,7 +4,7 @@ from OCP.BRepExtrema import BRepExtrema_DistShapeShape
 from dock_tolerance import separation
 from gate_cad import cad
 
-def audit(c,trace,end,phase,layer,boxes,tube):
+def audit(c,trace,end,phase,layer,tube):
     # Hood is down, slide held at 370 mm; translation is exact in each named local frame.
     if end is None or c.withdraw or end <= c.close_time+c.close_duration:
         raise ValueError("Requires completed closed hood and fixed slide source")

@@ -56,7 +56,7 @@ def review(c):
         if clashes:last_hit=t
         for k,v in clashes:contacts[k].append((t,v))
     from departure import audit
-    gap=audit(c,trace,ts.get("exit"),phase[370],layer,boxes,tube)
+    gap=audit(c,trace,ts.get("exit"),phase[370],layer,tube)
     return {"allBodyDeparture":gap,"outcome":state["outcome"],"geometricSurfaceExitS":ts.get("exit"),"samples":kept,
             "permittedContactPeakMm3":dict(intended),"lastUnexpectedSampleS":last_hit,
             "unexpected":{k:{"firstS":v[0][0],"lastS":v[-1][0],"peakMm3":max(d for _,d in v)} for k,v in contacts.items()}}

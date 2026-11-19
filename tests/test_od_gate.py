@@ -71,6 +71,11 @@ class SplitODReceiver(unittest.TestCase):
         eng=load("engineering.json")
         self.assertLess(eng["mass"]["cases"]["red-low-light-and-shared-masts"]["afterUpperReplacementKg"],0)
         self.assertIsNone(eng["mass"]["finishedConfigurationMarginKg"])
+        budget=eng["mass"]["cases"]["red-low-light-dedicated-masts-physically-deleted-pneumatics"]
+        self.assertAlmostEqual(budget["afterUpperReplacementKg"],.568,places=3)
+        self.assertEqual(len(eng["mass"]["noAir"]["removedIds"]),6)
+        for k,name in (("inspectionSha256","inspection.json"),("deletionSha256","deletion.json")):
+            self.assertEqual(eng["mass"]["noAir"][k],hashlib.sha256((ROOT/"design/fixed-no-air"/name).read_bytes()).hexdigest())
         self.assertTrue(eng["opening"]["withinAllocations"])
         self.assertTrue(eng["hood"]["withinAllocations"])
         self.assertGreater(eng["guide"]["singleGuideBendingMPa"],300)
