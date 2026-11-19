@@ -21,6 +21,12 @@ Each of the four original signed intake trajectories leaves at least 9.50 mm bet
 
 A 22.3 mm pitch-radius sector needs 89.93° to move the yoke 35 mm. The two HS-65MG servos are a candidate power source. Using a straight line between the manufacturer’s free-speed and stall-torque points, 80% transmission efficiency, 0.25 N guide drag and the larger simulated probe force gives a 0.0535 N·m requirement at 150 mm/s. At 6 V the modeled margin is +0.0098 N·m. At 4.8 V the same command is short by 0.0358 N·m. Two servos can draw 2.4 A at stall. Loaded speed, powered holding, supply allocation and dressed mass remain design inputs. The manufacturer’s PDF lists 12.5 g per bare servo. Its CAD archive is labeled HS-65MG externally and HS-65HB in the STEP header. [Hitec specification](https://www.hitecrcd.co.kr/wp-content/uploads/hitec-products/2019/c/HS-65MG_Specsheet%28v2.1%29_22L.pdf) · [Catalog and CAD source](https://www.hitecrcd.co.kr/products/hs-65mg/)
 
+### What happens in motion?
+
+Both candidates reach a sensor limit while the coral is still inside the pins. On the minus calibration this happens at 37.055 s, after a 0.887 mm center shift. On the plus calibration it happens at 40.155 s, after 1.013 mm. The more compressed feeler reaches 4.700 mm. Its signed offset and 0.1 mm digital resolution give a 4.6 mm reading, above the 4.5 mm accepted maximum. Peak radial pin reaction is 0.148 N and 0.151 N, respectively. Each modeled attempt ends at that service, before a subsequent brake trajectory or reef placement. **Both have zero L1 deliveries.** [Causal wheel and pipe outcomes](carry.json)
+
+The next comparison can distinguish loss of contact from a shift within a captively held pipe. Compare a longer-travel probe against independently sensed yoke closure plus the existing two shelf apertures, checking empty, offset, failed-switch and physical overload cases. Approval still requires the same named pipe, both completed shafts and a bounded disturbance.
+
 ### Reproduce the comparison
 
 Use the [transit replay](../transit/README.md) to produce the signed 31.25 µs internal-stop cargo states. Set `A` to the project’s local artifacts directory. The programs below operate only on the desktop.
