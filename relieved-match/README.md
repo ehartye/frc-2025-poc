@@ -1,5 +1,7 @@
 # Two pipes with one receiver
 
+The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mm³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](../selected-match/README.md)
+
 The [second-placement packet recovery](../packet-recovery/README.md) uses the roof camera to preserve one delayed fixed exposure. Its own run recovers the nominal park. The three original cases below keep their recorded controller policies.
 
 The same 597-body red robot leaves the starting line, takes two distinct human-fed pipes, scores each in L1 and parks at **110.878 s** in the nominal desktop match. Both rule editions count both pipes at the **156 s** wall-clock assessment. The robot earns nine modeled role points. Stopping after A earns seven and finishes parking at 60.478 s. A late fixed-camera packet during B leaves the rack extended. Three AUTO points remain credited in that run. A had reached L1 before the fault, and the final interaction of both pipes is unresolved. [Open the interactive match](replay.html) · [Read the assessment](match.json)
