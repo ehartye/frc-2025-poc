@@ -1,0 +1,239 @@
+{
+  "sources": {
+    "design/competition-package/poses/place.step": "de70435998c4f34c03de75a505721297cfbae1c628a0de32b0b8d9d4c08b3563",
+    "design/stability/review.json": "5567731f7b996d99120ddd6fefa182ad635b466f4fa782505ca1e3bebb4f41c3",
+    "design/competition-package/part-frames.json": "65cb0bac0d3aa776ba75612287b4de35d5e8d7941ad770ffe012f257ba3c3f7b",
+    "design/receiver-lift/check_routing.py": "aa33758906ff8ddaebed6ce636eeb98a077d373b0d99f5d6f8efda1434ab9fba",
+    "design/receiver-lift/layer_inventory.py": "95a801df3338981428233a6f05b2107c26d91ef5fb5a70cfab0ec3afc28f800a",
+    "guide-setting/setting.step": "625533fbe6b9078c8d8faa494925f7a42a490761f906cc6d015e35661fdf7dc5",
+    "guide-setting/fit.json": "5bb79729d3df5cdf9a901c3c37b3ebb2452ac946f26f58a359746cad50c2a1c4",
+    "carriage-support/carriage-support.step": "ee7532215f352b622c614ba67311bceca58a27fb35141ebc524e3af326da3b68",
+    "carriage-support/fit.json": "6c90752f024c54d41ce668489034da8dee71d22c147f0912a9a919d361bd4692",
+    "mast-attachment/slotted-ribbed-deck.step": "ae6e47b8617dac29708fba084eb719018c97068c2afa1ee65874d68dd25f97f7",
+    "mast-attachment/fit.json": "0a5ada98f9d4efde0f26d1f7dfce4f7921243f67e55cd11ea58e46338036cc4b"
+  },
+  "originalRoutingIds": [
+    "anchor-tab-L",
+    "anchor-tab-R",
+    "bearing-arm-L",
+    "bearing-arm-R",
+    "bearing-envelope-L",
+    "bearing-envelope-R",
+    "common-shaft-round-envelope",
+    "drive-pulley-reserve",
+    "driven-pulley-reserve",
+    "drum-core-L",
+    "drum-core-R",
+    "drum-flange-0-L",
+    "drum-flange-0-R",
+    "drum-flange-1-L",
+    "drum-flange-1-R",
+    "motor-body",
+    "mount-riser",
+    "return-line-L",
+    "return-line-R",
+    "running-line-L",
+    "running-line-R",
+    "sheave-core-L",
+    "sheave-core-R",
+    "sheave-flange-0-L",
+    "sheave-flange-0-R",
+    "sheave-flange-1-L",
+    "sheave-flange-1-R",
+    "sheave-support-L",
+    "sheave-support-R",
+    "sport-ratchet-and-mount-reserve",
+    "transfer-reach--1",
+    "transfer-reach-1",
+    "upper-pin-L",
+    "upper-pin-R"
+  ],
+  "originalBodies": 401,
+  "machinedParentIds": [
+    "mast-slotted-ribbed-deck",
+    "match-drilled/guide-L-machined-mast",
+    "match-drilled/guide-R-machined-mast",
+    "support-machined-crossbar"
+  ],
+  "retainedStock": {
+    "anchor-tab-L": {
+      "parent": "support-machined-crossbar",
+      "robotBoundsMm": [
+        -97.0,
+        240.0,
+        418.0,
+        -59.0,
+        258.0,
+        424.0
+      ],
+      "originalSolidMm3": 4104.0,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        39.0,
+        19.0,
+        7.0
+      ],
+      "finishedStockUpperKg": 0.0420147
+    },
+    "anchor-tab-R": {
+      "parent": "support-machined-crossbar",
+      "robotBoundsMm": [
+        -97.0,
+        -258.0,
+        418.0,
+        -59.0,
+        -240.0,
+        424.0
+      ],
+      "originalSolidMm3": 4104.0,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        39.0,
+        19.0,
+        7.0
+      ],
+      "finishedStockUpperKg": 0.0420147
+    },
+    "bearing-arm-L": {
+      "parent": "match-drilled/guide-L-machined-mast",
+      "robotBoundsMm": [
+        -110.0,
+        216.0,
+        312.0,
+        -70.0,
+        224.0,
+        348.0
+      ],
+      "originalSolidMm3": 6387.7912,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        41.0,
+        9.0,
+        37.0
+      ],
+      "finishedStockUpperKg": 0.1105893
+    },
+    "bearing-arm-R": {
+      "parent": "match-drilled/guide-R-machined-mast",
+      "robotBoundsMm": [
+        -110.0,
+        -224.0,
+        312.0,
+        -70.0,
+        -216.0,
+        348.0
+      ],
+      "originalSolidMm3": 6387.7912,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        41.0,
+        9.0,
+        37.0
+      ],
+      "finishedStockUpperKg": 0.1105893
+    },
+    "sheave-support-L": {
+      "parent": "match-drilled/guide-L-machined-mast",
+      "robotBoundsMm": [
+        -92.6125,
+        235.0,
+        966.0,
+        -13.6125,
+        245.0,
+        984.0
+      ],
+      "originalSolidMm3": 12949.23834,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        80.0,
+        11.0,
+        19.0
+      ],
+      "finishedStockUpperKg": 0.135432
+    },
+    "sheave-support-R": {
+      "parent": "match-drilled/guide-R-machined-mast",
+      "robotBoundsMm": [
+        -92.6125,
+        -245.0,
+        966.0,
+        -13.6125,
+        -235.0,
+        984.0
+      ],
+      "originalSolidMm3": 12949.23834,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        80.0,
+        11.0,
+        19.0
+      ],
+      "finishedStockUpperKg": 0.135432
+    },
+    "mount-riser": {
+      "parent": "mast-slotted-ribbed-deck",
+      "robotBoundsMm": [
+        -55.0,
+        66.0,
+        154.0,
+        -35.0,
+        74.0,
+        300.0
+      ],
+      "originalSolidMm3": 23360.0,
+      "materialSharedWithParentMm3": 0.0,
+      "maxSizeMm": [
+        21.0,
+        9.0,
+        147.0
+      ],
+      "finishedStockUpperKg": 0.2250423
+    }
+  },
+  "permittedMaxDensityKgM3": 8100,
+  "dimensionalOversizeMm": 1.0,
+  "throughSet": {
+    "screw": {
+      "source": "support-L-mast-0-screw",
+      "diameterMm": 16.27525231651779,
+      "lengthMm": 48.0,
+      "upperKg": 0.01720210473399627,
+      "nativeNominalKg": 0.012263321169855203,
+      "singleCylinderUpperKg": 0.08088567200661825,
+      "headDiameterMm": 13.0,
+      "headLengthMm": 5.0,
+      "shankDiameterMm": 6.5,
+      "shankLengthMm": 44.0,
+      "sourceOutsideTwoCylinderGaugeMm3": 0.0
+    },
+    "sleeve": {
+      "source": "support-L-mast-0-sleeve",
+      "diameterMm": 15.142135623730951,
+      "lengthMm": 26.0,
+      "upperKg": 0.03792473122939279,
+      "nativeNominalKg": 0.00948851302172926
+    },
+    "washer": {
+      "source": "support-L-mast-0-washer",
+      "diameterMm": 17.97056274847714,
+      "lengthMm": 2.5999999999999943,
+      "upperKg": 0.005341602945878103,
+      "nativeNominalKg": 0.001016448480061321
+    },
+    "locknut": {
+      "source": "support-L-mast-0-locknut",
+      "diameterMm": 16.27525231651779,
+      "lengthMm": 7.0,
+      "upperKg": 0.011795827167631829,
+      "nativeNominalKg": 0.0027383655882253877
+    }
+  },
+  "throughSetsPerSite": 2,
+  "totalSets": 14,
+  "stockUpperKg": 0.8011143000000001,
+  "throughSetUpperKg": 0.072264266076899,
+  "fastenerContingencyUpperKg": 1.011699725076586,
+  "stockAndFastenerUpperKg": 1.812814025076586,
+  "opaqueSportSolidBoxSensitivityKg": 3.26592,
+  "installedStockMeasuredKg": null
+}
