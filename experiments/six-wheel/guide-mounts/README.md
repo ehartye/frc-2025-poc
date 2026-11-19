@@ -1,9 +1,9 @@
 # Mounting the station guides
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 [Compare the cable crossing and the removable guide in 3D](guide.html). At a slide extension of **327.80 mm** the modeled moving power cable passes through the old right-hand liner. Its center is at X259.34, Y−154.50, Z830.09 mm. A 0.25 mm-radius sphere centered there sits wholly inside the original face. Both shortened guides end at **813 mm**. The new liners retain the original inward surfaces below that height. [Native fit and centerline witness](fit.json)

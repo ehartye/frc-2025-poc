@@ -1,9 +1,9 @@
 # Returned guide-arm mechanics
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The closed front return preserves the two guide attachments at Z687 and Z787 mm. Its positive-Y lower spring is 11,721 N/m in this model. The opposite lower spring is 32,177 N/m. The first two assembled guide frequencies are 72.20 and 110.41 Hz on the modified side and 109.19 and 123.82 Hz on the opposite side. Each value uses the nominal aluminum sections, installed part volumes and the earlier 23.6% arm participation assumption. The physical modal frequencies are open.

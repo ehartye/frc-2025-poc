@@ -1,9 +1,9 @@
 # Where the straight-guide robot carries its weight
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The selected robot fits both modeled weight limits. The no-shelf-credit upper estimate is **51.794 kg** under R103 and **59.294 kg** with bumpers under R408. Adding the battery gives **65.464 kg empty** on the field. One pipe takes that to **66.280 kg**. The historical drive model used 65.833 kg empty and 66.650 kg loaded. Its mass assumption therefore covers the selected upper bound by 369 g. It still needs independent assumptions about where the weight lands. [Fabrication bill](../winchless-bill/README.md) · [Mass conversion and contact cases](contact.json)

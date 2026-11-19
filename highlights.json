@@ -2,11 +2,11 @@
   "schema": "agent-frc/robot-highlights@1",
   "title": "2025 REEFSCAPE robot",
   "role": "Drive from the starting area to the coral station, align the receiver and hold position through the first feed. Explore the chassis and see where the prebuild simulation evidence stops.",
-  "revision": "Four-module swerve · station opening study",
+  "revision": "R3 · fixed-height receiver · stowed, red alliance",
   "cad": {
     "receipt": "docs/robot/cad/receipt.json",
-    "title": "Swerve frame and module mounts",
-    "scope": "Project-designed structural solids exported from CAD. The open frame shows where each module mounts. The student Fusion assembly also includes the supplier geometry.",
+    "title": "Full swerve robot · stowed, red alliance",
+    "scope": "Rotate the complete R3 prebuild layout to find the four swerve corners, receiver, electronics and two red bumper covers. The public model has 959 solids in 22 appearance groups. Project-drawn envelopes identify commercial components. The student Fusion handoff documents which supplier models are available locally.",
     "shareable": true
   },
   "sources": [
@@ -35,6 +35,12 @@
       "file": "experiments/swerve-drive/motion/opening.webm",
       "sha256": "5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c",
       "shareable": true
+    },
+    {
+      "id": "mass",
+      "label": "Reviewed inspection mass and wire-length cases",
+      "revision": "Matched four-module drawing and rear electronics repair",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/5a6c2e76425fd752b1c94b92d20c5dc3bf4b0bca/experiments/swerve-drive/mass-closure/recipe.json"
     }
   ],
   "results": [
@@ -51,12 +57,24 @@
       "conditions": "Both simulated approach signs reached the in-band receiver state at 22.912 s. Two solver step sizes reproduced it.",
       "limit": "The simulation ends at the station. Loaded departure, delivery and a scored piece still need evidence.",
       "source": "feed"
+    },
+    {
+      "basis": "modeled",
+      "claim": "The selected drawing leaves 170 g under the inspection limit",
+      "conditions": "The matched 944-item bill puts the upper estimate at 51.993 kg, against a 52.163 kg limit. The calculation uses the machined shelf, the repaired rear electronics and the specified cable cuts.",
+      "limit": "Uniform 1 m supply cuts put the same estimate 4.9 g over. The opening trials used separate 65 kg and 72 kg operating hypotheses. Final inspection weight has not been measured.",
+      "source": "mass"
     }
   ],
   "build": [
     {
       "subsystem": "Drivetrain",
       "configuration": "Four swerve modules on a 564 mm wheelbase and 554 mm track. Each wheel steers and rolls independently. The handoff identifies the supplier model revision and links the editable mounting saddle.",
+      "source": "fusion"
+    },
+    {
+      "subsystem": "Fixed-height receiver",
+      "configuration": "The shelf and guide arms sit above the four independently steered wheels. The public view shows the receiver stowed and both red bumper covers installed.",
       "source": "fusion"
     }
   ],

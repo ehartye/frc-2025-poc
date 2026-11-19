@@ -1,9 +1,9 @@
 # Can the receiver tell whether both belts actually moved?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 At 580 ms the receiver asks its two belts to help seat the pipe. On the original 850 mm guide, a good left feed and a completely stalled drive gave the same Entry and Seat readings until 1,100 ms. The two **passive front idlers** provide an earlier observation. Each turns when its own timing belt advances, even though neither sensor sees the pipe. On the desktop, both locked-belt trials went neutral at **640 ms**, 700 ms before the issued controller's timeout. [Original port evidence](../split-guide-acquisition/README.md) · [Replayed results](qualification.json)

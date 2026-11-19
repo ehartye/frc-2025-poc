@@ -4,9 +4,12 @@ import gzip
 import hashlib
 import json
 import math
+import struct
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from OCP.BRep import BRep_Builder
+from OCP.TopoDS import TopoDS_Compound
 from OCP.BRepBndLib import BRepBndLib
 from OCP.Bnd import Bnd_Box
 from OCP.BRepMesh import BRepMesh_IncrementalMesh
@@ -22,16 +25,74 @@ def digest(file):
     return hashlib.sha256(file.read_bytes()).hexdigest()
 
 
-def render(mesh, image):
+def write_stl(shape, path):
+    writer = StlAPI_Writer()
+    writer.ASCIIMode = False
+    if not writer.Write(shape, str(path)):
+        raise ValueError("STL export failed")
+
+
+def write_colored_stl(solids, rows, colors, mesh):
+    if len(solids) != len(rows):
+        raise ValueError("Solid count differs from the appearance manifest")
+    grouped = {}
+    builder = BRep_Builder()
+    for shape, row in zip(solids, rows):
+        if "boundsMm" in row:
+            box = Bnd_Box()
+            BRepBndLib.AddOptimal_s(shape, box, False, False)
+            actual = (*box.CornerMin().Coord(), *box.CornerMax().Coord())
+            if any(abs(a - b) > .001 for a, b in zip(actual, row["boundsMm"])):
+                raise ValueError(f"Solid bounds disagree with the assignment for {row['id']}")
+        group = grouped.get(row["role"])
+        if group is None:
+            compound = TopoDS_Compound()
+            builder.MakeCompound(compound)
+            group = grouped[row["role"]] = [compound, 0]
+        builder.Add(group[0], shape)
+        group[1] += 1
+    groups = []
+    temp = mesh.with_name("role.stl")
+    with mesh.open("wb") as output:
+        output.write(bytes(84))
+        for role, (compound, count) in grouped.items():
+            write_stl(compound, temp)
+            part = temp.read_bytes()
+            n = struct.unpack_from("<I", part, 80)[0]
+            if not n or len(part) != 84 + 50 * n:
+                raise ValueError(f"Incomplete role mesh: {role}")
+            output.write(memoryview(part)[84:])
+            groups.append(dict(role=role, color=colors[role], solids=count, triangles=n,
+                               facetsSha256=hashlib.sha256(memoryview(part)[84:]).hexdigest()))
+        output.seek(80)
+        output.write(struct.pack("<I", sum(g["triangles"] for g in groups)))
+    return groups
+
+
+def render(mesh, image, groups=None):
     reader = vtk.vtkSTLReader()
     reader.SetFileName(str(mesh))
+    if groups:
+        reader.MergingOff()
     reader.Update()
     data = reader.GetOutput()
     mapper = vtk.vtkPolyDataMapper()
     mapper.SetInputData(data)
+    if groups:
+        import numpy as np
+        from vtk.util.numpy_support import numpy_to_vtk
+
+        if data.GetNumberOfCells() != sum(g["triangles"] for g in groups):
+            raise ValueError("Rendered mesh lost assigned triangles")
+        palette = [list(bytes.fromhex(group["color"][1:])) for group in groups]
+        rgb = np.repeat(np.asarray(palette, dtype=np.uint8), [g["triangles"] for g in groups], axis=0)
+        data.GetCellData().SetScalars(numpy_to_vtk(rgb, deep=True))
+        mapper.SetScalarModeToUseCellData()
+        mapper.SetColorModeToDirectScalars()
     actor = vtk.vtkActor()
     actor.SetMapper(mapper)
-    actor.GetProperty().SetColor(.64, .79, .86)
+    if not groups:
+        actor.GetProperty().SetColor(.64, .79, .86)
     actor.GetProperty().SetAmbient(.2)
     actor.GetProperty().SetSpecular(.22)
     renderer = vtk.vtkRenderer()
@@ -72,10 +133,11 @@ def export(root, config, output):
         raise ValueError("Incomplete STEP transfer")
     shape = reader.OneShape()
     solids = TopExp_Explorer(shape, TopAbs_SOLID)
-    count = 0
+    bodies = []
     while solids.More():
-        count += 1
+        bodies.append(solids.Current())
         solids.Next()
+    count = len(bodies)
     if not count:
         raise ValueError("Expected solid geometry")
     box = Bnd_Box()
@@ -91,12 +153,15 @@ def export(root, config, output):
     with TemporaryDirectory(dir=output) as tmp:
         folder = Path(tmp)
         mesh = folder / "assembly.stl"
-        writer = StlAPI_Writer()
-        writer.ASCIIMode = False
-        if not writer.Write(shape, str(mesh)):
-            raise ValueError("STL export failed")
+        groups = None
+        if "appearances" in config:
+            from cad_appearances import load_assignments, validated_groups
+            rows, colors, appearance = load_assignments(root, config["appearances"], source_hash)
+            groups = write_colored_stl(bodies, rows, colors, mesh)
+        else:
+            write_stl(shape, mesh)
         png = folder / "assembly.png"
-        mesh_bounds, triangles = render(mesh, png)
+        mesh_bounds, triangles = render(mesh, png, groups)
         if triangles < 1 or not all(math.isclose(a, b, abs_tol=chord + .001) for a, b in zip(bounds, mesh_bounds)):
             raise ValueError("Mesh bounds disagree with source assembly")
         packed = folder / "assembly.stl.gz"
@@ -105,6 +170,10 @@ def export(root, config, output):
                        sourceSha256=source_hash, imageSha256=digest(png), meshSha256=digest(packed),
                        solids=count, triangles=triangles, units="mm", nativeBounds=bounds,
                        meshBounds=mesh_bounds, chordMm=chord, angleRad=angle)
+        if groups:
+            receipt["schema"] = "agent-frc/cad-still@2"
+            receipt["appearances"] = {**appearance, "groups": groups}
+            validated_groups(root, receipt, packed)
         if digest(source) != source_hash:
             raise ValueError("Source changed during export")
         for artifact in (packed, png):
@@ -122,4 +191,3 @@ if __name__ == "__main__":
     project = args.root.resolve()
     manifest = json.loads((project / "cad-showcase.json").read_text(encoding="utf-8-sig"))
     export(project, manifest, project / "docs" / "robot" / "cad")
-

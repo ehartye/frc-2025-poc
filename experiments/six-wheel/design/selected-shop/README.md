@@ -1,9 +1,9 @@
 # Shop list for the fixed-low, two-camera robot
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 With six accepted bare wheels at **300 g or less each**, the red robot has **0.902 kg of represented inspection headroom** after adding the light inner carriers, wheel screws, fixed camera leads and four welded corners. If the wheels come in at the old 550 g allowance, the same robot is **0.598 kg overweight** at the upper estimate. Weigh the wheel lot before committing to this assembly. The finished robot has no measured weight on file. [Mass calculation](review.json) · [Selected supply list](supply.csv) · [Loose-item and receiving register](loose.csv)

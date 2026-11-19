@@ -1,9 +1,9 @@
 # Retain and service the six drive axles
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The two center axles could slide through their entire 10 mm socket engagement even with an end screw fitted. The new design closes the outward load path with a removable radial clip and thrust washer. Ten end screws and shims close the exposed shaft ends. Twelve covers capture the flanged bearing outer rims against their carriers. The installed shop map adds **103–150 g** to the selected robot, leaving **753 g of represented headroom** at the upper estimate. Finished weight, axial proof load and durability require a built assembly. [Interactive section and service stages](explore.html) · [Axle kit](axle-kit.step) · [Bearing keepers](bearing-keepers.step) · [Combined accounting](accounting.json)

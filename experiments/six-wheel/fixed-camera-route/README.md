@@ -1,9 +1,9 @@
 # Fixed-camera power and data routing
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The intact USB-C overmolds, removable guides and fixed 5 V branch fit below **Z1043.873 mm** on the registered shop robot. This leaves **15.127 mm** inside the 1,059 mm stowed height used by the field studies. The previous straight power-tail trial reached Z1064.735 mm. The fixed and moving OAK-D Lite heads retain their issued poses and independent identities. The fabricated loom and both streams still need receiving and robot tests. [Native body and extraction check](fit.json) · [Installed extents and mounting seats](installation.json) · [Predecessor mounts](../selected-optics/README.md)

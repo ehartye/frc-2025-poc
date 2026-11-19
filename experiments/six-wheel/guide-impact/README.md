@@ -1,9 +1,9 @@
 # Does the installed guide still seat the pipe?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **The nominal folded guides seat both signed arrivals on the machined shelf with fixed bilateral supports. Changing the carriage support changes the verdict.** On the joined two-stage carriage the original left approach faults at Java 1,020 ms, with the entry ray clear and only the seat ray returning. The recovery controller waits for the returning edge and probes again. At both 31.25 and 15.625 µs, the recovery program seats the left pipe at Java 1,340 ms and the right at 1,360 ms. Both hold through the scheduled 5,460 ms station check. The original and recovered programs produce the same complete right-hand trajectory at both clocks. [Matched mechanical and controller cases](results.json) · [Recovery controller and adverse inputs](../split-guide-acquisition/README.md)

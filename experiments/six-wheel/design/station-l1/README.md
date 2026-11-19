@@ -1,9 +1,9 @@
 # Review the station-fed robot
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Open [the editable OpenSCAD assembly](station-l1.scad), select `stowed`, `receive`, `transport` or `place` in the Customizer, and press F5. Enter a part ID from [the bill of materials](bom.csv) to isolate it. The four named, colored STEP assemblies open in ordinary mechanical CAD. The right-hand view below removes the deck and bumpers to expose the two independent drive sides.

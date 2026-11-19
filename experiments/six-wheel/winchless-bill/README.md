@@ -1,9 +1,9 @@
 # Fixed-height robot mass at inspection
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The selected straight lower guide and existing camera gyro leave **369 g of modeled inspection headroom** even when the shelf receives no credit for removed stock and every possible shared hoist attachment is charged at the upper envelope below. The corresponding R103 estimate is **51.794 kg against 52.163 kg**. The issued fabrication drawings omit the old winch and all seven legacy brackets. Building exactly those drawings leaves 2.182 kg on the same shelf basis. These are prebuild results. [Selected bill](straight-guide.json) · [Inspection allowance](../design/assembly-accounting/inspection-limit.json)

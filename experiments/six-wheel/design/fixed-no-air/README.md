@@ -1,9 +1,9 @@
 # Fixed-height robot without match pneumatics
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The fixed carriage uses two mast locks for vertical support. Wheel drive, slide motion and both grips are electric. The sole modeled air actuator released the former lift pawl. A dedicated fixed-height match build can omit the compressor, reservoir, two tank saddles, valve and regulator/gauge/dump assembly. The Pneumatic Hub stays on its original CAN and power branches. The ratchet, actuator reserve, ropes, drums, motor, wiring allocations and mechanical locks stay in the robot. The CAD and mass results assume a build with the air circuit absent. Disabling the compressor on a robot that still carries the kit saves no weight. [Fixed carriage](../fixed-height/README.md) · [Published power and isolation study](../../fixed-low-power/README.md)

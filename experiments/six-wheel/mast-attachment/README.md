@@ -1,9 +1,9 @@
 # Positively attach both receiver masts to the inner chassis rails
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Two original machined side splices join the existing low-lock mast tubes directly to the removable 6 mm drive rails. Both foot interfaces can now transmit downward load, rebound and fore/aft pitch in metal bearing. The ribs and cable relief are different on the two sides. The proposed robot is overweight in every issued inspection configuration. Losing an entire side overloads the surviving splice; this is a two-sided prototype, with physical qualification still open. [Shop views](shop.svg) · [Editable geometry](mast.py) · [63-solid shop assembly](mast-joints.step) · [Slotted ribbed-deck alternative](slotted-ribbed-deck.step)

@@ -1,9 +1,9 @@
 # Can the robot locate its receiver at the station?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The current downward-facing release camera cannot see the four mounting bolts around station marker ID2. An upward-looking global-shutter camera on the right mast can see them in the registered model. Start with that single camera for a measurement fixture. A second on the left adds little margin for this task. Both arrangements depend on an independent survey tying the static panel, actual pipe path and loaded receiver together. The physical alignment decision remains **hold**. [Receiver entry windows and student docking lab](../station-supply/DOCKING.md) · [Native visibility](sightlines.json) · [Numerical uncertainty and controls](pose-study.json)
