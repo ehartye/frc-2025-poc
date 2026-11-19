@@ -14,7 +14,7 @@ def run(register, kit, raw):
     packets = []
     for row in data["cases"]:
         if (
-            row["stepUs"] != 31.25
+            row["stepUs"] not in (15.625, 31.25)
             or row["layout"] != "folded"
             or not row["eligibleForStationImageReplay"]
         ):
@@ -71,6 +71,7 @@ def run(register, kit, raw):
             {
                 "id": name,
                 "case": row["case"],
+                "stepUs": row["stepUs"],
                 "programSha256": row["programSha256"],
                 "guideModel": row["guideModel"],
                 "outwardPerSideMm": row["outwardPerSideMm"],

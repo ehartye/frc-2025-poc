@@ -45,6 +45,7 @@ def collect(group, raw):
                 "poseMmDeg",
                 "layout",
                 "stepUs",
+                "deadlineMs",
                 "lastJavaMs",
                 "firstBandMs",
                 "lastState",

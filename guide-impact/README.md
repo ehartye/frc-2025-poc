@@ -1,5 +1,17 @@
 # Does the installed guide still seat the pipe?
 
+**The nominal folded guides seat both signed arrivals on the machined shelf with fixed bilateral supports. Changing the carriage support changes the verdict.** On the joined two-stage carriage the original left approach faults at Java 1,020 ms, with the entry ray clear and only the seat ray returning. The recovery controller waits for the returning edge and probes again. At 31.25 µs the left pipe reaches the seated band at Java 1,340 ms and the right at 1,360 ms. Both hold through the scheduled 5,460 ms station check. [Matched mechanical and controller cases](results.json) · [Recovery controller and adverse inputs](../split-guide-acquisition/README.md)
+
+| Guide or mounting control | Left peak face travel | Right peak face travel | First seated tick, left / right |
+| --- | ---: | ---: | ---: |
+| Folded backing and nominal roots | 0.101 mm | 0.123 mm | 1,360 / 1,340 ms |
+| Flat backing at the same modeled mass | 0.460 mm | 0.508 mm | 1,340 / 1,360 ms |
+| Effective root bolt spacing reduced from 14 mm to 7 mm | 0.236 mm | 0.279 mm | 1,340 / 1,360 ms |
+| Root with the return ribs removed from its stiffness calculation | 0.267 mm | 0.319 mm | 1,360 / 1,360 ms |
+| Folded backing, each face 0.315 mm outboard | 0.077 mm | 0.101 mm | 1,360 / 1,380 ms |
+
+The table uses the two actual signed approach poses, the original shelf boundary and the 31.25 µs plant. The two rigid 813 mm controls reproduce the entire 850 mm trajectory hashes. Increasing the guide cutoff from 1,800 to 3,500 Hz adds a 2,652 Hz mode and changes whole-face peak travel by at most 0.074 µm. It preserves both Java entry ticks. On 62.5, 31.25 and 15.625 µs plant steps, all six folded nominal trials hold through departure. The left final pipe center moves from X76.692 to X74.235 mm between the two finer clocks. Preserve the separate exposure samples for optical replay. [Signed exposure handoffs](station-frames.json)
+
 ## What changed at the station
 
 The two stationary guides meet the ends of the incoming pipe before it reaches the shelf. Each has a 3 mm liner over a folded, 0.8 mm aluminum backing. Two arms attach each backing to the mast at heights of 687 and 787 mm. The liner runs from 625 to 813 mm. A native solid classification checks nine heights on each side, both face edges and both ends. The 260 inside/outside measurements match the surfaces used by the pipe model. [Guide assembly](../guide-mounts/README.md) · [Reopened STEP measurements](section.json)
@@ -33,12 +45,13 @@ python guide-impact/section.py guide-impact/section.json
 python guide-impact/replay.py <jdk> <raw> <raw>/folded.json --layouts folded --steps 62.5 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/controls.json --layouts flat half-couple unribbed --steps 62.5 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/folded-finest.json --layouts folded --steps 15.625
+python guide-impact/replay.py <jdk> <raw> <raw>/capture-refinement.json --layouts folded --steps 7.8125 --until 1500
 python guide-impact/replay.py <jdk> <raw> <raw>/modal-refinement.json --layouts folded --steps 31.25 --cutoff 3500
 python guide-impact/replay.py <jdk> <raw> <raw>/rigid.json --layouts rigid --steps 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/opening-gauge.json --layouts folded --outward .315 --steps 62.5 31.25
 python guide-impact/replay.py <jdk> <raw> <raw>/serial-carriage.json --support compliant-carriage --layouts folded --steps 31.25 15.625
 python guide-impact/replay.py <jdk> <raw> <raw>/serial-recovery.json --support compliant-carriage --recovery split-guide-acquisition --layouts folded --steps 31.25 15.625
-python guide-impact/receipt.py <raw> guide-impact/results.json <raw>/folded.json <raw>/folded-finest.json <raw>/controls.json <raw>/rigid.json <raw>/opening-gauge.json <raw>/modal-refinement.json <raw>/serial-carriage.json <raw>/serial-recovery.json
+python guide-impact/receipt.py <raw> guide-impact/results.json <raw>/folded.json <raw>/folded-finest.json <raw>/controls.json <raw>/rigid.json <raw>/opening-gauge.json <raw>/modal-refinement.json <raw>/serial-carriage.json <raw>/serial-recovery.json <raw>/capture-refinement.json
 python guide-impact/handoff.py guide-impact/results.json <raw> guide-impact/station-frames.json
 python guide-impact/roots.py guide-impact/results.json <raw> guide-impact/root-loads.json
 python guide-impact/traction.py guide-impact/results.json <raw> guide-impact/traction.json

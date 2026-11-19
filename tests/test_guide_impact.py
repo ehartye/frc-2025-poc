@@ -71,6 +71,7 @@ class GuideImpactTests(unittest.TestCase):
             if r["layout"] == "folded"
             and not r["outwardPerSideMm"]
             and not r["carriageSupport"]
+            and r["deadlineMs"] == 5460
             and r["guideModel"][1] == 1800
             and r["guideModel"][2] == 0.236
         ]
@@ -168,7 +169,7 @@ class GuideImpactTests(unittest.TestCase):
             self.assertTrue(row["eligibleForStationImageReplay"])
             self.assertIsNone(p["actualOpticalCustody"])
             self.assertEqual(row["trajectorySha256"], p["trajectorySha256"])
-            self.assertEqual(p["last100msRows"], 3201)
+            self.assertEqual(p["last100msRows"], int(100000 / p["stepUs"]) + 1)
             self.assertEqual(
                 [f["javaMs"] for f in p["frames"]],
                 [5360, 5372, 5389, 5406, 5423, 5440, 5457, 5460],
