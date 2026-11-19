@@ -15,12 +15,13 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           path: project
+          fetch-depth: 0
           persist-credentials: false
       - name: Get the reviewed showcase builder
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: db4956de0fa61146b13ca43e2ac9ff1cf88ee046 # v0.26.1
+          ref: 266805cd793fa5be4dbc68700e7b275bf782a60e # v0.31.1
           path: builder
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -28,8 +29,6 @@ jobs:
           node-version: '22'
       - name: Verify the manifest and build the public files
         run: node builder/scripts/robot-highlights.mjs project/highlights.json "$RUNNER_TEMP/showcase"
-      - name: Publish the kickoff lab and link it from the showcase navigation
-        run: node project/scripts/publish-field-lab.mjs "$RUNNER_TEMP/showcase"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
