@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leave and park rehearsal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ed;color:#202a32;font:1rem/1.45 system-ui,sans-serif}main{max-width:1100px;margin:0 auto;padding:clamp(16px,4vw,44px)}h1{font:600 clamp(2rem,5vw,3.7rem)/1.05 Georgia,serif;margin:0 0 12px}p{margin:0 0 18px;max-width:78ch}canvas{display:block;width:100%;height:auto;background:#17242e;border-radius:8px}section{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}select,button{padding:.5em;border:1px solid #53636c;border-radius:4px;background:white;font:inherit}label{font-weight:600}input{flex:1;min-width:135px;accent-color:#ad3935}output{min-width:10em;font-variant-numeric:tabular-nums}#result{font-weight:650}#detail{font-size:.94rem}a{color:#1a505b}:focus-visible{outline:3px solid #317fa5}button{min-width:64px}
+</style></head><body><main>
+<h1>Leave and park</h1><p>Can Red 2 earn points with its receiver stowed and no station supply? Scrub the match to see how a partner’s position changes the endgame decision.</p>
+<section><label for="scene">Match plan</label><select id="scene"><option value="direct">Preassigned straight AUTO</option><option value="reserved">Reserved and clear</option><option value="occupied">Partner stays · wait</option><option value="late">Clearance comes too late</option><option value="ignore-reservation">Ignore the occupied lane</option></select></section>
+<canvas id="field" width="1200" height="585" aria-label="Registered field, six robot footprints and Red 2 route"></canvas>
+<section><button id="play" type="button">Play</button><label for="clock">Match clock</label><input id="clock" type="range" min="0" max="153" step=".05" value="153"><output id="time" for="clock"></output></section>
+<p id="result" aria-live="polite"></p><p id="detail"></p><a href="README.md">Geometry, scoring criteria and assumptions</a>
+</main><script src="tracks.js"></script><script>
+const data=REHEARSAL, ctx=document.querySelector("canvas").getContext("2d");
+const select=document.querySelector("#scene"),clock=document.querySelector("#clock"),play=document.querySelector("#play");
+let playing=false,last=0;
+function pose(track,t){
+ let i=1;while(i<track.length && track[i][0]<t)i++;
+ if(i===track.length)return track[i-1].slice(1);
+ const a=track[i-1],b=track[i],u=Math.max(0,Math.min(1,(t-a[0])/(b[0]-a[0])));
+ return [a[1]+u*(b[1]-a[1]),a[2]+u*(b[2]-a[2]),a[3]+u*Math.atan2(Math.sin(b[3]-a[3]),Math.cos(b[3]-a[3]))];
+}
+function draw(){
+ const row=data.cases[select.value], t=Number(clock.value),tele=Math.max(0,t-18),bad=row.first_sampled_overlap;
+ const struck=bad && tele>=bad[2]; const sample=struck?bad[2]:tele;
+ const scale=1140/data.field[0],px=x=>30+x*scale,py=y=>555-y*scale;
+ function rect(x0,y0,x1,y1,c){ctx.fillStyle=c;ctx.fillRect(px(x0),py(y1),(x1-x0)*scale,(y1-y0)*scale)}
+ ctx.clearRect(0,0,1200,585);rect(0,0,...data.field,"#293943");rect(...data.zone,"#783a41");rect(data.tape[0],0,data.tape[1],data.field[1],"#db8177");
+ for(const [,poly] of data.obstacles){ctx.beginPath();poly.forEach(([x,y],i)=>i?ctx.lineTo(px(x),py(y)):ctx.moveTo(px(x),py(y)));ctx.closePath();ctx.fillStyle="#526571";ctx.fill()}
+ for(const [group,x,y] of data.pieces){ctx.beginPath();ctx.arc(px(x),py(y),group==="floor-pipe"?3:5,0,2*Math.PI);ctx.fillStyle=group==="floor-pipe"?"#fff8e9":"#77cdb7";ctx.fill()}
+ const direct=select.value==="direct", auto=direct?data.directAuto:data.auto;
+ const path=data.programs[row.robots.red2];
+ ctx.beginPath();[...auto,...path].forEach(([,x,y],i)=>i?ctx.lineTo(px(x),py(y)):ctx.moveTo(px(x),py(y)));ctx.strokeStyle="#ffc975";ctx.lineWidth=2;ctx.stroke();
+ for(const [name,ref] of Object.entries(row.robots)){
+   const [x,y,h]=t<18&&name==="red2"?pose(auto,Math.min(15,t)):pose(data.programs[ref],sample);
+   ctx.save();ctx.translate(px(x),py(y));ctx.rotate(-h);ctx.fillStyle=name.startsWith("red")?"#d6564e":"#4286bc";
+   ctx.fillRect(-.425*scale,-.425*scale,.85*scale,.85*scale);
+   ctx.strokeStyle=name==="red2"?"#ffd47b":"#d8e6e8";ctx.lineWidth=name==="red2"?4:1;ctx.strokeRect(-.425*scale,-.425*scale,.85*scale,.85*scale);
+   ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(.4*scale,0);ctx.stroke();ctx.restore();ctx.fillStyle="white";ctx.font="bold 17px sans-serif";ctx.textAlign="center";ctx.fillText(name[0].toUpperCase()+name.slice(-1),px(x),py(y)-.52*scale);
+ }
+ document.querySelector("#time").textContent=(t<15?"AUTO "+t.toFixed(1):t<18?"Disabled "+(t-15).toFixed(1):"TELEOP "+tele.toFixed(1))+" s";
+ document.querySelector("#result").textContent=struck?"Route rejected · playback holds at first overlap":t<15?(direct?"AUTO · straight drive into the reserved zone":"AUTO · reverse clear of the starting line"):t<18?"Disabled transition · LEAVE assessed":t<153?(direct?"TELEOP · holding the AUTO parking pose":tele<row.decision_teleop_s?"TELEOP · holding for the endgame decision":row.attempt?"TELEOP · parking route":"TELEOP · hold position"):(row.leave_points+row.park_points)+(row.park_points&&!direct?" geometric points · turn traction unresolved":" modeled points · "+(row.park_points?"LEAVE and PARK":"LEAVE"));
+ document.querySelector("#detail").textContent=direct?"Red 1 takes the middle starting position. Red 2 drives straight from its assigned south-lane position and stays parked. Modeled minimum tire friction is 0.265.":struck?"Red 2 overlaps the stationary Red 1 in the prescribed path.":select.value==="late"?"At TELEOP 129 s the drive requires more time than remains.":select.value==="occupied"?"Red 1 occupies the approach. Red 2 stays outside the BARGE ZONE.":"The highlighted footprint is the 545-body stowed design. Live driving, calibration and official scoring remain field checks.";
+}
+function stop(){playing=false;play.textContent="Play"}
+function tick(now){if(!playing)return;clock.value=Math.min(153,Number(clock.value)+(now-last)/1000*5);last=now;draw();if(Number(clock.value)>=153)stop();else requestAnimationFrame(tick)}
+play.onclick=()=>{if(playing){stop();return}if(Number(clock.value)>=153)clock.value=0;last=performance.now();playing=true;play.textContent="Pause";requestAnimationFrame(tick)};
+clock.oninput=()=>{stop();draw()};select.onchange=()=>{stop();draw()};draw();
+</script></body></html>
