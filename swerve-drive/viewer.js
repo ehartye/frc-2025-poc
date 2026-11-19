@@ -35,6 +35,8 @@ function drawField(run,k) {
   for(const [,kind,x,y] of field.stock){
     ctx.fillStyle=kind==="floor-pipe"?"#e7c180":"#e7954a";ctx.beginPath();ctx.arc(...px([x,y]),kind==="floor-pipe"?3:6,0,Math.PI*2);ctx.fill();
   }
+  const dock=px(field.station);ctx.strokeStyle="#cce7bd";ctx.lineWidth=2;ctx.beginPath();ctx.arc(...dock,6,0,Math.PI*2);ctx.stroke();
+  ctx.fillStyle="#d5ebd2";ctx.font="16px system-ui";ctx.textAlign="right";ctx.fillText("Station",dock[0]-11,dock[1]-8);
   for(const [id,t] of Object.entries(field.peers))robot(ctx,t[k],id.startsWith("red")?"#a55c62":"#4b779d",false);
   const trail=run.samples.slice(0,k+1);
   ctx.strokeStyle="#90d7c6";ctx.lineWidth=2;ctx.beginPath();
