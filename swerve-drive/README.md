@@ -1,13 +1,13 @@
 # Four-module opening to the red station
 
-[Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.080 and 20.115 s. A 69.5 kg test with higher yaw inertia also reached the station on both signed calibration cases.
+[Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.285 and 20.330 s. A 72 kg test with higher yaw inertia also reached the station on both signed calibration cases.
 
 | Case | Station confirmation | Achieved normal / lateral / yaw at 21.10 s | Minimum barrier / stock / peer clearance |
 | --- | --- | --- | --- |
-| 65 kg, positive errors | 20.080 s | −1.17 mm / +0.06 mm / −0.004° | 8.27 / 72.12 / 39.04 mm |
-| 65 kg, negative errors | 20.115 s | −1.06 mm / −0.11 mm / −0.013° | 8.43 / 57.30 / 41.30 mm |
-| 69.5 kg, positive errors | 20.080 s | −2.26 mm / +0.10 mm / +0.010° | 7.08 / 71.79 / 39.39 mm |
-| 69.5 kg, negative errors | 20.075 s | −2.37 mm / −0.09 mm / +0.001° | 7.04 / 56.92 / 41.61 mm |
+| 65 kg, positive errors | 20.285 s | +0.45 mm / −0.06 mm / −0.001° | 9.88 / 72.12 / 39.04 mm |
+| 65 kg, negative errors | 20.330 s | +0.66 mm / −0.13 mm / −0.009° | 10.14 / 57.30 / 41.30 mm |
+| 72 kg, positive errors | 20.195 s | −1.35 mm / −0.09 mm / +0.016° | 7.94 / 71.58 / 39.46 mm |
+| 72 kg, negative errors | 20.245 s | −1.41 mm / −0.05 mm / +0.009° | 7.94 / 56.89 / 41.64 mm |
 
 The 21.10 s station opening is an opportunity to feed one pipe. The route ends there with all starting stock still in the field inventory. The table contains simulated ground truth scored after the controller acted. An authorized acquisition needs a matching finite pipe delivery, a mechanical seat and an independent observation. Points remain unassigned.
 
@@ -17,11 +17,11 @@ The motor/absolute contract applies to four horizontally separated steering axes
 
 The drive pinion lies on the steering axis. In the model a locked wheel makes one motor input revolution per carrier revolution. The per-corner logical signs and arbitrary absolute zeros are simulated commissioning inputs. Independent polarities and steer-induced rotor turns are removed before applying the drive ratio. The checker exercises simultaneous rolling/steering, an offset pivot and a reversed wheel. The installed Agent FRC 0.23.0 portable vector check gave a maximum residual of 0.00221 m/s. A deliberately inverted front-right drive signal failed all three exercises, with residuals of 1.42–1.55 m/s.
 
-A 5 ms field controller requests chassis translation and yaw. A 1 ms plant evolves four steering inertias, drive-wheel inertia, finite lateral tire forces, yaw and translation. The same gear coupling participates in steer torque and rotor speed. Each substep passes achieved chassis acceleration to four constrained tread springs and uses their reactions for the following substep’s tire-force caps. The 65 kg / 5 kg·m² and 69.5 kg / 8 kg·m² cases share a 380 mm CG height, 26/24/26/24% static shares, front/rear tread rates 90/110% of 150 kN/m, friction coefficient 0.80 and a 9.5 V modeled actuator terminal ceiling. Open-loop phase currents and vendor curves are engineering inputs. Results depend on these hypotheses and on the separately protected auxiliary loads.
+A 5 ms field controller requests chassis translation and yaw. A 1 ms plant evolves four steering inertias, drive-wheel inertia, finite lateral tire forces, yaw and translation. The same gear coupling participates in steer torque and rotor speed. Each substep passes achieved chassis acceleration to four constrained tread springs and uses their reactions for the following substep’s tire-force caps. The 65 kg / 5 kg·m² and 72 kg / 8 kg·m² cases share a 380 mm CG height, 26/24/26/24% static shares, front/rear tread rates 90/110% of 150 kN/m, friction coefficient 0.80 and a 9.5 V modeled actuator terminal ceiling. The inner motor loops assume ideal velocity feedback. The odometry channel independently quantizes absolute azimuth to 1,024 counts per turn and rotor turns to 1/4,096 of a revolution as a reporting assumption. Results depend on these hypotheses and on the separately protected auxiliary loads.
 
 ## Why the route slows down
 
-The first four-wheel route changed direction sharply near the waypoint. A modeled, statically balanced robot with a 310 mm CG and 90/110% tread rates demanded 59.37 N at its right rear while the available 0.80 tire coefficient yielded 56.82 N. The registered first route remains a failed traction control in the power study. The selected route limits the field-speed change to 0.62 m/s² and tapers speed as the robot approaches the corner. Its signed 65 kg traces passed the four-tread and pack sensitivities. A minimum 22% static share per corner and the assumed CG and tread bounds leave at least 69.14 N of traction margin across both runs. The start and dock use release-day field and stock geometry. The five independently programmed peers retain their reservations. During the three-second disabled interval the applied motor voltage is zero and finite residual motion stays below 0.002 mm in the four successful runs.
+The first four-wheel route changed direction sharply near the waypoint. A modeled, statically balanced robot with a 310 mm CG and 90/110% tread rates demanded 59.37 N at its right rear while the available 0.80 tire coefficient yielded 56.82 N. The registered first route remains a failed traction control in the power study. A separate 72 kg trial exposed 3.077 mm of normal-position error after its first lock. The revised controller slows inside the last 35 mm and waits for wheel speeds below 6 mm/s. The selected route limits the field-speed change to 0.62 m/s² and tapers speed as the robot approaches the corner. Its signed 65 kg traces passed the four-tread and pack sensitivities. A minimum 22% static share per corner and the assumed CG and tread bounds leave at least 69.14 N of traction margin across both runs. The start and dock use release-day field and stock geometry. The five independently programmed peers retain their reservations. During the three-second disabled interval the applied motor voltage is zero and finite residual motion stays below 0.004 mm in the four successful runs.
 
 ## How the station is observed
 

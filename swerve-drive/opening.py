@@ -128,7 +128,7 @@ def run(assets, out, case):
         couplings,
     )
     upper = case in ("heavy", "upper-minus")
-    mass = 69.5 if upper else 65.0
+    mass = 72.0 if upper else 65.0
     support = Support(
         centers,
         mass,
@@ -256,15 +256,17 @@ def run(assets, out, case):
                 if wall - latest < 0.11:
                     # Separate chassis heading from station-normal and sideways translation.
                     speed = velocity(-q[:2] / 1000, 0.32, 2.5)
+                    if np.linalg.norm(q[:2]) < 35:
+                        speed = velocity(-q[:2] / 1000, 0.025, 1.6)
                     target[:2] = field_to_body(
                         body_to_field(speed, f.NORMAL), odom.pose[2]
                     )
                     target[2] = np.clip(-2.1 * q[2], -0.30, 0.30)
                     if (
                         prior_read is not None
-                        and np.linalg.norm(q[:2]) < 2.3
+                        and np.linalg.norm(q[:2]) < 1.4
                         and abs(q[2]) < math.radians(0.16)
-                        and max(abs(measured_wheel)) < 0.015
+                        and max(abs(measured_wheel)) < 0.006
                         and valid_streak >= 3
                     ):
                         if not locked:
