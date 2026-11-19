@@ -32,6 +32,8 @@ def plot(folder,out):
     axes[0].set_title("Fixed-low two-pipe design  |  shared supply during the 372 in parking trial",loc="left")
     fig.savefig(out, metadata={"Date": None})
     plt.close(fig)
+    lines = out.read_text(encoding="utf-8").splitlines()
+    out.write_text("\n".join(line.rstrip() for line in lines) + "\n", encoding="utf-8", newline="\n")
 
 
 if __name__=="__main__":
