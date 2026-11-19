@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse
 import json
 import math
-from balance import HERE, balance, digest, read
+from rail_balance import HERE, balance, digest, read
 
 
 def support_plane(

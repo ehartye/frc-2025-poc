@@ -8,8 +8,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "extension-support"
 sys.path.insert(0, str(HERE))
-from balance import balance, digest, reaction
-from fixture import support_plane
+from rail_balance import balance, digest, reaction
+from static_fixture import support_plane
 
 
 def record(name):

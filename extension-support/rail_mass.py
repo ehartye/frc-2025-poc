@@ -4,7 +4,7 @@ import argparse
 import math
 import sys
 from pathlib import Path
-from balance import HERE, ROOT, digest, read
+from rail_balance import HERE, ROOT, digest, read
 
 sys.path.insert(0, str(ROOT / "winchless-bill"))
 from account import installed, pins, roster, write

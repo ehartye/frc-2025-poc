@@ -27,16 +27,23 @@ Across the four fixture loads, the captured design needs 14.9–15.1 N downward 
 
 The ten new pins, dogs and clips plus the two thickened outer walls cleared the swept inventory of 1,237 other registered CAD shapes and 93 harness edges for nominal horizontal travel. The two synchronizer brackets and the middle stop dog were reopened to resolve broad bounding-box overlaps. Actual tilted envelopes, assembly tools and parts at tolerance require their own sweep. With six installed rails replaced and ten articles added, the upper stock estimate rises by 84.046 g under independent old/new aluminum ranges, bounded steel stock and 5 g of finishing allowance. The 1,199-identity no-shelf-credit robot retains 285.146 g of modeled inspection margin. [Installed clearance](clearance.json) · [Accounting](mass.json)
 
+## What force must each keeper resist?
+
+Concentrating the first left fixture load on one side and then on one pin nose gives 25.8 MPa nominal crosspin bending at the 3.5 mm groove diameter and 31.8 MPa on the 4 mm fixed dog. A separate adverse control puts the earlier complete 14.298 kg support load at the extended shelf’s front edge. It produces 238 N at the crosspin and 438 N at the fixed dog, or 411 MPa and 255 MPa in the same bending estimates. This deliberately concentrates the original supporting mass. It supplies a sizing challenge for the drawings. The modeled pipe and shelf distribute their weights elsewhere.
+
+At twelve actual native sections of the left slotted middle channel, the highest sampled gross bending demand was 5.58 MPa for the seated fixture and 44.65 MPa for the edge load. Both maxima occurred at local X−25 mm, aligned with the end of the fixed outer channel at full extension. Local slot contact, groove stress concentration, screw-root fatigue, rail twist and cyclic wear still require a material and load model. [Pin reactions, bearing demands and native section properties](demand.json)
+
 ## Reproduce the prebuild screens
 
 Supply the source project's Python/Open Cascade environment. Keep generated purchasing maps and larger motion inputs with the project. Each command runs from the project root.
 
 ```sh
 python extension-support/rail_geometry.py extension-support/geometry.json
-python extension-support/balance.py extension-support/balance.json
+python extension-support/rail_balance.py extension-support/balance.json
 python extension-support/rail_capture.py extension-support
 python extension-support/installed_clearance.py <registered-scene.json> extension-support/clearance.json
-python extension-support/fixture.py extension-support/fixture.json
+python extension-support/static_fixture.py extension-support/fixture.json
+python extension-support/section_demand.py extension-support/demand.json
 python extension-support/rail_mass.py <installed-plugin> <allStocksAndFourteenSetsKg.json> <map-output> extension-support/mass.json
 python extension-support/viewer.py
 python -m unittest discover -s tests -p test_extension_support.py
