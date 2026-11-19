@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def plot(folder,out):
+    plt.rcParams.update({"svg.hashsalt": "fixed-low-power", "svg.fonttype": "none"})
     fig,axes=plt.subplots(2,1,sharex=True,figsize=(10,5.8),layout="constrained")
     cases=(("fixed","12.4 V / 25 mΩ, compressor off","#166b57"),
            ("weak","11.8 V / 32 mΩ, compressor on","#a33d2d"),
@@ -29,7 +30,7 @@ def plot(folder,out):
     axes[1].set_xlabel("Wall clock (s)   ·   AUTO 0–15   ·   TELEOP 18–153   ·   final assessment 153–156")
     axes[0].legend(loc="upper right",fontsize=8)
     axes[0].set_title("Fixed-low two-pipe design  |  shared supply during the 372 in parking trial",loc="left")
-    fig.savefig(out,dpi=140)
+    fig.savefig(out, metadata={"Date": None})
     plt.close(fig)
 
 
@@ -37,4 +38,4 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("traces",type=Path)
     args=p.parse_args()
-    plot(args.traces,Path(__file__).with_name("match-power.png"))
+    plot(args.traces,Path(__file__).with_name("match-power.svg"))
