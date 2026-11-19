@@ -38,7 +38,7 @@
     ]
   ],
   "poses": {
-    "pickup": {
+    "fixed-no-air/pickup": {
       "sha256": "db52b764d308c59df9b6d3ed4099c2ba9fbb05bd12b48cfbec791e012d5a8603",
       "strokeMm": 0,
       "panelClearance": {
@@ -247,8 +247,217 @@
       },
       "retainedParts": 591
     },
-    "placement": {
+    "fixed-no-air/placement": {
       "sha256": "c6ba9c988380ee16715f9ad83d8638229c868a2a5e885d74903179b47300e02b",
+      "strokeMm": 370,
+      "panelClearance": {
+        "mm": 3.65,
+        "bodies": [
+          "long-common-shaft"
+        ]
+      },
+      "directLeadCradleInterferenceMm3": 132.351,
+      "fixedCameraLeadSegments": [
+        {
+          "from": [
+            -124,
+            -171,
+            277
+          ],
+          "to": [
+            -124,
+            -171,
+            295
+          ],
+          "lengthMm": 18.0,
+          "destinations": [],
+          "otherClearance": {
+            "mm": 36.294,
+            "bodies": [
+              "long-common-shaft"
+            ]
+          }
+        },
+        {
+          "from": [
+            -124,
+            -171,
+            295
+          ],
+          "to": [
+            -332,
+            -171,
+            295
+          ],
+          "lengthMm": 208.0,
+          "destinations": [],
+          "otherClearance": {
+            "mm": 37.556,
+            "bodies": [
+              "long-common-shaft"
+            ]
+          }
+        },
+        {
+          "from": [
+            -332,
+            -171,
+            295
+          ],
+          "to": [
+            -334,
+            -45,
+            282
+          ],
+          "lengthMm": 126.68,
+          "destinations": [
+            "observer-cable-trunk-reserve"
+          ],
+          "otherClearance": {
+            "mm": 31.0,
+            "bodies": [
+              "observer-upright"
+            ]
+          }
+        },
+        {
+          "from": [
+            -334,
+            -45,
+            282
+          ],
+          "to": [
+            -334,
+            -45,
+            918
+          ],
+          "lengthMm": 636.0,
+          "destinations": [
+            "observer-cable-trunk-reserve"
+          ],
+          "otherClearance": {
+            "mm": 31.0,
+            "bodies": [
+              "observer-upright"
+            ]
+          }
+        },
+        {
+          "from": [
+            -334,
+            -45,
+            918
+          ],
+          "to": [
+            -334,
+            -63,
+            938
+          ],
+          "lengthMm": 26.91,
+          "destinations": [
+            "observer-cable-trunk-reserve"
+          ],
+          "otherClearance": {
+            "mm": 19.674,
+            "bodies": [
+              "observer-slotted-cradle-weldment"
+            ]
+          }
+        },
+        {
+          "from": [
+            -334,
+            -63,
+            938
+          ],
+          "to": [
+            -327,
+            -63,
+            972
+          ],
+          "lengthMm": 34.71,
+          "destinations": [
+            "observer-cable-trunk-reserve",
+            "observer-usb-service-reserve"
+          ],
+          "otherClearance": {
+            "mm": 10.0,
+            "bodies": [
+              "observer-slotted-cradle-weldment"
+            ]
+          }
+        }
+      ],
+      "feet": {
+        "leftRear": {
+          "bearingSupport": "observer-pi-and-converter-backplate",
+          "supportGapMm": 0.0,
+          "bearingFraction": 1.0,
+          "otherClearance": {
+            "mm": 3.0,
+            "bodies": [
+              "deck-main"
+            ]
+          },
+          "baseMm": [
+            -184,
+            -197,
+            157.0
+          ]
+        },
+        "leftFront": {
+          "bearingSupport": "deck-main",
+          "supportGapMm": 0.0,
+          "bearingFraction": 1.0,
+          "otherClearance": {
+            "mm": 9.0,
+            "bodies": [
+              "backup-R-drilled-mast"
+            ]
+          },
+          "baseMm": [
+            -64,
+            -197,
+            154.0
+          ]
+        },
+        "rightRear": {
+          "bearingSupport": "deck-main",
+          "supportGapMm": 0.0,
+          "bearingFraction": 1.0,
+          "otherClearance": {
+            "mm": 4.0,
+            "bodies": [
+              "battery-tray"
+            ]
+          },
+          "baseMm": [
+            -184,
+            -139,
+            154.0
+          ]
+        },
+        "rightFront": {
+          "bearingSupport": "deck-main",
+          "supportGapMm": 0.0,
+          "bearingFraction": 1.0,
+          "otherClearance": {
+            "mm": 46.636,
+            "bodies": [
+              "battery-tray"
+            ]
+          },
+          "baseMm": [
+            -64,
+            -139,
+            154.0
+          ]
+        }
+      },
+      "retainedParts": 591
+    },
+    "bridge-tolerance/place": {
+      "sha256": "74656e040965df4dc6d5aafcedb58ae6f1442828eac5bec015c3a3ace15b578b",
       "strokeMm": 370,
       "panelClearance": {
         "mm": 3.65,

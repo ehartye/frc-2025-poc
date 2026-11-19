@@ -39,6 +39,7 @@ class DualCameraSupply(unittest.TestCase):
 
     def test_panel_clearance_and_fixed_lead_budget(self):
         panel = json.loads((ROOT / "design/fixed-no-air/converter-panel.json").read_bytes())
+        self.assertEqual(set(panel["poses"]), {"fixed-no-air/pickup", "fixed-no-air/placement", "bridge-tolerance/place"})
         for pose in panel["poses"].values():
             self.assertEqual(pose["retainedParts"], 591)
             self.assertGreater(pose["panelClearance"]["mm"], 3.6)

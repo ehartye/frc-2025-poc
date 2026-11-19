@@ -13,8 +13,9 @@ HERE = Path(__file__).resolve().parent
 REPLACED = {"observer-host-5v-reserve", "observer-camera-5v-reserve"}
 PANEL = [-190, -202, 164, 135, 85, 156]
 BODY_X = [-184, -140, -96]
-FILES = {"pickup": "db52b764d308c59df9b6d3ed4099c2ba9fbb05bd12b48cfbec791e012d5a8603",
-         "placement": "c6ba9c988380ee16715f9ad83d8638229c868a2a5e885d74903179b47300e02b"}
+FILES = {"fixed-no-air/pickup": "db52b764d308c59df9b6d3ed4099c2ba9fbb05bd12b48cfbec791e012d5a8603",
+         "fixed-no-air/placement": "c6ba9c988380ee16715f9ad83d8638229c868a2a5e885d74903179b47300e02b",
+         "bridge-tolerance/place": "74656e040965df4dc6d5aafcedb58ae6f1442828eac5bec015c3a3ace15b578b"}
 
 
 def digest(file):

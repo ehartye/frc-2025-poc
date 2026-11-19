@@ -11,7 +11,7 @@ HERE = Path(__file__).resolve().parent
 
 def draw():
     data = json.loads((HERE / "converter-panel.json").read_bytes())
-    pose = data["poses"]["pickup"]
+    pose = data["poses"]["fixed-no-air/pickup"]
     fig, (plan, elevation) = plt.subplots(1, 2, figsize=(9, 5), width_ratios=(1.3, 1),
                                          layout="constrained")
     fig.suptitle("Power panel beside the Pi", fontsize=17, weight="bold")
