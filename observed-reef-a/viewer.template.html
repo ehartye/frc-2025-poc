@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What can the robot see at the reef?</title>
+<style>
+:root{font-family:Inter,Arial,sans-serif;color:#163637;background:#f0f4ee}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:clamp(16px,4vw,50px)}h1{font:700 clamp(32px,5vw,55px)/1.03 Georgia,serif;margin:0 0 12px}p{line-height:1.5;max-width:82ch}fieldset{border:0;padding:0;margin:20px 0;display:flex;gap:14px;flex-wrap:wrap}label{display:flex;gap:7px;align-items:center}select,input{font:inherit}select{padding:7px;border:1px solid #879e96;border-radius:4px;color:inherit;background:#fff}article{border:1px solid #a7b8ae;background:white;border-radius:6px;padding:16px}canvas{width:100%;height:auto;background:#17393b;border-radius:4px}input{width:100%;accent-color:#066c62}output{font-variant-numeric:tabular-nums}a{color:#006258}.legend{font-size:.92rem;color:#395449}
+</style>
+<main><header><h1>What can the robot see at the reef?</h1><p>Follow the measured fasteners as the two camera views change. The controller needs evidence from both physical fasteners to estimate the robot’s motion. Its final check also needs a second eye.</p></header>
+<fieldset><label>Wheel case <select id="wheel"><option value="leftSmall">Left wheel smaller</option><option value="rightSmall">Right wheel smaller</option></select></label>
+<label>Field input <select id="mode"><option value="nominal">Nominal</option><option value="ambiguous">Duplicate candidate</option><option value="dropout">Missing fasteners</option></select></label></fieldset>
+<article><canvas id="eyes" width="960" height="340" aria-label="Detected image points in left and right camera coordinates"></canvas>
+<p class="legend">The diagrams show a cropped 175 × 198 pixel window from each camera. Small gray circles are measured candidates. Gold and green rings identify the two surveyed heads whose visible face passes the foreground check.</p>
+<label for="clock">Capture time after sector guidance begins <output id="time"></output></label><input type="range" id="clock" min="0" step="1"><p id="quality"></p></article>
+<p id="result" aria-live="polite"></p><p><a href="README.md">Study evidence and physical limits</a> · <a href="../conditioned-match/replay.html">Earlier full match and station alternatives</a></p></main>
+<section aria-labelledby="carry-title" style="max-width:965px;margin:1.5rem auto;padding:0 1rem"><h2 id="carry-title">Where is coral-A?</h2><p id="cargo-summary" aria-live="polite"></p><p><a href="README.md">Read the carry, power and calibration evidence</a></p></section>
+<script id="samples" type="application/json">SENSOR_SAMPLES</script><script>
+const data=JSON.parse(document.getElementById('samples').textContent),get=id=>document.getElementById(id);let current;
+function select(){current=data.find(r=>r.wheelCase===get('wheel').value&&r.mode===get('mode').value);get('clock').max=current.studentFrames.length-1;get('clock').value=get('clock').max;draw()}
+function draw(){const frame=current.studentFrames[Number(get('clock').value)],c=get('eyes').getContext('2d');c.fillStyle='#17393b';c.fillRect(0,0,960,340);
+ for(let eye=0;eye<2;eye++){const left=32+eye*472,top=40,scale=1.42,w=175*scale,h=198*scale,base=left+(425-w)/2;
+ c.strokeStyle='#7e9994';c.lineWidth=1;c.strokeRect(base,top,w,h);c.fillStyle='#e3efdf';c.font='19px sans-serif';c.fillText(eye?'Right eye':'Left eye',left,24);
+ const xy=(u,v)=>[base+(u-145)*scale,top+(v-140)*scale];c.save();c.beginPath();c.rect(base,top,w,h);c.clip();
+ for(const q of frame.detections[eye]){const [x,y]=xy(...q);c.fillStyle='#b3c3bf';c.beginPath();c.arc(x,y,3.6,0,Math.PI*2);c.fill()}
+ for(const [e,j,u,v] of frame.features){if(e!==eye)continue;const [x,y]=xy(u,v);c.strokeStyle=j?'#86e0bb':'#ffcc6c';c.lineWidth=2.5;c.beginPath();c.arc(x,y,7.3,0,Math.PI*2);c.stroke()}
+ c.restore()}
+ const m=current.material;
+ get('cargo-summary').textContent=current.mode==='nominal'
+ ? (m.nominalHeldAtSectorOnJointClock?'The modeled cartridges hold the pipe at the sector stop at '+m.nominalCarryEndsWallS.toFixed(3)+' s. ':'The modeled material trial ends before a joint sector handoff. ')+(m.guardedStationDeparture?'':'Adding a 0.05 mm roof-reference uncertainty removes the initial custody witness, so the robot stays at the station. ')+'The scoring rack stays stowed; coral-B stays in stock.'
+ : 'The field-camera fault inhibits the final approach. The scoring rack stays stowed and the second feed stays reserved.';
+ get('time').textContent=(frame.captureMs/1000).toFixed(3)+' s';
+ get('quality').textContent=frame.ambiguous?'A competing candidate makes this field observation ambiguous.':frame.viable?frame.features.length+' measured feature rays support the update.':'This frame cannot establish both physical fasteners.';
+ get('result').textContent=current.accepted?'Sector A position admitted under the surveyed field and camera assumptions. Final outer bound '+current.latestQualifiedInterval[0].toFixed(2)+' mm and '+current.latestQualifiedInterval[1].toFixed(2)+'°. Pipe custody and placement have separate gates.':'The controller held the scoring rack because of '+current.reason+'.';}
+ get('wheel').onchange=select;get('mode').onchange=select;get('clock').oninput=draw;select();
+</script></html>
