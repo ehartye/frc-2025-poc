@@ -1,5 +1,7 @@
 # Independent lift arrest study
 
+[Fixed-carriage alternatives](../fixed-height/README.md) remove powered vertical travel and screen the remaining station and scoring functions.
+
 **Decision. Keep powered travel and unsupported service on hold.** This study identifies a placement interference, registers an independent end-stop candidate and specifies a separate midtravel arrest. Both proposed devices require qualification. The original [401-body controls qualification](../../full-match/) applies only to its registered assembly.
 
 The [fully mounted terminal study](../terminal-mounts/README.md) adds the machined mast, sleeves, screws, washers and double-locknut bore mount. It preserves this earlier source and tests both alliance assemblies.
