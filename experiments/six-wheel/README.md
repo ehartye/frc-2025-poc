@@ -24,6 +24,8 @@
 
 [Explore six-wheel load sharing](wheel-loads/README.md). See how center-wheel stiffness, mass placement and battery condition change the simulated station approach.
 
+[Balance the selected straight-guide robot](lateral-balance/README.md). Test the 44% lighter-side target against installed mass locations and compare six-wheel assignments.
+
 [How much weight can the deck give back?](ribbed-deck/README.md) Explore the underside ribs, the battery load path and the measured limits a finished panel has to meet.
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
