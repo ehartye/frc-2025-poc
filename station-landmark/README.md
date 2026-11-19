@@ -1,6 +1,6 @@
 # The opening station dock using the cameras already aboard
 
-**Five of seven wheel-calibration trials brought the first human-fed pipe into the two-port seat window.** All seven first reached an image-confirmed, stationary dock before the scheduled 21.100 s feed. In two, the actual incoming pipe pushed a cartridge past its stop before the controller saw both ports. A successful chassis approach alone cannot release the loaded drive. The south-lane leave and park remains available as a separate pre-match role. [Feed replay](feed.json) · [South-lane fallback](../station-approach/README.md)
+**At a 250 µs contact timestep, five of seven wheel-calibration trials brought the first human-fed pipe into the two-port seat window.** Refining the timestep changes which arrivals hit the mechanical stop. The [sensor and contact study](../station-feed-margin/README.md) keeps station-fed scoring on hold. All seven first reached an image-confirmed, stationary dock before the scheduled 21.100 s feed. In two, the actual incoming pipe pushed a cartridge past its stop before the controller saw both ports. A successful chassis approach alone cannot release the loaded drive. The south-lane leave and park remains available as a separate pre-match role. [Feed replay](feed.json) · [South-lane fallback](../station-approach/README.md)
 
 ![Paired station openings in the rectified images and the modeled feed outcome at each attained chassis offset](station-evidence.svg)
 
