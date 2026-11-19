@@ -1,5 +1,6 @@
 """Join each actual arrival to its cargo, field-camera and stopped chassis records."""
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -18,6 +19,10 @@ def summary():
     arrivals = read("machined-roof-limited-quantized-cargo-nominal-active")
     effective = read("limited-quantized-cargo-nominal-active")
     effort = read("effort")
+    original = HERE.parent / "conditioned-match/match.json"
+    prior = json.loads(original.read_bytes())
+    south = prior["preselectedSouth"]
+    opening = json.loads((HERE.parent / "conditioned-match/opening.json").read_bytes())
     result = {}
     for a, b in zip(arrivals, effective):
         side = a["wheelCase"]
@@ -65,6 +70,17 @@ def summary():
         )
         if nominal and abs(a["finalWallS"] - drive["finalWallS"]) > 1.0e-6:
             raise ValueError("Cargo and chassis clocks disagree")
+        prior_outcomes = {
+            r["conditionalLeavePoints"]
+            for r in prior["cases"]
+            if r["wheelCase"] == side
+        }
+        if (
+            len(prior_outcomes) != 1
+            or opening[side]["leaveFullFootprintAcrossTapeMm"] <= 0
+            or opening[side]["disableTranslationMm"] != 0
+        ):
+            raise ValueError("Upstream signed opening or LEAVE outcome changed")
         result[side] = {
             "piece": "coral-A",
             "stationSourceSha256": a["sourceFeedSha256"],
@@ -88,8 +104,13 @@ def summary():
             else "continue with fresh observations",
             "scoredPieces": [],
             "secondFeedIssued": False,
-            "positivePointsUnderOpeningAssumptions": 3,
-            "separateSouthReservedAlternativePoints": 5,
+            "positivePointsUnderOpeningAssumptions": prior_outcomes.pop(),
+            "openingPathSha256": opening[side]["pathSha256"],
+            "parentMatchSha256": hashlib.sha256(original.read_bytes()).hexdigest(),
+            "separateSouthReservedAlternativePoints": sum(
+                south[k] for k in ("leave", "park", "placement")
+            ),
+            "separateSouthSourceSha256": south["sourceSha256"],
         }
     return result
 
