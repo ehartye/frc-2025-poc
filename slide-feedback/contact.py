@@ -49,6 +49,10 @@ def signed_gaps(pos,travel):
 
 
 def run(jdk,observer,folder):
+    hashes=json.loads((HERE/"motion-traces.json").read_bytes())
+    for filename,digest in hashes.items():
+        if sha(folder/filename)!=digest:
+            raise ValueError("HAL motion bytes changed: "+filename)
     raw=list(csv.DictReader((folder/"trials.csv").open()))
     fixed=json.loads((ROOT/"low-observation/immediate.json").read_bytes())["native_front_planes_by_stroke_factor"]
     kit=json.loads((observer/"mount.json").read_bytes())
@@ -62,7 +66,7 @@ def run(jdk,observer,folder):
             "sourceSha256":{},"cases":len(raw),"policies":{},"pieces":{}}
     for path in ["design/receiver-drives/sizing.json","fixed-low-power/retreat.json","low-observation/results.json",
                  "low-observation/immediate.csv","fixed-height-match/placements.json","slide-feedback/Retreat.java",
-                 "slide-feedback/SlideFeedbackTest.java","design/electrical-inspection/circuits.json"]:
+                 "slide-feedback/SlideFeedbackTest.java","slide-feedback/motion-traces.json","design/electrical-inspection/circuits.json"]:
         result["sourceSha256"][path]=sha(ROOT/path)
     for name in ("handoff.json","mount.json","mass.json","moving-bridge.step","clearance.json"):
         result["sourceSha256"]["moving-observer/"+name]=sha(observer/name)
@@ -115,6 +119,19 @@ def run(jdk,observer,folder):
                 max(int(x["observed_motion_ms"]) for x in rows),max(int(x["verified_stow_ms"]) for x in rows),
                 round(min(g[0] for g in gaps),4),round(min(g[1] for g in gaps),4)])
         fixed_hold=signed_gaps(pos,np.zeros(len(pos)))
+        failures = {}
+        for fault in sorted(set(x["fault"] for x in candidate)-{"normal","biasHigh","biasLow"}):
+            rows=[x for x in candidate if x["fault"]==fault]
+            outcomes=[]
+            for row in rows:
+                if row["trace_id"]=="none":
+                    first=t[np.flatnonzero(fixed_hold<0)[0]]
+                else:
+                    first=contact[row["trace_id"]+"@"+row["command_ms"]][2]
+                outcomes.append(first)
+            hits=[float(q) for q in outcomes if q is not None]
+            failures[fault]={"attempts":len(rows),"physicalShelfRecontacts":len(hits),
+                             "earliestRecontactLocalMs":min(hits) if hits else None}
         result["pieces"][name]={"trials":len(accepted),"uniqueAttainedPathsAndStarts":len(set((x["trace_id"],x["command_ms"]) for x in accepted)),
             "minimumShelfGapMm":min(g[0] for g in allg),"minimumWholeFrontMm":min(g[1] for g in allg),
             "allRetainTargetSupport":all(g[2] is None and g[1]>0 for g in allg),"stationaryPairedSupportS":dwell,
@@ -125,7 +142,7 @@ def run(jdk,observer,folder):
             "heldShelfFirstHitMs":float(t[np.flatnonzero(fixed_hold<0)[0]]),
             "minimumTimeBeforeIssuedStowMs":scheduled-max(int(x["verified_stow_ms"]) for x in accepted),
             "faults":{f:dict(Counter(x["state"] for x in candidate if x["fault"]==f)) for f in sorted(set(x["fault"] for x in candidate)-{"normal","biasHigh","biasLow"})},
-            "dragControl":{d:dict(Counter(x["state"] for x in candidate if x["drag_N"]==d)) for d in ["15","35","80","140"]}}
+            "faultContact":failures,"dragControl":{d:dict(Counter(x["state"] for x in candidate if x["drag_N"]==d)) for d in ["15","35","80","140"]}}
     with (HERE/"phases.csv").open("w",newline="",encoding="utf-8") as file:
         writer=csv.writer(file,lineterminator="\n")
         writer.writerow(["piece","exposure_phase_ms","accepted_cases","earliest_command_ms","latest_observed_motion_ms",

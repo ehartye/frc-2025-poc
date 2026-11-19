@@ -6,7 +6,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-PIN = "8b2420a0ac24468ed0246fd468af30128134e1fe223dede3d62fd6c477d0dbf1"
+PIN = "8d7c1d153591966b59ff6ef8f1404057f737b809f2b7cd0db551fd8c6957b15a"
 
 
 def compare(path):

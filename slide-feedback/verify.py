@@ -54,7 +54,12 @@ def run(jdk, cache, observer, output):
         result = ElementTree.parse(tmp/"build/test-results/test/TEST-org.reefscape.controls.SlideFeedbackTest.xml").getroot()
         if tuple(result.get(k) for k in ("tests","errors","skipped","failures")) != ("1","0","0","0"):
             raise ValueError("HAL regression incomplete")
-        print("Verified native HAL replay", sha(output / "trials.csv"))
+        with (output/"trials.csv").open() as file:
+            names = sorted({r["trace_id"] for r in csv.DictReader(file)} - {"none"})
+        hashes = {name+".csv": sha(output/(name+".csv")) for name in names}
+        hashes["trials.csv"] = sha(output/"trials.csv")
+        (HERE/"motion-traces.json").write_text(json.dumps(hashes,indent=2)+"\n",encoding="utf-8",newline="\n")
+        print("Verified native HAL replay", hashes["trials.csv"])
 
 
 if __name__ == "__main__":

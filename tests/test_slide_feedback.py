@@ -39,7 +39,17 @@ class SlideFeedbackReceipts(unittest.TestCase):
         for name,v in self.result["pieces"].items():
             for fault,cases in v["faults"].items():
                 self.assertEqual(cases,{"FAULT":5},fault)
+            for failure in v["faultContact"].values():
+                self.assertEqual(failure["physicalShelfRecontacts"],failure["attempts"])
             self.assertEqual(v["dragControl"]["140"],{"FAULT":5})
             self.assertEqual(v["dragControl"]["35"],{"STOWED":5})
             self.assertEqual(self.result["policies"]["short5"][name]["verifiedStow"],0)
             self.assertEqual(self.result["policies"]["extended5"][name]["verifiedStow"],2805)
+
+    def test_no_air_transfer_stays_within_original_front(self):
+        receipt=json.loads((STUDY/"no-air.json").read_bytes())
+        self.assertFalse(receipt["opticalGateTransferred"])
+        self.assertEqual(receipt["newOrChangedBaseFrontMaxMm"],337)
+        for pose in receipt["cases"].values():
+            self.assertEqual((pose["sourceBodies"],pose["successorBodies"],pose["unchangedNativeBodies"]),(598,593,590))
+            self.assertIn(pose["frontMm"],(425,535))
