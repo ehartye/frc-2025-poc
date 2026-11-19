@@ -4,6 +4,8 @@
 
 [See how the fixed hoist retains both drums](fixed-hoist/README.md) and what the combined mast, shelf and hoist leave in the inspection bill.
 
+[Explore the four service stands under the winchless carriage](winchless/service.html) and [compare the inspection margins](winchless/README.md) with and without credit for the removed winch.
+
 [How much weight can the deck give back?](ribbed-deck/README.md) Explore the underside ribs, the battery load path and the measured limits a finished panel has to meet.
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
