@@ -14,3 +14,20 @@ The command rebuilds the public STEP and its ordered appearance register, checks
 
 
 Fusion reopened the complete stowed robot with the original supplier module assemblies and verified the exact colors and placed bounds of all 948 project solids, including the 16 white numerals. [Native archive and inspection record](native-reopen.json)
+
+## End-of-match park target
+
+Aim the stowed red robot at field **X 9.6000 m, Y 2.4272875 m, heading 180°** for the next drive replay. Shifting the previous inboard target 151.2 mm toward the red end preserves bumper overlap while giving the adjacent hanging cage more space.
+
+![Four R4 parking targets compared on real bumper material in the zone and room for a six-degree cage swing. Only the offset target passes both checks.](../../experiments/swerve-drive/motion/park-endpoint.svg)
+
+| Terminal target | Bumper cloth guaranteed inside zone | Static hardware clearance, lower bound | Margin to six-degree cage cone |
+|---|---:|---:|---:|
+| Previous scoring return | 323.8 cm³ | 0 mm | −233.3 mm |
+| Previous inboard | 184.9 cm³ | 100.3 mm | −93.1 mm |
+| Offset toward red end | 142.8 cm³ | 251.5 mm | +53.8 mm |
+| Outside control | 0 cm³ | ≥350 mm | +570.7 mm |
+
+The study reopens the two physical bumper covers from the numbered 975-solid R4 STEP. It intersects them with the red zone after eroding its edges enough to cover any combination of ±25 mm field-X, ±25 mm field-Y and ±3° yaw. The enlarged whole-robot box also includes the registered supplier module bounds. A zero static gap or negative cone margin leaves clearance unresolved. The cone uses all six registered hanging axes, the widest cage section and the highest eye. Six degrees is a design stress case. The match replay still has to drive there with the mechanism stowed, account for other robots and displaced pieces, brake and hold through assessment. This screen earns no match points.
+
+[Reopen and recompute](../../experiments/swerve-drive/motion/park_endpoint.py) with the registered official field STEP and an output JSON path. [Machine-readable measurements and source hashes](../../experiments/swerve-drive/motion/park-endpoint.json) · [Redraw the chart](../../scripts/plot-park-endpoint.py)
