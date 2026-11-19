@@ -12,7 +12,7 @@ The desktop controller corroborated movement and stow in **all 17 camera phases 
 
 ## From image to measured motion
 
-The earlier 20 ms optical gate admitted an immediate command in 11/17 phases for A and 12/17 for B. The actuator study requires two measurements to confirm actual movement. None of the three conservative actuator policies reserves enough time under the original 150 ms pad-to-motion cutoff. A separate controller services the registered withdrawal every **5 ms** and requires movement within 40 ms of command and 180 ms of the earliest pad indication. It binds the accepted camera, clearance geometry, registered sector, attempt, exposure range and 15 ms delivery. The 180 ms cap applies only to this reviewed set of two transfers. [Earlier clock](../low-observation/README.md) · [Controller](Retreat.java)
+The earlier 20 ms optical gate admitted an immediate command in 11/17 phases for A and 12/17 for B. The actuator study requires two measurements to confirm actual movement. None of the three conservative actuator policies reserves enough time under the original 150 ms pad-to-motion cutoff. A separate controller services the registered withdrawal every **5 ms** and requires movement within 40 ms of command and 180 ms of the earliest pad indication. It binds the accepted camera, clearance geometry, registered sector, attempt, exposure range and 15 ms delivery. The 180 ms cap applies only to this reviewed set of two transfers. A separate [frame-delivery study](../moving-frame-timing/README.md) changes transit and drops frames. Those inputs have no actuator permission in this controller. [Earlier clock](../low-observation/README.md) · [Controller](Retreat.java)
 
 The reference moves the outer rack 370 mm in 2.4667 s using 70 ms acceleration and 300 ms braking. The NEO 550 drives an 18.93:1 reduction, a 10 mm pitch radius and a doubled outer stroke. The plant carries 5.3571 kg outer, 0.440 kg additional moving-camera allowance and 1.3928 kg middle, with reflected rotor inertia, 70% gear efficiency, a 20 A phase cap, 25 N nominal slide drag, another 2 N mechanism allowance and 9.5 V available. Voltage commands are held and delayed by 0–10 ms. The rack advances in 1 ms steps. Position, integral error and motor-derived velocity close the loop. Peak phase current was 9.56 A and peak motor voltage 2.72 V. An endpoint switch, both position readings and low measured speed confirmed stow 2,470 ms after command. The modeled stop saw up to 20.25 mm/s. Its physical load rating, damping and backlash remain open. [Rack and electrical assumptions](../fixed-low-power/README.md)
 
@@ -31,6 +31,8 @@ Use the project's pinned WPILib 2026.2.1 desktop baseline for this historical ga
 ```sh
 python slide-feedback/verify.py --java-home "$JDK" --gradle-home "$GRADLE_HOME_CACHE"
 python slide-feedback/contact.py --java-home "$JDK"
+python slide-feedback/compare.py
 python -m unittest discover -s tests -p test_slide_feedback.py
 ```
+
 The no-air installation separately retains the forward envelope and moving rack mass used here. At 0, 185 and 370 mm, 590 component B-reps match in the 598- and 593-body installations. The shared bumper or shelf governs all three fronts (425, 425 and 535 mm). All removals/changes are fixed-base and the revised deck and lamp reach only 337 mm. Run the standalone comparison with the issued native register. The control signature and optical approval remain on the 598-body fixture. [No-air transfer](no-air.json) · [Register check](compare.py)
