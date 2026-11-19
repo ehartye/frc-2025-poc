@@ -47,29 +47,55 @@
       "label": "Numbered R4 assembly and bumper artwork",
       "revision": "Stowed red R4 | STEP abbd8ab838",
       "url": "https://github.com/ehartye/frc-2025-poc/blob/8e7fbd81280b05d3b77c2ca676883fef054856d0/cad/full-swerve-r4/design.md"
+    },
+    {
+      "id": "stereo",
+      "label": "Simulated stereo observations and delayed frames",
+      "revision": "R4 first-feed study, two signed approaches and two integration steps",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/60c565f368f31805f641a942e74b0607f72dbf14/experiments/swerve-drive/motion/receiver-witness.json"
+    },
+    {
+      "id": "energy",
+      "label": "Opening with signed motor and transmission power",
+      "revision": "Corrected drive model, four signed mass and calibration cases",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/27aa00d8a5557bbcad36a18034c89377c389bfca/experiments/swerve-drive/motion/energy.json"
+    },
+    {
+      "id": "receiving",
+      "label": "R4 assembly and inspection budget",
+      "revision": "Numbered R4, four populated modules and specified cable cuts",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/3e64944597d5ba0fd5cc494dda262559557b8e92/experiments/swerve-drive/mass-closure/r4-receiving.json"
+    },
+    {
+      "id": "stereo-chart",
+      "label": "Camera decision timing",
+      "revision": "R4 first-feed stereo study",
+      "file": "docs/robot/station-witness.png",
+      "sha256": "391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec",
+      "shareable": true
     }
   ],
   "results": [
     {
       "basis": "modeled",
-      "claim": "Both 65 kg approaches docked before the first feed",
-      "conditions": "The mirrored approaches reached the docking gate at 20.285 s and 20.330 s. The first feed was scheduled for 21.100 s.",
-      "limit": "Four adverse cases missed the docking gate. The film follows one nominal approach.",
-      "source": "opening"
+      "claim": "The swerve robot reached the station before the first feed",
+      "conditions": "The corrected drive model reached its docking gate at 20.285 s and 20.330 s for the two 65 kg approaches. Both 72 kg cases also docked before the scheduled 21.100 s feed.",
+      "limit": "The opening film and first-feed camera study use the earlier drive model. A pickup claim on the corrected route needs images from its own arrival pose.",
+      "source": "energy"
     },
     {
       "basis": "modeled",
-      "claim": "The receiver held the first piece through 27.03 s",
-      "conditions": "Both simulated approach signs reached the in-band receiver state at 22.912 s. Two solver step sizes reproduced it.",
-      "limit": "The simulation ends at the station. Loaded departure, delivery and a scored piece still need evidence.",
-      "source": "feed"
+      "claim": "Five timely stereo observations confirmed the seated pipe",
+      "conditions": "On the first-feed R4 study, the fixed head located the pipe and the roof head saw its rear edge. Both signed approaches agreed at both simulation time steps.",
+      "limit": "Matching pipe and shelf finishes hid the rear edge in every required capture. At 45 ms transport delay only three good observations arrived in time. The controller held in both cases.",
+      "source": "stereo"
     },
     {
       "basis": "modeled",
-      "claim": "The selected drawing leaves 170 g under the inspection limit",
-      "conditions": "The matched 944-item bill puts the upper estimate at 51.993 kg, against a 52.163 kg limit. The calculation uses the machined shelf, the repaired rear electronics and the specified cable cuts.",
-      "limit": "Uniform 1 m supply cuts put the same estimate 4.9 g over. The drawing predates the R4 bumper markings. The opening simulations use separate 65 kg and 72 kg operating assumptions.",
-      "source": "mass"
+      "claim": "The R4 inspection budget leaves 170 g of mass margin",
+      "conditions": "The numbered R4 assembly matches the mass register. Four populated modules at their receiving allowance and the specified cable cuts put the upper estimate at 51.993 kg against the 52.163 kg limit.",
+      "limit": "Uniform one-metre supply cuts put this case 4.9 g over. The mass calculation uses component estimates and planned wire lengths.",
+      "source": "receiving"
     }
   ],
   "build": [
@@ -95,6 +121,12 @@
       "source": "opening",
       "caption": "Nominal approach at real time. The field view shows the path to the station. The four-wheel diagram follows simulated steering and rolling speeds at 10 frames per second.",
       "description": "A field replay beside four labeled wheel directions, with the match clock and station event visible."
+    },
+    {
+      "asset": "stereo-chart",
+      "source": "stereo",
+      "caption": "The fixed camera still locates the pipe when its finish matches the shelf. The roof camera loses the rear edge. Both views must agree before the controller can confirm grip.",
+      "description": "Five of five observations qualify with visible edges and a 15 ms delay. Matching finishes qualify zero. Increasing the delay to 45 ms qualifies three of five."
     }
   ],
   "stylesheet": {
