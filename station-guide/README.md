@@ -4,6 +4,8 @@ Two short guide faces can center the incoming pipe in the desktop trial. With th
 
 ![Side view of the first and revised guide beside the moving camera cross tube, with the two cartridge travel curves at four physics timesteps](guide-study.svg)
 
+The [finite shelf-contact follow-up](../shelf-contact/README.md) tests the first impact against an analytical drop and repeats the wheel-error arrivals under a stated deformable-contact law.
+
 ## How the guide changes the feed
 
 The pipe enters between two stationary tapered faces above the stowed shelf. Each final face is 40 mm wide along the robot's forward axis. Its lower edge is at Z625 and its upper edge at Z850 mm. The front half of the original face remains. From Z625 to Z770 the opening is 0.60 mm narrower than the nominal pipe length, compressing a nominal liner 0.30 mm at each end of a centered pipe. Above that section the opening widens 0.038 mm per side for each mm of height. The guide stays within the previous stowed and field hull. [Editable geometry and registered 890-part sweep](fit.py) · [Two reopened guide solids](narrow-face.step)
