@@ -1,0 +1,78 @@
+{
+  "fieldSha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "nativeSha256": "be9957a88e295e531a6a93989aa3e8bd6a3f4e7255c4a563683a8c5da0f6697c",
+  "registeredStationBodies": 47,
+  "fieldSweep": {
+    "gap_lower_bound_mm": 15.24431192905785,
+    "body": "drive-reserve",
+    "station_occurrence": "NAUO1487/GE-25008"
+  },
+  "fieldSample": [
+    {
+      "station_standoff_mm": 40,
+      "yaw_deg": 0,
+      "side_mm": 0,
+      "minimum_native_mm": 41.524999999999146,
+      "closest_body": "guard-foot-L",
+      "closest_station_occurrence": "NAUO1487/GE-25008",
+      "intersections_mm3": {}
+    },
+    {
+      "station_standoff_mm": 30,
+      "yaw_deg": 3,
+      "side_mm": 10,
+      "minimum_native_mm": 29.531338202091998,
+      "closest_body": "guard-R",
+      "closest_station_occurrence": "NAUO1487/GE-25008",
+      "intersections_mm3": {}
+    },
+    {
+      "station_standoff_mm": 30,
+      "yaw_deg": -3,
+      "side_mm": -10,
+      "minimum_native_mm": 15.244311929057911,
+      "closest_body": "drive-reserve",
+      "closest_station_occurrence": "NAUO1487/GE-25008",
+      "intersections_mm3": {}
+    }
+  ],
+  "receiverSamples": {
+    "nominal": {
+      "samplesRequested": 41,
+      "planarOutcome": "sustained-paired-target",
+      "intendedContact": [
+        "rail-L",
+        "rail-R"
+      ],
+      "otherContacts": {}
+    },
+    "left-long": {
+      "samplesRequested": 41,
+      "planarOutcome": "sustained-paired-target",
+      "intendedContact": [
+        "rail-L",
+        "rail-R"
+      ],
+      "otherContacts": {
+        "rail-L": {
+          "maxMm3": 334.3458380576236,
+          "firstS": 4.555
+        }
+      }
+    },
+    "right-short": {
+      "samplesRequested": 41,
+      "planarOutcome": "sustained-paired-target",
+      "intendedContact": [
+        "rail-L",
+        "rail-R"
+      ],
+      "otherContacts": {
+        "rail-R": {
+          "maxMm3": 334.3458380576375,
+          "firstS": 4.555
+        }
+      }
+    }
+  }
+}
