@@ -37,4 +37,3 @@ def build(kit,name):
         lower=j.cut(lower,j.rod(x+dx,1,Y-1.,Y+12.,Z,1.65))
     arm=j.fuse(j.fuse(j.fuse(root,high),post),lower)
     return {ARM:arm,BACK:kit[BACK],**{k:kit[k] for k in NOSE}}
-

@@ -67,6 +67,37 @@ class RoutedGuideTests(unittest.TestCase):
         self.assertEqual(len(neighbors["observed"]),2)
         self.assertEqual(neighbors["withFastenersHidden"],[neighbors["observed"][1]])
 
+    def test_joined_contact_and_optics(self):
+        joined=read("mechanics/joined.json")
+        packets=read("mechanics/station-frames.json")
+        optic=read("station.json")
+        step=read("revision.json")["stepSha256"]
+        self.assertEqual(joined["route"]["step"],step)
+        self.assertEqual(packets["source"],hashlib.sha256((HERE/"mechanics/joined.json").read_bytes()).hexdigest())
+        self.assertEqual(optic["register"]["sourcePacketSha256"],
+                         hashlib.sha256((HERE/"mechanics/station-frames.json").read_bytes()).hexdigest())
+        self.assertEqual(optic["register"]["returnedArmStepSha256"],step)
+        self.assertEqual(optic["register"]["fixedBackgroundSha256"],read("field.json")["imageSha256"])
+        pairs={(r["case"],r["stepUs"]) for r in joined["cases"]}
+        self.assertEqual(pairs,{(w,dt) for w in ("leftSmall","rightSmall") for dt in (15.625,31.25)})
+        by_run={r["source"]:r for r in optic["cases"]}
+        gaps=read("pipe-gap.json")["trials"]
+        self.assertEqual(set(by_run),set(gaps))
+        for row in joined["cases"]:
+            eye=by_run[row["id"]]
+            self.assertEqual(eye["pipeSha256"],row["trajectorySha256"])
+            self.assertEqual(gaps[row["id"]]["pipeSha256"],row["trajectorySha256"])
+            self.assertGreater(gaps[row["id"]]["interpolatedGapLowerMm"],6.6)
+            self.assertEqual(row["firstBandMs"],1340 if row["case"]=="leftSmall" else 1360)
+            self.assertEqual((row["lastJavaMs"],row["lastState"]),(5460,"IN_BAND"))
+            self.assertEqual([t for t,s,ok in eye["fixed"] if s=="position-witness" and ok],
+                             [5372,5389,5406,5423,5440])
+            guarded=[v for v in eye["boundedGaps"] if v[1]=="guarded"]
+            self.assertEqual(len(guarded),6)
+            self.assertEqual([v[2] for v in guarded],["inside" if row["case"]=="leftSmall" else "outside"]*6)
+            self.assertTrue(all(v[3] for v in guarded))
+            self.assertTrue(all(v[2]=="missing-rear-edge" for v in eye["boundedGaps"] if v[1]=="matched-finish"))
+
     def test_installed_budget(self):
         report=read("accounting.json")
         self.assertEqual(len(report["cases"]),8)
@@ -76,4 +107,3 @@ class RoutedGuideTests(unittest.TestCase):
             self.assertIsNone(row["physicalMarginKg"])
             self.assertAlmostEqual(row["marginKg"][0],row["priorMarginKg"][0]-delta[1])
         self.assertAlmostEqual(report["cases"]["independentStock/noCutCreditKg/completeGroupDeltaKg"]["marginKg"][0],.05177,places=5)
-

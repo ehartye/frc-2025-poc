@@ -25,4 +25,3 @@ def build(kit,name):
     for dx in (-8,8):
         body=j.cut(body,j.rod(center_x(Z)+dx,1,Y-1,Y+11,Z,1.65))
     return {ARM:j.fuse(clip(kit[ARM],-45,4),body),BACK:kit[BACK],**{k:kit[k] for k in NOSE}}
-

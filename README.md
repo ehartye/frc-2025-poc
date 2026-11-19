@@ -4,9 +4,9 @@
 
 [See which intake guide blocks the scoring fastener](mounted-guide-vision/viewer.html). Select the mounted position and wheel case to compare the two field-camera pupils. [Station custody and optical controls](mounted-guide-vision/README.md)
 
-[See the robotâ€™s approach to scoring sector A through its two field cameras](observed-reef-a/viewer.html). Choose a wheel case and watch the surveyed fasteners appear, disappear or become ambiguous. [Carry and scoring limits](observed-reef-a/README.md)
+[See the robot’s approach to scoring sector A through its two field cameras](observed-reef-a/viewer.html). Choose a wheel case and watch the surveyed fasteners appear, disappear or become ambiguous. [Carry and scoring limits](observed-reef-a/README.md)
 
-[Replay the shop robotâ€™s conditioned scoring attempt](conditioned-match/replay.html). Follow coral-A from a powered station dock, see where the material and field-camera trials diverge, and check why coral-B stays in stock. [Match evidence](conditioned-match/README.md)
+[Replay the shop robot’s conditioned scoring attempt](conditioned-match/replay.html). Follow coral-A from a powered station dock, see where the material and field-camera trials diverge, and check why coral-B stays in stock. [Match evidence](conditioned-match/README.md)
 
 [See how the fixed hoist retains both drums](fixed-hoist/README.md) and what the combined mast, shelf and hoist leave in the inspection bill.
 
@@ -46,7 +46,7 @@
 
 [Did the receiver shelf actually move?](rack-sensing/README.md) Compare a stationary rack that fooled the original detector with the calibrated withdrawal and its high-drag limit.
 
-The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mmÂ³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](selected-match/README.md)
+The 597-body replay demonstrates the controller sequence. At its two extended scoring poses, each inner slide rail intersects the official reef wall by about 1,387 mm³. The revised shop channels and position sensor clear the wall through the modeled stroke. Station docking, powered motion and the physical build still determine whether the robot can score. [Field contact and revised receiver](selected-match/README.md)
 
 [Can the robot still park after a late packet?](packet-recovery/README.md) The two-camera recovery works for one observed window during the second placement. Compare the delay that it tolerates with a fault one frame later that holds the robot at the reef.
 
@@ -78,7 +78,7 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Follow both station-fed pipes through the updated 545-body match](sourced-match/replay.html). The new timeline preserves their feeder states and lets students compare axial spin, a late feed and a blocked park. [Conditional scoring evidence](sourced-match/README.md)
 
-[Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome. [Compare the WPILib controllerâ€™s actual 20 ms belt commands](coupled-belt-clock/README.md) with the modeled acquisition and placement. [Trace the two-port acquisition controller](observable-acquisition/README.md) from chute entry to its seated-position signal, then [check the independent stereo observation](stereo-custody/README.md).
+[Follow the rolling pipe from the station to the reef](axial-spin/README.md) to see how release-belt speed and pipe spin change the outcome. [Compare the WPILib controller’s actual 20 ms belt commands](coupled-belt-clock/README.md) with the modeled acquisition and placement. [Trace the two-port acquisition controller](observable-acquisition/README.md) from chute entry to its seated-position signal, then [check the independent stereo observation](stereo-custody/README.md).
 
 [Compare the installed articles and inspection weight estimates](design/assembly-accounting/README.md) for both alliance configurations and the proposed carrier and stop hardware.
 
