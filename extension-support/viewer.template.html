@@ -12,8 +12,13 @@ ul{padding-left:1.3rem}details{margin:1.2rem 0}a{color:#075a60}output{font-varia
 <svg viewBox="0 0 790 290" role="img" aria-labelledby="diagram-title"><title id="diagram-title">Side elevation of the telescoping supports and receiver</title>
 <g id="drawing"></g></svg>
 <ul id="observations" aria-live="polite"></ul><details><summary>What went into the calculation?</summary><p>One previously seated pipe, the two shelf layers and four moving rails supply the static load. Green bars show CAD floor contact after 1.05 mm downward trial displacement. The fixture idealizes each moving joint as a rigid plane with two elastic contact stations. At each station the nominal stiffness is 10,000 N/mm. The drawn vertical scale separates the stages for readability.</p><a href="README.md">Engineering record</a></details>
-<script>
+<section aria-labelledby="edge-title"><h2 id="edge-title">Will the absorber clear the next rib?</h2>
+<p>As the shelf slides, a pocket lets the absorber button rise. Move through the next 3 mm and compare the underside clearance with the downward motion of the loaded shelf. Each stop reopens the native shelf geometry against a flat model of the free button on the positive-Y side.</p>
+<label>Slide <output id="edge-stroke"></output><br><input type="range" min="0" value="0" id="edge" aria-label="Slide past the pocket edge"></label>
+<div id="edge-readings" aria-live="polite"></div>
+</section><script>
 const study=__STUDY__;
+const witness=__EDGE__;
 const $=id=>document.getElementById(id),svgNS='http://www.w3.org/2000/svg';
 const x=v=>v+191;
 function shape(tag,attrs,text){const e=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text)e.textContent=text;$('drawing').appendChild(e);return e;}
@@ -35,4 +40,25 @@ function update(){
  $('observations').replaceChildren(...[button,joint].map(t=>{const li=document.createElement('li');li.textContent=t;return li;}));
 }
 $('travel').max=study.length-1;$('travel').oninput=update;$('design').onchange=update;update();
+function updateEdge(){
+ const sample=witness[Number($('edge').value)];
+ $('edge-stroke').value=sample.strokeMm+' mm';
+ const rows=[
+  ['Free clearance above button',sample.sectionGapMm],
+  ['Downward approach of shelf',sample.fittedApproachMm]
+ ];
+ const items=rows.map(([label,value])=>{
+  const item=document.createElement('p');
+  item.append(label+' · '+value.toFixed(2)+' mm',document.createElement('br'));
+  const meter=document.createElement('meter');
+  meter.min=0;meter.max=10;meter.value=value;meter.style.width='min(21rem, 100%)';
+  meter.setAttribute('aria-label',label+' in millimeters');item.append(meter);
+  return item;
+ });
+ const result=document.createElement('p');
+ const volume=sample.commonWithFreeFlatButtonMm3;
+ result.textContent=volume>0?'The modeled button overlaps the shelf rib by '+volume.toFixed(2)+' mm³. The actual cap shape and its ability to move sideways remain open design inputs.':'The modeled button clears the shelf at this position.';
+ $('edge-readings').replaceChildren(...items,result);
+}
+$('edge').max=witness.length-1;$('edge').oninput=updateEdge;updateEdge();
 </script></main></body></html>

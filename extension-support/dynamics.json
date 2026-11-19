@@ -1,0 +1,1836 @@
+{
+  "sources": {
+    "extension-support/keepers.json": "f01f5f739f70fc410c5a58aabcac030f9c332748102c4053472c2ab97348a443",
+    "extension-support/geometry.json": "921c1a58c87789a36da7e77be4c576374cc0958ad2fa9c7c0c5762bf00e3c7ab",
+    "extension-support/balance.json": "3fadeee69c91630ece6d58586a781f6e2106dd35490bb0e7c9edd5f0a5fe5e3d",
+    "extension-support/rail-fixture.step": "b49748bf73021210423386d58221807dcb0f27ff7478882dc0c4d27c223a5757",
+    "extension-support/dynamics-motion.json": "85768e48010380907174f80e57b2cd61edb76f68d0a6def873127ff58647dc7a",
+    "extension-support/dynamics-witness.json": "f9324cd3fa66ed1fdc39485c0c3a7628cfc8f03efb785666fac06ea4a45894dd",
+    "extension-support/dynamics.py": "ab92d47f00d4225a533edbcd2a6a3615084ad8078907315d6fb8e1a8bba0df90",
+    "extension-support/dynamics_run.py": "d2a2f43fb113605f8ccff773eff0d7755a5f67328986e44fe0af240098b3ef34",
+    "extension-support/dynamics_surface.py": "8a0cf02717f51248c3f3957e5b7a4558ef6829f61b52a267afa1797d608e1a0e",
+    "extension-support/dynamics_witness.py": "6a2af68ee158f60d36c65f11a1c89ec0a23f78e299ee7e1bc61a41b91680c351",
+    "extension-support/dynamics_motion.py": "e9a25ffbeb26dc55016d9415a40a539488cc5ad7c328f11341af95d356733dcb",
+    "compliant-carriage/model.py": "879955c4cc54dc9d85d68e118ca304894562290563ddeb3637f5386be1c9c3b6",
+    "compliant-carriage/boundary.json": "ac5e2827eb9cd6a016bd02a16939694ca75b68eaaa8460547e8830a5c6856a8c",
+    "shelf-structure/response.py": "074ef69d087947de562109b5637764a13c3577b23991cfbd87c973b22ef35b1a",
+    "shelf-structure/coupled.py": "7fa63f5607b0dc557441361aefaf2f7dc86af912e42a645bb24ae17185d62944",
+    "shelf-structure/installed.py": "9349ce76e6eb2a3dfe754984676bb54a1deb17e1cd42ccbb7a842b157e578e5f",
+    "shelf-structure/tray.py": "9e943660bf7ca6cd724225156a24c13ba97ae31163869ef650c218f900649608",
+    "split-guide-acquisition/restart.json": "5164b734736f4ec8882b5213dae8eeac2a75e26ac8c73289baeef4a18120683d",
+    "integrated-slide/mass.json": "8b7eb141b93608f2b3c744bf629b8973fa03630b8699675e98dd0f134813e09a",
+    "fixed-lift-omission/mechanics.json": "fe0e1638a52fa492f24c812b80758c3e8c6b77c8009e3d27367c760674ec5537"
+  },
+  "nativeStepSha256": "b49748bf73021210423386d58221807dcb0f27ff7478882dc0c4d27c223a5757",
+  "orderedRailReactions": [
+    "inner rear floor",
+    "inner front floor",
+    "inner upper crosspin",
+    "middle rear floor",
+    "middle front floor",
+    "middle upper dog"
+  ],
+  "probeLocalXY": "rear (-100,0), signed input pipe X at Y0, nose (165,0), mm",
+  "cases": {
+    "leftSmall-nominal-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "137a382f26c8de95ebb335d87831bd8f12d3b9a6ab34b534e55f760407a273d5",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5745815745767677
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5745815745767677
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5792774047346891
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528522675967839,
+        1.9576478180869434
+      ],
+      "peakRailN": [
+        168.72874567477686,
+        189.14000981867738,
+        142.54734103695694,
+        31.664945792942348,
+        289.8305903574362,
+        189.54937460273078
+      ],
+      "peakButtonN": [
+        23.130514567641583,
+        23.717697514681447
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3715625,
+        "strokeMm": 155.44368103207265,
+        "requiredMeanNormalMps2": -7.070117148439678,
+        "requiredVertForceN": -5.772512148369112,
+        "foreAftAccelerationMps2": 0.052414957434082
+      },
+      "firstMeanTension": {
+        "timeS": 1.363375,
+        "strokeMm": 153.5797763194283
+      },
+      "lowestStationNormalMps2": -20.688032612079844,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.5940765207105683,
+        -6.8602785061170115,
+        -9.011489624014578
+      ],
+      "finalChangeMm": [
+        -0.5465484090299471,
+        -4.775337257306706,
+        -6.903479918934997
+      ],
+      "peakSlopeRad": [
+        0.024385206212950723,
+        0.0244510251991281
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-nominal-31.25us": {
+      "timeStepUs": 31.25,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "99dca22c3ad171a8eff34e0597c765f8c701ebef8572e11e83bf72f61ef7b48b",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5745814023313671
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5745814023313671
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5792772092118395
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528522676880282,
+        1.957647818175469
+      ],
+      "peakRailN": [
+        163.14649155883941,
+        189.81455106937798,
+        141.4626500242137,
+        31.664947416295796,
+        290.01026160040067,
+        188.92156747406924
+      ],
+      "peakButtonN": [
+        24.210357939743563,
+        24.292531329971983
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.367125,
+        "strokeMm": 154.43302295943883,
+        "requiredMeanNormalMps2": -5.741934334679314,
+        "requiredVertForceN": -4.688095685852814,
+        "foreAftAccelerationMps2": 0.05419773523592786
+      },
+      "firstMeanTension": {
+        "timeS": 1.36340625,
+        "strokeMm": 153.58688350086933
+      },
+      "lowestStationNormalMps2": -17.81876230618405,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.5957025295461813,
+        -6.862939017335539,
+        -9.014700734619856
+      ],
+      "finalChangeMm": [
+        -0.5481744178655601,
+        -4.777997768525234,
+        -6.906691029540277
+      ],
+      "peakSlopeRad": [
+        0.024362053269916327,
+        0.024426294688109588
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-nominal-15.625us": {
+      "timeStepUs": 15.625,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "a92b0d3b2e40e1b80a1607747230189b057090ef3ba63baa22aecb8d832eaeb5",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.599421875,
+        "strokeMm": 21.37567957159249,
+        "localButtonCenterXMm": 96.62432042840751,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5745811511117915
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.599421875,
+          "strokeMm": 21.37567957159249,
+          "localButtonCenterXMm": 96.62432042840751,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5745811511117915
+        },
+        {
+          "timeS": 0.599421875,
+          "strokeMm": 21.37567957159249,
+          "localButtonCenterXMm": 96.62432042840751,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5792769643475588
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528522677056122,
+        1.957647818197168
+      ],
+      "peakRailN": [
+        163.84361333609672,
+        189.57061243154962,
+        140.78456458827637,
+        31.664947804994867,
+        284.8469419216733,
+        186.73895243328346
+      ],
+      "peakButtonN": [
+        25.280004940679692,
+        25.681715027088032
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.367109375,
+        "strokeMm": 154.42946616920153,
+        "requiredMeanNormalMps2": -5.590864014332135,
+        "requiredVertForceN": -4.56475186549553,
+        "foreAftAccelerationMps2": 0.05420400761089319
+      },
+      "firstMeanTension": {
+        "timeS": 1.363390625,
+        "strokeMm": 153.58332990335006
+      },
+      "lowestStationNormalMps2": -17.71222522559001,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.5942233330859783,
+        -6.860516388086335,
+        -9.011777201710473
+      ],
+      "finalChangeMm": [
+        -0.546695221405357,
+        -4.775575139276031,
+        -6.903767496630893
+      ],
+      "peakSlopeRad": [
+        0.024371205909513517,
+        0.024436070542014247
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-no-buttons-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": false,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "8c087f5135af319c7dfd09e34fd04edc59d71d6a51578e170eed5bdcb743cf03",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.952852752503776,
+        1.95764839486717
+      ],
+      "peakRailN": [
+        169.49916170751737,
+        188.9834339837853,
+        112.6499486874851,
+        31.665130287138098,
+        301.28518417569546,
+        185.47383170864518
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3715625,
+        "strokeMm": 155.44368103207265,
+        "requiredMeanNormalMps2": -6.8651928542914185,
+        "requiredVertForceN": -5.605198375113197,
+        "foreAftAccelerationMps2": 0.052414957434082
+      },
+      "firstMeanTension": {
+        "timeS": 1.363375,
+        "strokeMm": 153.5797763194283
+      },
+      "lowestStationNormalMps2": -20.74979562539732,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.6502632081870097,
+        -6.952333371648853,
+        -9.122571315704684
+      ],
+      "finalChangeMm": [
+        -0.6027350965063885,
+        -4.867392122838548,
+        -7.014561610625104
+      ],
+      "peakSlopeRad": [
+        0.024471660318618527,
+        0.024543305158347645
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-no-buttons-31.25us": {
+      "timeStepUs": 31.25,
+      "durationS": 3.0,
+      "buttonAxialModel": false,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "2c78493b4f8a181c408308958e46edeed0b4db84160eb668eaa964347f8d010a",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9528527527927078,
+        1.9576483949449215
+      ],
+      "peakRailN": [
+        163.78424376928004,
+        189.60228324604358,
+        142.05785222520916,
+        31.665131086459855,
+        310.3825446452546,
+        202.7023157543463
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3715,
+        "strokeMm": 155.42943916280058,
+        "requiredMeanNormalMps2": -6.090371057356043,
+        "requiredVertForceN": -4.9725825157539605,
+        "foreAftAccelerationMps2": 0.05244008645617283
+      },
+      "firstMeanTension": {
+        "timeS": 1.36340625,
+        "strokeMm": 153.58688350086933
+      },
+      "lowestStationNormalMps2": -17.981621520166044,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.633961601188482,
+        -6.9256400157061115,
+        -9.090357735746014
+      ],
+      "finalChangeMm": [
+        -0.5864334895078608,
+        -4.840698766895806,
+        -6.982348030666435
+      ],
+      "peakSlopeRad": [
+        0.02442244954255467,
+        0.024490755022861372
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-retracted-slow-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 6.0,
+      "buttonAxialModel": false,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "b2733587e4acce3a633e0e04405d5a333d572029a9a82da8e47edecc6f1a2667",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9528708155455896,
+        1.9576662598204797
+      ],
+      "peakRailN": [
+        141.98609956814914,
+        164.16277629044777,
+        89.65957775615375,
+        31.611209819247623,
+        265.6890790083505,
+        165.29125570000093
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 2.6456875,
+        "strokeMm": 144.4119813029167,
+        "requiredMeanNormalMps2": -9.551429583759628,
+        "requiredVertForceN": -7.798420047214158,
+        "foreAftAccelerationMps2": 0.017953753517718527
+      },
+      "firstMeanTension": {
+        "timeS": 2.6448125,
+        "strokeMm": 144.31361903285787
+      },
+      "lowestStationNormalMps2": -13.733085455309256,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.631045557587728,
+        -6.920850173501356,
+        -9.084580303592794
+      ],
+      "finalChangeMm": [
+        -0.5835174459071067,
+        -4.835908924691051,
+        -6.976570598513216
+      ],
+      "peakSlopeRad": [
+        0.02436918405658101,
+        0.024433904051598232
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.059338777662655336,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-retracted-slower-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 12.0,
+      "buttonAxialModel": false,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "5230b9d4ed94e704fe266f42023b192dbd49edf658296f2d037bfdb7d2482c21",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9528753180270988,
+        1.9576707523654875
+      ],
+      "peakRailN": [
+        120.65372156994879,
+        144.66160197748874,
+        90.64620962486974,
+        31.603947790917218,
+        242.16622610169725,
+        156.817827812557
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 5.1938125,
+        "strokeMm": 138.95021240484212,
+        "requiredMeanNormalMps2": -2.910754453194212,
+        "requiredVertForceN": -2.3765328196423505,
+        "foreAftAccelerationMps2": 0.005085140728748154
+      },
+      "firstMeanTension": {
+        "timeS": 5.1935625000000005,
+        "strokeMm": 138.9362765967487
+      },
+      "lowestStationNormalMps2": -7.382498783551634,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.6134173413865756,
+        -6.89196352482654,
+        -9.049724074430246
+      ],
+      "finalChangeMm": [
+        -0.5658892297059543,
+        -4.8070222760162356,
+        -6.9417143693506675
+      ],
+      "peakSlopeRad": [
+        0.024318571746889988,
+        0.024379857578002206
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.014834694415663834,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-nominal-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "e1e180fe63cde3c02dd64b07dc321df57d27adcb4ce4ed8a0553f7037e5df4e1",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5746081488147428
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5746081488147428
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5793077497196033
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528848923401525,
+        1.9576934892813038
+      ],
+      "peakRailN": [
+        163.9563048624617,
+        188.76776517207526,
+        142.01828302623417,
+        31.647978884679414,
+        288.1844281758377,
+        188.45851146006171
+      ],
+      "peakButtonN": [
+        22.919399646318414,
+        23.66274992541896
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.367,
+        "strokeMm": 154.40456900816096,
+        "requiredMeanNormalMps2": -6.58904066706959,
+        "requiredVertForceN": -5.379729429964457,
+        "foreAftAccelerationMps2": 0.054247913239506174
+      },
+      "firstMeanTension": {
+        "timeS": 1.36325,
+        "strokeMm": 153.5513481377523
+      },
+      "lowestStationNormalMps2": -19.398937605992586,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.5963225234421903,
+        -6.880480826733638,
+        -9.016095001074408
+      ],
+      "finalChangeMm": [
+        -0.5488397065913251,
+        -4.795349973611219,
+        -6.907996926654909
+      ],
+      "peakSlopeRad": [
+        0.024383498417696287,
+        0.024449260597803373
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-nominal-31.25us": {
+      "timeStepUs": 31.25,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "421d4f0cd69bee8388ac212a49e740ed963d59161842ae9cb387e513c536c0a1",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5746079705051206
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5746079705051206
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5793075473626883
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528848924269597,
+        1.9576934893707651
+      ],
+      "peakRailN": [
+        162.75842389884002,
+        189.31845570996515,
+        139.6297232998318,
+        31.647980539075025,
+        287.68726536940994,
+        186.9052435266218
+      ],
+      "peakButtonN": [
+        24.197804670277332,
+        24.247645958135337
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.371375,
+        "strokeMm": 155.40095603888693,
+        "requiredMeanNormalMps2": -6.347251057569451,
+        "requiredVertForceN": -5.182316370338281,
+        "foreAftAccelerationMps2": 0.052490342849218746
+      },
+      "firstMeanTension": {
+        "timeS": 1.36328125,
+        "strokeMm": 153.5584551015336
+      },
+      "lowestStationNormalMps2": -18.415854015787495,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.5958380609712357,
+        -6.879681324506231,
+        -9.015132491289679
+      ],
+      "finalChangeMm": [
+        -0.548355244120371,
+        -4.794550471383812,
+        -6.9070344168701805
+      ],
+      "peakSlopeRad": [
+        0.024363141133271513,
+        0.024427511359557046
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-nominal-15.625us": {
+      "timeStepUs": 15.625,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "a06ad993f992bdc42e716d61d6b6bf38df850d20657852e692a5a0faee86f558",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.599421875,
+        "strokeMm": 21.37567957159249,
+        "localButtonCenterXMm": 96.62432042840751,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5746077202140818
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.599421875,
+          "strokeMm": 21.37567957159249,
+          "localButtonCenterXMm": 96.62432042840751,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5746077202140818
+        },
+        {
+          "timeS": 0.599421875,
+          "strokeMm": 21.37567957159249,
+          "localButtonCenterXMm": 96.62432042840751,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5793073035578937
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528848924445203,
+        1.9576934893917228
+      ],
+      "peakRailN": [
+        164.38375658633723,
+        189.1576987665783,
+        140.52359630436726,
+        31.647980930842895,
+        284.2105929387186,
+        186.491830851453
+      ],
+      "peakButtonN": [
+        24.420235117089057,
+        24.48537358124241
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.371375,
+        "strokeMm": 155.40095603888693,
+        "requiredMeanNormalMps2": -6.303312676142562,
+        "requiredVertForceN": -5.146442164120586,
+        "foreAftAccelerationMps2": 0.052490342849218746
+      },
+      "firstMeanTension": {
+        "timeS": 1.363265625,
+        "strokeMm": 153.554901612838
+      },
+      "lowestStationNormalMps2": -19.031713326041107,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.593386386222912,
+        -6.875660594274331,
+        -9.010286930225838
+      ],
+      "finalChangeMm": [
+        -0.5459035693720473,
+        -4.790529741151912,
+        -6.902188855806339
+      ],
+      "peakSlopeRad": [
+        0.024390596756902024,
+        0.02445683891268347
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-no-buttons-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": false,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "0d9742235190c0e7c90d328d239186e0ac02977fc6499088edf2feed691e527c",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9528853801551849,
+        1.9576940705986852
+      ],
+      "peakRailN": [
+        164.61397676547477,
+        188.61304359636344,
+        128.49516952195995,
+        31.648164827546754,
+        310.37201342841524,
+        196.1980401990075
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.367,
+        "strokeMm": 154.40456900816096,
+        "requiredMeanNormalMps2": -6.698188173725039,
+        "requiredVertForceN": -5.4688446871666425,
+        "foreAftAccelerationMps2": 0.054247913239506174
+      },
+      "firstMeanTension": {
+        "timeS": 1.36325,
+        "strokeMm": 153.5513481377523
+      },
+      "lowestStationNormalMps2": -19.49484288437651,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.6496535092234934,
+        -6.96802468299853,
+        -9.12158154997411
+      ],
+      "finalChangeMm": [
+        -0.6021706923726283,
+        -4.882893829876112,
+        -7.013483475554611
+      ],
+      "peakSlopeRad": [
+        0.024439500828921757,
+        0.02450902563221337
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-no-buttons-31.25us": {
+      "timeStepUs": 31.25,
+      "durationS": 3.0,
+      "buttonAxialModel": false,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "a79c1a3eb847c4a38a223f84f4b609e24df1f65a9c23efecb7edeebbaeec7cd1",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.952885380442831,
+        1.9576940707047596
+      ],
+      "peakRailN": [
+        162.9679817524524,
+        189.10759340926015,
+        111.97960807823794,
+        31.64816557118343,
+        291.3808158344278,
+        181.06119644188664
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.371375,
+        "strokeMm": 155.40095603888693,
+        "requiredMeanNormalMps2": -6.409498510406871,
+        "requiredVertForceN": -5.23313931572446,
+        "foreAftAccelerationMps2": 0.052490342849218746
+      },
+      "firstMeanTension": {
+        "timeS": 1.36325,
+        "strokeMm": 153.5513481377523
+      },
+      "lowestStationNormalMps2": -18.46015938223455,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.6520714161550303,
+        -6.971994661287337,
+        -9.12636500755577
+      ],
+      "finalChangeMm": [
+        -0.6045885993041654,
+        -4.886863808164918,
+        -7.01826693313627
+      ],
+      "peakSlopeRad": [
+        0.02444945066100179,
+        0.024519650887182474
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511065062134,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-retracted-slow-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 6.0,
+      "buttonAxialModel": false,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "8654d56e92b90a85eca50073ec8a296df0b7ae617b0df7408878140afe75388f",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9529034537565473,
+        1.9577119446115323
+      ],
+      "peakRailN": [
+        135.8501130903176,
+        165.47428000891537,
+        93.95615641470232,
+        31.594249159361805,
+        274.24677668480655,
+        170.10795850835171
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 2.6451875,
+        "strokeMm": 144.35577260617447,
+        "requiredMeanNormalMps2": -7.09694950990782,
+        "requiredVertForceN": -5.794419866344969,
+        "foreAftAccelerationMps2": 0.017978371240003756
+      },
+      "firstMeanTension": {
+        "timeS": 2.6444375,
+        "strokeMm": 144.2714679903458
+      },
+      "lowestStationNormalMps2": -15.152667696829683,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.630079915714189,
+        -6.935884021667398,
+        -9.082855467474705
+      ],
+      "finalChangeMm": [
+        -0.5825970988633244,
+        -4.850753168544979,
+        -6.974757393055205
+      ],
+      "peakSlopeRad": [
+        0.024398028883986154,
+        0.024464765313836078
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.059338777662655336,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-retracted-slower-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 12.0,
+      "buttonAxialModel": false,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "839b3c31f1e4434fc22064b90d53d399d53ca560bd333e47be9f8eab5f546859",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": null,
+      "peakPossibleSideStrike": null,
+      "peakGeometricRetractionMm": [
+        1.9529079518411456,
+        1.9577164322216694
+      ],
+      "peakRailN": [
+        122.20878515146549,
+        144.68916480449442,
+        87.28885732523648,
+        31.58698760705278,
+        244.40587159405064,
+        158.3238792722755
+      ],
+      "peakButtonN": [
+        0.0,
+        0.0
+      ],
+      "lowestMeanNormal": {
+        "timeS": 5.192875,
+        "strokeMm": 138.89795476403276,
+        "requiredMeanNormalMps2": -3.346973380165293,
+        "requiredVertForceN": -2.7326908581049554,
+        "foreAftAccelerationMps2": 0.005090836316692766
+      },
+      "firstMeanTension": {
+        "timeS": 5.1925625,
+        "strokeMm": 138.88053654448646
+      },
+      "lowestStationNormalMps2": -7.075198622921862,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        -2.605968032502183,
+        -6.896307224959067,
+        -9.035166466803012
+      ],
+      "finalChangeMm": [
+        -0.558485215651318,
+        -4.811176371836647,
+        -6.927068392383513
+      ],
+      "peakSlopeRad": [
+        0.024327762929515637,
+        0.024389723869562688
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.014834694415663834,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-legacy-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "0f4a7496e77d8ba68500905b295fd3f317828ac23585083537cea26d5d10592d",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5745778418388099
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5745778418388099
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.579273217097565
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9695148586677294,
+        1.9762312049944208
+      ],
+      "peakRailN": [
+        168.7284562257359,
+        189.14004775214747,
+        142.54739909888661,
+        36.995383491402855,
+        289.83079924034405,
+        189.54921995801698
+      ],
+      "peakButtonN": [
+        23.130487063852158,
+        23.71766136192097
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3715625,
+        "strokeMm": 155.44368103207265,
+        "requiredMeanNormalMps2": -7.070232014838017,
+        "requiredVertForceN": -5.772605932908452,
+        "foreAftAccelerationMps2": 0.052414957434082
+      },
+      "firstMeanTension": {
+        "timeS": 1.363375,
+        "strokeMm": 153.5797763194283
+      },
+      "lowestStationNormalMps2": -20.688017200927682,
+      "startProbeMm": [
+        -2.0627866922345977,
+        -2.105750888739286,
+        -2.132237896702212
+      ],
+      "finalProbeMm": [
+        -2.5940765186962538,
+        -6.860278502697001,
+        -9.011489619911751
+      ],
+      "finalChangeMm": [
+        -0.5312898264616559,
+        -4.754527613957714,
+        -6.879251723209539
+      ],
+      "peakSlopeRad": [
+        0.02438520547654926,
+        0.02445102441221076
+      ],
+      "projectedLegacyDisturbance": true,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-bare-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "2d6974cb02600bd48f38d3fcfd96c75f8536226683c0d26fa80023e67aab1138",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5665233475609588
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5665233475609588
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5712173331010915
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9445838246858302,
+        1.9493792483919123
+      ],
+      "peakRailN": [
+        78.52147002044403,
+        84.74863256628267,
+        66.50199102453338,
+        11.47364103872188,
+        115.03952173237676,
+        111.84440461183961
+      ],
+      "peakButtonN": [
+        6.975333947982923,
+        8.302959885802107
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.363875,
+        "strokeMm": 153.69349774175183,
+        "requiredMeanNormalMps2": -7.949370731775554,
+        "requiredVertForceN": -6.490393038422474,
+        "foreAftAccelerationMps2": 0.05550161733359374
+      },
+      "firstMeanTension": {
+        "timeS": 1.343875,
+        "strokeMm": 149.1559969111784
+      },
+      "lowestStationNormalMps2": -74.57679152496492,
+      "startProbeMm": [
+        -2.0453529291351846,
+        -2.066905507509368,
+        -2.0819909119124094
+      ],
+      "finalProbeMm": [
+        -2.4769017263939817,
+        -6.653342879973349,
+        -8.759623287274993
+      ],
+      "finalChangeMm": [
+        -0.4315487972587971,
+        -4.586437372463981,
+        -6.677632375362584
+      ],
+      "peakSlopeRad": [
+        0.023793309486471424,
+        0.023864842223222636
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "leftSmall-wide-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "leftSmall",
+      "localPipeCenterM": [
+        0.0762756545930327,
+        0.00028944869017471223,
+        0.5571136700210458
+      ],
+      "tubeAxis": [
+        -0.005397032147931497,
+        0.999985435915453,
+        -9.878515452500968e-07
+      ],
+      "traceSha256": "2c6653ebf1dbc3a150086f6ae0cbf55239461afd0cfdf6c6523b74bf4d843a67",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5745815745767677
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5745815745767677
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5792774047346891
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528522675967839,
+        1.9576478180869434
+      ],
+      "peakRailN": [
+        192.26255017783637,
+        210.7095739209182,
+        168.41081468233182,
+        31.664945792942348,
+        322.5028543699879,
+        215.2538857291265
+      ],
+      "peakButtonN": [
+        25.019418475327605,
+        23.379385509011314
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3869375,
+        "strokeMm": 158.95315738950163,
+        "requiredMeanNormalMps2": -10.313723134058087,
+        "requiredVertForceN": -8.420807015822223,
+        "foreAftAccelerationMps2": 0.046217171862011776
+      },
+      "firstMeanTension": {
+        "timeS": 1.34975,
+        "strokeMm": 150.48639612760098
+      },
+      "lowestStationNormalMps2": -26.017252735380566,
+      "startProbeMm": [
+        -2.047528111680621,
+        -2.084941248810305,
+        -2.10800970507958
+      ],
+      "finalProbeMm": [
+        -2.680243398274949,
+        -8.011259103363715,
+        -10.69841444865684
+      ],
+      "finalChangeMm": [
+        -0.6327152865943275,
+        -5.926317854553409,
+        -8.590404743577258
+      ],
+      "peakSlopeRad": [
+        0.030434943557736887,
+        0.030501274466839756
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.6753055387420647e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-soft-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "d4e03773465272c2e2881bde8c4bb5e3c053482e5b1eb514d5d421785ca07829",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.6880683546846074
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.6880683546846074
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.692766617431418
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        2.069512961688909,
+        2.0743214449293994
+      ],
+      "peakRailN": [
+        67.96832266786495,
+        119.17666972290795,
+        44.47489949478938,
+        31.648539160563736,
+        250.85410212315674,
+        162.86396678319525
+      ],
+      "peakButtonN": [
+        19.122887817697862,
+        19.042806069704987
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3870625,
+        "strokeMm": 158.98173647808798,
+        "requiredMeanNormalMps2": -4.109826865149366,
+        "requiredVertForceN": -3.355534994494989,
+        "foreAftAccelerationMps2": 0.046166657886175
+      },
+      "firstMeanTension": {
+        "timeS": 1.3736875,
+        "strokeMm": 155.92802576856332
+      },
+      "lowestStationNormalMps2": -14.640459229731382,
+      "startProbeMm": [
+        -2.0991037812600024,
+        -2.189519019884089,
+        -2.2387415498939682
+      ],
+      "finalProbeMm": [
+        -3.1367405169040854,
+        -8.143211693901964,
+        -10.638415542185916
+      ],
+      "finalChangeMm": [
+        -1.0376367356440828,
+        -5.953692674017876,
+        -8.399673992291948
+      ],
+      "peakSlopeRad": [
+        0.028765029860782932,
+        0.028828591577997102
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-forward-cg-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "9523e5bfddf9f0d748bd7b6d33116359ab54db67e6a349af15b8cd51f232ef10",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.8398406375051728
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.8398406375051728
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.844537871223506
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        2.3669874538359736,
+        2.371795830578275
+      ],
+      "peakRailN": [
+        0.0,
+        275.7879409366749,
+        114.38217857571775,
+        18.21254796638061,
+        295.7415016058105,
+        238.96829959508932
+      ],
+      "peakButtonN": [
+        27.83876858014386,
+        29.66830435964168
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.0661875,
+        "strokeMm": 90.1343878932203,
+        "requiredMeanNormalMps2": -10.42943231316951,
+        "requiredVertForceN": -8.515279657233252,
+        "foreAftAccelerationMps2": 0.16342809107593434
+      },
+      "firstMeanTension": {
+        "timeS": 1.0655625,
+        "strokeMm": 90.01305505956634
+      },
+      "lowestStationNormalMps2": -43.91264242759339,
+      "startProbeMm": [
+        -0.9490429470422526,
+        -2.22202924135775,
+        -2.859662123968204
+      ],
+      "finalProbeMm": [
+        -2.6321893727345196,
+        -6.951708024800965,
+        -9.105114410907346
+      ],
+      "finalChangeMm": [
+        -1.683146425692267,
+        -4.729678783443216,
+        -6.245452286939141
+      ],
+      "peakSlopeRad": [
+        0.024558473519908378,
+        0.024623141302896254
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.23735511036049384,
+      "lastStrokeMm": 370.0,
+      "largeRotationStopS": null
+    },
+    "rightSmall-no-keepers-62.5us": {
+      "timeStepUs": 62.5,
+      "durationS": 3.0,
+      "buttonAxialModel": true,
+      "inputCase": "rightSmall",
+      "localPipeCenterM": [
+        0.07695348369606154,
+        -0.0004979613925289231,
+        0.5571136316539492
+      ],
+      "tubeAxis": [
+        0.009284963809025612,
+        0.9999568937924161,
+        -2.021824485173503e-06
+      ],
+      "traceSha256": "a69b5ec07e0a2ad3cb47f302a31bb3fbec01f6e4c84a84c7a9e90cebebb44d0e",
+      "sampledEveryUs": 1000.0,
+      "firstPossibleSideStrike": {
+        "timeS": 0.5994375000000001,
+        "strokeMm": 21.37715746152031,
+        "localButtonCenterXMm": 96.62284253847969,
+        "localButtonCenterYMm": -66,
+        "oldGapMm": 9.5,
+        "newGapMm": 0.4773913043478615,
+        "preEntryPlungerMm": 0.0,
+        "intrusionMm": 1.5746081488147428
+      },
+      "peakPossibleSideStrike": [
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": -66,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5746081488147428
+        },
+        {
+          "timeS": 0.5994375000000001,
+          "strokeMm": 21.37715746152031,
+          "localButtonCenterXMm": 96.62284253847969,
+          "localButtonCenterYMm": 42,
+          "oldGapMm": 9.5,
+          "newGapMm": 0.4773913043478615,
+          "preEntryPlungerMm": 0.0,
+          "intrusionMm": 1.5793077497196033
+        }
+      ],
+      "peakGeometricRetractionMm": [
+        1.9528848923401525,
+        1.9576934892813038
+      ],
+      "peakRailN": [
+        10.493834773832335,
+        64.51143517458304,
+        0.0,
+        31.647978884679414,
+        83.58635107046007,
+        0.0
+      ],
+      "peakButtonN": [
+        0.8338301938165296,
+        0.8955336958347923
+      ],
+      "lowestMeanNormal": {
+        "timeS": 1.3980000000000001,
+        "strokeMm": 161.48511153335872,
+        "requiredMeanNormalMps2": 6.505210191136167,
+        "requiredVertForceN": 5.311284674302093,
+        "foreAftAccelerationMps2": 0.04173943359999998
+      },
+      "firstMeanTension": null,
+      "lowestStationNormalMps2": 6.462619823273798,
+      "startProbeMm": [
+        -2.0474828168508648,
+        -2.0851308531224193,
+        -2.108098074419499
+      ],
+      "finalProbeMm": [
+        7.745684085835044,
+        -9.948038865378418,
+        -18.75523009447653
+      ],
+      "finalChangeMm": [
+        9.79316690268591,
+        -7.862908012255998,
+        -16.647132020057036
+      ],
+      "peakSlopeRad": [
+        0.10001164910267563,
+        0.10005599377646995
+      ],
+      "projectedLegacyDisturbance": false,
+      "discardedAntisymmetricAmplitudeMm": 1.7016545097077377e-05,
+      "prescribedPeakAccelerationMps2": 0.2373551103604938,
+      "lastStrokeMm": 161.48511153335872,
+      "largeRotationStopS": 1.3980000000000001
+    }
+  },
+  "wholeTubeCustody": null,
+  "achievedPlacement": null,
+  "scope": "Prescribed stroke, held horizontal pipe coordinates and a distributed vertical mass. Figures after the first side interference or required tensile support are counterfactual fixture demands."
+}

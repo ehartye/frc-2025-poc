@@ -10,6 +10,8 @@ def build():
     geometry = json.loads((HERE / "geometry.json").read_bytes())
     balance = json.loads((HERE / "balance.json").read_bytes())
     fixture = json.loads((HERE / "fixture.json").read_bytes())
+    witness = json.loads((HERE / "dynamics-witness.json").read_bytes())
+    edge = [row for row in witness["cases"] if row["localCenterMm"][1] == 42]
     case = next(iter(balance["cases"]))
     data = []
     for stroke in geometry["strokeMm"]:
@@ -32,6 +34,8 @@ def build():
     (HERE / "index.html").write_text(
         template.replace(
             "__STUDY__", json.dumps(data, separators=(",", ":"), allow_nan=False)
+        ).replace(
+            "__EDGE__", json.dumps(edge, separators=(",", ":"), allow_nan=False)
         ),
         encoding="utf8",
         newline="\n",

@@ -35,6 +35,8 @@ At twelve actual native sections of the left slotted middle channel, the highest
 
 ## Reproduce the prebuild screens
 
+The [moving shelf study](dynamics.md) follows the pipe load and the rail contacts through the prescribed three-second extension. The [student comparison](index.html#edge-title) reopens the small section of travel where the recovered absorber first meets the next rib.
+
 Supply the source project's Python/Open Cascade environment. Keep generated purchasing maps and larger motion inputs with the project. Each command runs from the project root.
 
 ```sh
