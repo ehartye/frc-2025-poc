@@ -1,5 +1,6 @@
 """Map all six native nested channel bounds into the four-land moving optical frame."""
 
+import hashlib
 import itertools
 import json
 from pathlib import Path
@@ -69,6 +70,16 @@ def run():
             }
         )
     return {
+        "sourceSha256": {
+            str(p.relative_to(ROOT)).replace(chr(92), "/"): hashlib.sha256(
+                p.read_bytes()
+            ).hexdigest()
+            for p in (
+                ROOT / "shelf-structure/supports.json",
+                ROOT / "compliant-carriage/boundary.json",
+                HERE / "candidate.json",
+            )
+        },
         "boundsType": "Bilinear vertical model evaluated at all four XY corners of each source native whole-body AABB; actual lateral, torsional and assembly tolerance are unmeasured.",
         "cases": output,
     }

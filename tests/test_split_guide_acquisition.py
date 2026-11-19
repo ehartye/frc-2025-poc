@@ -51,6 +51,26 @@ class SplitGuideAcquisition(unittest.TestCase):
                 self.assertLessEqual(frame["javaHeldFromMs"], int(ms))
                 self.assertLess(int(ms) - frame["javaHeldFromMs"], 20)
 
+    def test_native_channel_frame_at_every_exposure(self):
+        frame = read("guide-bounds.json")
+        for key, pin in frame["sourceSha256"].items():
+            self.assertEqual(sha(BASE.parent / key), pin)
+        self.assertEqual(len(frame["cases"]), 4)
+        for row in frame["cases"]:
+            self.assertEqual(len(row["exposures"]), 7)
+            for channels in row["exposures"].values():
+                self.assertEqual(len(channels), 6)
+                for name, c in channels.items():
+                    self.assertIn("slide-", name)
+                    lo, hi = c["zOffsetMm"]
+                    self.assertLessEqual(lo, hi)
+                    self.assertAlmostEqual(
+                        c["conservativeModelZRangeMm"][0], c["unloadedBoundsMm"][2] + lo
+                    )
+                    self.assertAlmostEqual(
+                        c["conservativeModelZRangeMm"][1], c["unloadedBoundsMm"][5] + hi
+                    )
+
     def test_real_disturbances_inhibit_and_continue(self):
         post = read("postfault.json")
         for filename, reason in (
