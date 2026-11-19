@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 import sys
-from registration import HERE,read,write
+from module_placement import HERE,read,write
 
 RETIRE=("axle-","bearing-","carrier-","center-","chain-","clip-","front-","gearbox-",
         "hub-","jack-","keeper-M3-","light/inner-","rear-","repacked-light/",

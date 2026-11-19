@@ -6,7 +6,7 @@ from OCP.BRepTools import BRepTools
 from OCP.BRep import BRep_Builder
 from OCP.TopoDS import TopoDS_Shape
 from frame import HERE,SITES,register,cylinder,j
-from registration import read,write,rotated_box
+from module_placement import read,write,rotated_box
 from native_module import PIN
 
 ROTATING=set([11,12,13,14,15,16,17,18,23,*range(32,47),*range(49,55),*range(58,63)])
