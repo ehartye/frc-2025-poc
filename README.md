@@ -1,5 +1,7 @@
 # 2025 REEFSCAPE proof of concept
 
+[Follow the pipe between two passive guide faces.](station-guide/README.md) Compare an intake that clears the camera, two actual port signals and the finer physics case that still stops the pipe.
+
 [Can the two shelf sensors save a missed station feed?](station-feed-margin/README.md) See what the sensors observe before the mechanical stop and why the reserved south-lane leave and park is the supported fallback.
 
 [Did the receiver shelf actually move?](rack-sensing/README.md) Compare a stationary rack that fooled the original detector with the calibrated withdrawal and its high-drag limit.
