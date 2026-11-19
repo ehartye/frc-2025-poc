@@ -4,12 +4,8 @@ import argparse
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import replace
 import json
-import math
 from pathlib import Path
 import numpy as np
-from drive import restore, fictitious
-from checkpoint import HERE, ROOT, coupled, digest
-from carry import momentum
 
 
 def velocity(t, poses, when):
@@ -37,6 +33,10 @@ def point(start, body, yaw, elapsed, duration):
 
 
 def run_case(job):
+    from drive import restore, fictitious
+    from checkpoint import HERE, ROOT, coupled, digest
+    from carry import momentum
+
     folder, side, dt, late, monitor, *capture = job
     dep = next(
         r
