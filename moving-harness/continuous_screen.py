@@ -85,7 +85,7 @@ def check(artifacts):
     if carrier_gap < 3 or not np.isclose(CHAIN_LINKS*CHAIN_PITCH,MANAGED_LENGTH):
         raise ValueError("Carrier lane lost its lateral installation margin")
     return {"shopStepSha256":SHOP_STEP,"nativeBodies":len(shapes),"cables":results,
-            "carrier":{"part":"igus 10.025.100.0","links":CHAIN_LINKS,"pitchMm":CHAIN_PITCH,
+            "carrier":{"part":{"manufacturer":"igus","series":"10","widthCode":"025","radiusCode":"100","colorCode":"0"},"links":CHAIN_LINKS,"pitchMm":CHAIN_PITCH,
                        "managedMm":MANAGED_LENGTH,"catalogChainKg":0.40*MANAGED_LENGTH/1000,
                        "sweptBoundsMm":chain_box,"clearanceLowerMm":carrier_gap,"nearestBody":nearest},
             "fixedToFixedCableGapLowerMm":pair_gap,"parallelLoopJacketGapMm":12-4.35-3.5,
