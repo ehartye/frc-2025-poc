@@ -1,6 +1,10 @@
 """Protect the source-matched engineering bounds and distinguish hardware from trials."""
 
 import hashlib
+import importlib.util
+import subprocess
+import sys
+import textwrap
 import json
 import unittest
 from pathlib import Path
@@ -125,3 +129,69 @@ class ReceivingShelfTest(unittest.TestCase):
         ]
         self.assertAlmostEqual(margin, 0.03017, places=4)
         self.assertIsNone(mass["physicalInspectionMarginKg"])
+
+    @unittest.skipUnless(
+        importlib.util.find_spec("OCP") and importlib.util.find_spec("numpy"),
+        "OpenCascade and NumPy required for native geometry and modes",
+    )
+    def test_live_exchange_and_undamped_held_force(self):
+        # The shared project reuses module names across shop studies. Isolate this
+        # import exactly as in the documented command-line entry point.
+        program = textwrap.dedent("""
+            import json
+            import numpy as np
+            from response import forced
+            from tray import cad, volume, HERE
+            record=json.loads((HERE/"installed.json").read_bytes())
+            bodies=cad.read_named(HERE/"stow-receiver.step",
+                                  [{"id":key} for key in record["volumeMm3"]])
+            for key,body in bodies.items():
+                assert cad.solid_count(body)==1
+                assert abs(volume(body)-record["volumeMm3"][key])<0.002
+            t=np.arange(21)/100
+            w=np.array([8.,15.])
+            q=np.tile([3.,5.],(len(t),1))
+            z,accel=forced(q,w,0.,0.01)
+            np.testing.assert_allclose(z, q*(1-np.cos(t[:,None]*w))/w**2, atol=1e-12)
+            np.testing.assert_allclose(accel,q*np.cos(t[:,None]*w),atol=1e-12)
+        """)
+        subprocess.run([sys.executable, "-c", program], cwd=SHELF, check=True)
+
+    def test_registered_sources(self):
+        for name, expected in read("source-register").items():
+            with self.subTest(name=name):
+                self.assertEqual(
+                    hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected
+                )
+
+    def test_machined_ports_and_stereo_fail_closed(self):
+        by_case = {(r["case"], r["stepS"]): r for r in read("coupled-machined")}
+        self.assertEqual(len(by_case), 4)
+        for r in by_case.values():
+            self.assertTrue(r["machinedTray"])
+            self.assertEqual(r["lastState"], "IN_BAND")
+            self.assertEqual(r["lastJavaMs"], 5460)
+            self.assertLess(r["peakCartridgeMm"], 1.4)
+        custody = read("custody")
+        self.assertEqual(
+            custody["fixedBackgroundSha256"],
+            read("background")["backgroundSha256"]["stowed-robot-fixed"],
+        )
+        self.assertEqual(custody["cableBounds"], 629)
+        self.assertEqual(len(custody["cases"]), 2)
+        for case in custody["cases"]:
+            self.assertEqual(
+                case["trajectorySha256"],
+                by_case[case["case"], 0.00003125]["trajectorySha256"],
+            )
+            self.assertEqual(
+                [f["javaMs"] for f in case["frames"]], [5372, 5389, 5406, 5423, 5440]
+            )
+            for frame in case["frames"]:
+                self.assertLessEqual(frame["first5msTickMs"], 5460)
+                self.assertEqual(frame["status"], "position-witness")
+                self.assertEqual(frame["undeformedNativeStatus"], "position-witness")
+                self.assertEqual(
+                    frame["pipeColorOnChangedRays"], "insufficient-stereo-contour"
+                )
+                self.assertEqual(frame["oneEyeBlank"], case["blankControl"])

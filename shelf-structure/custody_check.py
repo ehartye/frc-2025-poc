@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 import numpy as np
 
-from tray import ROOT, digest, cad
+from tray import ROOT, HERE, digest, cad
 from installed import STATIONS, GAP
 from damper_fit import envelope
 
@@ -15,11 +15,11 @@ sys.path.insert(0, str(ROOT / "shelf-contact"))
 from custody import field_mesh, scene, silhouette, read_pair, camera
 
 sys.path.insert(0, str(ROOT / "fixed-camera-route"))
-from visibility import depths
+from visibility import depths, register as cable_boxes
 from paths import F, U, L, O
 
 
-def guard(robot, offset):
+def guard(robot, offset, extra_boxes=()):
     # Bound every changed shelf ray by an entire displaced 265 x 420 x 15 mm
     # envelope, including all three laminates and residual settlement allowance.
     boxes = [[-100, -210, 485 - offset, 165, 210, 500.8 + offset]]
@@ -29,7 +29,7 @@ def guard(robot, offset):
     out = []
     masks = []
     for side, (grey, z) in zip(camera.EYES, robot):
-        near = depths(boxes, O + side * L, F, U)
+        near = depths([*boxes, *extra_boxes], O + side * L, F, U)
         invalid = (near <= z + 0.2) & np.isfinite(near)
         masks.append(invalid)
         out.append((np.where(invalid, 0, grey).astype(np.uint8), np.minimum(z, near)))
@@ -37,8 +37,8 @@ def guard(robot, offset):
 
 
 def run(root, field, rows):
-    src = json.loads((ROOT / "station-guide/background.json").read_bytes())
-    robot_path = root / "station-guide/selected-background/stowed-robot-fixed.npz"
+    src = json.loads((HERE / "background.json").read_bytes())
+    robot_path = root / "shelf-structure/native-background/stowed-robot-fixed.npz"
     if digest(robot_path) != src["backgroundSha256"]["stowed-robot-fixed"]:
         raise ValueError("Different fixed head register")
     if digest(field) != src["sourceSha256"]["registered field STEP"]:
@@ -47,7 +47,14 @@ def run(root, field, rows):
     robot = [(saved[k], saved[k + "_z"]) for k in ("left", "right")]
     # A completely opaque, unknown backing over the shelf and both plungers
     # excludes visual credit from machining and from the pressure-tail recesses.
-    masked, masks = guard(robot, 2.0)
+    cable_scene = root / "fixed-camera-route/scene.json"
+    if (
+        digest(cable_scene)
+        != "291d68c43e21f20c33885064e6bbe8c0e47b684d13a8a06e8af61f9fd9db5886"
+    ):
+        raise ValueError("Different fixed cable geometry")
+    cable = cable_boxes(json.loads(cable_scene.read_bytes())["stowed"])
+    masked, masks = guard(robot, 2.0, cable)
     parts = field_mesh(field)
     result = []
     for row in json.loads(rows.read_bytes()):
@@ -63,6 +70,8 @@ def run(root, field, rows):
         states = np.load(trace)
         bg = scene(parts, row["sourceRobotMmDeg"], masked)
         empty = [g for g, _ in bg]
+        nominal = scene(parts, row["sourceRobotMmDeg"], robot)
+        nominal_empty = [g for g, _ in nominal]
         # Match the pipe intensity on every novel visible background ray.
         # The nominal contrast comparison uses a dark finish on those same rays.
         same_color = [
@@ -77,6 +86,10 @@ def run(root, field, rows):
             pair = silhouette(bg, xy[:3], axis)
             fit = read_pair(pair, empty, 560, 0)
             same = read_pair(silhouette(same_color, xy[:3], axis), same_empty, 560, 0)
+            original = read_pair(
+                silhouette(nominal, xy[:3], axis), nominal_empty, 560, 0
+            )
+            fit["undeformedNativeStatus"] = original["status"]
             fit["pipeColorOnChangedRays"] = same["status"]
             fit["oneEyeBlank"] = read_pair([empty[0], pair[1]], empty, 560, 0)["status"]
             out["frames"].append(
@@ -86,6 +99,8 @@ def run(root, field, rows):
     return {
         "sourceFieldSha256": digest(field),
         "fixedBackgroundSha256": digest(robot_path),
+        "fixedCableSceneSha256": digest(cable_scene),
+        "cableBounds": len(cable),
         "guardedPixels": [int(m.sum()) for m in masks],
         "wholeShelfVerticalAllowanceMm": 2.0,
         "nominalPupilOnly": True,
