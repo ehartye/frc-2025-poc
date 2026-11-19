@@ -78,5 +78,6 @@ class FullSwerveR3(unittest.TestCase):
         register = read(DESIGN/"source-register.json")
         for source, expected in register["projectSources"].items():
             self.assertEqual(hashlib.sha256((ROOT/source).read_bytes()).hexdigest(),expected,source)
+        self.assertEqual(register["r3UsedRoles"],{r["role"]:self.colors[r["role"]] for r in self.rows.values()})
         self.assertEqual(register["historicalBumper"]["sRGB"],self.colors["bumper-red"])
         self.assertEqual(register["representedPublicSolids"]["public-module-representation"],24)
