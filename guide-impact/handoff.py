@@ -65,6 +65,11 @@ def run(register, kit, raw):
                 }
             )
         tail = trace[trace[:, 0] >= 5360 - 1e-7]
+        nominal_count = 1 + round(100000 / row["stepUs"])
+        step_count = np.rint((tail[:, 0] - 5360) * 1000 / row["stepUs"]).astype(int)
+        if not np.array_equal(np.unique(step_count), np.arange(nominal_count)):
+            raise ValueError("Incomplete nominal exposure window")
+        extra_at = tail[1:, 0][np.diff(step_count) == 0]
         out = root / "last-100ms.npy"
         np.save(out, tail)
         packets.append(
@@ -81,6 +86,8 @@ def run(register, kit, raw):
                 "guideHistorySha256": row["guideHistorySha256"],
                 "last100msSha256": digest(out),
                 "last100msRows": len(tail),
+                "nominalGridRows": nominal_count,
+                "extraBoundarySubstepAtJavaMs": extra_at.tolist(),
                 "lastGeometricGuideStepLipS": float(last),
                 "maxPipeTopAfterGuideMm": float(1000 * upper.max()),
                 "frames": samples,

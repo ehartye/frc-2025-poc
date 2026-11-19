@@ -169,7 +169,11 @@ class GuideImpactTests(unittest.TestCase):
             self.assertTrue(row["eligibleForStationImageReplay"])
             self.assertIsNone(p["actualOpticalCustody"])
             self.assertEqual(row["trajectorySha256"], p["trajectorySha256"])
-            self.assertEqual(p["last100msRows"], int(100000 / p["stepUs"]) + 1)
+            self.assertEqual(p["nominalGridRows"], int(100000 / p["stepUs"]) + 1)
+            self.assertEqual(
+                p["last100msRows"],
+                p["nominalGridRows"] + len(p["extraBoundarySubstepAtJavaMs"]),
+            )
             self.assertEqual(
                 [f["javaMs"] for f in p["frames"]],
                 [5360, 5372, 5389, 5406, 5423, 5440, 5457, 5460],

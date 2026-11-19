@@ -18,6 +18,8 @@ The two stationary guides meet the ends of the incoming pipe before it reaches t
 
 The nominal 301.025 mm throat places each guide 0.300 mm inside the end of a centered, nominal 301.625 mm pipe. The separately fitted fastener position moves each guide outboard by 0.315 mm, giving 0.015 mm of clearance per end. The opening and contact timing depend on how the installer locates the two guides before tightening. [Fitted throat positions](../guide-mounts/datum.json)
 
+The later setting kit match-drills the four arms and two mast faces at Y±219 mm and removes its pilot pins before operation. It retains the two nominal liner surfaces. It removes 76.15 mm³ from each lower arm and 90.63 mm³ from each upper arm. The native registration and the present elastic calculations use the original 58-body guide kit. The drilled root, fixture positioning error and resulting clamp contact need their own receiving measurements. [Setting kit and assembly survey](../guide-setting/README.md)
+
 ## Load path and contact
 
 Each sloping backing has 24 Euler–Bernoulli beam elements. Its two support springs combine arm bending, elastic root bending and tension, and bolt-couple rotation. The sloping beam spans the actual free lower and upper overhangs. The backing and liner move with their masses from the reopened STEP. The liner contributes mass only. A nominal 23.6% of each arm assembly's modeled mass participates at its nose with the full wedge, tapped bar and two face screws. This is a reduced mass assumption. A physical root may slip, twist or lift off, and the actual arm shape can carry different modal mass. [Beam equations and material inputs](beam.py) · [Underlying root calculation](../guide-mounts/loads.py)
@@ -27,6 +29,8 @@ At each integration step, the openly ended pipe contributes 512 candidate quadra
 The input contact law keeps the earlier 10 N/mm and 200 N·s/m distributed coefficients, friction coefficient 0.1 and 0.02 m/s friction transition. The nominal guides use a modal damping ratio of 0.03. The pipe falls with its attained velocity, meets finite-preload belt cartridges, and drives the existing 20 ms Java acquisition program through two moving aperture rays. The first tick at the chute lip is Java 100 ms. A fault ends that case. A seated case continues until the scheduled Java 5,460 ms sample. The backing's retained modes advance exactly for a load held over one plant step. Contact forces, local normals and belt traction change each step. [Powered approach poses](../conditioned-match/elastic.json) · [Controller replay](replay.py)
 
 ![Guide normal force and lateral backing displacement for the nominal fold, wider opening and flat backing](impact.svg)
+
+The optical successor rendered the nominal 58-part installation on the 31.25 µs recovery trajectories. Its original roof policy with the 0.05 mm contour uncertainty withheld both arrivals. With the separately checked bounded-gap contour, the left had six usable roof exposures and the right had zero. The two positive Java port results therefore do not authorize both departures. [Independent station image replay](https://github.com/ehartye/frc-2025-poc/pull/121)
 
 ## Where the work goes
 
