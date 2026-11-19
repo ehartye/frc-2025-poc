@@ -10,6 +10,12 @@ At Java 320 ms, both signed arrivals first lit Entry. Seat lit at 500 ms. The le
 
 After the original braking interval, the additional branch requires an observed incoming Entry, a Seat-only return, two consecutive 20 ms dark samples after Seat, and a fresh Seat-only return. It can begin only 260–360 ms after first Entry. The probe commands +0.16 m/s. Seat must then be observed on its own during the probe, followed by a new dual return. Dropping either port through the 240 ms dwell inhibits seating. The additional branch times out at 760 ms, limiting commanded belt travel to 121.6 mm even if pipe progress is unknown. The earlier brake, reverse pulse, regular probe, fault-neutral behavior and continuing custody checks remain active. [Controller change](split_controller.py) · [Issued program and desktop adapter](../observable-acquisition/PortConsole.java)
 
+## How the faults differ
+
+On the locked-belt plant, the controller can see the same clear-and-return sequence as a recoverable pipe. The belt jams at the first positive challenge while the pipe and support model continue integrating. Both left-hand runs stayed Seat-only and timed out at 1,340 ms. When end-face friction instead vanished at the challenge, the actual belts reached +0.16 m/s but the pipe moved away from Seat. The controller faulted at 700 ms at the coarse step and 880 ms at the fine step. Physical belt velocity takes a further 6.11–6.13 ms to reach zero. The pipe traveled another 1.09–3.01 mm in the following 200 ms. The locked case moved under 0.001 mm over the same window. The neutral command neither arrests the pipe instantly nor proves indefinite retention. [Locked-belt result](locked.json) · [Loss of traction](traction.json) · [Physical follow-through](postfault.json)
+
+Sixteen chronological fault fixtures cover absent Entry, a frozen Seat, a one-sample dark flicker, an occupied start, missing or unsynchronized samples, loss of dock or enable, ambiguous probe edges, and loss in dwell. They all finish with the command inhibited. A fabricated copy of a passing right-hand port sequence still produces IN_BAND on an empty receiver. Two return bits cannot distinguish a copied sequence from a real pipe. Physical custody and a drive release need an independent current observation of the pipe. [Compiled Java fixtures](signals.json)
+
 ## Reproduce the stationary experiment
 
 Use the project desktop Python environment and JDK 17. The station solver regenerates its plant from the original project files. The released two-stage raw histories supplied to the comparison are generated with the predecessor's `replay.py series` entry point. Every candidate trajectory and controlled-fault trajectory gets a separate directory. No physical driving or robot connection is involved.
@@ -22,6 +28,7 @@ python split-guide-acquisition/observability.py <jdk17> split-guide-acquisition/
 python split-guide-acquisition/check_program.py <jdk17> split-guide-acquisition/java-replay.json
 python split-guide-acquisition/compare.py <issued-raw> <raw>
 python split-guide-acquisition/restart.py <raw> split-guide-acquisition/restart.json
+python split-guide-acquisition/postfault.py split-guide-acquisition/postfault.json
 ```
 
 The restored 20 ms controller memory comes from replaying the exact public input prefix. The mechanical handoff binds the modal basis, positions and rates of all four support lands and each guide stage, both plunger states, pipe orientation, velocity and angular momentum, end-grip forces and the held belt command. Exposure snapshots use the station epoch at 21.571672635314284 wall seconds and the lip at Java 100 ms. The first wheel service is 0.500 ms after the 5,460 ms station checkpoint. [Registered station clock](../relieved-match/first-feed.json)

@@ -44,7 +44,7 @@ def seed(p, s):
     p.next_exposure = None
 
 
-def compare(record, root):
+def compare(record, root, source_path=HERE / "candidate.json"):
     f = coupled.feed
     f.cfg = replace(f.cfg, slices=10)
     runs = []
@@ -151,7 +151,7 @@ def compare(record, root):
             }
         )
     return {
-        "source": digest(HERE / "candidate.json"),
+        "source": digest(source_path),
         "cases": runs,
         "physicalQualification": None,
     }

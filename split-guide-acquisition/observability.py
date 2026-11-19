@@ -71,6 +71,8 @@ def run(jdk, out):
     frames = {}
     for label in (
         "empty",
+        "occupied-at-wake",
+        "lost-during-dwell",
         "seat-first",
         "frozen-seat-only",
         "lost-entry",
@@ -90,6 +92,10 @@ def run(jdk, out):
             r = actual(t)
             if label == "empty":
                 r = sample(t)
+            if label == "occupied-at-wake" and t == 0:
+                r = sample(t, True, False)
+            if label == "lost-during-dwell" and t >= 600:
+                r = sample(t, t >= 1040 and t < 1160, True)
             if label == "seat-first":
                 r = sample(t, False, t >= 320)
             if label == "frozen-seat-only" and t >= 500:
