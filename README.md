@@ -4,6 +4,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 [Run the leave-and-park fallback](leave-park/replay.html) with a stowed receiver and empty station. Compare a reserved lane, a blocked approach and a late endgame decision. [Tracking limits and match points](leave-park/README.md)
 
+[Review the fixed-low match battery, power and protection study](fixed-low-power/README.md) for the two-pipe park, station hold and weakened-pack trials.
+
 [Open the complete 2025 match replay](full-match/replay.html). Scrub from AUTO through the end of TELEOP, compare the earlier starting-stack collision, and try a blocked park or a return to station. The [full-match evidence](full-match/README.md) explains how the two pipe identities, contact and clock were qualified.
 
 [Follow both station-fed pipes through the updated 545-body match](sourced-match/replay.html). The new timeline preserves their feeder states and lets students compare axial spin, a late feed and a blocked park. [Conditional scoring evidence](sourced-match/README.md)

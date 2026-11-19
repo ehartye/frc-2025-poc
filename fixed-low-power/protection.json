@@ -1,0 +1,193 @@
+{
+  "branches": {
+    "DriveLeft": {
+      "channel": 0,
+      "articleCandidate": "REV-11-1863",
+      "A": 40,
+      "maximumModeledBranchA": 25.37469,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "DriveRight": {
+      "channel": 1,
+      "articleCandidate": "REV-11-1863",
+      "A": 40,
+      "maximumModeledBranchA": 25.42731,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "Lift": {
+      "channel": 2,
+      "articleCandidate": "REV-11-1863",
+      "A": 40,
+      "maximumModeledBranchA": 0.0,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "Slide": {
+      "channel": 3,
+      "articleCandidate": "REV-11-1862",
+      "A": 30,
+      "maximumModeledBranchA": 1.67235,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "LeftGrip": {
+      "channel": 4,
+      "articleCandidate": "REV-11-1861",
+      "A": 20,
+      "maximumModeledBranchA": 4.18304,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "RightGrip": {
+      "channel": 5,
+      "articleCandidate": "REV-11-1861",
+      "A": 20,
+      "maximumModeledBranchA": 4.21707,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "Observer": {
+      "channel": 6,
+      "articleCandidate": "REV-11-1860",
+      "A": 10,
+      "maximumModeledBranchA": 2.41175,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    },
+    "RIO": {
+      "channel": 20,
+      "articleCandidate": "Eaton ATM-10",
+      "A": 10,
+      "maximumModeledBranchA": 1.37577,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 360000,
+      "twiceRatedTripWindowS": [
+        0.15,
+        5.0
+      ]
+    },
+    "Radio": {
+      "channel": 21,
+      "articleCandidate": "Eaton ATM-10",
+      "A": 10,
+      "maximumModeledBranchA": 1.09951,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 360000,
+      "twiceRatedTripWindowS": [
+        0.15,
+        5.0
+      ]
+    },
+    "PH": {
+      "channel": 7,
+      "articleCandidate": "REV-11-1861",
+      "A": 20,
+      "maximumModeledBranchA": 0.13658,
+      "belowPublishedHoldCurrent": true,
+      "publishedMinimumHoldS": 1800,
+      "twiceRatedTripWindowS": [
+        5.0,
+        60.0
+      ]
+    }
+  },
+  "main": {
+    "article": "Eaton CB185-120",
+    "ratedA": 120,
+    "modeledPeakA": 56.54398,
+    "measuredTripTime": null
+  },
+  "powerChain": {
+    "battery": "EnerSys NP18-12 bolt-terminal proposal",
+    "upstreamCopperAWG": 6,
+    "connector": "Anderson SB50",
+    "measuredOpenCircuitV": null,
+    "measuredPackAndTrunkOhm": null
+  },
+  "observations": {
+    "host": {
+      "worstOperatingA": 3.0,
+      "catalogOutputRangeV": [
+        4.8,
+        5.2
+      ],
+      "proposedSelectedOutputRangeV": [
+        5.12,
+        5.18
+      ],
+      "maxCompleteOutputLoopOhm": 0.025,
+      "extraVoltageUncertaintyV": 0.015,
+      "catalogWorstTerminalV": 4.71,
+      "selectedTerminalRangeV": [
+        5.03,
+        5.194999999999999
+      ],
+      "directMeasurementRequired": true
+    },
+    "camera": {
+      "worstOperatingA": 1.2,
+      "catalogOutputRangeV": [
+        4.8,
+        5.2
+      ],
+      "proposedSelectedOutputRangeV": [
+        5.12,
+        5.18
+      ],
+      "maxCompleteOutputLoopOhm": 0.025,
+      "extraVoltageUncertaintyV": 0.015,
+      "catalogWorstTerminalV": 4.755,
+      "selectedTerminalRangeV": [
+        5.075,
+        5.194999999999999
+      ],
+      "directMeasurementRequired": true
+    }
+  },
+  "cameraCriterionV": [
+    5.0,
+    5.25
+  ],
+  "thermalLimits": {
+    "caseTemperatureC": null,
+    "windingTemperatureC": null,
+    "continuousDriveLimitQualified": false
+  },
+  "holdJam": {
+    "eachRequestedGripPhaseA": 8,
+    "modeledLeftWindingJ": 999.14333,
+    "modeledPeakLeftSupplyA": 3.16453,
+    "stalledIntervalS": 129.9683273646857,
+    "protectionRatingA": 20
+  }
+}
