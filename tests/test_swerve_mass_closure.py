@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "experiments/swerve-drive/mass-closure"
 sys.path.insert(0, str(DATA))
 from inspection_recipe import CUT_METRES, wire_budget
+from r4_receiving import margin_case, tail_span
 
 
 class InspectionRecipeTests(unittest.TestCase):
@@ -87,3 +88,23 @@ class InspectionRecipeTests(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 wire_budget(self.wire, self.paths, bad)
+
+    def test_numbered_r4_module_and_harness_boundaries(self):
+        r4 = json.loads((DATA / "r4-receiving.json").read_bytes())
+        source = ROOT / "cad/full-swerve-r4"
+        self.assertEqual(hashlib.sha256((source/"full-robot.step").read_bytes()).hexdigest(), r4["sourceStepSha256"])
+        self.assertEqual(r4["accounting"]["physicalIds"], 944)
+        self.assertTrue(r4["archiveBytesVerified"])
+        issued = r4["case"]["issued"]
+        cap = self.proof["matchedInstalledChecker"]["ruleLimitKg"]
+        receiving = r4["populatedReceivingBudget"]["issuedCuts"]["forWorkingReserveKg"]
+        # Unequal modules spend the same aggregate allowance, and additional
+        # installed mass is charged once at precisely this boundary.
+        result = margin_case(cap, issued["r103UpperKg"], sum(issued["populatedModulesKg"]),
+                             issued["fullHarnessUpperKg"], [1.7,1.8,1.72,receiving-5.22],
+                             issued["fullHarnessUpperKg"], 0.01)
+        self.assertAlmostEqual(result["r103MarginKg"], 0.49)
+        self.assertLess(r4["case"]["oneMetreAtReceivingUpper"]["r103MarginKg"], 0)
+        self.assertGreater(r4["case"]["oneMetreAtCatalogNominals"]["r103MarginKg"], 0)
+        self.assertEqual(len(r4["tailSensitivity"]), 8)
+        self.assertEqual(tail_span([0,0,0,1,2,2],[0,0,0]), (0,3))
