@@ -14,6 +14,8 @@ Explore the 545-body [blue](design/competition-package/shop-duplex/blue/robot.ht
 
 ## Design highlights
 
+[Replay the two-pipe fixed-carriage match](fixed-height-match/replay.html) with six moving robots, late stock, an occupied parking lane and two endgame choices. [Timing, contact evidence and qualification limits](fixed-height-match/README.md)
+
 [Compare two fixed-carriage configurations](design/fixed-height/README.md) and review how receiver height, counterfeed and slide extension change the reachable station and L1 outcomes. [Follow the camera evidence through both low-carriage placements](low-observation/README.md) to see where the controller can identify a pipe and which withdrawal timings it can test.
 
 Explore the earlier [moving six-robot field rehearsal](mission/moving-field.html) and its [traffic, station stock and reef-branch evidence](mission/MOVING-TRAFFIC.md). Two early departures encounter different robots. A 16-second reservation permits two supported deliveries under the modeled stock schedule.
