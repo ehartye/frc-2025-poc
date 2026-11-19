@@ -5,9 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Check committed public assets and text
+      - name: Check public assets and text in this revision
         run: python experiments/six-wheel/scripts/check_public_content.py
       - name: Verify CAD views and README coverage
         run: python scripts/cad-readmes.py . --template scripts/cad-orbit.html
