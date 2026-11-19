@@ -1,0 +1,1472 @@
+{
+  "traces": {
+    "abrupt": {
+      "registeredClock": "abrupt",
+      "clockSha256": "ffbf015bf51be95e30ec15e99ddb9e510fe6084637f7b0c933f8379e81cf60d6",
+      "support": {
+        "inputSha256": "ffbf015bf51be95e30ec15e99ddb9e510fe6084637f7b0c933f8379e81cf60d6",
+        "wallStartS": 0.005,
+        "wallEndS": 21.1,
+        "samples": 4220,
+        "plantMassFromFourNormalsKg": 65.0,
+        "emptyCGBoundsM": [
+          [
+            -0.07996444690517435,
+            0.03971706228978966
+          ],
+          [
+            -0.04978158068912227,
+            0.047028811458353074
+          ],
+          [
+            0.12957770731176965,
+            0.38151942659251575
+          ]
+        ],
+        "minimumPlantNormalN": [
+          165.732385,
+          152.98373999999998,
+          165.732385,
+          152.98373999999998
+        ],
+        "peakPlantMu": 0.39614825813576227,
+        "assumedStaticShareFloor": 0.22,
+        "rateFraction": 0.1,
+        "checkedFriction": 0.8,
+        "guaranteedCornerLowerN": [
+          93.99192986797874,
+          68.09155701059392,
+          93.57271650893023,
+          31.447958537379336
+        ],
+        "firstUncovered": [
+          3.085,
+          "RR"
+        ],
+        "lowestTractionMarginN": [
+          46.88754984849294,
+          -4.161758382964102,
+          46.38152471940205,
+          -34.20921970342678
+        ],
+        "fieldGripQualification": null
+      },
+      "electrical": [
+        {
+          "pack": "nominal",
+          "actualBranchSupplyPeakA": [
+            [
+              3.062151335822009,
+              0.93
+            ],
+            "FRDrive"
+          ],
+          "actualPeakPackA": [
+            16.754903919741814,
+            3.335
+          ],
+          "actualMinTerminalV": [
+            [
+              11.897234201210946,
+              3.335
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.872636357372565,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 21.094545705097435,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  10.543646765369028,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  4.09493042628848,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.818436778260334,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.761427882173987,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 25.54288471304052,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  11.798020938582386,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  6.986957113664634,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.595648492359927,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            }
+          ]
+        },
+        {
+          "pack": "screened",
+          "actualBranchSupplyPeakA": [
+            [
+              3.240895987194625,
+              0.93
+            ],
+            "FRDrive"
+          ],
+          "actualPeakPackA": [
+            17.741029418983818,
+            3.335
+          ],
+          "actualMinTerminalV": [
+            [
+              11.23213132644926,
+              3.335
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.195618457008099,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 22.38450159229269,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  10.543646765369028,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  4.09493042628848,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.140405251116152,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.066484326970404,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 27.167247149244332,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  11.798020938582386,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  6.986957113664634,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                6.904632231549519,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            }
+          ]
+        },
+        {
+          "pack": "weak",
+          "actualBranchSupplyPeakA": [
+            [
+              3.266107075843194,
+              0.93
+            ],
+            "FRDrive"
+          ],
+          "actualPeakPackA": [
+            17.890176607087273,
+            3.335
+          ],
+          "actualMinTerminalV": [
+            [
+              11.137901682777454,
+              3.335
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.075859714438403,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 22.629383923799907,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  10.543646765369028,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  4.09493042628848,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.024413259942281,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 10.918726504710072,
+                "wallS": 3.335
+              },
+              "peakPackA": {
+                "value": 27.53979672781024,
+                "wallS": 3.335
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  11.798020938582386,
+                  "FRDrive"
+                ],
+                "Steer": [
+                  6.986957113664634,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                6.769531848583127,
+                "RLDrive"
+              ],
+              "couplingTorqueSupplied": false
+            }
+          ]
+        }
+      ],
+      "consistentAdverse": {
+        "derivative": "departing",
+        "wallS": 3.135,
+        "corner": "RR",
+        "massKg": 65.0,
+        "friction": 0.8,
+        "staticShares": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "cgM": [
+          0.0,
+          0.0,
+          0.31
+        ],
+        "rateRatios": [
+          0.9,
+          0.9,
+          1.1,
+          1.1
+        ],
+        "accelerationMps2": [
+          -1.0662567606583961,
+          -3.46374944299958
+        ],
+        "normalN": 71.02039182507285,
+        "tireResultantN": 59.37016118731936,
+        "requiredMu": 0.835959358455123,
+        "marginN": -2.553847727261079
+      }
+    },
+    "positive": {
+      "registeredClock": "positive",
+      "clockSha256": "c7f23c6811591f3b3e1de2463df9d2cdb576f692b91853b6d2c403385fb6ad34",
+      "support": {
+        "inputSha256": "c7f23c6811591f3b3e1de2463df9d2cdb576f692b91853b6d2c403385fb6ad34",
+        "wallStartS": 0.005,
+        "wallEndS": 21.1,
+        "samples": 4220,
+        "plantMassFromFourNormalsKg": 65.0,
+        "emptyCGBoundsM": [
+          [
+            -0.07996444690517435,
+            0.03971706228978966
+          ],
+          [
+            -0.04978158068912227,
+            0.047028811458353074
+          ],
+          [
+            0.12957770731176965,
+            0.38151942659251575
+          ]
+        ],
+        "minimumPlantNormalN": [
+          144.68650269764387,
+          134.78293216623646,
+          151.77787287824893,
+          140.29038678174564
+        ],
+        "peakPlantMu": 0.17075272210621242,
+        "assumedStaticShareFloor": 0.22,
+        "rateFraction": 0.1,
+        "checkedFriction": 0.8,
+        "guaranteedCornerLowerN": [
+          113.42004248751321,
+          115.77188836511611,
+          124.96900395342074,
+          126.10459514067942
+        ],
+        "firstUncovered": null,
+        "lowestTractionMarginN": [
+          69.49701988084853,
+          78.50527832842423,
+          90.03920425812217,
+          91.1487202443185
+        ],
+        "fieldGripQualification": null
+      },
+      "electrical": [
+        {
+          "pack": "nominal",
+          "actualBranchSupplyPeakA": [
+            [
+              1.8456242341448543,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            10.911495353825451,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              12.044344088076521,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.043616122904814,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 14.255355083807485,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.220959918656694,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.487316728358426,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.276873999864337,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.002550988117529,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.897960475298865,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.132395600747394,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.499344801224211,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.159548719600789,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "screened",
+          "actualBranchSupplyPeakA": [
+            [
+              1.9497108627118132,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.522567469822366,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              11.401348660700902,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.392936053009581,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.076442481126646,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.220959918656694,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.487316728358426,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.6240652637738595,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.345686973201337,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 16.82640839995048,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.132395600747394,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.499344801224211,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.500255036719023,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "weak",
+          "actualBranchSupplyPeakA": [
+            [
+              1.960027824147556,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.583098562760155,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              11.341335597111325,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.314165281049695,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.18233496719709,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.220959918656694,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.487316728358426,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.545020011046894,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.257288360534007,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 16.95973873331231,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.132395600747394,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.499344801224211,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.411507547962207,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        }
+      ]
+    },
+    "negative": {
+      "registeredClock": "negative",
+      "clockSha256": "18492b408d041450a115fecba6f2c8788edfdef558e83de8341c4e03dbad88d2",
+      "support": {
+        "inputSha256": "18492b408d041450a115fecba6f2c8788edfdef558e83de8341c4e03dbad88d2",
+        "wallStartS": 0.005,
+        "wallEndS": 21.1,
+        "samples": 4220,
+        "plantMassFromFourNormalsKg": 65.0,
+        "emptyCGBoundsM": [
+          [
+            -0.07996444690517435,
+            0.03971706228978966
+          ],
+          [
+            -0.04978158068912227,
+            0.047028811458353074
+          ],
+          [
+            0.12957770731176965,
+            0.38151942659251575
+          ]
+        ],
+        "minimumPlantNormalN": [
+          144.67740122811819,
+          134.78291676681042,
+          151.86645865181023,
+          139.83114349539915
+        ],
+        "peakPlantMu": 0.17102612884648524,
+        "assumedStaticShareFloor": 0.22,
+        "rateFraction": 0.1,
+        "checkedFriction": 0.8,
+        "guaranteedCornerLowerN": [
+          113.40647131823161,
+          115.76608946215912,
+          125.37084330530688,
+          125.70830333616482
+        ],
+        "firstUncovered": null,
+        "lowestTractionMarginN": [
+          69.44300221671452,
+          78.52785867377868,
+          90.36252670773521,
+          90.82134851922787
+        ],
+        "fieldGripQualification": null
+      },
+      "electrical": [
+        {
+          "pack": "nominal",
+          "actualBranchSupplyPeakA": [
+            [
+              1.8456267611327977,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            10.912150448450312,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              12.044327597249158,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.043664163036878,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 14.253433478524874,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.219900866354688,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.486869651520665,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.272353930266124,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.002727809721863,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.890887611125512,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.130916472265767,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.4987290069236945,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.154655175891385,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "screened",
+          "actualBranchSupplyPeakA": [
+            [
+              1.949714095569279,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.523262271101949,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              11.401329755911107,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.392991252940911,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.074398039225569,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.219900866354688,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.486869651520665,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.619538129885799,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.345890518473427,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 16.818869686169418,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.130916472265767,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.4987290069236945,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.495371618031593,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "weak",
+          "actualBranchSupplyPeakA": [
+            [
+              1.9600317385648574,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.583800882871477,
+            7.075
+          ],
+          "actualMinTerminalV": [
+            [
+              11.341312947110609,
+              7.075
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.314231659783356,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 15.180260631770143,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.219900866354688,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.486869651520665,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.540502257382815,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.257533608226717,
+                "wallS": 7.075
+              },
+              "peakPackA": {
+                "value": 16.952074742915084,
+                "wallS": 7.075
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.130916472265767,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.4987290069236945,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.406663600467345,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        }
+      ]
+    },
+    "heavyPositive": {
+      "registeredClock": "heavyPositive",
+      "clockSha256": "d8ec19652935c7e5bb80574695ca9244ce30273639ef618994acadcdad68aa7d",
+      "support": {
+        "inputSha256": "d8ec19652935c7e5bb80574695ca9244ce30273639ef618994acadcdad68aa7d",
+        "wallStartS": 0.005,
+        "wallEndS": 21.1,
+        "samples": 4220,
+        "plantMassFromFourNormalsKg": 72.0,
+        "emptyCGBoundsM": [
+          [
+            -0.07802345901161573,
+            0.04168901456717123
+          ],
+          [
+            -0.04883059367767982,
+            0.04634545478879097
+          ],
+          [
+            0.13156320798979204,
+            0.3881772601182434
+          ]
+        ],
+        "minimumPlantNormalN": [
+          161.09836494260853,
+          149.31053850123624,
+          168.26242499136163,
+          155.53626199030674
+        ],
+        "peakPlantMu": 0.15301049864209018,
+        "assumedStaticShareFloor": 0.22,
+        "rateFraction": 0.1,
+        "checkedFriction": 0.8,
+        "guaranteedCornerLowerN": [
+          126.21644571999202,
+          128.5336892353726,
+          138.29852145565258,
+          139.58419867770039
+        ],
+        "firstUncovered": null,
+        "lowestTractionMarginN": [
+          79.41145198562276,
+          86.4807238996659,
+          99.73511477929063,
+          100.97876875802586
+        ],
+        "fieldGripQualification": null
+      },
+      "electrical": [
+        {
+          "pack": "nominal",
+          "actualBranchSupplyPeakA": [
+            [
+              1.8476728742537725,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.441991212038225,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              12.030989707694436,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.027846234775117,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 14.886150608995358,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660190610455743,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.662384233120096,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.229559628564484,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.9815695125083,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 16.73721949966804,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.610678898024476,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871986439152899,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.101665091730625,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "screened",
+          "actualBranchSupplyPeakA": [
+            [
+              1.9523341796283233,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            12.085604644616726,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              11.38602887010115,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.37479720931366,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 15.748251506901477,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660190610455743,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.662384233120096,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.574210755359163,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.321511253979457,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 17.721805408168304,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.610678898024476,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871986439152899,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.438971663015504,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "weak",
+          "actualBranchSupplyPeakA": [
+            [
+              1.9632061441147848,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            12.152419686748994,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              11.322974614750201,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.292342859183996,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 15.864285650500113,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660190610455743,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.662384233120096,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.491446901871109,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.228142212006945,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 17.87055587478299,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.610678898024476,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871986439152899,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.345204532945042,
+                "FRDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        }
+      ]
+    },
+    "heavyNegative": {
+      "registeredClock": "heavyNegative",
+      "clockSha256": "df34e5c28265017608a4f6f99d37ad14c88d4e9f131c0ea5e15de8068767f71f",
+      "support": {
+        "inputSha256": "df34e5c28265017608a4f6f99d37ad14c88d4e9f131c0ea5e15de8068767f71f",
+        "wallStartS": 0.005,
+        "wallEndS": 21.1,
+        "samples": 4220,
+        "plantMassFromFourNormalsKg": 72.0,
+        "emptyCGBoundsM": [
+          [
+            -0.07802345901161573,
+            0.04168901456717123
+          ],
+          [
+            -0.04883059367767982,
+            0.04634545478879097
+          ],
+          [
+            0.13156320798979204,
+            0.3881772601182434
+          ]
+        ],
+        "minimumPlantNormalN": [
+          161.08742902888272,
+          149.3096500582903,
+          168.30874384246377,
+          154.92610893038778
+        ],
+        "peakPlantMu": 0.15309269684544557,
+        "assumedStaticShareFloor": 0.22,
+        "rateFraction": 0.1,
+        "checkedFriction": 0.8,
+        "guaranteedCornerLowerN": [
+          126.206757369266,
+          128.5363394067149,
+          138.82184386413525,
+          139.0099966048375
+        ],
+        "firstUncovered": null,
+        "lowestTractionMarginN": [
+          79.40341496951655,
+          86.48522264963123,
+          100.15292746816603,
+          100.50186399963168
+        ],
+        "fieldGripQualification": null
+      },
+      "electrical": [
+        {
+          "pack": "nominal",
+          "actualBranchSupplyPeakA": [
+            [
+              1.8476685150345877,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            11.440863648764093,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              12.031018092505196,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 12.027859848670074,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 14.88560605319706,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660477363572964,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.661937997216901,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.22491438269316,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.981596964009352,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 16.7361214396259,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.61096078783077,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871437109094151,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                8.096588275858702,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "screened",
+          "actualBranchSupplyPeakA": [
+            [
+              1.952328597123819,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            12.084408102002131,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              11.386061427406077,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.374812861975133,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 15.747671778698788,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660477363572964,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.661937997216901,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.5695535306625095,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.321542880682594,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 17.720634048792828,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.61096078783077,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871437109094151,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.433882609523417,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        },
+        {
+          "pack": "weak",
+          "actualBranchSupplyPeakA": [
+            [
+              1.9631993769903509,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualPeakPackA": [
+            12.151209489478497,
+            7.055
+          ],
+          "actualMinTerminalV": [
+            [
+              11.323013644906322,
+              7.055
+            ],
+            "Host"
+          ],
+          "actualFirstBlockedWallS": null,
+          "inverseDemand": [
+            {
+              "adverse": false,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.292361695671417,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 15.86369701026822,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  8.660477363572964,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  4.661937997216901,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.4867909845012734,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            },
+            {
+              "adverse": true,
+              "firstInhibitWallS": null,
+              "minBusV": {
+                "value": 11.228180357273242,
+                "wallS": 7.055
+              },
+              "peakPackA": {
+                "value": 17.869363835211228,
+                "wallS": 7.055
+              },
+              "peakPhaseA": {
+                "Drive": [
+                  9.61096078783077,
+                  "FLDrive"
+                ],
+                "Steer": [
+                  7.871437109094151,
+                  "RLSteer"
+                ]
+              },
+              "minimumMotorVoltageHeadroomV": [
+                7.340119542465223,
+                "FLDrive"
+              ],
+              "couplingTorqueSupplied": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "reproductionInputs": {
+    "balance.json": "264614c5bf98df610c13678668c0971e4eea5d30a992afc64a9b62a570df3a88",
+    "branches.json": "97352c27b48fc74b6f74e19a5bd29202dd368037b4576c1f23004d5cb43eff8c",
+    "clocks.json": "cdcaea07f845d0ed27599e66e648cde6567976cda3f7225f84cee3f9712fd920"
+  },
+  "physicalMassKg": null,
+  "loadCellQualification": null,
+  "placementCredit": null
+}
