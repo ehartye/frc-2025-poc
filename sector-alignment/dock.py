@@ -26,7 +26,7 @@ def relative(a,b):
     return np.r_[rotation(-a[2])@(b[:2]-a[:2]),b[2]-a[2]]
 def compose(a,delta):
     return np.r_[a[:2]+rotation(a[2])@delta[:2],a[2]+delta[2]]
-def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK,observer=station_frame):
+def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=TRACK,observer=station_frame,features=None):
     sector=SECTORS[pipe];goal=np.array([0.,sector,0.])
     actual=np.array([-STRAIGHT+initial[0],sector+initial[1],math.radians(initial[2])])
     odom=np.array([-STRAIGHT,sector,0.]);pred=odom.copy()
@@ -62,15 +62,17 @@ def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=T
                     pred=compose(tag,relative(history[capt],odom));source="ID10"
 
             begin=compose(pred,relative(odom,history[capt]))
-            heads_pair=associate(heads,ctx["bolts"],begin) if assoc else None
+            heads_pair=None
+            if assoc:
+                heads_pair=associate(heads,ctx["bolts"],begin) if features is None else features.identify(heads,begin)
             if heads_pair is not None:
                 # Only identified, ordered observations enter the estimate. Truth is used later for audit.
-                raw=estimate(heads_pair,ctx["bolts"])
+                raw=estimate(heads_pair,ctx["bolts"]) if features is None else features.pose(heads_pair,begin)
                 if np.linalg.norm(raw[:2]-begin[:2])<45 and abs(raw[2]-begin[2])<math.radians(4):
                     pred=compose(raw,relative(history[capt],odom));source="paired heads";seen_heads+=1;last_seen=capt
                     last_pair=(capt,heads_pair)
                     if origin is None:origin=pred.copy()
-                    last_error=float(np.max(abs(np.asarray(heads_pair)-truth)))
+                    last_error=float(np.max(abs(np.asarray(heads_pair)-truth))) if features is None else features.error(heads_pair,truth)
                     optical_max=max(optical_max,last_error)
                 else:rejected+=1
             elif tag is None:rejected+=1
@@ -108,7 +110,7 @@ def tracecase(pipe,initial,mode,ctx,cache,*,wheel_scale=None,physical_track_mm=T
         max_rate=max(max_rate,max(abs(wheels)));max_acc=max(max_acc,max(abs(wheels-prior))/DT)
         if tick%35==0 and tick>2000 and last_pair and tick-last_pair[0]<=55 and max(abs(wheels))<9 and bad is None:
             cap,pair=last_pair
-            bounds=interval(pair,ctx["bolts"],goal[:2],epsilon=.18)
+            bounds=interval(pair,ctx["bolts"],goal[:2],epsilon=.18) if features is None else features.bounds(pair,goal[:2])
             if bounds is not None:
                 lo,hi,radial=bounds
                 # The stationary gate includes remaining odometry transport, braking and independent survey errors.

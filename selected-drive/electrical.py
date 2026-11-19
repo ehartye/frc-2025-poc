@@ -87,6 +87,11 @@ def screen(t,arcs,labels,events,mass,mode,pack,raw,*,scrub=.38,side=.44,outer=.7
             raise ValueError("Unregistered intake command")
         belt_speed=np.zeros(n)
         belt_speed[(t[:-1]>=ev["feed"]-.025)&(t[:-1]<ev.get("carry",153))]=.65
+        carry_bound=ev.get("carryBeltSpeedBoundMps",0.)
+        if not np.isfinite(carry_bound) or carry_bound<0:
+            raise ValueError("Invalid carry belt speed bound")
+        carry_window=(t[:-1]>=ev.get("carry",153))&(t[:-1]<ev.get("release",157)-.020)&mask
+        belt_speed[carry_window]=carry_bound
         belt_speed[(t[:-1]>=ev.get("release",157)-.020)&mask]=.90
         if cap_grip_speed:belt_speed[mask]=1.05
         for load in ("LeftGrip","RightGrip"):

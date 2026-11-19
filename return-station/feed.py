@@ -72,8 +72,12 @@ class Pipe:
                 points.append((r,(hi-lo)*h/abs(ay)))
         return points
 
+    def belt_surface_speeds(self, target, dt):
+        self.belt += min(cfg.belt_accel*dt,max(-cfg.belt_accel*dt,target-self.belt))
+        return self.belt,self.belt
+
     def moves(self,target,dt):
-        self.belt+=min(cfg.belt_accel*dt,max(-cfg.belt_accel*dt,target-self.belt))
+        belt_speeds=self.belt_surface_speeds(target,dt)
         force=np.array([0.,0.,-M*G]);torque=np.zeros(3);w=self.angular(self.l)
         for i,side in enumerate((-1,1)):
             points=self.footprint(side)
@@ -86,7 +90,7 @@ class Pipe:
                 vel=self.v+np.cross(w,r)
                 normal=max(0,self.preload+2*travel+37.52*side*vel[1])*area_cell/max(cfg.area_for_preload,area)
                 if normal and self.first_belts[i] is None:self.first_belts[i]=self.time
-                slip_x,slip_z=vel[0]-self.belt,vel[2]
+                slip_x,slip_z=vel[0]-belt_speeds[i],vel[2]
                 scale=-cfg.belt_mu*normal/max(cfg.slip_scale,math.hypot(slip_x,slip_z))
                 f=np.array([scale*slip_x,-side*normal,scale*slip_z])
                 self.peak_load=max(self.peak_load,np.linalg.norm(f))
