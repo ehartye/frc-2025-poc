@@ -88,7 +88,7 @@ def rail_clearance(parts, trace, wall, sector, error):
     return rows
 
 
-def release_control(piece, wall, trace=None):
+def release_control(piece, bounds, trace=None, seconds=None):
     # Borrow the previous belt output as an explicit initial condition, never as an R4 event.
     path = SIX/"relieved-match"/f"{piece}-coupled-250.json"
     row = read(path)
@@ -101,7 +101,7 @@ def release_control(piece, wall, trace=None):
         # center is above the last shelf generator along its surface normal.
         _,local_y,_ = np.array(row["edgeRobotMm"])/1000
         local_x = .165  # Rim of the actual flat facing; the pipe center can project beyond it.
-        edge_response = trace.at(trace.time[-1],local_x,local_y)
+        edge_response = trace.at(trace.time[-1] if seconds is None else seconds,local_x,local_y)
         angle = math.atan(edge_response["slopeX"])
         fore = np.array([math.cos(yaw),math.sin(yaw)])
         p[:2] -= fore*.05715*math.sin(angle)
@@ -110,7 +110,6 @@ def release_control(piece, wall, trace=None):
         v[:2] += fore*forward*(math.cos(angle)-1)
         v[2] += forward*math.sin(angle)+edge_response["verticalSpeedMps"]
     rate = np.linalg.norm(np.cross(omega,a))
-    bounds = cad.bounds(wall)
     wall_front,wall_back = (bounds[0]-LIP)/1000,(bounds[3]-LIP)/1000
     top = bounds[4]/1000
     horizon = .4
@@ -149,7 +148,7 @@ def run(field, traces, output):
                   railPartsVerified=len(installed["volumesMm3"]),caps={},rails={},release={})
     nav = read(SIX/"relieved-match/navigation.json")["cases"]
     for piece,sector in (("coral-A",-180),("coral-B",220)):
-        result["release"][piece] = release_control(piece,wall)
+        result["release"][piece] = release_control(piece,cad.bounds(wall))
         error = next(x["finalBodyErrorMmDeg"] for x in nav if x["pipe"]==piece and x["mode"]=="nominal")
         for sign in ("plus","minus"):
             stem = traces/f"{sign}-issued-31.25us"
@@ -159,7 +158,7 @@ def run(field, traces, output):
             stem = traces/f"{sign}-no-buttons-31.25us"
             trace = SurfaceTrace(Path(str(stem)+".npz"),read(Path(str(stem)+".json"))["traceSha256"])
             result["rails"][f"{piece}-{sign}"] = rail_clearance(parts,trace,wall,sector,error)
-            result["release"][f"{piece}-{sign}-loaded"] = release_control(piece,wall,trace)
+            result["release"][f"{piece}-{sign}-loaded"] = release_control(piece,cad.bounds(wall),trace)
     save(output,result)
 
 

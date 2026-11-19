@@ -66,6 +66,16 @@ class ScoringStroke(unittest.TestCase):
             if row["strokeMm"]<=115:
                 self.assertGreater(row["aboveFloorCommonMm3"],0)
 
+    def test_native_fusion_candidate_reopens_with_its_editable_features(self):
+        fusion=read("fusion.json")
+        self.assertEqual(fusion["errors"],[])
+        self.assertEqual(fusion["archiveSha256"],hashlib.sha256((LAB/"cam-lands.f3d").read_bytes()).hexdigest())
+        self.assertEqual(fusion["stepSha256"],read("cam.json")["candidateStepSha256"])
+        self.assertEqual(fusion["reopenedLaneWidthMm"],10)
+        self.assertEqual(fusion["nativeFeatures"],fusion["reopened"])
+        self.assertEqual(fusion["reopened"]["r6-receiver-insert"]["extrudes"],4)
+        self.assertEqual(fusion["reopened"]["r6-polymer-facing"]["extrudes"],2)
+
 
 if __name__=="__main__":
     unittest.main()

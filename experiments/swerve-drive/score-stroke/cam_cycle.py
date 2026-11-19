@@ -19,7 +19,7 @@ def cycle(_, dt):
     return duration,t,s,v,a
 
 
-def run(station,out,sign,dt):
+def run(station,out,sign,dt,issued_fixture=False):
     # The prior registered source geometry is independently validated before
     # substituting the candidate's measured section and candidate-specific floor.
     registered=rack.registration()
@@ -36,15 +36,20 @@ def run(station,out,sign,dt):
     rack.registration=lambda:registered
     rack.button_gaps=candidate_gaps
     rack.sample_motion=cycle
-    packet=read(station/f"cam-station-{sign}-31.25us-0.1mm.json")
-    if packet["state"]!="IN_BAND" or packet["loss"] or packet["hardStop"] or packet["javaLastMs"]!=5460:
-        raise ValueError("Candidate station pickup did not retain this pipe")
-    entry,=station.glob(f"cam-station-{sign}-31.25us-0.1mm/{sign}/*/state.npz")
-    if packet["pipeStateSha256"]!=digest(entry):
-        raise ValueError("Candidate station state changed")
+    if issued_fixture:
+        entry=station/f"{sign}-15.625us"/f"{sign}-15.625us-service.npz"
+        expected=read(entry.parent/"service.json")["outgoing"]
+    else:
+        packet=read(station/f"cam-station-{sign}-31.25us-0.1mm.json")
+        if packet["state"]!="IN_BAND" or packet["loss"] or packet["hardStop"] or packet["javaLastMs"]!=5460:
+            raise ValueError("Candidate station pickup did not retain this pipe")
+        entry,=station.glob(f"cam-station-{sign}-31.25us-0.1mm/{sign}/*/state.npz")
+        expected=packet["pipeStateSha256"]
+    if expected!=digest(entry):
+        raise ValueError("Station state changed")
     with np.load(entry) as f:
         state={key:f[key] for key in ("p","a","z","zdot")}
-    name=f"{sign}-cam-cycle-{dt:g}us"
+    name=f"{sign}-cam-cycle-{dt:g}us"+("-issued-fixture" if issued_fixture else "")
     result=rack.trial(state,name,out,dt*1e-6,motion=True)
     with np.load(out/(name+".npz")) as f:
         t,s,b=f["timeS"],f["strokeM"],f["buttonN"]
@@ -53,7 +58,7 @@ def run(station,out,sign,dt):
                       maxButtonForceBeyondRunnerN=float(np.max(b[mask])),
                       maxReturnButtonReactionN=float(np.max(b[t>3.3])),
                       minimumFullStrokePitchRad=float(f["q"][(t>=3)&(t<=3.3),5].min()))
-    result.update(stationStateSha256=digest(entry),camStepSha256=receipt["candidateStepSha256"],
+    result.update(stationStateSha256=digest(entry),camStepSha256=receipt["candidateStepSha256"],issuedFixture=issued_fixture,
                   samePipeHeldForBothDirections=True,stationToDockMotion=None)
     (out/(name+".json")).write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf8")
 
@@ -62,5 +67,6 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("station",type=Path);p.add_argument("out",type=Path)
     p.add_argument("sign",choices=("plus","minus"));p.add_argument("dt",type=float)
+    p.add_argument("--issued-fixture",action="store_true",help="Prescribed isolated placement of the original pickup, irrespective of candidate pickup outcomes")
     args=p.parse_args()
-    run(args.station,args.out,args.sign,args.dt)
+    run(args.station,args.out,args.sign,args.dt,args.issued_fixture)

@@ -23,6 +23,8 @@ The finite-pipe bound encloses the complete cylinder, including its axis drift d
 
 The existing insert has a 0.8 mm nominal relief interrupted by open pockets and transverse ribs. Under load the shelf approaches the bracket by about 2.05 mm early in the stroke. The cap recovers in each open pocket before an upright rib arrives. The candidate preserves the incoming face height and retains aluminum from the original billet under the existing 10 mm-wide land centerlines at Y−66 and +42 mm. The underside rises 3 mm over 114 mm, a 1.51° slope. Rearward relief clears the rest of the shelf.
 
+**[Open the editable Fusion candidate](cam-lands.f3d)**. Four native extrudes machine the aluminum insert and two cut the polymer face. Both components share the `camLaneWidth` parameter. The reopened archive matches the independently reopened STEP volumes. The geometry comparison uses Open Cascade to repeat the same booleans against both cap positions, two dock sectors and hundreds of motion samples. The actual student features were authored in Fusion. [Native reopen receipt](fusion.json)
+
 With an aluminum density cap of 2,850 kg/m³, the additional 15,623 mm³ costs 44.53 g. The polymer cut removes 295 mm³. Ignoring that removal leaves about 125 g of the booked 170 g inspection margin. The candidate has the same two absorbers, fasteners and stow adjustments. Surface friction, cartridge lateral reaction, finishing tolerance and damping still matter to a built mechanism. [Machined STEP](cam-lands.step) · [Mass, actual cap floor and unchanged upper face](cam.json) · [R4 inspection receipt](../mass-closure/README.md)
 
 ## Reproduce the checks
