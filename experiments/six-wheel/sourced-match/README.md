@@ -1,9 +1,9 @@
 # Can the two station-fed pipes still score?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 [Scrub the source-to-target timeline](replay.html) to see where each pipe is at a given TELEOP time and try alternate stock, partner and spin conditions. The nominal simulation retains the nine-point opportunity. The first pipe stays supported at 32.06 s, the second at 82.15 s, and the robot parks at 94.02 s. Both stay in the trough through the 138 s assessment. Three points for LEAVE, four for the two TELEOP trough placements, and two for PARK depend on the assumed robot, partners, source and controls. The official points field is empty. [Full-field map and staging](../full-match/README.md) · [Edition-specific scoring observations](../scoring/README.md)

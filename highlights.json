@@ -2,11 +2,11 @@
   "schema": "agent-frc/robot-highlights@1",
   "title": "2025 REEFSCAPE robot",
   "role": "Drive from the starting area to the coral station, align the receiver and hold position through the first feed. Explore the chassis and see where the prebuild simulation evidence stops.",
-  "revision": "Four-module swerve · station opening study",
+  "revision": "R3 · fixed-height receiver · stowed, red alliance",
   "cad": {
     "receipt": "docs/robot/cad/receipt.json",
-    "title": "Swerve frame and module mounts",
-    "scope": "Project-designed structural solids exported from CAD. The open frame shows where each module mounts. The student Fusion assembly also includes the supplier geometry.",
+    "title": "Full swerve robot · stowed, red alliance",
+    "scope": "Rotate the complete stowed R3 layout to find four swerve corners, the receiver, electronics and red bumpers. The public STEP has 959 solids across 22 appearance groups. Project-drawn shapes represent commercial components. See the current Fusion handoff for the separate native archive and its verification status.",
     "shareable": true
   },
   "sources": [
@@ -24,9 +24,9 @@
     },
     {
       "id": "fusion",
-      "label": "Open the student Fusion handoff",
-      "revision": "Swerve chassis",
-      "url": "https://github.com/ehartye/frc-2025-poc/blob/3568f4fa8f8803c6d5019b59de5e4e867bb3c174/cad/FUSION.md"
+      "label": "Current student Fusion handoff",
+      "revision": "Latest project archive and reopen status",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/main/cad/FUSION.md"
     },
     {
       "id": "film",
@@ -35,6 +35,18 @@
       "file": "experiments/swerve-drive/motion/opening.webm",
       "sha256": "5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c",
       "shareable": true
+    },
+    {
+      "id": "mass",
+      "label": "Reviewed inspection mass and wire-length cases",
+      "revision": "Matched four-module drawing and rear electronics repair",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/5a6c2e76425fd752b1c94b92d20c5dc3bf4b0bca/experiments/swerve-drive/mass-closure/recipe.json"
+    },
+    {
+      "id": "assembly",
+      "label": "R3 model, colors and part representations",
+      "revision": "Stowed red R3 · STEP 0f96394e6c",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/19427026eb6f08a7af668e5d42ade542c091d1da/cad/full-swerve-r3/design.md"
     }
   ],
   "results": [
@@ -51,13 +63,30 @@
       "conditions": "Both simulated approach signs reached the in-band receiver state at 22.912 s. Two solver step sizes reproduced it.",
       "limit": "The simulation ends at the station. Loaded departure, delivery and a scored piece still need evidence.",
       "source": "feed"
+    },
+    {
+      "basis": "modeled",
+      "claim": "The selected drawing leaves 170 g under the inspection limit",
+      "conditions": "The matched 944-item bill puts the upper estimate at 51.993 kg, against a 52.163 kg limit. The calculation uses the machined shelf, the repaired rear electronics and the specified cable cuts.",
+      "limit": "Uniform 1 m supply cuts put the same estimate 4.9 g over. The opening trials used separate 65 kg and 72 kg operating hypotheses. Final inspection weight has not been measured.",
+      "source": "mass"
     }
   ],
   "build": [
     {
       "subsystem": "Drivetrain",
-      "configuration": "Four swerve modules on a 564 mm wheelbase and 554 mm track. Each wheel steers and rolls independently. The handoff identifies the supplier model revision and links the editable mounting saddle.",
+      "configuration": "Four independently steered wheels sit on a 564 mm wheelbase and 554 mm track. In the public STEP, the four wheel representations point forward to show the layout. The student Fusion model uses the individual supplier fork orientations. The R2 chassis was reopened with all four modules. Independent verification of the combined R3 Fusion archive is pending at publication.",
       "source": "fusion"
+    },
+    {
+      "subsystem": "Fixed-height receiver",
+      "configuration": "The shelf and guide arms sit above the four independently steered wheels. The public view shows the receiver stowed and both red bumper covers installed.",
+      "source": "fusion"
+    },
+    {
+      "subsystem": "Removable bumpers",
+      "configuration": "Both red covers wrap around the perimeter. Their two-piece construction preserves access to the corner modules. The color registry identifies the cover shade as #D71920.",
+      "source": "assembly"
     }
   ],
   "media": [

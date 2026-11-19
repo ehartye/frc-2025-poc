@@ -1,9 +1,9 @@
 # Can the receiving shelf absorb the station drop?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 A lighter shelf and two small adjustable shock absorbers give the incoming pipe somewhere to transfer energy. The original shelf bends and springs back under the modeled arrival. In the coupled model this lifts the pipe out of the powered belt's narrow working height. Both opposing approaches lose it. A stiffer aluminum insert alone also fails both. The two-absorber prototype uses a replaceable shelf and drilled bridge. It keeps the original receiving height and puts a separate plunge stop under each side of the landing line. The cartridge setting, running clearance, joint loads and remaining inspection margin require a fixture and a weighed installation before the team can rely on this configuration for match scoring. [Original contact study](../shelf-contact/README.md) · [Three-part machining STEP](stow-receiver.step) · [Issued dimensions](installed.json)

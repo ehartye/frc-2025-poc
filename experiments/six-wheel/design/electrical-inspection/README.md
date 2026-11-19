@@ -1,9 +1,9 @@
 # Whole-robot electrical and inspection review
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Open the [33-body stowed electrical and pneumatic CAD layer](stowed.step), or regenerate all four poses with the commands below. The proposed competition configuration uses one 12 V battery, two propulsion motors and four mechanism motors. The two-trip electrical replay covers every positive-duration event in the project's registered TELEOP clock. At a conservative 67 kg and reduced turn acceleration, the slower route draws **86.68 A peak** and maintains **9.71 V** at the lowest modeled device terminal. The weakest assumed pack violates the rail requirement. The gravity-loaded pawl remains the critical physical qualification. [Rail results](power.json) · [Pawl calculation](pawl.json) · [Historical rules and manufacturer references](SOURCES.md)

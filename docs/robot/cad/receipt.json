@@ -1,28 +1,189 @@
 {
-  "schema": "agent-frc/cad-still@1",
-  "source": "experiments/swerve-drive/packaging/swerve-frame.step",
-  "sourceSha256": "f8b75f2df484cd807695c2dfd82e50d2655e6778613be0043b32553e58c23e9e",
-  "imageSha256": "06809f012ae860bd3341ff63a7dc634d628111689dee41335274bf2df73c321b",
-  "meshSha256": "c61f4f6f85849a320d55a7b8f1bd5a2d02a11833260a61d766b2933863b2ab7f",
-  "solids": 79,
-  "triangles": 107520,
+  "schema": "agent-frc/cad-still@2",
+  "source": "cad/full-swerve-r3/full-robot.step",
+  "sourceSha256": "0f96394e6c990732d3be2f5c1d9691a51faa928a5d2eb986c50f2b941f0d5a31",
+  "imageSha256": "4333a059ea3d69c551d996ad23e08bc7dff9cd3af99da82427758b47491babba",
+  "meshSha256": "389fe877f03759a56742aca8bdbcd22ff34ec4c067f2088fe5c7dff7fef06628",
+  "solids": 959,
+  "triangles": 582310,
   "units": "mm",
   "nativeBounds": [
-    -350.0,
-    350.0,
-    -350.0,
-    350.0,
-    49.99999999997868,
-    154.0
+    -425.0,
+    425.0,
+    -425.0,
+    425.0,
+    0.0,
+    1043.7227439380001
   ],
   "meshBounds": [
-    -350.0,
-    350.0,
-    -350.0,
-    350.0,
-    50.0,
-    154.0
+    -425.0,
+    425.0,
+    -425.0,
+    425.0,
+    0.0,
+    1043.72265625
   ],
   "chordMm": 0.18,
-  "angleRad": 0.18
+  "angleRad": 0.18,
+  "appearances": {
+    "file": "cad/full-swerve-r3/appearances.json",
+    "sha256": "0eb130b5e351061681c23ebab15565476b51aa5335b83e7aeb00064b70a8a47a",
+    "paletteSha256": "ca34ae9e10415a7dc203058781915303f8ba308f5b240bcdd2f59ca7f8e7d9d8",
+    "groups": [
+      {
+        "role": "fastener",
+        "color": "#A6ACB0",
+        "solids": 291,
+        "triangles": 137212,
+        "facetsSha256": "570377f129a98f5e5b9037a2906d26ed1fb42f3a17d50a04a9e2e641cba54156"
+      },
+      {
+        "role": "plate",
+        "color": "#9EAFBB",
+        "solids": 44,
+        "triangles": 39656,
+        "facetsSha256": "d3b00404ba95bf2aa4ce3d0e90ed0893afbf85c10196d6e0edda1599938b3388"
+      },
+      {
+        "role": "drive",
+        "color": "#445971",
+        "solids": 16,
+        "triangles": 2304,
+        "facetsSha256": "fcb5ebc0555a1d7fb38c9120a679f2030dc61847f4be94138e9ce866a0977853"
+      },
+      {
+        "role": "wheel",
+        "color": "#28343B",
+        "solids": 6,
+        "triangles": 1336,
+        "facetsSha256": "cac69480006770b425f0a9a4ad6947243f101e337d83ddfb7170e2a355b34e45"
+      },
+      {
+        "role": "electrical",
+        "color": "#537798",
+        "solids": 154,
+        "triangles": 64316,
+        "facetsSha256": "20d5cba177bea80d96d350e9def22755bfc70c45778ba0c3b089347a126405f1"
+      },
+      {
+        "role": "lift-drive",
+        "color": "#D47D3D",
+        "solids": 42,
+        "triangles": 48592,
+        "facetsSha256": "66d2b98953378a92e02dbab04521a6641ae2c1c001ddf3cf927de2ffaf33364b"
+      },
+      {
+        "role": "bearing",
+        "color": "#D7B067",
+        "solids": 18,
+        "triangles": 10080,
+        "facetsSha256": "8b6160f95a04008fe1d0ea0c94d0ed647cf7097de1e0f59febd5179693f0f005"
+      },
+      {
+        "role": "frame",
+        "color": "#77899A",
+        "solids": 112,
+        "triangles": 69824,
+        "facetsSha256": "378dcc5af9b6afdb0a257b70dfd1a898b90b786c62e384b89b7d495be53dae84"
+      },
+      {
+        "role": "alloy",
+        "color": "#A3AEBB",
+        "solids": 24,
+        "triangles": 13632,
+        "facetsSha256": "0584dbd1062bbb75c2e19200110fafbac1645c137409f445054f8773f832d34d"
+      },
+      {
+        "role": "bumper-red",
+        "color": "#D71920",
+        "solids": 2,
+        "triangles": 152,
+        "facetsSha256": "18a886366c33251497168248d4ae3d2bd3426d09affede548ad49a8bc574aa69"
+      },
+      {
+        "role": "foam",
+        "color": "#E4E3D8",
+        "solids": 2,
+        "triangles": 4552,
+        "facetsSha256": "a26ecc55abc97137cfecfd44b3dba845a542a3910a0cbcd39b25fba1d03c74a8"
+      },
+      {
+        "role": "steel",
+        "color": "#647181",
+        "solids": 16,
+        "triangles": 8928,
+        "facetsSha256": "490e6277a27a3810a9fd65c6da68a58efe149dc94db000da4edb211f94d46db4"
+      },
+      {
+        "role": "slide",
+        "color": "#9E6EA7",
+        "solids": 12,
+        "triangles": 7388,
+        "facetsSha256": "654471e5294b0fa33d2ebf54b5bc9a1e7ebb89964a37712ad18f01c8178cdc5c"
+      },
+      {
+        "role": "compute",
+        "color": "#51938D",
+        "solids": 24,
+        "triangles": 15604,
+        "facetsSha256": "b680f6fc2e34d021d9832f11667f8d5d147495cfc4c9c3ddd1c1a293f1b538e1"
+      },
+      {
+        "role": "sensing",
+        "color": "#378985",
+        "solids": 45,
+        "triangles": 25668,
+        "facetsSha256": "aec1f586179f667055e33bb7589d5876bf6b75c4870bd7f32386cd582aec618b"
+      },
+      {
+        "role": "belt",
+        "color": "#277E77",
+        "solids": 2,
+        "triangles": 800,
+        "facetsSha256": "af964935b4afd767fbef84114430152b7a2af74e374fbcf62e3c88f69ab61373"
+      },
+      {
+        "role": "receiver",
+        "color": "#5C7E69",
+        "solids": 86,
+        "triangles": 25552,
+        "facetsSha256": "8f0de23b8518e9caac730796f2044499419198ef3a964e775d552f2c260572e8"
+      },
+      {
+        "role": "guide",
+        "color": "#B5C5D5",
+        "solids": 40,
+        "triangles": 54552,
+        "facetsSha256": "306659e0cb4b8c8fe7ec099de58e80bfafaca2adaad4eae8689a0f647497a7cf"
+      },
+      {
+        "role": "shaft",
+        "color": "#BCBDCA",
+        "solids": 2,
+        "triangles": 2792,
+        "facetsSha256": "efb243d94fb568f2263a9e47c9a6d06e1d8cb92e52f8577aa5dcb3be29189b19"
+      },
+      {
+        "role": "battery",
+        "color": "#2A323D",
+        "solids": 1,
+        "triangles": 12,
+        "facetsSha256": "18765a39539b469a992747f62d6374e6ee3f9a7cc8a041fb3e4fa37e865f868d"
+      },
+      {
+        "role": "shelf",
+        "color": "#E5AE4C",
+        "solids": 2,
+        "triangles": 34482,
+        "facetsSha256": "dfba93d9b6b4ef32e075ff9e0ee82da9374cd81caff10fc7bcc0c149238d7ada"
+      },
+      {
+        "role": "rack",
+        "color": "#99763C",
+        "solids": 18,
+        "triangles": 14876,
+        "facetsSha256": "c49dbf651c1a5433ca8fb1670da18579b9facb71de742425600cdb714b3d4ef2"
+      }
+    ]
+  }
 }

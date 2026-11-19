@@ -1,9 +1,9 @@
 # What happens to the spin from the station?
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 A pipe rolling out of the chute reaches **+29.69 rad/s**. The modeled belts and shelf can bring it to **−0.013 rad/s** at seating and **−0.318 rad/s** at reef contact. On the 545-body design a 0.90 m/s release-belt limit gives sustained modeled trough support at TELEOP **32.056 s and 82.145 s**. Both pipes remain through the three-second assessment. The two original human releases still fit the field program and the partner-cleared park finishes at **94.016 s**. Actual behavior depends on friction, preload, docking and the controller delivering the tested belt speeds. [Coupled cases](study.json) · [Wheelbase, parking and native contact checks](geometry.json)

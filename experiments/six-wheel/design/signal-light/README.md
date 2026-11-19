@@ -1,9 +1,9 @@
 # Signal light for the fixed-height robot
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../../docs/robot/cad/assembly.png)](../../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Select the **AndyMark am-3583 on the right edge of the front electronics deck** for the high parking and low receiving configurations. The old Ø22 × 39 mm cylinder above the left mast reserved too little space. Seating the actual lamp at that mast face puts its dome at Z 1,072.7 mm, **5.9 mm above** the 1,066.8 mm starting height. Its stem also runs into the mast and existing hanger bolts. [AndyMark product, STEP and drawing](https://andymark.com/products/robot-signal-light) · [Competition manual §8 V11, R101–105 and R709](https://firstfrc.blob.core.windows.net/frc2025/Manual/2025GameManual.pdf)

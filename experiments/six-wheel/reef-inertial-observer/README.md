@@ -1,9 +1,9 @@
 # Field approach with one visible fastener
 
 <!-- cad-still -->
-[![Four-module swerve frame and mounting hardware](../../../docs/robot/cad/assembly.png)](../../../docs/robot/cad/index.html)
+[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Four-module swerve frame and mounting hardware.** Original robot structure for the swerve candidate. The project-local Fusion assembly adds four manufacturer module occurrences. [Source STEP · f8b75f2df4](../../swerve-drive/packaging/swerve-frame.step) · [Rotate the model](../../../docs/robot/cad/index.html)
+**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The intact guide arm can stay on the robot. In two signed desktop wheel trials the existing fixed stereo camera and chassis gyro brought the stowed robot to sector A. The three-frame decision bounded the smaller-left-wheel robot within **8.02 mm and 0.697°** and the smaller-right-wheel robot within **6.81 mm and 0.572°**. The corresponding match clocks were 47.862 s and 47.792 s. Both robots stopped at 48.162 s. [Open the student replay](viewer.html) · [Controller receipts](results.json)
