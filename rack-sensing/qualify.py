@@ -1,6 +1,7 @@
 """Check the revised withdrawal against both finite pipe trials and the shared electrical load."""
 import argparse
 import csv
+from hashlib import sha256
 import json
 from pathlib import Path
 import sys
@@ -12,7 +13,7 @@ from electrical import screen
 import landing
 
 
-def run(images, output, jdk):
+def run(images, output, jdk, mass_source):
     results = read(output / "results.json")
     paths = results["hal"]["rackPaths"]
     if sha(output / "events.csv") != results["hal"]["events"]:
@@ -20,7 +21,8 @@ def run(images, output, jdk):
     t, _, arcs, labels, reference, _, _ = samples(images, "nominal")
     with (output / "events.csv").open() as stream:
         events = list(csv.DictReader(stream))
-    weights = read(ROOT / "selected-match/mass.json")["representedKg"]
+    mass_record = mass_source.read_bytes()
+    weights = json.loads(mass_record)["representedKg"]
     mass = weights[1] + 6.17 + 7.50  # operating battery and upper bumper allowance from the drive study
     bounds = {}
     for mode, pieces in results["cases"].items():
@@ -45,7 +47,7 @@ def run(images, output, jdk):
             packs[str(resistance)] = {k: electrical[k] for k in ("minTerminalV", "firstReferenceInhibitWallS", "limitingBranch")}
             packs[str(resistance)]["slide"] = electrical["branchBounds"]["Slide"]
         bounds[mode] = {"contacts": contacts, "power": packs}
-    receipt = {"r103HighKg": weights[1], "operatingHighWithoutPipeKg": mass, "massSource": sha(ROOT / "selected-match/mass.json"),
+    receipt = {"r103HighKg": weights[1], "operatingHighWithoutPipeKg": mass, "massSource": sha256(mass_record).hexdigest(),
                "hal": sha(output / "hal.json"), "cases": bounds}
     (output / "qualification.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf8", newline="\n")
 
@@ -54,5 +56,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for parameter in ("images", "output", "jdk"):
         parser.add_argument(parameter, type=Path)
+    parser.add_argument("--mass-source", type=Path, default=ROOT / "selected-match/mass.json")
     args = parser.parse_args()
-    run(args.images.resolve(), args.output.resolve(), args.jdk.resolve())
+    run(args.images.resolve(), args.output.resolve(), args.jdk.resolve(), args.mass_source.resolve())

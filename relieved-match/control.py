@@ -24,28 +24,29 @@ def replace(text,old,new):
     return text.replace(old,new)
 
 
-def inputs(cache,folder,output=HERE):
-    stations=read(HERE/"station-images.json")["cases"]
-    register=read(HERE/"camera-registration.json")
+def inputs(cache,folder,output=HERE,*,receipts=None):
+    receipts = HERE if receipts is None else Path(receipts)
+    stations=read(receipts/"station-images.json")["cases"]
+    register=read(receipts/"camera-registration.json")
     policy={}
     sources={}
-    with (HERE/"landing-windows.csv").open() as f:
+    with (receipts/"landing-windows.csv").open() as f:
         screening={x["case"]:x["outcome"] for x in csv.DictReader(f)}
     with (folder/"inputs.csv").open("w",newline="") as fin,(folder/"frames.csv").open("w",newline="") as moving,(folder/"exposures.csv").open("w",newline="") as flight:
         w,m,v=[csv.writer(file,lineterminator="\n") for file in (fin,moving,flight)]
         w.writerow(["kind","piece","clock","data"]);m.writerow(["piece","capture","arrival","status","bounds"]);v.writerow(["piece","head","capture","status","bounds"])
         for key,label in (("coral-A","first"),("coral-B","return")):
-            feed=read(HERE/(label+"-feed.json"))
+            feed=read(receipts/(label+"-feed.json"))
             case=feed["cases"][0]
-            path=read(HERE/(key+"-pads-edge-250.json"))
-            motion=read(HERE/(key+"-moving.json"))
+            path=read(receipts/(key+"-pads-edge-250.json"))
+            motion=read(receipts/(key+"-moving.json"))
             stamp=motion["releaseCameraMs"]
             # The lower contact timestamp is a modeled force-pad indication. Axis tilt, load
             # threshold, cover calibration and scan uncertainty are independent hardware inputs.
             readings={}
             for resolution in (250,500):
                 forces=cache/f"{key}-pads-edge-{resolution}-forces.csv"
-                registered=read(HERE/f"{key}-pads-edge-{resolution}.json")
+                registered=read(receipts/f"{key}-pads-edge-{resolution}.json")
                 if sha(forces)!=registered["padLoadSha256"]:raise ValueError("Changed pad loads")
                 raw=np.loadtxt(forces,delimiter=",",skiprows=1)
                 t=case["scheduledDriveCameraMs"]+1000*raw[:,0]
@@ -75,7 +76,7 @@ def inputs(cache,folder,output=HERE):
                         # integer-ms samples, keep the time-step interpolation conditional.
                         options=[]
                         for res in (250,500):
-                            release=read(HERE/f"{key}-pads-edge-{res}.json")["wallS"]
+                            release=read(receipts/f"{key}-pads-edge-{res}.json")["wallS"]
                             edge=1000*release-feed["epochWallUs"]/1000
                             offsets=range(math.floor(ts+15-edge),math.ceil(ts+19-edge)+1)
                             options.extend(screening.get(f"{key}/{res}/{d}") for d in offsets)
@@ -85,20 +86,20 @@ def inputs(cache,folder,output=HERE):
             for time,state,entry,seat,demand in case["portTicks"]:
                 w.writerow(["port",key,time,time,1,1,1,1,int(entry),int(seat),state])
             for tick,status,*b in stations[label+"-nominal"]["frames"]:w.writerow(["seat",key,tick,status,*(b or [0]*6)])
-    sources={p.name:sha(p) for p in (HERE/"camera-registration.json",HERE/"station-images.json",HERE/"landing-windows.csv",HERE/"first-feed.json",HERE/"return-feed.json",HERE/"probe-native.json",HERE/"hold-native.json")}
+    sources={p.name:sha(p) for p in (receipts/"camera-registration.json",receipts/"station-images.json",receipts/"landing-windows.csv",receipts/"first-feed.json",receipts/"return-feed.json",receipts/"probe-native.json",receipts/"hold-native.json")}
     for key in policy:
         for head in ("fixed","moving"):sources[key+"-"+head]=sha(cache/(key+"-"+head+".csv"))
     decision={"inputs":sources,"eligible":policy,"delayMs":15,"onsetReserveMs":40,"padThresholdMeasured":False,"qualification":"conditional synthetic pressure and image calibration"}
     policyfile=output/"controller-register.json"
     policyfile.write_text(json.dumps(decision,indent=2)+"\n",encoding="utf8",newline="\n")
-    regs=[sha(HERE/"station-images.json"),register["fixedPlaceSha256"],register["coMovingBackingSha256"],sha(policyfile)]
+    regs=[sha(receipts/"station-images.json"),register["fixedPlaceSha256"],register["coMovingBackingSha256"],sha(policyfile)]
     (folder/"registers.txt").write_text("\n".join(regs),encoding="ascii")
     return regs,policy
 
 
-def run(cache,jdk,gradle,*,output=HERE,source_cache=None,configure=None):
+def run(cache,jdk,gradle,*,output=HERE,source_cache=None,configure=None,source_receipts=None):
     with tempfile.TemporaryDirectory() as td:
-        folder=Path(td);registers,policy=inputs(source_cache or cache,folder,output)
+        folder=Path(td);registers,policy=inputs(source_cache or cache,folder,output,receipts=source_receipts)
         for name,place in (("MovingWitnessTest","moving-observer"),("PacketClockTest","moving-frame-timing"),("SlideFeedbackTest","slide-feedback"),("OpticalWindow","moving-frame-timing"),("PortAcquisition","observable-acquisition"),("CustodyEvidence","stereo-custody"),("Retreat","slide-feedback")):
             text=(ROOT/place/(name+".java")).read_text()
             if name=="PortAcquisition":text=port_program(True)

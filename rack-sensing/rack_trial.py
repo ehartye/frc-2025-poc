@@ -52,12 +52,20 @@ def configure(folder):
          'motor.step(volts,signal != null && signal.decoupled(),true);')])
 
 
-def run(images, output, jdk, gradle):
+def run(images, output, jdk, gradle, receipts=None, observation_register=None):
     output.mkdir(parents=True, exist_ok=True)
     # The parent collects all path CSVs in its output. Do not admit earlier trials.
     if any(output.glob("path-*.csv")):
         raise ValueError("Use a fresh output directory so the raw register contains only this run")
-    rack.control.run(output, jdk, gradle, output=output, source_cache=images, configure=configure)
+    if (receipts is None) != (observation_register is None):
+        raise ValueError("Supply both the optical receipts directory and its registered controller inputs")
+    expected_register = observation_register or ROOT / "relieved-match/controller-register.json"
+    expected_hash = rack.control.sha(expected_register)
+    rack.control.run(output, jdk, gradle, output=output, source_cache=images, configure=configure,
+                     source_receipts=receipts)
+    reg_hash = rack.control.sha(output / "controller-register.json")
+    if reg_hash != expected_hash:
+        raise ValueError("Optical frames or pressure inputs differ from the issued controller register")
     with (output / "events.csv").open() as stream:
         events = list(csv.DictReader(stream))
     cases = {}
@@ -79,7 +87,7 @@ def run(images, output, jdk, gradle):
     for piece, case in cases["nominal"].items():
         if case["traceSha256"] != source["cases"]["nominal"][piece]["rawSHA256"]:
             raise ValueError("Original shop trial did not reproduce")
-    receipt = {"sourceShop": rack.control.sha(ROOT / "selected-drive/rack.json"),
+    receipt = {"sourceShop": rack.control.sha(ROOT / "selected-drive/rack.json"), "observationRegisterSha256": reg_hash,
                "hal": rack.control.read(output / "hal.json"), "cases": cases}
     (output / "results.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf8", newline="\n")
     return cases
@@ -89,7 +97,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("images", "output", "jdk", "gradle"):
         parser.add_argument(name, type=Path)
+    parser.add_argument("--receipts", type=Path)
+    parser.add_argument("--observation-register", type=Path)
     args = parser.parse_args()
-    cases = run(args.images.resolve(), args.output.resolve(), args.jdk.resolve(), args.gradle.resolve())
+    cases = run(args.images.resolve(), args.output.resolve(), args.jdk.resolve(), args.gradle.resolve(),
+                args.receipts, args.observation_register)
     for mode, pieces in cases.items():
         print(mode, [(p, r.get("motion"), r.get("stow"), r.get("hold"), r.get("maxRackTravelMm")) for p, r in pieces.items()])

@@ -26,6 +26,13 @@ class RackSensingTest(unittest.TestCase):
             self.assertEqual(self.result["hal"]["programs"][name], hashlib.sha256((AREA / name).read_bytes()).hexdigest())
         self.assertEqual(self.result["sourceShop"], hashlib.sha256((ROOT / "selected-drive/rack.json").read_bytes()).hexdigest())
 
+    def test_shop_optics_and_mass_are_the_registered_inputs(self):
+        optics = ROOT / "selected-optics"
+        register = hashlib.sha256((optics / "controller-register.json").read_bytes()).hexdigest()
+        self.assertEqual(self.result["observationRegisterSha256"], register)
+        self.assertEqual(self.result["hal"]["registration"], json.loads((optics / "hal.json").read_bytes())["registration"])
+        self.assertEqual(self.qualified["massSource"], hashlib.sha256((optics / "mass.json").read_bytes()).hexdigest())
+
     def test_calibration_and_stroke_on_both_trips(self):
         for mode in ("ramp90", "ramp94", "ramp98", "ramp-reverse94", "ramp-adverse90",
                      "ramp-adverse94", "ramp-adverse98", "ramp-phase-adverse90", "ramp-phase-adverse98"):
