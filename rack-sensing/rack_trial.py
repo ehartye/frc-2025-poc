@@ -2,6 +2,7 @@
 import argparse
 import csv
 import json
+import math
 from pathlib import Path
 import shutil
 import sys
@@ -21,7 +22,7 @@ MODES = ("nominal", "cal90", "cal94", "cal98", "reverse94", "legacy-slip94", "sl
          "ramp-phase-slip94", "ramp-reverse-adverse94")
 
 
-def configure(folder):
+def configure(folder, moving_extra_kg=None):
     rack.configure(folder)
     for name in ("CalibratedRack", "RackSignalTrial", "RackCalibrationCheck"):
         shutil.copy(HERE / (name + ".java"), folder)
@@ -51,8 +52,16 @@ def configure(folder):
         ('motor.step(volts,mode.equals("rackJam") && piece.equals("coral-B"),true);',
          'motor.step(volts,signal != null && signal.decoupled(),true);')])
 
+    if moving_extra_kg is not None:
+        if not math.isfinite(moving_extra_kg) or moving_extra_kg < 0:
+            raise ValueError("Moving-mass increment must be finite and nonnegative")
+        rewrite(folder, "IntegratedTest", [
+            ('motor.extraMass=scenario.equals("base")?0:scenario.equals("extra50g")?1.25:1.20;',
+             f'motor.extraMass={moving_extra_kg!r};')
+        ])
 
-def run(images, output, jdk, gradle, receipts=None, observation_register=None):
+
+def run(images, output, jdk, gradle, receipts=None, observation_register=None, moving_extra_kg=None):
     output.mkdir(parents=True, exist_ok=True)
     # The parent collects all path CSVs in its output. Do not admit earlier trials.
     if any(output.glob("path-*.csv")):
@@ -61,7 +70,7 @@ def run(images, output, jdk, gradle, receipts=None, observation_register=None):
         raise ValueError("Supply both the optical receipts directory and its registered controller inputs")
     expected_register = observation_register or ROOT / "relieved-match/controller-register.json"
     expected_hash = rack.control.sha(expected_register)
-    rack.control.run(output, jdk, gradle, output=output, source_cache=images, configure=configure,
+    rack.control.run(output, jdk, gradle, output=output, source_cache=images, configure=lambda folder: configure(folder,moving_extra_kg),
                      source_receipts=receipts)
     reg_hash = rack.control.sha(output / "controller-register.json")
     if reg_hash != expected_hash:
@@ -85,10 +94,12 @@ def run(images, output, jdk, gradle, receipts=None, observation_register=None):
             cases[mode][piece] = case
     source = rack.control.read(ROOT / "selected-drive/rack.json")
     for piece, case in cases["nominal"].items():
-        if case["traceSha256"] != source["cases"]["nominal"][piece]["rawSHA256"]:
+        if moving_extra_kg is None and case["traceSha256"] != source["cases"]["nominal"][piece]["rawSHA256"]:
             raise ValueError("Original shop trial did not reproduce")
     receipt = {"sourceShop": rack.control.sha(ROOT / "selected-drive/rack.json"), "observationRegisterSha256": reg_hash,
                "hal": rack.control.read(output / "hal.json"), "cases": cases}
+    if moving_extra_kg is not None:
+        receipt["movingExtraKg"] = moving_extra_kg
     (output / "results.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf8", newline="\n")
     return cases
 
