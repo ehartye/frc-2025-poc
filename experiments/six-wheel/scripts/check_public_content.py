@@ -19,7 +19,7 @@ def findings(data):
  return [name for name,p in PATTERNS.items() if re.search(p,text)]
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args])
 def committed_files(commit):
- records = git('ls-tree', '-rz', commit).split(b'\0')
+ records = git('ls-tree', '--full-tree', '-rz', commit).split(b'\0')
  with subprocess.Popen(
      ['git', '-C', str(ROOT), 'cat-file', '--batch'],
      stdin=subprocess.PIPE, stdout=subprocess.PIPE,

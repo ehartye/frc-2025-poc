@@ -80,7 +80,7 @@ class WinchlessMassBill(unittest.TestCase):
                 )
                 self.assertEqual(
                     r["fixedGyro"]["cameraSource"],
-                    sha(ROOT / "station-landmark/README.md"),
+                    sha(ROOT / "station-landmark/camera-source.md"),
                 )
                 self.assertFalse(r["fixedGyro"]["kickstarterProvidesGyro"])
                 self.assertEqual(

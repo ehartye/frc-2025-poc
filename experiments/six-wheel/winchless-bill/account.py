@@ -224,7 +224,7 @@ def apply(plugin, src, dest):
             "article": "OAK-D Lite fixed focus",
             "productionOption": "integrated BMI270",
             "additionalMassKg": 0.0,
-            "cameraSource": sha(ROOT / "station-landmark/README.md"),
+            "cameraSource": sha(ROOT / "station-landmark/camera-source.md"),
             "straightApproachRateModel": sha(ROOT / "reef-inertial-observer/rate.py"),
             "unitConfirmed": False,
             "kickstarterProvidesGyro": False,
