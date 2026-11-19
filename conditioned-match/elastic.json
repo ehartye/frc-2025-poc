@@ -1,0 +1,1726 @@
+{
+  "reproductionSourceSha256": {
+    "coupled.py": "7fa63f5607b0dc557441361aefaf2f7dc86af912e42a645bb24ae17185d62944",
+    "response.py": "074ef69d087947de562109b5637764a13c3577b23991cfbd87c973b22ef35b1a",
+    "tray.py": "9e943660bf7ca6cd724225156a24c13ba97ae31163869ef650c218f900649608",
+    "installed.py": "9349ce76e6eb2a3dfe754984676bb54a1deb17e1cd42ccbb7a842b157e578e5f",
+    "damper_fit.py": "7238099e69ed207d316a2fbea95c4ab307e392ff5c2f2c07755bc5ac89de8a95"
+  },
+  "groupHashes": {
+    "main": "6f5a611358dc47b0a69e15adc9215424a16e116b844c47b0a869efe1be597213",
+    "installed": "1e1952f478340dbece33c966b75b1cad9565910d4e60afde2bbee0620d4f230d",
+    "machined": "96d073fbbc32b0649e2f8760c1ea9bf19b017aec0eda461b14263d005b6d23ff"
+  },
+  "openingPoseByCase": {
+    "leftSmall": [
+      -3.079408191434433,
+      0.25154233693423295,
+      0.024306005679765822
+    ],
+    "rightSmall": [
+      -3.0377424866564775,
+      -0.5686245626112604,
+      -0.021117621553692505
+    ]
+  },
+  "cases": [
+    {
+      "id": "leftSmall-stock-400000-4-62.5-1500-32-0.02",
+      "case": "leftSmall",
+      "hardware": "stock",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1500,
+      "modes": 17,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 0.0,
+      "damperDemandJ": [
+        0.0,
+        0.0
+      ],
+      "damperYmm": [
+        -66.0,
+        66.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": null,
+      "damperStrokeMm": [
+        0.0,
+        0.0
+      ],
+      "damperInputMps": [
+        0.0,
+        0.0
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        0.6960003329681275,
+        0.7432084924819047,
+        0.7188772454047171
+      ],
+      "peakLocalCompressionMm": 2.8628227578140266,
+      "peakSurfaceNormalN": 1986.350431816772,
+      "peakBendingAtLoadedStationsMm": 4.253768329278342,
+      "probePeakDownMm": [
+        5.69688311706169,
+        5.296526139061143,
+        4.769496711783635
+      ],
+      "probePeakUpMm": [
+        4.130925508381324,
+        3.9258124794954683,
+        3.3806595733166263
+      ],
+      "peakLoadedSlope": 0.04996728741838126,
+      "hardwareStop": null,
+      "loss": "outside-flat-shelf",
+      "peakCartridgeMm": 0.35620824758184066,
+      "lastState": "BRAKE",
+      "fault": "",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 620,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "a4dbb72c9f336ee2130e763d164662aa6012db0fca17b715378f2b40a22cf842"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-62.5-1500-32-0.02",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1500,
+      "modes": 8,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 0.0,
+      "damperDemandJ": [
+        0.0,
+        0.0
+      ],
+      "damperYmm": [
+        -66.0,
+        66.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": null,
+      "damperStrokeMm": [
+        0.0,
+        0.0
+      ],
+      "damperInputMps": [
+        0.0,
+        0.0
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        0.6916639490014836,
+        0.6927640833856857,
+        0.7155005649820967
+      ],
+      "peakLocalCompressionMm": 2.3831195696922496,
+      "peakSurfaceNormalN": 2253.4168415018894,
+      "peakBendingAtLoadedStationsMm": 2.5925323091881225,
+      "probePeakDownMm": [
+        2.6124087204037467,
+        2.541689160444699,
+        2.6246919212325177
+      ],
+      "probePeakUpMm": [
+        1.7333115455275996,
+        1.635240903152672,
+        1.323824890362238
+      ],
+      "peakLoadedSlope": 0.023196664953175673,
+      "hardwareStop": [
+        0.37462500000000487,
+        1,
+        3.1721938461350963
+      ],
+      "loss": null,
+      "peakCartridgeMm": 3.1721938461350963,
+      "lastState": "BRAKE",
+      "fault": "",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 480,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "4bfe3c263a9726eb2396f2ec3554b7e889ad5ae619787302bb9040bf984f2e77"
+    },
+    {
+      "id": "rightSmall-stock-400000-4-62.5-1500-32-0.02",
+      "case": "rightSmall",
+      "hardware": "stock",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1500,
+      "modes": 17,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 0.0,
+      "damperDemandJ": [
+        0.0,
+        0.0
+      ],
+      "damperYmm": [
+        -66.0,
+        66.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": null,
+      "damperStrokeMm": [
+        0.0,
+        0.0
+      ],
+      "damperInputMps": [
+        0.0,
+        0.0
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        0.7063417500667857,
+        0.726890092313956,
+        0.6750839949762957
+      ],
+      "peakLocalCompressionMm": 2.8670170139066165,
+      "peakSurfaceNormalN": 1959.8033512533489,
+      "peakBendingAtLoadedStationsMm": 4.278513007774737,
+      "probePeakDownMm": [
+        5.69215090491276,
+        5.292911091358407,
+        4.765203090542083
+      ],
+      "probePeakUpMm": [
+        4.1285083076577775,
+        3.922766674724254,
+        3.377546352363783
+      ],
+      "peakLoadedSlope": 0.04996281391112689,
+      "hardwareStop": null,
+      "loss": "outside-flat-shelf",
+      "peakCartridgeMm": 0.5176883464192705,
+      "lastState": "BRAKE",
+      "fault": "",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 600,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "6a5a20834f938d51f238b961593d509fe186e8ec8498827c472f7602ec8145cb"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-62.5-1500-32-0.02",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1500,
+      "modes": 8,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 0.0,
+      "damperDemandJ": [
+        0.0,
+        0.0
+      ],
+      "damperYmm": [
+        -66.0,
+        66.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": null,
+      "damperStrokeMm": [
+        0.0,
+        0.0
+      ],
+      "damperInputMps": [
+        0.0,
+        0.0
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        0.7209837938220789,
+        0.6745402250257007,
+        0.6530013015479466
+      ],
+      "peakLocalCompressionMm": 2.4026069723761605,
+      "peakSurfaceNormalN": 2252.8654116366342,
+      "peakBendingAtLoadedStationsMm": 2.590979596981355,
+      "probePeakDownMm": [
+        2.609299426746338,
+        2.539095997875842,
+        2.621508010962187
+      ],
+      "probePeakUpMm": [
+        1.7323456485310724,
+        1.6347088795800142,
+        1.3230434492230718
+      ],
+      "peakLoadedSlope": 0.023491686694722066,
+      "hardwareStop": null,
+      "loss": "outside-flat-shelf",
+      "peakCartridgeMm": 0.6742937132116766,
+      "lastState": "BRAKE",
+      "fault": "",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 540,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "c2dbdb9460812bef5ae561834834179dba88b50af0393dcf2cdf69e5037f843e"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.36807075170569664,
+        0.47353079990881214
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": "d3e542cd5edd01bc958da82f88d0f429ea366fa139ccca5588d23833e9845f73",
+      "damperStrokeMm": [
+        0.5834273221646153,
+        0.6987601106206037
+      ],
+      "damperInputMps": [
+        0.6639255879351877,
+        0.9114438191673231
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0930709333284785,
+        1.0128712122917383,
+        1.0647719591788118
+      ],
+      "peakLocalCompressionMm": 1.7640622462813644,
+      "peakSurfaceNormalN": 2570.5543969081004,
+      "peakBendingAtLoadedStationsMm": 0.7091185302891905,
+      "probePeakDownMm": [
+        0.7091060500312129,
+        0.6831788167049958,
+        0.7604204369947231
+      ],
+      "probePeakUpMm": [
+        0.4928683282268378,
+        0.4742940510373687,
+        0.398917180620375
+      ],
+      "peakLoadedSlope": 0.007205557568574292,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.397742720824823,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          560,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          600,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "e0f4ac95cceaa104f1a6feb832dbb9e4be49da03dda7ccc8eb5252759e91c706"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0.1",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.45238456067050414,
+        0.5573352258181198
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "1508b42ec2aff7ac3309a5f5590a3d607d039471197d6141631fd1e430d42b65",
+      "damperStrokeMm": [
+        0.6744508703574522,
+        0.8165944314940344
+      ],
+      "damperInputMps": [
+        1.122337103328259,
+        1.2323960835321517
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0317416746105854,
+        0.9158152282967985,
+        1.004178515553171
+      ],
+      "peakLocalCompressionMm": 1.8652418870308531,
+      "peakSurfaceNormalN": 2215.0254758883134,
+      "peakBendingAtLoadedStationsMm": 0.9328453328259609,
+      "probePeakDownMm": [
+        0.9341141240436989,
+        0.8978322470912409,
+        1.0054352598855594
+      ],
+      "probePeakUpMm": [
+        0.6453043283132859,
+        0.6218740162441264,
+        0.5224580516973475
+      ],
+      "peakLoadedSlope": 0.009262093283869377,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.43524624667165557,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          620,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "432e59c818caab95e0e284dceb42d119910eac8d991f171d20d83ff6a7d2fac8"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0.2",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.460581541330302,
+        0.5592268648422358
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.2,
+      "damperHistorySha256": "8cb5fb3ff2999807516a70e9fb3d071e83631710ba3b94d059f11bf0993cfead",
+      "damperStrokeMm": [
+        0.6502359286173789,
+        0.8030630999998353
+      ],
+      "damperInputMps": [
+        1.3356564168604332,
+        1.4482240486324793
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0054874385395998,
+        0.8753569415117513,
+        0.979453626586288
+      ],
+      "peakLocalCompressionMm": 1.9022259096258747,
+      "peakSurfaceNormalN": 2215.0254758883134,
+      "peakBendingAtLoadedStationsMm": 1.0221753459717748,
+      "probePeakDownMm": [
+        1.024017454459156,
+        0.9811279953946216,
+        1.1022818526406066
+      ],
+      "probePeakUpMm": [
+        0.7054206268800436,
+        0.6801143269606836,
+        0.5713798020037316
+      ],
+      "peakLoadedSlope": 0.010060035464445073,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.452275177088568,
+      "lastState": "FAULT",
+      "fault": "incoming-edges-unresolved",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 1020,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          1020,
+          "FAULT",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "c48894c02a39e8539386c7ce21536eba4007381e3aa4258f7a7f6061491e6477"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.36047235855723636,
+        0.47523129488840055
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.0,
+      "damperHistorySha256": "e1b1d298c3806562838614b45d18fc295b9ecb32d8b4985c34a83139d9e4a721",
+      "damperStrokeMm": [
+        0.5715218375504099,
+        0.7034161429443365
+      ],
+      "damperInputMps": [
+        0.6459121393136712,
+        0.9231735436037051
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.1322386149371575,
+        0.9933574342103,
+        0.9858497195812804
+      ],
+      "peakLocalCompressionMm": 1.7516704951143278,
+      "peakSurfaceNormalN": 2575.7212906063687,
+      "peakBendingAtLoadedStationsMm": 0.7106733183853605,
+      "probePeakDownMm": [
+        0.707706784203458,
+        0.683967322227393,
+        0.7602458742285196
+      ],
+      "probePeakUpMm": [
+        0.4910848504845319,
+        0.4723442601926232,
+        0.39660045988213766
+      ],
+      "peakLoadedSlope": 0.007261518776601503,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.3812562975901157,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          560,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          600,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "9661d3033977d9541b9cb6747c9d4d9101aca283db289385c1ebaa03d65cbad6"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0.1",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.43869221427818167,
+        0.553834953008909
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "73ea98ed91fc6dc34c6c3b6c7e88430139b52c5b72ee2a690cd92ffcc4bbde50",
+      "damperStrokeMm": [
+        0.6399580305798603,
+        0.8011186201114615
+      ],
+      "damperInputMps": [
+        1.0563725891777593,
+        1.1692002631556584
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0813840002682138,
+        0.9066096171844382,
+        0.9287284792531825
+      ],
+      "peakLocalCompressionMm": 1.8490791277113046,
+      "peakSurfaceNormalN": 2212.7182016026445,
+      "peakBendingAtLoadedStationsMm": 0.912162708148391,
+      "probePeakDownMm": [
+        0.9097771053950073,
+        0.876444940541101,
+        0.9806043617115129
+      ],
+      "probePeakUpMm": [
+        0.630139344853499,
+        0.6072490141930187,
+        0.5109703147836797
+      ],
+      "peakLoadedSlope": 0.009204406589158382,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.41048466861778876,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          620,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "f7c15dd25a7c1c25a21d2491afa6cee16365ad7f01d0edf988b0d8821ee24791"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-62.5-1800-32-0.02-oil-1500-y-66_42-gap0.2",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 1800,
+      "modes": 9,
+      "lineStations": 32,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.42202059400637143,
+        0.5891743621952354
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.2,
+      "damperHistorySha256": "88187903aef5629793f627ca0d8165df5984100e26eb222d3e1fd36ed0027094",
+      "damperStrokeMm": [
+        0.6579565248804297,
+        0.8272082927258969
+      ],
+      "damperInputMps": [
+        1.421987087633717,
+        1.442228116187747
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.036775237673579,
+        0.8465833571437222,
+        0.8931813977648001
+      ],
+      "peakLocalCompressionMm": 1.900168883339372,
+      "peakSurfaceNormalN": 2212.7182016026445,
+      "peakBendingAtLoadedStationsMm": 1.0435926284673323,
+      "probePeakDownMm": [
+        1.0438121363678965,
+        1.0030042532143308,
+        1.1257597610773205
+      ],
+      "probePeakUpMm": [
+        0.7202466286545661,
+        0.6945265419188784,
+        0.5841733161158822
+      ],
+      "peakLoadedSlope": 0.010315587117820147,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.44475257225795595,
+      "lastState": "FAULT",
+      "fault": "incoming-edges-unresolved",
+      "firstBandJavaMs": null,
+      "lastJavaMs": 1020,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          1020,
+          "FAULT",
+          false,
+          false,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "bc75dbd5831ef4b00d2854a0bdad2dabb26c64997b1291f1c7f1d437acdd5060"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-62.5-2300-48-0.02-oil-1500-y-66_42-gap0.1-machined",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 2300,
+      "modes": 13,
+      "lineStations": 48,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.4538308489356763,
+        0.5541742351552926
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "f46151833888234c1a63a7d1aa4210be2a87ed437c7ff401cf641172133be965",
+      "supportHistorySha256": "14bda4b59cdc32117c467efb8b366de30335d842235a338c5ed23d74963f63e2",
+      "damperStrokeMm": [
+        0.6729404160488822,
+        0.8113203188534002
+      ],
+      "damperInputMps": [
+        1.1090093255807236,
+        1.2288940277264853
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0305839653079878,
+        0.9157976741758154,
+        1.0072992560270637
+      ],
+      "flushWitnessMaximumInsideTubeWallMm": [
+        0.24315874273822535,
+        0.12793307464192827,
+        0.21973378330509413
+      ],
+      "machinedTray": true,
+      "peakLocalCompressionMm": 1.868469587964902,
+      "peakSurfaceNormalN": 2219.0676181199765,
+      "peakBendingAtLoadedStationsMm": 0.931888349609032,
+      "probePeakDownMm": [
+        0.9328211728543807,
+        0.8943156571119817,
+        1.0044011864878901
+      ],
+      "probePeakUpMm": [
+        0.6488654293698437,
+        0.6256717313569272,
+        0.5272156819236248
+      ],
+      "peakLoadedSlope": 0.009397928919695837,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.4348754980122438,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          620,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "eb3247c2bc0899cccf84f3de39e61fbdc679a442b3b5e2b609928020d8d9655c"
+    },
+    {
+      "id": "leftSmall-insert-400000-4-31.25-2300-48-0.02-oil-1500-y-66_42-gap0.1-machined",
+      "case": "leftSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 3.125e-05,
+      "modeCutoffHz": 2300,
+      "modes": 13,
+      "lineStations": 48,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.42566542782120453,
+        0.5242611915153046
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "d4ca72a4012272c79a6e0262be9add18dbcb22066e6d0f667430ab5bd879cdac",
+      "supportHistorySha256": "4990d5a785d0e0a8d336148d60a8cded1c277fa5386bbe06bcc0b79a282fc802",
+      "damperStrokeMm": [
+        0.6324909513189678,
+        0.7632721669624485
+      ],
+      "damperInputMps": [
+        0.9625489717735842,
+        1.0702354426246212
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.0698109492640329,
+        0.9643255717758439,
+        1.0446263480193703
+      ],
+      "flushWitnessMaximumInsideTubeWallMm": [
+        0.2822516391343746,
+        0.17633716820857764,
+        0.25693122657334533
+      ],
+      "machinedTray": true,
+      "peakLocalCompressionMm": 1.8728762225896414,
+      "peakSurfaceNormalN": 2134.959097114511,
+      "peakBendingAtLoadedStationsMm": 0.8821095319275363,
+      "probePeakDownMm": [
+        0.883881813693513,
+        0.8510598028494775,
+        0.9525923537965084
+      ],
+      "probePeakUpMm": [
+        0.610740494467125,
+        0.5882870556561941,
+        0.49400118187512854
+      ],
+      "peakLoadedSlope": 0.00889940234467751,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.42632069949596896,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          600,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.079408191434433,
+        0.25154233693423295,
+        0.024306005679765822
+      ],
+      "trajectorySha256": "154a05ac7dde457de7bd9008f88f747312c9b5b00a3ca0361f7bc8c65ddc0b8b"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-62.5-2300-48-0.02-oil-1500-y-66_42-gap0.1-machined",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 6.25e-05,
+      "modeCutoffHz": 2300,
+      "modes": 13,
+      "lineStations": 48,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.4416832043328278,
+        0.5471352699243938
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "4994fe6caa668ba0e209995fc27e9a37f20931174e3672d9796aebd679f3f097",
+      "supportHistorySha256": "1e4076fe11083edd89ee9c0ad84617a3200941ae0af99b2a099eb9ffaed44c70",
+      "damperStrokeMm": [
+        0.6387638631595065,
+        0.7964430839087212
+      ],
+      "damperInputMps": [
+        1.0473709574627084,
+        1.2379639184341402
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.081078047503535,
+        0.9059126693257911,
+        0.9301577984217047
+      ],
+      "flushWitnessMaximumInsideTubeWallMm": [
+        0.29321960362287125,
+        0.11811056959821348,
+        0.14339827663930466
+      ],
+      "machinedTray": true,
+      "peakLocalCompressionMm": 1.8532919431933976,
+      "peakSurfaceNormalN": 2218.3474549689945,
+      "peakBendingAtLoadedStationsMm": 0.9100265631984731,
+      "probePeakDownMm": [
+        0.9083034376593795,
+        0.8725145208538345,
+        0.9789822904844208
+      ],
+      "probePeakUpMm": [
+        0.6344471394751853,
+        0.611855398330381,
+        0.5166269858389315
+      ],
+      "peakLoadedSlope": 0.009410112096356227,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.4099260813476835,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          600,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "19bf09be1a63fca9fc96c3c4b22e5a709fafe624da4deb2254b093e182d2d11e"
+    },
+    {
+      "id": "rightSmall-insert-400000-4-31.25-2300-48-0.02-oil-1500-y-66_42-gap0.1-machined",
+      "case": "rightSmall",
+      "hardware": "insert",
+      "localStiffnessNPerM": 400000,
+      "localDissipationSPerM": 4,
+      "stepS": 3.125e-05,
+      "modeCutoffHz": 2300,
+      "modes": 13,
+      "lineStations": 48,
+      "modalDampingRatio": 0.02,
+      "additionalSeatStiffnessNPerM": 0.0,
+      "extraSeatCount": 0,
+      "stowDamperSlopeNsPerM": 1500.0,
+      "damperDemandJ": [
+        0.40847585284383786,
+        0.5337407062562567
+      ],
+      "damperYmm": [
+        -66.0,
+        42.0
+      ],
+      "runningGapMm": 0.1,
+      "damperHistorySha256": "8c1713be7550af468b6aa7e6a96b48432e9ea859c75b7c9a2330bc566abd4cf4",
+      "supportHistorySha256": "7c182b09f639d4fe6fbc69e0fe4a1a843b51275e16531b4328a441916d43c8de",
+      "damperStrokeMm": [
+        0.6206861832285124,
+        0.7678514045880998
+      ],
+      "damperInputMps": [
+        1.025220407292807,
+        1.0661260431708388
+      ],
+      "tailWitnessMaximumInsideTubeWallMm": [
+        1.1079051690039838,
+        0.9449242079937054,
+        0.9645956965702376
+      ],
+      "flushWitnessMaximumInsideTubeWallMm": [
+        0.32007250197538945,
+        0.15724237036637834,
+        0.17771025499605658
+      ],
+      "machinedTray": true,
+      "peakLocalCompressionMm": 1.8629798981043537,
+      "peakSurfaceNormalN": 2145.0106609379163,
+      "peakBendingAtLoadedStationsMm": 0.8823672333173628,
+      "probePeakDownMm": [
+        0.8830972392766935,
+        0.852349555469386,
+        0.9533846702571117
+      ],
+      "probePeakUpMm": [
+        0.6111908337008296,
+        0.5887891839014702,
+        0.49509921369168897
+      ],
+      "peakLoadedSlope": 0.00903253259854287,
+      "hardwareStop": null,
+      "loss": null,
+      "peakCartridgeMm": 0.41005219624656863,
+      "lastState": "IN_BAND",
+      "fault": "",
+      "firstBandJavaMs": 1360,
+      "lastJavaMs": 5460,
+      "portTransitions": [
+        [
+          0,
+          "WAIT_ENTRY",
+          false,
+          false,
+          0.65
+        ],
+        [
+          320,
+          "BRAKE",
+          true,
+          false,
+          0.65
+        ],
+        [
+          340,
+          "BRAKE",
+          false,
+          false,
+          0.65
+        ],
+        [
+          480,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          500,
+          "BRAKE",
+          false,
+          true,
+          -0.14
+        ],
+        [
+          520,
+          "BRAKE",
+          false,
+          false,
+          0.0
+        ],
+        [
+          580,
+          "PROBE",
+          false,
+          false,
+          0.16
+        ],
+        [
+          600,
+          "PROBE",
+          false,
+          true,
+          0.16
+        ],
+        [
+          1120,
+          "DWELL",
+          true,
+          true,
+          0.0
+        ],
+        [
+          1360,
+          "IN_BAND",
+          true,
+          true,
+          0.0
+        ]
+      ],
+      "sourceRobotMmDeg": [
+        -3.0377424866564775,
+        -0.5686245626112604,
+        -0.021117621553692505
+      ],
+      "trajectorySha256": "cf01a7512533205d794adadf9332f3cf42fb32a27dcb8f933a1cd1985ead3305"
+    }
+  ]
+}
