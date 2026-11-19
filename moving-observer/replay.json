@@ -1,0 +1,118 @@
+{
+  "registration_sha256": "362d777f28695890e85c1ea70079999533f97ecae2d09cd52b3931ca22102269",
+  "cases": {
+    "coral-A": {
+      "first_ms": 1445,
+      "release_ms": 26437.5,
+      "counts": {
+        "inside": 1472
+      },
+      "failed_ms": [],
+      "maximum_truth_outside_inferred_bounds_mm": 0,
+      "aggregate_minmax_mm": [
+        [
+          64.89250646847711,
+          94.97855214768144
+        ],
+        [
+          -6.938075874002777,
+          6.938075874002777
+        ],
+        [
+          -9.960276843552947,
+          9.345585619012013
+        ]
+      ]
+    },
+    "coral-B": {
+      "first_ms": 1479,
+      "release_ms": 26145.0,
+      "counts": {
+        "inside": 1452
+      },
+      "failed_ms": [],
+      "maximum_truth_outside_inferred_bounds_mm": 0,
+      "aggregate_minmax_mm": [
+        [
+          64.89250646847711,
+          94.97855214768144
+        ],
+        [
+          -6.938075874002777,
+          6.938075874002777
+        ],
+        [
+          -10.022164586521171,
+          9.40604096274103
+        ]
+      ]
+    }
+  },
+  "counterexamples": {
+    "seated": {
+      "status": "inside",
+      "x_mm": [
+        76.17134269018298,
+        83.65876460893433
+      ],
+      "y_mm": [
+        -5.9781806753185265,
+        5.9781806753185265
+      ],
+      "bottom_mm": [
+        -9.244172737777603,
+        7.256902228463218
+      ]
+    },
+    "lost-forward": {
+      "status": "unbacked-crown"
+    },
+    "lost-low": {
+      "status": "outside",
+      "x_mm": [
+        76.30383223441483,
+        84.02213052321717
+      ],
+      "y_mm": [
+        -6.729362660796255,
+        6.729362660796255
+      ],
+      "bottom_mm": [
+        -43.70514505429969,
+        -24.1908292904227
+      ]
+    },
+    "laterally-shifted": {
+      "status": "unbacked-end-arc"
+    },
+    "yaw-exceeded": {
+      "status": "unqualified-axis"
+    },
+    "empty": {
+      "status": "missing-crown"
+    },
+    "one-camera": {
+      "status": "missing-crown"
+    },
+    "three-pixel": {
+      "status": "outside",
+      "x_mm": [
+        74.88427043272289,
+        84.9197806545557
+      ],
+      "y_mm": [
+        -9.83405617133991,
+        9.83405617133991
+      ],
+      "bottom_mm": [
+        -15.877338730711017,
+        13.061191290858119
+      ]
+    },
+    "flat-matched-rectangle": {
+      "status": "unresolved-end-curvature"
+    }
+  },
+  "frame_sha256": "89951c1554c2c181dd2163086bd29c2ae7a3b2f058d650a7f482bd28ebd9999f",
+  "primary_sha256": "de59084725ce1c6478a22919327cdde9e2af8aa8011f4cdeb9d298c010a8b648"
+}
