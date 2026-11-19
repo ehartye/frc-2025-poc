@@ -32,6 +32,7 @@ class Case:
     slice_y: float=0.
     station_yaw: float=0.
     sector: float=-.18
+    target_standoff: float=3.510
     target_error: float=0.
     mu: float=.55
     damping: float=.38
@@ -59,7 +60,7 @@ class Case:
     center: float=.085
     hold: float=1.2
     withdraw: float=.15
-    dt: float=.0005
+    dt: float=.00025
     finite_drive: bool=True
     ratio: float=(68/13)*(84/29)
     drive_current: float=8.
@@ -90,7 +91,7 @@ def run(c,trace=False):
     x=.444525-xx+c.normal+c.slice_y*math.tan(angle)
     z=zz+(r-.05715)*math.cos(math.radians(35))
     vx=-lip["velocity_x_mps"]*math.cos(angle);vz=lip["velocity_z_mps"];w=a["spin"]
-    origin=3+.370-3.49+c.target_error
+    origin=3+.370-c.target_standoff+c.target_error
     target=mission.TARGET
     gate_at=3.5+c.gate_delay
     release_at=3.5
@@ -98,6 +99,7 @@ def run(c,trace=False):
     times={};peak={};sample=[];outcome="time-limit";seat=0.;dwell=0.;seated=None
     grounded=0.;lost_support=False;side_margin=1.;last_robot=None;first_touch=None;observed=None
     max_motor=0.;peak_amps=0.;peak_voltage=0.;max_drive_error=0.;max_drive_speed=0.;floor_clear=None;had_separation=False
+    gate_normal=0.;hood_during_close=0.
     for i in range(round(8/dt)):
         t=i*dt
         fl=smooth((t-gate_at)/c.gate_duration)
@@ -163,6 +165,8 @@ def run(c,trace=False):
             slip=vx*nz-vz*nx+w*r-sv
             shear=-mu*normal*max(-1.,min(1.,slip/.022))
             fx+=normal*nx+shear*nz;fz+=normal*nz-shear*nx;tau+=r*shear
+            if name=="belt" and gate_at<=t<=gate_at+c.gate_duration+c.lag:gate_normal=max(gate_normal,normal)
+            if name=="hood" and c.close_time<=t<=c.close_time+c.close_duration:hood_during_close=max(hood_during_close,normal)
             hits.add(name);peak[name]=max(peak.get(name,0),normal)
             if name in ("belt","hood"):
                 max_motor=max(max_motor,abs(shear))
@@ -211,6 +215,6 @@ def run(c,trace=False):
         x+=dt*vx;z+=dt*vz
         if abs(t-3.4)<dt/2:observed=[x,z,vx,vz,w]
     return {"outcome":outcome,"firstContactS":first_touch,"seatedS":seated,"eventsS":times,"endS":t,
-            "preRelease":observed,"peakNormalN":peak,"peakSingleSurfaceTractionN":max_motor,"peakDrivePhaseA":peak_amps,"peakTerminalV":peak_voltage,"peakDriveSpeedMps":max_drive_speed,"maxTrackingErrorMps":max_drive_error,
+            "preRelease":observed,"peakNormalN":peak,"openingBeltNormalN":gate_normal,"closingUpperNormalN":hood_during_close,"peakSingleSurfaceTractionN":max_motor,"peakDrivePhaseA":peak_amps,"peakTerminalV":peak_voltage,"peakDriveSpeedMps":max_drive_speed,"maxTrackingErrorMps":max_drive_error,
             "incompleteNipDuringCarryS":grounded,"oneSidedSupport":lost_support,
             "terminal":[x,z,vx,vz,w],"trace":sample}

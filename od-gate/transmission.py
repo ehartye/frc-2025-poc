@@ -59,12 +59,12 @@ def register(p,put,m):
     # Proposed 900 mm fixed-center belt, 420 mm centers, 20-tooth ends.
     for sign in (-1,1):
         base(f"gate-pulley-{sign}",m.ann(38,210*sign+4,497,"z",r-1.24,4.05,9))
-        base(f"gate-pulley-axle-{sign}",m.rod(38,210*sign+4,489,m.AZ,4,66 if sign==1 else 22),"steel")
-    base("gate-drive-spur",m.ann(38,214,550,"z",17.95,4.05,5))
-    base("gate-motor-spur",m.ann(38,250,550,"z",17.95,3.05,5))
-    base("gate-output",m.rod(38,250,549,m.AZ,3,10),"steel")
-    base("gate-UP5",m.box(19,231,559,38,38,33),"gearbox")
-    base("gate-NEO550",m.rod(38,250,592,m.AZ,17.5,44.5),"motor")
+        base(f"gate-pulley-axle-{sign}",m.rod(38,210*sign+4,489,m.AZ,4,27 if sign==1 else 22),"steel")
+    base("gate-drive-spur",m.ann(38,214,511,"z",17.95,4.05,5))
+    base("gate-motor-spur",m.ann(38,250,511,"z",17.95,3.05,5))
+    base("gate-output",m.rod(38,250,510,m.AZ,3,10),"steel")
+    base("gate-UP3-UP4",m.box(19,231,520,38,38,43),"gearbox")
+    base("gate-NEO550",m.rod(38,250,563,m.AZ,17.5,44.5),"motor")
     for lr,s in (("L",1),("R",-1)):
         y=s*85
         sx=38+s*r
@@ -78,4 +78,32 @@ def register(p,put,m):
         base("gate-open-switch-"+lr,m.box(48,s*210-3,483,7,6,6),"sensor")
         put("gate-travel-flag-"+lr,lr,"Al",m.box(50,min(s*85,s*98)-1,490,4,15,3))
         base("gate-closed-switch-"+lr,m.box(48,s*98-3,483,7,6,6),"sensor")
+    # Motor plates are bolted to a triangulated frame behind the padded backstop.
+    def strut(key,first,last,neighbours,r=3.6):
+        shape=m.beam(first,last,r)
+        for name in neighbours:shape=m.subtract(shape,p[name][2])
+        from OCP.TopAbs import TopAbs_SOLID
+        from OCP.TopExp import TopExp_Explorer
+        children=TopExp_Explorer(shape,TopAbs_SOLID);parts=[]
+        while children.More():
+            parts.append(children.Current());children.Next()
+        # Discard the saw-cut end beyond the mating face.
+        base(key,max(parts,key=lambda solid:m.cad.volume(solid)[0]))
+    strut("common-motor-stay",(jx,-10,jz-17),(-92,-30,489),["common-drive-mount","common-drive-UP3-UP5","rack-bridge--91"])
+    hood_plate=m.subtract(m.box(phx-20,153.5,694,40,3,40),m.rod(phx,152,714,m.AY,7,7))
+    base("hood-motor-plate",hood_plate)
+    strut("hood-motor-stay",(phx,155,696),(-94,151,489),["hood-motor-plate","hood-position-UP5-UP5","rack-bridge--91"])
+    gplate=m.subtract(m.box(17,229,516.5,42,42,3.5),m.rod(38,250,516,m.AZ,6,5))
+    base("gate-motor-plate",gplate)
+    strut("gate-motor-stay",(58,251,519),(71,225,504),["gate-motor-plate","gate-UP3-UP4","guide-68-1","guide-support-68-225"])
+    for lr,sign in (("L",1),("R",-1)):
+        # Brackets/flags are physically linked to their guidances. Long supply harnesses are a weighed allowance.
+        for state,Y in (("open",210),("closed",98)):
+            strut(f"switch-bracket-{state}-{lr}",(54,sign*Y,487),(67,sign*Y,490),
+                  [f"gate-{state}-switch-"+lr,f"guide-rib-68-{sign}"],r=1.8)
+        key="gate-flag-link-"+lr
+        link=m.box(51,sign*85-1,493,3,2,7)
+        for nx in ("gate-link-"+lr,"gate-travel-flag-"+lr,"gate-clamp-"+lr):
+            link=m.subtract(link,p[nx][2])
+        put(key,lr,"Al",link)
     return jack

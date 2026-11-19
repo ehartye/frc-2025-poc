@@ -62,7 +62,11 @@ def retired(k):
 def base(stroke):
     model=assembly.pose_shapes(560,stroke,"red")
     edits,added=hardware(model,height=560)
-    return {k:v for k,v in (model|edits|added).items() if not retired(k)}
+    kit=ROOT/"design/signal-light/deck-mount.step"
+    light=cad.read_named(kit,[{"id":k} for k in ("front-electronics-platform","light-spacer")])
+    model.pop("rsl-reserve")
+    light["signal-light-installed-outer-reserve"]=box(116.54,-278.46,258.99,56.92,56.92,86.73)
+    return {k:v for k,v in (model|edits|added|light).items() if not retired(k)}
 
 @cache
 def local():
@@ -85,19 +89,27 @@ def local():
     for gx in (-10,68):
         for sign in (-1,1):
             y=sign*130
-            guide=rod(gx,min(sign*53,sign*225),499,AY,5,172)
+            guide=ann(gx,min(sign*53,sign*225),499,"y",5,3.25,172)
             common(f"guide-{gx}-{sign}",guide,"steel")
             common(f"guide-rib-{gx}-{sign}",box(gx-7,min(53*sign,225*sign)-5,489,14,182,2))
             for yy in (sign*53,sign*225):
                 mount=subtract(box(gx-7,yy-5,491,14,10,16),rod(gx,yy-6,499,AY,5.05,12))
                 common(f"guide-support-{gx}-{yy}",mount)
-    common("rear-drive-hex",hex_shaft(REAR,-205,Z0,12.7,410),"steel")
-    common("rear-bulkhead",box(-58,-160,Z+2,4,320,120),"poly")
+    common("rear-drive-hex",subtract(hex_shaft(REAR,-205,Z0,12.7,410),rod(REAR,-206,Z0,AY,4,412)),"Al")
+    common("rear-bulkhead",box(-80,-160,Z+2,4,320,120),"poly")
+    for side in (-1,1):
+        common(f"rear-impact-pad-{side}",box(-76,side*78-14,Z+2,22,28,120),"foam")
     for sign in (-1,1):
-        post=box(-102,sign*144-3,488.5,6,6,Z+94-488.5)
-        foot=box(-102,sign*144-3,488,14,6,4)
-        upper=box(-101,sign*144-3,Z+88,45,6,6)
+        post=box(-112,sign*144-3,488.5,6,6,Z+94-488.5)
+        foot=box(-112,sign*144-3,488,24,6,4)
+        upper=box(-111,sign*144-3,Z+88,33,6,6)
         common(f"bulkhead-stay-{sign}",fuse(fuse(post,foot),upper))
+    # Behind the contact skin, machine a central relief out of the back plate.
+    f,mat,wall=p["rear-bulkhead"]
+    for yy in (-110.,65.):
+        wall=subtract(wall,box(-81,yy,Z+75,6,45,34))
+    wall=subtract(wall,box(-82,-46,583,8,13,27))
+    p["rear-bulkhead"]=(f,mat,wall)
     # Two side cassettes ride four independent 10 mm linear bearings.
     for lr,s in (("L",1),("R",-1)):
         y=85*s
@@ -125,6 +137,12 @@ def local():
             moving("cheek-"+str(n),tilt(plate))
         strip=box(REAR+14,y-6,Z0+PR-4.15,223.5-28,12,3)
         moving("tooth-backing",tilt(strip),"poly")
+        for pinx in (REAR+50,REAR+150):
+            zz=Z0+PR-4.15-2.5
+            moving(f"shoe-pin-{int(pinx)}",tilt(rod(pinx,y-12,zz,AY,2.5,24)),"steel")
+            for n in (-1,1):
+                key=f"{lr}-cheek-{n}";f,mat,obj=p[key]
+                p[key]=(f,mat,subtract(obj,tilt(rod(pinx,y-13,zz,AY,2.55,26))))
         for gx in (-10,68):
             housing=subtract(box(gx-8,y-12,491,16,24,16),rod(gx,y-13,499,AY,5.1,26))
             moving("linear-bushing-"+str(gx),housing,"bearing")
@@ -133,22 +151,22 @@ def local():
     # Captively engaged opposite timing-belt spans separate the cassettes.
     common("gate-belt-loop",cad.translated(rotate(rd.loop(-210,210,-38,497,9.5493,9,"z"),(0,0,0),AZ,90),(0,4,0)),"rubber")
     # A pivot-to-head transmission with constant center distance follows the swinging hood.
-    common("hood-pivot-shaft",rod(-ARM*1000,-194,714,AY,5,388),"steel")
-    hood_y=0.
+    common("hood-pivot-shaft",ann(-ARM*1000,-194,714,"y",5,3.5,388),"steel")
     put("hood-hex-shaft","hood","Al",hex_shaft(0,-189,714,12.7,354))
     for lr,s in (("L",1),("R",-1)):
         y=s*78
-        put("hood-wheel-"+lr,"hood","rubber",ann(0,y-6.35,714,"y",38.1,18,12.7))
-        hub=subtract(rod(0,y-6.35,714,AY,18,12.7),hex_shaft(0,y-7,714,12.85,15))
+        put("hood-wheel-"+lr,"hood","rubber",ann(0,y-12.7,714,"y",38.1,18,25.4))
+        hub=subtract(rod(0,y-12.7,714,AY,18,25.4),hex_shaft(0,y-14,714,12.85,28))
         put("hood-hub-"+lr,"hood","Al",hub)
         yy=s*160
         arm=profile(-ARM*1000,0,yy-2,714,11,4)
         for x,r0 in ((-ARM*1000,5.1),(0,7.45)):arm=subtract(arm,rod(x,yy-3,714,AY,r0,6))
         put("hood-arm-"+lr,"hood","Al",arm)
-        common("hood-upright-"+lr,beam((-89,s*160,489),(-ARM*1000,s*168,704),5))
+        common("hood-foot-"+lr,box(-118,s*160-4,485,23,8,4))
+        common("hood-upright-"+lr,beam((-115,s*160,489),(-ARM*1000,s*168,704),5))
         common("hinge-bearing-"+lr,ann(-ARM*1000,s*168-2,714,"y",11,5.05,4))
         # Receiver-presence channels look down outside the wheel lanes.
-        put("optical-range-"+lr,"hood","sensor",box(-3,s*110-4,696,6,8,4))
+        put("optical-range-"+lr,"hood","sensor",box(-6.5,s*110-9,696,13,18,3))
     # Trim contact faces of welded structural members to the corresponding parent.
     for sign in (-1,1):
         key=f"bulkhead-stay-{sign}"
@@ -156,13 +174,13 @@ def local():
         p[key]=(f,mat,subtract(subtract(obj,p["rack-bridge--91"][2]),p["rear-bulkhead"][2]))
         lr="L" if sign==1 else "R"
         key="hood-upright-"+lr
-        f,mat,obj=p[key];p[key]=(f,mat,subtract(subtract(obj,p["rack-bridge--91"][2]),p["hinge-bearing-"+lr][2]))
+        f,mat,obj=p[key];p[key]=(f,mat,subtract(subtract(subtract(obj,p["rack-bridge--91"][2]),p["hood-foot-"+lr][2]),p["hinge-bearing-"+lr][2]))
         for gx in (-10,68):
             k=lr+"-bushing-stay-"+str(gx);f,mat,obj=p[k]
             p[k]=(f,mat,subtract(obj,p[lr+"-cheek-1"][2]))
     put("optical-crossbar","hood","Al",box(-61,-161,698,5,322,4))
     for lr,s in (("L",1),("R",-1)):
-        put("optical-probe-arm-"+lr,"hood","Al",box(-56,s*110-2,696,53,4,3))
+        put("optical-probe-arm-"+lr,"hood","Al",box(-56,s*110-2,696,49.5,4,3))
         put("optical-riser-"+lr,"hood","Al",box(-61,s*160-1.8,702,5,3.6,2.1))
     for lr,sgn in (("L",1),("R",-1)):
         k="optical-riser-"+lr;f,mat,obj=p[k];p[k]=(f,mat,subtract(obj,p["hood-arm-"+lr][2]))
@@ -190,7 +208,7 @@ def check():
     finalize_step(path);opened=cad.read_named(path,tags)
     if any(cad.solid_count(s)!=1 for s in opened.values()):raise ValueError("Split part")
     cases={}
-    for label,stroke,op,h in (("receive",0,0,40),("clamp",0,0,0),("place",370,0,0),("half",370,56,0),("open",370,112,0)):
+    for label,stroke,op,h in (("station",30,0,40),("receive",0,0,40),("clamp",0,0,0),("place",370,0,0),("half",370,56,0),("open",370,112,0)):
         robot=base(stroke)
         native=opened if label=="receive" else shapes(stroke,op,h)
         boxes={k:cad.bounds(v) for k,v in (robot|native).items()}

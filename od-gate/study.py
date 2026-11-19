@@ -16,12 +16,12 @@ FACTORS={"length":(.295275,.307975),"diameter":(.1128,.1158),"mass":(.499,.81646
          "inertia":(1e-6,7e-6),"travel":(.109,.115)}
 
 def cases():
-    base=Case()
+    base=Case(withdraw=0.)
     probes={"reference-A":{},"reference-B":{"sector":.18},"stationary-shelf":{"travel":0,"withdraw":0.},
             "gate-only-no-withdraw":{"withdraw":0.},"no-counterfeed":{"initial_surface":0.},"hood-fixed-low":{"hood_raise":0.},
             "hood-stuck-high":{"close_time":12.},"single-side-late":{"lag":1.},"gate-stalled":{"travel":0.},
             "low-traction":{"mu":.08},"early-gate":{"gate_delay":-.20},"reduced-power":{"drive_current":2.},
-            "finer":{"dt":.00025},"finest":{"dt":.000125},"near-lip":{"target_error":.055},
+            "coarser":{"dt":.0005},"finest":{"dt":.000125},"near-lip":{"target_error":.10},
             "long-offset":{"length":.307975,"normal":.010,"lateral":.010,"yaw":4.,"slice_y":.10,"lag":.025},
             "short-offset":{"length":.295275,"normal":-.010,"lateral":-.010,"yaw":-4.,"slice_y":-.10,"sector":.18}}
     result=[(n,replace(base,**kw)) for n,kw in probes.items()]
@@ -40,9 +40,10 @@ def one(item):
     end=abs(c.lateral)+half*math.cos(yaw)+r*abs(math.sin(yaw))
     open_gap=c.center+c.travel-c.belt_halfwidth-end
     chute_gap=.12199054775091216/2-r*math.cos(ya)-half*abs(math.sin(ya))
+    bilateral_on_time=c.gate_duration+c.gate_delay+c.lag<=.335 and c.travel>.100
     candidate=(result["seatedS"] is not None and result["seatedS"]<1.1 and result["incompleteNipDuringCarryS"]<.001
-               and result["outcome"]=="sustained-paired-target" and min(open_gap,chute_gap)>0)
-    return {"id":name,"parameters":asdict(c),"conditionalSequence":candidate,"openGateSideGapMm":1000*open_gap,
+               and result["outcome"]=="sustained-paired-target" and min(open_gap,chute_gap)>0 and bilateral_on_time)
+    return {"id":name,"parameters":asdict(c),"conditionalSequence":candidate,"bilateralCommandWindow":bilateral_on_time,"openGateSideGapMm":1000*open_gap,
             "sourceSlotHalfGapMm":1000*chute_gap,**result}
 
 if __name__=="__main__":

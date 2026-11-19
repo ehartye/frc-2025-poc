@@ -22,9 +22,7 @@ def review(c):
     bounds={k:{n:cad.bounds(s) for n,s in data.items()} for k,data in phase.items()}
     layer=local();boxes={k:cad.bounds(a[2]) for k,a in layer.items()}
     contacts=defaultdict(list);intended=defaultdict(float)
-    last_hit=None;first_clear=None;kept=0
-    times=[]
-    if state["firstContactS"]:times.append(state["firstContactS"])
+    last_hit=None;kept=0
     ts=state["eventsS"];end=ts.get("exit",3.8)
     for row in trace:
         t,x,z,vx,vz,spin,left,right,retract=row
@@ -52,24 +50,26 @@ def review(c):
             if not interior(brefs[f],boxes[k]):continue
             vol=cad.intersection(refs[f],obj)
             if vol<=.025:continue
-            if k in ("rear-bulkhead","L-segmented-tread","R-segmented-tread","hood-wheel-L","hood-wheel-R") and t<end:
+            if k in ("rear-impact-pad--1","rear-impact-pad-1","L-segmented-tread","R-segmented-tread","hood-wheel-L","hood-wheel-R") and t<end:
                 intended[k]=max(intended[k],vol)
             else:clashes.append((k,vol))
         if clashes:last_hit=t
         for k,v in clashes:contacts[k].append((t,v))
-    return {"outcome":state["outcome"],"geometricSurfaceExitS":ts.get("exit"),"samples":kept,
+    from departure import audit
+    gap=audit(c,trace,ts.get("exit"),phase[370],layer,boxes,tube)
+    return {"allBodyDeparture":gap,"outcome":state["outcome"],"geometricSurfaceExitS":ts.get("exit"),"samples":kept,
             "permittedContactPeakMm3":dict(intended),"lastUnexpectedSampleS":last_hit,
             "unexpected":{k:{"firstS":v[0][0],"lastS":v[-1][0],"peakMm3":max(d for _,d in v)} for k,v in contacts.items()}}
 
 def build(field):
     basecase=Case(withdraw=0.)
-    cases={"center-both-gates":basecase,"long-yawed":replace(basecase,lateral=.010,normal=.010,yaw=4.,length=.307975,lag=.025),
-           "short-yawed":replace(basecase,lateral=-.010,normal=-.010,yaw=-4.,length=.295275,sector=.18)}
+    cases={"center-both-gates":basecase,"long-yawed":replace(basecase,lateral=.010,normal=.010,yaw=4.,length=.307975,lag=.025,target_error=.015),
+           "short-yawed":replace(basecase,lateral=-.010,normal=-.010,yaw=-4.,length=.295275,sector=.18,target_error=-.015)}
     results={n:review(c) for n,c in cases.items()}
     station=parts(field);bb={k:cad.bounds(v) for k,v in station.items()}
     result=base(30)|shapes(30,height=40);rb={k:cad.bounds(v) for k,v in result.items()}
-    return {"fieldSha256":FIRST_SHA,"splitGateNativeSha256":sha(HERE/"split-gate.step"),"stationCount":len(station),
-            "addedDockBound":bounded_dock(rb,bb,40),"nativeDock":[native_dock(result,station,bb,n,a,y)
+    return {"fieldSha256":FIRST_SHA,"splitGateNativeSha256":sha(HERE/"split-gate.step"),"stationCount":len(station),"registeredRobotCount":len(result),
+            "wholeDockBound":bounded_dock(rb,bb,40),"nativeDock":[native_dock(result,station,bb,n,a,y)
                    for n,a,y in ((40,0,0),(30,-3,-10),(30,3,10),(0,3,10))],"pipe":results}
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("--field",type=Path,required=True);p.add_argument("--output",type=Path,required=True)
