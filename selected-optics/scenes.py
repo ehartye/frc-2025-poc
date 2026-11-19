@@ -110,7 +110,7 @@ def fixed_pose(origin):
     camera.DZ = -camera.S + camera.Q * camera.C
 
 
-def render(args):
+def render(args, select_poses=selected_poses):
     model = load_assembly(args.assembly)
     sys.path.insert(0, str(ROOT / "relieved-match"))
     from cameras import (
@@ -129,7 +129,7 @@ def render(args):
     manifest = json.loads((HERE / "mount.json").read_bytes())
     if digest(HERE / "fixed-datum.step") != manifest["stepSha256"]:
         raise ValueError("Changed locator STEP")
-    stowed, placed = selected_poses(model, args.artifacts, args.lamp)
+    stowed, placed = select_poses(model, args.artifacts, args.lamp)
     fixed_wire, moving_wire = model.wire_boxes()
     wire = {
         k: model.native_box(v)

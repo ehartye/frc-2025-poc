@@ -26,7 +26,7 @@ def mesh(objects):
     return out
 
 
-def run(args):
+def run(args, output=HERE):
     source = json.loads((args.scenes / "scenes.json").read_bytes())
     if sha(args.field) != source["sourceSha256"]["registered field STEP"]:
         raise ValueError("Unknown field")
@@ -145,7 +145,7 @@ def run(args):
                 "frames": measurements,
             }
         report[piece] = cases
-    (HERE / "roof-field.json").write_text(
+    (output / "roof-field.json").write_text(
         json.dumps({"fieldSha256": sha(args.field), "cases": report}, indent=2) + "\n",
         encoding="utf-8",
         newline="\n",

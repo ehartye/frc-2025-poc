@@ -10,7 +10,7 @@ import numpy as np
 from scenes import ROOT, HERE, load_assembly, selected_poses, store
 
 
-def run(args):
+def run(args, select_poses=selected_poses):
     model = load_assembly(args.assembly)
     sys.path.insert(0, str(ROOT / "relieved-match"))
     from cameras import box_near, camera, optics, receiver_drives
@@ -20,7 +20,7 @@ def run(args):
     scene = json.loads((args.out / "scenes.json").read_bytes())
     if digest(args.assembly) != scene["sourceSha256"]["selected-match/clearance.py"]:
         raise ValueError("Selected assembly builder changed after rendering")
-    stowed, placed = selected_poses(model, args.artifacts, args.lamp)
+    stowed, placed = select_poses(model, args.artifacts, args.lamp)
     fixed, slide = model.wire_boxes()
     a = {k: np.array(model.cad.bounds(v)) for k, v in stowed.items()}
     b = {k: np.array(model.cad.bounds(v)) for k, v in placed.items()}

@@ -35,11 +35,11 @@ def signature(data):
     return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
 
 
-def run(args):
+def run(args, output=HERE):
     inp = args.images
     scene = read(inp / "scenes.json")
     hashes = scene["backgroundSha256"]
-    field = read(HERE / "roof-field.json")
+    field = read(output / "roof-field.json")
     if field["fieldSha256"] != scene["sourceSha256"]["registered field STEP"]:
         raise ValueError("Roof and fixed observers used different fields")
     with tempfile.TemporaryDirectory() as temporary:
@@ -121,7 +121,7 @@ def run(args):
                 args.out,
                 args.jdk,
                 args.gradle,
-                output=HERE,
+                output=output,
                 source_cache=raw,
                 configure=recovery.configure,
             )
@@ -130,7 +130,7 @@ def run(args):
             target.mkdir(parents=True, exist_ok=True)
             for source in folder.iterdir():
                 shutil.copyfile(source, target / source.name)
-    with (HERE / "events.csv").open() as f:
+    with (output / "events.csv").open() as f:
         actual = list(csv.DictReader(f))
     with (ROOT / "packet-recovery/events.csv").open() as f:
         prior = list(csv.DictReader(f))
@@ -147,13 +147,13 @@ def run(args):
             ),
         }
     write(
-        HERE / "controller.json",
+        output / "controller.json",
         {
             "registeredImages": inputs,
-            "roofFieldCheckSha256": control.sha(HERE / "roof-field.json"),
+            "roofFieldCheckSha256": control.sha(output / "roof-field.json"),
             "sameEventsAsReference": actual == prior,
             "referenceEventsSha256": control.sha(ROOT / "packet-recovery/events.csv"),
-            "selectedEventsSha256": control.sha(HERE / "events.csv"),
+            "selectedEventsSha256": control.sha(output / "events.csv"),
             "cases": cases,
         },
     )
