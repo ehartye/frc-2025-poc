@@ -2,6 +2,24 @@
 
 [Open the interactive leave and park replay](replay.html). Red 2 begins empty on its starting tape. Its receiver stays stowed at the issued height throughout. This role uses only the drivetrain. A team deciding before the match can use it when the station, pipe capture or release observer is unavailable. Switching into it from an arbitrary mid-match pose would require a new route.
 
+## Stop five inches sooner
+
+In the replay, choose **Shorter straight AUTO** and toggle **Static cage bounds**. Red 2 starts at the same point in the reserved south lane and stops at field X 370 in. It travels 0.594 m in 1.407 s. Its bumper clears the starting tape by 117.93 mm and still overlaps the scoring zone at the end of the match.
+
+| Stowed route | Clearance to static STEP hardware | Clearance to planning exclusion | Minimum AUTO lateral gap to a red partner |
+|---|---:|---:|---:|
+| Original stop, X 365 in and Y 95.5625 in | 26.61 mm | 25.85 mm | 748.6 mm with slot reassignment |
+| Shorter stop, X 370 in and Y 95.5625 in | 113.41 mm | 25.85 mm | 748.6 mm with slot reassignment |
+| X 370 in and Y 105 in, partner keeps south slot | 105.99 mm | 0 mm | 166.0 mm |
+
+The program reopens all 545 bodies and encloses the straight, stowed motion in one prism. It traverses the official field assembly hierarchy and measures distances to the nearby hardware. A 350 mm search radius covers every part that could determine these minima. The limiting parts are cage members. The floor and two tape markings support the wheels. The STEP supplies static cage positions. The kickoff polygons reserve space for motion. [Native distances and geometry registration](native-park.json)
+
+With independent wheel-ground travel errors bounded by ±1%, an initial 5 mm position error and a 0.4° heading error, the shorter path consumes 37.76 mm of clearance. **75.65 mm remains** against the static hardware for cage displacement and other uncertainty. The conservative planning exclusion still allows only 25.85 mm. The partner-retained route has positive separations in the static geometry and six-robot model but enters that exclusion. Measure installed positions, tracking and cage motion before narrowing the reservation.
+
+Agent FRC 0.21.0 verifies the bumper event against the local hardware and one registered partner. Keeping Red 1 in its original south slot for the issued approach produces the same front-cover overlap at the finish. Both covers intersect the partner envelope at the start, so the checker rejects that route. Whole-field qualification retains its separate stock, partner and traffic checks. [Installed route decisions](body-route-review.json)
+
+Rebuild the measurements with `python leave-park/native_park.py FIELD_STEP`, then run `python leave-park/view_data.py`. To replay the project mappings, run `python leave-park/body_route.py PLUGIN_ROOT artifacts/park-route`. Supply the official field export matching the recorded digest. [FIRST field drawings](https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025FieldDrawings.pdf)
+
 ## Reserve the starting position before choosing the role
 
 **The straight AUTO is the supported five-point candidate.** Red 1 takes the middle slot. Red 2 starts directly in the south cage gap at Y 95.5625 in, drives 0.721 m toward the BARGE and holds that pose through the end of TELEOP. One straight segment takes 1.550 s. The robot clears its own starting tape and stays entirely on its own side of the field centerline. Its actual bumper covers overlap the BARGE ZONE at the finish. If Red 1 keeps its usual south slot, the two starting envelopes overlap by 73.7 mm. Assign both starts before attempting this version. G303 requires bumper overlap with the starting line and the other start conditions. G403 and G405 govern AUTO interactions. [Scoring and drivetrain receipt](study.json)
