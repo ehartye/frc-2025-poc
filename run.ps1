@@ -1,6 +1,7 @@
 param([Parameter(Mandatory=$true)][string]$JavaHome,[Parameter(Mandatory=$true)][string]$GradleHome,[string]$OutputDirectory)
 $ErrorActionPreference='Stop'
-$argsList=@((Join-Path $PSScriptRoot 'scripts/run.py'),'--java-home',$JavaHome,'--gradle-home',$GradleHome)
-if($OutputDirectory){$argsList+=@('--output',$OutputDirectory)}
-python @argsList
-if($LASTEXITCODE -ne 0){throw 'POC execution failed; diagnostics retained.'}
+if (!$OutputDirectory) {
+    $OutputDirectory=Join-Path $PSScriptRoot ('artifacts/' + [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffffffZ'))
+}
+& (Join-Path $PSScriptRoot 'experiments/six-wheel/run.ps1') -JavaHome $JavaHome -GradleHome $GradleHome -OutputDirectory $OutputDirectory
+
