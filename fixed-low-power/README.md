@@ -1,5 +1,7 @@
 # Can the fixed carriage finish its match on one battery?
 
+The [two-camera supply design](dual-camera.md) extends this single-camera baseline to the fixed-low robot with both optical heads, their wiring losses and the desktop controller's actual rack withdrawals.
+
 The 67 kg two-pipe trajectory to the 372 in parking stop has **10.50 V minimum at the weakest modeled device** on a 12.4 V source with 25 mΩ total pack and trunk resistance. Its 56.54 A peak occurs while carrying the second pipe. With an 11.8 V source and 32 mΩ, removing the unused compressor still leaves 2.54 s below the project's 9.5 V terminal floor. The model supports a lower-resistance source and an independently qualified camera supply. The issued observer continues to authorize zero L1 deliveries. [Fixed-low match](../fixed-height-match/README.md) · [Electrical results](results.json)
 
 ![Minimum device voltage and battery current over the fixed-low match, including the weak source and accepted comparison](match-power.svg)
