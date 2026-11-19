@@ -108,7 +108,7 @@ def assess(data, probe):
     if length[0]<=0:
         raise ValueError("Pipe length must be positive")
     err=data["pointErrorMm"]
-    bound=data["frameProjectionErrorMm"]
+    bound=data.get("frameProjectionErrorMm")
     if not number(err) or err<0 or (bound is not None and (not number(bound) or bound<0)):
         raise ValueError("Supply nonnegative uncertainties in mm or leave the frame allowance unknown")
     if data["linerPointsMm"].keys()!=probe["stations"].keys():

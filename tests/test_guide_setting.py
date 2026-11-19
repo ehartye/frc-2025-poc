@@ -78,6 +78,8 @@ class GuideSettingTests(unittest.TestCase):
         base = survey.example(self.probe, "nominal")
         missing = dict(base, frameProjectionErrorMm=None)
         self.assertIsNone(survey.assess(missing, self.probe)["minimumLowerOverlapMm"])
+        missing.pop("frameProjectionErrorMm")
+        self.assertIsNone(survey.assess(missing, self.probe)["minimumLowerOverlapMm"])
         with self.assertRaises(ValueError):
             survey.assess(dict(base, guideStepSha256="wrong"), self.probe)
         for failure in ("rank", "side", "residual", "station"):
