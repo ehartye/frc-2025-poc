@@ -1,0 +1,5897 @@
+{
+  "schema": "centered-digital-acquisition/1",
+  "source_sha256": {
+    "observable-acquisition/PortAcquisition.java": "606daf326e088c634f8d937706fb3553beb3a2b96df6a5c864a565def1fafef2",
+    "observable-acquisition/PortConsole.java": "6c63405e65191651fe242a1c48f09033b80502b6182a2d1b59bcc0fabe631591",
+    "observable-acquisition/study.py": "bd528292623730ff0f20d30a8be46eb673e43855ba554dd180e44d2b05d39593",
+    "observable-acquisition/ticks.csv": "f06b62562804c529ee316f138ae143f3407b422803ccff6c5d430605a1abf1f5",
+    "coupled-belt-clock/replay.py": "bfc900c052992bf22d2fd91df85a15158224c1cc3a8aeeaeb8990598b82b6bd8",
+    "axial-spin/pipe_axial_contact.py": "9de8a820819be0d6e19ddd625306065470fbf20ff682ee180d3378e071870f9d",
+    "axial-spin/pipe_spin_route.py": "4850c3a0650a54826e78d295d1108e14f7d3a260d06fa8eef076bbe8342e85e5",
+    "sourced-match/source-545.json": "25a342eec25913ea422a734e649c4b55f25b591c432a2350d17579877e617796",
+    "observable-acquisition/ports.json": "1c53a6264592b6ced24c6137cb7a29e6b47f940e6513dfe823c62f8cadd4077a",
+    "observable-acquisition/native_ports.py": "6ee7ed6e4e1604ddb3849edea616d7b87ac4669588086035e8ff4cb44b13a986",
+    "design/station-l1/mechanical.py": "34a32d31dbf54bfe9090e61f4531ce673f4eb1339151f0d21a996e1e3ae212e5",
+    "competition-controls/io-contract.json": "38cea8025cda857b28370ce421b2902c25be6a2bec92920fc0d9ac37cba6cf47",
+    "design/electrical-inspection/package.py": "a4ec78f5f2f9e5df79654fa984c4e626e0af821cb3f5d06e307b5cd2a8a753b0",
+    "design/electrical-inspection/circuits.json": "b80b0645be4aa34d39c91f4d98b59e7b2c6bec490a8f3786f398b76495e3b703"
+  },
+  "two_true_center_bound_mm": [
+    72.24604687505109,
+    87.69514446832102
+  ],
+  "cases": {
+    "nominal": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "stationary--5": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1260,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.99247357747875,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1500,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.99247357747875,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          53.01010673190797,
+          97.77342461903623
+        ],
+        "minimum_u_mm": -33.32311973347505,
+        "minimum_shelf_N": 2.516574574724202
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1260,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.15830242442912,
+          "speed_mps": 5.023461912690358e-54,
+          "spin_rad_s": -8.935140060498424e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1500,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.15830242442912,
+          "speed_mps": 2.1105114113110795e-108,
+          "spin_rad_s": -3.753928144998159e-107
+        },
+        "first_contact_ms_mm": [
+          53.04071807783137,
+          97.74608155706836
+        ],
+        "minimum_u_mm": -33.157383524961865,
+        "minimum_shelf_N": 2.516576950161191
+      }
+    },
+    "stationary-0": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1240,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.10230855476482,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1480,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.10230855476482,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.45340128088577,
+          103.3915506805927
+        ],
+        "minimum_u_mm": -30.047924412096677,
+        "minimum_shelf_N": 2.5164877868148707
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1240,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.274525918566,
+          "speed_mps": 5.023461912671944e-54,
+          "spin_rad_s": -8.935140060465664e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1480,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.274525918566,
+          "speed_mps": 2.1105114113033495e-108,
+          "spin_rad_s": -3.753928144984409e-107
+        },
+        "first_contact_ms_mm": [
+          52.48188163960734,
+          103.36620039744977
+        ],
+        "minimum_u_mm": -29.875830744096643,
+        "minimum_shelf_N": 2.5164842526186737
+      }
+    },
+    "stationary-5": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1220,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.99989764694537,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1460,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.99989764694537,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.94982097853398,
+          108.9357890730585
+        ],
+        "minimum_u_mm": -26.988895982742235,
+        "minimum_shelf_N": 2.5163993294653038
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1220,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.15144085863128,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1460,
+          "reason": "",
+          "active": true,
+          "u_mm": 77.15144085863128,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          51.97061840729734,
+          108.91805671756471
+        ],
+        "minimum_u_mm": -26.837655527509597,
+        "minimum_shelf_N": 2.5164010824175653
+      }
+    },
+    "phase-1": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1179,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.5946372747149,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1419,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.5946372747149,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103044
+        ],
+        "minimum_u_mm": -22.07632851223727,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1179,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.79295667404796,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1419,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.79295667404796,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.3229430657897,
+          104.13137411665483
+        ],
+        "minimum_u_mm": -21.87824182052229,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-2": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1178,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.52231947133754,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1418,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.52231947133754,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.1485531810303
+        ],
+        "minimum_u_mm": -22.148754660118637,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1178,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.72017609725276,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1418,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.72017609725276,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.951131384873488,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-3": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1177,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.45145883153172,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1417,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.45145883153172,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103031
+        ],
+        "minimum_u_mm": -22.219721414856288,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1177,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.64891341538652,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1417,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.64891341538652,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665492
+        ],
+        "minimum_u_mm": -22.022500765618112,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-4": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1176,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.38188664284488,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1416,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.38188664284488,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -22.28939775622444,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1176,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.57898220451038,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1416,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.57898220451038,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.3229430657897,
+          104.1313741166548
+        ],
+        "minimum_u_mm": -22.09253665451957,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-5": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1175,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.31348413826122,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1415,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.31348413826122,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -22.357902622676725,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1175,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.51022503022233,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1415,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.51022503022233,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -22.16139679196564,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-6": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1174,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.24595202386759,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1414,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.24595202386759,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103044
+        ],
+        "minimum_u_mm": -22.42553578532536,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1174,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.44249633889866,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1414,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.44249633889866,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -22.22922692299262,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-7": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1173,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.1794391882861,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1413,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.1794391882861,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -22.492148247999946,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1173,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.37566210722407,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1413,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.37566210722407,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -22.29616121674153,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-8": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1172,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.11365897335611,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1412,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.11365897335611,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -22.55802700349158,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1172,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.3096487264235,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1412,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.3096487264235,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -22.362273427452582,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-9": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1171,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.04845269955298,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1411,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.04845269955298,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.296474115093474,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -22.623330965288417,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1171,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.24431044684763,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1411,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.24431044684763,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -22.42770956551048,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-10": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1170,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.983951308983,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1410,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.983951308983,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103032
+        ],
+        "minimum_u_mm": -22.68792894624332,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1170,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.17957691072559,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1410,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.17957691072559,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -22.492540015899884,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-11": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1189,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.45719437952307,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1429,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.45719437952307,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.1485531810303
+        ],
+        "minimum_u_mm": -21.66270436174689,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1189,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.66489477446919,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1429,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.66489477446919,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.3229430657897,
+          104.1313741166548
+        ],
+        "minimum_u_mm": -21.4827566676496,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-12": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1188,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.35430005209567,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1428,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.35430005209567,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.1485531810303
+        ],
+        "minimum_u_mm": -21.665878860109654,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1188,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.56059139377709,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1428,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.56059139377709,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.48555578657352,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-13": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1187,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.25623060601045,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1427,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.25623060601045,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.670184790392348,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1187,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.46119474989882,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1427,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.46119474989882,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.489636277635654,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-14": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1186,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.16248577521912,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1426,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.16248577521912,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.676574599036094,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1186,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.36624670802674,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1426,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.36624670802674,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.3229430657897,
+          104.1313741166548
+        ],
+        "minimum_u_mm": -21.495373289838092,
+        "minimum_shelf_N": 3.375657099317725
+      }
+    },
+    "phase-15": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1185,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.07256177552239,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1425,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.07256177552239,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.685383202789847,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1185,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.27530683468034,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1425,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.27530683468034,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.3229430657897,
+          104.1313741166548
+        ],
+        "minimum_u_mm": -21.50341789345018,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-16": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1184,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.98618831570687,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1424,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.98618831570687,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509359,
+          104.1485531810303
+        ],
+        "minimum_u_mm": -21.697918519876207,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1184,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.18798839645535,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1424,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.18798839645535,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.51482730874595,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-17": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1183,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.90295383806323,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1423,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.90295383806323,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.767550296045606,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1183,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10390316915931,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1423,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10390316915931,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.56682971631343,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-18": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1182,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.82250442465471,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1422,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.82250442465471,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.8481201676583,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1182,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.02265486285238,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1422,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.02265486285238,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.64819967797344,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "phase-19": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1181,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.74453570803081,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1421,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.74453570803081,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.2964741150935,
+          104.14855318103041
+        ],
+        "minimum_u_mm": -21.926205631258867,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1181,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.94395521214157,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1421,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.94395521214157,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665491
+        ],
+        "minimum_u_mm": -21.727017168482114,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "depth--5-phase-0": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1200,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.59208165221517,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1440,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.59208165221517,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.70590664369485
+        ],
+        "minimum_u_mm": -25.238853969661722,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1200,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.78444431944017,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1440,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.78444431944017,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389899
+        ],
+        "minimum_u_mm": -25.04673291201338,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-1": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1199,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.5165297943741,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1439,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.5165297943741,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.70590664369485
+        ],
+        "minimum_u_mm": -25.314518950234607,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1199,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.70823455649617,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1439,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.70823455649617,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389899
+        ],
+        "minimum_u_mm": -25.12305678156154,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-2": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1198,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.4427579585469,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1438,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.4427579585469,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.70590664369469
+        ],
+        "minimum_u_mm": -25.388401301335655,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1198,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.63401400278434,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1438,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.63401400278434,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389898
+        ],
+        "minimum_u_mm": -25.19738848507056,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-3": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1197,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.37083677329805,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1437,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.37083677329805,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.7059066436947
+        ],
+        "minimum_u_mm": -25.46043019767715,
+        "minimum_shelf_N": 3.382015347993284
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1197,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.56155314649227,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1437,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.56155314649227,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -25.269957853031507,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-4": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1196,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.30026290207351,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1436,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.30026290207351,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -25.531109730256826,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1196,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.49063974608686,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1436,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.49063974608686,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -25.340977430993,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-5": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1195,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.23113452295951,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1435,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.23113452295951,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.70590664369482
+        ],
+        "minimum_u_mm": -25.600341573043597,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1195,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.42108201389443,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1435,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.42108201389443,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -25.410639281688084,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-6": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1194,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.16298969230205,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1434,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.16298969230205,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.7059066436947
+        ],
+        "minimum_u_mm": -25.668588360618244,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1194,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.3527123078181,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1434,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.3527123078181,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389896
+        ],
+        "minimum_u_mm": -25.479111369469805,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-7": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1193,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.09601197252557,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1433,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.09601197252557,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.70590664369482
+        ],
+        "minimum_u_mm": -25.735666358463757,
+        "minimum_shelf_N": 3.3820177772343003
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1193,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.28538052768744,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1433,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.28538052768744,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.6875419238991
+        ],
+        "minimum_u_mm": -25.546543996231982,
+        "minimum_shelf_N": 3.3826080571560686
+      }
+    },
+    "depth--5-phase-8": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1192,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.02992680005441,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1432,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.02992680005441,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.70590664369483
+        ],
+        "minimum_u_mm": -25.801850548126506,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1192,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.2189881865092,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1432,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.2189881865092,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389899
+        ],
+        "minimum_u_mm": -25.61303573357675,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-9": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1191,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.96450991041355,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1431,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.96450991041355,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -25.86736539571229,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1191,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.15337714519487,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1431,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.15337714519487,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -25.678745008796156,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-10": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1190,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.89986823424617,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1430,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.89986823424617,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -25.932103936223452,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1190,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.08847536639999,
+          "speed_mps": 5.023461912635114e-54,
+          "spin_rad_s": -8.935140060400154e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1430,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.08847536639999,
+          "speed_mps": 2.110511411287872e-108,
+          "spin_rad_s": -3.753928144956879e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389896
+        ],
+        "minimum_u_mm": -25.743743991877807,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-11": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1209,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.41308367240822,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1449,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.41308367240822,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -24.982944055900106,
+        "minimum_shelf_N": 3.382015347993284
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1209,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.6151815508512,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1449,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.6151815508512,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.81000365698417,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-12": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1208,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.3047112750206,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1448,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.3047112750206,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.70590664369469
+        ],
+        "minimum_u_mm": -24.984787873077217,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1208,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.50522291987093,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1448,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.50522291987093,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.811759956380783,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-13": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1207,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.2015972819669,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1447,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.2015972819669,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -24.987931637328387,
+        "minimum_shelf_N": 3.382015347993284
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1207,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.40069723338607,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1447,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.40069723338607,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.814487717457098,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-14": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1206,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10338564021043,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1446,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10338564021043,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.70590664369472
+        ],
+        "minimum_u_mm": -24.99221131457589,
+        "minimum_shelf_N": 3.382015347993284
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1206,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.30116219497924,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1446,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.30116219497924,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.818374755170407,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-15": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1205,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.00944020489298,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1445,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.00944020489298,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -24.998325266084773,
+        "minimum_shelf_N": 3.382015347993284
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1205,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.20613684926286,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1445,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.20613684926286,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389896
+        ],
+        "minimum_u_mm": -24.823931474470733,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-16": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1204,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.91960534200356,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1444,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.91960534200356,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -25.006658928427402,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1204,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.11521506904901,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1444,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.11521506904901,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.83169848185913,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth--5-phase-17": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1203,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.83335385385729,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1443,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.83335385385729,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795686,
+          98.7059066436948
+        ],
+        "minimum_u_mm": -25.01876965227679,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1203,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.02797868294316,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1443,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.02797868294316,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389896
+        ],
+        "minimum_u_mm": -24.842630810760458,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-18": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1202,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.75022087542199,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1442,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.75022087542199,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.70590664369469
+        ],
+        "minimum_u_mm": -25.080477957901554,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1202,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.94399515216467,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1442,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.94399515216467,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.84890901844429,
+          98.68754192389896
+        ],
+        "minimum_u_mm": -24.8869431740314,
+        "minimum_shelf_N": 3.3826060750050484
+      }
+    },
+    "depth--5-phase-19": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1201,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66988605942866,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1441,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66988605942866,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.82059297795695,
+          98.70590664369472
+        ],
+        "minimum_u_mm": -25.16093306325136,
+        "minimum_shelf_N": 3.382015347993285
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1201,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86292748944254,
+          "speed_mps": 5.02346191265353e-54,
+          "spin_rad_s": -8.93514006043292e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1441,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86292748944254,
+          "speed_mps": 2.1105114112956103e-108,
+          "spin_rad_s": -3.7539281449706454e-107
+        },
+        "first_contact_ms_mm": [
+          52.8489090184442,
+          98.68754192389909
+        ],
+        "minimum_u_mm": -24.968132226470384,
+        "minimum_shelf_N": 3.3826060750050475
+      }
+    },
+    "depth-5-phase-0": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1160,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.53234103994173,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1400,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.53234103994173,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882488,
+          109.53792021755827
+        ],
+        "minimum_u_mm": -18.978752090934403,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1160,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.70688645708843,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1400,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.70688645708843,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693328
+        ],
+        "minimum_u_mm": -18.804474891632772,
+        "minimum_shelf_N": 3.3683761192352364
+      }
+    },
+    "depth-5-phase-1": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1159,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.45996164747667,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1399,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.45996164747667,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -19.051239844252162,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1159,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.6340371607207,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1399,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.6340371607207,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693325
+        ],
+        "minimum_u_mm": -18.877433281606873,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-2": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1158,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.38891525096078,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1398,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.38891525096078,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -19.122392582506752,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1158,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.56265128989034,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1398,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.56265128989034,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.5260314669331
+        ],
+        "minimum_u_mm": -18.948926055198253,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-3": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1157,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.31920069562612,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1397,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.31920069562612,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -19.19221145100839,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1157,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.49255107769288,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1397,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.49255107769288,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.019131222264583,
+        "minimum_shelf_N": 3.3683761192352364
+      }
+    },
+    "depth-5-phase-4": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1156,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.25044065477739,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1396,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.25044065477739,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -19.261074406573613,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1156,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.42358151072452,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1396,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.42358151072452,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.08820402287024,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-5": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1155,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.18279200718604,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1395,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.18279200718604,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882488,
+          109.53792021755824
+        ],
+        "minimum_u_mm": -19.328824420612214,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1155,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.35559707451674,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1395,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.35559707451674,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.5260314669331
+        ],
+        "minimum_u_mm": -19.156290279038917,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-6": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1154,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.11585445621853,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1394,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.11585445621853,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -19.395862229460057,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1154,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.28848122596044,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1394,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.28848122596044,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.52603146693312
+        ],
+        "minimum_u_mm": -19.22350664545104,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-7": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1153,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.04968065379839,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1393,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.04968065379839,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -19.46213518023165,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1153,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.22213616603294,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1393,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.22213616603294,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.289951016852335,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-8": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1152,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.9842493179911,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1392,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.9842493179911,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -19.52766448475831,
+        "minimum_shelf_N": 3.367881132917672
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1152,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.15645848496051,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1392,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.15645848496051,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.35572703851473,
+        "minimum_shelf_N": 3.3683779303921986
+      }
+    },
+    "depth-5-phase-9": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1151,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.91933593917895,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1391,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.91933593917895,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -19.59267498843967,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1151,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.091397485608,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1391,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.091397485608,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.42088548727086,
+        "minimum_shelf_N": 3.3683761192352364
+      }
+    },
+    "depth-5-phase-10": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1150,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.85485018025733,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1390,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.85485018025733,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -19.6572572193708,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1150,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.02684202292414,
+          "speed_mps": 5.023461912598286e-54,
+          "spin_rad_s": -8.935140060334655e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1390,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.02684202292414,
+          "speed_mps": 2.1105114112724016e-108,
+          "spin_rad_s": -3.753928144929362e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -19.4855375724178,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-11": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1149,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.7909202231505,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1389,
+          "reason": "",
+          "active": true,
+          "u_mm": 74.7909202231505,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882488,
+          109.53792021755824
+        ],
+        "minimum_u_mm": -19.721282980636172,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1169,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.47106203912662,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1409,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.47106203912662,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.5260314669331
+        ],
+        "minimum_u_mm": -18.390616352603885,
+        "minimum_shelf_N": 3.368376119235238
+      }
+    },
+    "depth-5-phase-12": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1168,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.1918935968707,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1408,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.1918935968707,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -18.553113331860636,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1168,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.37254321391663,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1408,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.37254321391663,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -18.395107949160806,
+        "minimum_shelf_N": 3.3683761192352364
+      }
+    },
+    "depth-5-phase-13": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1167,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.09878628374761,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1407,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.09878628374761,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -18.559829197841623,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1167,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.2783259669898,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1407,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.2783259669898,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693325
+        ],
+        "minimum_u_mm": -18.401377539664207,
+        "minimum_shelf_N": 3.3683761192352364
+      }
+    },
+    "depth-5-phase-14": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1166,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.00944831617096,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1406,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.00944831617096,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.822705918824795,
+          109.53792021755834
+        ],
+        "minimum_u_mm": -18.569379769384195,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1166,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.18799431428678,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1406,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.18799431428678,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733943,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -18.410231727893294,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-15": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1165,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.92347233626163,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1405,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.92347233626163,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882482,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -18.587035140103083,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1165,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10111588270252,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1405,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.10111588270252,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.5260314669331
+        ],
+        "minimum_u_mm": -18.42283887920511,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-16": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1164,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.84054637549367,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1404,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.84054637549367,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882488,
+          109.53792021755827
+        ],
+        "minimum_u_mm": -18.67008526684037,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1164,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.0173823191439,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1404,
+          "reason": "",
+          "active": true,
+          "u_mm": 76.0173823191439,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733951,
+          109.5260314669331
+        ],
+        "minimum_u_mm": -18.493514102544225,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-17": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1163,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.76019823441614,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1403,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.76019823441614,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882482,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -18.750553714139183,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1163,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.93637349160576,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1403,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.93637349160576,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733946,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -18.57464421805749,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-18": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1162,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.68222208663845,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1402,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.68222208663845,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882482,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -18.828646620286367,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1162,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.85782338894225,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1402,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.85782338894225,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733946,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -18.653311938613573,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "depth-5-phase-19": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1161,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.60643612659587,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1401,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.60643612659587,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          51.82270591882482,
+          109.53792021755837
+        ],
+        "minimum_u_mm": -18.904546060725735,
+        "minimum_shelf_N": 3.367879026754739
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1161,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.78140797085328,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1401,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.78140797085328,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          51.84202704733946,
+          109.52603146693322
+        ],
+        "minimum_u_mm": -18.72984178757089,
+        "minimum_shelf_N": 3.3683761192352355
+      }
+    },
+    "optics-3.7-17.2--0.25-0.25": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "optics-3.7-17.2-0.25--0.25": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "optics-4.2-17.8--0.25-0.25": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "optics-4.2-17.8-0.25--0.25": {
+      "0.0005": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 6.428684245658756e-58,
+          "spin_rad_s": -1.143458338853178e-56
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.66858377166987,
+          "speed_mps": 2.2182202027263268e-116,
+          "spin_rad_s": -3.94550780734467e-115
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "IN_BAND",
+        "physical_loss": null,
+        "first_in_band": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1180,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 5.0234619126166995e-54,
+          "spin_rad_s": -8.935140060367405e-53
+        },
+        "last": {
+          "state": "IN_BAND",
+          "from_lip_ms": 1420,
+          "reason": "",
+          "active": true,
+          "u_mm": 75.86746646511648,
+          "speed_mps": 2.1105114112801347e-108,
+          "spin_rad_s": -3.7539281449431186e-107
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "low-grip": {
+      "0.0005": {
+        "outcome": "physical-custody-lost",
+        "physical_loss": {
+          "u_mm": -100.26212350173996,
+          "from_lip_ms": 186.50000000000006,
+          "last_command_state": "BRAKE"
+        },
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 1920,
+          "reason": "probe-timeout",
+          "active": false,
+          "u_mm": -100.26212350173996,
+          "speed_mps": -1.4901474208041408,
+          "spin_rad_s": 26.08661947941777
+        },
+        "first_contact_ms_mm": [
+          49.89650277632569,
+          105.92950174642459
+        ],
+        "minimum_u_mm": -100.26212350173996,
+        "minimum_shelf_N": 7.818364802485741
+      },
+      "0.00025": {
+        "outcome": "physical-custody-lost",
+        "physical_loss": {
+          "u_mm": -100.25674800186661,
+          "from_lip_ms": 186.49999999999596,
+          "last_command_state": "BRAKE"
+        },
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 1920,
+          "reason": "probe-timeout",
+          "active": false,
+          "u_mm": -100.25674800186661,
+          "speed_mps": -1.4901122507683402,
+          "spin_rad_s": 26.086004505855275
+        },
+        "first_contact_ms_mm": [
+          49.8968999597017,
+          105.9295079507149
+        ],
+        "minimum_u_mm": -100.25674800186661,
+        "minimum_shelf_N": 7.8183654757184
+      }
+    },
+    "sliding-ramp": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 760,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -3.492214884189613,
+          "speed_mps": 2.715083669905088e-127,
+          "spin_rad_s": -4.8292697920785196e-126
+        },
+        "first_contact_ms_mm": [
+          43.03719946763948,
+          100.62475404848563
+        ],
+        "minimum_u_mm": -9.424313427301314,
+        "minimum_shelf_N": 5.169193988903981
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 760,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -3.2751176224679392,
+          "speed_mps": 1.5337996165140395e-118,
+          "spin_rad_s": -2.7281413966118417e-117
+        },
+        "first_contact_ms_mm": [
+          43.050800232052154,
+          100.62309719538283
+        ],
+        "minimum_u_mm": -9.282425005003542,
+        "minimum_shelf_N": 5.1714101660589264
+      }
+    },
+    "aliased-pair-stuck": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 740,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -23.31288471749692,
+          "speed_mps": -9.05699136401645e-123,
+          "spin_rad_s": 1.6109505311447602e-121
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -23.31288471749692,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 740,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -23.118503020408426,
+          "speed_mps": -2.1522245514251058e-114,
+          "spin_rad_s": 3.828122546341398e-113
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -23.118503020408426,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "entry-stuck-low": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 80,
+          "reason": "seat-before-observed-entry",
+          "active": false,
+          "u_mm": 69.10678258090456,
+          "speed_mps": -1.159403276031162,
+          "spin_rad_s": 20.94181287761622
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": 69.10678258090456,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 80,
+          "reason": "seat-before-observed-entry",
+          "active": false,
+          "u_mm": 69.14855376422614,
+          "speed_mps": -1.158581372846263,
+          "spin_rad_s": 20.926211146642128
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": 69.14855376422614,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "entry-high-at-wake": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "occupied-at-wake",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "occupied-at-wake",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      }
+    },
+    "seat-stuck-high": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 760,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -22.002271295577806,
+          "speed_mps": -6.470380431114127e-127,
+          "spin_rad_s": 1.1508747632933086e-125
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 760,
+          "reason": "incoming-edges-unresolved",
+          "active": false,
+          "u_mm": -21.8036204475278,
+          "speed_mps": -3.036020715738983e-118,
+          "spin_rad_s": 5.400114660612067e-117
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "drop-seat-in-dwell": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 960,
+          "reason": "lost-dual-return",
+          "active": false,
+          "u_mm": 75.66807037157669,
+          "speed_mps": 0.00029506384684829096,
+          "spin_rad_s": -0.0035897528348089523
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -22.002271295577806,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 960,
+          "reason": "lost-dual-return",
+          "active": false,
+          "u_mm": 75.86666956839704,
+          "speed_mps": 0.00042977952236369866,
+          "spin_rad_s": -0.004755808848780629
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -21.8036204475278,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "stale": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 160,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 0.06462515245294399,
+          "speed_mps": -0.571898423169833,
+          "spin_rad_s": 11.671121722261276
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": 0.06462515245294399,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 160,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 0.1736422757089051,
+          "speed_mps": -0.5710154032168895,
+          "spin_rad_s": 11.657518797377278
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": 0.1736422757089051,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "missing-frame": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 180,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -9.893260352794872,
+          "speed_mps": -0.42347379670041274,
+          "spin_rad_s": 9.430552383630324
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -9.893260352794872,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 180,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -9.766295218933754,
+          "speed_mps": -0.42256163703214533,
+          "spin_rad_s": 9.417846315798478
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -9.766295218933754,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "uncalibrated": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      }
+    },
+    "lost-dock": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 200,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -16.856529913377884,
+          "speed_mps": -0.2723769763611794,
+          "spin_rad_s": 7.274819745935318
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -16.856529913377884,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 200,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -16.711021893749525,
+          "speed_mps": -0.27143436480424427,
+          "spin_rad_s": 7.263111417497064
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -16.711021893749525,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    },
+    "out-of-plane": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": -100,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": 175.23142214586855,
+          "speed_mps": -1.3899543576566407,
+          "spin_rad_s": 29.690655456963768
+        },
+        "first_contact_ms_mm": null,
+        "minimum_u_mm": 175.23142214586855,
+        "minimum_shelf_N": 1000000.0
+      }
+    },
+    "disabled": {
+      "0.0005": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 220,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -20.767735905909415,
+          "speed_mps": -0.11818478246605195,
+          "spin_rad_s": 5.224585589456912
+        },
+        "first_contact_ms_mm": [
+          52.29647411509356,
+          104.14855318103034
+        ],
+        "minimum_u_mm": -20.767735905909415,
+        "minimum_shelf_N": 3.375066066783562
+      },
+      "0.00025": {
+        "outcome": "neutral-fault",
+        "physical_loss": null,
+        "first_in_band": null,
+        "last": {
+          "state": "FAULT",
+          "from_lip_ms": 220,
+          "reason": "unqualified-or-stale-frame",
+          "active": false,
+          "u_mm": -20.603058494761402,
+          "speed_mps": -0.11720980271234331,
+          "spin_rad_s": 5.214025661452851
+        },
+        "first_contact_ms_mm": [
+          52.32294306578959,
+          104.13137411665494
+        ],
+        "minimum_u_mm": -20.603058494761402,
+        "minimum_shelf_N": 3.375657099317724
+      }
+    }
+  },
+  "conditions": {
+    "nominal": {
+      "name": "nominal",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "stationary--5": {
+      "name": "stationary--5",
+      "phase_ms": 0,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": false
+    },
+    "stationary-0": {
+      "name": "stationary-0",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": false
+    },
+    "stationary-5": {
+      "name": "stationary-5",
+      "phase_ms": 0,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": false
+    },
+    "phase-1": {
+      "name": "phase-1",
+      "phase_ms": 1,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-2": {
+      "name": "phase-2",
+      "phase_ms": 2,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-3": {
+      "name": "phase-3",
+      "phase_ms": 3,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-4": {
+      "name": "phase-4",
+      "phase_ms": 4,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-5": {
+      "name": "phase-5",
+      "phase_ms": 5,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-6": {
+      "name": "phase-6",
+      "phase_ms": 6,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-7": {
+      "name": "phase-7",
+      "phase_ms": 7,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-8": {
+      "name": "phase-8",
+      "phase_ms": 8,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-9": {
+      "name": "phase-9",
+      "phase_ms": 9,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-10": {
+      "name": "phase-10",
+      "phase_ms": 10,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-11": {
+      "name": "phase-11",
+      "phase_ms": 11,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-12": {
+      "name": "phase-12",
+      "phase_ms": 12,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-13": {
+      "name": "phase-13",
+      "phase_ms": 13,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-14": {
+      "name": "phase-14",
+      "phase_ms": 14,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-15": {
+      "name": "phase-15",
+      "phase_ms": 15,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-16": {
+      "name": "phase-16",
+      "phase_ms": 16,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-17": {
+      "name": "phase-17",
+      "phase_ms": 17,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-18": {
+      "name": "phase-18",
+      "phase_ms": 18,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "phase-19": {
+      "name": "phase-19",
+      "phase_ms": 19,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-0": {
+      "name": "depth--5-phase-0",
+      "phase_ms": 0,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-1": {
+      "name": "depth--5-phase-1",
+      "phase_ms": 1,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-2": {
+      "name": "depth--5-phase-2",
+      "phase_ms": 2,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-3": {
+      "name": "depth--5-phase-3",
+      "phase_ms": 3,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-4": {
+      "name": "depth--5-phase-4",
+      "phase_ms": 4,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-5": {
+      "name": "depth--5-phase-5",
+      "phase_ms": 5,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-6": {
+      "name": "depth--5-phase-6",
+      "phase_ms": 6,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-7": {
+      "name": "depth--5-phase-7",
+      "phase_ms": 7,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-8": {
+      "name": "depth--5-phase-8",
+      "phase_ms": 8,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-9": {
+      "name": "depth--5-phase-9",
+      "phase_ms": 9,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-10": {
+      "name": "depth--5-phase-10",
+      "phase_ms": 10,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-11": {
+      "name": "depth--5-phase-11",
+      "phase_ms": 11,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-12": {
+      "name": "depth--5-phase-12",
+      "phase_ms": 12,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-13": {
+      "name": "depth--5-phase-13",
+      "phase_ms": 13,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-14": {
+      "name": "depth--5-phase-14",
+      "phase_ms": 14,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-15": {
+      "name": "depth--5-phase-15",
+      "phase_ms": 15,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-16": {
+      "name": "depth--5-phase-16",
+      "phase_ms": 16,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-17": {
+      "name": "depth--5-phase-17",
+      "phase_ms": 17,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-18": {
+      "name": "depth--5-phase-18",
+      "phase_ms": 18,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth--5-phase-19": {
+      "name": "depth--5-phase-19",
+      "phase_ms": 19,
+      "depth_mm": -5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-0": {
+      "name": "depth-5-phase-0",
+      "phase_ms": 0,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-1": {
+      "name": "depth-5-phase-1",
+      "phase_ms": 1,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-2": {
+      "name": "depth-5-phase-2",
+      "phase_ms": 2,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-3": {
+      "name": "depth-5-phase-3",
+      "phase_ms": 3,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-4": {
+      "name": "depth-5-phase-4",
+      "phase_ms": 4,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-5": {
+      "name": "depth-5-phase-5",
+      "phase_ms": 5,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-6": {
+      "name": "depth-5-phase-6",
+      "phase_ms": 6,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-7": {
+      "name": "depth-5-phase-7",
+      "phase_ms": 7,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-8": {
+      "name": "depth-5-phase-8",
+      "phase_ms": 8,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-9": {
+      "name": "depth-5-phase-9",
+      "phase_ms": 9,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-10": {
+      "name": "depth-5-phase-10",
+      "phase_ms": 10,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-11": {
+      "name": "depth-5-phase-11",
+      "phase_ms": 11,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-12": {
+      "name": "depth-5-phase-12",
+      "phase_ms": 12,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-13": {
+      "name": "depth-5-phase-13",
+      "phase_ms": 13,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-14": {
+      "name": "depth-5-phase-14",
+      "phase_ms": 14,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-15": {
+      "name": "depth-5-phase-15",
+      "phase_ms": 15,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-16": {
+      "name": "depth-5-phase-16",
+      "phase_ms": 16,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-17": {
+      "name": "depth-5-phase-17",
+      "phase_ms": 17,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-18": {
+      "name": "depth-5-phase-18",
+      "phase_ms": 18,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "depth-5-phase-19": {
+      "name": "depth-5-phase-19",
+      "phase_ms": 19,
+      "depth_mm": 5,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "optics-3.7-17.2--0.25-0.25": {
+      "name": "optics-3.7-17.2--0.25-0.25",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        3.7,
+        17.2
+      ],
+      "port_offset_mm": [
+        -0.25,
+        0.25
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "optics-3.7-17.2-0.25--0.25": {
+      "name": "optics-3.7-17.2-0.25--0.25",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        3.7,
+        17.2
+      ],
+      "port_offset_mm": [
+        0.25,
+        -0.25
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "optics-4.2-17.8--0.25-0.25": {
+      "name": "optics-4.2-17.8--0.25-0.25",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.2,
+        17.8
+      ],
+      "port_offset_mm": [
+        -0.25,
+        0.25
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "optics-4.2-17.8-0.25--0.25": {
+      "name": "optics-4.2-17.8-0.25--0.25",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.2,
+        17.8
+      ],
+      "port_offset_mm": [
+        0.25,
+        -0.25
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "low-grip": {
+      "name": "low-grip",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.08,
+      "preload": 2,
+      "ramp_mu": 0.4,
+      "fault": "",
+      "counterfeed": true
+    },
+    "sliding-ramp": {
+      "name": "sliding-ramp",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.15,
+      "fault": "",
+      "counterfeed": true
+    },
+    "aliased-pair-stuck": {
+      "name": "aliased-pair-stuck",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "aliased-pair-stuck",
+      "counterfeed": true
+    },
+    "entry-stuck-low": {
+      "name": "entry-stuck-low",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "entry-stuck-low",
+      "counterfeed": true
+    },
+    "entry-high-at-wake": {
+      "name": "entry-high-at-wake",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "entry-high-at-wake",
+      "counterfeed": true
+    },
+    "seat-stuck-high": {
+      "name": "seat-stuck-high",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "seat-stuck-high",
+      "counterfeed": true
+    },
+    "drop-seat-in-dwell": {
+      "name": "drop-seat-in-dwell",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "drop-seat-in-dwell",
+      "counterfeed": true
+    },
+    "stale": {
+      "name": "stale",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "stale",
+      "counterfeed": true
+    },
+    "missing-frame": {
+      "name": "missing-frame",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "missing-frame",
+      "counterfeed": true
+    },
+    "uncalibrated": {
+      "name": "uncalibrated",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "uncalibrated",
+      "counterfeed": true
+    },
+    "lost-dock": {
+      "name": "lost-dock",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "lost-dock",
+      "counterfeed": true
+    },
+    "out-of-plane": {
+      "name": "out-of-plane",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "out-of-plane",
+      "counterfeed": true
+    },
+    "disabled": {
+      "name": "disabled",
+      "phase_ms": 0,
+      "depth_mm": 0,
+      "heights_mm": [
+        4.0,
+        17.5
+      ],
+      "port_offset_mm": [
+        0,
+        0
+      ],
+      "grip_mu": 0.4,
+      "preload": 10,
+      "ramp_mu": 0.4,
+      "fault": "disabled",
+      "counterfeed": true
+    }
+  },
+  "empty_receiver_identical_electronics": {
+    "physical_truth": "empty receiver; replayed nominal sensor stream",
+    "identical_output_ticks": 77,
+    "terminal_state": "IN_BAND",
+    "independent_physical_proof": false
+  },
+  "calibrated_on_hardware": false,
+  "carry_permitted": false
+}
