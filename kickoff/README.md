@@ -1,5 +1,11 @@
 # Release-day opportunity study
 
+<!-- cad-still -->
+[![Shop-duplex assembly in its stowed pose](../docs/robot/cad/assembly.png)](../docs/robot/cad/index.html)
+
+**Project CAD · Shop-duplex assembly in its stowed pose.** Historical six-wheel CAD reference. The four-module swerve candidate is under development. [Source STEP · 193c7976d1](../experiments/six-wheel/design/competition-package/shop-duplex/red/stowed.step) · [Rotate the model](../docs/robot/cad/index.html)
+<!-- /cad-still -->
+
 Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [editable season source](season-profile.json) is the input for regeneration.
 
 The editable observation box starts at 30 × 30 × 30 in and heading 0°. Each rehearsal roster slot initially uses a 26 × 26 in frame with 3.25 in of bumper per side, for a 32.5 × 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.
