@@ -1,0 +1,50 @@
+# Four-module opening to the red station
+
+[Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.080 and 20.115 s. A 69.5 kg test with higher yaw inertia also reached the station on both signed calibration cases.
+
+| Case | Station confirmation | Achieved normal / lateral / yaw at 21.10 s | Minimum barrier / stock / peer clearance |
+| --- | --- | --- | --- |
+| 65 kg, positive errors | 20.080 s | −1.17 mm / +0.06 mm / −0.004° | 8.27 / 72.12 / 39.04 mm |
+| 65 kg, negative errors | 20.115 s | −1.06 mm / −0.11 mm / −0.013° | 8.43 / 57.30 / 41.30 mm |
+| 69.5 kg, positive errors | 20.080 s | −2.26 mm / +0.10 mm / +0.010° | 7.08 / 71.79 / 39.39 mm |
+| 69.5 kg, negative errors | 20.075 s | −2.37 mm / −0.09 mm / +0.001° | 7.04 / 56.92 / 41.61 mm |
+
+The 21.10 s station opening is an opportunity to feed one pipe. The route ends there with all starting stock still in the field inventory. The table contains simulated ground truth scored after the controller acted. An authorized acquisition needs a matching finite pipe delivery, a mechanical seat and an independent observation. Points remain unassigned.
+
+## How this drivetrain moves
+
+The motor/absolute contract applies to four horizontally separated steering axes in FL, FR, RL, RR order. At each corner a 76.2 mm wheel turns through a 5.50:1 drive train. The azimuth ratio is 9424:203. The installed locations have a 564 mm wheelbase and 554 mm track. The controller converts field velocities into robot +X forward and +Y left, selects the shorter steering rotation and reverses wheel speed where necessary. A wheel at the chosen center of rotation holds its previous azimuth. The four wheel targets share one speed limit.
+
+The drive pinion lies on the steering axis. In the model a locked wheel makes one motor input revolution per carrier revolution. The per-corner logical signs and arbitrary absolute zeros are simulated commissioning inputs. Independent polarities and steer-induced rotor turns are removed before applying the drive ratio. The checker exercises simultaneous rolling/steering, an offset pivot and a reversed wheel. The installed Agent FRC 0.23.0 portable vector check gave a maximum residual of 0.00221 m/s. A deliberately inverted front-right drive signal failed all three exercises, with residuals of 1.42–1.55 m/s.
+
+A 5 ms field controller requests chassis translation and yaw. A 1 ms plant evolves four steering inertias, drive-wheel inertia, finite lateral tire forces, yaw and translation. The same gear coupling participates in steer torque and rotor speed. Each substep passes achieved chassis acceleration to four constrained tread springs and uses their reactions for the following substep’s tire-force caps. The 65 kg / 5 kg·m² and 69.5 kg / 8 kg·m² cases share a 380 mm CG height, 26/24/26/24% static shares, front/rear tread rates 90/110% of 150 kN/m, friction coefficient 0.80 and a 9.5 V modeled actuator terminal ceiling. Open-loop phase currents and vendor curves are engineering inputs. Results depend on these hypotheses and on the separately protected auxiliary loads.
+
+## Why the route slows down
+
+The first four-wheel route changed direction sharply near the waypoint. A modeled, statically balanced robot with a 310 mm CG and 90/110% tread rates demanded 59.37 N at its right rear while the available 0.80 tire coefficient yielded 56.82 N. The registered first route remains a failed traction control in the power study. The selected route limits the field-speed change to 0.62 m/s² and tapers speed as the robot approaches the corner. Its signed 65 kg traces passed the four-tread and pack sensitivities. A minimum 22% static share per corner and the assumed CG and tread bounds leave at least 69.14 N of traction margin across both runs. The start and dock use release-day field and stock geometry. The five independently programmed peers retain their reservations. During the three-second disabled interval the applied motor voltage is zero and finite residual motion stays below 0.002 mm in the four successful runs.
+
+## How the station is observed
+
+The controller combines the ten-bit absolute angles, drive rotor deltas, a separately sampled gyro and 25 Hz rectified images of the two upper holes in GE-25008. Both eyes must yield both holes. The estimator checks the residual, transports the delayed measurement using wheel odometry, and requires at least three consecutive accepted frames plus slow wheels at the target. The gyro and initial station survey remain distinct sources of possible bias. The camera model reuses the existing straight-guide robot depth image and finite panel-hole geometry. The physical cameras, exposure contrast, clutter, cable routing, wheel diameters, encoder zeros and battery response remain future commissioning inputs.
+
+| Injected failure | What the controller observed | Result |
+| --- | --- | --- |
+| Both panel holes lose contrast | Zero valid fits | Holds 407 mm from the station target |
+| All packets delayed to 100 ms | 103 fits arrive beyond the 65 ms age gate | Same wheel trace and hold as loss of contrast |
+| Front-left steering mechanically locks | Measured azimuth stalls at a sustained angular error | Latches a stop at 3.190 s |
+| Initial surveyed heading is wrong by +0.8° | The expected bilateral landmarks cannot be matched | Holds 367 mm from the target |
+
+## Reproduce the opening
+
+Run these commands from this study directory. The registered camera artifacts are regenerated by the project’s station/guide optics studies or supplied as a local art directory. The program checks the raster SHA before using it. Generated CSVs contain one FL, FR, RL, RR record per service time and carry shaft speeds, tire reactions, both actuator voltages and phase currents. NumPy, OpenCV and the existing project geometry dependencies are required.
+
+```powershell
+$cases = 'plus','minus','heavy','upper-minus','blind','late','jam','misaligned'
+foreach ($case in $cases) { python opening.py $artifacts $rawOutput --case $case }
+python publish.py $rawOutput --out $reviewOutput
+python check_module_map.py $normalizedInput
+node "$env:AGENT_FRC_PLUGIN_ROOT/examples/swerve/check-encoders.mjs" $normalizedInput
+```
+
+[All eight clock receipts](opening.json) · [Project encoder input](encoders.json) · [Finite contact plant](plant.py) · [Controller and field registration](opening.py)
+

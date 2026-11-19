@@ -59,3 +59,51 @@ class SwerveDrive(unittest.TestCase):
         da = drive.wrapped(m.angle(q1, 1024) - m.angle(q0, 1024))
         np.testing.assert_allclose(m.delta_distance(r1 - r0, da), s, atol=0.0001)
         self.assertGreater(np.max(abs((r1 - r0) * math.pi * 0.0762 / 5.5 - s)), 0.05)
+
+    def test_nominal_and_fault_clocks(self):
+        import json
+
+        folder = root / "swerve-drive"
+        receipt = json.loads((folder / "opening.json").read_bytes())
+        cases = receipt["cases"]
+        for name in ("plus", "minus", "heavy", "upper-minus"):
+            case = cases[name]
+            with self.subTest(case=name):
+                self.assertLess(case["stationLockWallS"], 21.10)
+                self.assertGreater(case["acceptedCameraFrames"], 3)
+                self.assertLess(
+                    max(abs(x) for x in case["actualTerminalMmMmDeg"][:2]), 3.0
+                )
+                self.assertLess(abs(case["actualTerminalMmMmDeg"][2]), 0.15)
+                self.assertGreater(
+                    min(
+                        case["geometry"][key]
+                        for key in (
+                            "minimumBarrierMm",
+                            "minimumPeerMm",
+                            "minimumStockMm",
+                        )
+                    ),
+                    0,
+                )
+        for name in ("jam", "blind", "late", "misaligned"):
+            self.assertIsNone(cases[name]["stationLockWallS"])
+        self.assertEqual(cases["late"]["csvSha256"], cases["blind"]["csvSha256"])
+        self.assertGreater(cases["late"]["renderedDetections"], 0)
+        self.assertEqual(cases["late"]["acceptedCameraFrames"], 0)
+
+    def test_current_encoder_fixture_matches_module_origins(self):
+        import json
+
+        record = json.loads((root / "swerve-drive/encoders.json").read_bytes())
+        geometry = json.loads((root / "swerve-package/module.json").read_bytes())
+        self.assertEqual([m["id"] for m in record["modules"]], geometry["order"])
+        for m in record["modules"]:
+            self.assertEqual(
+                (m["xM"], m["yM"]),
+                tuple(geometry["modules"][m["id"]][k] for k in ("xM", "yM")),
+            )
+        self.assertAlmostEqual(
+            record["motorTurnsPerPulleyTurn"] * record["pulleyTurnsPerWheelTurn"],
+            geometry["driveMotorTurnsPerWheelTurn"],
+        )

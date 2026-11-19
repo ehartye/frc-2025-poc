@@ -18,6 +18,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "conditioned-match"))
 from supply import n
+
+sys.path.insert(0, str(ROOT / "swerve-power"))
+from loads import Support
 from field import screen
 import panel
 
@@ -100,16 +103,22 @@ def run(assets, out, case):
         read(ROOT / "fixed-height-match/placements.json")["placements"], inboard=True
     )
     source = read(ROOT / "station-landmark/native.json")
-    layout = read(HERE / "layout.json")
-    centers = np.array(layout["centersMm"]) / 1000
+    module = read(ROOT / "swerve-package/module.json")
+    if tuple(module["order"]) != ORDER:
+        raise ValueError("Unexpected native module order")
+    centers = np.array([[module["modules"][i][k] for k in ("xM", "yM")] for i in ORDER])
     start = np.r_[
         np.array(source["startXYin"]) * 0.0254, math.radians(source["startHeadingDeg"])
     ]
-    sign = -1 if case == "minus" else 1
+    sign = -1 if case in ("minus", "upper-minus") else 1
     true_start = start + np.array(
-        [sign * 0.002, -sign * 0.002, math.radians(sign * 0.12)]
+        [
+            sign * 0.002,
+            -sign * 0.002,
+            math.radians(0.8 if case == "misaligned" else sign * 0.12),
+        ]
     )
-    couplings = np.array([1.0, -1.0, 1.0, -1.0]) * 0.65
+    couplings = np.array([1.0, -1.0, 1.0, -1.0])
     enc = EncoderMap(
         0.0762,
         5.5,
@@ -118,7 +127,15 @@ def run(assets, out, case):
         np.array([1, -1, 1, -1]),
         couplings,
     )
-    mass = 65.0
+    upper = case in ("heavy", "upper-minus")
+    mass = 69.5 if upper else 65.0
+    support = Support(
+        centers,
+        mass,
+        [0.26, 0.24, 0.26, 0.24],
+        0.38,
+        150000 * np.array([0.9, 0.9, 1.1, 1.1]),
+    )
     plant = Plant(
         centers,
         true_start,
@@ -127,6 +144,8 @@ def run(assets, out, case):
         loads=mass * 9.80665 * np.array([0.26, 0.24, 0.26, 0.24]),
         coupling=couplings,
         encoder_map=enc,
+        support=support,
+        inertia=8.0 if upper else 5.0,
     )
     odom = Odometry(plant, start, enc, start[2])
     sensor = Stereo(assets)
@@ -135,7 +154,14 @@ def run(assets, out, case):
     events = []
     path = [plant.pose.copy()]
     timeline = [0.0]
-    sample = []
+    sample = [
+        [
+            0.0,
+            *np.round(plant.pose, 5),
+            *np.round(plant.angle, 3),
+            *np.round(plant.wheel_speed, 3),
+        ]
+    ]
     images = []
     pending = deque()
     step = 0.005
@@ -145,7 +171,9 @@ def run(assets, out, case):
     lock_time = None
     latest = -1.0
     prior_read = None
+    accepted_frames = 0
     valid_streak = 0
+    requested_world = np.zeros(2)
     last_angle = odom.angles.copy()
     stall_ticks = np.zeros(4, dtype=int)
     previous_goal = last_angle.copy()
@@ -196,6 +224,7 @@ def run(assets, out, case):
                     valid_streak = 0
                     continue
                 valid_streak += 1
+                accepted_frames += 1
                 observed_world = world(observed, f)
                 odom.pose[:2] += observed_world[:2] - then[:2]
                 latest = capture * step
@@ -205,7 +234,12 @@ def run(assets, out, case):
             safety_hold = 14 <= wall < 18 or index == 3
             if index < 2 and not safety_hold:
                 error = waypoints[index] - odom.pose[:2]
-                target[:2] = field_to_body(velocity(error, 1.12, 2.2), odom.pose[2])
+                target[:2] = field_to_body(
+                    velocity(
+                        error, min(1.12, math.sqrt(0.48 * np.linalg.norm(error))), 0.95
+                    ),
+                    odom.pose[2],
+                )
                 target[2] = np.clip(2.1 * wrapped(stage[2] - odom.pose[2]), -0.8, 0.8)
                 if np.linalg.norm(error) < (0.07 if index == 0 else 0.023):
                     events.append(
@@ -245,8 +279,12 @@ def run(assets, out, case):
                 elif images and wall - images[0][0] > 0.35:
                     index = 3
                     events.append([round(wall, 3), "station observation timeout"])
-            if locked:
+            request = body_to_field(target[:2], odom.pose[2])
+            requested_world += velocity(request - requested_world, 0.62 * step, 1.0)
+            target[:2] = field_to_body(requested_world, odom.pose[2])
+            if locked or safety_hold or index == 3:
                 target[:] = 0.0
+                requested_world[:] = 0.0
             row = plant.advance(
                 target,
                 odom.angles,
@@ -284,7 +322,7 @@ def run(assets, out, case):
                 )
             path.append(plant.pose.copy())
             timeline.append(end)
-            if k % 20 == 0:
+            if (k + 1) % 20 == 0 or abs(end - wall_end) < 1e-8:
                 sample.append(
                     [
                         round(end, 3),
@@ -310,10 +348,12 @@ def run(assets, out, case):
     hull_end = 1000 * (pause[0, 0] - extent(pause[0]) - tape)
     return dict(
         case=case,
-        startingTapeOverlapMm=hull_start,
+        assumedGrossMassKg=mass,
+        assumedYawInertiaKgM2=plant.yaw_inertia,
+        footprintRadiusPastTapeMmAtStart=hull_start,
         tapeGapMmAt15s=hull_end,
         disabledYawDeg=float(abs(np.degrees(pause[-1, 2] - pause[0, 2]))),
-        centersMm=layout["centersMm"],
+        centersMm=(centers * 1000).tolist(),
         backgroundSha256=sensor.background,
         csvSha256=sha(csvpath),
         csvRows=(len(t) - 1) * 4,
@@ -323,7 +363,8 @@ def run(assets, out, case):
             *station(odom.pose, f)[:2],
             math.degrees(station(odom.pose, f)[2]),
         ],
-        freshImages=sum(v for _, v in images),
+        renderedDetections=sum(v for _, v in images),
+        acceptedCameraFrames=accepted_frames,
         imagesTaken=len(images),
         events=events,
         peaks=plant.peak,
@@ -338,7 +379,18 @@ if __name__ == "__main__":
     p.add_argument("assets", type=Path)
     p.add_argument("out", type=Path)
     p.add_argument(
-        "--case", choices=("plus", "minus", "blind", "late", "jam"), required=True
+        "--case",
+        choices=(
+            "plus",
+            "minus",
+            "blind",
+            "late",
+            "jam",
+            "misaligned",
+            "heavy",
+            "upper-minus",
+        ),
+        required=True,
     )
     args = p.parse_args()
     result = run(args.assets, args.out, args.case)
@@ -352,7 +404,7 @@ if __name__ == "__main__":
                 "case",
                 "events",
                 "actualTerminalMmMmDeg",
-                "freshImages",
+                "acceptedCameraFrames",
                 "csvSha256",
             )
         }

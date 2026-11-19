@@ -45,12 +45,16 @@ class Plant:
         loads=None,
         coupling=None,
         encoder_map=None,
+        support=None,
         initial_angles=None,
     ):
         self.xy = np.asarray(centers, dtype=float)
         self.matrix = vector_matrix(self.xy)
         self.mass, self.yaw_inertia, self.mu = mass, inertia, mu
         self.pose = np.array(pose, dtype=float)
+        self.support = support
+        self.cg = np.zeros(2) if support is None else support.cg
+        self.arms = self.xy - self.cg
         self.velocity = np.zeros(3)  # X,Y in field frame and yaw rate
         self.radius = np.full(4, 0.0381) if radii is None else np.asarray(radii)
         self.load = (
@@ -142,6 +146,7 @@ class Plant:
             )
             lateral = -tire["lateralNSPerM"] * np.sum(per_wheel * side, axis=1)
             norm = np.hypot(longitudinal, lateral)
+            used_load = self.load.copy()
             scale = np.minimum(1.0, self.mu * self.load / np.maximum(1e-12, norm))
             longitudinal *= scale
             lateral *= scale
@@ -203,12 +208,23 @@ class Plant:
             self.wheel_turns += (
                 0.5 * (before + self.wheel_speed) * dt / (TAU * self.radius)
             )
-            force_world = body_to_field(contact.sum(axis=0), self.pose[2])
+            cg_acc = contact.sum(axis=0) / self.mass
             angular_acc = (
-                np.sum(self.xy[:, 0] * contact[:, 1] - self.xy[:, 1] * contact[:, 0])
+                np.sum(
+                    self.arms[:, 0] * contact[:, 1] - self.arms[:, 1] * contact[:, 0]
+                )
                 / self.yaw_inertia
             )
-            acceleration = np.r_[force_world / self.mass, angular_acc]
+            origin_acc = (
+                cg_acc
+                - angular_acc * np.array([-self.cg[1], self.cg[0]])
+                + self.velocity[2] ** 2 * self.cg
+            )
+            acceleration = np.r_[body_to_field(origin_acc, self.pose[2]), angular_acc]
+            if self.support is not None:
+                self.load = self.support.forces(
+                    *origin_acc, self.velocity[2], angular_acc
+                )
             self.pose += self.velocity * dt + 0.5 * acceleration * dt * dt
             self.velocity += acceleration * dt
             self.peak_lateral_by_wheel = np.maximum(
@@ -217,7 +233,10 @@ class Plant:
             for label, value in (
                 ("drivePhaseA", abs(drive_a)),
                 ("steerPhaseA", abs(steer_a)),
-                ("contactUtilization", scale * norm / (self.mu * self.load)),
+                (
+                    "contactUtilization",
+                    scale * norm / np.maximum(1e-12, self.mu * used_load),
+                ),
                 ("wheelMps", abs(self.wheel_speed)),
                 ("azimuthRadS", abs(self.azimuth_rate)),
             ):
@@ -231,7 +250,7 @@ class Plant:
             wheel_accel_mps2=(self.wheel_speed - old_speed) / c["periodS"],
             drive_force_n=longitudinal,
             lateral_force_n=lateral,
-            normal_n=self.load,
+            normal_n=used_load,
             drive_rotor_rpm=drive_rate * 60 / TAU,
             steer_rotor_rpm=self.azimuth_rate * ss["ratio"] * 60 / TAU,
             target_wheel_mps=self.target_speed.copy(),

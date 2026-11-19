@@ -1,0 +1,145 @@
+{
+  "schema": "swerve-encoder-replay/v1",
+  "basis": "Project native module centers, 5.50 overall gearing and 76.2 mm wheel. Simulated two-sample raw rotor turns, absolute quantization and removable sensor calibration. Both polarities and rotor-to-azimuth coupling are normalized before the portable vector check.",
+  "wheelDiameterM": 0.0762,
+  "motorTurnsPerPulleyTurn": 5.5,
+  "pulleyTurnsPerWheelTurn": 1.0,
+  "velocityToleranceMps": 0.003,
+  "modules": [
+    {
+      "id": "FL",
+      "xM": 0.282,
+      "yM": 0.277,
+      "encoderAtForwardDeg": 0.0,
+      "driveSign": 1
+    },
+    {
+      "id": "FR",
+      "xM": 0.282,
+      "yM": -0.277,
+      "encoderAtForwardDeg": 85.94366927,
+      "driveSign": -1
+    },
+    {
+      "id": "RL",
+      "xM": -0.282,
+      "yM": 0.277,
+      "encoderAtForwardDeg": -126.05071493,
+      "driveSign": 1
+    },
+    {
+      "id": "RR",
+      "xM": -0.282,
+      "yM": -0.277,
+      "encoderAtForwardDeg": 160.42818264,
+      "driveSign": -1
+    }
+  ],
+  "cases": [
+    {
+      "name": "Diagonal translation while turning",
+      "fieldVelocityMps": [
+        -0.02436369174869385,
+        0.6098412994577972
+      ],
+      "yawRateRadPerSec": 0.25,
+      "gyroDeg": 57.29577951308232,
+      "pivotM": [
+        0.0,
+        0.0
+      ],
+      "samples": [
+        [
+          "FL",
+          44.296875,
+          829.8177198926844
+        ],
+        [
+          "FR",
+          122.31702603924697,
+          -975.5955044571709
+        ],
+        [
+          "RL",
+          -93.19517985756227,
+          707.8414763560266
+        ],
+        [
+          "RR",
+          6.67968749999999,
+          874.2017477213301
+        ]
+      ]
+    },
+    {
+      "name": "Front left pivot",
+      "fieldVelocityMps": [
+        0.0,
+        0.0
+      ],
+      "yawRateRadPerSec": 1.4,
+      "gyroDeg": -40.10704565915762,
+      "pivotM": [
+        0.282,
+        0.277
+      ],
+      "samples": [
+        [
+          "FL",
+          22.85156250000001,
+          -1.2434497875801753e-14
+        ],
+        [
+          "FR",
+          86.10608853924695,
+          -1069.1703247896178
+        ],
+        [
+          "RL",
+          -215.89049235756224,
+          1088.46942812517
+        ],
+        [
+          "RR",
+          114.9609375,
+          -1525.7427304017774
+        ]
+      ]
+    },
+    {
+      "name": "Sideways with reversed wheel",
+      "fieldVelocityMps": [
+        0.0,
+        -0.75
+      ],
+      "yawRateRadPerSec": 0.0,
+      "gyroDeg": 0.0,
+      "pivotM": [
+        0.0,
+        0.0
+      ],
+      "samples": [
+        [
+          "FL",
+          90.0,
+          -1033.8805358331783
+        ],
+        [
+          "FR",
+          176.10608853924694,
+          1033.8805358331783
+        ],
+        [
+          "RL",
+          -215.89049235756224,
+          1033.8805358331783
+        ],
+        [
+          "RR",
+          70.3125,
+          -1033.8805358331783
+        ]
+      ]
+    }
+  ]
+}
