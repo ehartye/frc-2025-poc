@@ -1,9 +1,9 @@
 # What happens when the pipe hits the shelf?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The 40 mm guide can seat the incoming pipe under a stated shelf-contact model, including the two opposing wheel calibrations that reached the stop in the earlier rigid-shelf simulation. At the finest geometry and timestep tested, the left and right calibration cases require **0.514 and 0.304 mm** of outward cartridge travel against 1.40 mm available. The result depends on how the **actual pipe and shelf deform and rebound**. A lower-damping case fails the unchanged Java port sequence, and the reference model places a brief 3.4 kN reaction on the shelf. The match scoring decision stays open and the south LEAVE/PARK option remains available. [Previous rigid-contact counterexample](../station-guide/README.md) · [Fine numerical review](fine-review.json) · [Alternative start](../station-approach/README.md)

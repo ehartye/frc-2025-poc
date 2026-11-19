@@ -1,9 +1,9 @@
 # Two cameras on the outside-diameter receiver
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **Retain the end-belt receiver for the low-role robot.** The outside-diameter (OD) design accommodates variation in pipe length and conditionally places the centered and long, yawed pipe. Installing the three proposed camera power converters puts its conservative inspection estimate **748 g over** the R103 limit. The end-belt robot retains **1.061 kg** under the same accounting. A new camera bridge solves the mechanical interference and improves the view at the trough. The remaining mass, power and clearance-observation limits make this a fixture candidate. [Inspection and power comparison](budget.json) · [Original receiver and 52/64 disturbance grid](../od-gate/README.md)

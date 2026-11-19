@@ -1,9 +1,9 @@
 # Seeing a pipe through the selected receiver
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The fixed camera can take over from the moving roof camera during the second modeled placement. That result needs two changes to the original robot drawing. Locate the fixed OAK-D Lite in its cradle with two removable shoes and apply two contrasting marks to the moving shelf. A 985-component optical scene includes the issued receiver machining, both native camera enclosures, roof support and modeled wiring. The resulting images reproduce the original controller events in all 28 desktop HAL cases. Physical optical accuracy and the installed fixed power-lead envelope remain open. [Exposure measurements](observations.json) · [Controller comparison](controller.json) · [Selected receiver](../selected-match/README.md)

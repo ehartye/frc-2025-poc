@@ -1,9 +1,9 @@
 # A passive lead-in for the station pipe
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Two short guide faces can center the incoming pipe in the desktop trial. With the guide included in the camera images, both opposing wheel-error arrivals stop at the station. The unchanged Java intake then reports a seated pipe on both ports at the 500, 250 and 125 µs contact steps. **A held-out 62.5 µs step reaches the 1.40 mm cartridge stop on both arrivals.** Keep the guide as a bench candidate. The reserved south start retains its conditional LEAVE and PARK opportunity. [Port and contact replay](seat-narrow.json) · [Independent refinement review](review.json) · [South-lane alternative](../station-approach/README.md)

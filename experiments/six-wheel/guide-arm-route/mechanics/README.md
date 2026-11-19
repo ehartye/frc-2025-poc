@@ -1,9 +1,9 @@
 # Returned guide-arm mechanics
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The closed front return preserves the two guide attachments at Z687 and Z787 mm. Its positive-Y lower spring is 11,721 N/m in this model. The opposite lower spring is 32,177 N/m. The first two assembled guide frequencies are 72.20 and 110.41 Hz on the modified side and 109.19 and 123.82 Hz on the opposite side. Each value uses the nominal aluminum sections, installed part volumes and the earlier 23.6% arm participation assumption. The physical modal frequencies are open.

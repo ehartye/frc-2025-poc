@@ -1,9 +1,9 @@
 # Change a wheel with the welded frame assembled
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The center wheels have a straight removal path with all six hub screws installed. The front and rear wheels need one screw removed temporarily below the frame. Both procedures work on either side in the registered CAD. Each has a nominal 0.050 mm axial clearance somewhere in the stack. A physical first-article trial with the received screws, measured shims and service fixture is still required. [Six-wheel native check](clearances.json) · [Shaft and retainer sequence](../README.md) · [Screw receiving limits](../../design/selected-shop/articles.json)

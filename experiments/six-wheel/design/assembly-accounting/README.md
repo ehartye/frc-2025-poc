@@ -1,9 +1,9 @@
 # Count the installed articles and compare mass alternatives
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Each alliance map represents one 545-body robot in four poses. The baseline contains **520 modeled physical instances** and **36 additional wheel-to-hub fasteners**. Of those 556 instances, 263 are designated for fabrication, 223 are purchased articles or commodity items, and 70 still have an open selection. The count covers the identified items. Unresolved loose hardware, shop stock, spare quantities and the second detachable bumper kit each require a separate purchasing decision. [Installed article crosswalk](../installed-procurement/installed.csv) · [Loose-item register](../installed-procurement/loose-items.csv)

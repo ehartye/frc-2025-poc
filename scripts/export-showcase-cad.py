@@ -69,7 +69,28 @@ def write_colored_stl(solids, rows, colors, mesh):
     return groups
 
 
-def render(mesh, image, groups=None):
+def set_backdrop(renderer, width, height, colors):
+    import numpy as np
+    from vtk.util.numpy_support import numpy_to_vtk
+
+    # Match the CSS farthest-corner ellipse in the orbit viewer. VTK starts at bottom left.
+    yy, xx = np.ogrid[:height, :width]
+    dx = ((xx + .5) / width - .5) / (.5 * math.sqrt(2))
+    dy = ((yy + .5) / height - .52) / (.52 * math.sqrt(2))
+    blend = np.minimum(1, np.hypot(dx, dy) / .72)[..., None]
+    center, edge = [np.array(list(bytes.fromhex(colors[key][1:]))) for key in ("center", "edge")]
+    pixels = np.rint(center + blend * (edge - center)).astype(np.uint8)
+    background = vtk.vtkImageData()
+    background.SetDimensions(width, height, 1)
+    background.GetPointData().SetScalars(numpy_to_vtk(pixels.reshape(-1, 3), deep=True))
+    texture = vtk.vtkTexture()
+    texture.SetInputData(background)
+    texture.InterpolateOn()
+    renderer.SetBackgroundTexture(texture)
+    renderer.TexturedBackgroundOn()
+
+
+def render(mesh, image, groups=None, backdrop=None):
     reader = vtk.vtkSTLReader()
     reader.SetFileName(str(mesh))
     if groups:
@@ -106,6 +127,8 @@ def render(mesh, image, groups=None):
     window.SetOffScreenRendering(1)
     window.AddRenderer(renderer)
     window.SetSize(1100, 720)
+    if backdrop:
+        set_backdrop(renderer, 1100, 720, backdrop)
     renderer.ResetCamera()
     # Frame the actual projected geometry including tall and very flat mechanisms.
     camera.OrthogonalizeViewUp()
@@ -161,7 +184,11 @@ def export(root, config, output):
         else:
             write_stl(shape, mesh)
         png = folder / "assembly.png"
-        mesh_bounds, triangles = render(mesh, png, groups)
+        backdrop = None
+        if "backdrop" in config:
+            from cad_appearances import backdrop_colors
+            backdrop = backdrop_colors(config)
+        mesh_bounds, triangles = render(mesh, png, groups, backdrop)
         if triangles < 1 or not all(math.isclose(a, b, abs_tol=chord + .001) for a, b in zip(bounds, mesh_bounds)):
             raise ValueError("Mesh bounds disagree with source assembly")
         packed = folder / "assembly.stl.gz"
@@ -174,6 +201,8 @@ def export(root, config, output):
             receipt["schema"] = "agent-frc/cad-still@2"
             receipt["appearances"] = {**appearance, "groups": groups}
             validated_groups(root, receipt, packed)
+        if backdrop:
+            receipt["backdrop"] = backdrop
         if digest(source) != source_hash:
             raise ValueError("Source changed during export")
         for artifact in (packed, png):

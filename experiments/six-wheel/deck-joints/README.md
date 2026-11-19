@@ -1,9 +1,9 @@
 # Six removable ties capture the full-thickness deck
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The installed 692 × 516 × 4 mm deck bears on two end tubes and both inner side rails. Previously it could lift away from all four supports. The proposed joint carries uplift from the plate through a steel washer and nut into a one-piece aluminum tie whose foot hooks both walls of each welded end tube. Two flats on an inboard lip stop the foot turning. The existing weld preparations and bumper screws survive. The receiver, battery tray and electronics still need their own attachment proofs. [Shop drawing](shop.svg) · [Named STEP](deck-through-ties.step) · [Native fit](fit.json)

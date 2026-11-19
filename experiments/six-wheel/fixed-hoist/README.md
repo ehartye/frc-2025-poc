@@ -1,9 +1,9 @@
 # Stationary hoist for the permanently locked low receiver
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The shortened common shaft retains both primary drums, both primary lines, the ratchet, inboard bearings and the service-pin assembly. Two nonrotating spacers bear against the fixed bearing arms. Two pinned stops keep the drums captive from outside. The fixed-height match build removes its two secondary hauls, four hanger mounts per side and their dedicated fasteners. The source bill identifies 48 retired CAD occurrences grouped into 36 installed articles. The separately budgeted shaft extension is shortened by 80 mm. [Native exchange](stationary-shaft.step) · [Drum and bearing source](../design/receiver-lift/) · [Permanent low locks](../design/fixed-height/README.md)

@@ -1,9 +1,9 @@
 # What happens to the spin from the station?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 A pipe rolling out of the chute reaches **+29.69 rad/s**. The modeled belts and shelf can bring it to **−0.013 rad/s** at seating and **−0.318 rad/s** at reef contact. On the 545-body design a 0.90 m/s release-belt limit gives sustained modeled trough support at TELEOP **32.056 s and 82.145 s**. Both pipes remain through the three-second assessment. The two original human releases still fit the field program and the partner-cleared park finishes at **94.016 s**. Actual behavior depends on friction, preload, docking and the controller delivering the tested belt speeds. [Coupled cases](study.json) · [Wheelbase, parking and native contact checks](geometry.json)

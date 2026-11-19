@@ -1,9 +1,9 @@
 # Unplug the moving stereo head
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The fixed-height receiver can retain the camera's data and power leads independently. The proposed frame carries two releasable cable clamps, a rest for the Luxonis Y adapter and a removable power transition board. A 14 mm rearward withdrawal clears the modeled hardware for either plug. The power taper removes the previous voltage guarantee. A narrower converter setting and a measured hot connection-resistance limit restore it in the design calculation. The hardware, streams and rail voltages still need bench qualification. [Original 25-solid STEP](service-support.step) · [Electrical comparisons](power/corners.json) · [Baseline removable bridge](../camera-datum-shop/README.md)

@@ -1,9 +1,9 @@
 # Four MAXSwerve corners for the fixed-height robot
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Students can open the [editable Fusion saddle](tab-saddle.f3d), change a stock or bore dimension and inspect the four machining features. The [79-body chassis STEP](swerve-frame.step) contains the original chassis, cranked inner rails and made mounting articles. The local Fusion robot assembles those parts with four manufacturer modules. Its [reopening receipt](student-archive.json) preserves the four placements and the measured centers of the molded tires. The project retains the commercial archive locally. [Student CAD guide](../../../cad/FUSION.md)

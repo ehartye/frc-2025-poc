@@ -1,9 +1,9 @@
 # A fixed carriage for the 2025 robot
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The carriage can stay at **560 mm** for both station intake and L1 placement if the robot receives with the shelf retracted and extends it **370 mm** only at the target. This removes vertical travel from the station cycle. The software trial retains separate gates for sensing, release, withdrawal and inspection. A second configuration locks both axes at **940 mm** for the straight LEAVE/PARK role. Both are project designs that a team can choose before a match. [Two-pipe replay](handoff.json) · [Drive and weight results](review.json)

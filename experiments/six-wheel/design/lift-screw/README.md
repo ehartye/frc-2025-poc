@@ -1,9 +1,9 @@
 # Can a screw lift hold the carriage after drive failure?
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **Keep the screw replacement at fixture-study status.** Of three single-start screw sizes, one covers the four scheduled lift moves and fits the registered robot. A screw that resists backdriving at rest can still coast past the low placement structure. The commercial drag unit examined also exceeds its speed limit on direct drive. Conditional reduced-speed drag settings exist. No tested friction range, supported bearing layout or coupled-failure arrest establishes a buildable qualified replacement.

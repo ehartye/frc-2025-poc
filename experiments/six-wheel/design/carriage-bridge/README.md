@@ -1,9 +1,9 @@
 # CB-1 · Windowed receiver carriage bridge
 
 <!-- cad-still -->
-[![Full swerve robot · stowed, red alliance](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Full swerve robot · stowed, red alliance.** The R3 model brings together the four steerable wheels, fixed-height receiver, electronics and red bumpers. Purchased parts use project-created representations in this public CAD. [Source STEP · 0f96394e6c](../../../../cad/full-swerve-r3/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The 322 × 410 × 5 mm slide-base bridge is the heaviest individually identified part that travels with the lift. Its original 1.7823 kg budget exceeds the ported shelf's 1.578 kg. A 2–5 kg whole-robot miscellaneous allowance and a 1.8–3.9 kg grouped lift-drive allowance still have too little item-level evidence to reduce. CB-1 replaces a single verifiable body while keeping the overall outline and mating lands. The [545-body source assembly](../competition-package/shop-duplex/README.md) remains the registered field model.
