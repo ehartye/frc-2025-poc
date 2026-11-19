@@ -4,6 +4,8 @@ The selected 20:1 drivetrain can supply the nominal wheel profile at the estimat
 
 ![Drive inlet voltage and motor current across the modeled two-pipe match](match-demand.svg)
 
+[See the fixed-camera station visibility check and encoder-observed leave/park alternative](../station-approach/README.md).
+
 ## What goes on the carpet
 
 The 35.534–51.411 kg interval is the robot's represented R103 inspection mass. Add its 6.17 kg battery and one 5.90–7.50 kg removable bumper set. Allow another gram at the upper end for the revised receiver. The electrical screen uses **47.604–65.082 kg empty**, increasing by 0.8165 kg over each carried-pipe interval. There is no shop scale or wheel-load measurement. [Selected robot accounting](../axle-retention/accounting.json) · [Battery and bumper treatment](../design/competition-package/shop-duplex/mass.py)
