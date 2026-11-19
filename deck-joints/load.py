@@ -76,6 +76,13 @@ def section(case):
 def run():
     full=envelope(False)
     failed=envelope(True)
+    # Conservative installation limit assuming the full wrench torque reaches the
+    # minor diameter, including any prevailing torque, while preload is being applied.
+    root_d=3.95
+    root_area=math.pi*root_d**2/4
+    torque_constant=math.pi*root_d**3/16/1000
+    twist_limit=torque_constant*math.sqrt(((400/1.6)**2-(PRELOAD/root_area)**2)/3)
+    torque_control=1.6*math.hypot(PRELOAD/root_area,math.sqrt(3)*2/torque_constant)
     impacts={}
     source=ROOT/"shelf-contact/load.json"
     for record in j.read(source):
@@ -106,6 +113,8 @@ def run():
     answer={"unmeasuredTrialPreloadN":PRELOAD,"fullGroup":full,"fullSection":section(full),
             "oneTieUnavailable":failed,"adverseSection":section(failed),"contact":impacts,
             "contactSourceSha256":j.digest(source),"integralAllSix":integral(full),"integralMissingOne":integral(failed),
+            "installation":{"trialMaxGrossTorqueAt850N_Nm":twist_limit,
+                    "adverse2NmLocalMPa":torque_control,"prevailingTorqueMeasuredNm":None},
             "calibratedImpulseOrAllowable":None}
     j.write(HERE/"load.json",answer)
     return answer

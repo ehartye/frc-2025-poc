@@ -71,3 +71,5 @@ class DeckJoints(unittest.TestCase):
             self.assertLess(side["normalMaxN"],0)
             self.assertTrue(abs(side["lineAtDeckMm"][1])<45)
         self.assertIsNone(a["physicalYieldFatigueAndSeparation"])
+        self.assertLess(data["installation"]["trialMaxGrossTorqueAt850N_Nm"],1.7)
+        self.assertGreater(data["installation"]["adverse2NmLocalMPa"],400)
