@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How close is the camera to the reef ball?</title>
+<style>
+:root{font:17px/1.5 system-ui,sans-serif;color:#e5edf5;background:#101e2a}body{max-width:58rem;margin:2rem auto;padding:0 1rem}h1{font-size:clamp(1.8rem,4.8vw,3.2rem);line-height:1.05}main{border-top:2px solid #93bdc9;padding-top:.75rem}fieldset{border:0;padding:0;display:flex;flex-wrap:wrap;gap:1rem}label{display:grid;gap:.2rem}select,input{font:inherit;min-height:2rem}output{font-weight:bold;font-size:1.55rem}svg{width:100%;height:auto;background:#172b3b;border-radius:.5rem}small{color:#c9d3dc}#status{padding:.75rem 0}a{color:#91dfed}
+</style><h1>How close is the camera to the reef ball?</h1><main>
+<p>The camera moves with the scoring shelf. Explore what happens when the robot stops a little off target while the ball is still on the reef.</p>
+<fieldset><legend>Test a placement</legend>
+<label>Camera frame<select id="frame"><option>Aft</option><option>Issued</option></select></label>
+<label>Target sector<select id="sector"><option value="-180">A · −180 mm</option><option value="220">B · +220 mm</option></select></label>
+<label>Planar chassis error <span><input id="error" type="range" min="0" max="35" step="1" value="10"> <b id="amount"></b></span></label></fieldset>
+<div id="status" aria-live="polite"><output id="gap"></output><br><span id="member"></span></div>
+<svg id="diagram" role="img" aria-label="Projected side view of the swept camera members and reef ball" viewBox="0 0 800 470"></svg>
+<p>The side view shows the entire stroke. The calculation also includes the distance across the width of the robot. A negative bound means contact is possible within these allowances. Move the error slider or switch between the original and aft assemblies to locate the limiting member.</p>
+<small>±15 mm outer-slide error · ±1° chassis heading · 1 mm mount allowance · 0.526 mm ideal bridge flex at 2 g. Ball center, field setup, robot tracking and stiffness need physical measurement. <a href="README.md">Engineering record</a></small></main>
+<script>
+const data=/*registered-data*/;
+const el=id=>document.getElementById(id);
+const s=0.82, x=v=>40+(v+100)*s, z=v=>440-(v-460)*s;
+function redraw(){
+ const boxes=data.bounds[el('frame').value];
+ const p=[data.ball[0],data.ball[1]-Number(el('sector').value),data.ball[2]],err=Number(el('error').value);
+ let critical,minimum=Infinity;
+ for(const [id,b] of Object.entries(boxes)){
+   const d=p.map((v,i)=>Math.max(0,b[i]-v,v-b[i+3]));
+   const h=Math.max(0,Math.hypot(d[0],d[1])-err);
+   const gap=Math.hypot(h,d[2])-data.radius-data.reserve;
+   if(gap<minimum){minimum=gap;critical=id;}
+ }
+ el('amount').textContent=err+' mm';
+ el('gap').textContent=minimum.toFixed(2)+' mm remaining';
+ el('member').textContent='Limiting member: '+critical+'.';
+ const geom=Object.entries(boxes).sort(([a],[b])=>Number(a===critical)-Number(b===critical)).map(([id,b])=>
+   '<rect x="'+x(b[0])+'" y="'+z(b[5])+'" width="'+Math.max(1,s*(b[3]-b[0]))+'" height="'+Math.max(1,s*(b[5]-b[2]))+'" fill="'+(id===critical?'#ffc45d':'#6d9dae')+'" fill-opacity="'+(id===critical?'.9':'.32')+'"/>').join('');
+ el('diagram').innerHTML='<title>Side elevation of the full camera stroke</title><circle cx="'+x(p[0])+'" cy="'+z(p[2])+'" r="'+data.radius*s+'" fill="#559f79" fill-opacity=".55"/>'+geom+'<text x="24" y="35" fill="white">Side elevation · forward →</text><text x="570" y="100" fill="white">Occupied reef ball</text>';
+}
+for(const id of ['frame','sector','error'])el(id).addEventListener('input',redraw);redraw();
+</script></html>

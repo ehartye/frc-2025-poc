@@ -1,0 +1,118 @@
+{
+  "registration_sha256": "4267d53b856aeddfc895015a49f17bd48bb10dbfa5346bbbef18132dfb7004bd",
+  "cases": {
+    "coral-A": {
+      "first_ms": 1445,
+      "release_ms": 26437.5,
+      "counts": {
+        "inside": 1472
+      },
+      "failed_ms": [],
+      "maximum_truth_outside_inferred_bounds_mm": 0,
+      "aggregate_minmax_mm": [
+        [
+          64.86659235824659,
+          94.52693991192514
+        ],
+        [
+          -6.9788445386898275,
+          6.9788445386898275
+        ],
+        [
+          -9.899817764574095,
+          9.283798112755903
+        ]
+      ]
+    },
+    "coral-B": {
+      "first_ms": 1479,
+      "release_ms": 26145.0,
+      "counts": {
+        "inside": 1452
+      },
+      "failed_ms": [],
+      "maximum_truth_outside_inferred_bounds_mm": 0,
+      "aggregate_minmax_mm": [
+        [
+          64.86659235824659,
+          94.52693991192514
+        ],
+        [
+          -6.9788445386898275,
+          6.9788445386898275
+        ],
+        [
+          -9.960276843552947,
+          9.345585619012013
+        ]
+      ]
+    }
+  },
+  "counterexamples": {
+    "seated": {
+      "status": "inside",
+      "x_mm": [
+        75.941770787872,
+        83.68264746748925
+      ],
+      "y_mm": [
+        -6.560170024933626,
+        6.560170024933626
+      ],
+      "bottom_mm": [
+        -7.278072597949972,
+        9.023341488526398
+      ]
+    },
+    "lost-forward": {
+      "status": "unresolved-end-curvature"
+    },
+    "lost-low": {
+      "status": "outside",
+      "x_mm": [
+        76.21647027231434,
+        84.2202161033194
+      ],
+      "y_mm": [
+        -6.2664082990008865,
+        6.2664082990008865
+      ],
+      "bottom_mm": [
+        -44.85094134671783,
+        -25.270112373592724
+      ]
+    },
+    "laterally-shifted": {
+      "status": "unbounded-end"
+    },
+    "yaw-exceeded": {
+      "status": "unqualified-axis"
+    },
+    "empty": {
+      "status": "unbacked-end"
+    },
+    "one-camera": {
+      "status": "unbacked-end"
+    },
+    "three-pixel": {
+      "status": "outside",
+      "x_mm": [
+        74.67934339203937,
+        84.9733075111619
+      ],
+      "y_mm": [
+        -10.649130672753245,
+        10.649130672753245
+      ],
+      "bottom_mm": [
+        -13.78881632584796,
+        14.727778479219296
+      ]
+    },
+    "flat-matched-rectangle": {
+      "status": "unresolved-end-curvature"
+    }
+  },
+  "frame_sha256": "d966b9f1eb9e24824e784d7c5af8177c5e44ae886b18f796fb3fa88d1e64d47d",
+  "primary_sha256": "de59084725ce1c6478a22919327cdde9e2af8aa8011f4cdeb9d298c010a8b648"
+}
