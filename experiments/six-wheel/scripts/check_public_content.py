@@ -17,6 +17,8 @@ SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '552351fad4fd747f866234827b64b
 SHOWCASE_ASSETS['docs/robot/station-witness.png'] = '391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec'
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'
 
+SHOWCASE_ASSETS['experiments/swerve-drive/motion/fallback.webm'] = '3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]

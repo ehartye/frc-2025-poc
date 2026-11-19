@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/robot-highlights@1",
   "title": "Station to shelf",
-  "role": "Team 1780’s 2025 REEFSCAPE robot steers to the coral station and holds its receiver under the chute for the first feed.",
+  "role": "Team 1780 studies a two-pipe station cycle and a stowed leave-and-park fallback for its 2025 REEFSCAPE swerve robot.",
   "revision": "R4 · fixed-height swerve · red alliance",
   "cad": {
     "receipt": "docs/robot/cad/receipt.json",
@@ -73,15 +73,49 @@
       "file": "docs/robot/station-witness.png",
       "sha256": "391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec",
       "shareable": true
+    },
+    {
+      "id": "fallback",
+      "label": "Stowed fallback with both signed load cases",
+      "revision": "R4, 156-second continuous traces and native clearance review",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/main/experiments/swerve-drive/motion/fallback-match.json"
+    },
+    {
+      "id": "fallback-film",
+      "label": "CAD replay of the stowed fallback",
+      "revision": "R4 public mesh and 65 kg attained fallback",
+      "file": "experiments/swerve-drive/motion/fallback.webm",
+      "sha256": "3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5",
+      "shareable": true
+    },
+    {
+      "id": "loaded-departure",
+      "label": "Camera-confirmed loaded motion after first feed",
+      "revision": "R4 with four-module steering occlusion and reciprocal drive model",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/b97d9fbc5ad3e35a70cbb540cb7a50c654b818ef/experiments/swerve-drive/motion/loaded-departure.json"
     }
   ],
   "results": [
     {
       "basis": "modeled",
+      "claim": "The stowed fallback earned five points in both modeled matches",
+      "conditions": "Two empty-start runs at 65 and 72 kg cleared the starting line at the end of AUTO and held their numbered bumper in the red barge zone through assessment. Both runs lasted 156 seconds including disabled time.",
+      "limit": "The south lane was reserved. Keeping the partner in its usual slot overlaps the starting footprint. The two-pipe scoring route is a separate study.",
+      "source": "fallback"
+    },
+    {
+      "basis": "modeled",
       "claim": "The swerve robot reached the station before the first feed",
       "conditions": "The corrected drive model reached its docking gate at 20.285 s and 20.330 s for the two 65 kg approaches. Both 72 kg cases also docked before the scheduled 21.100 s feed.",
-      "limit": "The opening film and first-feed camera study use the earlier drive model. A pickup claim on the corrected route needs images from its own arrival pose.",
+      "limit": "The opening film illustrates the earlier drive model. The corrected first feed and first loaded motion have a separate camera and contact replay.",
       "source": "energy"
+    },
+    {
+      "basis": "modeled",
+      "claim": "The receiver retained its first pipe through 71.8 mm of swerve travel",
+      "conditions": "All four signed arrival and contact-refinement runs retained the same pipe through finite braking. Both stereo heads agreed in all 88 moving exposures per run under the wheel-angle mask.",
+      "limit": "Missing a fixed-eye image stopped the drive. Full loaded travel to the scoring dock and a witnessed release remain open.",
+      "source": "loaded-departure"
     },
     {
       "basis": "modeled",
@@ -116,6 +150,12 @@
     }
   ],
   "media": [
+    {
+      "asset": "fallback-film",
+      "source": "fallback",
+      "caption": "The robot clears its starting line in AUTO, waits while disabled, then returns to park. The clock shows the full 156 seconds. Playback speeds up during the long hold.",
+      "description": "A top-down view of the numbered R4 CAD moving over the starting line and back into the red zone, with the current mode, position and playback speed."
+    },
     {
       "asset": "film",
       "source": "opening",
