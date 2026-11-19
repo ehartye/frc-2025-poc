@@ -14,6 +14,7 @@ WRAPPER='experiments/six-wheel/shared/examples/java-2026-sim/gradle/wrapper/grad
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '552351fad4fd747f866234827b64bf28361d9b1d5150f5c39c137beb640c2102', 'docs/robot/cad/assembly.stl.gz': 'c425fbde5b50ec9154d1a3f3019d5b41f6f04216f6225af21ac0a08fa8d15caf', 'experiments/swerve-drive/packaging/tab-saddle.f3d': 'c15bf7f1923c892e96f5081a75d30dd7fa3c1b01d3616abef9bf057f5abfb232'}
 
+SHOWCASE_ASSETS['docs/robot/station-witness.png'] = '391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec'
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'
 
 def findings(data):
