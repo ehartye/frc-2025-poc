@@ -2,6 +2,8 @@
 
 [Replay the shop robot’s conditioned scoring attempt](conditioned-match/replay.html). Follow coral-A from a powered station dock, see where the material and field-camera trials diverge, and check why coral-B stays in stock. [Match evidence](conditioned-match/README.md)
 
+[See how the fixed hoist retains both drums](fixed-hoist/README.md) and what the combined mast, shelf and hoist leave in the inspection bill.
+
 [How much weight can the deck give back?](ribbed-deck/README.md) Explore the underside ribs, the battery load path and the measured limits a finished panel has to meet.
 
 [What happens when the pipe hits the shelf?](shelf-contact/README.md) Follow the impact, two independent camera observations and the finite load the shelf would have to carry.
