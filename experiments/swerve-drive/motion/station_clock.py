@@ -29,3 +29,20 @@ def service_gate(frames, feed, latency_ms):
         eligibleCapturesJavaMs=usable,
         accepted=len(usable) == len(required),
     )
+
+
+def first_hold(issued, captures, first, stop, latency=0.015, freshness=0.040):
+    if not issued["gate"]["accepted"]:
+        return first, "station custody withheld"
+    records = [
+        (issued["epoch"] + row["captureJavaMs"] * 0.001, row["accepted"])
+        for row in issued["frames"]
+    ]
+    records += [(r["captureWallS"], r["accepted"]) for r in captures]
+    records.sort()
+    for tick in range(round(first * 200), round(stop * 200) + 1):
+        now = tick * 0.005
+        arrived = [r for r in records if r[0] + latency <= now + 1e-9]
+        if not arrived or not arrived[-1][1] or now - arrived[-1][0] > freshness + 1e-9:
+            return now, "invalid or expired custody observation"
+    return stop, "end of departure command"

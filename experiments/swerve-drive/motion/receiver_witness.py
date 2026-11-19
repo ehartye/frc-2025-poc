@@ -152,7 +152,9 @@ def observe(fixed, roof, center, axis, fault=None):
     }
 
 
-def run(source_dir, field):
+def run(source_dir, field, opening=None, feeds=None):
+    opening = opening or HERE / "opening.json"
+    feeds = feeds or HERE / "first-feed.json"
     field_hash = read(LEGACY / "full-match/installed-stock.json")["field_step_sha256"]
     if digest(field) != field_hash:
         raise ValueError("Unexpected field source")
@@ -162,8 +164,9 @@ def run(source_dir, field):
     field_parts = field_mesh(field)
     results = []
     controls = []
-    openings = read(HERE / "opening.json")["cases"]
-    for feed in read(HERE / "first-feed.json")["attempts"]:
+    withheld = []
+    openings = read(opening)["cases"]
+    for feed in read(feeds)["attempts"]:
         run = openings[feed["case"]]
         if (
             run["csvSha256"] != feed["driveTraceSha256"]
@@ -171,7 +174,18 @@ def run(source_dir, field):
         ):
             raise ValueError("Station feed and wheel terminal are from different runs")
         if feed["state"] != "IN_BAND" or feed["javaLastMs"] != 5460:
-            raise ValueError("Missing a complete port-controller history")
+            withheld.append(
+                dict(
+                    case=feed["case"],
+                    stepUs=feed["plantStepUs"],
+                    piece=feed["physicalPieceId"],
+                    terminalStateSha256=feed["pipeStateSha256"],
+                    state=feed["state"],
+                    lastJavaMs=feed["javaLastMs"],
+                    accepted=False,
+                )
+            )
+            continue
         x, y, heading = feed["trueChassisAtFeedMmMmDeg"]
         # Station offsets are inward-normal/left; the docked robot faces the opposite direction.
         # The native-field projector subtracts its supplied offset and keeps signed body yaw.
@@ -244,7 +258,7 @@ def run(source_dir, field):
         schema="reefscape-r4-station-custody/1",
         fieldSha256=field_hash,
         stepSha256=digest(PROJECT / "cad/full-swerve-r4/full-robot.step"),
-        firstFeedSha256=digest(HERE / "first-feed.json"),
+        firstFeedSha256=digest(feeds),
         appearanceRoleMapSha256=digest(PROJECT / "cad/full-swerve-r4/appearances.json"),
         colorGroups=read(PROJECT / "docs/robot/cad/receipt.json")["appearances"][
             "paletteSha256"
@@ -252,6 +266,7 @@ def run(source_dir, field):
         cameraMountSha256=digest(LEGACY / "selected-optics/mount.json"),
         cases=results,
         controls=controls,
+        **({"withheld": withheld} if withheld else {}),
     )
 
 
@@ -260,9 +275,16 @@ if __name__ == "__main__":
     parser.add_argument("feeds", type=Path)
     parser.add_argument("field", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--opening", type=Path)
+    parser.add_argument("--feed-register", type=Path)
     args = parser.parse_args()
     args.output.write_text(
-        json.dumps(run(args.feeds, args.field), indent=2, allow_nan=False) + "\n",
+        json.dumps(
+            run(args.feeds, args.field, args.opening, args.feed_register),
+            indent=2,
+            allow_nan=False,
+        )
+        + "\n",
         encoding="utf8",
         newline="\n",
     )

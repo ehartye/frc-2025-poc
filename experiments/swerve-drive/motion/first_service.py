@@ -22,7 +22,7 @@ engine, digest, HERE, ROOT = (
 )
 
 
-def propagate(raw, feed, destination):
+def restore(raw, feed):
     step = feed["plantStepUs"] * 1e-6
     (start,) = (raw / feed["case"]).glob(
         f"*folded-{feed['plantStepUs']:g}us*/state.npz"
@@ -84,6 +84,11 @@ def propagate(raw, feed, destination):
     if pipe.belt != 0.0 or abs(pipe.time + feed["lipWallS"] - feed["endWallS"]) > 1e-8:
         raise ValueError("Station time or held belt command differs")
     pipe.guides.last = pipe.time
+    return pipe, step, beam
+
+
+def propagate(raw, feed, destination):
+    pipe, step, beam = restore(raw, feed)
     first = math.ceil(feed["endWallS"] * 200 - 1e-9) / 200
     target = first - feed["lipWallS"]
     initial = pipe.p.copy()
@@ -113,7 +118,11 @@ def propagate(raw, feed, destination):
         guide_w=beam.w,
         touch=json.dumps(pipe.touch),
         first_belts=[np.nan if v is None else v for v in pipe.first_belts],
-        casePose=pose,
+        casePose=[
+            -feed["trueChassisAtFeedMmMmDeg"][0],
+            -feed["trueChassisAtFeedMmMmDeg"][1],
+            feed["trueChassisAtFeedMmMmDeg"][2],
+        ],
     )
     return dict(
         case=feed["case"],
@@ -140,10 +149,11 @@ if __name__ == "__main__":
     parser.add_argument("feeds", type=Path)
     parser.add_argument("checkpoints", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--feed-register", type=Path, default=HERE / "first-feed.json")
     args = parser.parse_args()
     rows = [
         propagate(args.feeds, f, args.checkpoints)
-        for f in json.loads((HERE / "first-feed.json").read_bytes())["attempts"]
+        for f in json.loads(args.feed_register.read_bytes())["attempts"]
     ]
     args.output.write_text(
         json.dumps(rows, indent=2, allow_nan=False) + "\n",

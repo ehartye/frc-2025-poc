@@ -26,8 +26,8 @@ def digest(path):
         return hashlib.file_digest(source, "sha256").hexdigest()
 
 
-def run(jdk, clockdir, cache, case, step, collect):
-    record = json.loads((HERE / "opening.json").read_bytes())["cases"][case]
+def run(jdk, clockdir, cache, case, step, collect, opening=None):
+    record = json.loads((opening or HERE / "opening.json").read_bytes())["cases"][case]
     if record["stationLockWallS"] is None or record["stationLockWallS"] >= 21.10:
         raise ValueError("No observed dock by this feed slot")
     if digest(clockdir / (case + ".csv")) != record["csvSha256"]:
@@ -122,8 +122,11 @@ if __name__ == "__main__":
     p.add_argument("raw", type=Path)
     p.add_argument("case", choices=("plus", "minus"))
     p.add_argument("step", type=float, choices=(15.625, 31.25))
+    p.add_argument(
+        "--opening", type=Path, help="Registered attained wheel and docking cases"
+    )
     p.add_argument("--collect", action="store_true")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args()
-    result = run(a.jdk, a.clockdir, a.raw, a.case, a.step, a.collect)
+    result = run(a.jdk, a.clockdir, a.raw, a.case, a.step, a.collect, a.opening)
     a.out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf8", newline="\n")
