@@ -1,0 +1,492 @@
+{
+  "preassigned_straight": {
+    "start": [
+      9.991724999999999,
+      2.4272875,
+      3.141592653589793
+    ],
+    "end": [
+      9.270999999999999,
+      2.4272875,
+      3.141592653589793
+    ],
+    "travel_m": 0.7207249999999998,
+    "time_s": 1.5499731180464602,
+    "hold_from_auto_s": 1.5499731180464602,
+    "start_tape_mm3": 23574.39999999886,
+    "end_auto_tape_mm3": 0.0,
+    "park_zone_mm3": 268909.00530130416,
+    "field": {
+      "kind": "drive",
+      "seconds": 1.5499731180464602,
+      "closest": "South cage 1",
+      "gap_m": 0.025849999999999707
+    },
+    "stock": {
+      "floor-pipe": {
+        "lower_bound_mm": 5855.1621699864645,
+        "body": "bumper-cover-rear-red",
+        "occurrence": "NAUO195",
+        "segment": 0
+      },
+      "floor-ball": {
+        "lower_bound_mm": 5711.185160636309,
+        "body": "bumper-cover-rear-red",
+        "occurrence": "NAUO197",
+        "segment": 0
+      },
+      "reef-ball": {
+        "lower_bound_mm": 2190.4131567979357,
+        "body": "bumper-cover-rear-red",
+        "occurrence": "NAUO201",
+        "segment": 0
+      }
+    },
+    "min_teleop_pair_gap_m": 0.7482437934769621,
+    "start_overlap_if_partner_keeps_south_slot_m": 0.07371250000000018,
+    "minimum_centerline_clearance_m": 0.071887499999999,
+    "wheel_error_cases": [
+      {
+        "wheel_scale_fraction_each": 0.0025,
+        "initial_position_radius_m": 0.005,
+        "initial_heading_deg": 0.4,
+        "center_error_bound_m": 0.014090583711632191,
+        "max_heading_deg": 0.7559870749100539,
+        "footprint_error_bound_m": 0.022020936643870326,
+        "remaining_field_margin_m": 0.00382906335612938,
+        "remaining_end_auto_tape_clearance_m": 0.22290406335613067,
+        "start_cover_in_eroded_tape_mm3": 9009.397541635553,
+        "end_cover_in_eroded_zone_mm3": 262787.18491430883
+      },
+      {
+        "wheel_scale_fraction_each": 0.005,
+        "initial_position_radius_m": 0.005,
+        "initial_heading_deg": 0.4,
+        "center_error_bound_m": 0.018160752647811158,
+        "max_heading_deg": 1.111974149820108,
+        "footprint_error_bound_m": 0.02982533439113128,
+        "remaining_field_margin_m": -0.003975334391131572,
+        "remaining_end_auto_tape_clearance_m": 0.21509966560886973,
+        "start_cover_in_eroded_tape_mm3": 9009.397541635553,
+        "end_cover_in_eroded_zone_mm3": 260617.56234057015
+      }
+    ],
+    "drive": {
+      "mass_kg": [
+        49.460779586360694,
+        64.94095958636069
+      ],
+      "yaw_inertia_upper_kg_m2": 10.359639588440018,
+      "min_side_fraction": 0.26850461654570734,
+      "friction_required": 0.26510893441773753,
+      "peak_drive_phase_A": 11.685088764106359,
+      "peak_branch_A": 6.655108682152149,
+      "lowest_bus_V": 11.792244565892393,
+      "min_voltage_headroom_V": 5.613397565695806,
+      "assumed_friction": 0.9,
+      "parameter_cases_clear": true
+    },
+    "middle_slot_drive": {
+      "mass_kg": [
+        49.460779586360694,
+        64.94095958636069
+      ],
+      "yaw_inertia_upper_kg_m2": 10.359639588440018,
+      "min_side_fraction": 0.26850461654570734,
+      "friction_required": 1.3510153829087694,
+      "peak_drive_phase_A": 33.96317538311045,
+      "peak_branch_A": 19.064762913909252,
+      "lowest_bus_V": 11.171761854304538,
+      "min_voltage_headroom_V": 3.8536162215201744,
+      "assumed_friction": 0.9,
+      "parameter_cases_clear": false
+    },
+    "potential_points": 5
+  },
+  "stowed_step_sha256": "193c7976d115fcc2f437f24b437ef3bac0b6aa4720125ca799a5abe67a60f6d4",
+  "body_count": 545,
+  "hull_mm": [
+    -425.0,
+    -425.0,
+    0.0,
+    425.0,
+    425.0,
+    1059.0
+  ],
+  "field_step_sha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "stock_receipt_sha256": "f4c4be4d987bb7cc01b579d699b62e9673fd05540c32fbd4326b78b8ab218589",
+  "other_robots": {
+    "red1": {
+      "field": {
+        "kind": "drive",
+        "seconds": 2.9034866666666668,
+        "closest": "South cage 2",
+        "gap_m": 0.2338124999999991
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 3529.931922703268,
+          "body": "other robot envelope",
+          "occurrence": "NAUO195",
+          "segment": 0
+        },
+        "floor-ball": {
+          "lower_bound_mm": 3377.531922703268,
+          "body": "other robot envelope",
+          "occurrence": "NAUO197",
+          "segment": 0
+        },
+        "reef-ball": {
+          "lower_bound_mm": 1175.5604137172181,
+          "body": "other robot envelope",
+          "occurrence": "NAUO199",
+          "segment": 0
+        }
+      }
+    },
+    "red3": {
+      "field": {
+        "kind": "turn",
+        "seconds": 2.9119144308721854,
+        "closest": "North cage 2",
+        "gap_m": 0.07209293208196565
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 2941.1563341034616,
+          "body": "other robot envelope",
+          "occurrence": "NAUO194",
+          "segment": 7
+        },
+        "floor-ball": {
+          "lower_bound_mm": 2788.7563341034615,
+          "body": "other robot envelope",
+          "occurrence": "NAUO196",
+          "segment": 7
+        },
+        "reef-ball": {
+          "lower_bound_mm": 1438.3962621474552,
+          "body": "other robot envelope",
+          "occurrence": "NAUO203",
+          "segment": 2
+        }
+      }
+    },
+    "blue1": {
+      "field": {
+        "kind": "drive",
+        "seconds": 0,
+        "closest": "South cage 2",
+        "gap_m": 0.23381249999999998
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 5856.4022662245825,
+          "body": "other robot envelope",
+          "occurrence": "NAUO188",
+          "segment": 0
+        },
+        "floor-ball": {
+          "lower_bound_mm": 5704.002266224583,
+          "body": "other robot envelope",
+          "occurrence": "NAUO190",
+          "segment": 0
+        },
+        "reef-ball": {
+          "lower_bound_mm": 2477.439822185017,
+          "body": "other robot envelope",
+          "occurrence": "NAUO47",
+          "segment": 0
+        }
+      }
+    },
+    "blue2": {
+      "field": {
+        "kind": "drive",
+        "seconds": 0,
+        "closest": "Barge center support \u00c2\u00b7 assumed exclusion",
+        "gap_m": 0.23381249999999998
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 5855.162169986452,
+          "body": "other robot envelope",
+          "occurrence": "NAUO45",
+          "segment": 0
+        },
+        "floor-ball": {
+          "lower_bound_mm": 5702.762169986451,
+          "body": "other robot envelope",
+          "occurrence": "NAUO46",
+          "segment": 0
+        },
+        "reef-ball": {
+          "lower_bound_mm": 1753.2884807291696,
+          "body": "other robot envelope",
+          "occurrence": "NAUO49",
+          "segment": 0
+        }
+      }
+    },
+    "blue3": {
+      "field": {
+        "kind": "drive",
+        "seconds": 3.3378266666666665,
+        "closest": "North cage 2",
+        "gap_m": 0.02743749999999956
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 5204.53322699373,
+          "body": "other robot envelope",
+          "occurrence": "NAUO194",
+          "segment": 6
+        },
+        "floor-ball": {
+          "lower_bound_mm": 5052.13322699373,
+          "body": "other robot envelope",
+          "occurrence": "NAUO196",
+          "segment": 6
+        },
+        "reef-ball": {
+          "lower_bound_mm": 2358.683283680204,
+          "body": "other robot envelope",
+          "occurrence": "NAUO203",
+          "segment": 4
+        }
+      }
+    }
+  },
+  "stock_counts": {
+    "reef-ball": 12,
+    "floor-ball": 6,
+    "floor-pipe": 6
+  },
+  "tracking_cases": {
+    "10": {
+      "translation_mm": 10,
+      "heading_deg": 1,
+      "footprint_error_m": 0.02049000712618107,
+      "field_margin_m": 0.005359992873818636,
+      "two_robot_margin_m": 0.4576196632931433,
+      "park_cover_in_eroded_zone_mm3": 333824.783320223
+    },
+    "20": {
+      "translation_mm": 20,
+      "heading_deg": 1,
+      "footprint_error_m": 0.030490007126181072,
+      "field_margin_m": -0.0046400071261813655,
+      "two_robot_margin_m": 0.4376196632931433,
+      "park_cover_in_eroded_zone_mm3": 331044.783320223
+    }
+  },
+  "shift_30mm_toward_cage": {
+    "kind": "drive",
+    "seconds": 2.464066666666667,
+    "closest": "South cage 1",
+    "gap_m": 0
+  },
+  "assessment": {
+    "start_tape_mm3": {
+      "bumper-cover-front-red": 23574.399999999325,
+      "bumper-cover-rear-red": 0.0
+    },
+    "end_auto_tape_mm3": {
+      "bumper-cover-front-red": 0.0,
+      "bumper-cover-rear-red": 0.0
+    },
+    "park_zone_mm3": {
+      "bumper-cover-front-red": 235184.1303013051,
+      "bumper-cover-rear-red": 104336.87499999255
+    },
+    "hold_zone_mm3": {
+      "bumper-cover-front-red": 0.0,
+      "bumper-cover-rear-red": 0.0
+    }
+  },
+  "legs": {
+    "leave": {
+      "time_s": 1.6363322808443697,
+      "start": [
+        9.991724999999999,
+        4.0259,
+        3.141592653589793
+      ],
+      "end": [
+        10.795,
+        4.0259,
+        3.141592653589793
+      ],
+      "field": {
+        "kind": "drive",
+        "seconds": 1.6363322808443697,
+        "closest": "Barge center support \u00c2\u00b7 assumed exclusion",
+        "gap_m": 0.2338124999999991
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 5051.887169986454,
+          "body": "bumper-cover-rear-red",
+          "occurrence": "NAUO192",
+          "segment": 0
+        },
+        "floor-ball": {
+          "lower_bound_mm": 4909.232125792051,
+          "body": "bumper-cover-rear-red",
+          "occurrence": "NAUO193",
+          "segment": 0
+        },
+        "reef-ball": {
+          "lower_bound_mm": 1028.5571235672924,
+          "body": "observer-slotted-cradle-weldment",
+          "occurrence": "NAUO201",
+          "segment": 0
+        }
+      }
+    },
+    "park": {
+      "time_s": 8.430709956205169,
+      "start": [
+        10.795,
+        4.0259,
+        3.141592653589793
+      ],
+      "end": [
+        9.017,
+        2.4272875,
+        3.141592653589793
+      ],
+      "field": {
+        "kind": "drive",
+        "seconds": 2.464066666666667,
+        "closest": "South cage 1",
+        "gap_m": 0.025849999999999707
+      },
+      "stock": {
+        "floor-pipe": {
+          "lower_bound_mm": 4875.846405977888,
+          "body": "bumper-cover-front-red",
+          "occurrence": "NAUO192",
+          "segment": 0
+        },
+        "floor-ball": {
+          "lower_bound_mm": 4733.538426117396,
+          "body": "bumper-cover-front-red",
+          "occurrence": "NAUO193",
+          "segment": 0
+        },
+        "reef-ball": {
+          "lower_bound_mm": 1013.9854047617423,
+          "body": "bumper-cover-front-red",
+          "occurrence": "NAUO201",
+          "segment": 0
+        }
+      }
+    }
+  },
+  "auto_tape_clearance_m": 0.37827500000000036,
+  "latest_park_start_teleop_s": 126.56929004379484,
+  "scenarios": {
+    "reserved": {
+      "lane_reserved": true,
+      "decision_teleop_s": 118,
+      "attempt": true,
+      "motion_finish_s": 126.43070995620516,
+      "motion_finish_phase": "TELEOP",
+      "min_robot_pair_bound_m": 0.49859967754550544,
+      "limiting_pair": [
+        "red2",
+        "red1",
+        123.19
+      ],
+      "first_sampled_overlap": null,
+      "traffic_clear": true,
+      "at_buzzer": [
+        9.017,
+        2.4272875,
+        3.141592653589793
+      ],
+      "zero_wheel_speed_at_buzzer": true,
+      "leave_points": 3,
+      "park_points": 2,
+      "route_usable": true
+    },
+    "occupied": {
+      "lane_reserved": false,
+      "decision_teleop_s": 118,
+      "attempt": false,
+      "motion_finish_s": 1.6363322808443697,
+      "motion_finish_phase": "AUTO",
+      "min_robot_pair_bound_m": 1.1671225879669334,
+      "limiting_pair": [
+        "red3",
+        "red2",
+        10.95
+      ],
+      "first_sampled_overlap": null,
+      "traffic_clear": true,
+      "at_buzzer": [
+        10.795,
+        4.0259,
+        3.141592653589793
+      ],
+      "zero_wheel_speed_at_buzzer": true,
+      "leave_points": 3,
+      "park_points": 0,
+      "route_usable": true
+    },
+    "late": {
+      "lane_reserved": true,
+      "decision_teleop_s": 129,
+      "attempt": false,
+      "motion_finish_s": 1.6363322808443697,
+      "motion_finish_phase": "AUTO",
+      "min_robot_pair_bound_m": 1.1671225879669334,
+      "limiting_pair": [
+        "red3",
+        "red2",
+        10.95
+      ],
+      "first_sampled_overlap": null,
+      "traffic_clear": true,
+      "at_buzzer": [
+        10.795,
+        4.0259,
+        3.141592653589793
+      ],
+      "zero_wheel_speed_at_buzzer": true,
+      "leave_points": 3,
+      "park_points": 0,
+      "route_usable": true
+    },
+    "ignore-reservation": {
+      "lane_reserved": false,
+      "decision_teleop_s": 118,
+      "attempt": true,
+      "motion_finish_s": 126.43070995620516,
+      "motion_finish_phase": "TELEOP",
+      "min_robot_pair_bound_m": -0.0865812065230382,
+      "limiting_pair": [
+        "red2",
+        "red1",
+        125.01
+      ],
+      "first_sampled_overlap": [
+        "red2",
+        "red1",
+        121.81,
+        -0.00694
+      ],
+      "traffic_clear": false,
+      "at_buzzer": [
+        9.017,
+        2.4272875,
+        3.141592653589793
+      ],
+      "zero_wheel_speed_at_buzzer": true,
+      "leave_points": 3,
+      "park_points": 0,
+      "route_usable": false
+    }
+  }
+}
