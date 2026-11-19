@@ -47,6 +47,7 @@ def report(folder):
         "extension-support/dynamics-witness.json",
         "extension-support/dynamics.py",
         "extension-support/dynamics_run.py",
+        "extension-support/dynamics_input.py",
         "extension-support/dynamics_surface.py",
         "extension-support/dynamics_witness.py",
         "extension-support/dynamics_motion.py",

@@ -25,6 +25,9 @@ from dynamics import (
 )
 
 
+from dynamics_input import read_motion, sample_motion
+
+
 def equilibrium(M, K, weight, J, gaps, stiffness):
     for indices in itertools.combinations(range(6), 4):
         ix = list(indices)
@@ -131,11 +134,7 @@ def trial(
         t = np.arange(round((duration + 0.2) / dt) + 1) * dt
         stroke, speed, accel = profile(t, duration)
     else:
-        # The caller provides a registered time law for the achieved OUTWARD
-        # rack. We do not silently reflect a withdrawal trace or synthesize
-        # derivatives across a position jump.
-        t = np.arange(int(np.floor(motion[-1, 0] / dt)) + 1) * dt
-        stroke, speed, accel = [np.interp(t, motion[:, 0], motion[:, i]) for i in (1, 2, 3)]
+        duration, t, stroke, speed, accel = sample_motion(motion, dt)
     rows, derivatives = contact_rows(stroke, geo, keeper)
     floors_mm = keeper["lowerFloorTravelFromNominalMm"]
     gaps = np.array([floors_mm / 1000, floors_mm / 1000, gap] * 2)
@@ -421,33 +420,7 @@ def main():
         )
     motion = None
     if a.motion:
-        if digest(a.motion) != a.motion_sha256:
-            raise ValueError("Unregistered achieved-motion input")
-        raw = np.genfromtxt(a.motion, delimiter=",", names=True)
-        if raw.dtype.names != ("time_s", "stroke_m", "velocity_mps", "acceleration_mps2"):
-            raise ValueError("Motion columns")
-        motion = np.column_stack([raw[k] for k in raw.dtype.names])
-        if (
-            len(motion) < 2
-            or not np.isfinite(motion).all()
-            or abs(motion[0, 0]) > 1e-12
-            or abs(motion[0, 1]) > 1e-6
-            or np.min(np.diff(motion[:, 0])) <= 0
-            or min(motion[:, 1]) < 0
-            or max(motion[:, 1]) > 0.370001
-            or np.any(np.diff(motion[:, 1]) < -1e-8)
-        ):
-            raise ValueError("Expected finite outbound history from stow")
-        intervals = np.diff(motion[:, 0])
-        displacement = np.diff(motion[:, 1])
-        velocity = np.diff(motion[:, 2])
-        if (
-            abs(displacement - 0.5 * intervals * (motion[:-1, 2] + motion[1:, 2])).max() > 0.0001
-            or abs(velocity - 0.5 * intervals * (motion[:-1, 3] + motion[1:, 3])).max() > 0.01
-        ):
-            raise ValueError(
-                "Supplied velocity or acceleration is inconsistent with the achieved trajectory"
-            )
+        motion = read_motion(a.motion, a.motion_sha256)
     opts = {
         "nominal": {},
         "soft": {"stiffness": 1e6},
