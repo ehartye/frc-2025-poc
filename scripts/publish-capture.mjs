@@ -45,11 +45,11 @@ await writeFile(path.join(output,'shallow-climb.html'),climbPage);
 const anchor=/<a\b[^>]*href="(?:\.\/)?field-lab\.html"[^>]*>[^<]*<\/a>/;
 if(!anchor.test(page)) throw new Error('Missing field lab navigation');
 page=page.replace(anchor,match=>match+' <a href="shallow-climb.html">Explore the shallow-cage climb</a>');
-const shop = path.join(project, 'cad/assembly-engineering/issue');
+const shop = path.join(project, 'cad/assembly-engineering/receiver-service/issue');
 const installed = JSON.parse(await readFile(path.join(shop,'interfaces.json'),'utf8'));
 const shopOrbit = JSON.parse(await readFile(path.join(shop,'orbit.json'),'utf8'));
 const physical = JSON.parse(await readFile(path.join(shop,'engineering-reopen.json'),'utf8'));
-const newArchive = 'Team-1780-engineering-shallow.f3d';
+const newArchive = installed.filename;
 const collect = name => readFile(path.join(shop,name));
 if (!physical.opened || physical.archiveSha256 !== digest(await collect(newArchive)) ||
     shopOrbit.issue !== digest(await collect('station-and-jack-interfaces.step')) ||

@@ -39,6 +39,7 @@ SHOWCASE_ASSETS['cad/assembly-engineering/receiver-service/issue/installed.stl.g
 SHOWCASE_ASSETS['cad/assembly-engineering/issue/assembly-drawings.pdf'] = 'cbb33076ad624cd143f05d9db4264bf4bd63b90e5eacbe0fcb1482a62e8f8f89'
 SHOWCASE_ASSETS['cad/assembly-engineering/issue/installed.png'] = 'f2a91749de2c9341887ed89c9b8dfc460ac263b0fd0ab4657a17870f22b615b3'
 SHOWCASE_ASSETS['cad/assembly-engineering/issue/installed.stl.gz'] = '65b7253c8eb7806b928c82b7eb1830962e270d327c80fd7848bd15924b3d7a69'
+SHOWCASE_ASSETS['cad/assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d'] = 'a5d4c627f7266414270b7f9389c9396b25ce50fd1ca429f64646b1469e77a065'
 SHOWCASE_ASSETS['cad/assembly-engineering/issue/Team-1780-engineering-shallow.f3d'] = '29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254'
 SHOWCASE_ASSETS['cad/shallow-cage/climb-kit.stl.gz'] = '5cfdf0358350c50ea3c33ed343dcd8abeda5259c49240ac6777cdd8ace0513c5'
 

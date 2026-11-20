@@ -18,6 +18,21 @@ def digest(path):
 
 
 class ReceiverService(unittest.TestCase):
+    def test_native_issue_reopens_at_the_issued_geometry_and_returns_to_stow(self):
+        cold = record("issue/cold-reopen.json")
+        native = record("issue/mass-review.json")
+        self.assertEqual(cold["archiveSha256"], digest("issue/Team-1780-receiver-service.f3d"))
+        self.assertEqual(native["archiveSha256"], cold["archiveSha256"])
+        self.assertEqual(cold["measuredBodies"], 1269)
+        self.assertEqual((cold["totalJoints"], cold["movedJoints"]), (26, 21))
+        self.assertEqual(cold["failingBodies"], [])
+        self.assertEqual(cold["failedJointRuns"], [])
+        self.assertEqual(cold["movingCameraFixture"]["checked"], 28)
+        self.assertEqual(cold["movingCameraFixture"]["failed"], [])
+        self.assertEqual(native["displayDensityDifferences"], {})
+        self.assertLess(native["knownInspectionRangeKg"][1], 52.16312255)
+        self.assertIsNone(native["inspectionMarginKg"])
+
     def test_fastener_interference_and_travel(self):
         grip = record("grip-fit.json")
         self.assertEqual(grip["drawingSha256"], digest("grip-carriers.step"))

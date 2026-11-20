@@ -96,6 +96,10 @@ def compare(folder):
         absoluteVolumeToleranceMm3=0.08,
         relativeTolerance=0.0005,
         minVolumeMethod="Use either the native solid-volume or very-high accuracy physical properties within the independent tolerance. Preserve the default cached proxy as a control.",
+        maxWorldBoundsErrorMm=max(r["worldBoundsMaxMm"] for r in output),
+        maxIndependentVolumeErrorMm3=max(
+            min(r["highAccuracyErrorMm3"], r["analyticalBRepErrorMm3"]) for r in output
+        ),
         failingBodies=[r for r in output if not r["passes"]],
         totalJoints=len(joints),
         movedJoints=sum("samples" in r for r in joints.values()),
@@ -138,6 +142,8 @@ def compare(folder):
         if bad:
             raise ValueError(("Camera body left the moving receiver", sorted(bad)))
     document(folder / "cold-reopen.json", summary)
+    if summary["failingBodies"] or summary["failedJointRuns"]:
+        raise ValueError("Cold assembly geometry or joint return failed; inspect cold-reopen.json")
     print(
         json.dumps({k: v for k, v in summary.items() if k != "failingBodies"}),
         len(summary["failingBodies"]),
