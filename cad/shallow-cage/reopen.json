@@ -1,0 +1,278 @@
+{
+  "source": "cad/shallow-cage/Team-1780-shallow-cage-study.f3d",
+  "sha256": "88cc5f0927094bd2bbc60da862a137e5eada4484cc84510a514d760f27117c49",
+  "opened": true,
+  "rootOccurrences": 23,
+  "nativeJoints": 22,
+  "added": {
+    "Shallow cage jack frame": {
+      "bodies": [
+        {
+          "name": "Left rail saddle",
+          "volumeMm3": 23040.00000000002
+        },
+        {
+          "name": "Left guide column",
+          "volumeMm3": 119231.99999999917
+        },
+        {
+          "name": "Left screw core",
+          "volumeMm3": 59941.58783049093
+        },
+        {
+          "name": "Left upper thrust bridge",
+          "volumeMm3": 14080.000000000007
+        },
+        {
+          "name": "Left lower thrust bridge",
+          "volumeMm3": 15488.000000000005
+        },
+        {
+          "name": "Left drive and pawl envelope",
+          "volumeMm3": 104040.00000000001
+        },
+        {
+          "name": "Right rail saddle",
+          "volumeMm3": 23040.00000000002
+        },
+        {
+          "name": "Right guide column",
+          "volumeMm3": 119231.99999999917
+        },
+        {
+          "name": "Right screw core",
+          "volumeMm3": 59941.58783049096
+        },
+        {
+          "name": "Right upper thrust bridge",
+          "volumeMm3": 14080.000000000007
+        },
+        {
+          "name": "Right lower thrust bridge",
+          "volumeMm3": 15488.000000000005
+        },
+        {
+          "name": "Right drive and pawl envelope",
+          "volumeMm3": 104040.00000000001
+        }
+      ],
+      "features": 12,
+      "step": "shallow-cage-jack-frame.step",
+      "sha256": "aaacaa78e821ede173cd410c2251522f98d8d4fa7dec35a603686cff70129424"
+    },
+    "Cage crosshead": {
+      "bodies": [
+        {
+          "name": "Left travelling nut",
+          "volumeMm3": 6635.043684381909
+        },
+        {
+          "name": "Right travelling nut",
+          "volumeMm3": 6635.043684381909
+        },
+        {
+          "name": "Crosshead front web",
+          "volumeMm3": 109199.9999999997
+        },
+        {
+          "name": "Crosshead rear web",
+          "volumeMm3": 101472.00000000061
+        },
+        {
+          "name": "Crosshead upper flange",
+          "volumeMm3": 48319.99999999983
+        },
+        {
+          "name": "Crosshead lower flange",
+          "volumeMm3": 48319.99999999983
+        },
+        {
+          "name": "Latch stem",
+          "volumeMm3": 23552.52012396169
+        },
+        {
+          "name": "Shoe dovetail carrier",
+          "volumeMm3": 6807.999999999968
+        }
+      ],
+      "features": 8,
+      "step": "cage-crosshead.step",
+      "sha256": "c82df4e9c9d6fc3a31533d96e463e18688d64f0377e2f50f0395add62cbea89d"
+    },
+    "Left cage shoe": {
+      "bodies": [
+        {
+          "name": "Positive bearing shoe",
+          "volumeMm3": 4223.99999999999
+        }
+      ],
+      "features": 1,
+      "step": "left-cage-shoe.step",
+      "sha256": "822d4945bb1c920e00198ec81285a977022b3bba4a69253fce226ddf8e149ccd"
+    },
+    "Right cage shoe": {
+      "bodies": [
+        {
+          "name": "Negative bearing shoe",
+          "volumeMm3": 4223.99999999999
+        }
+      ],
+      "features": 1,
+      "step": "right-cage-shoe.step",
+      "sha256": "4c1714e829f863ad832b371e6103e1df3b0e787377a8b60cdae66cf3159e275a"
+    },
+    "Lower plate clamp": {
+      "bodies": [
+        {
+          "name": "Clamp spider",
+          "volumeMm3": 20352.000000000055
+        },
+        {
+          "name": "Clamp flank -1",
+          "volumeMm3": 6271.99999999997
+        },
+        {
+          "name": "Bearing pad -1 -1",
+          "volumeMm3": 755.999999999992
+        },
+        {
+          "name": "Bearing pad -1 1",
+          "volumeMm3": 755.999999999992
+        },
+        {
+          "name": "Clamp flank 1",
+          "volumeMm3": 6272.000000000003
+        },
+        {
+          "name": "Bearing pad 1 -1",
+          "volumeMm3": 755.9999999999958
+        },
+        {
+          "name": "Bearing pad 1 1",
+          "volumeMm3": 755.9999999999958
+        }
+      ],
+      "features": 7,
+      "step": "lower-plate-clamp.step",
+      "sha256": "b7ae08ba432c9218449743e5ae3aadc473b5ec420c02173611092f0f19c8dd90"
+    }
+  },
+  "motion": {
+    "Lift crosshead": [
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": 319.4,
+        "nativeMm": 319.4,
+        "xyzMm": [
+          0.0,
+          0.0,
+          319.4
+        ]
+      },
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "Spread left cage shoe": [
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": 36.0,
+        "nativeMm": 36.0,
+        "xyzMm": [
+          0.0,
+          36.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "Spread right cage shoe": [
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": -36.0,
+        "nativeMm": -36.0,
+        "xyzMm": [
+          0.0,
+          -36.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "Preload cage plate": [
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "commandMm": 13.584,
+        "nativeMm": 13.584,
+        "xyzMm": [
+          0.0,
+          0.0,
+          13.584
+        ]
+      },
+      {
+        "commandMm": 0,
+        "nativeMm": 0.0,
+        "xyzMm": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

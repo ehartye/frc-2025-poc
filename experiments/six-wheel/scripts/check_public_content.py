@@ -28,6 +28,13 @@ SHOWCASE_ASSETS['experiments/swerve-drive/motion/fallback.webm'] = '3186a0cdaba2
 SHOWCASE_ASSETS['experiments/swerve-drive/score-stroke/receiver-motion.webm'] = '24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414'
 SHOWCASE_ASSETS['docs/robot/receiver-motion.png'] = 'b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3'
 
+# Reopened project-owned full climber alternative and rendered native-group motion.
+SHOWCASE_ASSETS['cad/shallow-cage/Team-1780-shallow-cage-study.f3d'] = '88cc5f0927094bd2bbc60da862a137e5eada4484cc84510a514d760f27117c49'
+SHOWCASE_ASSETS['cad/shallow-cage/shallow-climb.png'] = 'e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819'
+SHOWCASE_ASSETS['cad/shallow-cage/shallow-climb.webm'] = '1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4'
+
+SHOWCASE_ASSETS['cad/shallow-cage/climb-kit.stl.gz'] = '5cfdf0358350c50ea3c33ed343dcd8abeda5259c49240ac6777cdd8ace0513c5'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]

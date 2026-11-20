@@ -4,6 +4,10 @@
 
 [Open the public capture assembly](swerve-captive/Team-1780-public-captive-swerve.f3d) to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
 
+## Try the front-jack climb variant
+
+The separate full assembly adds a forward shallow-cage jack to the stowed receiver and four-module chassis. Drive the crosshead, both shoes and lower clamp to inspect the bearing contact. Added mass and field-plate load still exceed the evidence for a match-ready climb. [Download the climbing variant](shallow-cage/Team-1780-shallow-cage-study.f3d) · [Rotate and operate the climb](https://ehartye.github.io/frc-2025-poc/shallow-climb.html) · [Native measurements and loads](shallow-cage/study.md)
+
 ## Supplier-detail capture candidate
 
 The season artifact `artifacts/cam-scoring/FRC-2025-Team-1780-captive-supplier-swerve.f3d` includes the four supplier module assemblies, 26 capture parts, cam shelf and two sprung-probe sliders. Fusion checked 31 actual occurrences at six poses before export. The independent reopen for this 143,014,397-byte supplier-detail file is pending. The public student file above has its own exact-byte reopen and uses published supplier representations. [Private archive hash and export measurements](swerve-captive/supplier-export.json)

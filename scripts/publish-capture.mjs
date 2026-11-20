@@ -25,5 +25,25 @@ for(const [name,key] of [['assembly.png','imageSha256'],['assembly.stl.gz','mesh
 await writeFile(path.join(dest,'receipt.json'),raw);
 await writeFile(path.join(dest,'index.html'),viewer);
 page=page.replaceAll(prior[1]+'/index.html',folderName+'/index.html');
+const climb=path.join(project,'cad/shallow-cage'), climbOutput=path.join(output,'climb');
+const reopened=JSON.parse(await readFile(path.join(climb,'reopen.json'),'utf8'));
+const archive=path.basename(reopened.source);
+if (!reopened.opened || digest(await readFile(path.join(climb,archive)))!==reopened.sha256)
+  throw new Error('Changed forward-jack Fusion archive');
+await mkdir(climbOutput,{recursive:true});
+const orbit=JSON.parse(await readFile(path.join(climb,'orbit.json'),'utf8'));
+if (orbit.fusion!==reopened.sha256 || orbit.baseSha256!==receipt.meshSha256 ||
+    orbit.kitSha256!==digest(await readFile(path.join(climb,'climb-kit.stl.gz'))))
+  throw new Error('Changed registered climb geometry');
+for(const entry of Object.values(reopened.added))
+  if(orbit.sourceSteps[entry.step]!==entry.sha256 || digest(await readFile(path.join(climb,entry.step)))!==entry.sha256)
+    throw new Error('Changed reopened group '+entry.step);
+for(const file of [archive,'shallow-climb.webm','shallow-climb.png','orbit.json','orbit.js','climb-kit.stl.gz'])
+  await copyFile(path.join(climb,file),path.join(climbOutput,file));
+const climbPage=(await readFile(path.join(climb,'player.html'),'utf8')).replace('CLIMB_BASE_MESH',folderName+'/assembly.stl.gz');
+await writeFile(path.join(output,'shallow-climb.html'),climbPage);
+const anchor=/<a\b[^>]*href="(?:\.\/)?field-lab\.html"[^>]*>[^<]*<\/a>/;
+if(!anchor.test(page)) throw new Error('Missing field lab navigation');
+page=page.replace(anchor,match=>match+' <a href="shallow-climb.html">Explore the shallow-cage climb</a>');
 await writeFile(pageFile,page);
 console.log('Published checked capture viewer '+folderName);

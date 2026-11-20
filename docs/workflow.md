@@ -21,3 +21,7 @@ The candidate bore pins and rim probes in the [capture study](../experiments/swe
 The [observed reef correction](../experiments/swerve-drive/reef-correction/study.md) records the measured cargo and wheel stops, camera calibration and cam-shelf source change for the two development inputs.
 
 The [matched cam-and-capture carry](../experiments/swerve-drive/cam-scoring/study.md) starts with the machined station tray’s own modal and pipe states. Its [two signed runs](../experiments/swerve-drive/cam-scoring/results.json) bind field travel, custody, camera holds and zero scored deliveries.
+
+### BARGE endgame
+
+The season skill anchors cage and park points to release V0. The mechanism-CAD skill produced the [editable forward jack, contacts and load-path study](../cad/shallow-cage/study.md). The match rehearsal compares the [three historical games and three BARGE variants](../kickoff/series.md) on the [registered assessment clock](../kickoff/barge-assessment.json).

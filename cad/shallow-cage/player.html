@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shallow-cage climb · Team 1780</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0d1d35;color:#f3f6fb;font:17px/1.55 system-ui,sans-serif}main{max-width:66rem;margin:auto;padding:clamp(18px,4vw,55px)}a{color:#a9d8ff}header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}header a{font-weight:650;text-decoration:none}h1{font-size:clamp(2.3rem,6.5vw,4.7rem);line-height:.98;letter-spacing:-.055em;margin:2rem 0 1rem}p{max-width:72ch;color:#d4e1f3}video{display:block;width:100%;aspect-ratio:23/14;border-radius:14px;background:#142f63}nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}button{border:1px solid #5a738e;padding:.6em 1em;border-radius:30px;color:#ecf5ff;background:#1c344e;font:inherit;cursor:pointer}button:hover,button:focus-visible{background:#315678}b{color:white}footer{margin:2rem 0}
+#orbit{display:block;width:100%;height:clamp(320px,58vh,610px);background:radial-gradient(ellipse at 50% 48%,#405f86,#142f63 72%);touch-action:none;border-radius:14px;cursor:grab}#orbit:active{cursor:grabbing}#orbit-status{margin:.45em 0;font-size:.9em}#pose{width:min(100%,30rem);vertical-align:middle;accent-color:#90d3ff}label,output{display:block}h2{margin:2rem 0 .7rem}
+</style>
+<main><header><a href="./">← Robot showcase</a><a href="field-lab.html#rehearsal">Open the six-match field lab</a></header>
+<h1>Shallow-cage climb</h1>
+<p>The forward jack fits the empty captive receiver and its four-module swerve chassis. Follow the cage opening, the opposed shoes and the passive hold from a supplied approach at 130 seconds.</p>
+<canvas id="orbit" tabindex="0" data-base="CLIMB_BASE_MESH" aria-label="Rotate the full empty robot with its forward climbing jack and illustrative cage">See the climb film below.</canvas>
+<p id="orbit-status" role="status">Loading the registered robot and jack…</p>
+<label for="pose">Lift sequence · <output id="pose-label" for="pose"></output></label><input id="pose" type="range" min="0" max="208" value="154" disabled>
+<nav aria-label="Model controls"><button data-pose="0">Approach</button><button data-pose="78">Grip cage</button><button data-pose="154">Raised chassis</button><button id="reset-orbit">Reset camera</button></nav>
+<h2>Watch the climb</h2>
+<video id="climb" controls preload="metadata" playsinline poster="climb/shallow-climb.png" aria-label="Forward shallow cage jack modeled motion"><source src="climb/shallow-climb.webm" type="video/webm"></video>
+<nav aria-label="Climb stages"><button data-time="0">Approach</button><button data-time="8.6">Spread shoes</button><button data-time="9.9">Clamp plate</button><button data-time="14">Raise chassis</button><button data-time="23">Power off</button></nav>
+<p><b>Fixture result</b> · The modeled jack completes its hold check 4.32 seconds before powered cutoff. Carpet clearance stays above 102 mm at the end in the eight tested center-of-gravity cases.</p>
+<p><b>Competition decision</b> · The plate and mounting would see large opposing forces. The modeled parts and allowances add 5.67 kg. The robot keeps its demonstrated five-point leave-and-park route. Its continuous match evidence earns zero climb points.</p>
+<footer><a href="climb/Team-1780-shallow-cage-study.f3d" download>Download the full forward-jack Fusion variant</a> · <a href="https://github.com/ehartye/frc-2025-poc/blob/main/cad/shallow-cage/study.md">Read the assembly and load study</a></footer></main>
+<script type="module">
+const clip=document.querySelector('#climb');
+let mediaFile;
+for(const button of document.querySelectorAll('[data-time]'))button.onclick=async()=>{
+  clip.pause();
+  const time=Number(button.dataset.time);
+  if(!clip.readyState)await new Promise(resolve=>clip.addEventListener('loadedmetadata',resolve,{once:true}));
+  if(time>0 && (!clip.seekable.length || clip.seekable.end(clip.seekable.length-1)<time)){
+    mediaFile??=fetch('climb/shallow-climb.webm').then(r=>r.blob()).then(blob=>URL.createObjectURL(blob));
+    const url=await mediaFile;
+    if(clip.src!==url){
+      const ready=new Promise(resolve=>clip.addEventListener('loadedmetadata',resolve,{once:true}));
+      clip.src=url;await ready;
+    }
+  }
+  clip.currentTime=time;
+  clip.focus();
+};
+</script>
+<script type="module" src="climb/orbit.js"></script></html>

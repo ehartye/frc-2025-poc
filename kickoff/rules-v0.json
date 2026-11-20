@@ -190,7 +190,30 @@
           4
         ]
       }
-    ]
+    ],
+    "barge": {
+      "parkPoints": 2,
+      "shallowPoints": 6,
+      "deepPoints": 12,
+      "bargeRankingThreshold": 14,
+      "qualificationRankingPoints": 1,
+      "maximumAssessmentDelayS": 3,
+      "transitionS": 3,
+      "cageCriteria": [
+        "Physical contact with own cage other than anchor",
+        "No carpet contact",
+        "Other contacts limited to scoring elements, another cage-qualified robot, a partner contacted by an opponent in violation of G428, or an opponent"
+      ],
+      "parkCriterion": "At end of match, some bumper volume is in the alliance BARGE ZONE and the robot has no CAGE points.",
+      "assessment": "Cage points assessed at all robots at rest after TELEOP, or three seconds after cutoff, whichever occurs first. No powered service continues.",
+      "rankingScope": "Kickoff standard qualification threshold. Championship thresholds can increase; G418 and G419 may award or change RP eligibility.",
+      "sources": [
+        "V0 §5.4.1 Figs. 5-10–11 and §6.3.5",
+        "§6.4",
+        "§6.5 p.46, §6.5.2 pp.47–48, §6.5.4 Table 6-2 p.48",
+        "G417–G420, G428"
+      ]
+    }
   },
   "field": {
     "length": 690.875,

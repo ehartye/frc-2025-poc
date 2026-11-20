@@ -11,3 +11,7 @@ The red middle robot starts empty, earns LEAVE, then takes one CORAL from the st
 | Park | End of TELEOP and assessment | Reserve the south lane, stow, reach the zone and stop | The separately chosen empty-start fallback completes 156 s and earns 5 total points. It has its own starting configuration and six-robot reservations. [Fallback study](../experiments/swerve-drive/motion/fallback.md) |
 
 Two deliveries in 135 s correspond to an average of one delivery per 67.5 s before reserving time for other actions. That arithmetic alone cannot size the loader. The route model has to establish when station stock is actually available and the maximum time left for each full trip. A faster feeder cannot recover a blocked passage or a lost pipe. [Kickoff field model](season-profile.json) · [Full-match acceptance conditions](../experiments/swerve-drive/motion/match-qualification.md)
+
+## Choosing the final action
+
+PARK earns 2, shallow CAGE 6 and deep CAGE 12. A shallow climb buys four points above a successful park at the cost of travel, mechanism service and any missed deliveries. At 130 s wall time, the supplied empty approach and forward jack finish the conditional lock check at 148.68 s. The 140 s control misses cutoff. Keep the two verified five-point leave-and-park traces available. The occupied receiver has no demonstrated climb route. [Six-match BARGE comparison](series.md) · [Forward jack and load limits](../cad/shallow-cage/study.md)

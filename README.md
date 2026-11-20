@@ -8,6 +8,8 @@
 
 **[Open the field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html)** to move a robot on the 2025 field and try both alliances' match plans. From a local checkout, open [the offline lab](kickoff/field-lab.html).
 
+**[Explore the shallow-cage climb](https://ehartye.github.io/frc-2025-poc/shallow-climb.html)** or [download its editable Fusion variant](cad/shallow-cage/Team-1780-shallow-cage-study.f3d). The forward jack clears the modeled carpet. Cage loads and inspection mass keep competition climb credit at zero. [Design and limits](cad/shallow-cage/study.md)
+
 **[Download the full student Fusion robot](cad/swerve-captive/Team-1780-public-captive-swerve.f3d)** to steer four modules, extend the receiver and operate the bore pins. [Joint guide and verification](cad/swerve-captive/study.md)
 
 Start with the [release-day field lab and match opportunities](kickoff/README.md). The [four-module swerve candidate](experiments/swerve-drive/README.md) has an editable Fusion assembly and a [student opening-drive replay](experiments/swerve-drive/motion/index.html). Check the conditional inspection-weight result before carrying it into a match design.
