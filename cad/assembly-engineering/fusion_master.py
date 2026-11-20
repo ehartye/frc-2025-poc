@@ -124,7 +124,7 @@ def run(context):
             raise ValueError(("Imported changes have different IDs", list(kit)[:20]))
     doc = app.importManager.importToNewDocument(
         app.importManager.createFusionArchiveImportOptions(
-            str(source if stage == "create" else Path(cfg.get("fromArchive", path)))
+            str(source if stage == "create" else Path(cfg["fromArchive"]) if stage == "patch" else path)
         )
     )
     try:
