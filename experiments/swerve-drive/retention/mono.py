@@ -49,21 +49,25 @@ def solve(corners, world, eye):
     return pose, float(err)
 
 
-def enclosure(corners, world, eye, target):
+def enclosure(corners, world, eye, target, pixel_error=0.25):
     prior = V.EYES
     try:
         V.EYES = (eye,)
-        return V.interval([corners], world, target, epsilon=0.25)
+        return V.interval([corners], world, target, epsilon=pixel_error)
     finally:
         V.EYES = prior
 
 
-def run(artifacts):
-    ctx = dock.create_scene(artifacts)
+def run(artifacts, *, scene=None, routes=None, pixel_error=0.25):
+    ctx = dock.create_scene(artifacts) if scene is None else scene
     gathered = {}
     for side in ("plus", "minus"):
         folder = artifacts / "retained-coral" / side / "continued"
+        if routes is not None:
+            folder = routes[side]
         route = dock.read(folder / "route.json")
+        if dock.sha(folder / "path.npz") != route["trajectory"]:
+            raise ValueError("Changed approach wheel trace")
         with np.load(folder / "path.npz") as archive:
             poses = archive["worldPose"]
             odom = archive["estimatedPose"]
@@ -89,7 +93,7 @@ def run(artifacts):
                 )
                 if residual > 0.35:
                     continue
-                outer = enclosure(corners, ctx["points"], eye, pose[:2])
+                outer = enclosure(corners, ctx["points"], eye, pose[:2], pixel_error)
                 if outer is None:
                     continue
                 lo, hi = outer[:2]

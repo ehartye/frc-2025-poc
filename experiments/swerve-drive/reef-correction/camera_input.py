@@ -14,7 +14,7 @@ V = fix.V
 MAX_RESIDUAL = 0.18
 
 
-def tagged_history(case, ctx):
+def tagged_history(case, ctx, tag_error=fix.PIXEL):
     rows = []
     review = []
     for row in case["views"]:
@@ -23,7 +23,7 @@ def tagged_history(case, ctx):
         ]
         error = float(np.max(abs(reprojection - row["corners"])))
         accepted = row["residualPx"] <= MAX_RESIDUAL
-        if accepted and error > fix.PIXEL:
+        if accepted and error > tag_error:
             raise ValueError("Measured corner escapes the selected calibration")
         if accepted:
             rows.append(row)
@@ -38,15 +38,17 @@ def tagged_history(case, ctx):
     return {**case, "views": rows}, review
 
 
-def run(artifacts):
-    out = artifacts / "reef-correction"
+def run(artifacts, *, scene=None, survey=None, output=None, tag_error=fix.PIXEL):
+    out = artifacts / "reef-correction" if output is None else output
+    if survey is None:
+        survey = artifacts / "captive-observer/mono.json"
     out.mkdir(exist_ok=True)
-    ctx = fix.mono.dock.create_scene(artifacts)
+    ctx = fix.mono.dock.create_scene(artifacts) if scene is None else scene
     registered = {}
-    for side, case in fix.read(artifacts / "captive-observer/mono.json").items():
-        selected, review = tagged_history(case, ctx)
+    for side, case in fix.read(survey).items():
+        selected, review = tagged_history(case, ctx, tag_error)
         _, heads, _, _ = V.station_frame(case["final"], ctx)
-        result = fix.fix(selected, ctx, heads, "nominal")
+        result = fix.fix(selected, ctx, heads, "nominal", tag_error)
         if not result["accepted"]:
             raise ValueError("No corrected initial optical bound")
         registered[side] = dict(
@@ -64,7 +66,8 @@ def run(artifacts):
     )
     data = dict(
         bytes=fix.sha(scene),
-        sourceSurvey=fix.sha(artifacts / "captive-observer/mono.json"),
+        tagCornerAllowancePx=tag_error,
+        sourceSurvey=fix.sha(survey),
         study=fix.sha(fix.HERE / "reef-fix.json"),
         cases=registered,
     )

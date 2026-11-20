@@ -19,8 +19,8 @@ MOUNT_ANGLE_RAD = math.radians(0.05)
 WHEEL_PROPAGATION_MM = 12.0
 
 
-def rays(observed, height, eye):
-    radius = np.array(list(itertools.product((-PIXEL, PIXEL), repeat=2)))
+def rays(observed, height, eye, pixel_error=PIXEL):
+    radius = np.array(list(itertools.product((-pixel_error, pixel_error), repeat=2)))
     return V.unproject(observed + radius, np.full(4, height), eye)
 
 
@@ -54,7 +54,7 @@ def box_report(low, high, angles, calibration):
     ]
 
 
-def fix(case, ctx, heads, mode):
+def fix(case, ctx, heads, mode, tag_error=PIXEL):
     # The starting prior is odometric heading with a deliberately broad +/- 5 deg.
     # Relative gyro drift and scale are independent of the AprilTag fit.
     odom = np.array(case["terminalOdom"])
@@ -85,7 +85,7 @@ def fix(case, ctx, heads, mode):
         high[excluded] = -np.inf
         local_delta = V.rotation(-estimate[2]) @ delta[:2]
         for corner, world in zip(row["corners"], ctx["points"]):
-            polygon = rays(corner, world[2], V.EYES[row["eye"]]) - local_delta
+            polygon = rays(corner, world[2], V.EYES[row["eye"]], tag_error) - local_delta
             l, h = rotated_box(
                 world[:2],
                 polygon,

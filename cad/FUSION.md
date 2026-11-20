@@ -4,6 +4,10 @@
 
 [Open the public capture assembly](swerve-captive/Team-1780-public-captive-swerve.f3d) to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
 
+## Supplier-detail capture candidate
+
+The season artifact `artifacts/cam-scoring/FRC-2025-Team-1780-captive-supplier-swerve.f3d` includes the four supplier module assemblies, 26 capture parts, cam shelf and two sprung-probe sliders. Fusion checked 31 actual occurrences at six poses before export. The independent reopen for this 143,014,397-byte supplier-detail file is pending. The public student file above has its own exact-byte reopen and uses published supplier representations. [Private archive hash and export measurements](swerve-captive/supplier-export.json)
+
 ## Drive the earlier supplier-detail receiver in Fusion
 
 Open `artifacts/swerve-articulation/FRC-2025-Team-1780-articulated-swerve.f3d` from the season project artifacts. In the colored project hardware component, right-click **Receiver / slide**, choose **Drive Joint**, and move from 0 to 370 mm. The second stage moves 185 mm. Watch the shelf camera, end grippers and machined receiver travel together while the numbered bumper and four MAXSwerve assemblies stay at their original locations. Return the slide to zero to inspect the stowed robot. [Native measurements and reconstruction](swerve-articulation/study.md) · [Watch the pickup and release study](../experiments/swerve-drive/score-stroke/receiver-motion.webm)

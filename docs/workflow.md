@@ -19,3 +19,5 @@ The selected robot uses four swerve modules, a fixed-height sliding receiver, st
 The candidate bore pins and rim probes in the [capture study](../experiments/swerve-drive/retention/study.md) have a [loaded endpoint and dock-observation follow-up](../experiments/swerve-drive/retention/observer-study.md). The [interactive capture view](robot/cad/index.html) and downloadable Fusion robot use the same named assembly, including all 26 capture parts. The older R4 STEP and the three-fixture film remain available.
 
 The [observed reef correction](../experiments/swerve-drive/reef-correction/study.md) records the measured cargo and wheel stops, camera calibration and cam-shelf source change for the two development inputs.
+
+The [matched cam-and-capture carry](../experiments/swerve-drive/cam-scoring/study.md) starts with the machined station tray’s own modal and pipe states. Its [two signed runs](../experiments/swerve-drive/cam-scoring/results.json) bind field travel, custody, camera holds and zero scored deliveries.
