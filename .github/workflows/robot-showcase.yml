@@ -101,10 +101,38 @@ jobs:
       - name: Check the source inventory and every final public byte
         env:
           FRC_VERIFIED_FIELD_ROOT: ${{ runner.temp }}/field
+          REVIEW_PUBLIC_KEY: ${{ vars.MECHANICAL_REVIEW_PUBLIC_KEY }}
         run: |
-          node verifier/scripts/public-model-release.mjs audit project 54a6eef39b24101effb32da25f01865c237f298f .github/public-model-policy.json
+          set -euo pipefail
+          source_packet=project/.github/model-release/source.json
+          stage_packet=project/.github/model-release/staged.json
+          source_args=()
+          stage_args=()
+          if [[ -e "$source_packet" || -e "$stage_packet" || -L "$source_packet" || -L "$stage_packet" ]]; then
+            node --input-type=module - "$source_packet" "$stage_packet" <<'JS'
+          import { readFileSync, realpathSync } from 'node:fs';
+          import { resolve } from 'node:path';
+          import { isDeepStrictEqual } from 'node:util';
+          const read = file => {
+            if (realpathSync(file) !== resolve(file)) throw Error('Redirected release packet');
+            return JSON.parse(readFileSync(file, 'utf8')).body;
+          };
+          const [source, staged] = process.argv.slice(2).map(read);
+          for (const name of ['project','scope','configuration','studySha256','archiveSha256','stepSha256','solids']) {
+            if (source[name] === undefined || !isDeepStrictEqual(source[name], staged[name])) {
+              throw Error('The source and staged packets must cover one reviewed issue: '+name);
+            }
+          }
+          JS
+            test -n "$REVIEW_PUBLIC_KEY"
+            key="$RUNNER_TEMP/mechanical-review-public.pem"
+            printf '%s\n' "$REVIEW_PUBLIC_KEY" > "$key"
+            source_args=("$source_packet" "$key")
+            stage_args=("$stage_packet" "$key")
+          fi
+          node verifier/scripts/public-model-release.mjs audit project 54a6eef39b24101effb32da25f01865c237f298f .github/public-model-policy.json "${source_args[@]}"
           python approved/scripts/cad-readmes.py project
-          node verifier/scripts/public-model-release.mjs audit-staged "$RUNNER_TEMP/approved" "$RUNNER_TEMP/showcase" approved/.github/staged-model-policy.json
+          node verifier/scripts/public-model-release.mjs audit-staged "$RUNNER_TEMP/approved" "$RUNNER_TEMP/showcase" approved/.github/staged-model-policy.json "${stage_args[@]}"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
