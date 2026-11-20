@@ -110,11 +110,17 @@ def run(context):
     app = core.Application.get()
     stage = cfg["stage"]
     rows = {r["id"]: r for r in read_csv(folder / "material-register.csv")}
-    path = out / FILENAME
+    path = out / cfg.get("filename", FILENAME)
     source = root / "cad/shallow-cage/Team-1780-shallow-cage-study.f3d"
     change = json.loads((folder / "interfaces.json").read_bytes())
     if digest(source) != change["sourceArchiveSha256"]:
         raise ValueError("Initial archive changed")
+    if (
+        stage == "patch"
+        and "parentArchiveSha256" in change
+        and digest(Path(cfg["fromArchive"])) != change["parentArchiveSha256"]
+    ):
+        raise ValueError("Changed patch starting archive")
     if stage in ("create", "patch"):
         kit_path = folder / "station-and-jack-interfaces.step"
         if digest(kit_path) != change["outputSha256"]:
@@ -124,7 +130,13 @@ def run(context):
             raise ValueError(("Imported changes have different IDs", list(kit)[:20]))
     doc = app.importManager.importToNewDocument(
         app.importManager.createFusionArchiveImportOptions(
-            str(source if stage == "create" else Path(cfg["fromArchive"]) if stage == "patch" else path)
+            str(
+                source
+                if stage == "create"
+                else Path(cfg["fromArchive"])
+                if stage == "patch"
+                else path
+            )
         )
     )
     try:
@@ -191,6 +203,8 @@ def run(context):
                     moving[name] = [x, y]
 
             def group_for(k):
+                if k in change.get("frameAssignments", {}):
+                    return groups[change["frameAssignments"][k]]
                 for side in ("Left", "Right"):
                     if k.startswith(side + " "):
                         item = k[len(side) + 1 :]
@@ -295,6 +309,9 @@ def run(context):
                 if k in kit:
                     b.name = k
                 b.material = matcache[matname]
+                role = change.get("appearanceRoles", {}).get(k)
+                if role:
+                    ap = colors.get("FRC 2025 - " + role, ap)
                 if ap:
                     b.appearance = ap
                 # The independent reopener reads persistent attributes, volume and occurrence;
@@ -309,6 +326,8 @@ def run(context):
                 }.items():
                     b.attributes.add("Team 1780 engineering", key, value)
             for name, (x, y) in moving.items():
+                if top.asBuiltJoints.itemByName(name):
+                    continue
                 if not groups[name].component.bRepBodies.count:
                     groups[name].deleteMe()
                     continue
@@ -334,7 +353,7 @@ def run(context):
                 raise ValueError(("Incomplete observation", len(body_rows), len(rows)))
             report = {
                 "schema": "agent-frc/native-physical-properties@1",
-                "configuration": CONFIGURATION,
+                "configuration": change.get("configuration", CONFIGURATION),
                 "opened": True,
                 "archiveSha256": digest(path),
                 "nativeBodyCount": len(body_rows),

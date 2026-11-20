@@ -10,6 +10,7 @@ from OCP.BRepBndLib import BRepBndLib
 from attachments import base, volume
 from installed_audit import HERE, ROOT, reopen, sha
 from issue import rows, document
+from shop_sources import issue_shapes
 from clearance import read_assembly
 
 
@@ -36,7 +37,7 @@ def compare(folder):
     }
     sorted_parts = {
         k: v
-        for k, v in (original | base.named(source)).items()
+        for k, v in (original | issue_shapes(folder, record)).items()
         if k not in record["fixedHeight"]["removed"]
     }
     if len(sorted_parts) != len(actual):
@@ -84,7 +85,9 @@ def compare(folder):
         )
 
     summary = dict(
-        archiveSha256=sha(folder / "Team-1780-engineering-shallow.f3d"),
+        archiveSha256=sha(
+            folder / record.get("filename", "Team-1780-engineering-shallow.f3d")
+        ),
         interfaceSha256=sha(source),
         observationSha256=sha(folder / "engineering-reopen.json"),
         perBodySha256=sha(folder / "cold-comparison.csv"),

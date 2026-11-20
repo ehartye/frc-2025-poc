@@ -67,8 +67,10 @@ def pointer(key):
     return key.replace("~", "~0").replace("/", "~1")
 
 
-def native_site(k, initial, changed):
+def native_site(k, initial, changed, assignments=None):
     """Issue paths derive from the original occurrence register and new assembly groups."""
+    if assignments and k in assignments:
+        return assignments[k] + ":1", k
     for side in ("Left", "Right"):
         if k.startswith(side + " "):
             part = k[len(side) + 1 :]
@@ -118,7 +120,15 @@ def create(folder, archive, observe):
         for r in rows(HERE / "as-issued-native.csv")
     }
     changed = json.loads((folder / "interfaces.json").read_bytes())
+    plan = changed
+    configuration = plan.get("configuration", CONFIG)
+    frame_assignments = plan.get("frameAssignments", {})
     changed = set(changed["additional"] + changed["replacement"])
+    if "parentIssue" in plan:
+        parent = json.loads(
+            (HERE / plan["parentIssue"] / "interfaces.json").read_bytes()
+        )
+        changed.update(parent["additional"] + parent["replacement"])
     owners = defaultdict(list)
     plan_rows = []
     evidence = dict(
@@ -134,7 +144,7 @@ def create(folder, archive, observe):
         k = r["id"]
         who = r["instance"]
         stock = r["physicalDisplayMaterial"]
-        occurrence, body = native_site(k, initial, changed)
+        occurrence, body = native_site(k, initial, changed, frame_assignments)
         row = dict(
             occurrence=occurrence,
             body=body,
@@ -247,7 +257,7 @@ def create(folder, archive, observe):
     plan = dict(
         schema="agent-frc/engineering-material-plan@1",
         archiveSha256=digest,
-        configuration=CONFIG,
+        configuration=configuration,
         bodies=plan_rows,
         stocks=[
             dict(id=k, source="bill", pointer="/stock/" + pointer(k))
@@ -266,7 +276,7 @@ def create(folder, archive, observe):
     mapping = dict(
         schema="agent-frc/assembly-accounting@1",
         revision=digest,
-        configuration=CONFIG,
+        configuration=configuration,
         scope="complete",
         omissions=[],
         sources=[dict(id=k, file=v, sha256=sha(folder / v)) for k, v in files.items()],
@@ -277,7 +287,7 @@ def create(folder, archive, observe):
         changes=[],
         selected=[],
         mass=dict(
-            configuration=CONFIG,
+            configuration=configuration,
             revision=digest,
             unit="kg",
             limitKg=52.16312255,
@@ -294,4 +304,7 @@ if __name__ == "__main__":
     cli = argparse.ArgumentParser()
     cli.add_argument("folder", type=Path)
     a = cli.parse_args().folder.resolve()
-    create(a, a / "Team-1780-engineering-shallow.f3d", a / "engineering-reopen.json")
+    archive = json.loads((a / "interfaces.json").read_bytes()).get(
+        "filename", "Team-1780-engineering-shallow.f3d"
+    )
+    create(a, a / archive, a / "engineering-reopen.json")

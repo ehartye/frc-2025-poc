@@ -80,7 +80,11 @@ async function start() {
     register.baseBatches.map(([role,color,group,count])=>[group,color,count,role==='bumper-lettering']));
   if (register.kitSha256) await add('climb/climb-kit.stl.gz',register.kitSha256,register.kitBatches);
   let yaw = -1.02, pitch = .27, zoom = 1, pointer;
+  const rack = document.querySelector('#rack-travel');
+  const yoke = document.querySelector('#yoke-travel');
   function draw() {
+    const rackMm = rack ? Number(rack.value) : 0;
+    const yokeMm = yoke ? Number(yoke.value) : 0;
     const ratio = Math.min(devicePixelRatio || 1, 2);
     const w = Math.round(canvas.clientWidth*ratio), h = Math.round(canvas.clientHeight*ratio);
     if (canvas.width!==w || canvas.height!==h) {canvas.width=w;canvas.height=h;}
@@ -102,8 +106,11 @@ async function start() {
       }
       const moving=['Cage crosshead','Left cage shoe','Right cage shoe','Lower plate clamp'].includes(b.group);
       const cage=b.group==='Illustrative cage';
-      gl.uniform3f(uniforms.travel,cage?0:approach,
-        b.group==='Left cage shoe'?spread:b.group==='Right cage shoe'?-spread:0,
+      const shelf = ['Outer slide','Left capture yoke','Right capture yoke'].includes(b.group);
+      const receiverX = shelf ? rackMm : b.group === 'Middle slide' ? rackMm / 2 : 0;
+      const receiverY = b.group === 'Left capture yoke' ? -yokeMm : b.group === 'Right capture yoke' ? yokeMm : 0;
+      gl.uniform3f(uniforms.travel,cage?0:approach+receiverX,
+        b.group==='Left cage shoe'?spread:b.group==='Right cage shoe'?-spread:receiverY,
         cage?0:lift+(moving?head:0)+(b.group==='Lower plate clamp'?clamp:0));
       gl.uniform3fv(uniforms.color,b.color);
       if (b.overlay) {gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-1);}
@@ -111,6 +118,8 @@ async function start() {
       if (b.overlay) gl.disable(gl.POLYGON_OFFSET_FILL);
     }
     position.textContent=canvas.dataset.inspection ? Math.round(head)+' mm carriage travel · '+Math.round(spread)+' mm shoe travel' : (130+slider.value/8).toFixed(2)+' s · lift '+Math.round(lift)+' mm';
+    if (rack) document.querySelector('#rack-label').textContent = rackMm + ' mm';
+    if (yoke) document.querySelector('#yoke-label').textContent = yokeMm + ' mm per side';
     canvas.dataset.pose=slider.value;
   }
   function rotate(dx,dy) {
@@ -125,6 +134,7 @@ async function start() {
     if(delta){e.preventDefault();rotate(...delta);}
   });
   slider.addEventListener('input',draw);
+  for (const input of [rack,yoke]) if (input) { input.disabled=false; input.addEventListener('input',draw); }
   for(const button of document.querySelectorAll('[data-pose]'))button.onclick=()=>{slider.value=button.dataset.pose;draw();};
   document.querySelector('#reset-orbit').onclick=()=>{yaw=-1.02;pitch=.27;zoom=1;draw();};
   slider.disabled=false;

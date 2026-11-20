@@ -1,12 +1,11 @@
 """Draw the parked shop issue using its checked orbit mesh and the maintained project renderer."""
 
-import gzip, json, runpy, sys, tempfile
+import argparse, gzip, json, runpy, sys, tempfile
 from pathlib import Path
 from installed_audit import HERE, ROOT, sha
 
 
-def render():
-    folder = HERE / "issue"
+def render(folder=HERE / "issue"):
     mesh = folder / "installed.stl.gz"
     source = json.loads((folder / "orbit.json").read_bytes())
     if sha(mesh) != source["baseSha256"]:
@@ -22,4 +21,6 @@ def render():
 
 
 if __name__ == "__main__":
-    render()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder", nargs="?", type=Path, default=HERE / "issue")
+    render(ap.parse_args().folder)
