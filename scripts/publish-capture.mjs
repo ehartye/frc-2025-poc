@@ -71,5 +71,39 @@ if (digest(rolePage) !== liveReport.roleHtmlSha256 ||
   throw new Error('Role lab and selected demand must match the published study');
 await writeFile(path.join(output,'role-lab.html'), rolePage);
 page=page.replace(anchor,match=>match+' <a href="role-lab.html#roleLab">Compare station routes</a>');
+const noticeStyle = `<style>
+body > .draft-notice {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #29261b;
+  background: #ffdc57;
+  color: #1d1b14;
+  text-align: center;
+}
+body > .draft-notice::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background: repeating-linear-gradient(135deg, #202018 0 8px, #ffdc57 8px 16px);
+}
+body > .draft-notice p {
+  max-width: none;
+  margin: 0;
+  padding: 6px 16px;
+  color: inherit;
+  font: 600 14px/1.4 system-ui, sans-serif;
+  text-wrap: pretty;
+}
+</style>`;
+const designNotice = `<aside class="draft-notice" aria-label="Design status"><p>This is a design first draft from agent-frc. Expect mechanical 'room for improvement'. Our robot design agents are working hard on refinements.</p></aside>`;
+if (!page.includes('</head>') || !/<body\b[^>]*>/.test(page))
+  throw new Error('Showcase home needs a head and body for the design notice');
+page = page.replace('</head>', noticeStyle + '</head>')
+  .replace(/<body\b[^>]*>/, body => body + designNotice);
 await writeFile(pageFile,page);
 console.log('Published checked capture viewer '+folderName);
