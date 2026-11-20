@@ -132,9 +132,21 @@ def run(context):
         top = d.rootComponent
         if stage in ("create", "patch"):
             old = {}
+            known = set(rows) | set(change["fixedHeight"]["removed"])
+            by_id = {
+                hashlib.sha256(
+                    ("team-1780-engineering-v1/" + k).encode()
+                ).hexdigest(): k
+                for k in known
+            }
             for occ in top.allOccurrences:
                 for b in occ.component.bRepBodies:
-                    key = key_for(occ, b)
+                    tag = b.attributes.itemByName("Team 1780 engineering", "identity")
+                    if stage == "patch" and not tag:
+                        raise ValueError(
+                            ("Missing inherited stable ID", occ.fullPathName, b.name)
+                        )
+                    key = by_id[tag.value] if tag else key_for(occ, b)
                     if key in old:
                         raise ValueError(("Duplicate issued body", key))
                     old[key] = (occ, b)
@@ -280,6 +292,8 @@ def run(context):
                                     raise ValueError((target.units, matname))
                                 target.value = float(r["nativeNominalDensityKgM3"])
                     matcache[matname] = mat
+                if k in kit:
+                    b.name = k
                 b.material = matcache[matname]
                 if ap:
                     b.appearance = ap
