@@ -104,6 +104,30 @@ class ReceiverService(unittest.TestCase):
         self.assertAlmostEqual(m["inspectionUpperKg"], upper)
         self.assertTrue(0.020 < m["R103MarginKg"] < 0.024)
 
+    def test_camera_carrier_and_residual_budget(self):
+        r = record("camera-receiving.json")
+        m = record("issue/mass.json")
+        with (HERE / "issue/article-register.csv").open(encoding="utf8") as source:
+            row = {x["instance"]: float(x["upperKg"]) for x in csv.DictReader(source)}
+        self.assertAlmostEqual(row["camera-carrier-links"], 0.2806)
+        self.assertAlmostEqual(row["camera-carrier-guides"], 0.120)
+        self.assertAlmostEqual(sum(r["cableGroupCapsKg"].values()), row["camera-leads"])
+        self.assertAlmostEqual(
+            sum(v for k, v in row.items() if k.startswith("wire--converter--"))
+            + row["camera-panel-fittings"],
+            0.750,
+        )
+        self.assertAlmostEqual(
+            row["unitemized-receiving"] + r["reassignedToNamedArticlesKg"], 5
+        )
+        self.assertAlmostEqual(m["includedUnresolvedReserveKg"], 3.86715)
+        self.assertGreater(
+            m["additionalFullReserveUpperKg"]
+            - m["inspectionUpperKg"]
+            - m["R103MarginKg"],
+            1.1094,
+        )
+
     def test_corrected_support_moves_with_camera_and_rollout_holds_at_jack(self):
         assignment = record("issue/interfaces.json")["frameAssignments"]
         frames = record("frames.json")

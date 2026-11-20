@@ -1,6 +1,6 @@
 # Receiver service assembly
 
-The corrected receiver, matched battery bay and upper camera cable support share one 1,268-solid engineering assembly. All coordinates use the team’s shop drawing frame. The purchase register counts the two SB50 housings within the base harness, and the separate materials register assigns each housing its own geometry. The assembled estimate is 52.13977 kg against the 52.16312 kg R103 limit. The 23.36 g margin is conditional on the included 5 kg unresolved stock allowance and the stated receiving bounds.
+The corrected receiver, matched battery bay and upper camera cable support share one 1,268-solid engineering assembly. All coordinates use the team’s shop drawing frame. The purchase register counts the two SB50 housings within the base harness, and the separate materials register assigns each housing its own geometry. The assembled estimate is 52.13977 kg against the 52.16312 kg R103 limit. The 23.36 g margin requires all unassigned installation material to fit within 3.86715 kg. Keeping a further 5 kg unassigned after naming the camera hardware would give 53.27262 kg, 1.10949 kg over the limit.
 
 [Shop sequence](shop.md) · [Six dimensioned assembly sheets](issue/assembly-drawings.pdf) · [Material register](issue/material-register.csv) · [Purchasing and allowance register](issue/article-register.csv) · [Estimate](issue/mass.json)
 
@@ -23,6 +23,12 @@ The bill retains the complete 1.65 kg base-harness allowance. Allocate up to 225
 The camera case, local power and data plugs and all 25 support parts travel together on the outer slide. The prior native assembly held three negative-coordinate mounting screws and the camera case on the chassis. Correcting only the screws left modeled screw-to-camera collisions of 163.35 mm³ at 92.5 mm stroke and 160.97 mm³ at 115.625 mm. Moving the camera with its group clears both. The stationary computer's two USB-A boots stay at the host. The SP1 draw-wire display represents the retracted length; its eye moves independently. [Frame and source audit](frames.json) · [Fixed-camera control](support-fixed-camera-control.json) · [Corrected clearance](support-travel.json)
 
 **Hold full-stroke operation with the front jack installed.** Independent of the loop shape, the last 20 mm of straight cable leaving the specified 23-link carrier enters the right jack motor. At 365 mm shelf stroke the power and data jacket envelopes enter it by 166.84 and 150.06 mm³. At 370 mm they enter by 457.30 and 318.53 mm³. The interactive shelf control exposes the intended travel. A changed carrier or motor installation needs a new continuous loaded-path check before fabrication release. [Carrier-to-jack solid witness](carrier-motor.json)
+
+## What the camera harness weighs
+
+The preceding bill grouped 105 g of fixed camera adapter and leads with 170 g of factory moving data cable. The corrected bill adds the 220 g LAPP cut, 5 g moving Y adapter and 32.25 g power donor, bringing that group to 532.25 g. Three MEAN WELL DDR-30G-5 converters receive 130 g each against the manufacturer's 120 g packing entry. The other fixed-panel wiring, rail, protection and retention share 360 g of the same 750 g complete panel. The finished moving cable support already has 25 individual material rows. [Per-article allocations](camera-receiving.json) · [Camera installation account](../../../experiments/six-wheel/camera-disconnects/mass-conditions.json) · [MEAN WELL specification](https://www.meanwell.com/Upload/PDF/DDR-30/DDR-30-spec.pdf)
+
+The 23-link igus carrier accounts for 280.6 g, carrier guides and parking fittings for a further 120 g, and local moving-cable finish for 25 g. These accounting rows represent hardware missing from the public solid model. Together with the lead and fixed-panel adjustments they use 1.13285 kg of the earlier 5 kg installation allowance. The residual ceiling is 3.86715 kg. A proposed change to the carrier length earns no credit in this bill.
 
 ## Connection review
 

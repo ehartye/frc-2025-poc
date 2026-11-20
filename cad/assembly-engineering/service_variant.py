@@ -6,6 +6,7 @@ from installed_audit import HERE, sha
 from issue import document, rows, write_csv
 from receiver_motion import OUT, assembly
 from receiver_frames import corrections, witness_ids
+from camera_budget import allocate
 
 PARENT = HERE / "issue"
 CONFIG = "fixed-low-captive-shallow-service-2"
@@ -147,6 +148,7 @@ def run():
     products["base-harness"]["description"] = (
         "Base harness installed acceptance cap including both SB50 housings, four contacts, two ring lugs and two battery leads. Allocate <=0.225 kg to this disconnect-and-pigtail set, leaving <=1.425 kg for remaining base wiring/terminations. All charged in inspection."
     )
+    receiving = allocate(products)
     catalog_margin = {}
     for k, s in delta.items():
         old = ledger.get(k, {})
@@ -180,7 +182,7 @@ def run():
         catalog_margin[k] = max(0, bound - prior)
         products[k] = dict(
             instance=k,
-            description="Accu SSH-M2-3-16-A2 ÃƒËœ3 shoulder screw; modeled installed receiving upper",
+            description="Accu SSH-M2-3-16-A2 3 mm shoulder screw; modeled installed receiving upper",
             upperKg=max(bound, prior),
             source="cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json",
         )
@@ -261,13 +263,16 @@ def run():
         fixedHeight=dict(removed=sorted(retired | set(plan["fixedHeight"]["removed"]))),
     )
     document(PRODUCTION / "interfaces.json", record)
+    document(OUT / "camera-receiving.json", receiving)
     document(
         PRODUCTION / "mass.json",
         dict(
             issue=sha(neutral),
             inspectionUpperKg=upper,
             R103MarginKg=LIMIT - upper,
-            includedUnresolvedReserveKg=5,
+            includedUnresolvedReserveKg=receiving["unassignedRemainderKg"],
+            originalAggregateReserveKg=receiving["historicalCombinedAllowanceKg"],
+            additionalFullReserveUpperKg=upper+receiving["reassignedToNamedArticlesKg"],
             installedSolids=len(selected),
             unionIds=sorted(retired),
             contractUpperReplacesGeometric=catalog_margin,

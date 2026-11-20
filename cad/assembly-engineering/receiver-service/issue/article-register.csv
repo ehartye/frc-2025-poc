@@ -55,8 +55,12 @@ Right gear output REV-41-1604,Right gear output REV-41-1604,0.095,cad/assembly-e
 Right screw core,Right screw core,0.5533303080291864,cad/assembly-engineering/drive-budget.json
 SP1,SP1-4-A sensor including eye/line and factory cable,0.19,experiments/six-wheel/integrated-slide/README.md
 base-harness,"Base harness installed acceptance cap including both SB50 housings, four contacts, two ring lugs and two battery leads. Allocate <=0.225 kg to this disconnect-and-pigtail set, leaving <=1.425 kg for remaining base wiring/terminations. All charged in inspection.",1.65,experiments/six-wheel/design/electrical-inspection/inspection.py
+camera-carrier-guides,"Allowance for carrier guide, end brackets and parking fittings additional to the drawn cable support",0.12,experiments/six-wheel/camera-disconnects/mass-conditions.json
+camera-carrier-links,"23 installed 30.5 mm pitch igus links; 12.2 g per link, charged as a complete bought unit without a native chain proxy",0.2806,experiments/six-wheel/camera-disconnects/mass-conditions.json
 camera-closures,"Board, connector, guide closures, ties and finishing",0.053,experiments/six-wheel/fixed-camera-route/mass-input.json
-camera-leads,"Fixed adapter and leads, roof factory lead, fitted signal and power tails",0.275,experiments/six-wheel/fixed-camera-route/mass-input.json
+camera-leads,"Fixed adapter and leads, factory Newnex moving data cable, LAPP moving power cut, DM6010 moving Y and short power donor; see camera-receiving.json for the five caps",0.53225,experiments/six-wheel/camera-disconnects/mass-conditions.json
+camera-moving-finish,"Moving liner, solder, retention and finish allowance; separate from the fixed transition/closures line",0.025,experiments/six-wheel/camera-disconnects/mass-conditions.json
+camera-panel-fittings,"DIN rail, positive retention, fuses, fixed panel wiring and terminations; balance within the 750 g complete panel including its three converters",0.36,experiments/six-wheel/fixed-camera-route/mass-input.json
 drive-harness,Four issued corner-specific finished branch cuts including connectors and protections,1.492097135,experiments/swerve-drive/mass-closure/recipe.json
 "dual controller power, grounds, three-phase, feedback, branch breaker and terminals","dual controller power, grounds, three-phase, feedback, branch breaker and terminals",0.44,cad/assembly-engineering/drive-budget.json
 finish,Weld and finish portion of supplier package allowance,0.16,experiments/swerve-drive/packaging/mount-budget.json
@@ -99,8 +103,8 @@ retainer-left-servo-envelope,"Capture servo, complete assembly receiving allowan
 retainer-right-servo-envelope,"Capture servo, complete assembly receiving allowance",0.08,experiments/swerve-drive/retention/README.md
 rev-pdh,"REV-11-1850 power distribution hub, catalog 517 g plus 3% receiving margin",0.533,https://www.revrobotics.com/rev-11-1850/
 rio2-envelope,"NI roboRIO 2.0, am-3000a, 544 g AndyMark logistics listing; 570 g proposed receiving cap",0.57,https://andymark.com/products/ni-roborio-2-0.js
-roof-head-shoulder,Accu SSH-M2-3-16-A2 Ø3 shoulder screw; modeled installed receiving upper,0.0016,cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json
-roof-root-shoulder,Accu SSH-M2-3-16-A2 Ø3 shoulder screw; modeled installed receiving upper,0.0016,cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json
+roof-head-shoulder,Accu SSH-M2-3-16-A2 3 mm shoulder screw; modeled installed receiving upper,0.0016,cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json
+roof-root-shoulder,Accu SSH-M2-3-16-A2 3 mm shoulder screw; modeled installed receiving upper,0.0016,cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json
 screw lower retainers and upper tab/nut and weld material,screw lower retainers and upper tab/nut and weld material,0.06,cad/assembly-engineering/drive-budget.json
 second SPARK MAX (reuse isolated lift SPARK for the other jack),second SPARK MAX (reuse isolated lift SPARK for the other jack),0.12,cad/assembly-engineering/drive-budget.json
 "shoe spread, positive spread latch, lower preload mechanism and position sensing","shoe spread, positive spread latch, lower preload mechanism and position sensing",0.4,cad/assembly-engineering/drive-budget.json
@@ -125,8 +129,8 @@ spark-right-grip,REV-11-2158 SPARK MAX with included leads; 113.3 g catalog with
 spark-slide,REV-11-2158 SPARK MAX with included leads; 113.3 g catalog with receiving allowance,0.12,https://www.revrobotics.com/rev-11-2158/
 "two REV-41-1608 pinions, through-bolts and six cartridge screws per gearbox","two REV-41-1608 pinions, through-bolts and six cartridge screws per gearbox",0.06,cad/assembly-engineering/drive-budget.json
 "two spring returns, cable and lateral release actuators/feedback","two spring returns, cable and lateral release actuators/feedback",0.22,cad/assembly-engineering/drive-budget.json
-unitemized-receiving,"All unresolved mounting, manufacturing and small-parts reserve",5.0,experiments/six-wheel/design/electrical-inspection/inspection.py
+unitemized-receiving,"Unassigned remainder of the original 5 kg combined installation allowance after registering the camera carrier, moving leads, panel and fittings",3.86715,experiments/six-wheel/design/electrical-inspection/inspection.py
 vh109-reserve,VH-109 version 1; 0.4 lb catalog plus receiving reserve,0.21,https://wcproducts.info/files/frc/drawings/VH-109%20Public%202024-01-02.pdf
-wire--converter--140,DC converter and terminations (isolated enclosure),0.1,experiments/six-wheel/fixed-camera-route/README.md
-wire--converter--184,DC converter and terminations (isolated enclosure),0.1,experiments/six-wheel/fixed-camera-route/README.md
-wire--converter--96,DC converter and terminations (isolated enclosure),0.1,experiments/six-wheel/fixed-camera-route/README.md
+wire--converter--140,"One MEAN WELL DDR-30G-5, 0.120 kg manufacturer packing specification, 0.130 kg receiving allocation within the fixed power panel",0.13,https://www.meanwell.com/Upload/PDF/DDR-30/DDR-30-spec.pdf
+wire--converter--184,"One MEAN WELL DDR-30G-5, 0.120 kg manufacturer packing specification, 0.130 kg receiving allocation within the fixed power panel",0.13,https://www.meanwell.com/Upload/PDF/DDR-30/DDR-30-spec.pdf
+wire--converter--96,"One MEAN WELL DDR-30G-5, 0.120 kg manufacturer packing specification, 0.130 kg receiving allocation within the fixed power panel",0.13,https://www.meanwell.com/Upload/PDF/DDR-30/DDR-30-spec.pdf
