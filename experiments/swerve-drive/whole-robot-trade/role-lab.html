@@ -908,7 +908,7 @@ function rehearsalFindings(id,basis,game,stations) {
       '. Terminal points Blue '+terminal.terminalScore.blue+' / Red '+terminal.terminalScore.red+'.');
   }
   for (const station of stations ?? []) {
-    if(station.kind==='retrieval') lines.push(station.label+' · '+station.piece+' stock '+game.initial[station.id]+' initially, '+game.stock[station.id].length+' available at snapshot.');
+    if(station.kind==='retrieval') lines.push(station.label+' · '+station.piece+' stock '+game.initial[station.id]+' initially, '+game.stock[station.id].length+' available at snapshot.'+(station.service?' '+game.reserve[station.id].length+' in human reserve at '+station.service.operator+'.':''));
     else lines.push(station.label+' · '+game.attempts[station.id]+' pieces attempted. Criterion: '+station.criterion);
   }
   const groups=new Map();
@@ -1202,8 +1202,10 @@ function createFieldRehearsal(profile) {
     const ledger=game.start(robots,tieWinner,setup);
     if(terminal)ledger.endgame=terminal.start(robots,atRestAfterS,setup);
     else if(robots.some(r=>r.endgame!==undefined) || atRestAfterS!==undefined)throw Error('Supply an endgame model before scheduling a terminal action.');
-    return {robots,setup,game:ledger,phase:phases[0].name,phaseIndex:0,ticks:0,paused:true,ended:false,resources:reservations(),hotspots:[],
+    const sim={robots,setup,game:ledger,phase:phases[0].name,phaseIndex:0,ticks:0,paused:true,ended:false,resources:reservations(),hotspots:[],
       log:[], carry:0,phaseHistory:[]};
+    game.replenish(sim,0);
+    return sim;
   }
   function program(r,sim){return model.programs[r.plans[sim.phase]];}
   function itinerary(r,sim) {
@@ -1327,6 +1329,7 @@ function createFieldRehearsal(profile) {
   function nextPhase(sim) {
     if(!sim.ended || sim.phaseIndex===phases.length-1)throw Error('Finish the active period before advancing to a configured next period.');
     sim.phase=phases[++sim.phaseIndex].name;sim.ticks=0;sim.carry=0;sim.ended=false;sim.paused=true;sim.resources=reservations();
+    game.replenish(sim,0);
     for(const r of sim.robots)Object.assign(r,{leg:0,waypoints:null,target:0,dwell:0,wait:0,travelIn:0,visits:0,blocked:'',action:''});
   }
   return {supported,behaviors,defaults,startingRoster,completeRoster,create,createProbe,advance,nextPhase,assessRoute,geom,dt,periods:phases,terminal,
@@ -2133,6 +2136,14 @@ const roleComparison={"files":{"profile":{"path":"experiments/swerve-drive/whole
       context.fillStyle=piece.station===highlighted?'#fff':'#ffcc62';context.strokeStyle='#54421e';context.lineWidth=.7;
       context.beginPath();context.arc(x,y,Math.max(1.25,piece.radiusIn*scale),0,2*Math.PI);context.fill();context.stroke();
     }
+    for(const s of stations.filter(s=>s.kind==='scoring')){
+      const last=sim.game.events.findLast(e=>e.station===s.id && e.operation==='attempt' && e.pieces.length);
+      if(!last || last.phase!==sim.phase || sim.ticks*rehearsal.dt-last.timeS>1.5)continue;
+      const [x,y]=at(s.displayAt??s.at);
+      context.font='bold 13px system-ui';context.textAlign='center';
+      context.fillStyle=last.points?'#c3ffd5':'#ffd5af';
+      context.fillText(last.points?'+'+last.points:'×',x,y-9);
+    }
     for(const h of sim.hotspots){
       const xy=at(h.point);context.fillStyle='#ffbd6e91';context.beginPath();
       context.arc(...xy,Math.max(3,Math.min(13,Math.sqrt(h.ticks)*.8))*Math.max(scale,.55),0,Math.PI*2);context.fill();
@@ -2264,7 +2275,10 @@ const roleComparison={"files":{"profile":{"path":"experiments/swerve-drive/whole
       const title=document.createElement('summary');
       const assignment=sim.game.opening[r.id],role=document.createElement('small');
       title.textContent=r.id+' · '+rehearsal.behaviors[r.plans[config.periods[0].name]];
-      role.textContent='Opening · '+(assignment.piece ?? (assignment.yieldPickup?'yield pickup':assignment.fallback));title.append(role);
+      const preload=sim.game.cargo[r.id].map(p=>p.id);
+      const task=assignment.piece ?? (assignment.yieldPickup?'yield pickup':assignment.fallback==='preload' && preload.length?
+        preload[0]+(preload.length>1?' + '+(preload.length-1)+' more':''):assignment.fallback);
+      role.textContent='Opening · '+task;role.title=preload.join(', ');title.append(role);
       card.append(title);
       for(const period of config.periods){
         const key=period.name,name=key+' behavior';
@@ -2319,7 +2333,7 @@ const roleComparison={"files":{"profile":{"path":"experiments/swerve-drive/whole
       report.textContent=rows.join(' · ') || 'Choose a terminal objective in a robot’s roster to interrupt its ordinary scoring cycle.';
     }
     for(const s of stations){
-      const count=s.kind==='retrieval'?sim.game.stock[s.id].length+' available'+(s.service?' · '+sim.game.reserve[s.id].length+' in reserve · '+s.service.operator:''):
+      const count=s.kind==='retrieval'?sim.game.stock[s.id].length+' available'+(s.service?' · '+sim.game.reserve[s.id].length+' in reserve · '+s.service.operator+(sim.game.operators[s.service.operator]?.job?.station===s.id?' serving':''):''):
         sim.game.attempts[s.id]+' attempted'+(s.capacity===undefined?'':' · '+sim.game.occupied[s.id]+'/'+s.capacity+' occupied');
       const output=counters.get(s.id).counts,next=' '+s.piece+' · '+count;
       if(output.textContent!==next)output.textContent=next;

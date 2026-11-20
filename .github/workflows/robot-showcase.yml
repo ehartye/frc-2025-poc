@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: ba9241e724d2425fcf007a9d125e8f87186d68bc # checked role and architecture handoff
+          ref: 92ddf41933dd6026b26493c1d2c91505e9d15914 # Agent FRC 0.48.0
           path: builder
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -31,6 +31,10 @@ jobs:
         run: node builder/scripts/assembly-accounting.mjs project/cad/assembly-engineering/issue/mapping.json > "$RUNNER_TEMP/engineering-mass.json"
       - name: Check receiver service assembly material and mass ownership
         run: node builder/scripts/assembly-accounting.mjs project/cad/assembly-engineering/receiver-service/issue/mapping.json > "$RUNNER_TEMP/receiver-service-mass.json"
+      - name: Verify the live matches, field stock and timed service
+        env:
+          AGENT_FRC_PLUGIN_ROOT: ${{ github.workspace }}/builder
+        run: node --test project/tests/live-field.test.mjs
       - name: Publish approved field rehearsals
         run: node project/scripts/publish-field.mjs project "$RUNNER_TEMP/showcase"
       - if: github.event_name != 'pull_request'
