@@ -26,7 +26,7 @@ The source STEP and numerical controls cover a static cam surface and switch geo
 
 ## Battery restraint and roof harness
 
-Hold final manufacture of the moving cable-carrier mounts. The end segments enter the right jack motor near full stroke. Review the [installation conflict and full-stroke checks](verification.md#moving-camera-and-cable-carrier) before assembling the jack and receiver together.
+Hold final manufacture of the moving transition-board clip and cable-carrier mounts. The issued steel clip conflicts with its insulation requirement, the rod crosses the board, and the two M2×4 screws have no supporting thread. The end segments enter the right jack motor near full stroke. Review the [installation conflict and full-stroke checks](verification.md#moving-camera-and-cable-carrier) before assembling the jack and receiver together.
 
 Fit the four tray angles to the nominated measured case size and retain the battery using the insulating FR4 keeper and its two positive compression sleeves. Use the merged battery drawing for the actual hole locations, tolerance and case-size range. Remove power, disconnect the battery, remove both upper nuts, lift off the keeper and sleeves, then lift the case 250 mm before carrying it clear of either side. [Battery assembly and service](../battery-fit/traveler.md) · [Keeper removal](../battery-fit/keeper-access.json)
 
