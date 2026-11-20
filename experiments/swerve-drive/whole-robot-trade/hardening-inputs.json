@@ -1,0 +1,576 @@
+{
+  "profileSha256": "ab2375a89b0bf5283cb3c9512e345719fd5b2d14893eef0c4e7c1506ccf4e46d",
+  "demand": {
+    "criterionId": "red-l1-coral",
+    "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+    "focalRobot": "R1",
+    "windowScope": "Complete TELEOP from its first active sample through cutoff",
+    "requiredPieces": 2,
+    "windowS": 135,
+    "basis": "Chosen role needs two TELEOP L1 deliveries before time expires, in addition to its independent AUTO leave and final park."
+  },
+  "episodes": [
+    {
+      "runId": "clear-ally",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 30 before its two preloads.",
+      "criterionId": "red-l1-coral",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "focalRobot": "R1",
+      "windowScope": "Complete TELEOP from its first active sample through cutoff",
+      "variation": {
+        "holdXIn": 290,
+        "chuteInitialStock": 30
+      },
+      "evidence": "field-rehearsal",
+      "windowS": [
+        0,
+        135
+      ],
+      "initialPieces": [
+        "red-chute-low/3",
+        "red-chute-low/4",
+        "red-chute-low/5",
+        "red-chute-low/6",
+        "red-chute-low/7",
+        "red-chute-low/8",
+        "red-chute-low/9",
+        "red-chute-low/10",
+        "red-chute-low/11",
+        "red-chute-low/12",
+        "red-chute-low/13",
+        "red-chute-low/14",
+        "red-chute-low/15",
+        "red-chute-low/16",
+        "red-chute-low/17",
+        "red-chute-low/18",
+        "red-chute-low/19",
+        "red-chute-low/20",
+        "red-chute-low/21",
+        "red-chute-low/22",
+        "red-chute-low/23",
+        "red-chute-low/24",
+        "red-chute-low/25",
+        "red-chute-low/26",
+        "red-chute-low/27",
+        "red-chute-low/28",
+        "red-chute-low/29",
+        "red-chute-low/30"
+      ],
+      "events": [
+        {
+          "timeS": 3.3000000000000003,
+          "kind": "acquire",
+          "piece": "red-chute-low/3"
+        },
+        {
+          "timeS": 7.8500000000000005,
+          "kind": "accept",
+          "piece": "red-chute-low/3",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 12.25,
+          "kind": "acquire",
+          "piece": "red-chute-low/4"
+        },
+        {
+          "timeS": 16.8,
+          "kind": "accept",
+          "piece": "red-chute-low/4",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 21.200000000000003,
+          "kind": "acquire",
+          "piece": "red-chute-low/5"
+        },
+        {
+          "timeS": 25.75,
+          "kind": "accept",
+          "piece": "red-chute-low/5",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 30.150000000000002,
+          "kind": "acquire",
+          "piece": "red-chute-low/6"
+        },
+        {
+          "timeS": 34.7,
+          "kind": "accept",
+          "piece": "red-chute-low/6",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 39.1,
+          "kind": "acquire",
+          "piece": "red-chute-low/7"
+        },
+        {
+          "timeS": 43.650000000000006,
+          "kind": "accept",
+          "piece": "red-chute-low/7",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 48.050000000000004,
+          "kind": "acquire",
+          "piece": "red-chute-low/8"
+        },
+        {
+          "timeS": 52.6,
+          "kind": "accept",
+          "piece": "red-chute-low/8",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 57,
+          "kind": "acquire",
+          "piece": "red-chute-low/9"
+        },
+        {
+          "timeS": 61.550000000000004,
+          "kind": "accept",
+          "piece": "red-chute-low/9",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 65.95,
+          "kind": "acquire",
+          "piece": "red-chute-low/10"
+        },
+        {
+          "timeS": 70.5,
+          "kind": "accept",
+          "piece": "red-chute-low/10",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 74.9,
+          "kind": "acquire",
+          "piece": "red-chute-low/11"
+        },
+        {
+          "timeS": 79.45,
+          "kind": "accept",
+          "piece": "red-chute-low/11",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 83.85000000000001,
+          "kind": "acquire",
+          "piece": "red-chute-low/12"
+        },
+        {
+          "timeS": 88.4,
+          "kind": "accept",
+          "piece": "red-chute-low/12",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 92.80000000000001,
+          "kind": "acquire",
+          "piece": "red-chute-low/13"
+        },
+        {
+          "timeS": 97.35000000000001,
+          "kind": "accept",
+          "piece": "red-chute-low/13",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 101.75,
+          "kind": "acquire",
+          "piece": "red-chute-low/14"
+        },
+        {
+          "timeS": 106.30000000000001,
+          "kind": "accept",
+          "piece": "red-chute-low/14",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 110.7,
+          "kind": "acquire",
+          "piece": "red-chute-low/15"
+        },
+        {
+          "timeS": 115.25,
+          "kind": "accept",
+          "piece": "red-chute-low/15",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 119.65,
+          "kind": "acquire",
+          "piece": "red-chute-low/16"
+        },
+        {
+          "timeS": 124.2,
+          "kind": "accept",
+          "piece": "red-chute-low/16",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        },
+        {
+          "timeS": 128.6,
+          "kind": "acquire",
+          "piece": "red-chute-low/17"
+        },
+        {
+          "timeS": 133.15,
+          "kind": "accept",
+          "piece": "red-chute-low/17",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        }
+      ],
+      "score": {
+        "blue": 24,
+        "red": 47
+      },
+      "waitSeconds": 0,
+      "blocked": "",
+      "profileSha256": "be320c5d402bb62e821d388a792f77676d09acc8af0e8f5faee56921fa52d64e"
+    },
+    {
+      "runId": "blocked-ally",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 264 inches, red low chute 30 before its two preloads.",
+      "criterionId": "red-l1-coral",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "focalRobot": "R1",
+      "windowScope": "Complete TELEOP from its first active sample through cutoff",
+      "variation": {
+        "holdXIn": 264,
+        "chuteInitialStock": 30
+      },
+      "evidence": "field-rehearsal",
+      "windowS": [
+        0,
+        135
+      ],
+      "initialPieces": [
+        "red-chute-low/3",
+        "red-chute-low/4",
+        "red-chute-low/5",
+        "red-chute-low/6",
+        "red-chute-low/7",
+        "red-chute-low/8",
+        "red-chute-low/9",
+        "red-chute-low/10",
+        "red-chute-low/11",
+        "red-chute-low/12",
+        "red-chute-low/13",
+        "red-chute-low/14",
+        "red-chute-low/15",
+        "red-chute-low/16",
+        "red-chute-low/17",
+        "red-chute-low/18",
+        "red-chute-low/19",
+        "red-chute-low/20",
+        "red-chute-low/21",
+        "red-chute-low/22",
+        "red-chute-low/23",
+        "red-chute-low/24",
+        "red-chute-low/25",
+        "red-chute-low/26",
+        "red-chute-low/27",
+        "red-chute-low/28",
+        "red-chute-low/29",
+        "red-chute-low/30"
+      ],
+      "events": [
+        {
+          "timeS": 3.3000000000000003,
+          "kind": "acquire",
+          "piece": "red-chute-low/3"
+        }
+      ],
+      "score": {
+        "blue": 24,
+        "red": 17
+      },
+      "waitSeconds": 128.35,
+      "blocked": "Occupied by R2",
+      "profileSha256": "b1de5454df26bb1802234f6ee6628bab3138e63bd7497a7471812da49106b897"
+    },
+    {
+      "runId": "one-pipe-left",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 3 before its two preloads.",
+      "criterionId": "red-l1-coral",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "focalRobot": "R1",
+      "windowScope": "Complete TELEOP from its first active sample through cutoff",
+      "variation": {
+        "holdXIn": 290,
+        "chuteInitialStock": 3
+      },
+      "evidence": "field-rehearsal",
+      "windowS": [
+        0,
+        135
+      ],
+      "initialPieces": [
+        "red-chute-low/3"
+      ],
+      "events": [
+        {
+          "timeS": 3.3000000000000003,
+          "kind": "acquire",
+          "piece": "red-chute-low/3"
+        },
+        {
+          "timeS": 7.8500000000000005,
+          "kind": "accept",
+          "piece": "red-chute-low/3",
+          "witness": "Prescribed L1 attempt accepted at the red trough by the field engine."
+        }
+      ],
+      "score": {
+        "blue": 24,
+        "red": 19
+      },
+      "waitSeconds": 0,
+      "blocked": "",
+      "profileSha256": "cff23342f611a90452ce6cb66989c772a7e821be5b54bf1a3faf9fd3a2239f4c"
+    },
+    {
+      "runId": "empty-after-preloads",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 2 before its two preloads.",
+      "criterionId": "red-l1-coral",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "focalRobot": "R1",
+      "windowScope": "Complete TELEOP from its first active sample through cutoff",
+      "variation": {
+        "holdXIn": 290,
+        "chuteInitialStock": 2
+      },
+      "evidence": "field-rehearsal",
+      "windowS": [
+        0,
+        135
+      ],
+      "initialPieces": [],
+      "events": [],
+      "score": {
+        "blue": 24,
+        "red": 17
+      },
+      "waitSeconds": 0,
+      "blocked": "",
+      "profileSha256": "b76eed7a11f29f5922736208091ad3a57ca438c8a32e4a51ee3a02d4e4aafe98"
+    }
+  ],
+  "inventory": [
+    "front-twin-screw-shallow-jack"
+  ],
+  "elevation": {
+    "geometry": "two-simple-supports",
+    "massEvidence": "conservative-upper-bound",
+    "massBasis": "Current full inspection receiving cap plus battery and 52 detachable bumper rows. The rack must be empty to enter the climb.",
+    "factor": 1,
+    "factorBasis": "Explicit upward acceleration already charges 1.5 times gravity on the raising cases. Unspecified strength ratings remain open.",
+    "supports": [
+      {
+        "id": "negative-Y",
+        "xM": -0.321,
+        "path": [
+          {
+            "id": "neo550-drive",
+            "kind": "actuator",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "raise"
+            ],
+            "ratings": {}
+          },
+          {
+            "id": "90234-bronze-nut",
+            "kind": "transmission",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {
+              "raise": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "hold": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "power-loss": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              }
+            }
+          },
+          {
+            "id": "screw-shaft-and-thrust-stack",
+            "kind": "member",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "stationary-mast-saddle-through-chassis",
+            "kind": "anchor",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "spring-pawl-and-casing-stop",
+            "kind": "lock",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "hold",
+              "power-loss"
+            ],
+            "ratings": {}
+          }
+        ]
+      },
+      {
+        "id": "positive-Y",
+        "xM": 0.321,
+        "path": [
+          {
+            "id": "neo550-drive",
+            "kind": "actuator",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "raise"
+            ],
+            "ratings": {}
+          },
+          {
+            "id": "90234-bronze-nut",
+            "kind": "transmission",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {
+              "raise": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "hold": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "power-loss": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              }
+            }
+          },
+          {
+            "id": "screw-shaft-and-thrust-stack",
+            "kind": "member",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "stationary-mast-saddle-through-chassis",
+            "kind": "anchor",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "spring-pawl-and-casing-stop",
+            "kind": "lock",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "hold",
+              "power-loss"
+            ],
+            "ratings": {}
+          }
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "id": "full-travel-upward",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "cgXM": 0.04,
+        "accelZMps2": 4.903325,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true
+      },
+      {
+        "id": "opposed-cg",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "cgXM": -0.04,
+        "accelZMps2": 4.903325,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true
+      },
+      {
+        "id": "extra-reserve",
+        "mode": "raise",
+        "massKg": 66.53175097105837,
+        "cgXM": 0.04,
+        "accelZMps2": 4.903325,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true
+      },
+      {
+        "id": "disabled-at-cage",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "cgXM": 0.04,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true
+      },
+      {
+        "id": "stationary-bottom-catch",
+        "mode": "hold",
+        "massKg": 65.39890097105837,
+        "cgXM": -0.04,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true
+      },
+      {
+        "id": "one-side-missing",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "cgXM": 0.04,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "unavailableSupport": "negative-Y"
+      }
+    ]
+  },
+  "scope": "Only the front jack lifts the robot. The rack and grip carry CORAL; shoulder/shallow cage load paths and full shutdown are independent requirements."
+}

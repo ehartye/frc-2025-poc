@@ -1,0 +1,378 @@
+{
+  "schema": "agent-frc/design-comparison@1",
+  "objectives": [
+    {
+      "id": "cagePoseObstacles",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    },
+    {
+      "id": "suspendedTravelObstacles",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    },
+    {
+      "id": "internalSweepInterferences",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    }
+  ],
+  "resources": [],
+  "cases": [
+    {
+      "id": "red-design-entry",
+      "condition": "red cage, candidate intended approach followed by suspended travel"
+    },
+    {
+      "id": "red-opposite-side-entry",
+      "condition": "red cage, opposite lateral approach with suspended travel"
+    },
+    {
+      "id": "blue-design-entry",
+      "condition": "blue cage, candidate intended approach followed by suspended travel"
+    },
+    {
+      "id": "blue-opposite-side-entry",
+      "condition": "blue cage, opposite lateral approach with suspended travel"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "front-jack-swerve",
+      "architecture": "Twin cage jack at the front face of a four-module, station-fed receiver robot. The rear candidate crosses the rear-left controller tray. The front arrangement uses a different approach and gearbox location.",
+      "interfaces": [
+        {
+          "from": "swerve chassis",
+          "to": "shallow cage",
+          "exchange": "Approach clearance at the registered cage"
+        },
+        {
+          "from": "front face lift columns",
+          "to": "receiver and electronics",
+          "exchange": "Room for the installed hoist to traverse its complete stroke"
+        }
+      ],
+      "cases": [
+        {
+          "id": "red-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/red-design-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-red-frontApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-design-entry/cagePoseObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-design-entry/suspendedTravelObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-design-entry/internalSweepInterferences",
+              "margin": 0,
+              "status": "pass"
+            }
+          ],
+          "resources": [],
+          "status": "pass"
+        },
+        {
+          "id": "red-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/red-opposite-side-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-red-negativeSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-opposite-side-entry/cagePoseObstacles",
+              "margin": -7,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-opposite-side-entry/suspendedTravelObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/red-opposite-side-entry/internalSweepInterferences",
+              "margin": 0,
+              "status": "pass"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        },
+        {
+          "id": "blue-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/blue-design-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-blue-frontApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-design-entry/cagePoseObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-design-entry/suspendedTravelObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-design-entry/internalSweepInterferences",
+              "margin": 0,
+              "status": "pass"
+            }
+          ],
+          "resources": [],
+          "status": "pass"
+        },
+        {
+          "id": "blue-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/blue-opposite-side-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-blue-negativeSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-opposite-side-entry/cagePoseObstacles",
+              "margin": -7,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-opposite-side-entry/suspendedTravelObstacles",
+              "margin": 0,
+              "status": "pass"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 0,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/front/blue-opposite-side-entry/internalSweepInterferences",
+              "margin": 0,
+              "status": "pass"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    },
+    {
+      "id": "rear-jack-swerve",
+      "architecture": "Twin cage jack at the rear face of a four-module, station-fed receiver robot. The rear candidate crosses the rear-left controller tray. The front arrangement uses a different approach and gearbox location.",
+      "interfaces": [
+        {
+          "from": "swerve chassis",
+          "to": "shallow cage",
+          "exchange": "Approach clearance at the registered cage"
+        },
+        {
+          "from": "rear face lift columns",
+          "to": "receiver and electronics",
+          "exchange": "Room for the installed hoist to traverse its complete stroke"
+        }
+      ],
+      "cases": [
+        {
+          "id": "red-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/red-design-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-red-positiveSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 13,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-design-entry/cagePoseObstacles",
+              "margin": -13,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 4,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-design-entry/suspendedTravelObstacles",
+              "margin": -4,
+              "status": "fail"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-design-entry/internalSweepInterferences",
+              "margin": -7,
+              "status": "fail"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        },
+        {
+          "id": "red-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/red-opposite-side-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-red-negativeSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 14,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-opposite-side-entry/cagePoseObstacles",
+              "margin": -14,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 4,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-opposite-side-entry/suspendedTravelObstacles",
+              "margin": -4,
+              "status": "fail"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/red-opposite-side-entry/internalSweepInterferences",
+              "margin": -7,
+              "status": "fail"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        },
+        {
+          "id": "blue-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/blue-design-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-blue-positiveSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 13,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-design-entry/cagePoseObstacles",
+              "margin": -13,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 4,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-design-entry/suspendedTravelObstacles",
+              "margin": -4,
+              "status": "fail"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-design-entry/internalSweepInterferences",
+              "margin": -7,
+              "status": "fail"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        },
+        {
+          "id": "blue-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/blue-opposite-side-entry",
+          "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-blue-negativeSideApproach",
+          "checks": [
+            {
+              "id": "cagePoseObstacles",
+              "value": 14,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-opposite-side-entry/cagePoseObstacles",
+              "margin": -14,
+              "status": "fail"
+            },
+            {
+              "id": "suspendedTravelObstacles",
+              "value": 4,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-opposite-side-entry/suspendedTravelObstacles",
+              "margin": -4,
+              "status": "fail"
+            },
+            {
+              "id": "internalSweepInterferences",
+              "value": 7,
+              "unit": "interfering bodies or pairs",
+              "pointer": "/layoutCases/rear/blue-opposite-side-entry/internalSweepInterferences",
+              "margin": -7,
+              "status": "fail"
+            }
+          ],
+          "resources": [],
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    }
+  ],
+  "qualifiedForTheseCases": [],
+  "scope": "Recorded values compared in declared units. Check native metric definitions, execution identity and failure coverage before promoting a concept.",
+  "studySha256": "871d03992ecc468bd9105e98b80b2830c71063b900c6c270156bc6131dba7144"
+}

@@ -1,0 +1,62 @@
+{
+  "sources": {
+    "braked": {
+      "path": "experiments/swerve-drive/transit/stops.json",
+      "sha256": "a483fba2cf4d7d9e7ff855ed8bdc0d67d253a17f1a5bbc552d9571731347961f"
+    },
+    "captive": {
+      "path": "experiments/swerve-drive/retention/carry.json",
+      "sha256": "3919ae438695480d6beea2e605ce9d02d102d85e1cd757c17822ead2125461f8"
+    }
+  },
+  "runs": {
+    "braked": {
+      "plus": {
+        "runId": "0993aa6c8270fd302ee8c8f642195b3ead215820adb46758ad013a919bbb4d1b",
+        "case": "plus",
+        "concept": "braked",
+        "samePiece": "coral-A",
+        "incomingState": "8070008778c2e534e4df1fe459e775ede5e77dd885eeb68cc24f81c6a9bb0753",
+        "stopWallS": 31.96,
+        "lastObservedWallS": 31.96,
+        "resumed": 0,
+        "observedL1": 0
+      },
+      "minus": {
+        "runId": "c448efe071c05198feaee50ae66dc9e7aa21da87d24bbda3a95e7b62182b8a9a",
+        "case": "minus",
+        "concept": "braked",
+        "samePiece": "coral-A",
+        "incomingState": "891f795ef9b669e385663fcea074d37cc3f091537d6f755981a7a3f400cbdbcb",
+        "stopWallS": 30.12,
+        "lastObservedWallS": 30.12,
+        "resumed": 0,
+        "observedL1": 0
+      }
+    },
+    "captive": {
+      "plus": {
+        "runId": "899223899c1dbedbcc0633ed141fdef2dec6990ad460ab0d89f86a8f2f39a0bb",
+        "case": "plus",
+        "concept": "captive",
+        "samePiece": "coral-A",
+        "incomingState": "8070008778c2e534e4df1fe459e775ede5e77dd885eeb68cc24f81c6a9bb0753",
+        "stopWallS": 31.96,
+        "lastObservedWallS": 40.155,
+        "resumed": 1,
+        "observedL1": 0
+      },
+      "minus": {
+        "runId": "0163596fce808f80321c349b882f56fc00300791fbc50669c683646d43670ea1",
+        "case": "minus",
+        "concept": "captive",
+        "samePiece": "coral-A",
+        "incomingState": "891f795ef9b669e385663fcea074d37cc3f091537d6f755981a7a3f400cbdbcb",
+        "stopWallS": 30.12,
+        "lastObservedWallS": 37.055,
+        "resumed": 1,
+        "observedL1": 0
+      }
+    }
+  }
+}

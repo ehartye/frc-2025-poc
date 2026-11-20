@@ -1,0 +1,469 @@
+{
+  "schema": "agent-frc/role-demand@1",
+  "identity": {
+    "profileSha256": "223917ea536fecebf3bb4e5da661f94fddbcdc6e7b95b08c4a3d69112d41132e",
+    "studySha256": "6c345fd48f6ae088658b6838edc6086de260ce22f1c1672f1cf402f7975fc637",
+    "role": "upper-chute",
+    "context": "ordinary-shallow",
+    "phase": "TELEOP",
+    "station": "red-l1",
+    "focalRobot": "R1",
+    "windowS": [
+      0,
+      135
+    ],
+    "piece": "CORAL",
+    "outcome": "credited",
+    "criterion": "CORAL contacts the trough and clears robot contact."
+  },
+  "contractKey": "d638b7884c1c18526860c59bc7e83ebe802e05bc61d91e16073d99694e51ebe8",
+  "fieldConditions": {
+    "setup": "shallow",
+    "peers": [
+      {
+        "side": "blue",
+        "slot": 1,
+        "plans": {
+          "AUTO": "preload-l2",
+          "TELEOP": "station"
+        },
+        "preload": {
+          "station": "blue-chute-low",
+          "quantity": 1
+        }
+      },
+      {
+        "side": "blue",
+        "slot": 2,
+        "plans": {
+          "AUTO": "preload-l1",
+          "TELEOP": "processor"
+        },
+        "preload": {
+          "station": "blue-chute-low",
+          "quantity": 1
+        }
+      },
+      {
+        "side": "blue",
+        "slot": 3,
+        "plans": {
+          "AUTO": "preload-l3",
+          "TELEOP": "net"
+        },
+        "preload": {
+          "station": "blue-chute-high",
+          "quantity": 1
+        }
+      },
+      {
+        "side": "red",
+        "slot": 2,
+        "plans": {
+          "AUTO": "preload-l1",
+          "TELEOP": "processor"
+        },
+        "preload": {
+          "station": "red-chute-low",
+          "quantity": 1
+        }
+      },
+      {
+        "side": "red",
+        "slot": 3,
+        "plans": {
+          "AUTO": "preload-l3",
+          "TELEOP": "net"
+        },
+        "preload": {
+          "station": "red-chute-high",
+          "quantity": 1
+        }
+      }
+    ],
+    "robotsAtStart": [
+      {
+        "id": "B1",
+        "xyIn": [
+          205.5,
+          108
+        ],
+        "heading": 0,
+        "cargo": []
+      },
+      {
+        "id": "B2",
+        "xyIn": [
+          235,
+          158.5
+        ],
+        "heading": 0,
+        "cargo": []
+      },
+      {
+        "id": "B3",
+        "xyIn": [
+          147.5,
+          209
+        ],
+        "heading": 0,
+        "cargo": []
+      },
+      {
+        "id": "R1",
+        "xyIn": [
+          596.875,
+          250
+        ],
+        "heading": -180,
+        "cargo": []
+      },
+      {
+        "id": "R2",
+        "xyIn": [
+          455.875,
+          158.5
+        ],
+        "heading": -180,
+        "cargo": []
+      },
+      {
+        "id": "R3",
+        "xyIn": [
+          543.375,
+          108
+        ],
+        "heading": -180,
+        "cargo": []
+      }
+    ],
+    "occupancyAtStart": {
+      "blue-l1": 1,
+      "red-l1": 1,
+      "blue-l2": 1,
+      "red-l2": 0,
+      "blue-l3": 1,
+      "red-l3": 1,
+      "blue-l4": 0,
+      "red-l4": 0,
+      "blue-processor": 0,
+      "red-processor": 0,
+      "blue-net": 0,
+      "red-net": 0
+    },
+    "queuesAtStart": {
+      "shared cage lane": {
+        "owner": null,
+        "queue": []
+      }
+    }
+  },
+  "openingStock": {
+    "red-chute-low": [
+      "red-chute-low/2",
+      "red-chute-low/3",
+      "red-chute-low/4",
+      "red-chute-low/5",
+      "red-chute-low/6",
+      "red-chute-low/7",
+      "red-chute-low/8",
+      "red-chute-low/9",
+      "red-chute-low/10",
+      "red-chute-low/11",
+      "red-chute-low/12",
+      "red-chute-low/13",
+      "red-chute-low/14",
+      "red-chute-low/15",
+      "red-chute-low/16",
+      "red-chute-low/17",
+      "red-chute-low/18",
+      "red-chute-low/19",
+      "red-chute-low/20",
+      "red-chute-low/21",
+      "red-chute-low/22",
+      "red-chute-low/23",
+      "red-chute-low/24",
+      "red-chute-low/25",
+      "red-chute-low/26",
+      "red-chute-low/27",
+      "red-chute-low/28",
+      "red-chute-low/29",
+      "red-chute-low/30"
+    ],
+    "red-chute-high": [
+      "red-chute-high/2",
+      "red-chute-high/3",
+      "red-chute-high/4",
+      "red-chute-high/5",
+      "red-chute-high/6",
+      "red-chute-high/7",
+      "red-chute-high/8",
+      "red-chute-high/9",
+      "red-chute-high/10",
+      "red-chute-high/11",
+      "red-chute-high/12",
+      "red-chute-high/13",
+      "red-chute-high/14",
+      "red-chute-high/15",
+      "red-chute-high/16",
+      "red-chute-high/17",
+      "red-chute-high/18",
+      "red-chute-high/19",
+      "red-chute-high/20",
+      "red-chute-high/21",
+      "red-chute-high/22",
+      "red-chute-high/23",
+      "red-chute-high/24",
+      "red-chute-high/25",
+      "red-chute-high/26",
+      "red-chute-high/27",
+      "red-chute-high/28",
+      "red-chute-high/29",
+      "red-chute-high/30"
+    ],
+    "red-floor-coral-mid": [
+      "red-floor-coral-mid/1"
+    ],
+    "red-floor-coral-low": [
+      "red-floor-coral-low/1"
+    ],
+    "red-floor-coral-high": [
+      "red-floor-coral-high/1"
+    ]
+  },
+  "preloadedPieces": [],
+  "replenishments": [],
+  "source": {
+    "schema": "agent-frc/role-selection@1",
+    "profile": {
+      "path": "experiments/swerve-drive/whole-robot-trade/refinement-profile.json",
+      "sha256": "223917ea536fecebf3bb4e5da661f94fddbcdc6e7b95b08c4a3d69112d41132e"
+    },
+    "study": {
+      "path": "experiments/swerve-drive/whole-robot-trade/refinement-study.json",
+      "sha256": "6c345fd48f6ae088658b6838edc6086de260ce22f1c1672f1cf402f7975fc637"
+    },
+    "role": "upper-chute",
+    "context": "ordinary-shallow",
+    "phase": "TELEOP",
+    "station": "red-l1"
+  },
+  "requiredPieces": 15,
+  "requiredPerSecond": 0.1111111111111111,
+  "distinctPieces": 15,
+  "witnesses": [
+    {
+      "phase": "TELEOP",
+      "timeS": 8.65,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/2"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 17.6,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/3"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 26.55,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/4"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 35.5,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/5"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 44.45,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/6"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 53.400000000000006,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/7"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 62.35,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/8"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 71.3,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/9"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 80.25,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/10"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 89.2,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/11"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 98.15,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/12"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 107.10000000000001,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/13"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 116.05000000000001,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/14"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 125,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/15"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    },
+    {
+      "phase": "TELEOP",
+      "timeS": 133.95000000000002,
+      "robot": "R1",
+      "station": "red-l1",
+      "operation": "attempt",
+      "outcome": "credited",
+      "pieces": [
+        "red-chute-high/16"
+      ],
+      "points": 2,
+      "prescribedOutcome": "credited",
+      "activity": "active"
+    }
+  ],
+  "margin": 32,
+  "status": "observed-opportunity",
+  "scope": "Reproduce the selected focal role’s observed opportunity in this field setup and half-open period window. A zero count provides no positive hardware target."
+}

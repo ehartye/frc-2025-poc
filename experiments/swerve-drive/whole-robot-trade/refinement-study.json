@@ -1,0 +1,65 @@
+{
+  "schema": "agent-frc/alliance-study@1",
+  "side": "red",
+  "roles": [
+    {
+      "id": "trough-cycle",
+      "basis": "Test the value of repeated feed and delivery if each prescribed L1 attempt works. Red 1's hardware has no joined L1 award yet.",
+      "plans": {
+        "AUTO": "approach-chute",
+        "TELEOP": "station"
+      },
+      "endgame": null
+    },
+    {
+      "id": "outside-rail",
+      "basis": "Change only the focal TELEOP supply or approach. All stations, other five players, AUTO start and total match time keep their issued values.",
+      "plans": {
+        "AUTO": "approach-chute",
+        "TELEOP": "outside-rail"
+      },
+      "endgame": null
+    },
+    {
+      "id": "inside-control",
+      "basis": "Change only the focal TELEOP supply or approach. All stations, other five players, AUTO start and total match time keep their issued values.",
+      "plans": {
+        "AUTO": "approach-chute",
+        "TELEOP": "inside-control"
+      },
+      "endgame": null
+    },
+    {
+      "id": "upper-chute",
+      "basis": "Change only the focal TELEOP supply or approach. All stations, other five players, AUTO start and total match time keep their issued values.",
+      "plans": {
+        "AUTO": "approach-chute",
+        "TELEOP": "upper-chute"
+      },
+      "endgame": null
+    },
+    {
+      "id": "behind-reef",
+      "basis": "Change only the focal TELEOP supply or approach. All stations, other five players, AUTO start and total match time keep their issued values.",
+      "plans": {
+        "AUTO": "approach-chute",
+        "TELEOP": "behind-reef"
+      },
+      "endgame": null
+    }
+  ],
+  "contexts": [
+    {
+      "id": "ordinary-shallow",
+      "basis": "Published Qual 3, Red 1 starts empty. Its five partners/opponents retain their original program and stock in every role.",
+      "match": "Qual 3",
+      "slot": 1
+    },
+    {
+      "id": "opposed-shallow",
+      "basis": "Published BARGE 3, same empty Red 1 starting slot; peers including its shallow-climbing partner retain their late reservations.",
+      "match": "BARGE 3",
+      "slot": 1
+    }
+  ]
+}

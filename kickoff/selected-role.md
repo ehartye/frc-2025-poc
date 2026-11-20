@@ -15,3 +15,7 @@ Two deliveries in 135 s correspond to an average of one delivery per 67.5 s befo
 ## Choosing the final action
 
 PARK earns 2, shallow CAGE 6 and deep CAGE 12. A shallow climb buys four points above a successful park at the cost of travel, mechanism service and any missed deliveries. At 130 s wall time, the supplied empty approach and forward jack finish the conditional lock check at 148.68 s. The 140 s control misses cutoff. Keep the two verified five-point leave-and-park traces available. The occupied receiver has no demonstrated climb route. [Six-match BARGE comparison](series.md) · [Forward jack and load limits](../cad/shallow-cage/study.md)
+
+## Compare station routes and size the complete robot
+
+The strategic narrative and case-study workflow compare the same five other players, change Red 1’s station, and test depletion of that station. The mechanism-CAD working-load study uses the complete front and rear jack layouts, operating robot mass, simultaneous roll and pitch reactions, and the actual stopped receiver traces. [Rehearse the selected role](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) · [Study, inputs and measured outcomes](../experiments/swerve-drive/whole-robot-trade/study.md)
