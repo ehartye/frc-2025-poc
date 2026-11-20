@@ -29,7 +29,7 @@ const git=(...args)=>{
 const source='project/.github/model-release/source.json';
 const staged='project/.github/model-release/staged.json';
 const signFiles=(root,files,meta={})=>{
-  const body={schema:'agent-frc/signed-model-release@4',project:'synthetic-fit',scope:'Isolated synthetic transport test',
+  const body={schema:'agent-frc/signed-model-release@5',project:'synthetic-fit',scope:'Isolated synthetic transport test',
     configuration:'single coupon',solids:1,studySha256:hash('test study'),archiveSha256:hash('test archive'),
     stepSha256:hash('test export'),...meta,files:files.map(p=>({path:p,sha256:hash(read(root+'/'+p))}))};
   return {body,signature:sign(null,Buffer.from(JSON.stringify(body)),privateKey).toString('base64')};
@@ -75,7 +75,7 @@ try{
   put('runner/showcase/preview.png','substituted after issue');check('Substituted signed media',false,'Changed signed public asset');
   put('runner/showcase/preview.png','synthetic revised preview');
   json(staged,signFiles('runner/showcase',['preview.png'],{stepSha256:hash('another synthetic step')}));
-  check('Different independently signed assembly',false,'one reviewed issue');
+  check('Different independently signed assembly',false,'different engineering issue');
   json(staged,signFiles('runner/showcase',['preview.png']));
   const bad=JSON.parse(read(source));bad.signature=Buffer.alloc(64).toString('base64');json(source,bad);
   check('Invalid source signature',false,'Invalid reviewer signature');

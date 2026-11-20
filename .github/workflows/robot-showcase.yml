@@ -110,23 +110,17 @@ jobs:
           stage_args=()
           if [[ -e "$source_packet" || -e "$stage_packet" || -L "$source_packet" || -L "$stage_packet" ]]; then
             node --input-type=module - "$source_packet" "$stage_packet" <<'JS'
-          import { readFileSync, realpathSync } from 'node:fs';
+          import { realpathSync } from 'node:fs';
           import { resolve } from 'node:path';
-          import { isDeepStrictEqual } from 'node:util';
-          const read = file => {
+          for (const file of process.argv.slice(2)) {
             if (realpathSync(file) !== resolve(file)) throw Error('Redirected release packet');
-            return JSON.parse(readFileSync(file, 'utf8')).body;
-          };
-          const [source, staged] = process.argv.slice(2).map(read);
-          for (const name of ['project','scope','configuration','studySha256','archiveSha256','stepSha256','solids']) {
-            if (source[name] === undefined || !isDeepStrictEqual(source[name], staged[name])) {
-              throw Error('The source and staged packets must cover one reviewed issue: '+name);
-            }
           }
           JS
             test -n "$REVIEW_PUBLIC_KEY"
             key="$RUNNER_TEMP/mechanical-review-public.pem"
             printf '%s\n' "$REVIEW_PUBLIC_KEY" > "$key"
+            project_id=$(node -p "require('./approved/.github/staged-model-policy.json').project")
+            node verifier/scripts/public-model-release.mjs verify-pair project "$source_packet" "$RUNNER_TEMP/showcase" "$stage_packet" "$key" "$project_id"
             source_args=("$source_packet" "$key")
             stage_args=("$stage_packet" "$key")
           fi
