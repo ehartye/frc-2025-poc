@@ -103,8 +103,13 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9, continu
         row, reached, wheels, cargo = prior(raw, case, step)
     else:
         row, reached, wheels, cargo = registered_start
-        if (continuation is None or sha(wheels) != reached["wheel"]["wheelStateAndEncoderTrace"]
-                or sha(cargo) != reached["capturedPipe"]):
+        if (
+            continuation is None
+            or wheels.resolve() != continuation["wheel"].resolve()
+            or cargo.resolve() != continuation["pipe"].resolve()
+            or sha(wheels) != reached["wheel"]["wheelStateAndEncoderTrace"]
+            or sha(cargo) != reached["capturedPipe"]
+        ):
             raise ValueError("Changed project-supplied wheel/cargo start")
 
     if hold < 0.9 or (
