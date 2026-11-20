@@ -1,4 +1,4 @@
-"""Tessellate only the 1183 installed student-owned solids in the parked issue."""
+"""Tessellate the issued installed solids and keep the native motion frame on each batch."""
 
 import argparse, gzip, json, re, struct, tempfile
 from pathlib import Path
@@ -83,7 +83,18 @@ def export(issue=HERE / "issue"):
             baseBatches=meta,
             installedBodies=len(selected),
             poses=poses,
-            movingGroups={g: sorted(ks) for g, ks in names.items() if g in jack_colors},
+            movingGroups={
+                g: sorted(ks)
+                for g, ks in names.items()
+                if g
+                in {
+                    *jack_colors,
+                    "Outer slide",
+                    "Middle slide",
+                    "Left capture yoke",
+                    "Right capture yoke",
+                }
+            },
             scope="Independent joint inspection poses with the chassis on its wheels. No cage, supported robot or scored climb is implied.",
         ),
     )

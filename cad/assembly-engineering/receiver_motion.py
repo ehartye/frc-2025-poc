@@ -10,6 +10,7 @@ from attachments import base, bounds, volume
 from clearance import evaluate
 from installed_audit import HERE, reopen, sha
 from issue import document
+from receiver_frames import corrections
 
 OUT = HERE / "receiver-service"
 FRAMES = {
@@ -33,6 +34,7 @@ def assembly():
             r["id"]: FRAMES.get(r["occurrence"].split(":")[0], 0.0)
             for r in csv.DictReader(src)
         }
+    frame.update({k: 1.0 for k in corrections()})
     battery = base.named(HERE / "battery-fit/battery-retention.step")
     grip = base.named(OUT / "grip-carriers.step")
     switches = base.named(OUT / "switch-mounts.step")

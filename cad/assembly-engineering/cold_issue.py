@@ -101,6 +101,42 @@ def compare(folder):
         movedJoints=sum("samples" in r for r in joints.values()),
         failedJointRuns=[k for k, r in joints.items() if not moved(r)],
     )
+    if record.get("rigidWitnessIds"):
+        receipt = json.loads((folder / "rigid-support-motion.json").read_bytes())
+        ids = set(record["rigidWitnessIds"])
+        if (
+            receipt["archiveSha256"] != summary["archiveSha256"]
+            or set(receipt["ids"]) != ids
+        ):
+            raise ValueError("Moving camera port received a different source")
+        samples = receipt["samples"]
+        if [r["commandMm"] for r in samples] != [0, 185, 370, 0]:
+            raise ValueError("Camera support missing a required pose")
+        bad = set()
+        reference = samples[0]["parts"]
+        for view in samples:
+            if (
+                set(view["parts"]) != ids
+                or abs(view["readbackMm"] - view["commandMm"]) > 0.02
+            ):
+                raise ValueError(
+                    "Camera support has the wrong members or drive position"
+                )
+            for k, values in view["parts"].items():
+                if values["occurrence"].split(":")[0] != "Outer slide":
+                    bad.add(k)
+                for i, (a, b) in enumerate(
+                    zip(reference[k]["boundsMm"], values["boundsMm"])
+                ):
+                    if abs(b - a - (view["commandMm"] if i in (0, 3) else 0)) > 0.02:
+                        bad.add(k)
+        summary["movingCameraFixture"] = dict(
+            sha256=sha(folder / "rigid-support-motion.json"),
+            checked=len(ids),
+            failed=sorted(bad),
+        )
+        if bad:
+            raise ValueError(("Camera body left the moving receiver", sorted(bad)))
     document(folder / "cold-reopen.json", summary)
     print(
         json.dumps({k: v for k, v in summary.items() if k != "failingBodies"}),

@@ -5,6 +5,7 @@ from attachments import base, volume, write_step
 from installed_audit import HERE, sha
 from issue import document, rows, write_csv
 from receiver_motion import OUT, assembly
+from receiver_frames import corrections, witness_ids
 
 PARENT = HERE / "issue"
 CONFIG = "fixed-low-captive-shallow-service-2"
@@ -179,7 +180,7 @@ def run():
         catalog_margin[k] = max(0, bound - prior)
         products[k] = dict(
             instance=k,
-            description="Accu SSH-M2-3-16-A2 Ø3 shoulder screw; modeled installed receiving upper",
+            description="Accu SSH-M2-3-16-A2 ÃƒËœ3 shoulder screw; modeled installed receiving upper",
             upperKg=max(bound, prior),
             source="cad/assembly-engineering/receiver-service/roof/short-boom-saddle-fit.json",
         )
@@ -214,6 +215,7 @@ def run():
         for k in added
         if frames.get(k, 0) > 0
     }
+    assignments.update(corrections())
     upper = sum(
         float(r["inspectionStockUpperKg"])
         for r in ledger.values()
@@ -242,6 +244,7 @@ def run():
         replacement=sorted(set(delta) & set(previous)),
         additional=sorted(added),
         frameAssignments=assignments,
+        rigidWitnessIds=witness_ids(),
         appearanceRoles={
             k: (
                 "bumper-red"

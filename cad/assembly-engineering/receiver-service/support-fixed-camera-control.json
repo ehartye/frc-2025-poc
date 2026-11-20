@@ -1,0 +1,83 @@
+{
+  "heldCamera": true,
+  "issue": "827b210ad815057d31e15d1e39c33c4879de8cf0538873461585b7c81c061bac",
+  "framesSha256": "27dc2e7abf7e2bb08aee09ba5437b8c99fd25639a7ef7342817f5c489d28181f",
+  "installed": 1268,
+  "fixedGuideBodies": 22,
+  "movingReceiverBodies": 347,
+  "guidePairs": 7634,
+  "worstGuidePair": [
+    3.438203414500009,
+    "grip-R-UP5",
+    "roof-mast-rear-saddle"
+  ],
+  "correctedBodies": {
+    "support--data-M3--1": {
+      "sameRigidTravel": 183,
+      "separatedBoxes": 1083,
+      "exact": [
+        {
+          "peer": "moving-camera-public-envelope",
+          "receipt": {
+            "considered": 1,
+            "narrow": 1,
+            "clearanceMm": 1.0,
+            "adverse": [
+              {
+                "id": "moving-camera-public-envelope",
+                "status": "interference",
+                "positionMm": 92.5,
+                "volumeMm3": 163.35350837687037
+              }
+            ]
+          }
+        }
+      ],
+      "adverse": [
+        {
+          "id": "moving-camera-public-envelope",
+          "status": "interference",
+          "positionMm": 92.5,
+          "volumeMm3": 163.35350837687037
+        }
+      ]
+    },
+    "support--power-M3--1": {
+      "sameRigidTravel": 183,
+      "separatedBoxes": 1083,
+      "exact": [
+        {
+          "peer": "moving-camera-public-envelope",
+          "receipt": {
+            "considered": 1,
+            "narrow": 1,
+            "clearanceMm": 1.0,
+            "adverse": [
+              {
+                "id": "moving-camera-public-envelope",
+                "status": "interference",
+                "positionMm": 115.625,
+                "volumeMm3": 160.96866629420117
+              }
+            ]
+          }
+        }
+      ],
+      "adverse": [
+        {
+          "id": "moving-camera-public-envelope",
+          "status": "interference",
+          "positionMm": 115.625,
+          "volumeMm3": 160.96866629420117
+        }
+      ]
+    },
+    "support--rail-M3--9.5": {
+      "sameRigidTravel": 183,
+      "separatedBoxes": 1084,
+      "exact": [],
+      "adverse": []
+    }
+  },
+  "scope": "Full forward-and-return stroke with 35 mm captured-yoke travel and a conservative signed 1.5 mm displacement on grip articles. Bodies sharing a rigid carrier retain their parked relative positions."
+}
