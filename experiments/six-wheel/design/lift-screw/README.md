@@ -1,11 +1,5 @@
 # Can a screw lift hold the carriage after drive failure?
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 **Keep the screw replacement at fixture-study status.** Of three single-start screw sizes, one covers the four scheduled lift moves and fits the registered robot. A screw that resists backdriving at rest can still coast past the low placement structure. The commercial drag unit examined also exceeds its speed limit on direct drive. Conditional reduced-speed drag settings exist. No tested friction range, supported bearing layout or coupled-failure arrest establishes a buildable qualified replacement.
 
 ## Native travel and hardware

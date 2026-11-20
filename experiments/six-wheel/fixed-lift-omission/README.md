@@ -1,11 +1,5 @@
 # Keep the deck and omit the unused lift motor
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The selected 560 mm receiver takes in and places both pipes at one height. Its two permanent shoulder pins transmit vertical load into the masts. A dedicated fixed-height build can omit the third NEO while keeping both drivetrain NEOs, the passive winch, its shaft and both permanent locks. The original motor, pinion and shaft leave as one assembly. An original blind input cover closes the retained long motor block. The deck keeps its full 4 mm thickness. [Input-cover drawing](shop.svg) · [Editable geometry](cap_fit.py) · [Reopened STEP](input-cap.step)
 
 ## What the scale must establish

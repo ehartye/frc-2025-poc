@@ -1,11 +1,5 @@
 # Carry the fixed receiver on both masts
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 A pair of machined aluminum brackets takes the front bridge and the rear crossbar directly to both mast tubes. The distance between the front and rear load points is **254 mm**. Each bracket has separate seats for downward force and fasteners that capture upward rebound. The original two permanent height pins and the pit pin system stay in the robot. [Machining view](shop.svg) · [Editable source](support.py) · [54-solid manufacturing assembly](carriage-support.step)
 
 ## What the force comparison establishes

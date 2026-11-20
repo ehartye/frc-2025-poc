@@ -1,11 +1,5 @@
 # Four MAXSwerve corners for the fixed-height robot
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 Students can open the [editable Fusion saddle](tab-saddle.f3d), change a stock or bore dimension and inspect the four machining features. The [79-body chassis STEP](swerve-frame.step) contains the original chassis, cranked inner rails and made mounting articles. The local Fusion robot assembles those parts with four manufacturer modules. Its [reopening receipt](student-archive.json) preserves the four placements and the measured centers of the molded tires. The project retains the commercial archive locally. [Student CAD guide](../../../cad/FUSION.md)
 
 ## Module and coordinates

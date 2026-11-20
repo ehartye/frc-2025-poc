@@ -1,11 +1,5 @@
 # Can the shop robot drive the two-pipe match?
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The selected 20:1 drivetrain can supply the nominal wheel profile at the estimated upper mass on a screened battery. **A small wheel calibration error still drives the robot into the station before the first feed.** The short near-tape alternative avoids that station approach. This study assigns no points to the shop configuration. Its scoring mechanism and cameras have separate geometry and observation gates. [Drive results](results.json) · [Native bumper contact](dock.json) · [Original student match](../relieved-match/replay.html)
 
 ![Drive inlet voltage and motor current across the modeled two-pipe match](match-demand.svg)

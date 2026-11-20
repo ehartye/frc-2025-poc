@@ -1,11 +1,5 @@
 # Release-day opportunity study
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [editable season source](season-profile.json) is the input for regeneration.
 
 The editable observation box starts at 30 × 30 × 30 in and heading 0°. Each rehearsal roster slot initially uses a 26 × 26 in frame with 3.25 in of bumper per side, for a 32.5 × 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.

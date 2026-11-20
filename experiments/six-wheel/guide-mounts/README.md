@@ -1,11 +1,5 @@
 # Mounting the station guides
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 [Compare the cable crossing and the removable guide in 3D](guide.html). At a slide extension of **327.80 mm** the modeled moving power cable passes through the old right-hand liner. Its center is at X259.34, Y−154.50, Z830.09 mm. A 0.25 mm-radius sphere centered there sits wholly inside the original face. Both shortened guides end at **813 mm**. The new liners retain the original inward surfaces below that height. [Native fit and centerline witness](fit.json)
 
 ## Assembly and service

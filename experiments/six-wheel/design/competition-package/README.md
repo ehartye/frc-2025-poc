@@ -1,11 +1,5 @@
 # Station receiver assembly review
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The [545-body shop and duplex revision](shop-duplex/README.md) is the latest combined engineering model. This page preserves the 401-body revision used in earlier field and controls evidence.
 
 Open [the robot viewer](robot.html) in a current browser. It works offline. Drag to rotate or use the arrow keys with the drawing focused. Switch between Stowed, Receive, Carry and Place. Select a subsystem or a single part to see its position, or remove the bumpers and deck to inspect the drives. The scale under the view controls follows the current zoom. The [full match rehearsal](../../full-match/replay.html) shows the initial stacks, route and alternative ending positions.

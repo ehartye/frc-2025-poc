@@ -1,6 +1,8 @@
 # Student Fusion design
 
-The [receiver-service Fusion archive](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) has SHA-256 `a5d4c627f7266414270b7f9389c9396b25ce50fd1ca429f64646b1469e77a065`. Its independent reopen checked all 1,269 bodies, 21 joint motions and the camera’s physical attachment throughout the receiver stroke. See the [signed geometry results and operating holds](assembly-engineering/receiver-service/verification.md).
+Historical engineering study. CAD publication is on hold after both signed placement checks found a collision.
+
+The `Team-1780-receiver-service.f3d` has SHA-256 `a5d4c627f7266414270b7f9389c9396b25ce50fd1ca429f64646b1469e77a065`. Its independent reopen checked all 1,269 bodies, 21 joint motions and the camera’s physical attachment throughout the receiver stroke. See the [signed geometry results and operating holds](assembly-engineering/receiver-service/verification.md).
 
 ## Compare rear frame construction
 
@@ -8,17 +10,17 @@ The issued full robot uses square rear frame joints. A new chassis can use a 19.
 
 ## Inspect the fixed-low engineering alternate
 
-[Download the receiver service master](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) and [inspect its shop drawings and bench order](assembly-engineering/receiver-service/shop.md). The 1,268-part alternate adds bolted grip drives, adjustable end switches, an insulating battery keeper, a stepped Anderson disconnect mount and a removable USB support. The [interactive assembly](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html) operates the shelf, capture yokes and cage jack. [Revision and acceptance checks](assembly-engineering/receiver-service/verification.md) · [Native reopen](assembly-engineering/receiver-service/issue/cold-reopen.json)
+`Team-1780-receiver-service.f3d` and [inspect its shop drawings and bench order](assembly-engineering/receiver-service/shop.md). The 1,268-part alternate adds bolted grip drives, adjustable end switches, an insulating battery keeper, a stepped Anderson disconnect mount and a removable USB support. [Revision and acceptance checks](assembly-engineering/receiver-service/verification.md) · [Native reopen](assembly-engineering/receiver-service/issue/cold-reopen.json)
 
-Open the [earlier front-jack engineering master](assembly-engineering/issue/Team-1780-engineering-shallow.f3d) to inspect the module saddle lands, equipment mounts, battery tie-downs and separate jack transmissions. Use that revision’s [unit-by-unit bill](assembly-engineering/issue/material-register.csv) and [shop assembly sequence](assembly-engineering/issue/drawing-traveler.md) together. The independent [cold Fusion measurements](assembly-engineering/issue/cold-reopen.json) record geometric tolerances and the motion graph for this issued assembly.
+Open the `Team-1780-engineering-shallow.f3d` to inspect the module saddle lands, equipment mounts, battery tie-downs and separate jack transmissions. Use that revision’s [unit-by-unit bill](assembly-engineering/issue/material-register.csv) and [shop assembly sequence](assembly-engineering/issue/drawing-traveler.md) together. The independent [cold Fusion measurements](assembly-engineering/issue/cold-reopen.json) record geometric tolerances and the motion graph for this issued assembly.
 
 ## Download the editable student robot
 
-[Open the public capture assembly](swerve-captive/Team-1780-public-captive-swerve.f3d) to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
+`Team-1780-public-captive-swerve.f3d` to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
 
 ## Try the front-jack climb variant
 
-The separate full assembly adds a forward shallow-cage jack to the stowed receiver and four-module chassis. Drive the crosshead, both shoes and lower clamp to inspect the bearing contact. Added mass and field-plate load still exceed the evidence for a match-ready climb. [Download the climbing variant](shallow-cage/Team-1780-shallow-cage-study.f3d) · [Rotate and operate the climb](https://ehartye.github.io/frc-2025-poc/shallow-climb.html) · [Native measurements and loads](shallow-cage/study.md)
+The separate full assembly adds a forward shallow-cage jack to the stowed receiver and four-module chassis. Drive the crosshead, both shoes and lower clamp to inspect the bearing contact. Added mass and field-plate load still exceed the evidence for a match-ready climb. `Team-1780-shallow-cage-study.f3d` · [Native measurements and loads](shallow-cage/study.md)
 
 ## Supplier-detail capture candidate
 
@@ -44,10 +46,10 @@ The archive contains four actual REV assembly occurrences and 79 project frame a
 
 The selected product is MAXSwerve V1.1 with a V2 wheel, a 12-tooth pinion, NEO drive and NEO 550 steer. The integral supplier assembly is the 2022 export. It supplies the principal module shape, axes and placement. Later revisions and hardware substitutions have separate source and envelope checks. The R2 archive covers the drivetrain chassis; the new controller trays, cable reservations, retained superstructure and scoring receiver have their own engineering records.
 
-For a directly downloadable native exercise, open [tab-saddle.f3d](../experiments/swerve-drive/packaging/tab-saddle.f3d) in Fusion. This project-designed saddle has four native sketches and extrusions, with six editable dimensions. Its volume agrees with its independently reopened structural STEP body to within 0.006 mm³. [Saddle evidence](../experiments/swerve-drive/packaging/saddle-fusion.json)
+For a directly downloadable native exercise, open `tab-saddle.f3d` in Fusion. This project-designed saddle has four native sketches and extrusions, with six editable dimensions. Its volume agrees with its independently reopened structural STEP body to within 0.006 mm³. [Saddle evidence](../experiments/swerve-drive/packaging/saddle-fusion.json)
 
-The scoring-stroke study also includes a [downloadable native cam-land assembly](../experiments/swerve-drive/score-stroke/cam-lands.f3d). Open either of its two components to see how the underside lands and relief are machined. The candidate has six editable Fusion extrudes and one shared lane-width parameter. [Compare its dimensions, cap clearance and station trials](../experiments/swerve-drive/score-stroke/study.md)
+The scoring-stroke study also includes a `cam-lands.f3d`. Open either of its two components to see how the underside lands and relief are machined. The candidate has six editable Fusion extrudes and one shared lane-width parameter. [Compare its dimensions, cap clearance and station trials](../experiments/swerve-drive/score-stroke/study.md)
 
 [Rotate the current numbered robot](../docs/robot/cad/index.html) · [Open the structural STEP](../experiments/swerve-drive/packaging/swerve-frame.step) · [See the previous six-wheel campaign](../experiments/six-wheel/README.md)
 
-The editable [shop master](assembly-engineering/issue/Team-1780-engineering-shallow.f3d) is SHA-256 `29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254`. Its [cold reopening](assembly-engineering/issue/cold-reopen.json) covered 1,184 bodies and all 21 moving joints. The [revised battery bay](assembly-engineering/battery-fit/traveler.md) has a separate STEP and load-path review.
+The editable `Team-1780-engineering-shallow.f3d` is SHA-256 `29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254`. Its [cold reopening](assembly-engineering/issue/cold-reopen.json) covered 1,184 bodies and all 21 moving joints. The [revised battery bay](assembly-engineering/battery-fit/traveler.md) has a separate STEP and load-path review.

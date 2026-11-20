@@ -1,11 +1,5 @@
 # Independent lift arrest study
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 **Decision. Keep powered travel and unsupported service on hold.** This study identifies a placement interference, registers an independent end-stop candidate and specifies a separate midtravel arrest. Both proposed devices require qualification. The original [401-body controls qualification](../../full-match/) applies only to its registered assembly.
 
 The [fully mounted terminal study](../terminal-mounts/README.md) adds the machined mast, sleeves, screws, washers and double-locknut bore mount. It preserves this earlier source and tests both alliance assemblies.

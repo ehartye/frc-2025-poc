@@ -1,11 +1,5 @@
 # Review the station-fed robot
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 Open [the editable OpenSCAD assembly](station-l1.scad), select `stowed`, `receive`, `transport` or `place` in the Customizer, and press F5. Enter a part ID from [the bill of materials](bom.csv) to isolate it. The four named, colored STEP assemblies open in ordinary mechanical CAD. The right-hand view below removes the deck and bumpers to expose the two independent drive sides.
 
 ![Placing pose and cutaway of the six-wheel drivetrain](overview.svg)

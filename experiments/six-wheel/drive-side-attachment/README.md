@@ -1,11 +1,5 @@
 # Fasten the two inner drive rails to the welded frame
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The [rail flex study](RAIL-FLEX.md) examines lateral travel at the wheel bearings between these joints.
 
 Each gearbox already reacts torque through two #10-32 screws into its steel adapter and four M5 screws into the inner rail. In the issued assembly the 660 mm rail merely meets the inside walls of the front and rear crossrails. A planar butt contact can transmit compression in X. The geometry supplies no positive connection for separation in Y or Z or a reversed longitudinal load. Four new ears close that load path and leave both rails removable. The upper estimate for the selected robot rises by **480 g**, leaving **273 g represented inspection headroom**. The assembled robot still requires weighing. [Shop sheet](shop-sheet.svg) · [50-body STEP](inner-rail-joints.step) · [Predecessor adapter and carrier](../design/installed-procurement/CLAMPS.md) · [Axles and keepers](../axle-retention/README.md)

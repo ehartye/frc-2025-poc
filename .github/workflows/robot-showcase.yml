@@ -31,10 +31,8 @@ jobs:
         run: node builder/scripts/assembly-accounting.mjs project/cad/assembly-engineering/issue/mapping.json > "$RUNNER_TEMP/engineering-mass.json"
       - name: Check receiver service assembly material and mass ownership
         run: node builder/scripts/assembly-accounting.mjs project/cad/assembly-engineering/receiver-service/issue/mapping.json > "$RUNNER_TEMP/receiver-service-mass.json"
-      - name: Verify the manifest and build the public files
-        run: node builder/scripts/robot-highlights.mjs project/highlights.json "$RUNNER_TEMP/showcase"
-      - name: Publish student-controlled mechanism motion
-        run: node project/scripts/publish-capture.mjs project "$RUNNER_TEMP/showcase"
+      - name: Publish approved field rehearsals
+        run: node project/scripts/publish-field.mjs project "$RUNNER_TEMP/showcase"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
