@@ -98,8 +98,15 @@ def stop_feedback(measured, estimates, enc, tick):
     )
 
 
-def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9, continuation=None):
-    row, reached, wheels, cargo = prior(raw, case, step)
+def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9, continuation=None, registered_start=None):
+    if registered_start is None:
+        row, reached, wheels, cargo = prior(raw, case, step)
+    else:
+        row, reached, wheels, cargo = registered_start
+        if (continuation is None or sha(wheels) != reached["wheel"]["wheelStateAndEncoderTrace"]
+                or sha(cargo) != reached["capturedPipe"]):
+            raise ValueError("Changed project-supplied wheel/cargo start")
+
     if hold < 0.9 or (
         cut is not None and (cut < 0 or abs(cut / DT - round(cut / DT)) > 1e-8)
     ):

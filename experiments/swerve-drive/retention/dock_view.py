@@ -20,7 +20,7 @@ vision = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vision)
 
 
-def create_scene(artifacts):
+def create_scene(artifacts, robot_foreground=None):
     old = read(SECTOR / "scene.json")
     cache = artifacts / "swerve-transit/native-scene"
     if sha(cache / "scene.npz") != read(cache / "scene.json")["bytes"]:
@@ -47,7 +47,8 @@ def create_scene(artifacts):
         {"parts": [["loaded-pipe", "reserve", "#ffffff", v, TRIANGLES]]}
     )
     wheel = camera.load_wheel_mask(artifacts / "loaded-swerve/wheel-visibility.json")
-    with np.load(cache / "scene.npz") as raw:
+    foreground = cache / "scene.npz" if robot_foreground is None else robot_foreground
+    with np.load(foreground) as raw:
         for i, k in enumerate(("left", "right")):
             g, z = raw[f"fixed{i}g"], raw[f"fixed{i}z"]
             front = np.minimum(depth[i], box[i][1])
