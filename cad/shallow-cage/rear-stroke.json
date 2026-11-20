@@ -1,0 +1,79 @@
+{
+  "nativeSha256": "9f073918758d92ef12cccdc74b24d334810369ba21b8f875f66afcf5bcae1bf7",
+  "candidateSolids": 29,
+  "baselineSolids": 1001,
+  "comparisons": 29233,
+  "materialInterferences": [
+    {
+      "moving": "Left rail saddle",
+      "obstacle": "pair-tray-RL",
+      "sweptOverlapMm3": 877.9999999999998
+    },
+    {
+      "moving": "Left drive and pawl envelope",
+      "obstacle": "RL-steer-controller",
+      "sweptOverlapMm3": 2716.2499999999995
+    },
+    {
+      "moving": "Left drive and pawl envelope",
+      "obstacle": "pair-tray-RL",
+      "sweptOverlapMm3": 135.99999999999997
+    },
+    {
+      "moving": "Left travelling nut",
+      "obstacle": "Left upper thrust bridge",
+      "sweptOverlapMm3": 3401.800072959909
+    },
+    {
+      "moving": "Right travelling nut",
+      "obstacle": "Right upper thrust bridge",
+      "sweptOverlapMm3": 3401.800072959909
+    },
+    {
+      "moving": "Crosshead rear web",
+      "obstacle": "Left upper thrust bridge",
+      "sweptOverlapMm3": 199.99999999999994
+    },
+    {
+      "moving": "Crosshead rear web",
+      "obstacle": "Right upper thrust bridge",
+      "sweptOverlapMm3": 199.99999999999994
+    }
+  ],
+  "materialMassKg": 3.471486183601437,
+  "bodyMassKg": {
+    "Left rail saddle": 0.084132,
+    "Left guide column": 0.33981120000000004,
+    "Left screw core": 0.4705414644693731,
+    "Left upper thrust bridge": 0.040128,
+    "Left lower thrust bridge": 0.044140799999999994,
+    "Right rail saddle": 0.084132,
+    "Right guide column": 0.33981120000000004,
+    "Right screw core": 0.4705414644693731,
+    "Right upper thrust bridge": 0.040128,
+    "Right lower thrust bridge": 0.044140799999999994,
+    "Left travelling nut": 0.10417018584479167,
+    "Right travelling nut": 0.10417018584479167,
+    "Crosshead front web": 0.31122,
+    "Crosshead rear web": 0.296856,
+    "Crosshead upper flange": 0.13771200000000003,
+    "Crosshead lower flange": 0.13771200000000003,
+    "Latch stem": 0.18488728297310708,
+    "Shoe dovetail carrier": 0.05344279999999999,
+    "Positive bearing shoe": 0.033158400000000005,
+    "Negative bearing shoe": 0.033158400000000005,
+    "Clamp spider": 0.058003200000000005,
+    "Clamp flank -1": 0.017875200000000004,
+    "Bearing pad -1 -1": 0.0059346,
+    "Bearing pad -1 1": 0.0059346,
+    "Clamp flank 1": 0.017875200000000004,
+    "Bearing pad 1 -1": 0.0059346,
+    "Bearing pad 1 1": 0.0059346
+  },
+  "additionalReceivingUpperKg": {
+    "two motor, reduction and passive locks": 1.6,
+    "installed fasteners, wiring, switches, preload actuator and backing": 0.75
+  },
+  "accountedUpperIncrementKg": 5.821486183601436,
+  "scope": "Union of vertical slide stroke and guide envelopes at empty stow. Shoe sweep conservatively bounds both axes. Named actuator packages are space reservations. Retainer fit and strength require an independent design."
+}

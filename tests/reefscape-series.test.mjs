@@ -32,9 +32,9 @@ test('the kickoff and historical lab export and the reviewed public page use one
     assert.ok(browser.results[i].endsWith('Blue '+match.game.score.blue+' / Red '+match.game.score.red));
 });
 
-test('three whole games reproduce their clocks, score events, traffic and finite stocks', () => {
+test('six whole games reproduce their clocks, score events, traffic and finite stocks', () => {
   const series = createMatchSeries(engine, profile.rehearsal.series.matches);
-  series.advance(450);
+  series.advance(900);
   assert.equal(series.done, true);
   assert.deepEqual(JSON.parse(JSON.stringify(series.results)), receipt.matches);
   const stations = new Map(profile.rehearsal.stations.map(s => [s.id,s]));
@@ -55,9 +55,10 @@ test('three whole games reproduce their clocks, score events, traffic and finite
       assert.equal(e.points,e.outcome === 'credited' ? s.points[e.phase] * e.pieces.length : 0);
       tally[s.side] += e.points;
     }
-    assert.deepEqual(tally,m.game.score);
+    assert.deepEqual(tally,m.game.endgame.ordinaryScore);
+    for(const side of ["red","blue"]) assert.equal(tally[side]+m.game.endgame.terminalScore[side],m.game.score[side]);
   }
-  assert.deepEqual(receipt.matches.map(m=>m.game.score), [{blue:17,red:24},{blue:24,red:47},{blue:17,red:13}]);
+  assert.deepEqual(receipt.matches.slice(0,3).map(m=>m.game.score), [{blue:17,red:24},{blue:24,red:47},{blue:17,red:13}]);
   const trip = receipt.matches[1].game.events.filter(e => e.phase==='TELEOP' && e.robot==='R1' && e.outcome==='credited');
   assert.equal(new Set(trip.flatMap(e=>e.pieces)).size,15);
   const focus = receipt.matches[2].game;
@@ -97,4 +98,21 @@ test('a robot with CORAL cannot score in the ALGAE processor and a missed trough
   attempt('blue-l1','missed');
   assert.equal(sim.game.events.at(-1).points,0);
   assert.equal(sim.game.terminal[0].id,'blue-chute-low/1');
+});
+
+
+test('configured cage height, cutoff and support each gate endgame credit', async () => {
+  const games=receipt.matches.slice(3).map(m=>m.game.endgame);
+  const row=(game,id)=>game.attempts.find(r=>r.robot===id);
+  assert.deepEqual(games.map(m=>m.terminalScore),[{blue:18,red:0},{blue:0,red:12},{blue:2,red:6}]);
+  assert.equal(row(games[0],'R3').outcome,'failed');
+  assert.equal(row(games[1],'B3').outcome,'service-incomplete');
+  assert.equal(row(games[1],'R1').outcome,'did-not-arrive');
+  const m=structuredClone(profile.rehearsal.series.matches[3]);
+  const r=m.roster.find(row=>row.side==='blue' && row.slot===3);
+  r.endgame.target='blue-2-deep';r.endgame.action='deep';
+  assert.throws(()=>{const s=createMatchSeries(engine,[m]);s.advance(150);}, /setup/i);
+  const barge=JSON.parse(await asset('kickoff/barge-assessment.json'));
+  assert.deepEqual(barge.matches.slice(3).map(m=>m.assessmentWallS),[156,154.5,153.5]);
+  assert.deepEqual(barge.matches[3].bargeQualificationRP,{blue:1,red:0});
 });

@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/robot-highlights@1",
   "title": "Station to shelf",
-  "role": "Team 1780 studies a two-pipe station cycle and a stowed leave-and-park fallback for its 2025 REEFSCAPE swerve robot.",
+  "role": "Team 1780 studies a station-fed receiver, a verified five-point leave-and-park routine and a shallow-cage climber on its four-module swerve robot.",
   "revision": "R4 · fixed-height swerve · red alliance",
   "cad": {
     "receipt": "docs/robot/cad/receipt.json",
@@ -151,9 +151,38 @@
       "file": "experiments/swerve-drive/score-stroke/receiver-chapter-events.json",
       "sha256": "d07da65d95ae9db7d129b94816a4f47d2ab3d61710c5d2f60e51d6392906fa44",
       "shareable": true
+    },
+    {
+      "id": "shallow-film",
+      "label": "Forward shallow-cage lift",
+      "revision": "Forward cage-jack Fusion archive 88cc5f09",
+      "file": "cad/shallow-cage/shallow-climb.webm",
+      "sha256": "1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4",
+      "shareable": true
+    },
+    {
+      "id": "shallow-poster",
+      "label": "Forward jack holding the chassis",
+      "revision": "Forward cage-jack Fusion archive 88cc5f09",
+      "file": "cad/shallow-cage/shallow-climb.png",
+      "sha256": "e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819",
+      "shareable": true
+    },
+    {
+      "id": "shallow-study",
+      "label": "Climber load path and score decision",
+      "revision": "Two alliance cages and eight simulated mass-center corners",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/main/cad/shallow-cage/study.md"
     }
   ],
   "results": [
+    {
+      "basis": "modeled",
+      "claim": "The forward jack lifts the chassis in a shallow-cage fixture",
+      "conditions": "A registered empty approach at 130 s leaves 4.32 s before powered cutoff. The lowest simulated full-hull carpet clearance is 102.9 mm in the eight tested CG cases.",
+      "limit": "Cage-plate strength, mounting and inspection mass remain open. The project robot has zero earned climb points.",
+      "source": "shallow-study"
+    },
     {
       "basis": "modeled",
       "claim": "The revised receiver extended 370 mm and a released pipe stayed in the trough",
@@ -228,6 +257,13 @@
   ],
   "media": [
     {
+      "asset": "shallow-film",
+      "poster": "shallow-poster",
+      "source": "shallow-study",
+      "description": "The actual forward jack enters the center opening, spreads both shoes, seats its lower clamp and raises the empty swerve chassis.",
+      "caption": "Shown at real time from a supplied approach. Final support is conditional on the modeled field, robot structure and passive locks."
+    },
+    {
       "asset": "receiver-film",
       "poster": "receiver-poster",
       "source": "conditional-landing",
@@ -265,7 +301,7 @@
   },
   "fieldLab": {
     "file": "kickoff/field-lab.html",
-    "sha256": "69c06d77b7806016174aadc2b600fec2b269883ac0709c77abc3337d942d3708",
+    "sha256": "edee5ce1084c03adb802181f6dd9aa75e54799dce8dbb612f8408809bbb136f9",
     "shareable": true
   },
   "workflow": {

@@ -176,6 +176,56 @@
       "statement": "The starting projection and the 18-inch extension limit refer to the perimeter.",
       "status": "unmodeled",
       "reason": "Check full stowed and moving assemblies. Actuator travel alone is insufficient."
+    },
+    {
+      "id": "park",
+      "topic": "scoring",
+      "sourceId": "release",
+      "locator": "§6.5.2 and Table 6-2",
+      "statement": "Park points, exclusive with a cage score.",
+      "status": "modeled",
+      "pointer": "/scoring/barge/parkPoints",
+      "value": 2
+    },
+    {
+      "id": "shallow",
+      "topic": "scoring",
+      "sourceId": "release",
+      "locator": "§6.5.2 and Table 6-2",
+      "statement": "Off carpet via own shallow cage with permitted contacts.",
+      "status": "modeled",
+      "pointer": "/scoring/barge/shallowPoints",
+      "value": 6
+    },
+    {
+      "id": "deep",
+      "topic": "scoring",
+      "sourceId": "release",
+      "locator": "§6.5.2 and Table 6-2",
+      "statement": "Off carpet via own deep cage with permitted contacts.",
+      "status": "modeled",
+      "pointer": "/scoring/barge/deepPoints",
+      "value": 12
+    },
+    {
+      "id": "barge-qualification-threshold",
+      "topic": "scoring",
+      "sourceId": "release",
+      "locator": "Table 6-2",
+      "statement": "Alliance BARGE match points required for the ordinary qualification ranking point.",
+      "status": "modeled",
+      "pointer": "/scoring/barge/bargeRankingThreshold",
+      "value": 14
+    },
+    {
+      "id": "cage-assessment",
+      "topic": "timing",
+      "sourceId": "release",
+      "locator": "§6.5 p.46",
+      "statement": "Maximum post-TELEOP seconds for assessment. All robots at rest ends this interval earlier.",
+      "status": "modeled",
+      "pointer": "/scoring/barge/maximumAssessmentDelayS",
+      "value": 3
     }
   ],
   "openQuestions": [

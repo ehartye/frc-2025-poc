@@ -252,6 +252,8 @@ def build():
     game["sources"].append(
         "V0 game rules and Table 6-2 for inventory and points. Floor/reef setup uses project FE-2025 native inventory. Approach centers, chute split, dwell and peer action outcomes are teaching assumptions."
     )
+    from register_endgame import register
+    register(profile)
     return profile
 
 
