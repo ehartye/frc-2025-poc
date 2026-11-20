@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -22,7 +23,7 @@ LIBRARY = {
         2850,
         "6061-T6 machined stock; verify temper after welding",
     ),
-    "Aluminum 7075": ("232", 2750, 2920, "7075-T6 machined bracket stock"),
+    "Aluminum 7075": ("067-1-2", 2750, 2920, "7075-T6 machined bracket stock"),
     "Bronze": (
         "004",
         8300,
@@ -113,7 +114,7 @@ def create(folder, archive, observe):
     initial = {
         r["body"]
         if r["body"] != "Body1"
-        else r["occurrence"].split("+")[-1].rsplit(":", 1)[0]: r
+        else re.split(r":\d+\+", r["occurrence"])[-1].rsplit(":", 1)[0]: r
         for r in rows(HERE / "as-issued-native.csv")
     }
     changed = json.loads((folder / "interfaces.json").read_bytes())
@@ -178,6 +179,11 @@ def create(folder, archive, observe):
         ref = "/mass/" + pointer(k)
         policy = dict(id=k, inspection="excluded" if k in excluded else "counted")
         if k in excluded:
+            policy["reason"] = (
+                "Removable battery under R103"
+                if k == "np18-battery"
+                else "Removable bumper assembly under R103"
+            )
             policy["inspectionEvidence"] = dict(source="bill", pointer="/exclusions")
         item = dict(id=k, presence="modeled" if rr else "unmodeled")
         if k not in contracts:

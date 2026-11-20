@@ -45,5 +45,22 @@ await writeFile(path.join(output,'shallow-climb.html'),climbPage);
 const anchor=/<a\b[^>]*href="(?:\.\/)?field-lab\.html"[^>]*>[^<]*<\/a>/;
 if(!anchor.test(page)) throw new Error('Missing field lab navigation');
 page=page.replace(anchor,match=>match+' <a href="shallow-climb.html">Explore the shallow-cage climb</a>');
+const shop = path.join(project, 'cad/assembly-engineering/issue');
+const installed = JSON.parse(await readFile(path.join(shop,'interfaces.json'),'utf8'));
+const shopOrbit = JSON.parse(await readFile(path.join(shop,'orbit.json'),'utf8'));
+const physical = JSON.parse(await readFile(path.join(shop,'engineering-reopen.json'),'utf8'));
+const newArchive = 'Team-1780-engineering-shallow.f3d';
+const collect = name => readFile(path.join(shop,name));
+if (!physical.opened || physical.archiveSha256 !== digest(await collect(newArchive)) ||
+    shopOrbit.issue !== digest(await collect('station-and-jack-interfaces.step')) ||
+    shopOrbit.issue !== installed.outputSha256 || shopOrbit.baseSha256 !== digest(await collect('installed.stl.gz')) ||
+    shopOrbit.installedBodies !== installed.robotSolids || physical.nativeBodyCount !== installed.robotSolids + 1)
+  throw new Error('Changed engineering assembly or a stale public mesh');
+const shopDir = path.join(output,'engineering');
+await mkdir(shopDir,{recursive:true});
+for (const name of ['installed.stl.gz','installed.png','assembly-drawings.pdf','orbit.json',newArchive])
+  await copyFile(path.join(shop,name),path.join(shopDir,name));
+await copyFile(path.join(shop,'player.html'),path.join(output,'engineering-assembly.html'));
+page=page.replace(anchor,match=>match+' <a href="engineering-assembly.html">Explore the shop assembly</a>');
 await writeFile(pageFile,page);
 console.log('Published checked capture viewer '+folderName);

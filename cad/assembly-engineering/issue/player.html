@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop assembly · Team 1780</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0d1d35;color:#f3f6fb;font:17px/1.55 system-ui,sans-serif}main{max-width:66rem;margin:auto;padding:clamp(18px,4vw,55px)}a{color:#a9d8ff}header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}header a{font-weight:650;text-decoration:none}h1{font-size:clamp(2.3rem,6.5vw,4.7rem);line-height:.98;letter-spacing:-.055em;margin:2rem 0 1rem}p{max-width:72ch;color:#d4e1f3}video{display:block;width:100%;aspect-ratio:23/14;border-radius:14px;background:#142f63}nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}button{border:1px solid #5a738e;padding:.6em 1em;border-radius:30px;color:#ecf5ff;background:#1c344e;font:inherit;cursor:pointer}button:hover,button:focus-visible{background:#315678}b{color:white}footer{margin:2rem 0}
+#orbit{display:block;width:100%;height:clamp(320px,58vh,610px);background:radial-gradient(ellipse at 50% 48%,#405f86,#142f63 72%);touch-action:none;border-radius:14px;cursor:grab}#orbit:active{cursor:grabbing}#orbit-status{margin:.45em 0;font-size:.9em}#pose{width:min(100%,30rem);vertical-align:middle;accent-color:#90d3ff}label,output{display:block}h2{margin:2rem 0 .7rem}
+</style>
+<main><header><a href="./">← Robot showcase</a><a href="field-lab.html">Open the field lab</a></header>
+<h1>Inside the shop assembly</h1>
+<p>Orbit the four-module robot with its front jack installed. Retract or extend the unloaded carriage to see the two guide shoes. The shop drawing set includes 1,183 installed solids, four groups of service fasteners and the registered electronics interfaces.</p>
+<canvas id="orbit" tabindex="0" data-inspection="true" data-register="engineering/orbit.json" data-base="engineering/installed.stl.gz" aria-label="Rotatable engineering robot with captive receiver, twin screw jack and two sliding cage shoes">Download the Fusion assembly below.</canvas>
+<p id="orbit-status" role="status">Loading the shop assembly…</p><label for="pose">Inspect joint position · <output for="pose" id="pose-label"></output></label>
+<input id="pose" type="range" value="0" min="0" max="100" disabled>
+<nav aria-label="Inspection positions"><button data-pose="0">Stowed</button><button data-pose="80">Carriage extended</button><button data-pose="100">Shoes spread</button><button id="reset-orbit">Reset camera</button></nav>
+<h2>Build and inspect</h2>
+<p>The screws, thrust races, pawls, battery restraints and equipment fasteners have named owners in the bill. The shop estimate keeps 5 kg for unresolved items. Fusion measures 48.047 kg across 1,184 bodies including the demonstration CORAL. The 21 movable joints all returned to their starting positions. The supplier bill retains 98 provisional installed articles, so final inspection weight remains open.</p>
+<nav><a href="engineering/Team-1780-engineering-shallow.f3d" download>Download the editable Fusion assembly</a> · <a href="https://github.com/ehartye/frc-2025-poc/blob/main/cad/assembly-engineering/issue/drawing-traveler.md">Open the shop traveler</a> · <a href="https://github.com/ehartye/frc-2025-poc/tree/main/cad/assembly-engineering/issue">Inspect the mass and native records</a></nav>
+<p>The battery service audit found both tie rods crossing their stop plates and one plate crossing the breaker. Use the corrected battery drawing and receiving checks before assembling that bay. <a href="engineering/assembly-drawings.pdf">Download the eight drawing sheets (PDF)</a> · <a href="https://github.com/ehartye/frc-2025-poc/tree/main/cad/assembly-engineering/battery-fit">Battery bay revision</a></p>
+<p>This view exercises independent assembly joints. The season model retains its five-point leave-and-park fallback. Field reaction limits, loaded receiver deflection and the climb’s positive actuation and retention still require qualification. <a href="shallow-climb.html">See the earlier shallow-cage fixture.</a></p>
+</main><script src="climb/orbit.js"></script>

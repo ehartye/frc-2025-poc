@@ -33,6 +33,10 @@ SHOWCASE_ASSETS['cad/shallow-cage/Team-1780-shallow-cage-study.f3d'] = '88cc5f09
 SHOWCASE_ASSETS['cad/shallow-cage/shallow-climb.png'] = 'e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819'
 SHOWCASE_ASSETS['cad/shallow-cage/shallow-climb.webm'] = '1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4'
 
+SHOWCASE_ASSETS['cad/assembly-engineering/issue/assembly-drawings.pdf'] = 'cbb33076ad624cd143f05d9db4264bf4bd63b90e5eacbe0fcb1482a62e8f8f89'
+SHOWCASE_ASSETS['cad/assembly-engineering/issue/installed.png'] = 'f2a91749de2c9341887ed89c9b8dfc460ac263b0fd0ab4657a17870f22b615b3'
+SHOWCASE_ASSETS['cad/assembly-engineering/issue/installed.stl.gz'] = '65b7253c8eb7806b928c82b7eb1830962e270d327c80fd7848bd15924b3d7a69'
+SHOWCASE_ASSETS['cad/assembly-engineering/issue/Team-1780-engineering-shallow.f3d'] = '29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254'
 SHOWCASE_ASSETS['cad/shallow-cage/climb-kit.stl.gz'] = '5cfdf0358350c50ea3c33ed343dcd8abeda5259c49240ac6777cdd8ace0513c5'
 
 def findings(data):

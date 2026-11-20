@@ -1,5 +1,9 @@
 # Student Fusion design
 
+## Inspect the fixed-low engineering alternate
+
+[Download the front-jack engineering master](assembly-engineering/issue/Team-1780-engineering-shallow.f3d) to inspect the module saddle lands, equipment mounts, battery tie-downs and separate jack transmissions. Use the [parked assembly viewer](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html), [unit-by-unit bill](assembly-engineering/issue/material-register.csv) and [shop assembly sequence](assembly-engineering/issue/drawing-traveler.md) together. The independent [cold Fusion measurements](assembly-engineering/issue/cold-reopen.json) record geometric tolerances and the motion graph for this issued assembly.
+
 ## Download the editable student robot
 
 [Open the public capture assembly](swerve-captive/Team-1780-public-captive-swerve.f3d) to drive all four steering and roll pairs, the two coupled receiver stages and the opposing capture yokes. The file includes the numbered bumpers and a separate practice CORAL. [Joint guide](swerve-captive/study.md) · [Exact archive reopen](swerve-captive/student-reopen.json)
@@ -37,3 +41,5 @@ For a directly downloadable native exercise, open [tab-saddle.f3d](../experiment
 The scoring-stroke study also includes a [downloadable native cam-land assembly](../experiments/swerve-drive/score-stroke/cam-lands.f3d). Open either of its two components to see how the underside lands and relief are machined. The candidate has six editable Fusion extrudes and one shared lane-width parameter. [Compare its dimensions, cap clearance and station trials](../experiments/swerve-drive/score-stroke/study.md)
 
 [Rotate the current numbered robot](../docs/robot/cad/index.html) · [Open the structural STEP](../experiments/swerve-drive/packaging/swerve-frame.step) · [See the previous six-wheel campaign](../experiments/six-wheel/README.md)
+
+The editable [shop master](assembly-engineering/issue/Team-1780-engineering-shallow.f3d) is SHA-256 `29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254`. Its [cold reopening](assembly-engineering/issue/cold-reopen.json) covered 1,184 bodies and all 21 moving joints. The [revised battery bay](assembly-engineering/battery-fit/traveler.md) has a separate STEP and load-path review.

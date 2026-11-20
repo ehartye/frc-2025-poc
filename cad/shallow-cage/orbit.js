@@ -31,7 +31,7 @@ async function readMesh(url, expected) {
 async function start() {
   const gl = canvas.getContext('webgl', {alpha:true,antialias:true});
   if (!gl) throw new Error('WebGL unavailable');
-  const register = await (await fetch('climb/orbit.json')).json();
+  const register = await (await fetch(canvas.dataset.register || 'climb/orbit.json')).json();
   function shader(kind, source) {
     const handle = gl.createShader(kind);
     gl.shaderSource(handle, source); gl.compileShader(handle);
@@ -78,7 +78,7 @@ async function start() {
   }
   await add(canvas.dataset.base,register.baseSha256,
     register.baseBatches.map(([role,color,group,count])=>[group,color,count,role==='bumper-lettering']));
-  await add('climb/climb-kit.stl.gz',register.kitSha256,register.kitBatches);
+  if (register.kitSha256) await add('climb/climb-kit.stl.gz',register.kitSha256,register.kitBatches);
   let yaw = -1.02, pitch = .27, zoom = 1, pointer;
   function draw() {
     const ratio = Math.min(devicePixelRatio || 1, 2);
@@ -110,7 +110,7 @@ async function start() {
       gl.drawArrays(gl.TRIANGLES,b.start,b.count);
       if (b.overlay) gl.disable(gl.POLYGON_OFFSET_FILL);
     }
-    position.textContent=(130+slider.value/8).toFixed(2)+' s · lift '+Math.round(lift)+' mm';
+    position.textContent=canvas.dataset.inspection ? Math.round(head)+' mm carriage travel · '+Math.round(spread)+' mm shoe travel' : (130+slider.value/8).toFixed(2)+' s · lift '+Math.round(lift)+' mm';
     canvas.dataset.pose=slider.value;
   }
   function rotate(dx,dy) {
@@ -131,4 +131,4 @@ async function start() {
   new ResizeObserver(draw).observe(canvas);
   draw();status.textContent='Drag or use arrow keys to rotate. Scroll to zoom.';
 }
-start().catch(error=>{status.textContent='The 3D view is unavailable. Use the climb film below.';console.error(error);});
+start().catch(error=>{status.textContent=canvas.dataset.inspection ? 'The 3D view is unavailable. Download the editable assembly below.' : 'The 3D view is unavailable. Use the climb film below.';console.error(error);});
