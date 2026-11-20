@@ -176,7 +176,7 @@ def curves(shapes, direction, right):
     return results
 
 
-def sheet(doc, title, items, text, source, idx, code):
+def sheet(doc, title, items, text, source, idx, code, count=len(PLATES)):
     page = doc.new_page(width=842, height=595)
 
     def label(x, y, t, size=10, bold=False, color=(0.06, 0.12, 0.19)):
@@ -240,7 +240,7 @@ def sheet(doc, title, items, text, source, idx, code):
     label(
         32,
         565,
-        f"Selected STEP {source[:16]}   /   Parked pose   /   Sheet {idx + 1} of {len(PLATES)}",
+        f"Selected STEP {source[:16]}   /   Parked pose   /   Sheet {idx + 1} of {count}",
         9,
     )
     label(610, 565, "DESIGN REVIEW   /   SIMULATION", 9, True)

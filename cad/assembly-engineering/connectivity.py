@@ -1,16 +1,17 @@
 """Reopen the installed shop issue and recalculate every edge touching a changed solid."""
 
-from collections import defaultdict
-from attachments import base, dist
+import argparse
+from pathlib import Path
+from shop_sources import issue_shapes
+from attachments import dist
 from installed_audit import HERE, sha, bounds, box_gap, reopen
 from issue import rows, document
 import json
 
 
-def check():
-    folder = HERE / "issue"
+def check(folder=HERE / "issue"):
     reg = json.loads((folder / "interfaces.json").read_bytes())
-    changed = base.named(folder / "station-and-jack-interfaces.step")
+    changed = issue_shapes(folder, reg)
     robot = {k: s for k, *_, s in reopen()} | changed
     for k in reg["fixedHeight"]["removed"]:
         robot.pop(k, None)
@@ -72,4 +73,6 @@ def check():
 
 
 if __name__ == "__main__":
-    check()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder", type=Path, nargs="?", default=HERE / "issue")
+    check(ap.parse_args().folder)

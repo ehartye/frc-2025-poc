@@ -102,6 +102,80 @@ def insert(c, shape, name):
     return n
 
 
+def inspect_support(top, ids, archive, out):
+    """Read world-space BRep extrema after driving the actual reopened outer joint."""
+    hashes = {
+        hashlib.sha256(("team-1780-engineering-v1/" + k).encode()).hexdigest(): k
+        for k in ids
+    }
+    receiver = next(j for j in top.asBuiltJoints if j.name == "Receiver outer")
+    joint = fusion.SliderJointMotion.cast(receiver.jointMotion)
+    if not joint:
+        raise ValueError("Missing outer shelf slider")
+    frames = []
+    reference = {}
+    worst = 0.0
+    try:
+        for position in (0, 185, 370, 0):
+            joint.slideValue = position / 10
+            adsk.doEvents()
+            current = {}
+            for occurrence in top.allOccurrences:
+                for body in occurrence.bRepBodies:
+                    n = body.nativeObject or body
+                    attr = n.attributes.itemByName("Team 1780 engineering", "identity")
+                    if not attr or attr.value not in hashes:
+                        continue
+                    key = hashes[attr.value]
+                    if key in current:
+                        raise ValueError(("Duplicate moving support", key))
+                    bb = body.preciseBoundingBox
+                    coords = [
+                        10 * v
+                        for pt in (bb.minPoint, bb.maxPoint)
+                        for v in pt.asArray()
+                    ]
+                    if not frames:
+                        reference[key] = coords
+                    errors = [
+                        abs(x - a - (position if i in (0, 3) else 0))
+                        for i, (x, a) in enumerate(zip(coords, reference[key]))
+                    ]
+                    worst = max(worst, max(errors))
+                    current[key] = dict(
+                        occurrence=occurrence.fullPathName,
+                        boundsMm=coords,
+                        maxErrorMm=max(errors),
+                    )
+            if set(current) != set(ids):
+                raise ValueError(
+                    ("Missing moving support", sorted(set(ids) - set(current)))
+                )
+            frames.append(
+                dict(
+                    commandMm=position, readbackMm=10 * joint.slideValue, parts=current
+                )
+            )
+    finally:
+        joint.slideValue = 0
+        adsk.doEvents()
+    result = dict(
+        archiveSha256=digest(archive),
+        joint="Receiver outer",
+        ids=sorted(ids),
+        toleranceMm=0.02,
+        worstErrorMm=worst,
+        passes=worst <= 0.02
+        and all(abs(r["readbackMm"] - r["commandMm"]) <= 0.02 for r in frames),
+        samples=frames,
+    )
+    (out / "rigid-support-motion.json").write_bytes(
+        (json.dumps(result, indent=2) + "\n").encode()
+    )
+    if not result["passes"]:
+        raise ValueError(("Camera support failed the full native stroke", worst))
+
+
 def run(context):
     cfg = json.loads(Path(r"INPUT_MANIFEST_JSON").read_text(encoding="utf-8-sig"))
     root = Path(cfg["project"])
@@ -110,11 +184,17 @@ def run(context):
     app = core.Application.get()
     stage = cfg["stage"]
     rows = {r["id"]: r for r in read_csv(folder / "material-register.csv")}
-    path = out / FILENAME
+    path = out / cfg.get("filename", FILENAME)
     source = root / "cad/shallow-cage/Team-1780-shallow-cage-study.f3d"
     change = json.loads((folder / "interfaces.json").read_bytes())
     if digest(source) != change["sourceArchiveSha256"]:
         raise ValueError("Initial archive changed")
+    if (
+        stage == "patch"
+        and "parentArchiveSha256" in change
+        and digest(Path(cfg["fromArchive"])) != change["parentArchiveSha256"]
+    ):
+        raise ValueError("Changed patch starting archive")
     if stage in ("create", "patch"):
         kit_path = folder / "station-and-jack-interfaces.step"
         if digest(kit_path) != change["outputSha256"]:
@@ -124,7 +204,13 @@ def run(context):
             raise ValueError(("Imported changes have different IDs", list(kit)[:20]))
     doc = app.importManager.importToNewDocument(
         app.importManager.createFusionArchiveImportOptions(
-            str(source if stage == "create" else Path(cfg["fromArchive"]) if stage == "patch" else path)
+            str(
+                source
+                if stage == "create"
+                else Path(cfg["fromArchive"])
+                if stage == "patch"
+                else path
+            )
         )
     )
     try:
@@ -191,6 +277,8 @@ def run(context):
                     moving[name] = [x, y]
 
             def group_for(k):
+                if k in change.get("frameAssignments", {}):
+                    return groups[change["frameAssignments"][k]]
                 for side in ("Left", "Right"):
                     if k.startswith(side + " "):
                         item = k[len(side) + 1 :]
@@ -228,6 +316,10 @@ def run(context):
                     stage == "patch"
                     and saved
                     and k not in kit
+                    and (
+                        k not in change.get("frameAssignments", {})
+                        or group.component == saved[0].component
+                    )
                     and k not in cfg.get("changedMaterials", [])
                 ):
                     previous = saved[1]
@@ -242,12 +334,19 @@ def run(context):
                         and attributes.get("stock", "") == expected_stock
                     ):
                         continue
+                shape = kit.get(k)
                 if saved:
                     o, b = saved
                     ap = b.appearance
                     c = o.component
                     if group and group.component != c:
-                        c.features.removeFeatures.add(b)
+                        if shape is None:
+                            world_body = b.createForAssemblyContext(o)
+                            shape = fusion.TemporaryBRepManager.get().copy(world_body)
+                        if c.bRepBodies.count == 1 and o.assemblyContext:
+                            o.deleteMe()
+                        else:
+                            c.features.removeFeatures.add(b)
                         o = group
                         c = o.component
                         b = None
@@ -267,10 +366,10 @@ def run(context):
                         None,
                     )
                     b = None
-                if k in kit:
+                if shape is not None:
                     if b is not None:
                         c.features.removeFeatures.add(b)
-                    local = fusion.TemporaryBRepManager.get().copy(kit[k])
+                    local = fusion.TemporaryBRepManager.get().copy(shape)
                     inverse = o.transform2.copy()
                     inverse.invert()
                     fusion.TemporaryBRepManager.get().transform(local, inverse)
@@ -292,9 +391,12 @@ def run(context):
                                     raise ValueError((target.units, matname))
                                 target.value = float(r["nativeNominalDensityKgM3"])
                     matcache[matname] = mat
-                if k in kit:
+                if shape is not None:
                     b.name = k
                 b.material = matcache[matname]
+                role = change.get("appearanceRoles", {}).get(k)
+                if role:
+                    ap = colors.get("FRC 2025 - " + role, ap)
                 if ap:
                     b.appearance = ap
                 # The independent reopener reads persistent attributes, volume and occurrence;
@@ -309,6 +411,8 @@ def run(context):
                 }.items():
                     b.attributes.add("Team 1780 engineering", key, value)
             for name, (x, y) in moving.items():
+                if any(j.name == name for j in top.asBuiltJoints):
+                    continue
                 if not groups[name].component.bRepBodies.count:
                     groups[name].deleteMe()
                     continue
@@ -334,7 +438,7 @@ def run(context):
                 raise ValueError(("Incomplete observation", len(body_rows), len(rows)))
             report = {
                 "schema": "agent-frc/native-physical-properties@1",
-                "configuration": CONFIGURATION,
+                "configuration": change.get("configuration", CONFIGURATION),
                 "opened": True,
                 "archiveSha256": digest(path),
                 "nativeBodyCount": len(body_rows),
@@ -395,6 +499,8 @@ def run(context):
             (out / "engineering-joints.json").write_bytes(
                 (json.dumps(joint, indent=2) + "\n").encode()
             )
+            if change.get("rigidWitnessIds"):
+                inspect_support(top, change["rigidWitnessIds"], path, out)
             view = app.activeViewport
             cam = view.camera
             cam.viewOrientation = core.ViewOrientations.IsoTopRightViewOrientation

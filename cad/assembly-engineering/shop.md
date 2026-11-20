@@ -1,8 +1,10 @@
 # Captive swerve and front shallow-cage engineering review
 
-[![Parked captive robot with the integrated shop hoist](issue/installed.png)](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)
+[![Parked receiver-service assembly with the supported USB guide, battery disconnect and front jack](receiver-service/issue/installed.png)](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)
 
-**Read the current issue first.** The [construction traveler](issue/drawing-traveler.md) and [1,183 installed body register](issue/material-register.csv) combine the two screw drives, integral module bearing lands, captive shoulder pins, damper locknuts, bolted battery stop feet and source-checked roboRIO and PDH mounts. The [engineering upper](issue/mass.json) is 52.044595 kg, including 5 kg of unresolved stock allowance, 118.527 g below the R103 limit. The earlier as-issued audit and separate fit/weight trials below retain their source scopes.
+Start with the [receiver service issue](receiver-service/verification.md) for the current installed assembly and [six fabrication sheets](receiver-service/issue/assembly-drawings.pdf).
+
+**Prior 1,183-part issue.** The [construction traveler](issue/drawing-traveler.md) and [1,183 installed body register](issue/material-register.csv) combine the two screw drives, integral module bearing lands, captive shoulder pins, damper locknuts, bolted battery stop feet and source-checked roboRIO and PDH mounts. The [engineering upper](issue/mass.json) is 52.044595 kg, including 5 kg of unresolved stock allowance, 118.527 g below the R103 limit. The earlier as-issued audit and separate fit/weight trials below retain their source scopes.
 
 
 The selected chassis retains four MAXSwerve modules, its fixed-low captive receiver, both cameras, the numbered bumpers and the shallow-cage alternative. The original cage-jack archive used steel for all 1,031 leaf bodies. An independent Fusion reopen measured 412.380 kg of native bulk. Each 14,910.39 cm³ rear/front half of foam displayed 117.047 kg. The first material-assigned engineering archive returned 0.552 kg per half at 37 kg/m³. The geometric game piece, supplier enclosures and wiring allowances each have their own treatment in the physical bill. [Original Fusion measurements](as-issued-native.csv) · [Make stock and article ownership](material-register.csv) · [Purchased assemblies and allowances](article-register.csv)

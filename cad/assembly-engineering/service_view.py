@@ -1,6 +1,6 @@
-"""Tessellate only the 1183 installed student-owned solids in the parked issue."""
+"""Tessellate the issued installed solids and keep the native motion frame on each batch."""
 
-import gzip, json, struct, tempfile
+import argparse, gzip, json, re, struct, tempfile
 from pathlib import Path
 from OCP.BRepMesh import BRepMesh_IncrementalMesh
 from OCP.StlAPI import StlAPI_Writer
@@ -8,23 +8,23 @@ from installed_audit import HERE, ROOT, reopen, sha
 from attachments import base
 from issue import rows, document
 from weighing import native_site
+from shop_sources import issue_shapes
 
 
-def export():
-    issue = HERE / "issue"
+def export(issue=HERE / "issue"):
     reg = json.loads((issue / "interfaces.json").read_bytes())
     source = issue / "station-and-jack-interfaces.step"
     if sha(source) != reg["outputSha256"]:
         raise ValueError("Wrong geometry issue")
     prior = {k: (g, role, s) for k, g, role, _, _, s in reopen()}
-    changed = base.named(source)
+    changed = issue_shapes(issue, reg)
     selected = {k: row[2] for k, row in prior.items()} | changed
     for k in reg["fixedHeight"]["removed"]:
-        selected.pop(k)
+        selected.pop(k, None)
     native = {
         r["body"]
         if r["body"] != "Body1"
-        else r["occurrence"].split("+")[-1].rsplit(":", 1)[0]: r
+        else re.split(r":\d+\+", r["occurrence"])[-1].rsplit(":", 1)[0]: r
         for r in rows(HERE / "as-issued-native.csv")
     }
     colors = json.loads((ROOT / "cad/component-palette.json").read_bytes())["colors"]
@@ -39,8 +39,11 @@ def export():
     batches = {}
     names = {}
     for k, s in selected.items():
-        group = native_site(k, native, changed)[0].split(":1", 1)[0]
+        group = native_site(k, native, changed, reg.get("frameAssignments"))[0].split(
+            ":1", 1
+        )[0]
         role = prior[k][1] if k in prior else "fastener"
+        role = reg.get("appearanceRoles", {}).get(k, role)
         if role == "jack":
             role = jack_colors[group] if group in jack_colors else "steel"
         if role not in colors:
@@ -80,11 +83,24 @@ def export():
             baseBatches=meta,
             installedBodies=len(selected),
             poses=poses,
-            movingGroups={g: sorted(ks) for g, ks in names.items() if g in jack_colors},
+            movingGroups={
+                g: sorted(ks)
+                for g, ks in names.items()
+                if g
+                in {
+                    *jack_colors,
+                    "Outer slide",
+                    "Middle slide",
+                    "Left capture yoke",
+                    "Right capture yoke",
+                }
+            },
             scope="Independent joint inspection poses with the chassis on its wheels. No cage, supported robot or scored climb is implied.",
         ),
     )
 
 
 if __name__ == "__main__":
-    export()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder", nargs="?", type=Path, default=HERE / "issue")
+    export(ap.parse_args().folder)

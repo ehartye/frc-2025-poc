@@ -10,6 +10,7 @@ from OCP.BRepBndLib import BRepBndLib
 from attachments import base, volume
 from installed_audit import HERE, ROOT, reopen, sha
 from issue import rows, document
+from shop_sources import issue_shapes
 from clearance import read_assembly
 
 
@@ -36,7 +37,7 @@ def compare(folder):
     }
     sorted_parts = {
         k: v
-        for k, v in (original | base.named(source)).items()
+        for k, v in (original | issue_shapes(folder, record)).items()
         if k not in record["fixedHeight"]["removed"]
     }
     if len(sorted_parts) != len(actual):
@@ -84,7 +85,9 @@ def compare(folder):
         )
 
     summary = dict(
-        archiveSha256=sha(folder / "Team-1780-engineering-shallow.f3d"),
+        archiveSha256=sha(
+            folder / record.get("filename", "Team-1780-engineering-shallow.f3d")
+        ),
         interfaceSha256=sha(source),
         observationSha256=sha(folder / "engineering-reopen.json"),
         perBodySha256=sha(folder / "cold-comparison.csv"),
@@ -93,12 +96,54 @@ def compare(folder):
         absoluteVolumeToleranceMm3=0.08,
         relativeTolerance=0.0005,
         minVolumeMethod="Use either the native solid-volume or very-high accuracy physical properties within the independent tolerance. Preserve the default cached proxy as a control.",
+        maxWorldBoundsErrorMm=max(r["worldBoundsMaxMm"] for r in output),
+        maxIndependentVolumeErrorMm3=max(
+            min(r["highAccuracyErrorMm3"], r["analyticalBRepErrorMm3"]) for r in output
+        ),
         failingBodies=[r for r in output if not r["passes"]],
         totalJoints=len(joints),
         movedJoints=sum("samples" in r for r in joints.values()),
         failedJointRuns=[k for k, r in joints.items() if not moved(r)],
     )
+    if record.get("rigidWitnessIds"):
+        receipt = json.loads((folder / "rigid-support-motion.json").read_bytes())
+        ids = set(record["rigidWitnessIds"])
+        if (
+            receipt["archiveSha256"] != summary["archiveSha256"]
+            or set(receipt["ids"]) != ids
+        ):
+            raise ValueError("Moving camera port received a different source")
+        samples = receipt["samples"]
+        if [r["commandMm"] for r in samples] != [0, 185, 370, 0]:
+            raise ValueError("Camera support missing a required pose")
+        bad = set()
+        reference = samples[0]["parts"]
+        for view in samples:
+            if (
+                set(view["parts"]) != ids
+                or abs(view["readbackMm"] - view["commandMm"]) > 0.02
+            ):
+                raise ValueError(
+                    "Camera support has the wrong members or drive position"
+                )
+            for k, values in view["parts"].items():
+                if values["occurrence"].split(":")[0] != "Outer slide":
+                    bad.add(k)
+                for i, (a, b) in enumerate(
+                    zip(reference[k]["boundsMm"], values["boundsMm"])
+                ):
+                    if abs(b - a - (view["commandMm"] if i in (0, 3) else 0)) > 0.02:
+                        bad.add(k)
+        summary["movingCameraFixture"] = dict(
+            sha256=sha(folder / "rigid-support-motion.json"),
+            checked=len(ids),
+            failed=sorted(bad),
+        )
+        if bad:
+            raise ValueError(("Camera body left the moving receiver", sorted(bad)))
     document(folder / "cold-reopen.json", summary)
+    if summary["failingBodies"] or summary["failedJointRuns"]:
+        raise ValueError("Cold assembly geometry or joint return failed; inspect cold-reopen.json")
     print(
         json.dumps({k: v for k, v in summary.items() if k != "failingBodies"}),
         len(summary["failingBodies"]),
