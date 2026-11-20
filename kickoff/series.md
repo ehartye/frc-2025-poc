@@ -1,6 +1,12 @@
 # Six REEFSCAPE matches
 
-In the [field lab](field-lab.html#rehearsal), choose the published series or your edited roster under **Match series**, then play at 10×. Reset restores your edited robots and obstacles after a published scenario. The six games use the same 50 ms simulation steps as the single-match controls. Each has 15 seconds of AUTO and 135 seconds of TELEOP. The opening three games preserve the piece-only comparison. Three BARGE games add an endgame reservation for each participating robot. An independent clock report inserts the three-second disabled transition and records the passive cage assessment after TELEOP. To change the roster yourself, reset the rehearsal and use **Add blue robot** or **Add red robot**.
+The [live lab](field-lab.html#rehearsal) uses six fixed robot slots, a live Blue and Red scoreboard, and finite, individually tracked pieces. Each chute has one attendant who takes three TELEOP seconds to stage one pipe. Processor transfers go to the opposing human player. The model allows five seconds per net attempt and leaves its outcome unresolved. These service times and capture ranges are teaching assumptions. The project-registered starting marks coincide vertically in pairs. The top-down contact solver separates overlapping footprints during playback. Twelve reef-mounted ALGAE remain at their registered retrieval stations. [Live profiles and six match totals](live-publication.json)
+
+Run `python scripts/build-live-labs.py <agent-frc-checkout>` with the 0.48.0 engine to reproduce both field views and the role comparison.
+
+## Archived match evidence
+
+In the [field lab](field-lab.html#rehearsal), choose the published series or your edited roster under **Match series**, then play at 10×. Reset restores your edited robots and obstacles after a published scenario. The six games use the same 50 ms simulation steps as the single-match controls. Each has 15 seconds of AUTO and 135 seconds of TELEOP. The opening three games preserve the piece-only comparison. Three BARGE games add an endgame reservation for each participating robot. An independent clock report inserts the three-second disabled transition and records the passive cage assessment after TELEOP. The tables below are the archived six-match study.
 
 | Match | Blue | Red | What changes |
 |---|---:|---:|---|
@@ -26,4 +32,4 @@ The studied robot’s [primary loaded route](../experiments/swerve-drive/transit
 
 ### Reproduce
 
-Use the project’s [season profile](season-profile.json) with Agent FRC 0.36.0 at commit `4154d301e28d36f0168f6df3f568fe57b549791f`. `node <plugin>/scripts/rehearsal-series.mjs kickoff/season-profile.json <new-receipt.json>` reproduces the [six-game ledger](match-series.json), including stock, cargo, clock and scores. `node <plugin>/scripts/kickoff.mjs --profile kickoff/season-profile.json --output <new-field-lab.html>` regenerates the standalone lab at a new path. The current and historical lab links both ship these same bytes. The project’s [registration script](register_series.py) recreates the season profile from the archived field geometry and the native inventory.
+Use the project’s [season profile](season-profile.json) with Agent FRC 0.36.0 at commit `4154d301e28d36f0168f6df3f568fe57b549791f`. `node <plugin>/scripts/rehearsal-series.mjs kickoff/season-profile.json <new-receipt.json>` reproduces the [six-game ledger](match-series.json), including stock, cargo, clock and scores. `node <plugin>/scripts/kickoff.mjs --profile kickoff/season-profile.json --output <new-field-lab.html>` regenerates the standalone lab at a new path. This command reproduces the archived lab with that engine revision. The project’s [registration script](register_series.py) recreates the season profile from the archived field geometry and the native inventory.

@@ -3,6 +3,8 @@ import {createHash} from 'node:crypto';
 import {readFile,writeFile,copyFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 const project=path.resolve(process.argv[2]), output=path.resolve(process.argv[3]);
+const cad=JSON.parse(await readFile(path.join(project,'cad-showcase.json')));
+if(cad.publication?.status==='withheld') throw Error('CAD publication withheld: '+cad.publication.reason);
 const source=path.join(project,'docs/robot/cad');
 const pageFile=path.join(output,'index.html');
 let page=await readFile(pageFile,'utf8');

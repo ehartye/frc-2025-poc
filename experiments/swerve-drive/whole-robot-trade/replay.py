@@ -184,7 +184,7 @@ def refine_route(scripts, issued):
             check=True,
             stdout=subprocess.DEVNULL,
         )
-        (HERE / "role-lab.html").write_bytes((Path(d) / "role-lab.html").read_bytes())
+        historical_html_sha = hashlib.sha256((Path(d) / "role-lab.html").read_bytes()).hexdigest()
         supply = next(s for s in field["stations"] if s["id"] == "red-chute-high")
         for available in (1, 0):
             # Qual 3 and BARGE 3 each preload one CORAL from this feeder.
@@ -228,6 +228,7 @@ def refine_route(scripts, issued):
                     )
     write(HERE / "refinement-result.json", result)
     write(HERE / "refinement-stock.json", limited)
+    return historical_html_sha
 
 
 def load_model(robot):
@@ -296,7 +297,7 @@ def load_model(robot):
             cgXM=cg,
             accelZMps2=acc,
             pitchMomentNm=0,
-            basis="Registered transverse Y-axis pair at ±321 mm. Charge 0.5g additional during raising and ±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
+            basis="Registered transverse Y-axis pair at Â±321 mm. Charge 0.5g additional during raising and Â±40 mm assumed transverse CG. Full extension; independent longitudinal clamp reactions and pawl capacity in robot-cases.json.",
             asymmetric=True,
             worstExtension=True,
         )
@@ -320,7 +321,7 @@ def load_model(robot):
 def compile_studies(scripts):
     p = ROOT / "kickoff/season-profile.json"
     source = json.loads(p.read_bytes())
-    refine_route(scripts, source)
+    historical_html_sha = refine_route(scripts, source)
     demand = dict(
         **CRITERION,
         requiredPieces=2,
@@ -472,7 +473,7 @@ def compile_studies(scripts):
         write(HERE / (name + "-result.json"), json.loads(data))
     compare_custody(scripts)
     write(HERE / "role-publication.json", {
-        "htmlSha256": ref("role-lab.html", "")["sha256"],
+        "htmlSha256": historical_html_sha,
         "demandSha256": ref("role-demand.json", "")["sha256"],
         "profileSha256": ref("refinement-profile.json", "")["sha256"],
         "studySha256": ref("refinement-study.json", "")["sha256"],

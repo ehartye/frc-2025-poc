@@ -36,6 +36,7 @@ select{width:100%;font:inherit;color:inherit;padding:5px;border:1px solid #869bb
 .replay-tools label{font-size:13px}.replay-tools select{width:auto;margin-left:5px}#replayQueue,#replayNotice{font-size:14px}
 header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px)/2));color:white;background:var(--navy);border-bottom:4px solid var(--gold)}header p{color:#dce8f6}h1,h2,h3,legend{font-family:var(--display)}h1{letter-spacing:-.035em}main>details:first-child{background:white;border:1px solid var(--edge);border-left:5px solid var(--blue);padding:12px 16px;margin-bottom:18px}button:hover:enabled{border-color:var(--blue)}nav button:hover:enabled{border-color:var(--gold)}:focus-visible{outline:3px solid #ad6200;outline-offset:3px}figure :focus-visible{outline-color:var(--gold)}#modelSummary{overflow-x:auto}.layout>*{min-width:0}button.primary{border-color:#b78125}.replay-robot{border-radius:4px}.slider output,#replayClock{font-family:"IBM Plex Mono",Consolas,monospace}
 #numbers label[hidden]{display:none}
+.match-console{border:1px solid #214464;border-radius:8px;overflow:hidden;background:#142f50;color:white}.score-strip{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid #516b85}.score-strip>div{padding:.45rem clamp(.4rem,2vw,1.6rem);display:flex;align-items:center;gap:.7rem;font-weight:650}.score-strip>div b{font:700 clamp(1.35rem,3vw,2.2rem)/1.1 var(--display)}.score-blue{background:linear-gradient(90deg,#245d91,transparent)}.score-red{justify-content:flex-end;background:linear-gradient(270deg,#963b4a,transparent)}#replayClock{font-size:clamp(.8rem,2vw,1.2rem);margin:0}.match-console figure{margin:0;border-radius:0}.match-console figcaption{padding:.4rem .9rem}.match-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.55rem;padding:.75rem .9rem;background:#edf4fa;color:var(--navy)}#replayScore{margin-left:auto;font-size:.85rem}.replay-robot summary{line-height:1.4}.replay-group summary small{display:block;color:#405671}.replay-robot{padding:.45rem .65rem}.replay-group h3{font-size:1rem}.replay-group .replay-robot output{font-size:.85rem}.match-console figcaption,#replayScore{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -52,17 +53,27 @@ header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px
 <fieldset><legend>Field pose</legend><div id="pose"></div></fieldset>
 <div id="elevations"><label for="level">Compare box top with</label><select id="level"></select><p id="difference"></p></div></aside></div>
 <article id="rehearsal" hidden><h2>Rehearse a match</h2>
-<p>Assign up to three robots per alliance. Each robot follows its prescribed route with its full bumper footprint. Use the timer to see who waits and which trips finish.</p>
-<figure class="rehearsal-board"><canvas id="replayField" aria-label="Timed overhead field showing labeled blue and red robots, structures and blocked positions. The roster below describes each robot."></canvas>
-<figcaption>Blue and red rectangles show occupied robot footprints. Amber circles mark accumulated waiting. Hatched obstacles block the selected height or reserve uncertain space. Dotted lines show planned robot paths.</figcaption></figure>
-<div class="replay-tools"><b id="replayClock" aria-label="Remaining match period time"></b>
-<label>Match series<select id="replaySeriesSource"></select></label>
-<button id="replaySeries">Play match series at 10×</button><button id="replayRun" class="primary">Start period</button><button id="replayStep">Step 1 s</button>
-<button id="replayFast">Run to period end</button><button id="replayReset">Reset match</button><button id="replaySave">Save rehearsal snapshot</button>
-<label>Obstacle setup<select id="replaySetup"></select></label></div>
-<p id="replayNotice" role="status"></p><div class="actions"><button id="addBlue">Add blue robot</button><button id="addRed">Add red robot</button></div>
-<p id="replayTerminal" hidden></p>
-<details><summary>Station key and live counts</summary><p>Field labels show station number and available or attempted pieces. Select a station to isolate its field marker.</p><ol id="replayStations"></ol></details><p id="replayScore"></p><ol id="replayResults"></ol><div id="replayRoster"></div><p id="replayQueue"></p><details><summary>Field assumptions and phase log</summary><p id="replayBasis"></p><ol id="replayEvents"></ol></details>
+
+<section class="match-console" aria-label="Match scoreboard and controls">
+<div class="score-strip"><div class="score-blue">Blue <b id="scoreBlue">0</b></div><b id="replayClock" aria-label="Remaining match period time"></b><div class="score-red"><b id="scoreRed">0</b> Red</div></div>
+<figure class="rehearsal-board"><canvas id="replayField" aria-label="Timed overhead field with six robot footprints and loose pieces."></canvas>
+<figcaption>Solid dots are loose pieces. A number on a robot shows its cargo. Amber rings mark traffic.</figcaption></figure>
+<div class="match-actions"><button id="replayRun" class="primary">Play match</button><button id="replayReset">Reset match</button><span id="replayScore"></span></div>
+</section><p id="replayNotice" role="status"></p>
+<div id="replayRoster"></div>
+<details><summary>Playback and match setup</summary><div class="replay-tools"><label>Obstacle setup<select id="replaySetup"></select></label>
+<button id="replayStep">Step 1 s</button><button id="replayFast">Run to period end</button><button id="replaySave">Save rehearsal snapshot</button>
+<label>Match series<select id="replaySeriesSource"></select></label><button id="replaySeries">Play match series at 10×</button></div><ol id="replayResults"></ol></details>
+<details><summary>Stations and human service</summary><p>Select a station to locate it on the field.</p><ol id="replayStations"></ol></details>
+<details><summary>Match events and assumptions</summary><p id="replayQueue"></p><p id="replayTerminal" hidden></p><p id="replayBasis"></p><ol id="replayEvents"></ol></details>
+<fieldset id="roleLab" hidden><legend>Compare alliance roles</legend>
+<label>Focal robot role<select id="roleChoice"></select></label>
+<label>Partner and opponent setup<select id="roleContext"></select></label>
+<p id="roleBasis"></p><p id="roleOutcome" aria-live="polite"></p>
+<ul id="rolePhases"></ul><div id="roleExport" hidden>
+<label>Design period<select id="rolePhase"></select></label><label>Design station<select id="roleStation"></select></label>
+<button id="roleSave" type="button">Save selected role for design</button></div><button id="rolePlay" type="button">Replay this role and setup at 10×</button>
+</fieldset>
 </article>
 <article id="opportunity"><h2>What can we score in this window?</h2>
 <p id="inventory"></p><p class="muted" id="scoreSource"></p>
@@ -85,14 +96,68 @@ header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px
 <div class="fields"><label>Our role and repeatable match cycle<textarea id="story"></textarea></label><label>Alternative role or fallback<textarea id="alternative"></textarea></label><label>Capability the design would need<textarea id="capability"></textarea></label><label>What should we test first?<textarea id="experiment"></textarea></label></div>
 <div class="actions"><button class="primary" id="download">Download narrative and observations</button><span id="feedback" role="status"></span></div></article>
 </main>
-<script id="profile" type="application/json">{"season":2025,"game":"REEFSCAPE","edition":"Kickoff · V0","manual":"https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf","units":"in","trial":{"length":30,"width":30,"height":30,"heading":0},"scoring":{"source":"V0 §§6.3.4, 6.4 and 6.5, Table 6-2. See G409 for simultaneous control, G412 for CORAL launch location and the scoring criteria for each target.","inventory":[{"piece":"CORAL","total":126,"distribution":"6 on field marks. Up to 6 robot preloads. The remainder is split between alliance stations (57–60 per alliance)."},{"piece":"ALGAE","total":18,"distribution":"12 on reef branches and 6 on field marks. Processor transfers can make a piece available for another scoring action."}],"phases":[{"name":"AUTO","seconds":15},{"name":"TELEOP","seconds":135}],"fieldMap":{"basis":"V0 §§5.1–5.6, 6.3 and Figure 6-2. One alliance frame is mirrored for the other. Start X derives from the starting line and reef dimensions. Three lateral starting slots, pickup and scoring approach coordinates are illustrative robot-center positions in inches. Opening AUTO routes can also use a preload. Actual team routes and arrival times are unknown.","starts":[[297.5,65],[297.5,158.5],[297.5,252]],"sources":{"CORAL":[[45,42],[45,275]],"ALGAE":[[122,158.5],[176.75,101],[176.75,216]],"marks":[[48,88],[48,158.5],[48,229]]},"targets":{"reef":[[122,158.5],[176.75,101],[176.75,216],[231,158.5]],"processor":[[236,23]],"net":[[305,213]]},"routes":[{"piece":"CORAL","goal":"reef","autoSource":"marks"},{"piece":"ALGAE","goal":"processor"},{"piece":"ALGAE","goal":"net"}]},"targets":[{"name":"Reef trough (L1)","goal":"reef","piece":"CORAL","points":[3,2]},{"name":"Reef L2 branches","goal":"reef","piece":"CORAL","points":[4,3],"cap":12},{"name":"Reef L3 branches","goal":"reef","piece":"CORAL","points":[6,4],"cap":12},{"name":"Reef L4 branches","goal":"reef","piece":"CORAL","points":[7,5],"cap":12},{"name":"Processor","goal":"processor","piece":"ALGAE","points":[6,6]},{"name":"Net","goal":"net","piece":"ALGAE","points":[4,4]}],"barge":{"parkPoints":2,"shallowPoints":6,"deepPoints":12,"bargeRankingThreshold":14,"qualificationRankingPoints":1,"maximumAssessmentDelayS":3,"transitionS":3,"cageCriteria":["Physical contact with own cage other than anchor","No carpet contact","Other contacts limited to scoring elements, another cage-qualified robot, a partner contacted by an opponent in violation of G428, or an opponent"],"parkCriterion":"At end of match, some bumper volume is in the alliance BARGE ZONE and the robot has no CAGE points.","assessment":"Cage points assessed at all robots at rest after TELEOP, or three seconds after cutoff, whichever occurs first. No powered service continues.","rankingScope":"Kickoff standard qualification threshold. Championship thresholds can increase; G418 and G419 may award or change RP eligibility.","sources":["V0 §5.4.1 Figs. 5-10–11 and §6.3.5","§6.4","§6.5 p.46, §6.5.2 pp.47–48, §6.5.4 Table 6-2 p.48","G417–G420, G428"]}},"rehearsal":{"schema":"field-rehearsal/v1","basis":"V0 §§5.1–5.6, 5.8 and 6.3–6.5. Rectangular robots strafe at fixed headings. All assigned behaviors, resource reservations and speeds are trial assumptions.","boundsNote":"The four tag planes approximate the inward station faces. The central support uses an assumed full-depth by 56 in exclusion. Cage lanes reserve the full 44 in barge depth. The truss excludes robots within 8 in below its 62 in reference. Verify installed contours, truss underside, cage swing and bumper shape before relying on physical clearance.","sources":["https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf","https://github.com/wpilibsuite/allwpilib/blob/b65f159c3fdfdfce9ec126cf79dfd9a16d1e66e9/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape.json","V0 game rules and Table 6-2 for inventory and points. Floor/reef setup uses project FE-2025 native inventory. Approach centers, chute split, dwell and peer action outcomes are teaching assumptions."],"surveyHash":"82d7cbd386faadca3a7de04b5cf36e98685ca4602b44c95f8138761fd730fe89","resourceLabel":"shared cage lane","setups":["deep","mixed","shallow"],"planes":[{"name":"Station wall · tag 12","at":[33.51,25.8],"inwardDeg":54},{"name":"Station wall · tag 13","at":[33.51,291.2],"inwardDeg":-54},{"name":"Station wall · tag 1","at":[657.37,25.8],"inwardDeg":126},{"name":"Station wall · tag 2","at":[657.37,291.2],"inwardDeg":-126}],"obstacles":[{"name":"Barge center support · assumed exclusion","poly":[[323.4375,130.5],[367.4375,130.5],[367.4375,186.5],[323.4375,186.5]],"lower":0,"kind":"exclusion"},{"name":"South cage 1","poly":[[341.7500000069085,113.37495822988049],[349.1250000069085,113.37495822988049],[349.1250000069085,120.74995822988049],[341.7500000069085,120.74995822988049]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"South cage 2","poly":[[341.7500000069051,70.43745822988056],[349.1250000069051,70.43745822988056],[349.1250000069051,77.81245822988056],[341.7500000069051,77.81245822988056]],"lower":{"deep":3.5,"shallow":29.375,"mixed":29.375},"kind":"height"},{"name":"South cage 3","poly":[[341.7500000069061,27.500041763213062],[349.1250000069061,27.500041763213062],[349.1250000069061,34.87504176321306],[341.7500000069061,34.87504176321306]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"North cage 1","poly":[[341.74999999309193,196.25004177011863],[349.12499999309193,196.25004177011863],[349.12499999309193,203.62504177011863],[341.74999999309193,203.62504177011863]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"North cage 2","poly":[[341.7499999930973,239.1875417701199],[349.1249999930973,239.1875417701199],[349.1249999930973,246.5625417701199],[341.7499999930973,246.5625417701199]],"lower":{"deep":3.5,"shallow":29.375,"mixed":29.375},"kind":"height"},{"name":"North cage 3","poly":[[341.75000008964736,282.12495823678717],[349.12500008964736,282.12495823678717],[349.12500008964736,289.49995823678717],[341.75000008964736,289.49995823678717]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"Barge overhead · assumed underside margin","poly":[[323.4375,0],[367.4375,0],[367.4375,317],[323.4375,317]],"lower":54,"kind":"overlay"}],"bands":[{"name":"Barge depth","from":[323.4375,0],"to":[323.4375,317]},{"name":"Barge depth","from":[367.4375,0],"to":[367.4375,317]}],"starts":[[297.5,65],[297.5,158.5],[297.5,252]],"mirror":{"redX":true,"redY":true},"periods":[{"name":"AUTO","seconds":15},{"name":"TELEOP","seconds":135}],"defaults":{"length":26,"width":26,"height":30,"bumper":3.25,"heading":0,"speed":60,"orders":["passage","station","processor"],"capacity":1},"programs":{"hold":{"label":"Hold starting pose","steps":[]},"station":{"label":"Cycle lower chute CORAL to the trough","steps":[{"at":[64,53],"label":"Collect chute-low","dwell":0.75,"station":{"blue":"blue-chute-low","red":"red-chute-low"},"operation":"acquire"},{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"credited"}],"loop":true},"processor":{"label":"Clear south floor ALGAE for the processor","steps":[{"at":[69.99952086667514,86.5],"label":"Collect floor-algae-low","dwell":0.75,"station":{"blue":"blue-floor-algae-low","red":"red-floor-algae-low"},"operation":"acquire"},{"at":[236,24],"label":"Attempt processor","dwell":0.9,"station":{"blue":"blue-processor","red":"red-processor"},"operation":"attempt","outcome":"credited"}],"loop":false},"net":{"label":"Remove one reef ALGAE and score in the net","steps":[{"at":[206.74081577239085,210.4668256612477],"label":"Collect reef-algae-1","dwell":0.75,"station":{"blue":"blue-reef-algae-1","red":"red-reef-algae-1"},"operation":"acquire"},{"at":[306,213],"label":"Attempt net","dwell":0.9,"station":{"blue":"blue-net","red":"red-net"},"operation":"attempt","outcome":"credited"}],"loop":false},"passage":{"label":"Cross the shared cage lane","steps":[{"frame":"field","at":{"blue":[269.1875,176.4375],"red":[421.6875,266.4375]},"label":"Stage outside shared lane"},{"frame":"field","at":{"blue":[294.1875,221.4375],"red":[396.6875,221.4375]},"label":"Enter lane","lock":true},{"frame":"field","at":{"blue":[396.6875,221.4375],"red":[294.1875,221.4375]},"label":"Cross lane","lock":true,"straight":true},{"frame":"field","at":{"blue":[423.6875,177.4375],"red":[267.1875,265.4375]},"label":"Clear lane","lock":true,"release":true}]},"preload-l2":{"label":"Place one preloaded CORAL on L2","steps":[{"at":[205.5,108],"label":"Attempt l2","dwell":0.9,"station":{"blue":"blue-l2","red":"red-l2"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l3":{"label":"Place one preloaded CORAL on L3","steps":[{"at":[147.5,209],"label":"Attempt l3","dwell":0.9,"station":{"blue":"blue-l3","red":"red-l3"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l4":{"label":"Place one preloaded CORAL on L4","steps":[{"at":[119,158.5],"label":"Attempt l4","dwell":0.9,"station":{"blue":"blue-l4","red":"red-l4"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l1":{"label":"Place one preloaded CORAL in the trough","steps":[{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"credited"}],"loop":false},"coral-high-miss":{"label":"Try upper chute CORAL and miss L1","steps":[{"at":[64,264],"label":"Collect chute-high","dwell":0.75,"station":{"blue":"blue-chute-high","red":"red-chute-high"},"operation":"acquire"},{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"missed"}],"loop":false},"stow-at-station":{"label":"R4 rehearsal: take CORAL and hold","steps":[{"at":[64,53],"label":"Collect chute-low","dwell":0.75,"station":{"blue":"blue-chute-low","red":"red-chute-low"},"operation":"acquire"}],"loop":false},"keep-lane":{"label":"Clear the east reef face and hold a traffic lane","steps":[{"at":[290,158.5],"label":"Back out of the trough approach","dwell":0.5}],"loop":false},"approach-chute":{"label":"R4 rehearsal: stage outside the lower station","steps":[{"at":[94,67],"label":"Stage outside the supply chute","dwell":0.5}],"loop":false}},"stations":[{"id":"blue-chute-low","label":"Blue low corner chute","piece":"CORAL","side":"blue","kind":"retrieval","at":[64,53],"displayAt":[33.51,25.8],"radiusIn":6,"stock":30},{"id":"red-chute-low","label":"Red low corner chute","piece":"CORAL","side":"red","kind":"retrieval","at":[626.875,264],"displayAt":[657.365,291.2],"radiusIn":6,"stock":30},{"id":"blue-chute-high","label":"Blue high corner chute","piece":"CORAL","side":"blue","kind":"retrieval","at":[64,264],"displayAt":[33.51,291.2],"radiusIn":6,"stock":30},{"id":"red-chute-high","label":"Red high corner chute","piece":"CORAL","side":"red","kind":"retrieval","at":[626.875,53],"displayAt":[657.365,25.80000000000001],"radiusIn":6,"stock":30},{"id":"blue-floor-coral-mid","label":"Blue floor coral mid","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,158.5],"displayAt":[47.99952086667514,158.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO45"},{"id":"blue-floor-algae-mid","label":"Blue floor algae mid","piece":"ALGAE","side":"blue","kind":"retrieval","at":[69.99952086667514,158.5],"displayAt":[47.99952086667514,158.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO46"},{"id":"blue-reef-algae-5","label":"Blue reef algae 5","piece":"ALGAE","side":"blue","kind":"retrieval","at":[206.7425784980902,106.53419167340994],"displayAt":[190.11862385157136,135.3372250920249],"radiusIn":6,"stock":1,"nativeStockId":"NAUO47"},{"id":"blue-reef-algae-4","label":"Blue reef algae 4","piece":"ALGAE","side":"blue","kind":"retrieval","at":[146.744342049527,106.54174280290748],"displayAt":[163.37307878745128,135.33631820325095],"radiusIn":6,"stock":1,"nativeStockId":"NAUO48"},{"id":"blue-reef-algae-0","label":"Blue reef algae 0","piece":"ALGAE","side":"blue","kind":"retrieval","at":[236.75,158.5000000000023],"displayAt":[203.49061099491456,158.50000000000102],"radiusIn":6,"stock":1,"nativeStockId":"NAUO49"},{"id":"blue-reef-algae-2","label":"Blue reef algae 2","piece":"ALGAE","side":"blue","kind":"retrieval","at":[146.73905679836088,210.4552046300271],"displayAt":[163.37150801001795,181.66096113042968],"radiusIn":6,"stock":1,"nativeStockId":"NAUO50"},{"id":"blue-reef-algae-1","label":"Blue reef algae 1","piece":"ALGAE","side":"blue","kind":"retrieval","at":[206.74081577239085,210.4668256612477],"displayAt":[190.11705307413789,181.66186801920367],"radiusIn":6,"stock":1,"nativeStockId":"NAUO51"},{"id":"blue-reef-algae-3","label":"Blue reef algae 3","piece":"ALGAE","side":"blue","kind":"retrieval","at":[116.75000013791966,158.4959317867878],"displayAt":[149.99952086667517,158.49818622245178],"radiusIn":6,"stock":1,"nativeStockId":"NAUO52"},{"id":"blue-floor-coral-low","label":"Blue floor coral low","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,86.5],"displayAt":[47.99952086667514,86.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO188"},{"id":"blue-floor-coral-high","label":"Blue floor coral high","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,230.5],"displayAt":[47.99952086667514,230.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO189"},{"id":"blue-floor-algae-low","label":"Blue floor algae low","piece":"ALGAE","side":"blue","kind":"retrieval","at":[69.99952086667514,86.5],"displayAt":[47.99952086667514,86.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO190"},{"id":"blue-floor-algae-high","label":"Blue floor algae high","piece":"ALGAE","side":"blue","kind":"retrieval","at":[69.99952086667514,230.5],"displayAt":[47.99952086667514,230.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO191"},{"id":"red-floor-coral-mid","label":"Red floor coral mid","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333249,158.50000000000207],"displayAt":[642.8754791333249,158.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO192"},{"id":"red-floor-algae-mid","label":"Red floor algae mid","piece":"ALGAE","side":"red","kind":"retrieval","at":[620.8754791333249,158.50000000000207],"displayAt":[642.8754791333249,158.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO193"},{"id":"red-floor-coral-low","label":"Red floor coral low","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333243,230.50000000000207],"displayAt":[642.8754791333243,230.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO194"},{"id":"red-floor-coral-high","label":"Red floor coral high","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333254,86.50000000000207],"displayAt":[642.8754791333254,86.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO195"},{"id":"red-floor-algae-low","label":"Red floor algae low","piece":"ALGAE","side":"red","kind":"retrieval","at":[620.8754791333243,230.50000000000207],"displayAt":[642.8754791333243,230.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO196"},{"id":"red-floor-algae-high","label":"Red floor algae high","piece":"ALGAE","side":"red","kind":"retrieval","at":[620.8754791333254,86.50000000000207],"displayAt":[642.8754791333254,86.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO197"},{"id":"red-reef-algae-3","label":"Red reef algae 3","piece":"ALGAE","side":"red","kind":"retrieval","at":[574.1249998620804,158.50406821321437],"displayAt":[540.8754791333248,158.5018137775492],"radiusIn":6,"stock":1,"nativeStockId":"NAUO198"},{"id":"red-reef-algae-1","label":"Red reef algae 1","piece":"ALGAE","side":"red","kind":"retrieval","at":[484.1341842276072,106.53317433875344],"displayAt":[500.7579469258624,135.3381319807989],"radiusIn":6,"stock":1,"nativeStockId":"NAUO199"},{"id":"red-reef-algae-2","label":"Red reef algae 2","piece":"ALGAE","side":"red","kind":"retrieval","at":[544.1359432016421,106.54479536997462],"displayAt":[527.5034919899823,135.339038869573],"radiusIn":6,"stock":1,"nativeStockId":"NAUO200"},{"id":"red-reef-algae-0","label":"Red reef algae 0","piece":"ALGAE","side":"red","kind":"retrieval","at":[454.125,158.50000000000225],"displayAt":[487.3843890050855,158.500000000001],"radiusIn":6,"stock":1,"nativeStockId":"NAUO201"},{"id":"red-reef-algae-4","label":"Red reef algae 4","piece":"ALGAE","side":"red","kind":"retrieval","at":[544.1306579504699,210.4582571970943],"displayAt":[527.5019212125485,181.6636817967518],"radiusIn":6,"stock":1,"nativeStockId":"NAUO202"},{"id":"red-reef-algae-5","label":"Red reef algae 5","piece":"ALGAE","side":"red","kind":"retrieval","at":[484.1324215019122,210.46580832659143],"displayAt":[500.75637614842856,181.66277490797768],"radiusIn":6,"stock":1,"nativeStockId":"NAUO203"},{"id":"blue-l1","label":"Blue Reef trough (L1)","piece":"CORAL","side":"blue","kind":"scoring","at":[235,158.5],"displayAt":[209.5,158.5],"radiusIn":6,"points":{"AUTO":3,"TELEOP":2},"criterion":"CORAL contacts the trough and clears robot contact."},{"id":"red-l1","label":"Red Reef trough (L1)","piece":"CORAL","side":"red","kind":"scoring","at":[455.875,158.5],"displayAt":[481.375,158.5],"radiusIn":6,"points":{"AUTO":3,"TELEOP":2},"criterion":"CORAL contacts the trough and clears robot contact."},{"id":"blue-l2","label":"Blue Reef L2 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[205.5,108],"displayAt":[193.125,130.14],"radiusIn":6,"points":{"AUTO":4,"TELEOP":3},"criterion":"CORAL is fully supported on the selected L2 branch.","capacity":1},{"id":"red-l2","label":"Red Reef L2 branches","piece":"CORAL","side":"red","kind":"scoring","at":[485.375,209],"displayAt":[497.75,186.86],"radiusIn":6,"points":{"AUTO":4,"TELEOP":3},"criterion":"CORAL is fully supported on the selected L2 branch.","capacity":1},{"id":"blue-l3","label":"Blue Reef L3 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[147.5,209],"displayAt":[160.375,186.86],"radiusIn":6,"points":{"AUTO":6,"TELEOP":4},"criterion":"CORAL is fully supported on the selected L3 branch.","capacity":1},{"id":"red-l3","label":"Red Reef L3 branches","piece":"CORAL","side":"red","kind":"scoring","at":[543.375,108],"displayAt":[530.5,130.14],"radiusIn":6,"points":{"AUTO":6,"TELEOP":4},"criterion":"CORAL is fully supported on the selected L3 branch.","capacity":1},{"id":"blue-l4","label":"Blue Reef L4 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[119,158.5],"displayAt":[144,158.5],"radiusIn":6,"points":{"AUTO":7,"TELEOP":5},"criterion":"CORAL is fully supported on the selected L4 branch.","capacity":1},{"id":"red-l4","label":"Red Reef L4 branches","piece":"CORAL","side":"red","kind":"scoring","at":[571.875,158.5],"displayAt":[546.875,158.5],"radiusIn":6,"points":{"AUTO":7,"TELEOP":5},"criterion":"CORAL is fully supported on the selected L4 branch.","capacity":1},{"id":"blue-processor","label":"Blue Processor","piece":"ALGAE","side":"blue","kind":"scoring","at":[236,24],"displayAt":[236,0],"radiusIn":6,"points":{"AUTO":6,"TELEOP":6},"criterion":"ALGAE passes through the processor opening."},{"id":"red-processor","label":"Red Processor","piece":"ALGAE","side":"red","kind":"scoring","at":[454.875,293],"displayAt":[454.875,317],"radiusIn":6,"points":{"AUTO":6,"TELEOP":6},"criterion":"ALGAE passes through the processor opening."},{"id":"blue-net","label":"Blue Net","piece":"ALGAE","side":"blue","kind":"scoring","at":[306,213],"displayAt":[345.4375,213],"radiusIn":6,"points":{"AUTO":4,"TELEOP":4},"criterion":"ALGAE rests in the alliance net."},{"id":"red-net","label":"Red Net","piece":"ALGAE","side":"red","kind":"scoring","at":[384.875,104],"displayAt":[345.4375,104],"radiusIn":6,"points":{"AUTO":4,"TELEOP":4},"criterion":"ALGAE rests in the alliance net."}],"series":{"matches":[{"id":"Qual 1","basis":"Station cycling and mixed ALGAE duties; prescribed peer scoring outcomes.","setup":"mixed","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"Qual 2","basis":"Deeper cages. The red partner clears the trough lane for repeated CORAL cycles; blue misses a trough attempt.","setup":"deep","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"keep-lane"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"Qual 3","basis":"Red slot 1 holds its first pipe; other robots are rehearsal surrogates.","setup":"shallow","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"approach-chute","TELEOP":"stow-at-station"}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"BARGE 1","basis":"Compare a mixed-cage alliance with an incomplete support on the other side.","setup":"mixed","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1},"endgame":{"action":"deep","target":"blue-3-deep","startS":110,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"shallow","target":"blue-2-shallow","startS":120,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"deep","target":"red-3-deep","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"failed","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":3},{"id":"BARGE 2","basis":"Commit a cycling partner to deep climb; a late partner loses its service window.","setup":"deep","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"deep","target":"blue-2-deep","startS":130,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"red-chute-low","quantity":1},"endgame":{"action":"deep","target":"red-1-deep","startS":95,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"keep-lane"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"deep","target":"red-2-deep","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":1.5},{"id":"BARGE 3","basis":"Shallow service on both sides. The team's loaded robot holds its actual unresolved endgame.","setup":"shallow","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"park","target":"blue-park","startS":85,"witnesses":{"bumper-in-own-zone":"met","no-cage-credit":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"approach-chute","TELEOP":"stow-at-station"}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1},"endgame":{"action":"shallow","target":"red-3-shallow","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"shallow","target":"red-2-shallow","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":0.5}]},"endgame":{"period":"TELEOP","assessment":{"maxDelayS":3},"targets":[{"id":"red-3-shallow","side":"red","label":"Red cage 3 shallow","at":[374.4375000069061,31.187541763213062],"displayAt":[345.4375000069061,31.187541763213062],"radiusIn":1.5,"resource":"NAUO259","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"red-3-deep","side":"red","label":"Red cage 3 deep","at":[374.4375000069061,31.187541763213062],"displayAt":[345.4375000069061,31.187541763213062],"radiusIn":1.5,"resource":"NAUO259","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"red-2-shallow","side":"red","label":"Red cage 2 shallow","at":[374.4375000069051,74.12495822988056],"displayAt":[345.4375000069051,74.12495822988056],"radiusIn":1.5,"resource":"NAUO260","capacity":1,"actions":["shallow"],"setups":["shallow","mixed"]},{"id":"red-2-deep","side":"red","label":"Red cage 2 deep","at":[374.4375000069051,74.12495822988056],"displayAt":[345.4375000069051,74.12495822988056],"radiusIn":1.5,"resource":"NAUO260","capacity":1,"actions":["deep"],"setups":["deep"]},{"id":"red-1-shallow","side":"red","label":"Red cage 1 shallow","at":[374.4375000069085,117.06245822988049],"displayAt":[345.4375000069085,117.06245822988049],"radiusIn":1.5,"resource":"NAUO261","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"red-1-deep","side":"red","label":"Red cage 1 deep","at":[374.4375000069085,117.06245822988049],"displayAt":[345.4375000069085,117.06245822988049],"radiusIn":1.5,"resource":"NAUO261","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"blue-1-shallow","side":"blue","label":"Blue cage 1 shallow","at":[316.43749999309193,199.93754177011863],"displayAt":[345.43749999309193,199.93754177011863],"radiusIn":1.5,"resource":"NAUO262","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"blue-1-deep","side":"blue","label":"Blue cage 1 deep","at":[316.43749999309193,199.93754177011863],"displayAt":[345.43749999309193,199.93754177011863],"radiusIn":1.5,"resource":"NAUO262","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"blue-2-shallow","side":"blue","label":"Blue cage 2 shallow","at":[316.4374999930973,242.8750417701199],"displayAt":[345.4374999930973,242.8750417701199],"radiusIn":1.5,"resource":"NAUO263","capacity":1,"actions":["shallow"],"setups":["shallow","mixed"]},{"id":"blue-2-deep","side":"blue","label":"Blue cage 2 deep","at":[316.4374999930973,242.8750417701199],"displayAt":[345.4374999930973,242.8750417701199],"radiusIn":1.5,"resource":"NAUO263","capacity":1,"actions":["deep"],"setups":["deep"]},{"id":"blue-3-shallow","side":"blue","label":"Blue cage 3 shallow","at":[316.43750008964736,285.81245823678717],"displayAt":[345.43750008964736,285.81245823678717],"radiusIn":1.5,"resource":"NAUO264","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"blue-3-deep","side":"blue","label":"Blue cage 3 deep","at":[316.43750008964736,285.81245823678717],"displayAt":[345.43750008964736,285.81245823678717],"radiusIn":1.5,"resource":"NAUO264","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"red-park","side":"red","label":"Red park lane","at":[377.9527559055118,95.5625],"radiusIn":1,"resource":"reserved-park","capacity":1,"actions":["park"]},{"id":"blue-park","side":"blue","label":"Blue park lane","at":[312.9222440944882,221.4375],"radiusIn":1,"resource":"reserved-park","capacity":1,"actions":["park"]}],"actions":[{"id":"park","label":"Park in own BARGE ZONE","points":2,"serviceS":1,"requires":["bumper-in-own-zone","no-cage-credit"]},{"id":"shallow","label":"Hang on shallow cage","points":6,"serviceS":8,"requires":["cage-contact","clear-carpet","only-permitted-contacts"]},{"id":"deep","label":"Hang on deep cage","points":12,"serviceS":12,"requires":["cage-contact","clear-carpet","only-permitted-contacts"]}],"basis":"V0 §§5.4.1, 6.3.5 and 6.5. Match points awarded once per robot. Service and contact witnesses for peer robots are scenario inputs.","sources":["Kickoff V0 §§6.5, 6.5.2, Table 6-2","January FE-2025 hanging inventory","Robot-specific empty south parking route"]}},"field":{"length":690.875,"width":317,"source":"§5.1, p. 19. Rectangular field extents."},"limits":{"perimeter":120,"height":42,"source":"R101–R104. Rectangular robot perimeter excluding bumpers and height in starting configuration."},"landmarks":[{"name":"Blue reef","x":176.75,"y":158.5,"sides":6,"acrossFlats":65.5,"height":18},{"name":"Red reef","x":514.125,"y":158.5,"sides":6,"acrossFlats":65.5,"height":18}],"levels":[{"name":"L1 lip","height":18},{"name":"L2 tip","height":31.875},{"name":"L3 tip","height":47.625},{"name":"L4 tip","height":72}],"geometrySource":"§5.3, pp. 23–24. Each reef is centered across the field. Its modeled center is 144 in plus half its width from the alliance wall. The rings mark elevations only.","omissions":"The design box shows its frame. The separate timed rehearsal includes stationary bumper projections, clipped walls and height-dependent barge exclusions. Game-piece interaction, deployed mechanisms and physical contact loads remain unresolved.","routeHypotheses":[{"phase":"AUTO","piece":"CORAL","destination":"reef","trialBoxWidthIn":30,"routeIn":[[48,88],[122,158.5]],"lengthIn":102.20689800595653,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"AUTO","piece":"ALGAE","destination":"processor","trialBoxWidthIn":30,"routeIn":[[176.75,101],[236,23]],"lengthIn":97.95183765504352,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"AUTO","piece":"ALGAE","destination":"net","trialBoxWidthIn":30,"routeIn":[[176.75,101],[214.5664426319205,120.6835573680795],[305,213]],"lengthIn":171.8630724953327,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"CORAL","destination":"reef","trialBoxWidthIn":30,"routeIn":[[45,42],[122,158.5]],"lengthIn":139.64687608392822,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"ALGAE","destination":"processor","trialBoxWidthIn":30,"routeIn":[[176.75,101],[236,23]],"lengthIn":97.95183765504352,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"ALGAE","destination":"net","trialBoxWidthIn":30,"routeIn":[[176.75,101],[214.5664426319205,120.6835573680795],[305,213]],"lengthIn":171.8630724953327,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"}]}</script>
+<script id="profile" type="application/json">{"season":2025,"game":"REEFSCAPE","edition":"Kickoff · V0","manual":"https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf","units":"in","trial":{"length":30,"width":30,"height":30,"heading":0},"scoring":{"source":"V0 §§6.3.4, 6.4 and 6.5, Table 6-2. See G409 for simultaneous control, G412 for CORAL launch location and the scoring criteria for each target.","inventory":[{"piece":"CORAL","total":126,"distribution":"6 on field marks. Up to 6 robot preloads. The remainder is split between alliance stations (57–60 per alliance)."},{"piece":"ALGAE","total":18,"distribution":"12 on reef branches and 6 on field marks. Processor transfers can make a piece available for another scoring action."}],"phases":[{"name":"AUTO","seconds":15},{"name":"TELEOP","seconds":135}],"fieldMap":{"basis":"V0 §§5.1–5.6, 6.3 and Figure 6-2. One alliance frame is mirrored for the other. Start X derives from the starting line and reef dimensions. Three lateral starting slots, pickup and scoring approach coordinates are illustrative robot-center positions in inches. Opening AUTO routes can also use a preload. Actual team routes and arrival times are unknown.","starts":[[297.5,65],[297.5,158.5],[297.5,252]],"sources":{"CORAL":[[45,42],[45,275]],"ALGAE":[[122,158.5],[176.75,101],[176.75,216]],"marks":[[48,88],[48,158.5],[48,229]]},"targets":{"reef":[[122,158.5],[176.75,101],[176.75,216],[231,158.5]],"processor":[[236,23]],"net":[[305,213]]},"routes":[{"piece":"CORAL","goal":"reef","autoSource":"marks"},{"piece":"ALGAE","goal":"processor"},{"piece":"ALGAE","goal":"net"}]},"targets":[{"name":"Reef trough (L1)","goal":"reef","piece":"CORAL","points":[3,2]},{"name":"Reef L2 branches","goal":"reef","piece":"CORAL","points":[4,3],"cap":12},{"name":"Reef L3 branches","goal":"reef","piece":"CORAL","points":[6,4],"cap":12},{"name":"Reef L4 branches","goal":"reef","piece":"CORAL","points":[7,5],"cap":12},{"name":"Processor","goal":"processor","piece":"ALGAE","points":[6,6]},{"name":"Net","goal":"net","piece":"ALGAE","points":[4,4]}],"barge":{"parkPoints":2,"shallowPoints":6,"deepPoints":12,"bargeRankingThreshold":14,"qualificationRankingPoints":1,"maximumAssessmentDelayS":3,"transitionS":3,"cageCriteria":["Physical contact with own cage other than anchor","No carpet contact","Other contacts limited to scoring elements, another cage-qualified robot, a partner contacted by an opponent in violation of G428, or an opponent"],"parkCriterion":"At end of match, some bumper volume is in the alliance BARGE ZONE and the robot has no CAGE points.","assessment":"Cage points assessed at all robots at rest after TELEOP, or three seconds after cutoff, whichever occurs first. No powered service continues.","rankingScope":"Kickoff standard qualification threshold. Championship thresholds can increase; G418 and G419 may award or change RP eligibility.","sources":["V0 §5.4.1 Figs. 5-10–11 and §6.3.5","§6.4","§6.5 p.46, §6.5.2 pp.47–48, §6.5.4 Table 6-2 p.48","G417–G420, G428"]}},"rehearsal":{"schema":"field-rehearsal/v1","basis":"V0 §§5.1–5.6, 5.8 and 6.3–6.5. Rectangular robots strafe at fixed headings. All assigned behaviors, resource reservations and speeds are trial assumptions.","boundsNote":"The four tag planes approximate the inward station faces. The central support uses an assumed full-depth by 56 in exclusion. Cage lanes reserve the full 44 in barge depth. The truss excludes robots within 8 in below its 62 in reference. Verify installed contours, truss underside, cage swing and bumper shape before relying on physical clearance.","sources":["https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf","https://github.com/wpilibsuite/allwpilib/blob/b65f159c3fdfdfce9ec126cf79dfd9a16d1e66e9/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape.json","V0 game rules and Table 6-2 for inventory and points. Floor/reef setup uses project FE-2025 native inventory. Approach centers, chute split, dwell and peer action outcomes are teaching assumptions.","Live rehearsal assumptions: one operator per CORAL STATION and one at each processor exit. Each chute stages one pipe in three TELEOP seconds. Opposing processor ALGAE transfer in one second and require five seconds per unmeasured human throw. Floor stock uses circular top-down envelopes. The starting ALGAE and upright CORAL share a floor mark; vertical stacking, reef extraction, chute flight and net trajectories are outside this motion model."],"surveyHash":"82d7cbd386faadca3a7de04b5cf36e98685ca4602b44c95f8138761fd730fe89","resourceLabel":"shared cage lane","setups":["deep","mixed","shallow"],"planes":[{"name":"Station wall · tag 12","at":[33.51,25.8],"inwardDeg":54},{"name":"Station wall · tag 13","at":[33.51,291.2],"inwardDeg":-54},{"name":"Station wall · tag 1","at":[657.37,25.8],"inwardDeg":126},{"name":"Station wall · tag 2","at":[657.37,291.2],"inwardDeg":-126}],"obstacles":[{"name":"Barge center support · assumed exclusion","poly":[[323.4375,130.5],[367.4375,130.5],[367.4375,186.5],[323.4375,186.5]],"lower":0,"kind":"exclusion"},{"name":"South cage 1","poly":[[341.7500000069085,113.37495822988049],[349.1250000069085,113.37495822988049],[349.1250000069085,120.74995822988049],[341.7500000069085,120.74995822988049]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"South cage 2","poly":[[341.7500000069051,70.43745822988056],[349.1250000069051,70.43745822988056],[349.1250000069051,77.81245822988056],[341.7500000069051,77.81245822988056]],"lower":{"deep":3.5,"shallow":29.375,"mixed":29.375},"kind":"height"},{"name":"South cage 3","poly":[[341.7500000069061,27.500041763213062],[349.1250000069061,27.500041763213062],[349.1250000069061,34.87504176321306],[341.7500000069061,34.87504176321306]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"North cage 1","poly":[[341.74999999309193,196.25004177011863],[349.12499999309193,196.25004177011863],[349.12499999309193,203.62504177011863],[341.74999999309193,203.62504177011863]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"North cage 2","poly":[[341.7499999930973,239.1875417701199],[349.1249999930973,239.1875417701199],[349.1249999930973,246.5625417701199],[341.7499999930973,246.5625417701199]],"lower":{"deep":3.5,"shallow":29.375,"mixed":29.375},"kind":"height"},{"name":"North cage 3","poly":[[341.75000008964736,282.12495823678717],[349.12500008964736,282.12495823678717],[349.12500008964736,289.49995823678717],[341.75000008964736,289.49995823678717]],"lower":{"deep":3.5,"shallow":29.375,"mixed":3.5},"kind":"height"},{"name":"Barge overhead · assumed underside margin","poly":[[323.4375,0],[367.4375,0],[367.4375,317],[323.4375,317]],"lower":54,"kind":"overlay"}],"bands":[{"name":"Barge depth","from":[323.4375,0],"to":[323.4375,317]},{"name":"Barge depth","from":[367.4375,0],"to":[367.4375,317]}],"starts":[[297.5,65],[297.5,158.5],[297.5,252]],"mirror":{"redX":true,"redY":true},"periods":[{"name":"AUTO","seconds":15},{"name":"TELEOP","seconds":135}],"defaults":{"length":26,"width":26,"height":30,"bumper":3.25,"heading":0,"speed":60,"orders":["passage","station","processor"],"capacity":1},"programs":{"hold":{"label":"Hold starting pose","steps":[]},"station":{"label":"Cycle lower chute CORAL to the trough","steps":[{"at":[64,53],"label":"Collect chute-low","dwell":0.75,"station":{"blue":"blue-chute-low","red":"red-chute-low"},"operation":"acquire"},{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"credited"}],"loop":true},"processor":{"label":"Clear south floor ALGAE for the processor","steps":[{"at":[79.99952086667514,86.5],"label":"Collect floor-algae-low","dwell":0.75,"station":{"blue":"blue-floor-algae-low","red":"red-floor-algae-low"},"operation":"acquire"},{"at":[236,24],"label":"Attempt processor","dwell":0.9,"station":{"blue":"blue-processor","red":"red-processor"},"operation":"attempt","outcome":"credited"}],"loop":false},"net":{"label":"Remove one reef ALGAE and score in the net","steps":[{"at":[206.74081577239085,210.4668256612477],"label":"Collect reef-algae-1","dwell":0.75,"station":{"blue":"blue-reef-algae-1","red":"red-reef-algae-1"},"operation":"acquire"},{"at":[306,213],"label":"Attempt net","dwell":0.9,"station":{"blue":"blue-net","red":"red-net"},"operation":"attempt","outcome":"credited"}],"loop":false},"passage":{"label":"Cross the shared cage lane","steps":[{"frame":"field","at":{"blue":[269.1875,176.4375],"red":[421.6875,266.4375]},"label":"Stage outside shared lane"},{"frame":"field","at":{"blue":[294.1875,221.4375],"red":[396.6875,221.4375]},"label":"Enter lane","lock":true},{"frame":"field","at":{"blue":[396.6875,221.4375],"red":[294.1875,221.4375]},"label":"Cross lane","lock":true,"straight":true},{"frame":"field","at":{"blue":[423.6875,177.4375],"red":[267.1875,265.4375]},"label":"Clear lane","lock":true,"release":true}]},"preload-l2":{"label":"Place one preloaded CORAL on L2","steps":[{"at":[205.5,108],"label":"Attempt l2","dwell":0.9,"station":{"blue":"blue-l2","red":"red-l2"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l3":{"label":"Place one preloaded CORAL on L3","steps":[{"at":[147.5,209],"label":"Attempt l3","dwell":0.9,"station":{"blue":"blue-l3","red":"red-l3"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l4":{"label":"Place one preloaded CORAL on L4","steps":[{"at":[119,158.5],"label":"Attempt l4","dwell":0.9,"station":{"blue":"blue-l4","red":"red-l4"},"operation":"attempt","outcome":"credited"}],"loop":false},"preload-l1":{"label":"Place one preloaded CORAL in the trough","steps":[{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"credited"}],"loop":false},"coral-high-miss":{"label":"Try upper chute CORAL and miss L1","steps":[{"at":[64,264],"label":"Collect chute-high","dwell":0.75,"station":{"blue":"blue-chute-high","red":"red-chute-high"},"operation":"acquire"},{"at":[235,158.5],"label":"Attempt l1","dwell":0.9,"station":{"blue":"blue-l1","red":"red-l1"},"operation":"attempt","outcome":"missed"}],"loop":false},"stow-at-station":{"label":"R4 rehearsal: take CORAL and hold","steps":[{"at":[64,53],"label":"Collect chute-low","dwell":0.75,"station":{"blue":"blue-chute-low","red":"red-chute-low"},"operation":"acquire"}],"loop":false},"keep-lane":{"label":"Clear the east reef face and hold a traffic lane","steps":[{"at":[290,158.5],"label":"Back out of the trough approach","dwell":0.5}],"loop":false},"approach-chute":{"label":"R4 rehearsal: stage outside the lower station","steps":[{"at":[94,67],"label":"Stage outside the supply chute","dwell":0.5}],"loop":false}},"stations":[{"id":"blue-chute-low","label":"Blue low corner chute","piece":"CORAL","side":"blue","kind":"retrieval","at":[64,53],"displayAt":[33.51,25.8],"radiusIn":6,"stock":30,"service":{"operator":"blue-chute-low-attendant","secondsPerPiece":3,"capacity":1,"phases":["TELEOP"],"outlet":[41,53],"radiusIn":2.25,"heightIn":4.5,"captureReachIn":9}},{"id":"red-chute-low","label":"Red low corner chute","piece":"CORAL","side":"red","kind":"retrieval","at":[626.875,264],"displayAt":[657.365,291.2],"radiusIn":6,"stock":30,"service":{"operator":"red-chute-low-attendant","secondsPerPiece":3,"capacity":1,"phases":["TELEOP"],"outlet":[649.875,264],"radiusIn":2.25,"heightIn":4.5,"captureReachIn":9}},{"id":"blue-chute-high","label":"Blue high corner chute","piece":"CORAL","side":"blue","kind":"retrieval","at":[64,264],"displayAt":[33.51,291.2],"radiusIn":6,"stock":30,"service":{"operator":"blue-chute-high-attendant","secondsPerPiece":3,"capacity":1,"phases":["TELEOP"],"outlet":[41,264],"radiusIn":2.25,"heightIn":4.5,"captureReachIn":9}},{"id":"red-chute-high","label":"Red high corner chute","piece":"CORAL","side":"red","kind":"retrieval","at":[626.875,53],"displayAt":[657.365,25.80000000000001],"radiusIn":6,"stock":30,"service":{"operator":"red-chute-high-attendant","secondsPerPiece":3,"capacity":1,"phases":["TELEOP"],"outlet":[649.875,53],"radiusIn":2.25,"heightIn":4.5,"captureReachIn":9}},{"id":"blue-floor-coral-mid","label":"Blue floor coral mid","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,158.5],"displayAt":[47.99952086667514,158.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO45","floor":{"radiusIn":2.25,"positions":[[47.99952086667514,158.5]],"heightIn":11.875,"captureReachIn":9}},{"id":"blue-floor-algae-mid","label":"Blue floor algae mid","piece":"ALGAE","side":"blue","kind":"retrieval","at":[79.99952086667514,158.5],"displayAt":[47.99952086667514,158.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO46","floor":{"radiusIn":8.125,"positions":[[47.99952086667514,158.5]],"heightIn":16.25,"captureReachIn":14}},{"id":"blue-reef-algae-5","label":"Blue reef algae 5","piece":"ALGAE","side":"blue","kind":"retrieval","at":[206.7425784980902,106.53419167340994],"displayAt":[190.11862385157136,135.3372250920249],"radiusIn":6,"stock":1,"nativeStockId":"NAUO47"},{"id":"blue-reef-algae-4","label":"Blue reef algae 4","piece":"ALGAE","side":"blue","kind":"retrieval","at":[146.744342049527,106.54174280290748],"displayAt":[163.37307878745128,135.33631820325095],"radiusIn":6,"stock":1,"nativeStockId":"NAUO48"},{"id":"blue-reef-algae-0","label":"Blue reef algae 0","piece":"ALGAE","side":"blue","kind":"retrieval","at":[236.75,158.5000000000023],"displayAt":[203.49061099491456,158.50000000000102],"radiusIn":6,"stock":1,"nativeStockId":"NAUO49"},{"id":"blue-reef-algae-2","label":"Blue reef algae 2","piece":"ALGAE","side":"blue","kind":"retrieval","at":[146.73905679836088,210.4552046300271],"displayAt":[163.37150801001795,181.66096113042968],"radiusIn":6,"stock":1,"nativeStockId":"NAUO50"},{"id":"blue-reef-algae-1","label":"Blue reef algae 1","piece":"ALGAE","side":"blue","kind":"retrieval","at":[206.74081577239085,210.4668256612477],"displayAt":[190.11705307413789,181.66186801920367],"radiusIn":6,"stock":1,"nativeStockId":"NAUO51"},{"id":"blue-reef-algae-3","label":"Blue reef algae 3","piece":"ALGAE","side":"blue","kind":"retrieval","at":[116.75000013791966,158.4959317867878],"displayAt":[149.99952086667517,158.49818622245178],"radiusIn":6,"stock":1,"nativeStockId":"NAUO52"},{"id":"blue-floor-coral-low","label":"Blue floor coral low","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,86.5],"displayAt":[47.99952086667514,86.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO188","floor":{"radiusIn":2.25,"positions":[[47.99952086667514,86.5]],"heightIn":11.875,"captureReachIn":9}},{"id":"blue-floor-coral-high","label":"Blue floor coral high","piece":"CORAL","side":"blue","kind":"retrieval","at":[69.99952086667514,230.5],"displayAt":[47.99952086667514,230.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO189","floor":{"radiusIn":2.25,"positions":[[47.99952086667514,230.5]],"heightIn":11.875,"captureReachIn":9}},{"id":"blue-floor-algae-low","label":"Blue floor algae low","piece":"ALGAE","side":"blue","kind":"retrieval","at":[79.99952086667514,86.5],"displayAt":[47.99952086667514,86.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO190","floor":{"radiusIn":8.125,"positions":[[47.99952086667514,86.5]],"heightIn":16.25,"captureReachIn":14}},{"id":"blue-floor-algae-high","label":"Blue floor algae high","piece":"ALGAE","side":"blue","kind":"retrieval","at":[79.99952086667514,230.5],"displayAt":[47.99952086667514,230.5],"radiusIn":6,"stock":1,"nativeStockId":"NAUO191","floor":{"radiusIn":8.125,"positions":[[47.99952086667514,230.5]],"heightIn":16.25,"captureReachIn":14}},{"id":"red-floor-coral-mid","label":"Red floor coral mid","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333249,158.50000000000207],"displayAt":[642.8754791333249,158.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO192","floor":{"radiusIn":2.25,"positions":[[642.8754791333249,158.50000000000207]],"heightIn":11.875,"captureReachIn":9}},{"id":"red-floor-algae-mid","label":"Red floor algae mid","piece":"ALGAE","side":"red","kind":"retrieval","at":[610.8754791333249,158.50000000000207],"displayAt":[642.8754791333249,158.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO193","floor":{"radiusIn":8.125,"positions":[[642.8754791333249,158.50000000000207]],"heightIn":16.25,"captureReachIn":14}},{"id":"red-floor-coral-low","label":"Red floor coral low","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333243,230.50000000000207],"displayAt":[642.8754791333243,230.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO194","floor":{"radiusIn":2.25,"positions":[[642.8754791333243,230.50000000000207]],"heightIn":11.875,"captureReachIn":9}},{"id":"red-floor-coral-high","label":"Red floor coral high","piece":"CORAL","side":"red","kind":"retrieval","at":[620.8754791333254,86.50000000000207],"displayAt":[642.8754791333254,86.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO195","floor":{"radiusIn":2.25,"positions":[[642.8754791333254,86.50000000000207]],"heightIn":11.875,"captureReachIn":9}},{"id":"red-floor-algae-low","label":"Red floor algae low","piece":"ALGAE","side":"red","kind":"retrieval","at":[610.8754791333243,230.50000000000207],"displayAt":[642.8754791333243,230.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO196","floor":{"radiusIn":8.125,"positions":[[642.8754791333243,230.50000000000207]],"heightIn":16.25,"captureReachIn":14}},{"id":"red-floor-algae-high","label":"Red floor algae high","piece":"ALGAE","side":"red","kind":"retrieval","at":[610.8754791333254,86.50000000000207],"displayAt":[642.8754791333254,86.50000000000207],"radiusIn":6,"stock":1,"nativeStockId":"NAUO197","floor":{"radiusIn":8.125,"positions":[[642.8754791333254,86.50000000000207]],"heightIn":16.25,"captureReachIn":14}},{"id":"red-reef-algae-3","label":"Red reef algae 3","piece":"ALGAE","side":"red","kind":"retrieval","at":[574.1249998620804,158.50406821321437],"displayAt":[540.8754791333248,158.5018137775492],"radiusIn":6,"stock":1,"nativeStockId":"NAUO198"},{"id":"red-reef-algae-1","label":"Red reef algae 1","piece":"ALGAE","side":"red","kind":"retrieval","at":[484.1341842276072,106.53317433875344],"displayAt":[500.7579469258624,135.3381319807989],"radiusIn":6,"stock":1,"nativeStockId":"NAUO199"},{"id":"red-reef-algae-2","label":"Red reef algae 2","piece":"ALGAE","side":"red","kind":"retrieval","at":[544.1359432016421,106.54479536997462],"displayAt":[527.5034919899823,135.339038869573],"radiusIn":6,"stock":1,"nativeStockId":"NAUO200"},{"id":"red-reef-algae-0","label":"Red reef algae 0","piece":"ALGAE","side":"red","kind":"retrieval","at":[454.125,158.50000000000225],"displayAt":[487.3843890050855,158.500000000001],"radiusIn":6,"stock":1,"nativeStockId":"NAUO201"},{"id":"red-reef-algae-4","label":"Red reef algae 4","piece":"ALGAE","side":"red","kind":"retrieval","at":[544.1306579504699,210.4582571970943],"displayAt":[527.5019212125485,181.6636817967518],"radiusIn":6,"stock":1,"nativeStockId":"NAUO202"},{"id":"red-reef-algae-5","label":"Red reef algae 5","piece":"ALGAE","side":"red","kind":"retrieval","at":[484.1324215019122,210.46580832659143],"displayAt":[500.75637614842856,181.66277490797768],"radiusIn":6,"stock":1,"nativeStockId":"NAUO203"},{"id":"blue-l1","label":"Blue Reef trough (L1)","piece":"CORAL","side":"blue","kind":"scoring","at":[235,158.5],"displayAt":[209.5,158.5],"radiusIn":6,"points":{"AUTO":3,"TELEOP":2},"criterion":"CORAL contacts the trough and clears robot contact."},{"id":"red-l1","label":"Red Reef trough (L1)","piece":"CORAL","side":"red","kind":"scoring","at":[455.875,158.5],"displayAt":[481.375,158.5],"radiusIn":6,"points":{"AUTO":3,"TELEOP":2},"criterion":"CORAL contacts the trough and clears robot contact."},{"id":"blue-l2","label":"Blue Reef L2 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[205.5,108],"displayAt":[193.125,130.14],"radiusIn":6,"points":{"AUTO":4,"TELEOP":3},"criterion":"CORAL is fully supported on the selected L2 branch.","capacity":1},{"id":"red-l2","label":"Red Reef L2 branches","piece":"CORAL","side":"red","kind":"scoring","at":[485.375,209],"displayAt":[497.75,186.86],"radiusIn":6,"points":{"AUTO":4,"TELEOP":3},"criterion":"CORAL is fully supported on the selected L2 branch.","capacity":1},{"id":"blue-l3","label":"Blue Reef L3 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[147.5,209],"displayAt":[160.375,186.86],"radiusIn":6,"points":{"AUTO":6,"TELEOP":4},"criterion":"CORAL is fully supported on the selected L3 branch.","capacity":1},{"id":"red-l3","label":"Red Reef L3 branches","piece":"CORAL","side":"red","kind":"scoring","at":[543.375,108],"displayAt":[530.5,130.14],"radiusIn":6,"points":{"AUTO":6,"TELEOP":4},"criterion":"CORAL is fully supported on the selected L3 branch.","capacity":1},{"id":"blue-l4","label":"Blue Reef L4 branches","piece":"CORAL","side":"blue","kind":"scoring","at":[119,158.5],"displayAt":[144,158.5],"radiusIn":6,"points":{"AUTO":7,"TELEOP":5},"criterion":"CORAL is fully supported on the selected L4 branch.","capacity":1},{"id":"red-l4","label":"Red Reef L4 branches","piece":"CORAL","side":"red","kind":"scoring","at":[571.875,158.5],"displayAt":[546.875,158.5],"radiusIn":6,"points":{"AUTO":7,"TELEOP":5},"criterion":"CORAL is fully supported on the selected L4 branch.","capacity":1},{"id":"blue-processor","label":"Blue Processor","piece":"ALGAE","side":"blue","kind":"scoring","at":[236,24],"displayAt":[236,0],"radiusIn":6,"points":{"AUTO":6,"TELEOP":6},"criterion":"ALGAE passes through the processor opening.","returns":{"credited":{"station":"red-processor-exit","delayS":1}}},{"id":"red-processor","label":"Red Processor","piece":"ALGAE","side":"red","kind":"scoring","at":[454.875,293],"displayAt":[454.875,317],"radiusIn":6,"points":{"AUTO":6,"TELEOP":6},"criterion":"ALGAE passes through the processor opening.","returns":{"credited":{"station":"blue-processor-exit","delayS":1}}},{"id":"blue-net","label":"Blue Net","piece":"ALGAE","side":"blue","kind":"scoring","at":[306,213],"displayAt":[345.4375,213],"radiusIn":6,"points":{"AUTO":4,"TELEOP":4},"criterion":"ALGAE rests in the alliance net."},{"id":"red-net","label":"Red Net","piece":"ALGAE","side":"red","kind":"scoring","at":[384.875,104],"displayAt":[345.4375,104],"radiusIn":6,"points":{"AUTO":4,"TELEOP":4},"criterion":"ALGAE rests in the alliance net."},{"id":"blue-processor-exit","label":"Blue human player at the processor exit","piece":"ALGAE","side":"blue","kind":"retrieval","stock":0,"radiusIn":6,"at":[454.875,293],"displayAt":[454.875,317],"service":{"operator":"blue-processor-attendant","secondsPerPiece":5,"phases":["TELEOP"],"outlet":[454.875,317],"radiusIn":8.125,"capacity":1,"delivery":{"station":"blue-net","outcome":"unresolved","basis":"The human player attempts the net. Throw accuracy is unmeasured."}}},{"id":"red-processor-exit","label":"Red human player at the processor exit","piece":"ALGAE","side":"red","kind":"retrieval","stock":0,"radiusIn":6,"at":[236,24],"displayAt":[236,0],"service":{"operator":"red-processor-attendant","secondsPerPiece":5,"phases":["TELEOP"],"outlet":[236,0],"radiusIn":8.125,"capacity":1,"delivery":{"station":"red-net","outcome":"unresolved","basis":"The human player attempts the net. Throw accuracy is unmeasured."}}}],"series":{"matches":[{"id":"Qual 1","basis":"Station cycling and mixed ALGAE duties; prescribed peer scoring outcomes.","setup":"mixed","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"Qual 2","basis":"Deeper cages. The red partner clears the trough lane for repeated CORAL cycles; blue misses a trough attempt.","setup":"deep","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"keep-lane"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"Qual 3","basis":"Red slot 1 holds its first pipe; other robots are rehearsal surrogates.","setup":"shallow","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1}},{"side":"red","slot":1,"plans":{"AUTO":"approach-chute","TELEOP":"stow-at-station"}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1}}]},{"id":"BARGE 1","basis":"Compare a mixed-cage alliance with an incomplete support on the other side.","setup":"mixed","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1},"endgame":{"action":"deep","target":"blue-3-deep","startS":110,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"shallow","target":"blue-2-shallow","startS":120,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"deep","target":"red-3-deep","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"failed","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":3},{"id":"BARGE 2","basis":"Commit a cycling partner to deep climb; a late partner loses its service window.","setup":"deep","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"coral-high-miss"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l4","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"deep","target":"blue-2-deep","startS":130,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"red-chute-low","quantity":1},"endgame":{"action":"deep","target":"red-1-deep","startS":95,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"keep-lane"},"preload":{"station":"red-chute-low","quantity":1}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"deep","target":"red-2-deep","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":1.5},{"id":"BARGE 3","basis":"Shallow service on both sides. The team's loaded robot holds its actual unresolved endgame.","setup":"shallow","roster":[{"side":"blue","slot":1,"plans":{"AUTO":"preload-l2","TELEOP":"station"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"blue-chute-low","quantity":1}},{"side":"blue","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"blue-chute-high","quantity":1},"endgame":{"action":"park","target":"blue-park","startS":85,"witnesses":{"bumper-in-own-zone":"met","no-cage-credit":"met"}}},{"side":"red","slot":1,"plans":{"AUTO":"approach-chute","TELEOP":"stow-at-station"}},{"side":"red","slot":2,"plans":{"AUTO":"preload-l1","TELEOP":"processor"},"preload":{"station":"red-chute-low","quantity":1},"endgame":{"action":"shallow","target":"red-3-shallow","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}},{"side":"red","slot":3,"plans":{"AUTO":"preload-l3","TELEOP":"net"},"preload":{"station":"red-chute-high","quantity":1},"endgame":{"action":"shallow","target":"red-2-shallow","startS":85,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}}],"endgameAtRestAfterS":0.5}]},"endgame":{"period":"TELEOP","assessment":{"maxDelayS":3},"targets":[{"id":"red-3-shallow","side":"red","label":"Red cage 3 shallow","at":[374.4375000069061,31.187541763213062],"displayAt":[345.4375000069061,31.187541763213062],"radiusIn":1.5,"resource":"NAUO259","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"red-3-deep","side":"red","label":"Red cage 3 deep","at":[374.4375000069061,31.187541763213062],"displayAt":[345.4375000069061,31.187541763213062],"radiusIn":1.5,"resource":"NAUO259","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"red-2-shallow","side":"red","label":"Red cage 2 shallow","at":[374.4375000069051,74.12495822988056],"displayAt":[345.4375000069051,74.12495822988056],"radiusIn":1.5,"resource":"NAUO260","capacity":1,"actions":["shallow"],"setups":["shallow","mixed"]},{"id":"red-2-deep","side":"red","label":"Red cage 2 deep","at":[374.4375000069051,74.12495822988056],"displayAt":[345.4375000069051,74.12495822988056],"radiusIn":1.5,"resource":"NAUO260","capacity":1,"actions":["deep"],"setups":["deep"]},{"id":"red-1-shallow","side":"red","label":"Red cage 1 shallow","at":[374.4375000069085,117.06245822988049],"displayAt":[345.4375000069085,117.06245822988049],"radiusIn":1.5,"resource":"NAUO261","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"red-1-deep","side":"red","label":"Red cage 1 deep","at":[374.4375000069085,117.06245822988049],"displayAt":[345.4375000069085,117.06245822988049],"radiusIn":1.5,"resource":"NAUO261","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"blue-1-shallow","side":"blue","label":"Blue cage 1 shallow","at":[316.43749999309193,199.93754177011863],"displayAt":[345.43749999309193,199.93754177011863],"radiusIn":1.5,"resource":"NAUO262","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"blue-1-deep","side":"blue","label":"Blue cage 1 deep","at":[316.43749999309193,199.93754177011863],"displayAt":[345.43749999309193,199.93754177011863],"radiusIn":1.5,"resource":"NAUO262","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"blue-2-shallow","side":"blue","label":"Blue cage 2 shallow","at":[316.4374999930973,242.8750417701199],"displayAt":[345.4374999930973,242.8750417701199],"radiusIn":1.5,"resource":"NAUO263","capacity":1,"actions":["shallow"],"setups":["shallow","mixed"]},{"id":"blue-2-deep","side":"blue","label":"Blue cage 2 deep","at":[316.4374999930973,242.8750417701199],"displayAt":[345.4374999930973,242.8750417701199],"radiusIn":1.5,"resource":"NAUO263","capacity":1,"actions":["deep"],"setups":["deep"]},{"id":"blue-3-shallow","side":"blue","label":"Blue cage 3 shallow","at":[316.43750008964736,285.81245823678717],"displayAt":[345.43750008964736,285.81245823678717],"radiusIn":1.5,"resource":"NAUO264","capacity":1,"actions":["shallow"],"setups":["shallow"]},{"id":"blue-3-deep","side":"blue","label":"Blue cage 3 deep","at":[316.43750008964736,285.81245823678717],"displayAt":[345.43750008964736,285.81245823678717],"radiusIn":1.5,"resource":"NAUO264","capacity":1,"actions":["deep"],"setups":["deep","mixed"]},{"id":"red-park","side":"red","label":"Red park lane","at":[377.9527559055118,95.5625],"radiusIn":1,"resource":"reserved-park","capacity":1,"actions":["park"]},{"id":"blue-park","side":"blue","label":"Blue park lane","at":[312.9222440944882,221.4375],"radiusIn":1,"resource":"reserved-park","capacity":1,"actions":["park"]}],"actions":[{"id":"park","label":"Park in own BARGE ZONE","points":2,"serviceS":1,"requires":["bumper-in-own-zone","no-cage-credit"]},{"id":"shallow","label":"Hang on shallow cage","points":6,"serviceS":8,"requires":["cage-contact","clear-carpet","only-permitted-contacts"]},{"id":"deep","label":"Hang on deep cage","points":12,"serviceS":12,"requires":["cage-contact","clear-carpet","only-permitted-contacts"]}],"basis":"V0 §§5.4.1, 6.3.5 and 6.5. Match points awarded once per robot. Service and contact witnesses for peer robots are scenario inputs.","sources":["Kickoff V0 §§6.5, 6.5.2, Table 6-2","January FE-2025 hanging inventory","Robot-specific empty south parking route"]}},"field":{"length":690.875,"width":317,"source":"§5.1, p. 19. Rectangular field extents."},"limits":{"perimeter":120,"height":42,"source":"R101–R104. Rectangular robot perimeter excluding bumpers and height in starting configuration."},"landmarks":[{"name":"Blue reef","x":176.75,"y":158.5,"sides":6,"acrossFlats":65.5,"height":18},{"name":"Red reef","x":514.125,"y":158.5,"sides":6,"acrossFlats":65.5,"height":18}],"levels":[{"name":"L1 lip","height":18},{"name":"L2 tip","height":31.875},{"name":"L3 tip","height":47.625},{"name":"L4 tip","height":72}],"geometrySource":"§5.3, pp. 23–24. Each reef is centered across the field. Its modeled center is 144 in plus half its width from the alliance wall. The rings mark elevations only.","omissions":"The design box shows its frame. The separate timed rehearsal includes stationary bumper projections, clipped walls and height-dependent barge exclusions. Game-piece interaction, deployed mechanisms and physical contact loads remain unresolved.","routeHypotheses":[{"phase":"AUTO","piece":"CORAL","destination":"reef","trialBoxWidthIn":30,"routeIn":[[48,88],[122,158.5]],"lengthIn":102.20689800595653,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"AUTO","piece":"ALGAE","destination":"processor","trialBoxWidthIn":30,"routeIn":[[176.75,101],[236,23]],"lengthIn":97.95183765504352,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"AUTO","piece":"ALGAE","destination":"net","trialBoxWidthIn":30,"routeIn":[[176.75,101],[214.5664426319205,120.6835573680795],[305,213]],"lengthIn":171.8630724953327,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"CORAL","destination":"reef","trialBoxWidthIn":30,"routeIn":[[45,42],[122,158.5]],"lengthIn":139.64687608392822,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"ALGAE","destination":"processor","trialBoxWidthIn":30,"routeIn":[[176.75,101],[236,23]],"lengthIn":97.95183765504352,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"},{"phase":"TELEOP","piece":"ALGAE","destination":"net","trialBoxWidthIn":30,"routeIn":[[176.75,101],[214.5664426319205,120.6835573680795],[305,213]],"lengthIn":171.8630724953327,"traffic":"High potential overlap · up to 2 other start slot(s) near one point (Blue partner slot 2, Blue partner slot 3)"}]}</script>
 <script>
 'use strict';
 const profile = JSON.parse(document.querySelector('#profile').textContent);
+function framePlan(length,width,profile,offset=0,mmPerUnit=1) {
+  if(![length,width,mmPerUnit].every(n=>Number.isFinite(n)&&n>0)||!Number.isFinite(offset)||offset<0)
+    throw Error('Supply positive frame dimensions and a nonnegative normal offset.');
+  const x=length/2,y=width/2;
+  const kind=profile===undefined?'square':profile?.kind;
+  let points,edgeNames;
+  if(kind==='square'){
+    if(profile&&Object.keys(profile).some(k=>k!=='kind'))throw Error('Square profiles do not take cutbacks.');
+    points=[[-x,-y],[x,-y],[x,y],[-x,y]];
+    edgeNames=['right','front','left','rear'];
+  }else if(kind==='rear-chamfer'){
+    const units=['cutbacksMm','shortSideFractions'].filter(key=>Object.hasOwn(profile,key));
+    const values=profile[units[0]];
+    if(units.length!==1||Object.keys(profile).length!==2||!Array.isArray(values)||values.length!==2||!values.every(n=>Number.isFinite(n)&&n>0))
+      throw Error('Rear chamfers need two positive cutbacks in millimetres or fractions of the shorter side.');
+    const scale=units[0]==='cutbacksMm'?1/mmPerUnit:Math.min(length,width);
+    const [dx,dy]=values.map(n=>n*scale);
+    if(dx>=length||dy>=y)throw Error('Cutbacks must leave positive side and rear frame faces.');
+    points=[[-x+dx,-y],[x,-y],[x,y],[-x+dx,y],[-x,y-dy],[-x,-y+dy]];
+    edgeNames=['right','front','left','rear-left','rear','rear-right'];
+  }else if(kind==='convex-outline'){
+    const vertices=profile.vertices;
+    if(Object.keys(profile).length!==2||!Array.isArray(vertices)||vertices.length<3||vertices.length>32||
+      !vertices.every(v=>Array.isArray(v)&&v.length===2&&v.every(n=>Number.isFinite(n)&&Math.abs(n)<=.5)))
+      throw Error('A custom outline takes 3–32 normalized XY vertices in the enclosing frame rectangle.');
+    for(const axis of [0,1]){
+      const coords=vertices.map(v=>v[axis]);
+      if(Math.min(...coords)!==-.5||Math.max(...coords)!==.5)throw Error('The custom outline must span both declared frame dimensions.');
+    }
+    for(let i=0;i<vertices.length;i++){
+      const a=vertices[i],j=(i+1)%vertices.length,b=vertices[j];
+      if(vertices.some((p,k)=>k!==i&&k!==j&&(b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])<=1e-10))
+        throw Error('Use strictly convex counterclockwise vertices without duplicates.');
+    }
+    points=vertices.map(([u,v])=>[u*length,v*width]);
+    edgeNames=points.map((_,i)=>'edge-'+(i+1));
+  }else throw Error('Unknown frame profile.');
+
+  const edges=points.map((p,i)=>{
+    const next=points[(i+1)%points.length],dx=next[0]-p[0],dy=next[1]-p[1];
+    const len=Math.hypot(dx,dy);
+    return {length:len,normal:[dy/len,-dx/len]};
+  });
+  const outer=points.map((p,i)=>{
+    const prev=edges[(i+edges.length-1)%edges.length].normal,next=edges[i].normal;
+    const distance=offset/(1+prev[0]*next[0]+prev[1]*next[1]);
+    return [p[0]+distance*(prev[0]+next[0]),p[1]+distance*(prev[1]+next[1])];
+  });
+  return {points,outer,edgeNames,perimeter:edges.reduce((sum,e)=>sum+e.length,0)};
+}
+function starterFrameProfile() {
+  return {kind:'rear-chamfer',shortSideFractions:[0.1,0.1]};
+}
 function initialTrial(p) {
   const seed=p.trial || p.rehearsal?.defaults;
   const relative=Math.min(p.field.length,p.field.width)/12;
-  return {length:seed?.length ?? relative,width:seed?.width ?? relative,height:seed?.height ?? relative,
+  const shape=seed?.frameProfile??p.frameProfile??(seed?undefined:starterFrameProfile());
+  return {...(shape?{frameProfile:shape}:{}),length:seed?.length ?? relative,width:seed?.width ?? relative,height:seed?.height ?? relative,
     heading:seed?.heading ?? 0,x:p.trial?.x ?? p.field.length/4,y:p.trial?.y ?? p.field.width/3};
 }
 function fieldGeometry(profile) {
@@ -104,8 +169,10 @@ function fieldGeometry(profile) {
   const add = (p,q) => [p[0]+q[0],p[1]+q[1]];
   const minus = (p,q) => [p[0]-q[0],p[1]-q[1]];
   const validPoint = p => Array.isArray(p) && p.length===2 && p.every(Number.isFinite);
+  const profileOf=b=>b.frameProfile??profile.frameProfile;
+  const validShape=b=>{try{framePlan(b.length,b.width,profileOf(b),b.bumper,25.4);return true;}catch{return false;}};
   const validBody = b => b && [b.length,b.width,b.height].every(n=>Number.isFinite(n) && n>0) &&
-    Number.isFinite(b.heading) && Number.isFinite(b.bumper) && b.bumper>=0;
+    Number.isFinite(b.heading) && Number.isFinite(b.bumper) && b.bumper>=0 && validShape(b);
   const planes = [
     {name:'Blue end wall',normal:[1,0],origin:[0,0]}, {name:'Red end wall',normal:[-1,0],origin:[L,0]},
     {name:'South guardrail',normal:[0,1],origin:[0,0]}, {name:'North guardrail',normal:[0,-1],origin:[0,W]}
@@ -127,7 +194,7 @@ function fieldGeometry(profile) {
   const boundary=planes.reduce(clip,rect(L/2,W/2,L,W));
   function offsets(body) {
     const a=body.heading*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
-    return rect(0,0,body.length+2*body.bumper,body.width+2*body.bumper)
+    return framePlan(body.length,body.width,profileOf(body),body.bumper,25.4).outer
       .map(([x,y])=>[x*c-y*s,x*s+y*c]);
   }
   const footprint=(p,body)=>offsets(body).map(q=>add(p,q));
@@ -185,7 +252,7 @@ function fieldGeometry(profile) {
   }
   const cache=new Map();
   function space(body,setup) {
-    const key=[body.length,body.width,body.height,body.heading,body.bumper,setup].join('/');
+    const key=[body.length,body.width,body.height,body.heading,body.bumper,JSON.stringify(profileOf(body)),setup].join('/');
     if(cache.has(key))return cache.get(key);
     const shape=offsets(body);
     const walls=planes.map(p=>({...p,offset:dot(p.normal,p.origin)-Math.min(...shape.map(q=>dot(q,p.normal)))}));
@@ -230,7 +297,7 @@ function fieldGeometry(profile) {
   }
   function robotContact(a,b,body,c,d,peer) {
     const relativeA=minus(a,c),relativeB=minus(b,d);
-    const key='relative/'+[body.length,body.width,body.bumper,body.heading,peer.length,peer.width,peer.bumper,peer.heading].join('/');
+    const key='relative/'+[body.length,body.width,body.bumper,body.heading,JSON.stringify(profileOf(body)),peer.length,peer.width,peer.bumper,peer.heading,JSON.stringify(profileOf(peer))].join('/');
     if(!cache.has(key))cache.set(key,prepare(expand(offsets(peer),offsets(body))));
     return enter(relativeA,relativeB,cache.get(key));
   }
@@ -262,7 +329,260 @@ function fieldGeometry(profile) {
   }
   return {boundary,obstacles,footprint,hit,assessRoute,robotContact,plan,validBody};
 }
-function createRehearsalGame(profile) {
+function createFieldPieceMotion(profile, geom) {
+  const pair = value => Array.isArray(value) && value.length === 2 && value.every(Number.isFinite);
+  const positive = value => Number.isFinite(value) && value > 0;
+  const ordered = (a,b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+
+  function body(row) {
+    if (!row || typeof row.id !== 'string' || !row.id.trim() || typeof row.type !== 'string' ||
+        !row.type.trim() || !pair(row.p) || !positive(row.radiusIn)) throw Error('Invalid loose field piece.');
+    const piece = {...row, p:[...row.p], v:[...(row.v ?? [0,0])]};
+    // Per-piece project values override these classroom rolling/sliding assumptions.
+    piece.heightIn ??= 2*piece.radiusIn;
+    piece.massKg ??= 1;
+    piece.dragInS2 ??= 18;
+    piece.restitution ??= .22;
+    if (!pair(piece.v) || !positive(piece.heightIn) || !positive(piece.massKg) ||
+        !Number.isFinite(piece.dragInS2) || piece.dragInS2 < 0 ||
+        !Number.isFinite(piece.restitution) || piece.restitution < 0 || piece.restitution > 1) {
+      throw Error('Invalid field piece motion parameters.');
+    }
+    return piece;
+  }
+
+  function start(positions) {
+    const pieces = positions.map(body).sort(ordered);
+    if (new Set(pieces.map(p => p.id)).size !== pieces.length) throw Error('Duplicate field piece identity.');
+    return {pieces};
+  }
+  function put(state,row) {
+    if (state.pieces.some(p => p.id === row.id)) throw Error('Field piece already present: '+row.id);
+    const piece = body(row);
+    state.pieces.push(piece);
+    state.pieces.sort(ordered);
+    return piece;
+  }
+  function take(state,id) {
+    const i = state.pieces.findIndex(p => p.id === id);
+    return i < 0 ? null : state.pieces.splice(i,1)[0];
+  }
+
+  // Edge normals point inward for either winding; moving bumpers reuse these faces under translation.
+  function polygon(points) {
+    const area2 = points.reduce((s,[x,y],i) => {
+      const q=points[(i+1)%points.length];
+      return s+x*q[1]-y*q[0];
+    },0);
+    const edges=[];
+    for (let i=0;i<points.length;i++) {
+      const a=points[i], b=points[(i+1)%points.length];
+      const dx=b[0]-a[0], dy=b[1]-a[1], len=Math.hypot(dx,dy);
+      if (len>1e-9) edges.push({a,dx,dy,len2:len*len,nx:-Math.sign(area2)*dy/len,ny:Math.sign(area2)*dx/len});
+    }
+    if(edges.length < 3 || !area2) throw Error('Field pieces need a nonempty convex contact polygon.');
+    return {edges,x0:Math.min(...points.map(p=>p[0])),x1:Math.max(...points.map(p=>p[0])),
+      y0:Math.min(...points.map(p=>p[1])),y1:Math.max(...points.map(p=>p[1]))};
+  }
+  const boundary=polygon(geom.boundary);
+  const wallsBySetup=new Map();
+  function walls(setup) {
+    if (!wallsBySetup.has(setup)) wallsBySetup.set(setup,
+      geom.obstacles(setup).map(ob=>({shape:polygon(ob.poly),under:ob.low ?? 0})));
+    return wallsBySetup.get(setup);
+  }
+  function separate(piece,nx,ny,depth,vx,vy) {
+    piece.p[0]+=nx*depth;
+    piece.p[1]+=ny*depth;
+    const closing=(piece.v[0]-vx)*nx+(piece.v[1]-vy)*ny;
+    if (closing<0) {
+      piece.v[0]-=(1+piece.restitution)*closing*nx;
+      piece.v[1]-=(1+piece.restitution)*closing*ny;
+    }
+  }
+  function insideField(piece) {
+    let moved=false;
+    for (const e of boundary.edges) {
+      const gap=(piece.p[0]-e.a[0])*e.nx+(piece.p[1]-e.a[1])*e.ny;
+      if (gap<piece.radiusIn-1e-8) {
+        separate(piece,e.nx,e.ny,piece.radiusIn-gap,0,0);
+        moved=true;
+      }
+    }
+    return moved;
+  }
+  function outsideSolid(piece,s,x,y,vx,vy) {
+    const px=piece.p[0]-x, py=piece.p[1]-y, r=piece.radiusIn;
+    if (px+r<=s.x0 || px-r>=s.x1 || py+r<=s.y0 || py-r>=s.y1) return false;
+    let depth=Infinity, face, nearest2=Infinity, rx=0, ry=0;
+    for (const e of s.edges) {
+      const dx=px-e.a[0],dy=py-e.a[1],d=dx*e.nx+dy*e.ny;
+      if (d<=-r) return false;
+      if (d<depth) {depth=d;face=e;}
+      const t=Math.min(1,Math.max(0,(dx*e.dx+dy*e.dy)/e.len2));
+      const ax=dx-t*e.dx,ay=dy-t*e.dy,d2=ax*ax+ay*ay;
+      if(d2<nearest2) {nearest2=d2;rx=ax;ry=ay;}
+    }
+    if(depth>=0) separate(piece,-face.nx,-face.ny,r+depth,vx,vy);
+    else {
+      const distance=Math.sqrt(nearest2);
+      if(distance>=r-1e-8) return false;
+      separate(piece,rx/distance,ry/distance,r-distance,vx,vy);
+    }
+    return true;
+  }
+  function bump(a,b) {
+    const dx=b.p[0]-a.p[0], dy=b.p[1]-a.p[1], r=a.radiusIn+b.radiusIn;
+    if (Math.abs(dx)>=r || Math.abs(dy)>=r) return false;
+    const d=Math.hypot(dx,dy);
+    if(d>=r-1e-8) return false;
+    const nx=d>1e-9?dx/d:1,ny=d>1e-9?dy/d:0;
+    const shareA=b.massKg/(a.massKg+b.massKg),shareB=1-shareA;
+    a.p[0]-=nx*(r-d)*shareA; a.p[1]-=ny*(r-d)*shareA;
+    b.p[0]+=nx*(r-d)*shareB; b.p[1]+=ny*(r-d)*shareB;
+    const closing=(b.v[0]-a.v[0])*nx+(b.v[1]-a.v[1])*ny;
+    if(closing<0) {
+      const impulse=-(1+Math.min(a.restitution,b.restitution))*closing;
+      a.v[0]-=nx*impulse*shareA; a.v[1]-=ny*impulse*shareA;
+      b.v[0]+=nx*impulse*shareB; b.v[1]+=ny*impulse*shareB;
+    }
+    return true;
+  }
+
+  // A uniform grid keeps separated field stock out of the narrow-phase pair loop.
+  function neighbors(pieces,cell) {
+    const bins=new Map();
+    let moved=false;
+    for(const a of pieces) {
+      const x=Math.floor(a.p[0]/cell),y=Math.floor(a.p[1]/cell);
+      for(let i=x-1;i<=x+1;i++) for(let j=y-1;j<=y+1;j++) {
+        for(const b of bins.get(i+','+j) ?? []) if(bump(b,a)) moved=true;
+      }
+      const key=x+','+y;
+      if (!bins.has(key)) bins.set(key,[]);
+      bins.get(key).push(a);
+    }
+    return moved;
+  }
+
+  function advance(state,dt,robots=[],setup=profile.rehearsal?.setups?.[0]) {
+    if (!Number.isFinite(dt) || dt<0) throw Error('Use nonnegative elapsed time for field pieces.');
+    if (!dt || !state.pieces.length) return;
+    const solids=walls(setup);
+    const bumpers=robots.map(r=>{
+      const from=r.previousP ?? r.p;
+      const vx=(r.p[0]-from[0])/dt,vy=(r.p[1]-from[1])/dt;
+      return {shape:polygon(geom.footprint([0,0],r)),from,vx,vy};
+    });
+    let maxSpeed=0,minRadius=Infinity,cell=0;
+    for(const piece of state.pieces) {
+      maxSpeed=Math.max(maxSpeed,Math.hypot(...piece.v));
+      minRadius=Math.min(minRadius,piece.radiusIn);
+      cell=Math.max(cell,2*piece.radiusIn);
+    }
+    for(const b of bumpers) maxSpeed=Math.max(maxSpeed,2*Math.hypot(b.vx,b.vy));
+    // Short substeps resolve thin rails even when a piece or pushing bumper crosses them in one field tick.
+    const n=Math.max(1,Math.ceil(2*dt*maxSpeed/minRadius)), h=dt/n;
+    for(let step=1;step<=n;step++) {
+      for(const piece of state.pieces) {
+        const speed=Math.hypot(...piece.v);
+        if (!speed) continue;
+        const next=Math.max(0,speed-piece.dragInS2*h);
+        const movingTime=next===0 && piece.dragInS2>0 ? speed/piece.dragInS2 : h;
+        const travel=movingTime*(speed+next)/(2*speed);
+        piece.p[0]+=piece.v[0]*travel; piece.p[1]+=piece.v[1]*travel;
+        piece.v[0]*=next/speed; piece.v[1]*=next/speed;
+      }
+      for(let pass=0;pass<6;pass++) {
+        let moved=neighbors(state.pieces,cell);
+        for(const piece of state.pieces) {
+          for(const b of bumpers) if(outsideSolid(piece,b.shape,b.from[0]+step*h*b.vx,b.from[1]+step*h*b.vy,b.vx,b.vy)) moved=true;
+          for(const wall of solids) if(piece.heightIn>=wall.under && outsideSolid(piece,wall.shape,0,0,0,0)) moved=true;
+          if(insideField(piece)) moved=true;
+        }
+        if(!moved) break;
+      }
+    }
+  }
+  return {start,put,take,advance};
+}
+function allocateOpeningTasks(rows) {
+  const compare = (a,b) => a<b ? -1 : a>b ? 1 : 0;
+  const label = value => typeof value === 'string' && Boolean(value.trim());
+  if (!Array.isArray(rows)) throw Error('Supply opening opportunities by robot.');
+  // In exact arrival-time ties, interleave numbered alliance slots before considering
+  // a second teammate from either side. Other project actor names use stable lexical order.
+  const slot = id => /^[BR][1-3]$/i.test(id) ? Number(id.slice(1)) : 4;
+  const robots = [...rows].sort((a,b)=>slot(a?.robot)-slot(b?.robot) || compare(a?.robot,b?.robot));
+  const sourceOf = new Map();
+  const seen = new Set();
+  const plans = new Map();
+  for (const row of robots) {
+    if (!row || !label(row.robot) || seen.has(row.robot) || !Array.isArray(row.candidates) || !label(row.fallback)) {
+      throw Error('Each opening robot needs a unique identity, reachable candidates and a fallback.');
+    }
+    seen.add(row.robot);
+    const best = new Map();
+    for (const c of row.candidates) {
+      if (!c || !label(c.piece) || !label(c.station) || !Number.isFinite(c.timeS) || c.timeS<0) {
+        throw Error('An opening candidate needs a physical piece, a station and a finite completion time.');
+      }
+      if (sourceOf.has(c.piece) && sourceOf.get(c.piece)!==c.station) throw Error('Opening piece listed at two stations: '+c.piece);
+      sourceOf.set(c.piece,c.station);
+      if (!best.has(c.piece) || c.timeS<best.get(c.piece).timeS) best.set(c.piece,{piece:c.piece,station:c.station,timeS:c.timeS});
+    }
+    plans.set(row.robot,[...best.values()].sort((a,b)=>a.timeS-b.timeS || compare(a.piece,b.piece)));
+  }
+
+  // A residual edge permits an already assigned robot to switch to its second choice so a
+  // constrained teammate can use the only piece it can reach. The graph augments until no
+  // further robot can be served; shortest augmentations minimize total time at that coverage.
+  const pieces=[...sourceOf.keys()].sort(compare);
+  const sink=1+robots.length+pieces.length;
+  const graph=Array.from({length:sink+1},()=>[]);
+  const pieceNode=new Map(pieces.map((id,i)=>[id,1+robots.length+i]));
+  function add(a,b,cost,task=null) {
+    const forward={to:b,reverse:graph[b].length,cost,available:true,task};
+    graph[b].push({to:a,reverse:graph[a].length,cost:-cost,available:false});
+    graph[a].push(forward);
+  }
+  robots.forEach((row,i)=>{
+    add(0,1+i,0);
+    for(const c of plans.get(row.robot)) add(1+i,pieceNode.get(c.piece),c.timeS,c);
+  });
+  for(const idx of pieceNode.values()) add(idx,sink,0);
+  for(let assigned=0;assigned<robots.length;assigned++){
+    const previous=Array(graph.length);
+    const distance=Array(graph.length).fill(Infinity);
+    const queue=[0], queued=new Set(queue);
+    distance[0]=0;
+    for(let i=0;i<queue.length;i++){
+      const node=queue[i];
+      queued.delete(node);
+      if(node===sink) continue;
+      for(const edge of graph[node]){
+        if(!edge.available || edge.to===0) continue;
+        const next=distance[node]+edge.cost;
+        if(next>=distance[edge.to]-1e-10) continue;
+        distance[edge.to]=next;
+        previous[edge.to]={node,edge};
+        if(!queued.has(edge.to)) {queue.push(edge.to);queued.add(edge.to);}
+      }
+    }
+    if(!previous[sink]) break;
+    for(let n=sink;n!==0;){
+      const {node,edge}=previous[n];
+      edge.available=false;
+      graph[n][edge.reverse].available=true;
+      n=node;
+    }
+  }
+  return Object.fromEntries(robots.map((row,i)=>{
+    const selected=graph[i+1].find(edge=>edge.task && !edge.available);
+    return [row.robot,selected?.task ?? {fallback:row.fallback}];
+  }));
+}
+function createRehearsalGame(profile,geom=fieldGeometry(profile),motion=createFieldPieceMotion(profile,geom)) {
   const model = profile.rehearsal;
   const stations = new Map();
   const periods = new Map(model.periods.map(p => [p.name,p.seconds]));
@@ -288,15 +608,48 @@ function createRehearsalGame(profile) {
         Number.isFinite(w.toS) && w.fromS>=0 && w.toS>w.fromS && w.toS<=periods.get(w.phase) &&
         (w.firstPeriodLeader===undefined || sides.includes(w.firstPeriodLeader)), 'Invalid station activity window');
     }
+    if(s.floor || s.service) {
+      const physical=s.floor ?? s.service;
+      legal(s.kind==='retrieval' && !(s.floor && s.service) && Number.isFinite(physical.radiusIn) && physical.radiusIn>0 &&
+        (physical.captureReachIn===undefined || Number.isFinite(physical.captureReachIn) && physical.captureReachIn>=0),
+        'Supply a physical retrieval radius and nonnegative capture reach.');
+      const location=s.floor?.positions?.[0] ?? s.service?.outlet ?? s.at;
+      motion.start([physicalPiece(s,{id:'validation',type:s.piece},location)]);
+      if(s.floor)legal(Array.isArray(s.floor.positions) && s.floor.positions.every(point),'Supply floor coordinates in field inches.');
+      if(s.service)legal(label(physical.operator) && Number.isFinite(physical.secondsPerPiece) && physical.secondsPerPiece>0 &&
+        count(physical.capacity) && physical.capacity>0 && point(physical.outlet) && Array.isArray(physical.phases) &&
+        physical.phases.length>0 && physical.phases.every(p=>periods.has(p)), 'Invalid human station operator, outlet, service time, capacity or phases.');
+    }
     stations.set(s.id,s);
   }
   for (const s of stations.values()) {
+    const job=s.service?.delivery;
+    if(job) {
+      const target=stations.get(job.station);
+      legal(sides.includes(s.side) && target?.kind==='scoring' && target.piece===s.piece &&
+        [s.side,'both'].includes(target.side) && ['credited','missed','unresolved'].includes(job.outcome) && label(job.basis),
+        'A human delivery needs a side-eligible target, compatible piece, outcome and basis.');
+    }
     for (const [outcome,rule] of Object.entries(s.returns ?? {})) {
       const target=stations.get(rule.station);
       legal(s.kind==='scoring' && ['credited','missed','inactive','unresolved','occupied'].includes(outcome) &&
-        target?.kind==='retrieval' && target.piece===s.piece && Number.isFinite(rule.delayS) && rule.delayS>=0,
+        target?.kind==='retrieval' && target.piece===s.piece && (!target.floor || point(rule.at)) && Number.isFinite(rule.delayS) && rule.delayS>=0,
         'Returns need a compatible retrieval station and nonnegative delay');
     }
+  }
+  function physicalPiece(station,piece,p) {
+    const {radiusIn,heightIn,massKg,dragInS2,restitution}=station.floor ?? station.service;
+    return {...piece,p,radiusIn,heightIn,massKg,dragInS2,restitution,station:station.id};
+  }
+  function receive(g,station,piece,p) {
+    if(station.service)g.reserve[station.id].push(piece);
+    else {
+      g.stock[station.id].push(piece);
+      if(station.floor)motion.put(g.motion,physicalPiece(station,piece,p));
+    }
+  }
+  function move(sim,dt,begins){
+    if(sim.game.motion.pieces.length)motion.advance(sim.game.motion,dt,sim.robots.map((r,i)=>({...r,previousP:begins[i]})),sim.setup);
   }
   function elapsed(sim,t) {
     return sim.phaseHistory.reduce((sum,p)=>sum+p.seconds,0)+t;
@@ -305,14 +658,41 @@ function createRehearsalGame(profile) {
     const time=elapsed(sim,t), pending=[];
     for (const entry of sim.game.returning) {
       if(entry.readyAtS<=time+1e-9) {
-        sim.game.stock[entry.station].push(entry.piece);
+        receive(sim.game,stations.get(entry.station),entry.piece,entry.at);
         if(entry.releaseSlot)sim.game.occupied[entry.releaseSlot]--;
       }
       else pending.push(entry);
     }
     sim.game.returning=pending;
+    for(const operator of Object.values(sim.game.operators)){
+      const g=sim.game, choices=operator.stations;
+      const allowed=id=>stations.get(id).service.phases.includes(sim.phase);
+      if(operator.job && !allowed(operator.job.station))operator.job=null;
+      if(operator.job && operator.job.due<=time+1e-9){
+        const s=stations.get(operator.job.station),svc=s.service,piece=g.reserve[s.id].shift();
+        if(svc.delivery){
+          const actor={id:'human/'+svc.operator,side:s.side};
+          dispose(sim,actor,stations.get(svc.delivery.station),[piece],svc.delivery.outcome,t,svc.delivery.basis);
+        } else{
+          g.stock[s.id].push(piece);
+          motion.put(g.motion,physicalPiece(s,piece,svc.outlet));
+          record(sim,{id:'human/'+svc.operator},s,'release','available',[piece],t);
+        }
+        operator.job=null;
+      }
+      if(operator.job)continue;
+      for(let n=0;n<choices.length;n++){
+        const index=(operator.next+n)%choices.length,id=choices[index],s=stations.get(id);
+        if(!allowed(id)||!g.reserve[id].length||(!s.service.delivery&&g.stock[id].length>=s.service.capacity))continue;
+        operator.job={station:id,due:time+s.service.secondsPerPiece};
+        operator.next=(index+1)%choices.length;
+        break;
+      }
+    }
   }
   function validateStep(step) {
+    if(step.openingAlternatives!==undefined)legal(step.operation==='acquire' && Array.isArray(step.openingAlternatives) &&
+      step.openingAlternatives.every(id=>stations.get(id)?.kind==='retrieval'), 'Opening alternatives must be registered pickup sources.');
     if (step.operation===undefined && step.station===undefined) return;
     legal(['acquire','attempt'].includes(step.operation) && (step.quantity===undefined ||
       count(step.quantity) && step.quantity>0), 'Invalid piece operation or quantity');
@@ -327,7 +707,7 @@ function createRehearsalGame(profile) {
   for (const program of Object.values(model.programs)) {
     for (const path of [program.steps,...Object.values(program.byPeriod ?? {})]) for (const step of path) validateStep(step);
   }
-  function start(robots, tieWinner) {
+  function start(robots, tieWinner,setup) {
     legal(tieWinner===undefined || sides.includes(tieWinner),'Invalid tied first-period decision');
     const stock={},cargo={},score={blue:0,red:0},initial={},capacity={};
     const supplies = [...stations.values()].filter(s=>s.kind==='retrieval');
@@ -345,8 +725,99 @@ function createRehearsalGame(profile) {
         quantity<=capacity[robot.id] && quantity<=stock[key].length,'Preload exceeds compatible source stock or robot capacity');
       cargo[robot.id]=stock[key].splice(0,quantity);
     }
+    const reserve={},operators={},floor=[];
+    for(const s of supplies){
+      if(s.floor){
+        const available=stock[s.id],coords=s.floor.positions;
+        legal(coords.length===available.length || coords.length===s.stock,'Floor positions must account for each initial piece at '+s.id);
+        for(const [i,piece] of available.entries())floor.push(physicalPiece(s,piece,coords[coords.length-available.length+i]));
+      }else if(s.service){
+        reserve[s.id]=stock[s.id];stock[s.id]=[];
+        const op=operators[s.service.operator] ??= {stations:[],next:0,job:null};
+        op.stations.push(s.id);
+      }
+    }
+    const opening=openingTasks(robots,stock,cargo,floor,setup);
     const attempts=Object.fromEntries([...stations.values()].filter(s=>s.kind==='scoring').map(s=>[s.id,0]));
-    return {stock,initial,cargo,capacity,score,attempts,occupied:{...attempts},returning:[],tieWinner,firstPeriodCount:{blue:0,red:0},terminal:[],events:[]};
+    return {reserve,operators,motion:motion.start(floor),opening,stock,initial,cargo,capacity,score,attempts,occupied:{...attempts},returning:[],tieWinner,firstPeriodCount:{blue:0,red:0},terminal:[],events:[]};
+  }
+  function openingTasks(robots,stock,cargo,floor,setup) {
+    const phase=model.periods[0],places=new Map(floor.map(p=>[p.id,p.p]));
+    const destinations=new Map(),eligibleRobots=new Set();
+    const rows=robots.map(r=>{
+      const program=model.programs[r.plans?.[phase.name]],steps=program?.byPeriod?.[phase.name] ?? program?.steps ?? [];
+      const candidates=[],fallback=cargo[r.id].length?'preload':steps.length?'follow program':'hold position';
+      const row={robot:r.id,candidates,fallback},first=steps.findIndex(s=>s.operation==='acquire');
+      if(!r.p || first<0)return row;
+      if((r.capacity ?? model.defaults.capacity ?? 1)<=cargo[r.id].length && !steps.slice(0,first).some(s=>s.operation==='attempt'))return row;
+      let origin=r.p,spent=0;
+      const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+      function routeTime(to,straight){
+        if(straight)return geom.hit(origin,to,r,setup)?Infinity:distance(origin,to)/r.speed;
+        const route=geom.plan(origin,to,r,setup);
+        return route.length?route.slice(1).reduce((n,p,i)=>n+distance(p,route[i]),0)/r.speed:Infinity;
+      }
+      for(const [index,leg] of steps.entries()){
+        const at=leg.at,q=Array.isArray(at)?at:at[r.side] ?? at.slots?.[r.slot] ?? at.default;
+        const to=leg.frame==='field'||r.side==='blue'?q:[model.mirror.redX?profile.field.length-q[0]:q[0],model.mirror.redY?profile.field.width-q[1]:q[1]];
+        spent+=leg.dwell??0;
+        if(index!==first){spent+=routeTime(to,leg.straight);origin=to;continue;}
+        const id=typeof leg.station==='string'?leg.station:leg.station[r.side];
+        for(const key of [id,...(leg.openingAlternatives??[])]){
+          const s=stations.get(key);
+          if(![r.side,'both'].includes(s.side) || s.piece!==stations.get(id).piece)continue;
+          if(stock[key].length)eligibleRobots.add(r.id);
+          const ranked=[];
+          for(const piece of stock[key]){
+            const p=places.get(piece.id);
+            let approach=key===id?to:s.at;
+            if(p){
+              const dx=p[0]-origin[0],dy=p[1]-origin[1],d=Math.hypot(dx,dy);
+              if(d>1e-8){
+                const angle=r.heading*Math.PI/180,ux=dx/d,uy=dy/d;
+                const length=(r.length/2+r.bumper)/Math.abs(ux*Math.cos(angle)+uy*Math.sin(angle));
+                const width=(r.width/2+r.bumper)/Math.abs(uy*Math.cos(angle)-ux*Math.sin(angle));
+                const offset=Math.min(d,Math.min(length,width)+s.floor.radiusIn+(s.floor.captureReachIn??0)*.5);
+                approach=[p[0]-ux*offset,p[1]-uy*offset];
+              }else approach=origin;
+              if(!canReach({...r,p:approach},p,s.floor))continue;
+            }
+            ranked.push({piece:piece.id,station:key,approach,lower:spent+distance(origin,approach)/r.speed});
+          }
+          ranked.sort((a,b)=>a.lower-b.lower||a.piece.localeCompare(b.piece));
+          const best=[];
+          for(const item of ranked){
+            if(item.lower>phase.seconds || best.length>=robots.length && item.lower>best.at(-1).timeS)break;
+            const timeS=spent+routeTime(item.approach,leg.straight);
+            if(timeS>phase.seconds)continue;
+            best.push({...item,timeS});best.sort((a,b)=>a.timeS-b.timeS||a.piece.localeCompare(b.piece));
+            if(best.length>robots.length)best.pop();
+          }
+          for(const choice of best){
+            candidates.push(choice);destinations.set(r.id+'/'+choice.piece,choice.approach);
+          }
+        }
+        break;
+      }
+      return row;
+    });
+    const assignment=allocateOpeningTasks(rows);
+    for(const [id,choice] of Object.entries(assignment)){
+      if(choice.piece)choice.approach=destinations.get(id+'/'+choice.piece);
+      else if(eligibleRobots.has(id))choice.yieldPickup=true;
+    }
+    return assignment;
+  }
+  function canReach(robot,p,physical){
+    const poly=geom.footprint(robot.p,robot);
+    if(poly.every((a,i)=>{const b=poly[(i+1)%poly.length];return (b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])>=0;}) ||
+       poly.every((a,i)=>{const b=poly[(i+1)%poly.length];return (b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])<=0;}))return true;
+    const reach=physical.radiusIn+(physical.captureReachIn??0)+1e-6;
+    return poly.some((a,i)=>{
+      const b=poly[(i+1)%poly.length],dx=b[0]-a[0],dy=b[1]-a[1];
+      const t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy)));
+      return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy)<=reach;
+    });
   }
   function record(sim,robot,station,operation,outcome,pieces,timeS) {
     const entry={phase:sim.phase,timeS,robot:robot.id,station:station.id,operation,outcome,pieces:pieces.map(p=>p.id)};
@@ -359,11 +830,20 @@ function createRehearsalGame(profile) {
     const s=stations.get(key),g=sim.game,bay=g.cargo[robot.id],n=step.quantity ?? 1;
     const inRange=s.areaIn ? robot.p.every((v,i)=>v>=s.areaIn[0][i] && v<=s.areaIn[1][i]) :
       Math.hypot(robot.p[0]-s.at[0],robot.p[1]-s.at[1])<=s.radiusIn;
-    if (![robot.side,'both'].includes(s.side) || !inRange) {
+    if (![robot.side,'both'].includes(s.side) || (!s.floor && !inRange)) {
       record(sim,robot,s,step.operation,'ineligible-position-or-alliance',[],timeS);return;
     }
     if (step.operation==='acquire') {
-      const pieces=g.stock[key].splice(0,Math.min(n,g.capacity[robot.id]-bay.length));
+      const own=g.opening[robot.id]?.piece;
+      const reserved=sim.phaseIndex===0?new Set(Object.entries(g.opening).filter(([id])=>id!==robot.id && id[0]===robot.id[0]).map(([,a])=>a.piece)):new Set();
+      const physical=s.floor ?? s.service;
+      const nearby=physical?new Set(g.motion.pieces.filter(p=>p.station===key && canReach(robot,p.p,physical)).map(p=>p.id)):null;
+      const eligible=g.stock[key].filter(p=>!reserved.has(p.id)&&(!nearby||nearby.has(p.id)));
+      if(sim.phaseIndex===0&&own)eligible.sort((a,b)=>Number(b.id===own)-Number(a.id===own));
+      const pieces=eligible.slice(0,Math.min(n,g.capacity[robot.id]-bay.length));
+      const ids=new Set(pieces.map(p=>p.id));
+      g.stock[key]=g.stock[key].filter(p=>!ids.has(p.id));
+      if(physical)for(const piece of pieces)motion.take(g.motion,piece.id);
       bay.push(...pieces);
       record(sim,robot,s,step.operation,pieces.length?'acquired':'empty-or-full',pieces,timeS);
       return;
@@ -372,7 +852,11 @@ function createRehearsalGame(profile) {
     if (!pieces.length) {record(sim,robot,s,'attempt','no-compatible-cargo',[],timeS);return;}
     const used=new Set(pieces);
     g.cargo[robot.id]=bay.filter(p=>!used.has(p));
-    let outcome=step.outcome ?? 'unresolved';
+    dispose(sim,robot,s,pieces,step.outcome ?? 'unresolved',timeS);
+  }
+  function dispose(sim,robot,s,pieces,prescribed,timeS,basis){
+    const g=sim.game,key=s.id;
+    let outcome=prescribed;
     let activity='active';
     if (s.activeWindows) {
       const possible=s.activeWindows.filter(w=>w.phase===sim.phase && w.fromS<=timeS && timeS<w.toS);
@@ -389,7 +873,7 @@ function createRehearsalGame(profile) {
       if(!batch.length)continue;
       const event=record(sim,robot,s,'attempt',result,batch,timeS);
       const points=result==='credited'?batch.length*(typeof s.points==='number'?s.points:s.points[sim.phase]):0;
-      event.points=points;event.prescribedOutcome=step.outcome ?? 'unresolved';event.activity=activity;
+      event.points=points;event.prescribedOutcome=prescribed;event.activity=activity;if(basis)event.basis=basis;
       g.score[robot.side]+=points;
       if(result==='credited'){
         g.occupied[key]+=batch.length;
@@ -399,14 +883,14 @@ function createRehearsalGame(profile) {
       for (const piece of batch) {
         const rule=s.returns?.[result];
         if(rule){
-          const entry={piece,station:rule.station,readyAtS:elapsed(sim,timeS)+rule.delayS};
+          const entry={piece,at:rule.at,station:rule.station,readyAtS:elapsed(sim,timeS)+rule.delayS};
           if(result==='credited')entry.releaseSlot=key;
           g.returning.push(entry);
         }else g.terminal.push({...piece,station:key,outcome:result});
       }
     }
   }
-  return {start,apply,replenish};
+  return {start,apply,replenish,move};
 }
 function rehearsalFindings(id,basis,game,stations) {
   if (!stations?.length && !game.endgame) return [id+' · '+basis+'. The profile has no registered stock or scoring criterion.'];
@@ -655,7 +1139,7 @@ function createFieldRehearsal(profile) {
   const geom=fieldGeometry(profile);
   const model=profile.rehearsal, supported=Boolean(model?.schema==='field-rehearsal/v1');
   const L=profile.field.length,W=profile.field.width,dt=0.05;
-  const game=supported ? createRehearsalGame(profile) : null;
+  const game=supported ? createRehearsalGame(profile,geom,createFieldPieceMotion(profile,geom)) : null;
   const terminal=supported ? createTerminalRehearsal(profile) : null;
   const behaviors=Object.fromEntries(Object.entries(model?.programs || {}).map(([key,p])=>[key,p.label]));
   const phases=model?.periods || [];
@@ -665,11 +1149,22 @@ function createFieldRehearsal(profile) {
   const assessRoute=(line,body,setup=model?.setups[0])=>supported?geom.assessRoute(line,body,setup):
     {status:'unknown',obstacle:null,segment:null};
   function defaults(side,slot) {
-    const {orders,...body}=model.defaults,order=orders[slot-1];
+    const {orders,roster:projectRoster,...body}=model.defaults,order=orders[slot-1];
+    if(body.frameProfile===undefined&&profile.frameProfile!==undefined)body.frameProfile=profile.frameProfile;
     const heading=side==='red'?Math.atan2((model.mirror.redY?-1:1)*Math.sin(body.heading*Math.PI/180),
       (model.mirror.redX?-1:1)*Math.cos(body.heading*Math.PI/180))*180/Math.PI:body.heading;
     const plans=Object.fromEntries(phases.map(p=>[p.name,order]));
     return {id:(side==='blue'?'B':'R')+slot,side,slot,plans,...body,heading};
+  }
+  function completeRoster(rows=[]) {
+    if(!Array.isArray(rows) || rows.some(r=>!sides.includes(r.side) || ![1,2,3].includes(r.slot)) ||
+       new Set(rows.map(r=>r.side+'/'+r.slot)).size!==rows.length)throw Error('Use unique alliance slots 1 through 3.');
+    return sides.flatMap(side=>[1,2,3].map(slot=>({...defaults(side,slot),...rows.find(r=>r.side===side&&r.slot===slot)})));
+  }
+  const sides=['blue','red'];
+  function startingRoster(){
+    const rows=model.defaults.roster ?? model.series?.matches?.[0]?.roster ?? [];
+    return completeRoster(rows);
   }
   function reservations(){
     const names=new Set([model.resourceLabel]);
@@ -680,7 +1175,11 @@ function createFieldRehearsal(profile) {
     }
     return Object.fromEntries([...names].map(key=>[key,{owner:null,queue:[]}]));
   }
-  function create(roster,setup=model?.setups[0],tieWinner,atRestAfterS) {
+  function create(roster,setup,tieWinner,atRestAfterS) {
+    if(roster?.length!==6)throw Error('A match needs exactly six unique alliance slots, three per side.');
+    return createProbe(roster,setup,tieWinner,atRestAfterS);
+  }
+  function createProbe(roster,setup=model?.setups[0],tieWinner,atRestAfterS) {
     if(!supported)throw Error('Supply an external rehearsal geometry and behavior model.');
     if(!model.setups.includes(setup))throw Error('Unknown obstacle setup.');
     if(!Array.isArray(roster) || roster.length>6)throw Error('Use up to three robots per alliance.');
@@ -697,10 +1196,10 @@ function createFieldRehearsal(profile) {
       if(collision)throw Error(b.id+' start overlaps '+collision.name+'.');
       for(const other of robots) if(geom.robotContact(p,p,b,other.p,other.p,other)!==null)
         throw Error(b.id+' start overlaps '+other.id+'.');
-      robots.push({...b,p,leg:0,waypoints:null,target:0,dwell:0,wait:0,visits:0,blocked:'',action:''});
+      robots.push({...b,p,leg:0,waypoints:null,target:0,dwell:0,wait:0,travelIn:0,visits:0,blocked:'',action:''});
     }
     robots.sort((a,b)=>a.id.localeCompare(b.id));
-    const ledger=game.start(robots,tieWinner);
+    const ledger=game.start(robots,tieWinner,setup);
     if(terminal)ledger.endgame=terminal.start(robots,atRestAfterS,setup);
     else if(robots.some(r=>r.endgame!==undefined) || atRestAfterS!==undefined)throw Error('Supply an endgame model before scheduling a terminal action.');
     return {robots,setup,game:ledger,phase:phases[0].name,phaseIndex:0,ticks:0,paused:true,ended:false,resources:reservations(),hotspots:[],
@@ -709,7 +1208,12 @@ function createFieldRehearsal(profile) {
   function program(r,sim){return model.programs[r.plans[sim.phase]];}
   function itinerary(r,sim) {
     const chosen=program(r,sim);
-    return (chosen.byPeriod?.[sim.phase] || chosen.steps).map(step=>{
+    const steps=chosen.byPeriod?.[sim.phase] || chosen.steps;
+    const opening=sim.phaseIndex===0 && r.visits===0?sim.game.opening[r.id]:null;
+    const first=opening?steps.findIndex(s=>s.operation==='acquire'):-1;
+    return steps.map((step,index)=>{
+      if(index===first && opening?.approach)return {...step,station:opening.station,action:step.label,point:opening.approach,dwell:Math.round((step.dwell??0)/dt)};
+      if(index===first && opening?.yieldPickup)return {action:'Yield opening pickup',point:r.p,dwell:0};
       const spec=step.at;
       const q=Array.isArray(spec)?spec:spec[r.side] || spec.slots?.[r.slot] || spec.default;
       return {...step,action:step.label,point:step.frame==='field'?[...q]:sidePoint(q,r.side),
@@ -800,14 +1304,15 @@ function createFieldRehearsal(profile) {
       ends[i]=b;
       if(r.waypoints?.[r.target] && norm(b,r.waypoints[r.target])<1e-8)r.target++;
     }
-    sim.robots.forEach((r,i)=>{r.p=ends[i];});
+    sim.robots.forEach((r,i)=>{r.travelIn+=norm(begins[i],ends[i]);r.p=ends[i];});
+    game.move(sim,dt,begins);
     terminal?.observe(sim,begins,sim.ticks*dt,(sim.ticks+1)*dt);
     sim.ticks++;
     if(sim.ticks>=duration(sim.phase)){
       terminal?.assess(sim);
       sim.paused=true;sim.ended=true;sim.carry=0;
       sim.phaseHistory.push({phase:sim.phase,seconds:sim.ticks*dt,
-        robots:sim.robots.map(r=>({id:r.id,visits:r.visits,waitSeconds:r.wait*dt,blocked:r.blocked,position:[...r.p]}))});
+        robots:sim.robots.map(r=>({id:r.id,visits:r.visits,waitSeconds:r.wait*dt,travelIn:r.travelIn,blocked:r.blocked,position:[...r.p]}))});
       event(sim,sim.phase+' clock expired');
     }
   }
@@ -822,17 +1327,17 @@ function createFieldRehearsal(profile) {
   function nextPhase(sim) {
     if(!sim.ended || sim.phaseIndex===phases.length-1)throw Error('Finish the active period before advancing to a configured next period.');
     sim.phase=phases[++sim.phaseIndex].name;sim.ticks=0;sim.carry=0;sim.ended=false;sim.paused=true;sim.resources=reservations();
-    for(const r of sim.robots)Object.assign(r,{leg:0,waypoints:null,target:0,dwell:0,wait:0,visits:0,blocked:'',action:''});
+    for(const r of sim.robots)Object.assign(r,{leg:0,waypoints:null,target:0,dwell:0,wait:0,travelIn:0,visits:0,blocked:'',action:''});
   }
-  return {supported,behaviors,defaults,create,advance,nextPhase,assessRoute,geom,dt,periods:phases,terminal,
+  return {supported,behaviors,defaults,startingRoster,completeRoster,create,createProbe,advance,nextPhase,assessRoute,geom,dt,periods:phases,terminal,
     phaseSeconds:name=>duration(name)*dt};
 }
-function createMatchSeries(engine, matches, {allowEmptyRoster = false} = {}) {
+function createMatchSeries(engine, matches) {
   if (!Array.isArray(matches) || !matches.length) throw Error('Supply at least one project-authored match');
   const ids=new Set();
   const configs=matches.map(match=>{
     if (typeof match.id!=='string' || !match.id.trim() || ids.has(match.id) || !match.basis?.trim() ||
-        !Array.isArray(match.roster) || (!allowEmptyRoster && !match.roster.length))
+        !Array.isArray(match.roster) || !match.roster.length)
       throw Error('Specify unique match IDs, behavior basis and roster');
     ids.add(match.id);
     const roster=match.roster.map(row=>{
@@ -840,7 +1345,7 @@ function createMatchSeries(engine, matches, {allowEmptyRoster = false} = {}) {
         throw Error('Each scheduled robot needs a named behavior in every period');
       return {...engine.defaults(row.side,row.slot),...row};
     });
-    return {...match,roster};
+    return {...match,roster:engine.completeRoster(roster)};
   });
   let index=0, sim, remainingS=0;
   const results=[];
@@ -871,7 +1376,7 @@ function createMatchSeries(engine, matches, {allowEmptyRoster = false} = {}) {
   return {get sim(){return sim;},get match(){return configs[index];},get done(){return results.length===configs.length;},results,advance};
 }
 function createRehearsalSetup(engine, initialRoster, initialSetup, publishedMatches = []) {
-  let roster = initialRoster, setup = initialSetup;
+  let roster = initialRoster ?? engine.startingRoster(), setup = initialSetup;
   function edit(nextRoster, nextSetup) {
     const sim = engine.create(nextRoster, nextSetup);
     roster = structuredClone(nextRoster);
@@ -890,7 +1395,7 @@ function createRehearsalSetup(engine, initialRoster, initialSetup, publishedMatc
       roster: structuredClone(roster),
       setup
     }));
-    return createMatchSeries(engine, trials, {allowEmptyRoster: true});
+    return createMatchSeries(engine, trials);
   }
   return {edit, reset, series, get roster(){return structuredClone(roster);}, get setup(){return setup;}};
 }
@@ -976,10 +1481,8 @@ function fieldScene(canvas, profile, state, place) {
     });
     const heading=state.heading*Math.PI/180;
     const rotate=(x,y)=>[state.x+x*Math.cos(heading)-y*Math.sin(heading),state.y+x*Math.sin(heading)+y*Math.cos(heading)];
-    const halfL=state.length/2, halfW=state.width/2;
-    objects.push({...state, name:'Robot', robot:true, points:[
-      rotate(-halfL,-halfW),rotate(halfL,-halfW),rotate(halfL,halfW),rotate(-halfL,halfW)
-    ]});
+    const halfL=state.length/2;
+    objects.push({...state,name:'Robot',robot:true,points:framePlan(state.length,state.width,state.frameProfile,0,25.4).points.map(([x,y])=>rotate(x,y))});
     for(const obj of objects.sort((a,b)=>depth(b.x,b.y)-depth(a.x,a.y))) {
       const roof=obj.points.map(([x,y])=>[x,y,obj.height]);
       const edge=obj.robot?'#fff0cc':'#b5cede';
@@ -1227,6 +1730,7 @@ paragraph(sources, profile.limits.source);
 paragraph(sources, profile.geometrySource);
 if (profile.levels.length) paragraph(sources, profile.levels.map(v=>v.name+' '+v.height+' in').join(' · '));
 paragraph(sources, profile.omissions);
+if(state.frameProfile)paragraph(sources,'Frame outline: '+state.frameProfile.kind+'. Rear is local −X. The sizing trial shows the bare frame and its perimeter. The rehearsal adds the bumper depth to each face.');
 paragraph(sources,'Editable starting box: '+[state.length,state.width,state.height].map(fmt).join(' × ')+' in. '+(profile.trial?'The project supplies this trial.':profile.rehearsal?'Dimensions come from the project rehearsal defaults.':'The initial cube uses one twelfth of the shorter field side as a visual scale reference.')+' X runs downfield from the first end wall. Y runs across the field from the near side.');
 
 function slider(group, key, title, min, max, unit) {
@@ -1244,7 +1748,12 @@ function slider(group, key, title, min, max, unit) {
   item.append(label,input);
   byId(group).append(item);
   sliders.set(key,{input,out,unit});
-  input.oninput = () => {state[key]=Number(input.value);refresh();};
+  input.oninput = () => {
+    const next={...state,[key]:Number(input.value)};
+    try{framePlan(next.length,next.width,next.frameProfile,0,25.4);}
+    catch(error){input.value=state[key];out.textContent=error.message;return;}
+    state[key]=next[key];refresh();
+  };
 }
 for(const key of ['length','width','height']) slider('sizes',key,key[0].toUpperCase()+key.slice(1),Math.min(1,state[key]),
   Math.max(2*state[key],profile.limits.height || 0,(profile.limits.perimeter || 0)/2), ' in');
@@ -1257,7 +1766,7 @@ function margin(value, limit) {
   return fmt(Math.abs(remaining))+' in '+(remaining<0?'over limit':'remaining');
 }
 function checks(box) {
-  const perimeter = 2*(box.length+box.width);
+  const perimeter=framePlan(box.length,box.width,box.frameProfile,0,25.4).perimeter;
   return ['Perimeter '+fmt(perimeter)+' in · '+margin(perimeter,profile.limits.perimeter),
     'Starting height '+fmt(box.height)+' in · '+margin(box.height,profile.limits.height)];
 }
@@ -1528,13 +2037,14 @@ byId('saveWindow').onclick=()=>{
 };
 selectOpportunity();
 
+const roleComparison=null;
 (() => {
   if(!rehearsal.supported)return;
   const panel=byId('rehearsal'),canvas=byId('replayField'),context=canvas.getContext('2d');
   const rosterBox=byId('replayRoster'), clock=byId('replayClock'),notice=byId('replayNotice');
   panel.hidden=false;
-  let roster=[rehearsal.defaults('blue',1),rehearsal.defaults('red',1)];
-  let setup=profile.rehearsal.setups[0],frame=null,lastTime=0;
+  let roster=rehearsal.startingRoster();
+  let setup=profile.rehearsal.defaults.roster?profile.rehearsal.setups[0]:(profile.rehearsal.series?.matches?.[0]?.setup ?? profile.rehearsal.setups[0]),frame=null,lastTime=0;
   let series=null,seriesPaused=false;
   const config=profile.rehearsal, L=profile.field.length,W=profile.field.width;
   const student=createRehearsalSetup(rehearsal,roster,setup,config.series?.matches);
@@ -1546,7 +2056,7 @@ selectOpportunity();
   byId('replayBasis').textContent=config.basis+' '+config.boundsNote+
     ' The default bumper adds '+config.defaults.bumper+' in per side. Priorities follow request time, then robot ID for same-tick requests. Completed trips count arrivals and service, with scoring evaluated separately by the project station model.';
   const stations=config.stations ?? [], legend=byId('replayStations'), counters=new Map();
-  let highlighted=null;
+  let highlighted=null,expandedRobot=null;
   for(const [i,s] of stations.entries()){
     const row=document.createElement('li'), select=document.createElement('button'), counts=document.createElement('span');
     select.type='button';select.textContent=(i+1)+' · '+s.label;
@@ -1603,18 +2113,25 @@ selectOpportunity();
     for(const station of config.stations ?? []){
       const [x,y]=at(station.displayAt ?? station.at), [ax,ay]=at(station.at);
       context.strokeStyle='#f1ce80';context.lineWidth=1;context.beginPath();
+      if(station.id!==highlighted)context.globalAlpha=.3;
       if(station.areaIn){
         const [[left,bottom],[right,top]]=station.areaIn,xy=at([left,top]);
         context.rect(...xy,(right-left)*scale,(top-bottom)*scale);
       }else context.arc(ax,ay,station.radiusIn*scale,0,Math.PI*2);
       context.stroke();
+      context.globalAlpha=1;
       const retrieval=station.kind==='retrieval';
       context.fillStyle=retrieval?'#ffd373':'#d9f7df';
       if(retrieval){
         const stock=sim.game.stock[station.id].length;
         context.fillRect(x-4,y-4,8,8);
-        for(let i=0;i<Math.min(6,stock);i++){context.beginPath();context.arc(x+(i%3-1)*4,y-6-Math.floor(i/3)*4,1.7,0,Math.PI*2);context.fill();}
+        for(let i=0;i<Math.min(station.floor||station.service?0:6,stock);i++){context.beginPath();context.arc(x+(i%3-1)*4,y-6-Math.floor(i/3)*4,1.7,0,Math.PI*2);context.fill();}
       }else{context.beginPath();context.arc(x,y,5,0,Math.PI*2);context.stroke();}
+    }
+    for(const piece of sim.game.motion.pieces){
+      const [x,y]=at(piece.p);
+      context.fillStyle=piece.station===highlighted?'#fff':'#ffcc62';context.strokeStyle='#54421e';context.lineWidth=.7;
+      context.beginPath();context.arc(x,y,Math.max(1.25,piece.radiusIn*scale),0,2*Math.PI);context.fill();context.stroke();
     }
     for(const h of sim.hotspots){
       const xy=at(h.point);context.fillStyle='#ffbd6e91';context.beginPath();
@@ -1650,7 +2167,7 @@ selectOpportunity();
     // exact and lead to a readable badge when several objectives share a face.
     const placed=[];
     for(const [i,s] of stations.entries()){
-      if(highlighted && highlighted!==s.id)continue;
+      if(highlighted!==s.id)continue;
       const [x,y]=at(s.displayAt ?? s.at);
       const count=s.kind==='retrieval'?sim.game.stock[s.id].length:sim.game.attempts[s.id];
       const label=(i+1)+'·'+count;
@@ -1742,8 +2259,12 @@ selectOpportunity();
       const heading=document.createElement('h3');heading.textContent=(side==='blue'?'Blue':'Red')+' alliance';group.append(heading);
       rosterBox.append(group);
       for(const r of roster.filter(r=>r.side===side).sort((a,b)=>a.slot-b.slot)){
-      const card=document.createElement('section');card.className='replay-robot '+r.side;
-      const title=document.createElement('strong');title.textContent=(r.side==='blue'?'Blue ':'Red ')+r.slot+' · '+r.id;
+      const card=document.createElement('details');card.className='replay-robot '+r.side;
+      card.name='robot-editor';card.open=expandedRobot===r.id;card.ontoggle=()=>{if(card.open)expandedRobot=r.id;else if(expandedRobot===r.id)expandedRobot=null;};
+      const title=document.createElement('summary');
+      const assignment=sim.game.opening[r.id],role=document.createElement('small');
+      title.textContent=r.id+' · '+rehearsal.behaviors[r.plans[config.periods[0].name]];
+      role.textContent='Opening · '+(assignment.piece ?? (assignment.yieldPickup?'yield pickup':assignment.fallback));title.append(role);
       card.append(title);
       for(const period of config.periods){
         const key=period.name,name=key+' behavior';
@@ -1763,10 +2284,9 @@ selectOpportunity();
       };
       addNumber('Speed (in/s)',r.speed,1,500,1,'speed');
       addNumber('Bumper per side (in)',r.bumper,0,12,.25,'bumper');
-      const apply=button('Use trial box',()=>edit(r.id,{length:state.length,width:state.width,height:state.height,heading:state.heading}));
+      const apply=button('Use trial box',()=>edit(r.id,{length:state.length,width:state.width,height:state.height,heading:state.heading,frameProfile:state.frameProfile??{kind:'square'}}));
       apply.setAttribute('aria-label','Use trial box for '+r.id);
-      const remove=button('Remove',()=>setRoster(roster.filter(other=>other.id!==r.id)));
-      remove.setAttribute('aria-label','Remove '+r.id);configLine.append(apply,remove);card.append(configLine);terminalEditor(r,card);group.append(card);
+      configLine.append(apply);card.append(configLine);terminalEditor(r,card);group.append(card);
       }
     }
   }
@@ -1780,15 +2300,13 @@ selectOpportunity();
     const began=Boolean(series) || sim.ticks>0 || sim.phaseIndex>0 || !sim.paused;
     for(const control of rosterBox.querySelectorAll('select,input,button'))control.disabled=began;
     byId('replaySetup').disabled=began;
-    for(const side of ['blue','red'])byId(side==='blue'?'addBlue':'addRed').disabled=began || roster.filter(r=>r.side===side).length>=3;
+    byId('scoreBlue').textContent=sim.game.score.blue;byId('scoreRed').textContent=sim.game.score.red;
     const end=sim.ended;
     byId('replayRun').disabled=!roster.length || (end && sim.phaseIndex===config.periods.length-1);
     if(series)byId('replayRun').disabled=true;
     seriesSource.disabled=Boolean(series && !series.done);
     byId('replaySeries').textContent=series && !series.done ? (seriesPaused?'Resume series at 10×':'Pause series') : 'Play match series at 10×';
-    byId('replayScore').textContent=(config.stations?.length?'Modeled rehearsal score · Blue '+sim.game.score.blue+' · Red '+sim.game.score.red+
-      '. '+config.stations.filter(s=>s.kind==='retrieval').map(s=>s.label+' '+sim.game.stock[s.id].length+' '+s.piece+' available').join(' · '):
-      (sim.game.endgame?'Modeled rehearsal score · Blue '+sim.game.score.blue+' · Red '+sim.game.score.red:'This profile has no registered piece or scoring stations.'))+(series?' · '+activeSource+' · Match '+series.match.id+' · '+series.match.basis:'');
+    byId('replayScore').textContent=series?activeSource+' · '+series.match.id:sim.game.motion.pieces.length+' loose · '+Object.values(sim.game.cargo).flat().length+' carried';
     const terminal=sim.game.endgame, report=byId('replayTerminal');
     report.hidden=!terminal;
     if(terminal){
@@ -1801,13 +2319,13 @@ selectOpportunity();
       report.textContent=rows.join(' · ') || 'Choose a terminal objective in a robot’s roster to interrupt its ordinary scoring cycle.';
     }
     for(const s of stations){
-      const count=s.kind==='retrieval'?sim.game.stock[s.id].length+' available':
+      const count=s.kind==='retrieval'?sim.game.stock[s.id].length+' available'+(s.service?' · '+sim.game.reserve[s.id].length+' in reserve · '+s.service.operator:''):
         sim.game.attempts[s.id]+' attempted'+(s.capacity===undefined?'':' · '+sim.game.occupied[s.id]+'/'+s.capacity+' occupied');
       const output=counters.get(s.id).counts,next=' '+s.piece+' · '+count;
       if(output.textContent!==next)output.textContent=next;
     }
     const following=config.periods[sim.phaseIndex+1];
-    byId('replayRun').textContent=end?(following?'Start '+following.name:'Match complete'):(!sim.paused?'Pause':used?'Resume':'Start '+sim.phase);
+    byId('replayRun').textContent=end?(following?'Play '+following.name:'Match complete'):(!sim.paused?'Pause match':used?'Resume match':'Play match');
     for(const id of ['replayStep','replayFast'])byId(id).disabled=Boolean(series) || !sim.paused || end || !roster.length;
     for(const r of sim.robots){
       const o=byId('replay-state-'+r.id);
@@ -1847,10 +2365,53 @@ selectOpportunity();
     }
     lastTime=performance.now();if(!seriesPaused)frame=requestAnimationFrame(playSeries);render();
   };
+  if(roleComparison){
+    const roleChoice=byId('roleChoice'),contextChoice=byId('roleContext');
+    for(const r of roleComparison.roles)roleChoice.add(new Option(r.id,r.id));
+    for(const c of roleComparison.contexts)contextChoice.add(new Option(c.id,c.id));
+    function selected(){return roleComparison.cells.find(c=>c.role===roleChoice.value&&c.context===contextChoice.value);}
+    function showResult(){
+      const c=selected();
+      byId('roleBasis').textContent=roleComparison.roles.find(r=>r.id===c.role).basis+' '+roleComparison.contexts.find(r=>r.id===c.context).basis;
+      byId('roleOutcome').textContent='Ordinary points · Blue '+c.ordinary.blue+' / Red '+c.ordinary.red+
+        ' · Terminal points · Blue '+c.terminal.blue+' / Red '+c.terminal.red+
+        ' · '+roleComparison.side+' margin '+c.margin+' · Opportunity cost '+c.regret+' points';
+      byId('rolePhases').replaceChildren(...c.byRobot.filter(r=>r.id===c.focalId).map(r=>{
+        const li=document.createElement('li');
+        li.textContent=r.id+' · '+r.phase+' · waited '+r.waitS.toFixed(2)+' s · traveled '+r.travelIn.toFixed(1)+
+          ' in · '+(r.tally['attempt/credited']?.pieces??0)+' accepted · '+r.acceptedPerSecond.toFixed(3)+' pieces/s';
+        return li;
+      }));
+    }
+    roleChoice.onchange=contextChoice.onchange=showResult;
+    byId('rolePlay').onclick=()=>{
+      const c=selected(),source=config.series.matches.find(m=>m.id===c.match);
+      stopFrame();
+      series=createMatchSeries(rehearsal,[{...source,roster:c.roster}]);
+      activeSource=c.role+' / '+c.context;seriesPaused=false;sim=series.sim;setup=sim.setup;roster=series.match.roster;
+      byId('replaySetup').value=setup;notice.textContent='';listRoster();seriesResults();render();
+      lastTime=performance.now();frame=requestAnimationFrame(playSeries);
+    };
+    if(roleComparison.files){
+      for(const period of config.periods)byId('rolePhase').add(new Option(period.name,period.name));
+      for(const station of stations.filter(s=>[roleComparison.side,'both'].includes(s.side)))
+        byId('roleStation').add(new Option(station.label,station.id));
+      byId('roleExport').hidden=!byId('roleStation').options.length;
+      byId('roleSave').onclick=()=>{
+        const c=selected(),selection={schema:'agent-frc/role-selection@1',...roleComparison.files,role:c.role,context:c.context,
+          phase:byId('rolePhase').value,station:byId('roleStation').value};
+        const url=URL.createObjectURL(new Blob([JSON.stringify(selection,null,2)+'\n'],{type:'application/json'}));
+        const link=document.createElement('a');link.href=url;link.download='role-selection.json';link.click();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+      };
+    }
+    byId('roleLab').hidden=false;showResult();
+  }
   function animate(now){
     frame=null;
     if(sim.paused)return;
     rehearsal.advance(sim,Math.max(0,(now-lastTime)/1000));lastTime=now;
+    if(sim.ended && config.periods[sim.phaseIndex+1]){rehearsal.nextPhase(sim);sim.paused=false;}
     render();
     if(!sim.paused)frame=requestAnimationFrame(animate);
   }
@@ -1893,11 +2454,6 @@ selectOpportunity();
     notice.textContent='Saved '+id+' for the narrative download.';
   };
   byId('replaySetup').onchange=e=>setRoster(roster,e.target.value);
-  function addRobot(side){
-    const slot=[1,2,3].find(n=>!roster.some(r=>r.side===side && r.slot===n));
-    if(slot)setRoster([...roster,rehearsal.defaults(side,slot)]);
-  }
-  byId('addBlue').onclick=()=>addRobot('blue');byId('addRed').onclick=()=>addRobot('red');
   new ResizeObserver(draw).observe(canvas);listRoster();render();
 })();
 
