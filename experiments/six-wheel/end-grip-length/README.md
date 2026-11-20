@@ -1,11 +1,5 @@
 # Pipe length on the fixed-height end grips
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 **A gauged pair of jaw stops can receive three centered practice cuts. The mechanism still fails the mixed-length, off-axis and scoring requirements.** With the 295.275, 301.625 and 307.975 mm cuts each matched to its own stop set, the actual low-pose Java gate indicates a seat and the sampled finite pipe clears the rigid receiver. All six combinations of a cut with the wrong gauge fail. Both identified mission handoffs recontact the receiver on the historical and shaped releases. Keep the existing low receiver as the issued configuration. [Prior end-grip modification](../station-relief/README.md) · [Centered fixed-height baseline](../design/fixed-height/README.md) · [Body-supported alternative](../cradle-receiver/README.md)
 
 ![Fixed-center cassette and simulated reversal position by grip force](capture.svg)

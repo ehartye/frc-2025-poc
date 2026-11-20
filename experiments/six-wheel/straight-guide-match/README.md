@@ -1,11 +1,5 @@
 # Straight-guide station and reef rehearsal
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 [Open the student field replay](replay.html). Choose a signed wheel configuration and move the match clock to see the study robot, installed stock and five other robots.
 
 The straight-arm robot uses the upper two holes on the station panel to dock. Its existing fixed camera, a surveyed pair of reef fasteners and the modeled chassis gyro guide its approach to reef sector A. Both signed wheel errors reach the station before the first feed at 21.10 seconds. [Opening, stock and traffic](issued-opening.json) · [Reef observations](anchored-route.json)

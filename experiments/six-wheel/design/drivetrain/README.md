@@ -1,11 +1,5 @@
 # Station-to-L1 differential drive engineering review
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The [chain-cover fit study](../../chain-covers/README.md) repositions the front loop and checks removable cover skins against the installed wheel fasteners.
 
 The first loaded station-to-reef transfer calls for four straight runs and three turns. At 62 kg the selected six-wheel candidate reproduces the signed 8.9488 m path in 17.081 s within the modeled motor, electrical, traction and chain limits. The tightest field assumption is turn traction. The replay requires a longitudinal coefficient of 0.810 against an assumed 0.90, with lateral scrub fixed at 0.38. The project's previous 96-part configuration remains the reference for the earlier pipe-custody experiment. [Registered route](../../mission/field-registration.json) · [Candidate calculations and adverse cases](route-receipt.json) · [Earlier robot](../station-l1/README.md)

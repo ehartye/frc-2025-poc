@@ -1,11 +1,5 @@
 # Offline controller for the station-fed receiver
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 This WPILib command operates one provisional station-to-L1 cycle against an explicit I/O interface. It owns the lift, slide, paired belt request and a drive-permission signal. The drivetrain owns physical motion. The desktop tester uses WPILib's CommandScheduler and simulated Driver Station with a scripted I/O adapter. No robot adapter, network discovery or deploy target is included.
 
 Run from the project root with Python 3, an existing JDK 17 and the populated Gradle cache used by the project.

@@ -1,11 +1,5 @@
 # Fixed-height robot without match pneumatics
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The fixed carriage uses two mast locks for vertical support. Wheel drive, slide motion and both grips are electric. The sole modeled air actuator released the former lift pawl. A dedicated fixed-height match build can omit the compressor, reservoir, two tank saddles, valve and regulator/gauge/dump assembly. The Pneumatic Hub stays on its original CAN and power branches. The ratchet, actuator reserve, ropes, drums, motor, wiring allocations and mechanical locks stay in the robot. The CAD and mass results assume a build with the air circuit absent. Disabling the compressor on a robot that still carries the kit saves no weight. [Fixed carriage](../fixed-height/README.md) · [Published power and isolation study](../../fixed-low-power/README.md)
 
 ## Match mass

@@ -1,11 +1,5 @@
 # Stationary hoist for the permanently locked low receiver
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The shortened common shaft retains both primary drums, both primary lines, the ratchet, inboard bearings and the service-pin assembly. Two nonrotating spacers bear against the fixed bearing arms. Two pinned stops keep the drums captive from outside. The fixed-height match build removes its two secondary hauls, four hanger mounts per side and their dedicated fasteners. The source bill identifies 48 retired CAD occurrences grouped into 36 installed articles. The separately budgeted shaft extension is shortened by 80 mm. [Native exchange](stationary-shaft.step) · [Drum and bearing source](../design/receiver-lift/) · [Permanent low locks](../design/fixed-height/README.md)
 
 ![Two native sections through the left bearing, recessed spacer, original drum and cross-pinned shaft](drum-retention.svg)

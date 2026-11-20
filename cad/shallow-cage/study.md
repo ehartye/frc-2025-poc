@@ -1,6 +1,8 @@
 # A shallow-cage jack for the captive swerve robot
 
-[Open the student climb replay](https://ehartye.github.io/frc-2025-poc/shallow-climb.html) · [Download the editable full Fusion variant](Team-1780-shallow-cage-study.f3d) · [Compare all six matches](../../kickoff/series.md)
+Historical engineering study. CAD publication is on hold after both signed placement checks found a collision.
+
+[Compare all six matches](../../kickoff/series.md)
 
 ![Forward jack in its modeled suspended pose](shallow-climb.png)
 

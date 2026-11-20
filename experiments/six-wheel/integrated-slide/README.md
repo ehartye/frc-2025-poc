@@ -1,11 +1,5 @@
 # Can both cameras and the rack still see the same shelf?
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The sensor's new mounting hardware is visible to the fixed camera at full extension. It changes 18 left-eye and two right-eye pixels at each scoring dock. The moving camera's view remains backed by the shelf. Across 3,994 exposure evaluations, the detector returned the same observations as the prior camera study. The newly loaded rack follows a different physical trajectory and still reaches both stow deadlines in 13 of the 19 revised-controller cases. These are desktop results on one registered geometry. [Optical, scheduler and contact results](result.json) · [Native mount drawing](../sp1-mount/shop-drawing.svg)
 
 ## Look for an obstruction in each camera

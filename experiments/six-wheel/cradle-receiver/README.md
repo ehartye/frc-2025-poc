@@ -1,11 +1,5 @@
 # Receiving CORAL on its outside diameter
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 **Reject this cradle as a replacement for the issued receiver.** Two support rails let a short or long pipe seat against its curved surface. The centered geometry carries it and tips it into both modeled low troughs. However, at 4° relative yaw a rail still intersects the pipe after the calculated release, 20 of 64 disturbance cases miss the combined capture/target criterion, and the conservative selected mass estimate exceeds its represented allowance by 58 g before adding an impact latch. These are independent reasons to keep withdrawal, operation and scoring unqualified.
 
 ![Cradle side elevation and disturbance-screen results](cradle.svg)

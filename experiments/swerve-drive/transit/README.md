@@ -1,11 +1,5 @@
 # Carrying the first pipe toward the reef
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 [Test a mechanical retainer from both measured stops](../retention/study.md).
 
 [Compare the three wheel paths on the match clock](index.html). The four-module robot begins at 28.535 s with coral-A on its stowed receiver. Each trial starts at the true and estimated poses reached in the [first loaded departure](../motion/loaded-departure.json), with the attained steering angles, rotor turns, motor targets, gyro and residual wheel rates. The sign identifies the two opposing wheel-radius and gyro error patterns.

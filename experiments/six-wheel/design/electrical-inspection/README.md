@@ -1,11 +1,5 @@
 # Whole-robot electrical and inspection review
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 Open the [33-body stowed electrical and pneumatic CAD layer](stowed.step), or regenerate all four poses with the commands below. The proposed competition configuration uses one 12 V battery, two propulsion motors and four mechanism motors. The two-trip electrical replay covers every positive-duration event in the project's registered TELEOP clock. At a conservative 67 kg and reduced turn acceleration, the slower route draws **86.68 A peak** and maintains **9.71 V** at the lowest modeled device terminal. The weakest assumed pack violates the rail requirement. The gravity-loaded pawl remains the critical physical qualification. [Rail results](power.json) · [Pawl calculation](pawl.json) · [Historical rules and manufacturer references](SOURCES.md)
 
 ## Power and communications

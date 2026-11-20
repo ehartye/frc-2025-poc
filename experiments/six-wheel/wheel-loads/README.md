@@ -1,11 +1,5 @@
 # Where the straight-guide robot carries its weight
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The selected robot fits both modeled weight limits. The no-shelf-credit upper estimate is **51.794 kg** under R103 and **59.294 kg** with bumpers under R408. Adding the battery gives **65.464 kg empty** on the field. One pipe takes that to **66.280 kg**. The historical drive model used 65.833 kg empty and 66.650 kg loaded. Its mass assumption therefore covers the selected upper bound by 369 g. It still needs independent assumptions about where the weight lands. [Fabrication bill](../winchless-bill/README.md) · [Mass conversion and contact cases](contact.json)
 
 ## How much load reaches the center wheels?

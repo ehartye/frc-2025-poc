@@ -1,11 +1,5 @@
 # Reinstalling the station guides
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 [Compare both pipe ends in the survey viewer](review.html). In the centered example the weakest lower end has 0.220 mm of overlap after allowances. Moving both guides 0.315 mm to one side leaves the opening width unchanged, yet the weak end can have a 0.095 mm gap. These are synthetic measurements. Positive geometric overlap by itself establishes neither force nor cargo retention.
 
 ## Locate the guide before tightening it

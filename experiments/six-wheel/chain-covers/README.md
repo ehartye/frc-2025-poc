@@ -1,11 +1,5 @@
 # Make room for a removable drive-chain cover
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The [supported cover study](../cover-retention/README.md) adds the fasteners, service sequence and complete guard bill.
 
 The first 0.5 mm side panel cleared the tire, yet came within **0.425 mm of a rotating wheel-bolt tip**. Moving the front chain and both of its sprockets 3 mm inboard, then centering the panel between the new sprocket position and the bolt tips, gives **2.738 mm** to each. The resulting covers have a feasible rigid-body position. The light sheet leaves only **26.8 g** at the upper estimate for all attachments and outstanding equipment. Keep the guard out of the selected shop build until its retention, deflection, access and mass are established.

@@ -23,7 +23,7 @@ The current fixed camera decodes surveyed AprilTag 10 in one eye on 29 and 31 ap
 | Plus | 55.050 | −70.42 to −62.86 | −54 | Hold, too far back |
 | Minus | 54.815 | −40.47 to −31.87 | −54 | Hold, too close |
 
-The camera correction must move in opposite directions on these two cases. A second image at the same pose cannot correct the displacement. The next scoring test starts with each attained same-pipe checkpoint, drives to a corrected observed pose and checks the actual bore withdrawal, loaded slide, trough contact, separation and assessment clock. The narrower signed position and heading bounds, finite target clearance, available stock and peer occupancy belong to that run. This result earns zero L1 deliveries. [Independent scoring fixture](../score-stroke/study.md) · [Student film with checked chapter boundaries](https://ehartye.github.io/frc-2025-poc/)
+The camera correction must move in opposite directions on these two cases. A second image at the same pose cannot correct the displacement. The next scoring test starts with each attained same-pipe checkpoint, drives to a corrected observed pose and checks the actual bore withdrawal, loaded slide, trough contact, separation and assessment clock. The narrower signed position and heading bounds, finite target clearance, available stock and peer occupancy belong to that run. This result earns zero L1 deliveries. [Independent scoring fixture](../score-stroke/study.md)
 
 ## Reproduce
 

@@ -1,11 +1,5 @@
 # Seeing a pipe through the selected receiver
 
-<!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
-
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
-<!-- /cad-still -->
-
 The fixed camera can take over from the moving roof camera during the second modeled placement. That result needs two changes to the original robot drawing. Locate the fixed OAK-D Lite in its cradle with two removable shoes and apply two contrasting marks to the moving shelf. A 985-component optical scene includes the issued receiver machining, both native camera enclosures, roof support and modeled wiring. The resulting images reproduce the original controller events in all 28 desktop HAL cases. Physical optical accuracy and the installed fixed power-lead envelope remain open. [Exposure measurements](observations.json) · [Controller comparison](controller.json) · [Selected receiver](../selected-match/README.md)
 
 ## How the camera sits
