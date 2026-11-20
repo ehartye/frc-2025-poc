@@ -1,0 +1,402 @@
+{
+  "sourceHashes": {
+    "carrier-22-links.json": "967fff5789e8efef0016b2546ad1b3a426d13791ce8c05c1287c75251aa22794",
+    "moving-tail-20-link-b.json": "1cc55ef58f9670aa567f5ced310ad5b7638d63d239ba5d799dad4c49193f0711",
+    "moving-22-board-and-junction.json": "3faf5074e48f4507bed3306503bca778e231f513c8623d4af1b8a9109a2d9add",
+    "moving-22-board-and-junction.step": "6a1de1e9a2d53742cea9d9311639de0e7f3be5a666d6d19db6e06d9634b9f071",
+    "fixed-power-service-reroute.json": "7844d68bdd1152daf04dd0d07276dc5ea212df4152ebdf90e3e2b19a7674b21b",
+    "fixed-power-service-reroute.step": "465d2423545fb2356250e5695b12ba4ca5997501f21b607b7088ef01a8d72976",
+    "moving-22-fidelity.json": "c8c3b1c976b933b40f423e5d530991a96c7eb9bb705b8d333c1290e3ee0c145b",
+    "moving-22-continuous-clamp-clearance.json": "478ede970f145031135561c2aaeacc406bb6f20a65901625408e1bc54cc304a3",
+    "moving-22-plug-service.json": "d7c350ac5673ec9824fae7678238ec9d8592b2941036d83a619464fad7e80194"
+  },
+  "carrier": {
+    "nativeOverlay": "827b210ad815057d31e15d1e39c33c4879de8cf0538873461585b7c81c061bac",
+    "endOffsetXmm": -95.0,
+    "managedMm": 671.0,
+    "links": 22,
+    "minimumLinks": 20,
+    "minimumCatalogueMm": 587.5,
+    "insufficient19LinkMm": 579.5,
+    "laidOutChainKg": 0.2684,
+    "oldKg": 0.2806,
+    "allStroke": {
+      "nonHarnessBounds": [],
+      "existingHarnessBounds": [
+        "roof-host-trough-09"
+      ],
+      "minNonHarnessBoxGapMm": 10.0,
+      "nearestNonHarness": "Right NEO550 REV-21-1651"
+    },
+    "unchangedFixedLowerEnd": [
+      -5,
+      -323,
+      600
+    ],
+    "newMovingUpperEndAtZero": [
+      -167.5,
+      -323,
+      800
+    ],
+    "fullUSBUsableTipToTipMm": [
+      1997.5590279445287,
+      1997.720289598554
+    ],
+    "farReturnXmm": -421.6703673205103,
+    "mostRearwardBumperXmm": -425.05,
+    "straightRunsAtZeroFullMm": {
+      "0": [
+        259.6703673205103,
+        314.1592653589793,
+        97.17036732051031
+      ],
+      "370": [
+        74.67036732051034,
+        314.1592653589793,
+        282.1703673205103
+      ]
+    }
+  },
+  "movingAssembly": {
+    "output": "6a1de1e9a2d53742cea9d9311639de0e7f3be5a666d6d19db6e06d9634b9f071",
+    "input": "43f09ef0247c9d6eb84ba5d18fdc2759f4e26f2be5fd0ba20a3786d3a17a6b30",
+    "articleCount": 21,
+    "seatFacesMm2": {
+      "support--rail-foot": 11.177,
+      "boardSeat": 13.854,
+      "adapterRest": 6.529,
+      "pcbOnInsulator": 62.95221315760385,
+      "insulatorOnSeat": 67.00221315760018
+    },
+    "screwDatum": {
+      "nominal": "ISO 4762 M2 x 8 A2",
+      "lengthMm": 8,
+      "headOdMm": 3.8,
+      "driveAFmm": 1.5,
+      "throughDrillMm": 2.4,
+      "minorDrillMm": 1.6
+    },
+    "threadPairs": {
+      "support--board-M2-0": {
+        "modeledThreadAnnulusMm3": 4.5666,
+        "engagementMm": 4.037799999999947,
+        "headBearingMm2": 6.817256058283793
+      },
+      "support--board-M2-1": {
+        "modeledThreadAnnulusMm3": 4.5666,
+        "engagementMm": 4.037799999999947,
+        "headBearingMm2": 6.817256058283793
+      }
+    },
+    "clearanceAtParkedState": {
+      "support--board-M2-0": {
+        "wire--power-plug": 0.8336,
+        "support--board-threaded-seat": 4.5666
+      },
+      "support--board-M2-1": {
+        "wire--power-plug": 0.8336,
+        "support--board-threaded-seat": 4.5666
+      },
+      "support--aluminum-weld-junction": {},
+      "support--rail-to-spine": {},
+      "support--board-support": {},
+      "support--rest-support": {},
+      "support--power-support": {},
+      "support--data-support": {},
+      "support--board-threaded-seat": {
+        "support--board-M2-0": 4.5666,
+        "wire--power-plug": 15.5124,
+        "support--board-M2-1": 4.5666
+      },
+      "support--insulating-board-clip": {
+        "wire--power-plug": 81.8502
+      },
+      "support--transition-board": {
+        "wire--power-plug": 206.4443
+      }
+    },
+    "driver34mm": {
+      "support--board-M2-0": {},
+      "support--board-M2-1": {}
+    },
+    "insulator": {
+      "material": "plain FR-4 electrical laminate",
+      "thicknessMm": 2.3622
+    },
+    "board": "FR-4",
+    "shoe": "6061 aluminum",
+    "chargeForNewSeatG": 1.4993365819647222
+  },
+  "stationaryPower": {
+    "source": {
+      "carrier": "967fff5789e8efef0016b2546ad1b3a426d13791ce8c05c1287c75251aa22794",
+      "boundingRegister": "e88811b20611657a703b88a51ac22fd241c9d2f0909900d3f402e5d2eb953bbb",
+      "originalHead": "17e56acadd70416d09bd897e5e4779dcfbd4e8451a99145795eb719b68b0045a",
+      "otherRoofGuides": "49f725199453bd7cea8fb842ed4748222b57c06ba3a4d23aa5494e77ca2f1b0e",
+      "keyedUSBGuide": "a97e83d48990446f0908d418feeb54804bfdc0777e142e7889a8ad99de2b461b"
+    },
+    "gaugeSha256": "465d2423545fb2356250e5695b12ba4ca5997501f21b607b7088ef01a8d72976",
+    "gaugeOnly": true,
+    "fullInstalledArticlesScreened": 1268,
+    "projectSelectedFixedCable": "LAPP 1028952",
+    "nominalJacketODMm": 8.6,
+    "reserveODMm": 8.7,
+    "radiusStaticMm": 36,
+    "catalogStaticRadiusMm": 34.4,
+    "intermediateVertices": [
+      [
+        99,
+        -163,
+        333
+      ],
+      [
+        99,
+        -341,
+        333
+      ],
+      [
+        99,
+        -341,
+        600
+      ]
+    ],
+    "fixedMouthMm": [
+      -5,
+      -329,
+      600
+    ],
+    "SturnStartFromMouth": [
+      20,
+      -329,
+      600
+    ],
+    "SturnTransverseOffsetMm": 12,
+    "SturnRadiusMm": 36,
+    "oldFixedFeedMm": 620.1946710584651,
+    "newFixedFeedMm": 722.5645327031152,
+    "additionalFixedCutMm": 102.36986164465009,
+    "minimumCenterlineToMovingBendWithGripEdgeAtX9Mm": 88.67036732051034,
+    "marginTo10DAtReserveMm": 1.670367320510337,
+    "operatingKnownBodyGapsMm": {
+      "roof-guide-lamp-elbow": 4.298923303094032,
+      "roof-fixed-USB-upper-guide": 2.3999999999999773,
+      "roof-host-trough-09": 3.3999999999999773,
+      "guide-cable-keeper": 5.799890892277154,
+      "out-guide-cap-screw": 9.412166943379825,
+      "guide-stay-head-plate": 3.243093705104197
+    },
+    "otherBroadBelow2Mm": {
+      "support-R-ribbed-bracket": 1.6499999999838,
+      "guide-stay-head-plate": 1.2344237708894301,
+      "wire--converter--96": -5.35,
+      "roof-host-trough-09": -4.35,
+      "roof-guide-lamp-elbow": -4.241075171731827
+    },
+    "powerOutlet": "Inherited converter public envelope, connection hardware remains a separate interface.",
+    "unmodifiedBoomContinuous205MmService": {
+      "guide-stay-head-plate": {
+        "continuousLowerMm": 1.1049619455791098,
+        "closestSampleMm": 1.8828695750027744,
+        "intervals": 55
+      },
+      "roof-boom-mast-socket": {
+        "continuousLowerMm": 1.796875,
+        "closestSampleMm": 5.0,
+        "intervals": 13
+      },
+      "roof-guide-6061-boom": {
+        "continuousLowerMm": 1.7312499999999318,
+        "closestSampleMm": 8.137499999999932,
+        "intervals": 15
+      },
+      "roof-head-pin-nut": {
+        "continuousLowerMm": 4.120984480485557,
+        "closestSampleMm": 10.590598923250013,
+        "intervals": 9
+      },
+      "roof-head-pin-plug": {
+        "continuousLowerMm": 1.7056422778817772,
+        "closestSampleMm": 8.205710408252543,
+        "intervals": 9
+      },
+      "roof-head-pin-washer": {
+        "continuousLowerMm": 4.0871402435132875,
+        "closestSampleMm": 10.493390243513288,
+        "intervals": 9
+      },
+      "roof-head-shoulder": {
+        "continuousLowerMm": 4.582500964044012,
+        "closestSampleMm": 10.988750964044012,
+        "intervals": 11
+      },
+      "roof-root-pin-nut": {
+        "continuousLowerMm": 7.170950234642476,
+        "closestSampleMm": 32.795950234642476,
+        "intervals": 5
+      },
+      "roof-root-pin-plug": {
+        "continuousLowerMm": 4.0423457951537465,
+        "closestSampleMm": 29.667345795153746,
+        "intervals": 5
+      },
+      "roof-root-pin-washer": {
+        "continuousLowerMm": 7.285737283181184,
+        "closestSampleMm": 32.910737283181184,
+        "intervals": 5
+      },
+      "roof-root-shoulder": {
+        "continuousLowerMm": 8.32678911013916,
+        "closestSampleMm": 33.95178911013916,
+        "intervals": 5
+      }
+    },
+    "rejectedAlternative": {
+      "riserXmm": 110,
+      "offsetMm": 16,
+      "lampBracketCollisionMm3": 106.16253418521651
+    },
+    "scope": "Rigid parked robot and undeformed fixed power centerline. Full assembly receiving tolerance, pose registration, new fixed retainers and power commissioning remain separate.",
+    "powerModel": {
+      "currentA": 1.2,
+      "newHeavyConductorOneWayUpperMm": 1884.0311486428204,
+      "oldHeavyConductorOneWayUpperMm": 1780.0146262492638,
+      "bulkLoopOhmPerM": 0.020715,
+      "extraDropVsHistoricalRouteV": 0.0025856427136590316,
+      "selectedLoadedLowerV": 5.015044570025913,
+      "wornLoadedLowerV": 4.955044570025913,
+      "historicalLightPigtailMm": 70.0,
+      "scope": "Same terminal band, contact limits and 70 mm light-conductor allowance as historical study. Actual breakout and cut length remain open."
+    }
+  },
+  "tailControlVerticesMm": {
+    "data": [
+      [
+        -167.5,
+        -317.0,
+        800.0
+      ],
+      [
+        -133.4565975597292,
+        -317.0,
+        800.0
+      ],
+      [
+        -56.91424903243983,
+        -321.2913287147763,
+        814.9203987851596
+      ],
+      [
+        -13.069350355355512,
+        -268.04388105054534,
+        842.8508804216376
+      ],
+      [
+        -11.989811215195596,
+        -202.6444168060824,
+        875.088020015396
+      ],
+      [
+        -30.4377764368968,
+        -174.07972857483853,
+        905.920931140482
+      ],
+      [
+        -82.135704438015,
+        -175.0761710261514,
+        914.9206028845018
+      ],
+      [
+        -124.36850043568916,
+        -160.10051730734136,
+        897.5711943754296
+      ],
+      [
+        -142.53608671452363,
+        -98.43348269040348,
+        869.1443164475616
+      ],
+      [
+        -110.92526255014566,
+        -20.230899288605343,
+        844.9392348808997
+      ],
+      [
+        -36.26330874962874,
+        -23.5505,
+        847.78
+      ],
+      [
+        -12.19314,
+        -23.5505,
+        847.78
+      ]
+    ],
+    "power": [
+      [
+        -167.5,
+        -329.0,
+        800.0
+      ],
+      [
+        -135.18681204835622,
+        -329.0,
+        800.0
+      ],
+      [
+        -71.22174523718247,
+        -326.8953577407106,
+        783.2356027289146
+      ],
+      [
+        -27.404480070378384,
+        -262.09948046147616,
+        809.7554300169209
+      ],
+      [
+        -22.370519730270555,
+        -198.58070466222037,
+        849.2691859376782
+      ],
+      [
+        -41.86880168166276,
+        -171.73360549716477,
+        878.5933550865266
+      ],
+      [
+        -101.19608465394221,
+        -170.3917801657684,
+        885.6919828677229
+      ],
+      [
+        -155.30190915117262,
+        -150.9362157255426,
+        872.2951331588764
+      ],
+      [
+        -184.8279597666383,
+        -85.65048252588522,
+        854.525586709551
+      ],
+      [
+        -156.55397044738191,
+        -3.6608089683787597,
+        845.2714437398427
+      ],
+      [
+        -71.80890605538319,
+        -7.5505,
+        847.78
+      ],
+      [
+        -52.0,
+        -7.5505,
+        847.78
+      ]
+    ]
+  },
+  "independentlyBoundMaxJacketRadiusMm": {
+    "data": 3.275,
+    "power": 4.35
+  },
+  "provenance": "The 22-link carrier retains the -95 mm moving-end offset and tail control polygon of the 20-link iteration. Neutral gauges and branch receipts came from the project-owned roof wiring study. They have no inspection-mass credit."
+}

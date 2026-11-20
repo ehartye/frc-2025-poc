@@ -1,0 +1,47 @@
+{
+  "schema": "agent-frc/throughput-cohort@1",
+  "demand": {
+    "path": "experiments/swerve-drive/low-placement/red2-demand.json",
+    "pointer": "",
+    "sha256": "0681e5bd5fdabc0a3e0d1e596e09fe92b63e57c36b72d686412fb69947e0c418"
+  },
+  "evidence": "integrated-simulation",
+  "axes": [
+    {
+      "id": "wheelCalibration",
+      "unit": "calibration polarity",
+      "type": "enum",
+      "choices": [
+        "plus",
+        "minus"
+      ],
+      "nativePointer": "/initial/wheelCalibration"
+    },
+    {
+      "id": "plungerGapMm",
+      "unit": "mm",
+      "type": "number",
+      "nativePointer": "/initial/plungerGapMm"
+    }
+  ],
+  "purpose": "characterization",
+  "revision": "four-pin-337mm-reduced-contact",
+  "cases": [
+    {
+      "id": "development",
+      "partition": "evaluation",
+      "parameters": {
+        "wheelCalibration": "plus",
+        "plungerGapMm": 0.1
+      }
+    },
+    {
+      "id": "opposite",
+      "partition": "evaluation",
+      "parameters": {
+        "wheelCalibration": "minus",
+        "plungerGapMm": 0.1
+      }
+    }
+  ]
+}

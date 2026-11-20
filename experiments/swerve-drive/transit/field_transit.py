@@ -13,6 +13,29 @@ from occupied_supply import supply_review
 DT = 0.005
 
 
+def save_endpoint(endpoint, source, plant, odom, gyro):
+    with np.load(source) as initial:
+        static_shares = initial["staticShares"]
+    np.savez(
+        endpoint,
+        pose=plant.pose,
+        velocity=plant.velocity,
+        angle=plant.angle,
+        azimuth_rate=plant.azimuth_rate,
+        wheel_speed=plant.wheel_speed,
+        wheel_turns=plant.wheel_turns,
+        target_speed=plant.target_speed,
+        load=plant.load,
+        radii=plant.radius,
+        staticShares=static_shares,
+        gyro=gyro,
+        estimatedPose=odom.pose,
+        odomAngles=odom.angles,
+        odomRotor=odom.rotor,
+        odomAbsolute=odom.absolute,
+    )
+
+
 def restore(state, route, side):
     wheel = route["wheel"]
     xy = (
@@ -239,26 +262,7 @@ def run(raw, out, case, step, cut=None, policy="south-offset", hold=0.9, continu
         telemetry, relativeS=times, rotorAbsoluteGyro=np.array(observed)
     )
     endpoint = out / "end-wheels.npz"
-    with np.load(first_wheels) as initial:
-        static_shares = initial["staticShares"]
-    np.savez(
-        endpoint,
-        pose=plant.pose,
-        velocity=plant.velocity,
-        angle=plant.angle,
-        azimuth_rate=plant.azimuth_rate,
-        wheel_speed=plant.wheel_speed,
-        wheel_turns=plant.wheel_turns,
-        target_speed=plant.target_speed,
-        load=plant.load,
-        radii=plant.radius,
-        staticShares=static_shares,
-        gyro=gyro,
-        estimatedPose=odom.pose,
-        odomAngles=odom.angles,
-        odomRotor=odom.rotor,
-        odomAbsolute=odom.absolute,
-    )
+    save_endpoint(endpoint, first_wheels, plant, odom, gyro)
     checked = round((end + 0.9) / DT)
     stop_state = stop_feedback(observed, estimates, enc, checked)
     stop_state["wallS"] = start + checked * DT

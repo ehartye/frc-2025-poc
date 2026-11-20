@@ -66,7 +66,7 @@ def restore(raw, feed):
         0.0,
         1500.0,
         (-0.066, 0.042),
-        0.0001,
+        feed.get("capGapMm", 0.1) / 1000,
         True,
     )
     pipe.guides = engine.GuideResponse(beam)

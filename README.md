@@ -8,7 +8,7 @@
 
 **[Open the field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html)** to move a robot on the 2025 field and try both alliances' match plans. From a local checkout, open [the offline lab](kickoff/field-lab.html).
 
-[Compare the two station routes](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) with the other five robots held fixed. Red 1’s opposite-station route recorded 15 field-rehearsal deliveries under congestion. The actual retained-pipe simulations stop before scoring. [Mechanism and working-load evidence](experiments/swerve-drive/whole-robot-trade/study.md)
+[Compare the two station routes](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) with the other five robots held fixed. Red 1’s opposite-station route recorded 15 field-rehearsal deliveries under congestion. Red 2’s modeled receiver carried its pipe to both signed reef docks, where a grip support obstructed ejection. [Pickup-to-reef study](experiments/swerve-drive/low-placement/study.md) · [Whole-robot trade](experiments/swerve-drive/whole-robot-trade/study.md)
 
 **[Inspect the engineering assembly](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)** or [follow the receiver, battery and roof-harness assembly sequence](cad/assembly-engineering/receiver-service/shop.md). Move the two-stage shelf, grip yokes and front jack. The [1,268-part build register and inspection estimate](cad/assembly-engineering/receiver-service/verification.md) leave 23.36 g under the modeled limit. Field reaction, loaded stopping and wiring acceptance remain open.
 

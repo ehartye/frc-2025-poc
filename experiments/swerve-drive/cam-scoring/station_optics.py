@@ -36,7 +36,7 @@ def foreground():
     return fixed, roof, cam
 
 
-def run(artifacts):
+def run(artifacts, *, sides=("plus", "minus"), gap_mm=0.1):
     fixed, roof, cam = foreground()
     kit = read(KIT / "open-yokes.json")
     ys = projected(kit)
@@ -51,8 +51,8 @@ def run(artifacts):
         ]
     wheel = camera.load_wheel_mask(artifacts / "loaded-swerve/wheel-visibility.json")
     out = {}
-    for side in ("plus", "minus"):
-        name = f"cam-station-{side}-31.25us-0.1mm"
+    for side in sides:
+        name = f"cam-station-{side}-31.25us-{gap_mm:g}mm"
         raw = artifacts / "r4-score-stroke"
         feed = read(raw / (name + ".json"))
         if (

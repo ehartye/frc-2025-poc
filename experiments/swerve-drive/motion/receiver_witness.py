@@ -34,12 +34,13 @@ def digest(path):
 
 def source_parts():
     model = PROJECT / "cad/full-swerve-r4"
-    receipt = read(PROJECT / "docs/robot/cad/receipt.json")
+    receipt = read(model / "optical-render-input.json")
     manifest = read(model / "appearances.json")
     if not (
         digest(model / "full-robot.step")
         == manifest["sourceSha256"]
         == receipt["sourceSha256"]
+        and digest(model / "appearances.json") == receipt["appearances"]["sha256"]
     ):
         raise ValueError(
             "Selected R4 assembly differs from its public rendering record"

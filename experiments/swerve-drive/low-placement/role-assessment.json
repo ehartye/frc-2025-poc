@@ -1,0 +1,57 @@
+{
+  "schema": "agent-frc/throughput-result@2",
+  "cohort": {
+    "path": "experiments/swerve-drive/low-placement/role-freeze.json",
+    "pointer": "",
+    "sha256": "b2b25cf3364fd01c4f4f931513c4b1c24313f2467b557a2401f5ac4c69fb35e5"
+  },
+  "evidence": "integrated-simulation",
+  "revision": "mounted-front-contact-v1",
+  "purpose": "refinement",
+  "independentlyCheckedFreeze": true,
+  "demand": {
+    "criterionId": "red2-v0-l1-contact",
+    "criterion": "Same station-issued CORAL contacts the red L1 trough after leaving the robot and remains in a V0 qualifying state at assessment.",
+    "focalRobot": "R2",
+    "outcome": "credited",
+    "station": "red-l1",
+    "requiredPieces": 2,
+    "windowS": 135,
+    "anchor": {
+      "basis": "phase-start",
+      "phase": "TELEOP",
+      "offsetS": 0
+    },
+    "basis": "The selected Red 2 role attempts two distinct station CORAL deliveries in sectors A and B during its actual 18 to 153 s TELEOP window, with the same finite supply and the other five participants. Parking and LEAVE have separate criteria."
+  },
+  "requiredPerSecond": 0.014814814814814815,
+  "episodes": [
+    {
+      "id": "development",
+      "partition": "evaluation",
+      "status": "open",
+      "reason": "Frozen case has no execution receipt."
+    },
+    {
+      "id": "opposite",
+      "partition": "evaluation",
+      "status": "open",
+      "reason": "Frozen case has no execution receipt."
+    },
+    {
+      "id": "holdout",
+      "partition": "held-out",
+      "status": "open",
+      "reason": "Frozen case has no execution receipt."
+    }
+  ],
+  "distinctVariations": 0,
+  "qualifiedRuns": 0,
+  "requiredRuns": 3,
+  "passingRuns": 0,
+  "worstRate": null,
+  "p10NearestRank": null,
+  "status": "open",
+  "scope": "The verdict covers the frozen cases and stated evidence class. Native clock, parameters and attributed outcomes support these rates. Freeze chronology, model fidelity and population reliability require independent evidence.",
+  "studySha256": "688a334ada8f99c2b67cf2b57fa770e24667111e73badf24fd15762c5f4d42b5"
+}
