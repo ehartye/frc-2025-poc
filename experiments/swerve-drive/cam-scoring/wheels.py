@@ -11,13 +11,14 @@ from register import read, sha, write
 from departure_drive import run as station_wheels
 
 
-def run(artifacts, side, stage):
-    raw = artifacts / "cam-scoring" / side
+def run(artifacts, side, stage, *, gap_mm=0.1, service_root=None, output_root=None, optics_record=None):
+    raw = (artifacts / "cam-scoring" if output_root is None else output_root) / side
     raw.mkdir(exist_ok=True, parents=True)
     r4 = artifacts / "r4-score-stroke"
-    name = f"cam-station-{side}-31.25us-0.1mm"
-    service = read(r4 / (name + "-service.json"))
-    optics = read(artifacts / "cam-scoring/optics.json")[side]
+    name = f"cam-station-{side}-31.25us-{gap_mm:g}mm"
+    service = read((r4 if service_root is None else service_root) / (name + "-service.json"))
+    optical_file = artifacts / "cam-scoring/optics.json" if optics_record is None else optics_record
+    optics = read(optical_file)[side] if optics_record is None else read(optical_file)
     if (
         optics["counts"] != {"65": 6, "215": 0}
         or optics["piece"] != "coral-A"
@@ -68,7 +69,7 @@ def run(artifacts, side, stage):
         candidateCam=service["candidateStepSha256"],
         sourceMatchRegister=sha(raw / "station-wheels.json"),
         initialCustody=sha(raw / "station-piece.json"),
-        stationObservation=sha(artifacts / "cam-scoring/optics.json"),
+        stationObservation=sha(optical_file),
     )
     write(out / "route.json", result)
     return result

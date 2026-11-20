@@ -31,13 +31,14 @@ spec.loader.exec_module(prior_cargo)
 restore = prior_cargo.restore
 
 
-def run(artifacts, side, stage):
+def run(artifacts, side, stage, *, gap_mm=0.1, service_root=None, output_root=None):
     src = artifacts / "r4-score-stroke"
-    name = f"cam-station-{side}-31.25us-0.1mm"
+    name = f"cam-station-{side}-31.25us-{gap_mm:g}mm"
     feed = read(src / (name + ".json"))
-    seat = read(src / (name + "-service.json"))
+    service_root = src if service_root is None else service_root
+    seat = read(service_root / (name + "-service.json"))
     own = src / name
-    initial = own / "first-service" / f"{side}-31.25us-service.npz"
+    initial = service_root / name / "first-service" / f"{side}-31.25us-service.npz"
     if (
         digest(initial) != seat["outgoing"]
         or feed["pipeStateSha256"] != seat["incoming"]
@@ -46,7 +47,7 @@ def run(artifacts, side, stage):
         raise ValueError("The station source and machined shelf do not match")
     pipe, dt, _ = restore_station(own, feed)
     engine.feed.cfg = replace(engine.feed.cfg, slices=10)
-    out = artifacts / "cam-scoring" / side
+    out = (artifacts / "cam-scoring" if output_root is None else output_root) / side
     if stage == "station":
         reg = read(out / "station-wheels.json")
         wheels = out / (side + "-0.npz")

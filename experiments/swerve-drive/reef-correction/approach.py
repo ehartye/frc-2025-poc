@@ -47,16 +47,34 @@ def sensed_center(heads, ctx, prediction):
     return np.r_[np.mean(positions, axis=0), prediction[2]]
 
 
-def run(artifacts, side, mode="nominal"):
-    case = read(artifacts / "captive-observer/mono.json")[side]
-    source = read(RET / "held.json")["cases"][side]["source"]
-    route_dir = artifacts / "retained-coral" / side / "continued"
+def run(artifacts, side, mode="nominal", *, cam_run=None, forward_mm=0.0):
+    if cam_run is None:
+        route_dir = artifacts / "retained-coral" / side / "continued"
+        survey = artifacts / "captive-observer/mono.json"
+        camera = artifacts / "reef-correction/camera.npz"
+        pipe = artifacts / "captive-observer" / side / "state.npz"
+        source = read(RET / "held.json")["cases"][side]["source"]
+        folder = artifacts / "reef-correction" / side
+    else:
+        cam = artifacts / "cam-scoring"
+        route_dir = cam / side / "route"
+        survey = cam / "reef-survey.json"
+        camera = cam / "camera.npz"
+        pipe = cam / side / "route-piece.npz"
+        custody = read(cam / side / "route-piece.json")
+        published = read(HERE.parent / "cam-scoring/results.json")["developmentCases"][side]
+        if (custody["state"] != published["stages"]["route"]["state"]
+                or not custody["allGranted"] or custody["fault"]
+                or custody["piece"] != "coral-A"
+                or custody["wheel"] != published["route"]["trajectory"]):
+            raise ValueError("Cam capture or signed route changed")
+        source = {"checkpoint": custody["state"], "endWallS": custody["endWallS"],
+                  "qualifiedAtWheelEndpoint": {"retained": custody["allGranted"]}}
+        folder = cam_run / side
+    case = read(survey)[side]
     previous = read(route_dir / "route.json")
-    camera = artifacts / "reef-correction/camera.npz"
     scene = read(camera.with_suffix(".json"))
-    if scene["bytes"] != sha(camera) or scene["sourceSurvey"] != sha(
-        artifacts / "captive-observer/mono.json"
-    ):
+    if scene["bytes"] != sha(camera) or scene["sourceSurvey"] != sha(survey):
         raise ValueError("Optical source changed")
     with np.load(camera) as data:
         ctx = {k: data[k] for k in data.files}
@@ -64,7 +82,6 @@ def run(artifacts, side, mode="nominal"):
     optic = scene["cases"][side]
     corner_review = optic["cornerReview"]
     wheel = route_dir / "end-wheels.npz"
-    pipe = artifacts / "captive-observer" / side / "state.npz"
     if (
         sha(wheel) != previous["terminalWheels"]
         or sha(pipe) != source["checkpoint"]
@@ -79,6 +96,7 @@ def run(artifacts, side, mode="nominal"):
     wheel_record = F.prior(artifacts / "loaded-swerve", side, 31.25)[1]
     plant, enc, odom, gyro = F.restore(wheel, wheel_record, side)
     origin = np.asarray(previous["goals"][-1])
+    goal = origin + np.array([forward_mm / 1000, 0.0])
     initial = project_local(plant.pose, origin)
     if (
         np.linalg.norm(initial - np.asarray(optic["pose"])) > 1e-6
@@ -138,7 +156,7 @@ def run(artifacts, side, mode="nominal"):
         if last is not None and tick - last > 12 and abort is None and complete is None:
             abort = "expired optical lease"
             complete = tick
-        err = origin - odom.pose[:2]
+        err = goal - odom.pose[:2]
         heading = F.dock.wrapped(-odom.pose[2])
         if (
             complete is None
@@ -205,7 +223,6 @@ def run(artifacts, side, mode="nominal"):
             terminalMmMmRad=terminal.tolist(),
             deliveryCredit=0,
         )
-        folder = artifacts / "reef-correction" / side
         folder.mkdir(exist_ok=True, parents=True)
         write(folder / (mode + ".json"), result)
         return result
@@ -264,8 +281,11 @@ def run(artifacts, side, mode="nominal"):
         or np.any(terminal > enclosure[1])
     ):
         raise ValueError("Final measured enclosure missed physical state")
-    folder = artifacts / "reef-correction" / side
     folder.mkdir(exist_ok=True, parents=True)
+    terminal_wheels = None
+    if cam_run is not None:
+        terminal_wheels = folder / "end-wheels.npz"
+        F.save_endpoint(terminal_wheels, wheel, plant, odom, gyro)
     path = folder / "chassis.npz"
     np.savez_compressed(
         path,
@@ -311,6 +331,8 @@ def run(artifacts, side, mode="nominal"):
         cargoContinued=False,
         deliveryCredit=0,
     )
+    if terminal_wheels is not None:
+        receipt.update(terminalWheels=sha(terminal_wheels), correctionForwardMm=forward_mm, camera=sha(camera))
     write(folder / "chassis.json", receipt)
     return receipt
 

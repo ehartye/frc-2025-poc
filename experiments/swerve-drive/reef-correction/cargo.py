@@ -27,11 +27,22 @@ def restore(pipe, state):
         ]
 
 
-def run(artifacts, side):
-    raw = artifacts / "reef-correction" / side
+def run(artifacts, side, *, cam_run=None):
+    if cam_run is None:
+        raw = artifacts / "reef-correction" / side
+        state = artifacts / "captive-observer" / side / "state.npz"
+        source = held.read(HERE.parent / "retention/held.json")["cases"][side]["source"]
+    else:
+        raw = cam_run / side
+        arrived = artifacts / "cam-scoring" / side
+        state = arrived / "route-piece.npz"
+        receipt = held.read(arrived / "route-piece.json")
+        issued = held.read(HERE.parent / "cam-scoring/results.json")["developmentCases"][side]
+        if not receipt["allGranted"] or issued["stages"]["route"]["state"] != receipt["state"]:
+            raise ValueError("No matched cam cargo at the reef stop")
+        source = {"checkpoint": receipt["state"], "piece": receipt["piece"],
+                  "endWallS": receipt["endWallS"]}
     chassis = held.read(raw / "chassis.json")
-    state = artifacts / "captive-observer" / side / "state.npz"
-    source = held.read(HERE.parent / "retention/held.json")["cases"][side]["source"]
     if not (
         source["checkpoint"] == chassis["sourcePipe"] == held.sha(state)
         and source["endWallS"] == chassis["startWallS"]
@@ -39,8 +50,27 @@ def run(artifacts, side):
         and chassis["route"] == held.sha(raw / "chassis.npz")
     ):
         raise ValueError("Different loaded source or actuator clock")
-    pipe, dt, _, _, _ = held.restore_interlock(artifacts, side)
+    if cam_run is None:
+        pipe, dt, _, _, _ = held.restore_interlock(artifacts, side)
+    else:
+        sys.path.insert(0, str(HERE.parent / "cam-scoring"))
+        import captivity
+        src = artifacts / "r4-score-stroke"
+        name = f"cam-station-{side}-31.25us-0.1mm"
+        feed = held.read(src / (name + ".json"))
+        if feed["candidateStepSha256"] != receipt["cam"] or receipt["cam"] != captivity.CAM["candidateStepSha256"]:
+            raise ValueError("Different plate section at restart")
+        pipe, dt, _ = captivity.restore_station(src / name, feed)
+        from dataclasses import replace
+        captivity.engine.feed.cfg = replace(captivity.engine.feed.cfg, slices=10)
+        try:
+            from threadpoolctl import threadpool_limits
+            threadpool_limits(limits=1, user_api="blas")
+        except ImportError:
+            pass
     restore(pipe, state)
+    if cam_run is not None and abs(pipe.time + feed["lipWallS"] - source["endWallS"]) > 1e-7:
+        raise ValueError("Discontinuous cam clock")
     original_time = pipe.time
     with np.load(raw / "chassis.npz") as route:
         acc = route["bodyAcceleration"].copy()
