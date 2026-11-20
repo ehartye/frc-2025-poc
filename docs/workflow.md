@@ -33,3 +33,5 @@ The earlier `frc-mechanism-cad` engineering pass follows the original default-ma
 ## Compare station routes and size the complete robot
 
 The strategic narrative and case-study workflow compare the same five other players, change Red 1’s station, and test depletion of that station. The mechanism-CAD working-load study uses the complete front and rear jack layouts, operating robot mass, simultaneous roll and pitch reactions, and the actual stopped receiver traces. [Rehearse the selected role](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) · [Study, inputs and measured outcomes](../experiments/swerve-drive/whole-robot-trade/study.md)
+
+The mechanism-CAD workflow compares four true rear frame setbacks against both purchased rear modules and their removal paths. [Frame and bumper study](../cad/rear-frame-facets/study.md) · [Signed fit results](../cad/rear-frame-facets/fit.json)

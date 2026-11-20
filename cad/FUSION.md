@@ -2,6 +2,10 @@
 
 The [receiver-service Fusion archive](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) has SHA-256 `a5d4c627f7266414270b7f9389c9396b25ce50fd1ca429f64646b1469e77a065`. Its independent reopen checked all 1,269 bodies, 21 joint motions and the camera’s physical attachment throughout the receiver stroke. See the [signed geometry results and operating holds](assembly-engineering/receiver-service/verification.md).
 
+## Compare rear frame construction
+
+The issued full robot uses square rear frame joints. A new chassis can use a 19.05 mm setback with continuous backing and padding at both rear corners. The neutral study checks the actual swerve plates and downward cartridge removal. [Corner dimensions, rejected larger cuts and STEP](rear-frame-facets/study.md)
+
 ## Inspect the fixed-low engineering alternate
 
 [Download the receiver service master](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) and [inspect its shop drawings and bench order](assembly-engineering/receiver-service/shop.md). The 1,268-part alternate adds bolted grip drives, adjustable end switches, an insulating battery keeper, a stepped Anderson disconnect mount and a removable USB support. The [interactive assembly](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html) operates the shelf, capture yokes and cage jack. [Revision and acceptance checks](assembly-engineering/receiver-service/verification.md) · [Native reopen](assembly-engineering/receiver-service/issue/cold-reopen.json)
