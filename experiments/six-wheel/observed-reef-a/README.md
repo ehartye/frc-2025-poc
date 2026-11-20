@@ -1,5 +1,11 @@
 # Can the shop robot see scoring sector A while carrying coral-A?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The existing fixed head can register the A sector when it can see the surveyed face and a complete subset of its fasteners. At the terminal decision the left-small wheel case is inside an 8.53 mm position bound and the right-small case is inside 7.88 mm. Both heading bounds are 0.74°. These desktop results use the signed, powered station starts and the 85% loaded gyro schedule. The earlier [two-pipe match replay](../conditioned-match/replay.html) retains its original observers and stops.
 
 [Open the student camera replay](viewer.html). Select the wheel case and field input, then move the exposure slider. The two panels show the fasteners the camera measured at that instant.

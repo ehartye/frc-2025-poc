@@ -1,5 +1,11 @@
 # Can a second instrument see the seated pipe?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The issued fixed stereo camera can independently locate the centered pipe on the receiving shelf in this desktop experiment. The two ports alone confirmed at 1.280 s on the controller clock. Five fresh camera exposures corroborated the port result at **1.380 s**, across all 17 integer camera phases. Replaying those same port signals on an empty shelf, or during a weak-grip loss, produced **zero corroborated ticks**. The result is a position observation. A physical installation still needs image, timing and retention calibration before authorizing movement. [Acquisition experiment](../observable-acquisition/README.md) · [Timing and counterexamples](results.json)
 
 ![Registered empty receiver and two rendered camera views of the seated pipe](stereo-views.svg)

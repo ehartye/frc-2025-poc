@@ -1,5 +1,11 @@
 # Station receiver lift
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The alternative twin Acme drive now has a source-bound comparison of clearance, critical speed, split-drive racking, stopping distance during power loss and mass displaced by a full transmission replacement. [Independent screw-drive comparison](../lift-screw/README.md)
 
 The 545-body placement model shows a moving plate reaching its fixed service arm before the backup line completes its modeled catch. The successor study registers the interference, the independent end-damper packaging and the midtravel brake requirements. [Shared-shaft and power-loss study](../lift-arrest/README.md)

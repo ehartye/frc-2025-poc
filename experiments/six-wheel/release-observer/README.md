@@ -1,5 +1,11 @@
 # Measuring receiver clearance
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 **The projected stereo pair can distinguish the reference departure from the slow, recontacting release. The entire timing chain currently passes only 15 of 17 synthetic frame phases in the tightest tested pixel-error case.** The checkout contains no physical calibration or vehicle adapter. The existing Seat and Entry ports can both report empty while the pipe still overlaps the shelf.
 
 This observer produces shelf-scoped evidence. The full assembly can extend beyond that shelf. The desktop controller holds the slide on every legacy shelf packet. A separately registered whole-robot measurement exercises one reviewed simulated withdrawal. [Controller and timing evidence](../competition-controls/README.md)

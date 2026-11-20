@@ -1,12 +1,18 @@
 # Release-day opportunity study
 
-Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [editable season source](season-profile.json) is the input for regeneration.
+<!-- cad-still -->
+[![Team 1780 Â· captive swerve receiver](../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD Â· Team 1780 Â· captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP Â· 0dad9e862e](../cad/swerve-captive/public-robot.step) Â· [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
+Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [live season profile](live-profile.json) is the input for regeneration.
 
 ### Play six matches
 
-In **Match rehearsal**, select the published series and press **Play match series at 10×**. The three scoring games and three BARGE comparisons run in about 90 seconds. Follow a robot and its cargo, select a station in the legend to find it on the field, and compare the Blue and Red results after each game. [Open the live field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html#rehearsal) · [See the match plans and recorded results](series.md)
+In **Match rehearsal**, select the published series and press **Play match series at 10Ã—**. The three scoring games and three BARGE comparisons run in about 90 seconds. Follow a robot and its cargo, select a station in the legend to find it on the field, and compare the Blue and Red results after each game. [Open the live field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html#rehearsal) Â· [See the match plans and recorded results](series.md)
 
-The editable observation box starts at 30 × 30 × 30 in and heading 0°. Each rehearsal roster slot initially uses a 26 × 26 in frame with 3.25 in of bumper per side, for a 32.5 × 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.
+The editable observation box starts at 30 Ã— 30 Ã— 30 in and heading 0Â°. Each rehearsal roster slot initially uses a 26 Ã— 26 in frame with 3.25 in of bumper per side, for a 32.5 Ã— 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.
 
 This exercise starts from the 2025 REEFSCAPE V0 game manual. The existing mechanism fixture in the main README is a later investigation. Both candidate match stories in this exercise remain open for team review.
 
@@ -20,7 +26,7 @@ The [field occupancy follow-up](FIELD-SPACE.md) checks the full footprint at the
 
 Each trial starts with the robot at its pickup pose, has one second of setup and assumes mean loaded and empty transit speeds of 60 in/s. All allocated pieces are at their source when the window opens. Straight sections and bends follow the saved route. The trials assume immediate access and successful scoring. Queues, acceleration transients, alignment variation and capture failures need measurements.
 
-| Candidate | Allocated to this robot | Route A → B | Assumed pickup + release | By 15 s |
+| Candidate | Allocated to this robot | Route A â†’ B | Assumed pickup + release | By 15 s |
 | --- | --- | --- | --- | --- |
 | OP-1. Receive CORAL at the station, place in L1, return to receive again | 4 distinct CORAL at the same station | 139.647 in | 1.0 + 0.5 s | First two complete at 4.827 and 10.982 s, for up to 4 points |
 | OP-2. Acquire one accessible reef ALGAE and deliver it to the processor | 1 ALGAE at the reef | 97.952 in | 3.0 + 1.0 s | Delivery completes at 6.633 s, for up to 6 points |
@@ -29,9 +35,9 @@ The two alternatives consume the same window. A larger match strategy must alloc
 
 ## Turn the scoring window into a technical requirement
 
-The field lab's generic rate screen charges the A → B transit once. With the OP-1 service input restricted to pickup and release, it reports a four-piece ceiling. The campaign needs a separate shuttle schedule because each additional CORAL must come from the station. V0 G409 constrains simultaneous control. In this candidate the robot transports one CORAL on each loaded trip. [2025 V0 game manual, §§6.3–6.5 and G409](https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf)
+The field lab's generic rate screen charges the A â†’ B transit once. With the OP-1 service input restricted to pickup and release, it reports a four-piece ceiling. The campaign needs a separate shuttle schedule because each additional CORAL must come from the station. V0 G409 constrains simultaneous control. In this candidate the robot transports one CORAL on each loaded trip. [2025 V0 game manual, Â§Â§6.3â€“6.5 and G409](https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf)
 
-For delivery number `n`, the elapsed time is `setup + n × (pickup + release) + (2n − 1) × one_way_travel`. The last delivery requires no return. The third OP-1 delivery finishes at 17.137 s. At 60 in/s, receiving and releasing together must take at most 0.788 s per piece to deliver three within the window. Keeping the 1.5 s service assumption instead requires at least 73.50 in/s mean transit. Meeting either idealized boundary leaves zero scheduling margin. This is why the team should time the parts of a complete cycle before choosing a loader.
+For delivery number `n`, the elapsed time is `setup + n Ã— (pickup + release) + (2n âˆ’ 1) Ã— one_way_travel`. The last delivery requires no return. The third OP-1 delivery finishes at 17.137 s. At 60 in/s, receiving and releasing together must take at most 0.788 s per piece to deliver three within the window. Keeping the 1.5 s service assumption instead requires at least 73.50 in/s mean transit. Meeting either idealized boundary leaves zero scheduling margin. This is why the team should time the parts of a complete cycle before choosing a loader.
 
 Both routes pass within the model's corridor threshold of paths associated with two partner start slots. The estimate uses illustrative starting and goal approaches and has no arrival-time evidence. For OP-1, record exposure of the deployed CORAL guides during pickup and their configuration in transit. For OP-2, record ALGAE retention and the capture assembly's projection while traveling to the processor. Keep both roles as candidates until the team chooses.
 
@@ -45,4 +51,4 @@ The saved rules model and browser draft came from Agent FRC 0.12.0. They preserv
 node /path/to/agent-frc/scripts/kickoff.mjs --profile kickoff/season-profile.json --output field.html
 ```
 
-Set `AGENT_FRC_PLUGIN_ROOT` to the compatible plugin directory and run `node --test tests/kickoff-field.test.mjs` for the season integration checks. In the lab, compare the default 30 × 30 × 30 in box with a 31 × 29 × 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Original 0.12.0 source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)
+Set `AGENT_FRC_PLUGIN_ROOT` to the compatible plugin directory and run `node --test tests/kickoff-field.test.mjs` for the season integration checks. In the lab, compare the default 30 Ã— 30 Ã— 30 in box with a 31 Ã— 29 Ã— 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Original 0.12.0 source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)

@@ -1,5 +1,11 @@
 # What supports the shelf during extension?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Move the rails through the stroke](index.html). The 370 mm scoring extension changes both the rail overlap and the material above the two fixed shock absorbers. Carrying the parked support conditions into the scoring pose would give the shelf vertical support that the modeled assembly cannot provide.
 
 ## Reopen the hardware at the reached stroke

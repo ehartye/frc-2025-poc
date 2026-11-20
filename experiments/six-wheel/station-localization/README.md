@@ -1,5 +1,11 @@
 # Can the robot locate its receiver at the station?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The current downward-facing release camera cannot see the four mounting bolts around station marker ID2. An upward-looking global-shutter camera on the right mast can see them in the registered model. Start with that single camera for a measurement fixture. A second on the left adds little margin for this task. Both arrangements depend on an independent survey tying the static panel, actual pipe path and loaded receiver together. The physical alignment decision remains **hold**. [Receiver entry windows and student docking lab](../station-supply/DOCKING.md) · [Native visibility](sightlines.json) · [Numerical uncertainty and controls](pose-study.json)
 
 ## What the camera measures

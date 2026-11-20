@@ -1,5 +1,11 @@
 # Can we score after correcting the approach?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The [second station feed](../return-station/README.md) now replays these five achieved returns, the real port sequence, and the independent stereo custody clock. [Try the receiver](../return-station/replay.html).
 
 **All five modeled approaches to sector A delivered the first pipe and parked for seven role points.** The robot earns three for leaving during AUTO, two for L1 CORAL and two for parking. Park finishes at wall 60.478 s. Both the kickoff and later rule editions count the pipe at wall 156 s, three seconds after the match ends. The second sector independently supports a delivery in the same five approach conditions. The second station feed still needs a trial from the position the robot actually reaches. [Interactive contact replay](replay.html) · [Field outcomes](match.json) · [Earlier approach and five-point fallback](../sector-alignment/README.md)

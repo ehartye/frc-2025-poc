@@ -1,5 +1,11 @@
 # Inspection mass for the fixed-height swerve build
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The drawing build reaches **51.993 kg under R103** with the repaired rear electronics installed, leaving **170 g** of calculated headroom. Including the 7.5 kg bumper upper gives **59.493 kg under R408**, 1.742 kg below the project limit. Both keep the full original 2–5 kg unitemized allowance, all eight controllers, the isolated lift wiring, the longer motor phase extensions, purchased-module receiving ranges and every frame/weld allowance. The baseline four-module design with long supply wiring remains 3.650 kg overweight. [Source bill](../power/installed.json) · [Reopened CAD measurements and eleven comparisons](recipe.json)
 
 ## How much room does the numbered R4 actually have?

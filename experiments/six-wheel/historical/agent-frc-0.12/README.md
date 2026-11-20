@@ -1,5 +1,11 @@
 # Historical 2025 source package
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 This preserves the 2025 operating inputs and regression evidence that accompanied the earlier Agent FRC repository. The source predates the project-owned field rehearsal. Its retrospective case uses a 164-page manual snapshot with sections 6 and 7 at different post-kickoff revisions. Use the [kickoff season profile](../../kickoff/season-profile.json) for the release-day exercise.
 
 [The inventory](inventory.json) records the original path, SHA-256, size and disposition for the 2025 case directory, the season Java properties and the other explicitly CORAL/REEFSCAPE/ALGAE-named files in the source tree. Local copies preserve native bytes. Files already owned by this project point to their verified location. Named historical Java, Python, CAD, numerical experiment and fixture inputs are operational records. The profile under `operational/case-studies/2025/kickoff-field.json` is frozen for earlier runs.

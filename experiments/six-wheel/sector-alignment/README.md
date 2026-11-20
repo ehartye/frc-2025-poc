@@ -1,5 +1,11 @@
 # Final scoring-sector approach
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The [spatial contact follow-up](../spatial-contact/README.md) carries these signed approach states through withdrawal, scoring assessment and parking. [Watch the pipe land](../spatial-contact/replay.html).
 
 [Open the student replay](replay.html). Move the robot 35 mm off its route, choose either reef sector, or inject a bad observation. The view plots the measured chassis path and the time at which the controller can decide.

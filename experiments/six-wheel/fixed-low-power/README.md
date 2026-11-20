@@ -1,5 +1,11 @@
 # Can the fixed carriage finish its match on one battery?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The [two-camera supply design](dual-camera.md) extends this single-camera baseline to the fixed-low robot with both optical heads, their wiring losses and the desktop controller's actual rack withdrawals.
 
 The 67 kg two-pipe trajectory to the 372 in parking stop has **10.50 V minimum at the weakest modeled device** on a 12.4 V source with 25 mΩ total pack and trunk resistance. Its 56.54 A peak occurs while carrying the second pipe. With an 11.8 V source and 32 mΩ, removing the unused compressor still leaves 2.54 s below the project's 9.5 V terminal floor. The model supports a lower-resistance source and an independently qualified camera supply. The issued observer continues to authorize zero L1 deliveries. [Fixed-low match](../fixed-height-match/README.md) · [Electrical results](results.json)

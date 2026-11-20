@@ -1,5 +1,11 @@
 # What happens when the carriage flexes under the station feed?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The two fixed brackets carry the receiver on four seats. An impact bends the front arms, lifts the nested rails off their lower stops, and moves both ends of the shock absorbers. This study couples the bracket geometry to the receiving-shelf model and runs the same desktop Java acquisition controller on the resulting moving-port observations. [Explore the contact histories](chart.html) · [Comparison](comparison.json) · [Shop geometry](../carriage-support/)
 
 ## Which robot and approach were tested?

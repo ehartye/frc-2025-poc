@@ -1,5 +1,11 @@
 # Assess a CORAL observation against the applicable rules
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Use this offline check to ask two questions about one robot and its alliance’s reef. How many distinct CORAL does this robot control at the observed instant? Does a particular identified piece meet the L1 conditions at that instant?
 
 From the project root:

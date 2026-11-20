@@ -1,5 +1,11 @@
 # Field approach with one visible fastener
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The intact guide arm can stay on the robot. In two signed desktop wheel trials the existing fixed stereo camera and chassis gyro brought the stowed robot to sector A. The three-frame decision bounded the smaller-left-wheel robot within **8.02 mm and 0.697°** and the smaller-right-wheel robot within **6.81 mm and 0.572°**. The corresponding match clocks were 47.862 s and 47.792 s. Both robots stopped at 48.162 s. [Open the student replay](viewer.html) · [Controller receipts](results.json)
 
 | Sensitivity | Smaller left wheel | Smaller right wheel |

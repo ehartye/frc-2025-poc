@@ -25,7 +25,8 @@ test('the kickoff and historical lab export and the reviewed public page use one
   assert.equal(receipt.profileSha256, hash(bytes));
   const browser = JSON.parse(await asset('kickoff/series-browser.json'));
   assert.equal(browser.profileSha256,receipt.profileSha256);
-  assert.equal(browser.fieldLabSha256,showcase.fieldLab.sha256);
+  const live = JSON.parse(await asset('kickoff/live-publication.json'));
+  assert.equal(live.fieldHtmlSha256,showcase.fieldLab.sha256);
   assert.equal(browser.receiptSha256,hash(await asset('kickoff/match-series.json')));
   assert.equal(browser.stationCount,profile.rehearsal.stations.length);
   for (const [i,match] of receipt.matches.entries())

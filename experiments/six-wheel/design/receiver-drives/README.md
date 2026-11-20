@@ -1,5 +1,11 @@
 # Driving the receiver and its two translating stages
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The registered station-fed transfer requires two opposed belt speeds, an observable seated pipe, a 240 mm receiving position and a 370 mm placing position. This revision replaces the three earlier actuator boxes, four risers and four original shelf screws. It keeps the existing stock shelf, optical ports, rail lengths and bolt locations. The [place STEP](grip-slide-place.step) is the original editable layer's native export. Integrate each named part by its assigned frame. [Pose API](receiver_drives.py) · [BOM with mass bounds](bom.csv) · [Robot package](../station-l1/README.md)
 
 ## Opposed cartridges

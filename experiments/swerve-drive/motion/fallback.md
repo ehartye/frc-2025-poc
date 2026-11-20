@@ -1,6 +1,6 @@
 # Empty-start swerve fallback
 
-Reserve the south starting slot for Red 2 and assign Red 1 the middle slot before the match. Use this branch when the team has decided to give up station supply and both scoring attempts. The stowed robot starts with its bumper over the starting tape. It drives toward its own alliance end in AUTO, stops, waits through disable and returns toward midfield in TELEOP. Its park target is X 9.600 m, Y 2.4272875 m, heading 180°. [Park geometry](../../../cad/full-swerve-r4/design.md#end-of-match-park-target)
+Reserve the south starting slot for Red 2 and assign Red 1 the middle slot before the match. Use this branch when the team has decided to give up station supply and both scoring attempts. The stowed robot starts with its bumper over the starting tape. It drives toward its own alliance end in AUTO, stops, waits through disable and returns toward midfield in TELEOP. Its park target is X 9.600 m, Y 2.4272875 m, heading 180°. [Park geometry](../../../cad/full-swerve-r4/design.md#end-of-match-park-target) · [Watch the replay](https://ehartye.github.io/frc-2025-poc/#media)
 
 | Attained case | AUTO stop | Tape clearance at AUTO end | Park stop on wall clock | Largest X error during assessment | Smallest peer gap |
 |---|---:|---:|---:|---:|---:|

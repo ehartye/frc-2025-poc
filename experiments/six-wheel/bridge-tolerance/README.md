@@ -1,5 +1,11 @@
 # Leave room for a ball already on the reef
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Moving the shelf camera and its bridge **50 mm toward the back of the robot** gives the 593-body fixed-height, no-air robot at least **16.48 mm at sector A and 24.89 mm at sector B** against the occupied reef ball throughout placement. Those lower bounds include the full slide stroke, position and heading error, mount registration and an ideal bridge-flex allowance. The original assembly cuts into the actual field ball at both sectors within the same error budget. [Explore the placement tolerances](explore.html) · [Native field and robot results](field.json) · [No-air robot](../design/fixed-no-air/README.md)
 
 | What the field check allows | Sector A, −180 mm | Sector B, +220 mm |

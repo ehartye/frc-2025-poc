@@ -1,5 +1,11 @@
 # Can this robot place two CORAL and still park?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Open the full match replay](replay.html) and scrub the clock. Red 2 starts empty on its starting line, drives to the station in AUTO, waits through the disabled transition and places two individually identified pipes in TELEOP. Toggle **Earlier AUTO route** to compare station approaches. Toggle **Reef starting pieces** to see which mounted balls the robot passes at each scoring face.
 
 The table below uses the earlier 0.50 m/s source. Open the [station-fed timeline](../sourced-match/replay.html) for the 1.697 m/s handoffs on the 545-body robot and the [updated support and park times](../sourced-match/README.md).

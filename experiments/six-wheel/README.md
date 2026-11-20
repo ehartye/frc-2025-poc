@@ -1,5 +1,11 @@
 # 2025 REEFSCAPE proof of concept
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Replay the straight-guide robot from the starting line to its station and reef decisions](straight-guide-match/replay.html). [Match evidence and controls](straight-guide-match/README.md)
 
 [Open the intact-guide reef approach](reef-inertial-observer/README.md) for the fixed-camera and gyro trial, the survey-offset counterexample and both signed match clocks.

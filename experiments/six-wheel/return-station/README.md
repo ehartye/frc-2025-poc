@@ -1,5 +1,11 @@
 # The second station feed after a real return
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The [complete relieved-receiver match](../relieved-match/README.md) follows both pipes from the start on this revised 597-body receiver. The station-only cases below retain their original scope.
 
 A fixed 1.3 mm change in the destination of the return route reduces the measured lateral error to ±1.24 mm at the station. Under the stated model, a revised receiver and controller can take the incoming second pipe, observe custody and hold it until scheduled departure. The revised receiver has **597 bodies**. The first-trip score and park used the earlier **593-body** receiver. Seven points remain the strongest complete single-revision result. [Try the interactive station feed](replay.html) · [First score and park](../spatial-contact/README.md) · [Departure states and clocks](handoff.json)

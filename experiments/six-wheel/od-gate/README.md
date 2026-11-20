@@ -1,5 +1,11 @@
 # Outside-diameter pickup with an opening lower support
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The fixed-low robot receives a horizontal pipe between two lower conveyors and a compliant powered hood. The lower cassettes separate laterally at the trough, leaving the space below the pipe open. **52 of 64 disturbance combinations** meet the modeled seat, carry and placement criteria. Twelve fail custody or delivery. The analysis supplies no physical score or authorization to move a real robot. [Simulation and controls](study.json) · [Editable dynamics](motion.py)
 
 ![Registered pickup and placement trajectories with the disturbance outcomes](motion.svg)

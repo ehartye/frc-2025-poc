@@ -65,7 +65,8 @@ page=page.replace(anchor,match=>match+' <a href="engineering-assembly.html">Expl
 const roleStudy = path.join(project, 'experiments/swerve-drive/whole-robot-trade');
 const rolePage = await readFile(path.join(roleStudy,'role-lab.html'));
 const roleReport = JSON.parse(await readFile(path.join(roleStudy,'role-publication.json')));
-if (digest(rolePage) !== roleReport.htmlSha256 ||
+const liveReport = JSON.parse(await readFile(path.join(project,'kickoff/live-publication.json')));
+if (digest(rolePage) !== liveReport.roleHtmlSha256 ||
     digest(await readFile(path.join(roleStudy,'role-demand.json'))) !== roleReport.demandSha256)
   throw new Error('Role lab and selected demand must match the published study');
 await writeFile(path.join(output,'role-lab.html'), rolePage);

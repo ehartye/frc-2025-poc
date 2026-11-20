@@ -1,5 +1,11 @@
 # Can the two station-fed pipes still score?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Scrub the source-to-target timeline](replay.html) to see where each pipe is at a given TELEOP time and try alternate stock, partner and spin conditions. The nominal simulation retains the nine-point opportunity. The first pipe stays supported at 32.06 s, the second at 82.15 s, and the robot parks at 94.02 s. Both stay in the trough through the 138 s assessment. Three points for LEAVE, four for the two TELEOP trough placements, and two for PARK depend on the assumed robot, partners, source and controls. The official points field is empty. [Full-field map and staging](../full-match/README.md) · [Edition-specific scoring observations](../scoring/README.md)
 
 | Red 2 program | Two-second trough support in TELEOP | Finish | Conditional opportunity |
