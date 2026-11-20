@@ -1,0 +1,273 @@
+{
+  "sources": {
+    "frontField": {
+      "path": "cad/shallow-cage/front-clearance.json",
+      "sha256": "bff19f914b0b95a45d662cbe0d7e9568df176a6c65951061d379b7d58b2cef4b"
+    },
+    "rearField": {
+      "path": "cad/shallow-cage/rear-clearance.json",
+      "sha256": "6f55bd374bdbc17b70b02d6de714af6da5059849a75bdaff15591b628b724332"
+    },
+    "frontInternal": {
+      "path": "cad/shallow-cage/installed.json",
+      "sha256": "058e180cda075e208902aab989ffe4fcaf0529f9bcfba7e62b8dcf4efdb51482"
+    },
+    "rearInternal": {
+      "path": "cad/shallow-cage/rear-stroke.json",
+      "sha256": "cb6c54d62b31791bb80d3184528f1a256cc9744046654b5f3423a04e9f9a80a3"
+    },
+    "frontClock": {
+      "path": "cad/shallow-cage/lift.json",
+      "sha256": "7234a0e8bfb4a3c95889084a2c43f8e8b89bf7395a6e7cf98e0331014c72fb93"
+    },
+    "contact": {
+      "path": "cad/shallow-cage/contact.json",
+      "sha256": "50c773855dacc3d6685aee6e120e9e45807bbb9fd287e4097c5687340fc5f408"
+    },
+    "purchasedDrive": {
+      "path": "cad/assembly-engineering/jack-transmission.json",
+      "sha256": "526aeaff776e4c10b0d7e3b3f9503b2426676a605350ac8431ba9520d590cfb6"
+    },
+    "selectedMass": {
+      "path": "cad/assembly-engineering/receiver-service/issue/mass.json",
+      "sha256": "d9e1c34defefb581777ee70af2852f6dd139abae0d37ab31fc0712a566e330d0"
+    },
+    "fieldMassParts": {
+      "path": "experiments/swerve-drive/mass-closure/recipe.json",
+      "sha256": "2ea0573e82b4064b61d64121e3b7b80c105e26c4af87354fba81e7f8eceb608e"
+    },
+    "interference": {
+      "path": "cad/assembly-engineering/receiver-service/carrier-motor.json",
+      "sha256": "1d88adb359e25d7f8a6137ab7d9dd83f0b11e15d901ab0deb63981d727328c87"
+    },
+    "signedPiece": {
+      "path": "experiments/swerve-drive/cam-scoring/results.json",
+      "sha256": "4007e26691ceb470f7e8633dc7ee2d1aa7c50313618c635955fb508a8d6b7e6b"
+    },
+    "reservedPark": {
+      "path": "experiments/swerve-drive/motion/fallback-match.json",
+      "sha256": "53ffa4d159359180e422e7fdc4612cadc50e337e502ffedc6d16a220d60a3a2a"
+    },
+    "stocks": {
+      "path": "cad/assembly-engineering/receiver-service/issue/material-register.csv",
+      "sha256": "66cc74cb73d3094f3e7b42306c9f1f75163a6954a78500dc2be4c5fc4dd37979"
+    },
+    "articles": {
+      "path": "cad/assembly-engineering/receiver-service/issue/article-register.csv",
+      "sha256": "b5370d82cfc9bd337f6ff6e6653d8a3b2848a968d3fbf9ddb73b757b16a9789c"
+    }
+  },
+  "layoutCases": {
+    "front": {
+      "red-design-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-red-frontApproach",
+        "concept": "front-jack-swerve",
+        "case": "red-design-entry",
+        "approach": "frontApproach",
+        "cagePoseObstacles": 0,
+        "suspendedTravelObstacles": 0,
+        "internalSweepInterferences": 0,
+        "largestKnownFieldPenetrationMm3": 0.0,
+        "addedClimbInspectionUpperKg": 5.672719197756646
+      },
+      "red-opposite-side-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-red-negativeSideApproach",
+        "concept": "front-jack-swerve",
+        "case": "red-opposite-side-entry",
+        "approach": "negativeSideApproach",
+        "cagePoseObstacles": 7,
+        "suspendedTravelObstacles": 0,
+        "internalSweepInterferences": 0,
+        "largestKnownFieldPenetrationMm3": 774.9523421819272,
+        "addedClimbInspectionUpperKg": 5.672719197756646
+      },
+      "blue-design-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-blue-frontApproach",
+        "concept": "front-jack-swerve",
+        "case": "blue-design-entry",
+        "approach": "frontApproach",
+        "cagePoseObstacles": 0,
+        "suspendedTravelObstacles": 0,
+        "internalSweepInterferences": 0,
+        "largestKnownFieldPenetrationMm3": 0.0,
+        "addedClimbInspectionUpperKg": 5.672719197756646
+      },
+      "blue-opposite-side-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-front-blue-negativeSideApproach",
+        "concept": "front-jack-swerve",
+        "case": "blue-opposite-side-entry",
+        "approach": "negativeSideApproach",
+        "cagePoseObstacles": 7,
+        "suspendedTravelObstacles": 0,
+        "internalSweepInterferences": 0,
+        "largestKnownFieldPenetrationMm3": 774.9523421825991,
+        "addedClimbInspectionUpperKg": 5.672719197756646
+      }
+    },
+    "rear": {
+      "red-design-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-red-positiveSideApproach",
+        "concept": "rear-jack-swerve",
+        "case": "red-design-entry",
+        "approach": "positiveSideApproach",
+        "cagePoseObstacles": 13,
+        "suspendedTravelObstacles": 4,
+        "internalSweepInterferences": 7,
+        "largestKnownFieldPenetrationMm3": 3073.641578712642,
+        "addedClimbInspectionUpperKg": 5.821486183601436
+      },
+      "red-opposite-side-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-red-negativeSideApproach",
+        "concept": "rear-jack-swerve",
+        "case": "red-opposite-side-entry",
+        "approach": "negativeSideApproach",
+        "cagePoseObstacles": 14,
+        "suspendedTravelObstacles": 4,
+        "internalSweepInterferences": 7,
+        "largestKnownFieldPenetrationMm3": 3073.641578712819,
+        "addedClimbInspectionUpperKg": 5.821486183601436
+      },
+      "blue-design-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-blue-positiveSideApproach",
+        "concept": "rear-jack-swerve",
+        "case": "blue-design-entry",
+        "approach": "positiveSideApproach",
+        "cagePoseObstacles": 13,
+        "suspendedTravelObstacles": 4,
+        "internalSweepInterferences": 7,
+        "largestKnownFieldPenetrationMm3": 3073.641673075539,
+        "addedClimbInspectionUpperKg": 5.821486183601436
+      },
+      "blue-opposite-side-entry": {
+        "runId": "0dad9e862e783f9c3ef84fc6d4a32bd2b6e66b024b9db0ea3c06b82c93f14ebb-rear-blue-negativeSideApproach",
+        "concept": "rear-jack-swerve",
+        "case": "blue-opposite-side-entry",
+        "approach": "negativeSideApproach",
+        "cagePoseObstacles": 14,
+        "suspendedTravelObstacles": 4,
+        "internalSweepInterferences": 7,
+        "largestKnownFieldPenetrationMm3": 3073.641673068113,
+        "addedClimbInspectionUpperKg": 5.821486183601436
+      }
+    }
+  },
+  "currentFrontHoist": {
+    "operating-split": {
+      "operatingMassKg": 65.39890097105837,
+      "heavierScrewShare": 0.65,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.32,
+      "terminalV": 9.5,
+      "heavierScrewForceN": 625.3105289026338,
+      "nutRatedLoadToDemand": 13.5158783961816,
+      "screwTorqueNm": 0.9874375178568148,
+      "motorAAtFortyMmPerS": 27.34842880965957,
+      "requiredMotorV": 7.534842457654716,
+      "voltageHeadroomV": 1.9651575423452838,
+      "idealReverseDemandNm": 0.3159800057141808,
+      "unlatchedHoldingMarginNm": -0.3159800057141808,
+      "requiredUpperContactForceN": 4341.245547998987,
+      "requiredLowerContactForceN": 3699.9014157911574,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    },
+    "full-extra-reserve": {
+      "operatingMassKg": 66.53175097105837,
+      "heavierScrewShare": 0.65,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.32,
+      "terminalV": 9.5,
+      "heavierScrewForceN": 636.1422557688214,
+      "nutRatedLoadToDemand": 13.285740715786341,
+      "screwTorqueNm": 1.0045420651121142,
+      "motorAAtFortyMmPerS": 27.797911555402226,
+      "requiredMotorV": 7.588780387143835,
+      "voltageHeadroomV": 1.911219612856165,
+      "idealReverseDemandNm": 0.32145346083587656,
+      "unlatchedHoldingMarginNm": -0.32145346083587656,
+      "requiredUpperContactForceN": 4416.445282949075,
+      "requiredLowerContactForceN": 3763.991687288745,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    },
+    "historical-bumper-cap": {
+      "operatingMassKg": 65.80976737105837,
+      "heavierScrewShare": 0.65,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.32,
+      "terminalV": 9.5,
+      "heavierScrewForceN": 629.2390213096547,
+      "nutRatedLoadToDemand": 13.431495476725804,
+      "screwTorqueNm": 0.9936410609158379,
+      "motorAAtFortyMmPerS": 27.511448942603376,
+      "requiredMotorV": 7.554404873607973,
+      "voltageHeadroomV": 1.9455951263920266,
+      "idealReverseDemandNm": 0.3179651394930682,
+      "unlatchedHoldingMarginNm": -0.3179651394930682,
+      "requiredUpperContactForceN": 4368.519277424681,
+      "requiredLowerContactForceN": 3723.145922235291,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    },
+    "74kg-source-control": {
+      "operatingMassKg": 74.0,
+      "heavierScrewShare": 0.65,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.32,
+      "terminalV": 9.5,
+      "heavierScrewForceN": 707.5497975,
+      "nutRatedLoadToDemand": 11.944913415793888,
+      "screwTorqueNm": 1.117302817577024,
+      "motorAAtFortyMmPerS": 30.761100926826987,
+      "requiredMotorV": 7.944363111714806,
+      "voltageHeadroomV": 1.5556368882851936,
+      "idealReverseDemandNm": 0.35753690162464774,
+      "unlatchedHoldingMarginNm": -0.35753690162464774,
+      "requiredUpperContactForceN": 4912.195247655492,
+      "requiredLowerContactForceN": 4186.503147655491,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    },
+    "single-loaded-screw": {
+      "operatingMassKg": 65.39890097105837,
+      "heavierScrewShare": 1.0,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.32,
+      "terminalV": 9.5,
+      "heavierScrewForceN": 962.0161983117442,
+      "nutRatedLoadToDemand": 8.78532095751804,
+      "screwTorqueNm": 1.519134642856638,
+      "motorAAtFortyMmPerS": 41.320659707168566,
+      "requiredMotorV": 9.211510165355797,
+      "voltageHeadroomV": 0.28848983464420286,
+      "idealReverseDemandNm": 0.48612308571412416,
+      "unlatchedHoldingMarginNm": -0.48612308571412416,
+      "requiredUpperContactForceN": 4341.245547998987,
+      "requiredLowerContactForceN": 3699.9014157911574,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    },
+    "binding-low-voltage": {
+      "operatingMassKg": 65.39890097105837,
+      "heavierScrewShare": 1.0,
+      "loadFactor": 1.5,
+      "screwEfficiency": 0.2,
+      "terminalV": 8.5,
+      "heavierScrewForceN": 962.0161983117442,
+      "nutRatedLoadToDemand": 8.78532095751804,
+      "screwTorqueNm": 2.4306154285706207,
+      "motorAAtFortyMmPerS": 65.27305553146971,
+      "requiredMotorV": 12.085797664271933,
+      "voltageHeadroomV": -3.585797664271933,
+      "idealReverseDemandNm": 0.48612308571412416,
+      "unlatchedHoldingMarginNm": -0.48612308571412416,
+      "requiredUpperContactForceN": 4341.245547998987,
+      "requiredLowerContactForceN": 3699.9014157911574,
+      "certifiedFieldSupportN": null,
+      "qualifiedPawlTorqueNm": null
+    }
+  },
+  "batteryKg": 6.17,
+  "detachableBumperUpperKg": 7.089133599999999,
+  "conditions": "Front and rear studies use each complete original assembly and the same official field. Current hoist uses the actual purchased 3.175 mm lead plus 68/13 reduction. The 55 mm field-contact moment arm and eight-CG-corner gravity equilibrium are inherited conditional front-clamp assumptions. A single loaded screw is a fault load requirement; with the other screw disengaged the guide must also resist racking. The calculations do not establish field or pawl capacity, working CG, impact dynamics, or a new match score."
+}

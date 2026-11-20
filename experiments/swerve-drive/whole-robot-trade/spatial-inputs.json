@@ -1,0 +1,427 @@
+{
+  "inventory": [
+    "front-twin-screw-shallow-jack"
+  ],
+  "jack": {
+    "geometry": "spatial-vertical-supports",
+    "massEvidence": "conservative-upper-bound",
+    "massBasis": "Current full inspection receiving cap plus battery and 52 detachable bumper rows. The rack must be empty to enter the climb. Both screw axes lie at X305 mm and are 642 mm apart across the chassis. Each vertical-only case reports the reaction moment still required from the structure.",
+    "factor": 1,
+    "factorBasis": "Explicit upward acceleration already charges 1.5 times gravity on the raising cases. Unspecified strength ratings remain open.",
+    "supports": [
+      {
+        "id": "negative-Y",
+        "path": [
+          {
+            "id": "neo550-drive",
+            "kind": "actuator",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "raise"
+            ],
+            "ratings": {}
+          },
+          {
+            "id": "90234-bronze-nut",
+            "kind": "transmission",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {
+              "raise": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "hold": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "power-loss": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              }
+            }
+          },
+          {
+            "id": "screw-shaft-and-thrust-stack",
+            "kind": "member",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "stationary-mast-saddle-through-chassis",
+            "kind": "anchor",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "spring-pawl-and-casing-stop",
+            "kind": "lock",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "hold",
+              "power-loss"
+            ],
+            "ratings": {}
+          }
+        ],
+        "xyM": [
+          0.305,
+          -0.321
+        ]
+      },
+      {
+        "id": "positive-Y",
+        "path": [
+          {
+            "id": "neo550-drive",
+            "kind": "actuator",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "raise"
+            ],
+            "ratings": {}
+          },
+          {
+            "id": "90234-bronze-nut",
+            "kind": "transmission",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {
+              "raise": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "hold": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              },
+              "power-loss": {
+                "unit": "N",
+                "value": 8451.6210685,
+                "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+              }
+            }
+          },
+          {
+            "id": "screw-shaft-and-thrust-stack",
+            "kind": "member",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "stationary-mast-saddle-through-chassis",
+            "kind": "anchor",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {}
+          },
+          {
+            "id": "spring-pawl-and-casing-stop",
+            "kind": "lock",
+            "advantage": 1,
+            "efficiency": 1,
+            "modes": [
+              "hold",
+              "power-loss"
+            ],
+            "ratings": {}
+          }
+        ],
+        "xyM": [
+          0.305,
+          0.321
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "id": "full-travel-upward-minusminus",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 4.903325,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "disabled-at-cage-minusminus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "stationary-bottom-catch-minusminus",
+        "mode": "hold",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "one-side-missing-minusminus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "unavailableSupport": "negative-Y",
+        "cgXYM": [
+          -0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "full-travel-upward-minusplus",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 4.903325,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "disabled-at-cage-minusplus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "stationary-bottom-catch-minusplus",
+        "mode": "hold",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          -0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "one-side-missing-minusplus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "unavailableSupport": "negative-Y",
+        "cgXYM": [
+          -0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "full-travel-upward-plusminus",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 4.903325,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "disabled-at-cage-plusminus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "stationary-bottom-catch-plusminus",
+        "mode": "hold",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "one-side-missing-plusminus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "unavailableSupport": "negative-Y",
+        "cgXYM": [
+          0.06,
+          -0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "full-travel-upward-plusplus",
+        "mode": "raise",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 4.903325,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "disabled-at-cage-plusplus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "stationary-bottom-catch-plusplus",
+        "mode": "hold",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "cgXYM": [
+          0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "one-side-missing-plusplus",
+        "mode": "power-loss",
+        "massKg": 65.39890097105837,
+        "accelZMps2": 0,
+        "basis": "Chassis-frame vertical reactions at 319.4 mm rise with empty, stowed rack. The balance supplies the unresolved roll and pitch couples.",
+        "asymmetric": true,
+        "worstExtension": true,
+        "unavailableSupport": "negative-Y",
+        "cgXYM": [
+          0.06,
+          0.04
+        ],
+        "appliedMomentXYNm": [
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "origin": "Operating mass and screw axes from robot-cases.json. The crosshead, mount and cage require separate capacity evidence."
+}

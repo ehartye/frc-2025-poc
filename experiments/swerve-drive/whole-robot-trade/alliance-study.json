@@ -1,0 +1,14 @@
+{
+  "schema": "agent-frc/alliance-study@1",
+  "side": "red",
+  "roles": [
+    {"id":"trough-cycle","basis":"Test the value of repeated feed and delivery if each prescribed L1 attempt works. Red 1's hardware has no joined L1 award yet.","plans":{"AUTO":"approach-chute","TELEOP":"station"},"endgame":null},
+    {"id":"retain-first","basis":"Use the intake once, then retain the same pipe. The actual stopped pickup study holds release until its interface gates pass.","plans":{"AUTO":"approach-chute","TELEOP":"stow-at-station"},"endgame":null},
+    {"id":"leave-room-park","basis":"Keep the receiver empty, yield the trough approach and finish in the registered BARGE area. The five-point physical fallback has its own start and traffic reservation.","plans":{"AUTO":"approach-chute","TELEOP":"keep-lane"},"endgame":{"action":"park","target":"red-park","startS":107,"witnesses":{"bumper-in-own-zone":"met","no-cage-credit":"met"}}},
+    {"id":"reserve-shallow","basis":"Use the identical empty robot plan and call time to reserve the middle shallow cage. The three contact witnesses are hypothetical. Exact robot lift and power-off hold are evaluated separately.","plans":{"AUTO":"approach-chute","TELEOP":"keep-lane"},"endgame":{"action":"shallow","target":"red-2-shallow","startS":107,"witnesses":{"cage-contact":"met","clear-carpet":"met","only-permitted-contacts":"met"}}}
+  ],
+  "contexts": [
+    {"id":"ordinary-shallow","basis":"Published Qual 3, Red 1 starts empty. Its five partners/opponents retain their original program and stock in every role.","match":"Qual 3","slot":1},
+    {"id":"opposed-shallow","basis":"Published BARGE 3, same empty Red 1 starting slot; peers including its shallow-climbing partner retain their late reservations.","match":"BARGE 3","slot":1}
+  ]
+}

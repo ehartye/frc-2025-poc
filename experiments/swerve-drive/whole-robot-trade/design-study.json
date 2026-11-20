@@ -1,0 +1,180 @@
+{
+  "schema": "agent-frc/design-review@1",
+  "objectives": [
+    {
+      "id": "cagePoseObstacles",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    },
+    {
+      "id": "suspendedTravelObstacles",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    },
+    {
+      "id": "internalSweepInterferences",
+      "unit": "interfering bodies or pairs",
+      "max": 0
+    }
+  ],
+  "cases": [
+    {
+      "id": "red-design-entry",
+      "condition": "red cage, candidate intended approach followed by suspended travel"
+    },
+    {
+      "id": "red-opposite-side-entry",
+      "condition": "red cage, opposite lateral approach with suspended travel"
+    },
+    {
+      "id": "blue-design-entry",
+      "condition": "blue cage, candidate intended approach followed by suspended travel"
+    },
+    {
+      "id": "blue-opposite-side-entry",
+      "condition": "blue cage, opposite lateral approach with suspended travel"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "front-jack-swerve",
+      "architecture": "Twin cage jack at the front face of a four-module, station-fed receiver robot. The rear candidate crosses the rear-left controller tray. The front arrangement uses a different approach and gearbox location.",
+      "interfaces": [
+        {
+          "from": "swerve chassis",
+          "to": "shallow cage",
+          "exchange": "Approach clearance at the registered cage"
+        },
+        {
+          "from": "front face lift columns",
+          "to": "receiver and electronics",
+          "exchange": "Room for the installed hoist to traverse its complete stroke"
+        }
+      ],
+      "runs": [
+        {
+          "case": "red-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/red-design-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/front/red-design-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/front/red-design-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/front/red-design-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "red-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/red-opposite-side-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/front/red-opposite-side-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/front/red-opposite-side-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/front/red-opposite-side-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "blue-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/blue-design-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/front/blue-design-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/front/blue-design-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/front/blue-design-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "blue-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/front/blue-opposite-side-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/front/blue-opposite-side-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/front/blue-opposite-side-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/front/blue-opposite-side-entry/internalSweepInterferences"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rear-jack-swerve",
+      "architecture": "Twin cage jack at the rear face of a four-module, station-fed receiver robot. The rear candidate crosses the rear-left controller tray. The front arrangement uses a different approach and gearbox location.",
+      "interfaces": [
+        {
+          "from": "swerve chassis",
+          "to": "shallow cage",
+          "exchange": "Approach clearance at the registered cage"
+        },
+        {
+          "from": "rear face lift columns",
+          "to": "receiver and electronics",
+          "exchange": "Room for the installed hoist to traverse its complete stroke"
+        }
+      ],
+      "runs": [
+        {
+          "case": "red-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/red-design-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/rear/red-design-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/rear/red-design-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/rear/red-design-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "red-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/red-opposite-side-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/rear/red-opposite-side-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/rear/red-opposite-side-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/rear/red-opposite-side-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "blue-design-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/blue-design-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/rear/blue-design-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/rear/blue-design-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/rear/blue-design-entry/internalSweepInterferences"
+          }
+        },
+        {
+          "case": "blue-opposite-side-entry",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/robot-cases.json",
+            "sha256": "7e0227e1b307e94ed017b9b942ccda99cb9f4d1ad584e3ad07073377819d16e4"
+          },
+          "execution": "/layoutCases/rear/blue-opposite-side-entry",
+          "values": {
+            "cagePoseObstacles": "/layoutCases/rear/blue-opposite-side-entry/cagePoseObstacles",
+            "suspendedTravelObstacles": "/layoutCases/rear/blue-opposite-side-entry/suspendedTravelObstacles",
+            "internalSweepInterferences": "/layoutCases/rear/blue-opposite-side-entry/internalSweepInterferences"
+          }
+        }
+      ]
+    }
+  ]
+}

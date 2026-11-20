@@ -1,0 +1,143 @@
+{
+  "schema": "agent-frc/design-review@1",
+  "concepts": [
+    {
+      "id": "braked",
+      "architecture": "Swerve with an open receiver, stereo custody gate and stopped retry.",
+      "runs": [
+        {
+          "case": "plus",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/custody-executions.json",
+            "sha256": "91791bbe807230a138c6367602d69c4066691565656572a55d549e264bafb59c"
+          },
+          "execution": "/runs/braked/plus",
+          "values": {
+            "resumed": "/runs/braked/plus/resumed",
+            "observedL1": "/runs/braked/plus/observedL1"
+          }
+        },
+        {
+          "case": "minus",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/custody-executions.json",
+            "sha256": "91791bbe807230a138c6367602d69c4066691565656572a55d549e264bafb59c"
+          },
+          "execution": "/runs/braked/minus",
+          "values": {
+            "resumed": "/runs/braked/minus/resumed",
+            "observedL1": "/runs/braked/minus/observedL1"
+          }
+        }
+      ],
+      "interfaces": [
+        {
+          "from": "two optical heads",
+          "to": "swerve drive",
+          "exchange": "visible seated pipe on both heads"
+        },
+        {
+          "from": "receiver",
+          "to": "L1 trough",
+          "exchange": "a supported, independently released pipe"
+        }
+      ]
+    },
+    {
+      "id": "captive",
+      "architecture": "Swerve with opposed pins, annular probes and a monitored departure after capture.",
+      "runs": [
+        {
+          "case": "plus",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/custody-executions.json",
+            "sha256": "91791bbe807230a138c6367602d69c4066691565656572a55d549e264bafb59c"
+          },
+          "execution": "/runs/captive/plus",
+          "values": {
+            "resumed": "/runs/captive/plus/resumed",
+            "observedL1": "/runs/captive/plus/observedL1"
+          }
+        },
+        {
+          "case": "minus",
+          "source": {
+            "path": "experiments/swerve-drive/whole-robot-trade/custody-executions.json",
+            "sha256": "91791bbe807230a138c6367602d69c4066691565656572a55d549e264bafb59c"
+          },
+          "execution": "/runs/captive/minus",
+          "values": {
+            "resumed": "/runs/captive/minus/resumed",
+            "observedL1": "/runs/captive/minus/observedL1"
+          }
+        }
+      ],
+      "interfaces": [
+        {
+          "from": "two closing yokes",
+          "to": "swerve drive",
+          "exchange": "two completed shafts and both rim probes in range"
+        },
+        {
+          "from": "receiver",
+          "to": "L1 trough",
+          "exchange": "a supported, independently released pipe"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "plus",
+      "condition": "Actual plus wheel calibration and retained pipe at measured stop"
+    },
+    {
+      "id": "minus",
+      "condition": "Actual minus wheel calibration and retained pipe at measured stop"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "resumed",
+      "unit": "authorized departures",
+      "min": 1
+    },
+    {
+      "id": "observedL1",
+      "unit": "supported L1 deliveries observed in this trace",
+      "min": 1
+    }
+  ],
+  "roleHandoff": {
+    "selection": {
+      "path": "experiments/swerve-drive/whole-robot-trade/role-selection.json",
+      "sha256": "180e8e1e7d0210d64a003f257ec338f947c9f0009b4820cd078dcbe8035764da"
+    },
+    "pairs": [
+      {
+        "id": "plus",
+        "case": "plus",
+        "before": "braked",
+        "after": "captive",
+        "premise": "Does the drive need a working stereo silhouette throughout transport?",
+        "change": "Close the bore pins and check both end probes before driving.",
+        "fieldPolicies": {
+          "before": "trough-cycle",
+          "after": "upper-chute"
+        }
+      },
+      {
+        "id": "minus",
+        "case": "minus",
+        "before": "braked",
+        "after": "captive",
+        "premise": "Does the drive need a working stereo silhouette throughout transport?",
+        "change": "Close the bore pins and check both end probes before driving.",
+        "fieldPolicies": {
+          "before": "trough-cycle",
+          "after": "upper-chute"
+        }
+      }
+    ]
+  }
+}

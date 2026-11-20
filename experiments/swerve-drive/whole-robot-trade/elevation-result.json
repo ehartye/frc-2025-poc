@@ -1,0 +1,472 @@
+{
+  "schema": "agent-frc/elevation-result@1",
+  "inventory": {
+    "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+    "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+    "pointer": "/inventory"
+  },
+  "mechanisms": [
+    {
+      "id": "front-twin-screw-shallow-jack",
+      "source": {
+        "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+        "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+        "pointer": "/elevation"
+      },
+      "massEvidence": "conservative-upper-bound",
+      "cases": [
+        {
+          "id": "full-travel-upward",
+          "mode": "raise",
+          "massKg": 65.39890097105837,
+          "weightN": 641.3441322078295,
+          "totalVerticalN": 962.0161983117443,
+          "unsupportedMomentNm": 0,
+          "restraint": null,
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 421.06939521121524,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 421.06939521121524,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 421.06939521121524,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 421.06939521121524,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 421.06939521121524,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 540.9468031005291,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 540.9468031005291,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 540.9468031005291,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 540.9468031005291,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 540.9468031005291,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "open"
+        },
+        {
+          "id": "opposed-cg",
+          "mode": "raise",
+          "massKg": 65.39890097105837,
+          "weightN": 641.3441322078295,
+          "totalVerticalN": 962.0161983117443,
+          "unsupportedMomentNm": 0,
+          "restraint": null,
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 540.946803100529,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 540.946803100529,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 540.946803100529,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 540.946803100529,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 540.946803100529,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 421.0693952112153,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 421.0693952112153,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 421.0693952112153,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 421.0693952112153,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 421.0693952112153,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "open"
+        },
+        {
+          "id": "extra-reserve",
+          "mode": "raise",
+          "massKg": 66.53175097105837,
+          "weightN": 652.4535956603296,
+          "totalVerticalN": 978.6803934904943,
+          "unsupportedMomentNm": 0,
+          "restraint": null,
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 428.363225188207,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 428.363225188207,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 428.363225188207,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 428.363225188207,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 428.363225188207,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 550.3171683022873,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "neo550-drive",
+                  "designDemandN": 550.3171683022873,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 550.3171683022873,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 550.3171683022873,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 550.3171683022873,
+                  "status": "open",
+                  "reason": "Missing raise rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "open"
+        },
+        {
+          "id": "disabled-at-cage",
+          "mode": "power-loss",
+          "massKg": 65.39890097105837,
+          "weightN": 641.3441322078295,
+          "totalVerticalN": 641.3441322078295,
+          "unsupportedMomentNm": 0,
+          "restraint": null,
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 280.7129301408101,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "spring-pawl-and-casing-stop",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                }
+              ],
+              "status": "open"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 360.6312020670194,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "spring-pawl-and-casing-stop",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "open"
+        },
+        {
+          "id": "stationary-bottom-catch",
+          "mode": "hold",
+          "massKg": 65.39890097105837,
+          "weightN": 641.3441322078295,
+          "totalVerticalN": 641.3441322078295,
+          "unsupportedMomentNm": 0,
+          "restraint": null,
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 360.6312020670194,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                },
+                {
+                  "id": "spring-pawl-and-casing-stop",
+                  "designDemandN": 360.6312020670194,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                }
+              ],
+              "status": "open"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 280.7129301408101,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                },
+                {
+                  "id": "spring-pawl-and-casing-stop",
+                  "designDemandN": 280.7129301408101,
+                  "status": "open",
+                  "reason": "Missing hold rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "open"
+        },
+        {
+          "id": "one-side-missing",
+          "mode": "power-loss",
+          "massKg": 65.39890097105837,
+          "weightN": 641.3441322078295,
+          "totalVerticalN": 641.3441322078295,
+          "unsupportedMomentNm": -180.2177011504001,
+          "restraint": {
+            "momentNm": -180.2177011504001,
+            "demandNm": 180.2177011504001,
+            "status": "fail",
+            "reason": "Unbalanced applied moment at a simple support."
+          },
+          "supports": [
+            {
+              "id": "negative-Y",
+              "loadN": 0,
+              "status": "pass",
+              "availability": "removed"
+            },
+            {
+              "id": "positive-Y",
+              "loadN": 641.3441322078295,
+              "missing": [],
+              "checks": [
+                {
+                  "id": "90234-bronze-nut",
+                  "designDemandN": 641.3441322078295,
+                  "status": "open",
+                  "reason": "Working capacity is unqualified for this load direction, duty or power state.",
+                  "basis": "Roton 90234 working axial load, 1900 lbf. The nut is one article in the series load path."
+                },
+                {
+                  "id": "screw-shaft-and-thrust-stack",
+                  "designDemandN": 641.3441322078295,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "stationary-mast-saddle-through-chassis",
+                  "designDemandN": 641.3441322078295,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                },
+                {
+                  "id": "spring-pawl-and-casing-stop",
+                  "designDemandN": 641.3441322078295,
+                  "status": "open",
+                  "reason": "Missing power-loss rating."
+                }
+              ],
+              "status": "open"
+            }
+          ],
+          "status": "fail"
+        }
+      ],
+      "missing": [],
+      "status": "fail"
+    }
+  ],
+  "status": "fail",
+  "scope": "Vertical-plane one- or two-support rigid body with specified load paths. Coverage depends on the project inventory and supplied inputs. Buckling, impact, fatigue, electrical holding and brake engagement need supporting model or rated evidence.",
+  "studySha256": "de9b4cd1f2f58eb5aadc73a85099ea8d146224db20a18705ae7cb6a97f44180e"
+}

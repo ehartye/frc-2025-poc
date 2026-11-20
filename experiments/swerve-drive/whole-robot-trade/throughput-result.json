@@ -1,0 +1,125 @@
+{
+  "schema": "agent-frc/throughput-result@1",
+  "demand": {
+    "criterionId": "red-l1-coral",
+    "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+    "focalRobot": "R1",
+    "windowScope": "Complete TELEOP from its first active sample through cutoff",
+    "requiredPieces": 2,
+    "windowS": 135,
+    "basis": "Chosen role needs two TELEOP L1 deliveries before time expires, in addition to its independent AUTO leave and final park."
+  },
+  "requiredPerSecond": 0.014814814814814815,
+  "episodes": [
+    {
+      "id": "clear-ally",
+      "source": {
+        "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+        "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+        "pointer": "/episodes/0"
+      },
+      "runId": "clear-ally",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 30 before its two preloads.",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "evidence": "field-rehearsal",
+      "supplied": 28,
+      "attempts": 15,
+      "failed": 0,
+      "accepted": 15,
+      "acceptedPerSecond": 0.1111111111111111,
+      "secondsBetweenAccepted": [
+        7.8500000000000005,
+        8.95,
+        8.95,
+        8.950000000000003,
+        8.950000000000003,
+        8.949999999999996,
+        8.950000000000003,
+        8.949999999999996,
+        8.950000000000003,
+        8.950000000000003,
+        8.950000000000003,
+        8.950000000000003,
+        8.949999999999989,
+        8.950000000000003,
+        8.950000000000003
+      ],
+      "tailWithoutAcceptanceS": 1.8499999999999943,
+      "status": "pass"
+    },
+    {
+      "id": "blocked-ally",
+      "source": {
+        "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+        "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+        "pointer": "/episodes/1"
+      },
+      "runId": "blocked-ally",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 264 inches, red low chute 30 before its two preloads.",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "evidence": "field-rehearsal",
+      "supplied": 28,
+      "attempts": 0,
+      "failed": 0,
+      "accepted": 0,
+      "acceptedPerSecond": 0,
+      "secondsBetweenAccepted": [],
+      "tailWithoutAcceptanceS": 135,
+      "status": "fail"
+    },
+    {
+      "id": "one-pipe-left",
+      "source": {
+        "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+        "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+        "pointer": "/episodes/2"
+      },
+      "runId": "one-pipe-left",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 3 before its two preloads.",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "evidence": "field-rehearsal",
+      "supplied": 1,
+      "attempts": 1,
+      "failed": 0,
+      "accepted": 1,
+      "acceptedPerSecond": 0.007407407407407408,
+      "secondsBetweenAccepted": [
+        7.8500000000000005
+      ],
+      "tailWithoutAcceptanceS": 127.15,
+      "status": "fail"
+    },
+    {
+      "id": "empty-after-preloads",
+      "source": {
+        "path": "experiments/swerve-drive/whole-robot-trade/hardening-inputs.json",
+        "sha256": "1a4ea94a743d9d286af32ac581f01faaa572380dab605b6c7acb248e8e09d416",
+        "pointer": "/episodes/3"
+      },
+      "runId": "empty-after-preloads",
+      "revision": "Published Qual 2 roster and behavior logic",
+      "condition": "Red 2 hold X 290 inches, red low chute 2 before its two preloads.",
+      "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+      "evidence": "field-rehearsal",
+      "supplied": 0,
+      "attempts": 0,
+      "failed": 0,
+      "accepted": 0,
+      "acceptedPerSecond": 0,
+      "secondsBetweenAccepted": [],
+      "tailWithoutAcceptanceS": 135,
+      "status": "fail"
+    }
+  ],
+  "distinctVariations": 4,
+  "observedRuns": 4,
+  "passingRuns": 1,
+  "worstRate": 0,
+  "p10NearestRank": 0,
+  "status": "fail",
+  "scope": "Observed accepted events divided by the whole declared clock, including travel, queues, misses and recovery. The lower percentile describes these runs; physical reliability requires physical evidence.",
+  "studySha256": "63512ef7f7a4aa32a7f0dc4dfaa304a2a8e1c56d8dfcfc0e41bf5dc03916c554"
+}

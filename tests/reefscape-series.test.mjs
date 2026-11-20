@@ -36,7 +36,19 @@ test('six whole games reproduce their clocks, score events, traffic and finite s
   const series = createMatchSeries(engine, profile.rehearsal.series.matches);
   series.advance(900);
   assert.equal(series.done, true);
-  assert.deepEqual(JSON.parse(JSON.stringify(series.results)), receipt.matches);
+  const historical = JSON.parse(JSON.stringify(series.results));
+  for (const match of historical) {
+    for (const period of match.periods) {
+      for (const robot of period.robots) {
+        // The later role lab additionally records path length in inches.
+        if ('travelIn' in robot) {
+          assert.ok(Number.isFinite(robot.travelIn) && robot.travelIn >= 0);
+          delete robot.travelIn;
+        }
+      }
+    }
+  }
+  assert.deepEqual(historical, receipt.matches);
   const stations = new Map(profile.rehearsal.stations.map(s => [s.id,s]));
   for (const m of series.results) {
     assert.deepEqual(m.periods.map(p => [p.phase,p.seconds]), [['AUTO',15],['TELEOP',135]]);

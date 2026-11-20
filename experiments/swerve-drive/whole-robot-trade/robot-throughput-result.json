@@ -1,0 +1,33 @@
+{
+  "schema": "agent-frc/throughput-result@1",
+  "demand": {
+    "criterionId": "red-l1-coral",
+    "criterion": "One distinct pipe acquired at the assigned chute and credited at red L1 during TELEOP.",
+    "focalRobot": "R1",
+    "windowScope": "Complete TELEOP from its first active sample through cutoff",
+    "requiredPieces": 2,
+    "windowS": 135,
+    "basis": "Chosen role needs two TELEOP L1 deliveries before time expires, in addition to its independent AUTO leave and final park."
+  },
+  "requiredPerSecond": 0.014814814814814815,
+  "episodes": [
+    {
+      "id": "corrected-positive-start",
+      "status": "open",
+      "reason": "No execution receipt."
+    },
+    {
+      "id": "corrected-negative-start",
+      "status": "open",
+      "reason": "No execution receipt."
+    }
+  ],
+  "distinctVariations": 0,
+  "observedRuns": 0,
+  "passingRuns": 0,
+  "worstRate": null,
+  "p10NearestRank": null,
+  "status": "open",
+  "scope": "Observed accepted events divided by the whole declared clock, including travel, queues, misses and recovery. The lower percentile describes these runs; physical reliability requires physical evidence.",
+  "studySha256": "de1a7e4b2e46c9218ac6f31065504e10e360ffa442d2c3e716790a79a488c5a3"
+}
