@@ -12,7 +12,7 @@ PATTERNS={
 # Reviewed binaries have exact, item-specific identities.
 WRAPPER='experiments/six-wheel/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
-SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '552351fad4fd747f866234827b64bf28361d9b1d5150f5c39c137beb640c2102', 'docs/robot/cad/assembly.stl.gz': 'c425fbde5b50ec9154d1a3f3019d5b41f6f04216f6225af21ac0a08fa8d15caf', 'experiments/swerve-drive/packaging/tab-saddle.f3d': 'c15bf7f1923c892e96f5081a75d30dd7fa3c1b01d3616abef9bf057f5abfb232'}
+SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '6ce25b430ec46d594b42f348221d4acfc7d5bf97363e3c6119bb8c9881c5ca34', 'docs/robot/cad/assembly.stl.gz': 'd3a2bad9c3c084f2b94756cec5da9d08698a8d98b3afce2492e98ff9f5d3cbea', 'experiments/swerve-drive/packaging/tab-saddle.f3d': 'c15bf7f1923c892e96f5081a75d30dd7fa3c1b01d3616abef9bf057f5abfb232'}
 
 # Project-built whole robot, authorized STEP inputs and a separate practice pipe.
 SHOWCASE_ASSETS['cad/swerve-captive/Team-1780-public-captive-swerve.f3d'] = 'baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5'

@@ -1,9 +1,9 @@
 # A more tolerant pickup at the station
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The receiver can use its existing belt drives, springs and shelf to accept a wider error in the modeled incoming pipe position. Relieve the inner edges of four grip plates, narrow their four matching idler inserts, add four spring-seat shims and reset two stops. At the 40 mm dock, the model supports two combinations at Â±5 mm depth: **Â±0.80 mm side with Â±0.25Â° heading** or **Â±1.00 mm side with Â±0.15Â° heading**. Earlier tests supported Â±0.50 mm and Â±0.35 mm respectively. Both the pipe and the loaded receiver must still be measured before using either window. [Original stop and docking study](../station-supply/DOCKING.md) Â· [Station survey](../station-localization/README.md)

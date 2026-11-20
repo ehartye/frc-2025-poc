@@ -1,9 +1,9 @@
 # Follow the pipe on the moving shelf
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 A second overhead stereo head kept both modeled pipes in view through **the entire loaded drive and the full 370 mm extension**. The moving camera delivered 2,924 consecutive position observations. The desktop scheduler admitted every nominal request through the first release tick. At release, three overlapping observations transferred the track to the original fixed camera in every tested phase. Immediate withdrawal still meets the [earlier contact deadline](../low-observation/README.md) in **11 of 17 phases for A and 12 of 17 for B**. These are qualified desktop timings. The physical camera pair, mounting stiffness, field lighting, contacts, timing and actuator response still need measurement.

@@ -1,9 +1,9 @@
 # How late can the two cameras deliver a release observation?
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 On the fixed-low robot, the controller must recognize the same pipe as it moves from the shelf-mounted stereo head into the fixed head's view. A valid image can still arrive too late to begin withdrawing the shelf. At a 5 ms service period, both pipes met the modeled command deadline at all 85 camera/service alignments per pipe for every constant integer delivery latency from 7 through 18 ms. Pipe A missed one alignment at 19 ms. At 24 ms all alignments failed. A physical installation would need a measured latency distribution, including tail events, and timestamps on both sides of the transport. [Registered 598-body geometry and travel](../moving-observer/README.md) · [Independent actuator-feedback study](https://github.com/ehartye/frc-2025-poc/pull/65)

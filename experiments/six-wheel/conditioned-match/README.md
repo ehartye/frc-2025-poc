@@ -1,9 +1,9 @@
 # Does the first real pickup lead to two scores?
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The revised opening drive reaches the station before the 21.10 s feed under both signed wheel calibrations. The 2025 shop robot still lacks a qualified two-placement mission. The shelf and cameras can confirm a seated pipe under one material model, but the coupled shelf and the subsequent reef observation can each stop the scoring chain. The earlier nine-point replay used a different chassis and observer scene. [Student match replay](replay.html) · [Original two-trip control](../relieved-match/README.md) · [Preselected south alternative](../station-approach/README.md)

@@ -1,9 +1,9 @@
 # Opening AUTO with wheel calibration error
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **Select the reserved south-lane leave and park before the match if station alignment is unavailable.** In the desktop trial the red robot travels 543 mm, settles in 2.56 s and holds with its carriage stowed. This preserves a conditional opportunity for three LEAVE points and two PARK points. It gives up both station feeds and both L1 placements, worth four points on the earlier nine-point clock. A partial stop never authorizes a feed, continuation toward the station or automatic scoring. The earlier field replay shows the same lane and endpoints with its original 1.345 s drive. Select “Stop closer to the tape” to inspect the cages and partner positions. [Open the field replay](../leave-park/replay.html)

@@ -1,9 +1,9 @@
 # Can the slide clear both pipes before the robot departs?
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The desktop controller corroborated movement and stow in **all 17 camera phases for both pipes** on the 598-body fixed-low robot. Each phase ran with five scheduler offsets, eleven actuator delays and three string-pot biases. In those 5,610 trials, the nearest point on the pipe stayed at least 31.08 mm beyond the robot front. Both pipes retained modeled floor and lip support through three seconds of assessment. [Phase results](phases.csv) · [Machine-readable evidence](results.json) · [Camera handoff](../moving-observer/README.md)

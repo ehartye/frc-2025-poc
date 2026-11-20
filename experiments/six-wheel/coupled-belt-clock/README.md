@@ -1,9 +1,9 @@
 # What happens when the real controller clock drives the pipe model?
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The WPILib desktop controller commands **1.05 m/s** as soon as release begins. Both registered pipes then reach the inner riser in the 545-body contact model. An isolated **0.90 m/s** profile reaches the trough at a lower speed. Both pipes settle against its floor and lip **only when the model also withdraws the shelf on the independent clearance clock**. Leaving the shelf extended, as the ordinary controller does, brings it back into contact with both pipes. [20 ms controller trace](controller.csv) · [Numerical results](study.json)
