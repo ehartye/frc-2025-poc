@@ -29,6 +29,8 @@ import dynamics
 import dynamics_run as rack
 from rail_contact import RailContact
 from open_pins import minimum as open_clearance
+from target_contact import Trough
+from trough import forward_limit
 from cam_model import candidate_gaps
 
 
@@ -123,7 +125,9 @@ def install_floor(pipe, rail):
     return sync
 
 
-def run(artifacts, side, stroke_mm, dt_us, control, end_time):
+def run(
+    artifacts, side, stroke_mm, dt_us, control, end_time, resume=False, field=False
+):
     out = artifacts / "low-placement/advance-25" / side
     src = artifacts / "r4-score-stroke"
     name = f"cam-station-{side}-31.25us-0.1mm"
@@ -145,6 +149,16 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
     dt = dt_us * 1e-6
     times = np.arange(round(end_time / dt) + 1) * dt
     travel, speed, acc = (a * stroke_mm / 370 for a in dynamics.profile(times, 3.0))
+    if field:
+        retract = times >= 4.0
+        sr, vr, ar = dynamics.profile(times[retract] - 4.0, 3.0)
+        travel[retract] = (0.37 - sr) * stroke_mm / 370
+        speed[retract] = -vr * stroke_mm / 370
+        acc[retract] = -ar * stroke_mm / 370
+    if control == "stalled-rack":
+        travel[:] = 0.0
+        speed[:] = 0.0
+        acc[:] = 0.0
     raw = {
         key: getattr(pipe, key).copy()
         for key in ("a", "p", "v", "l", "z", "zdot", "plunger")
@@ -168,19 +182,110 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
     lost_s = 0.0
     begin = pipe.time
     issued = None
+    target_path = HERE.parents[1] / "six-wheel/mission/target.json"
+    dock = read(out / "chassis.json")["terminalMmMmRad"]
+    target = Trough(read(target_path), dock, 17 if dt_us <= 31.25 else 9)
+    idle_front = forward_limit(0.0)
+    full_front = forward_limit(stroke_mm)
+    first_field = first_dual = None
+    peak_field = 0.0
+    dwell = 0.0
+    longest_dwell = 0.0
+    port_clear_ticks = 0
+    withdrawal = None
     min_open = math.inf
     prior_pin_limit = None
-    for i, t in enumerate(times[:-1]):
+    start_index = 0
+    checkpoint = out / f"extended-{stroke_mm:g}mm-{dt_us:g}us.npz"
+    if resume:
+        with np.load(checkpoint, allow_pickle=False) as z:
+            if (
+                str(z["source"]) != previous["state"]
+                or str(z["code"]) != digest(Path(__file__))
+                or str(z["railCode"]) != digest(HERE / "rail_contact.py")
+            ):
+                raise ValueError("Wrong stopped pipe or extension source")
+            start_index = int(z["index"])
+            if abs(times[start_index] - 3.1) > 1e-9:
+                raise ValueError("Restart is not the release-service boundary")
+            rail.q, rail.v, rail.plunger, rail.peak = [
+                z[k].copy() for k in ("q", "qd", "plunger", "peak")
+            ]
+            rail.max_pitch, rail.max_heave = z["peakMotion"]
+            world = tuple(z["world"].copy())
+            pipe.time, pipe.belt = z["pipeClock"]
+            history = z["history"].tolist()
+            permits = z["permits"].astype(bool).tolist()
+            max_pin, max_gap_ms, minimum, lost_s = z["bounds"]
+            first_free = None if np.isnan(z["firstFree"]) else float(z["firstFree"])
+            f = frame(rail, travel[start_index], speed[start_index])
+            local(pipe, f, world, feed)
+            sync()
+    for i in range(start_index, len(times) - 1):
+        t = times[i]
+        if (
+            not resume
+            and i == round(3.1 / dt)
+            and all(permits[-5:])
+            and control == "nominal"
+        ):
+            np.savez_compressed(
+                checkpoint,
+                source=previous["state"],
+                code=digest(Path(__file__)),
+                railCode=digest(HERE / "rail_contact.py"),
+                index=i,
+                q=rail.q,
+                qd=rail.v,
+                plunger=rail.plunger,
+                peak=rail.peak,
+                peakMotion=[rail.max_pitch, rail.max_heave],
+                world=np.array(world),
+                pipeClock=[pipe.time, pipe.belt],
+                history=history,
+                permits=permits,
+                bounds=[max_pin, max_gap_ms, minimum, lost_s],
+                firstFree=np.nan if first_free is None else first_free,
+            )
         # Require at least five fresh 5 ms held states at the arrived stroke
         # before opening; a stuck yoke keeps the pusher disabled.
-        if t >= 3.1 and issued is None and all(permits[-5:]) and len(permits) >= 5:
+        read_stroke = (
+            round((travel[i] * 1000 + (0.2 if side == "plus" else -0.2)) / 0.1) * 0.1
+        )
+        at_end = abs(read_stroke - stroke_mm) <= 0.5 and abs(speed[i]) < 0.001
+        if (
+            t >= 3.1
+            and issued is None
+            and at_end
+            and all(permits[-5:])
+            and len(permits) >= 5
+        ):
             issued = float(t)
+        if issued is None and t >= 3.25:
+            reason = "stroke service expired before measured dock extension"
+            break
+        if field and t >= 4.0 and withdrawal is None:
+            if port_clear_ticks < 5 or issued is None or control == "stuck-yoke":
+                reason = "withdrawal inhibited by measured occupancy or yoke state"
+                break
+            withdrawal = float(t)
         yoke = (
             max(0.0, 35.0 - 150.0 * (t - issued))
             if issued is not None and control != "stuck-yoke"
             else 35.0
         )
-        belt = 1.05 if issued is not None and yoke < 0.001 else 0.0
+        # The open position is a modeled servo completion indication. The as-issued
+        # closed switches alone cannot identify a partially retracted jam.
+        if control == "backseat" and issued is not None:
+            pulse = t - issued
+            belt = -0.14 if 0.235 <= pulse < 0.335 else 1.05 if pulse >= 0.375 else 0.0
+        elif control == "soft-start" and issued is not None and yoke < 0.001:
+            belt = min(0.88, 3.0 * max(0, t - issued - 35.0 / 150.0))
+        else:
+            belt = 1.05 if issued is not None and yoke < 0.001 else 0.0
+        if control == "stuck-yoke" and issued is not None and t - issued >= 0.275:
+            reason = "open-yoke service expired with belt disabled"
+            break
         r = f[0]
         p0, v0, l0 = pipe.p.copy(), pipe.v.copy(), pipe.l.copy()
         if yoke == 0 and control != "legacy-bore":
@@ -219,11 +324,18 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
         # Include gravity in the rotating stage coordinate system. moves() already
         # applies vertical nominal gravity; replace its direction by this delta.
         actual_gravity = r.T @ np.array([0.0, 0.0, -feed.G])
+        external, external_torque, spans, normals, compression = (
+            target.solve(world)
+            if field
+            else (np.zeros(3), np.zeros(3), [0.0, 0.0], [0.0, 0.0], 0.0)
+        )
+        pipe.v += dt * (r.T @ external) / feed.M
+        pipe.l += dt * (r.T @ external_torque)
         pipe.v += dt * (actual_gravity - np.array([0.0, 0.0, -feed.G]))
         pipe.plate_force = 0.0
         feed.Pipe.moves(pipe, belt, dt)
-        force = feed.M * ((pipe.v - v0) / dt - actual_gravity)
-        torque = (pipe.l - l0) / dt
+        force = feed.M * ((pipe.v - v0) / dt - actual_gravity) - r.T @ external
+        torque = (pipe.l - l0) / dt - r.T @ external_torque
         # Relative spring/actuator reactions against the receiver. Generalized
         # positive pitch is -Ry. Reactions include both bore pins and belt pads.
         load = np.zeros_like(rail.q)
@@ -243,6 +355,25 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
         A = A + dt * np.cross(omega, A)
         A = A / np.linalg.norm(A)
         world = P, V, A, L
+        rear = P[0] - 0.1508125 * abs(A[0]) - 0.05715 * np.sqrt(max(0.0, 1 - A[0] ** 2))
+        nose = idle_front + (full_front - idle_front) * travel[i + 1] * 1000 / stroke_mm
+        front_gap = rear - nose
+        if sum(normals) > 0:
+            if first_field is None:
+                first_field = float(t + dt)
+            if pipe.last_normal_n > 0 and first_dual is None:
+                first_dual = float(t + dt)
+        peak_field = max(peak_field, compression)
+        if (
+            min(spans) >= 0.18
+            and np.linalg.norm(V) < 0.01
+            and np.linalg.norm(omega) < 0.2
+            and front_gap > 0.001
+        ):
+            dwell += dt
+        else:
+            dwell = 0.0
+        longest_dwell = max(longest_dwell, dwell)
         f = newframe
         local(pipe, f, world, feed)
         sync()
@@ -262,6 +393,7 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
             lost_s = 0.0
         if (i + 1) % stride == 0:
             ports = [bool(v) for v in pipe.ports()]
+            port_clear_ticks = port_clear_ticks + 1 if not any(ports) else 0
             obs = observations(geometry(pipe.p * 1000, pipe.a, yoke), yoke, "nominal")
             grant = permission([v for _, v in obs], ports, [v for v, _ in obs])
             permits.append(grant)
@@ -279,6 +411,10 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
                     *ports,
                     grant,
                     *rail.q[:6],
+                    *spans,
+                    *normals,
+                    front_gap,
+                    dwell,
                 ]
             )
             if issued is None and not grant:
@@ -290,8 +426,17 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
         if rail.max_pitch > 0.04 or rail.max_heave > 0.005:
             reason = "carriage excursion outside bounded placement geometry"
             break
+        if field and target.state(world)[0][2] < 0.20:
+            reason = "missed trough after losing field support"
+            break
+        if field and dwell >= 0.25:
+            reason = (
+                "finite trough support and whole-robot separation persisted for 250 ms"
+            )
+            break
         if (
-            issued is not None
+            not field
+            and issued is not None
             and yoke == 0
             and pipe.last_normal_n == 0
             and pipe.p[0] > 0.165
@@ -310,7 +455,8 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
                 time=float(t + dt),
             )
             break
-    trace = out / f"coupled-{stroke_mm:g}mm-{dt_us:g}us-{control}.npy"
+    prefix = "joined" if field else "coupled"
+    trace = out / f"{prefix}-{stroke_mm:g}mm-{dt_us:g}us-{control}.npy"
     np.save(trace, np.asarray(history))
     result = dict(
         side=side,
@@ -319,12 +465,18 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
         piece=previous["piece"],
         sourceTimeS=begin,
         startWallS=previous["endWallS"],
-        endWallS=previous["endWallS"] + float(t + dt),
+        endWallS=previous["endWallS"] + pipe.time - begin,
         initialProjectionRollMm=1000 * rail.roll,
         initialProjectionRollVelocityMmS=1000 * rail.roll_rate,
         dtUs=dt_us,
         commandMm=stroke_mm,
         firstZeroFloorReactionS=first_free,
+        troughSourceSha256=digest(target_path) if field else None,
+        firstTargetContactS=first_field,
+        firstSimultaneousFieldShelfContactS=first_dual,
+        maximumFieldIndentationMm=peak_field * 1000,
+        longestSeparatedSupportS=longest_dwell,
+        withdrawalCommandS=withdrawal,
         longestZeroFloorMs=max_gap_ms,
         minimumClosedBoreMm=minimum,
         maximumPinN=max_pin,
@@ -339,7 +491,8 @@ def run(artifacts, side, stroke_mm, dt_us, control, end_time):
         terminalLocalP=pipe.p.tolist(),
         terminalAxis=pipe.a.tolist(),
         terminalHardStop=pipe.hard,
-        solverWallSeconds=float(t + dt),
+        solverWallSeconds=pipe.time - begin,
+        extensionRestartSha256=digest(checkpoint) if resume else None,
         event=event,
         trace=digest(trace),
         matchCredit=0,
@@ -357,10 +510,29 @@ if __name__ == "__main__":
     p.add_argument("--stroke-mm", type=float, default=337.0)
     p.add_argument("--dt-us", type=float, default=31.25)
     p.add_argument("--until", type=float, default=4.0)
+    p.add_argument("--from-extension", action="store_true")
+    p.add_argument("--field", action="store_true")
     p.add_argument(
         "--control",
-        choices=("nominal", "legacy-bore", "zero-traction", "stuck-yoke"),
+        choices=(
+            "nominal",
+            "legacy-bore",
+            "zero-traction",
+            "stuck-yoke",
+            "stalled-rack",
+            "backseat",
+            "soft-start",
+        ),
         default="nominal",
     )
     a = p.parse_args()
-    run(a.artifacts, a.side, a.stroke_mm, a.dt_us, a.control, a.until)
+    run(
+        a.artifacts,
+        a.side,
+        a.stroke_mm,
+        a.dt_us,
+        a.control,
+        a.until,
+        a.from_extension,
+        a.field,
+    )
