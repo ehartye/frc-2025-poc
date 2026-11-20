@@ -1,5 +1,11 @@
 # Fabrication review · 401-body station receiver
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 A shop can review and quote **27 existing chassis and receiver instances from nine drawing families**. The [dimensioned drawing book](drawings.html) opens offline and prints nine A3 landscape sheets. [Cut list](cuts.csv) · [drill/counterbore coordinates](operations.csv) · [1:1 metric DXF operation patterns](patterns/) · [native comparison receipt](native-review.json)
 
 The authoritative input is the blue [401-body stowed STEP at 3fc3f27](https://github.com/ehartye/frc-2025-poc/blob/3fc3f27b716546dc92a34c9c6dda8c99fd5b8ff4/design/competition-package/poses/stowed.step) with SHA-256 `6ab8b98d5f5a196809a87f299279b8f8c01a06384d6c39dcda1f51423f865990`. Separate proposed hardware in [the joint drawings and assembly notes](JOINTS.md) closes the outer carrier clamp geometry and the receiver screw-to-channel load path for design review. The [401-row inventory](inventory.csv) routes every installed ID to a single original design source. The [purchasing table](purchasing.csv) groups recurring candidate components and missing hardware by actual fitted quantity. Quantities exclude spares and refer to this robot, before any owner-selected substitutions.

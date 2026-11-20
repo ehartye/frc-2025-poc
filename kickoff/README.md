@@ -1,5 +1,11 @@
 # Release-day opportunity study
 
+<!-- cad-still -->
+[![Team 1780 Â· captive swerve receiver](../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD Â· Team 1780 Â· captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP Â· 0dad9e862e](../cad/swerve-captive/public-robot.step) Â· [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Download and open the [standalone REEFSCAPE field lab](field-lab.html) in a browser. It includes the rules model, team rosters, field obstacles, scoring-window calculator and match clocks. The [live season profile](live-profile.json) is the input for regeneration.
 
 ### Play six matches
@@ -8,7 +14,7 @@ In **Match rehearsal**, select the published series and press **Play match serie
 
 The editable observation box starts at 30 Ã— 30 Ã— 30 in and heading 0Â°. Each rehearsal roster slot initially uses a 26 Ã— 26 in frame with 3.25 in of bumper per side, for a 32.5 Ã— 32.5 in occupied footprint. Use the trial box on a selected roster slot to compare the two configurations.
 
-This exercise starts from the 2025 REEFSCAPE V0 game manual. The receiver placement checks are a later investigation. Both candidate match stories in this exercise remain open for team review.
+This exercise starts from the 2025 REEFSCAPE V0 game manual. The existing mechanism fixture in the main README is a later investigation. Both candidate match stories in this exercise remain open for team review.
 
 1. Inspect the [editable V0 rules model](rules-v0.json). It records the inventory, phase durations, point values, field dimensions and illustrative route assumptions.
 2. Open the student field lab from the [project-owned season profile](season-profile.json) using the command below. This file supplies season geometry, scoring opportunities, team start slots, proposed routes, obstacle and cage assumptions, period names and limits, and match programs to the portable engine. Compare the [two saved field observations and scoring windows](field-lab-draft.md). An analyst entered these trial values as prompts for student discussion.

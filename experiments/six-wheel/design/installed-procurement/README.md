@@ -1,5 +1,11 @@
 # Shop and procurement audit · 545-body robot
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 A team can quote the named motors, drive articles and several machined families from this revision. A complete order and shop release still depend on unselected parts, loose hardware and physical interface evidence. The four hash-bound poses and historical inspection estimate identify the [installed 545-body robot](../competition-package/shop-duplex/README.md).
 
 | Use | Record |

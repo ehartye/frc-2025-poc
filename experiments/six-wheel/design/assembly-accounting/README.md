@@ -1,5 +1,11 @@
 # Count the installed articles and compare mass alternatives
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Each alliance map represents one 545-body robot in four poses. The baseline contains **520 modeled physical instances** and **36 additional wheel-to-hub fasteners**. Of those 556 instances, 263 are designated for fabrication, 223 are purchased articles or commodity items, and 70 still have an open selection. The count covers the identified items. Unresolved loose hardware, shop stock, spare quantities and the second detachable bumper kit each require a separate purchasing decision. [Installed article crosswalk](../installed-procurement/installed.csv) · [Loose-item register](../installed-procurement/loose-items.csv)
 
 Each pose contributes 542 installed-body assignments, one included draw wire and two service spaces. The running line, return line and spliced eye on each side share one secondary rope identity. Four primary-rope solids form two purchased lines. The SP1-25 body and draw wire form one transducer assembly. Twelve bearings require three four-packs if stock is zero. Actual stock, final order quantities and inspection weight remain unknown. [Purchasing basis](../shop-package/purchasing.csv) · [Twelve checked cases](review.json)

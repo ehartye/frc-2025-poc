@@ -1,5 +1,11 @@
 # Can the fixed carriage deliver twice and still park?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Run the six-robot field replay](replay.html). Change the partner's path, delay the second pipe or return to the station. Drag the clock through the final three seconds to see why the scoring assessment and powered travel have different deadlines.
 
 **The issued observer authorizes zero L1 deliveries.** It corroborates the stationary seats, while uninterrupted carried identity remains unresolved. At both placements its image, scheduler and 50 ms wait miss the reviewed withdrawal window on all 17 phases. Holding the slide instead recontacts each pipe 566.4 ms after first trough contact, at TELEOP 30.850 and 80.940 s. The reserve-lane run below is the opportunity if a qualified observer and actuator can deliver the modeled retreat. The conservative replay holds at the station after its first intake and retains only the conditional AUTO LEAVE.

@@ -1,5 +1,11 @@
 # Route the moving camera cables
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The existing anchor sequence needs at least **1,482.27 mm** at full extension even with zero cable thickness, arbitrary entry points within every anchor and perfectly sharp turns. Only 17.73 mm of the prior 1.50 m estimate remains for real bends, plugs and service slack. A right-side rolling return provides a different route. [Move the shelf through its stroke](explore.html) · [Existing anchor calculation](anchors.json)
 
 | From the fixed equipment to the moving handoff | Power | USB 3 data |

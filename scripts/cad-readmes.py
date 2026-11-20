@@ -32,16 +32,6 @@ def output(file, data, update):
 
 def run(root, update, template):
     config = json.loads((root / "cad-showcase.json").read_text(encoding="utf-8-sig"))
-    if config.get("publication", {}).get("status") == "withheld":
-        paths = subprocess.check_output(["git", "ls-files", "-z"], cwd=root).split(b"\0")
-        for item in paths:
-            if not item or Path(os.fsdecode(item)).name.lower() not in ("readme.md", "readme"):
-                continue
-            path = root / os.fsdecode(item)
-            original = path.read_bytes()
-            without_hero = re.sub(rb"<!-- cad-still -->.*?<!-- /cad-still -->\r?\n\r?\n", b"", original, flags=re.S)
-            output(path, without_hero, update)
-        return
     folder = root / "docs/robot/cad"
     receipt = json.loads((folder / "receipt.json").read_text(encoding="utf-8"))
     if receipt["source"] != config["source"]:

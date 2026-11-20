@@ -1,5 +1,11 @@
 # Retain and service the six drive axles
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The two center axles could slide through their entire 10 mm socket engagement even with an end screw fitted. The new design closes the outward load path with a removable radial clip and thrust washer. Ten end screws and shims close the exposed shaft ends. Twelve covers capture the flanged bearing outer rims against their carriers. The installed shop map adds **103–150 g** to the selected robot, leaving **753 g of represented headroom** at the upper estimate. Finished weight, axial proof load and durability require a built assembly. [Interactive section and service stages](explore.html) · [Axle kit](axle-kit.step) · [Bearing keepers](bearing-keepers.step) · [Combined accounting](accounting.json)
 
 ## Cut and procurement schedule

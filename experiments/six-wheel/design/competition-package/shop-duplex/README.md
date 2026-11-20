@@ -1,5 +1,11 @@
 # Fastened chassis and duplex receiver lift
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Explore the [blue robot](blue/robot.html) or the [red robot](red/robot.html) offline. Choose **Shop joints** to inspect the carrier clamps and pinned slide blocks. Choose **Lift retention** to follow each secondary line from its drum, over its sheave, to the carriage. Select a part to see its name and position in four poses.
 
 | Pose | Carriage / extension | Complete blue STEP | Complete red STEP |

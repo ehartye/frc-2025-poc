@@ -1,5 +1,11 @@
 # Can the receiver tell whether both belts actually moved?
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 At 580 ms the receiver asks its two belts to help seat the pipe. On the original 850 mm guide, a good left feed and a completely stalled drive gave the same Entry and Seat readings until 1,100 ms. The two **passive front idlers** provide an earlier observation. Each turns when its own timing belt advances, even though neither sensor sees the pipe. On the desktop, both locked-belt trials went neutral at **640 ms**, 700 ms before the issued controller's timeout. [Original port evidence](../split-guide-acquisition/README.md) · [Replayed results](qualification.json)
 
 | Station condition | Idlers at 640 ms | Last station decision |

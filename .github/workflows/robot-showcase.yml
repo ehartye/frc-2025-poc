@@ -35,8 +35,10 @@ jobs:
         env:
           AGENT_FRC_PLUGIN_ROOT: ${{ github.workspace }}/builder
         run: node --test project/tests/live-field.test.mjs
-      - name: Publish approved field rehearsals
-        run: node project/scripts/publish-field.mjs project "$RUNNER_TEMP/showcase"
+      - name: Verify the manifest and build the public files
+        run: node builder/scripts/robot-highlights.mjs project/highlights.json "$RUNNER_TEMP/showcase"
+      - name: Publish student-controlled mechanism motion
+        run: node project/scripts/publish-capture.mjs project "$RUNNER_TEMP/showcase"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:

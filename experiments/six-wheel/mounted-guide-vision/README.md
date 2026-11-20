@@ -1,5 +1,11 @@
 # What the mounted guides hide
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Open the student camera replay](viewer.html). Scrub actual sector time and compare both pupil windows for each fitted installation.
 
 The lower left guide arm hides one of the two surveyed fasteners at scoring sector A. With the nominal and outward-fitted guide modules, both signed approach controllers stop before the scoring target. The closed-loop stops leave the smaller-left-wheel robot 74.97 mm short and the smaller-right-wheel robot 27.48 mm short. Both keep the scoring rack stowed. [Field trials](sector.json) · [Native part attribution](obstruction.json)

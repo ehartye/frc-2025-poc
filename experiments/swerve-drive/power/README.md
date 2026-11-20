@@ -1,5 +1,11 @@
 # Power, weight and tire grip for four-module swerve
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 The revised opening fits the simulated power and tire limits at **65 kg and 72 kg**, for both signed module calibrations. The original four-module comparison with the shorter wiring target put the dressed R103 upper endpoint at **54.792 kg**, 2.629 kg over the 52.163 kg limit. The 72 kg opening covers even the longer wiring estimate with the battery, 7.5 kg bumpers and one pipe, although that trial drives an empty robot. [Reconciled mass](installed.json) · [Four achieved opening clocks and adverse control](routes.json)
 
 The later fixed-height drawing uses the full 5 kg reserve and includes the elevated rear host. Its upper reaches 51.993 kg, leaving 170 g under R103. Four uniform 1 m supply cuts exceed the limit by 5 g on the same build. [Build selection and measured CAD volumes](../mass-closure/README.md)

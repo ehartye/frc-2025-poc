@@ -1,5 +1,11 @@
 # From an actual station opening to a seated pipe
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 Explore how parking error changes bumper and receiver clearance in the [student docking lab](dock-lab.html). The [545-body docking study](DOCKING.md) traces the issued approach and two alternate receiving positions.
 
 The complete match currently assumes CORAL A and B arrive at the receiver at 0.50 m/s. That speed follows from releasing a transverse pipe from rest only 42.1 mm before the chute lip. The actual ramp is 419.1 mm long. In the later competition manual G431 restricts a person’s reach into the chute and G433 requires CORAL to enter through the station via a driver or human player. The earlier start state alone cannot establish how the pipe got there. [Issued full match](../full-match/README.md) · [Official manual, §§5.7, 7.4.5](https://firstfrc.blob.core.windows.net/frc2025/Manual/HTML/2025GameManual.htm) · [Official field drawings, GE-25010 and GE-25014, PDF sheets 75 and 80](https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025FieldDrawings.pdf)

@@ -1,5 +1,11 @@
 # Four-module opening to the red station
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 ## First loaded swerve departure
 
 The receiver follows the corrected signed opening poses into the same first station feed at 21.10 s. The field robot is held stationary during feeding. Its last incoming wheel trace bounds the residual chassis and wheel rates at 10⁻⁵ m/s or rad/s. At 27.035 s the five-frame stereo decision can enable a short combined reverse and lateral motion on the four real module centers. The target ramps to 0.15 m/s reverse and 0.025 m/s lateral in 250 ms, then commands a stop at 600 ms or sooner if custody expires. Wheel-radius error, absolute encoder quantization, yaw scale and bias remain signed. The chassis carries coral-A's 0.816466 kg at its attained center. Tire/contact and bus calculations assume the same supported tread conditions as the opening.

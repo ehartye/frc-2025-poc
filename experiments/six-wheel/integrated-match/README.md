@@ -1,5 +1,11 @@
 # Two pipes and a park
 
+<!-- cad-still -->
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+<!-- /cad-still -->
+
 [Open the interactive field replay](replay.html). Choose a strategy or frame fault, then use the evidence clock to jump to a station pickup, a rack decision or the final assessment. Times below run from the start of AUTO unless marked TELEOP.
 
 | Six-robot study | AUTO LEAVE | Supported TELEOP L1 | TELEOP park | Modeled points |
