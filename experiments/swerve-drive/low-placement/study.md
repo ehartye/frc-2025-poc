@@ -15,9 +15,25 @@ For the held-out minus calibration, a 0.20 mm station plunger gap changes the in
 
 ## Change the scoring stroke
 
-The frozen command was 345 mm. The closest dock pose consistent with the actual camera histories, the SP1 transducer's ±2 mm travel allowance, rail pitch up to ±0.04 rad and ±5 mm of heave leave insufficient clearance against the front wall at that setting. A 337 mm command keeps the signed whole-robot separating plane positive by 4.33 mm and 3.21 mm. An 8 mm overtravel at the shorter setting again loses that guarantee. The check uses all 1,268 installed bodies of the reopened assembly, the stowed jack and actual low wall in the red field. A negative bound indicates where an exact solid check could improve the estimate. [Geometry and tolerance cases](clearance.json)
+The frozen 345 mm command exhausts the clearance to the reef wall. The 337 mm revision leaves 3.83 mm on positive calibration and 2.71 mm on negative calibration after charging the SP1's ±2 mm tolerance, the 0.5 mm controller deadband, ±0.04 rad of pitch, ±5 mm of heave and the camera pose enclosure. An 8 mm overtravel again exhausts the margin. The check covers all 1,268 installed bodies, the stowed jack and the front wall. [Geometry and tolerance cases](clearance.json)
 
 The original 23-link power and USB tails first intersect the fixed right climber motor at sampled strokes of 308.75 and 319.75 mm. The alternate 22-link layout shifts the moving end 95 mm rearward. For a 345 mm sweep, the entire data and power centerlines retain at least 24.87 and 26.94 mm to the motor at maximum jacket diameter. The branch's project-authored STEP contains 19 installed support and connector shapes and two approach gauges. The stationary power feed has its own route and service-removal clearance. Carrier end brackets, cable connector strain relief and protection of the return bend still need an installed design. Carrying these candidate shapes through this study leaves the issued robot and its inspection mass unchanged. [Wire geometry and sources](candidate-wiring.json) · [Continuous clearance](wiring-clearance.json)
+
+## Why a supported pipe still earns zero points
+
+The same six-degree-of-freedom pipe that arrived at each dock was advanced with gravity, both finite bore pins, two end belts, a flexible shelf, unilateral telescoping bearings and the two cam plungers. At 3.10 s after stopping, the controller requests yoke opening after five fresh occupied services. The belt starts only after the modeled open indication. Both field fixtures begin carrying the pipe while the shelf is still carrying it. In the positive run this happens at 3.706 s. Starting a separate landing solver only when the shelf has released the pipe skips this interval.
+
+The simultaneous shelf and field calculation reaches 250 ms of slow, two-line trough support and separation at match 61.104 s on positive calibration and 60.199 s on negative calibration. An independent Java solver holds each of those states in the trough for another three seconds across both friction settings and both contact resolutions. Across 892 sampled states, the two implementations agree within 1.7 × 10⁻¹² N on instantaneous field forces. Their effective peak field indentation during entry is 7.83 and 10.80 mm respectively. [Solver comparison](force-witness.json) · [Field and rack receipts](results.json)
+
+**The scoring attempts remain uncredited.** On the positive run the finite pipe intersects the installed right grip support foot 3.420 s after the dock stop and the right front riser at 3.470 s, before any trough contact. Their largest sampled overlap volumes are 872 and 2,753 mm³. The reduced model allowed the pipe to pass through both. The same inspection also finds shelf-front, insert and inner-rail intersections later during departure. Right and left grip geometry, sensing and the rail's true front edge matter while the payload is shared between robot and field. A sampled material intersection is sufficient to invalidate the modeled exit.
+
+![Registered transverse sections showing the CORAL intersecting the right receiver hardware](../../../docs/robot/receiver-exit.png)
+
+Negative calibration reproduces the grip-foot contact at 3.420 s. The maximum overlaps with its foot and riser are 873 and 3,085 mm³. The stuck-yoke control leaves the belt off. With belt traction set to zero from the same extended checkpoint, the pipe approaches an open pin. A gentler ramp reduces the right-foot intersection to 36 mm³, but catches the opposite foot and trips the pin limit. A short reverse pulse before ejection increases right-riser overlap to 3,908 mm³. Driving the left belt at 40% of its partner's rate moves the collision to the left riser. Driving the right belt at 40% increases right-riser overlap to 3,589 mm³. All controls retain zero delivery credit. [Signed runs and adverse controls](results.json)
+
+The student orbit uses the 1,001-body parked captive receiver. Its neutral STEP and the stored 3D mesh identify the exact public configuration. At the original 0.020 mm proximity threshold, 849 robot solids join the host deck and 152 form 68 other groups. The later engineering issue used for this release has 1,268 installed solids, 1,128 in its main component and 54 separate groups. Both front feet and both risers are in the deck component in both configurations. Proximity can come from a bearing, touching cover or incidental contact. A load rating or positive fastening requires the corresponding joint and hardware evidence. [Export graph and named islands](export-graph.json)
+
+Keep the receiver stowed at the observed dock until the front support and the actual shelf edge are included in the contact solution or a changed release path clears them. The next qualification keeps the same two signed inputs and the separately initialized 0.20 mm case. Red 2 must deliver two individually supplied pipes in its 135 s TELEOP window. All complete episodes are open. [Frozen role and physical conditions](role-freeze.json) · [Full-window assessment](role-assessment.json)
 
 ## Reproduce the study
 
@@ -30,6 +46,10 @@ python low-placement/dock.py ARTIFACTS plus --mode missing-eye
 python low-placement/dock.py ARTIFACTS plus --mode lost-packets
 python low-placement/rack.py ARTIFACTS plus --mm 337
 python low-placement/delivery.py ARTIFACTS plus --stroke-mm 337 --dt-us 62.5
+python low-placement/delivery.py ARTIFACTS plus --field --until 7.2 --dt-us 62.5
+python low-placement/delivery.py ARTIFACTS plus --field --until 7.2 --dt-us 62.5 --from-extension --control zero-traction
+python low-placement/trough.py ARTIFACTS/low-placement/advance-25/plus/joined-337mm-62.5us-nominal.json JDK17 --separated
+python low-placement/installed_contact.py ARTIFACTS/low-placement/advance-25/plus/joined-337mm-62.5us-nominal.npy
 python low-placement/clearance.py ARTIFACTS low-placement/clearance.json
 python low-placement/wiring.py
 ```

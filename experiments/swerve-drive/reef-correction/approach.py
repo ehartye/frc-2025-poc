@@ -47,7 +47,7 @@ def sensed_center(heads, ctx, prediction):
     return np.r_[np.mean(positions, axis=0), prediction[2]]
 
 
-def run(artifacts, side, mode="nominal", *, cam_run=None, forward_mm=0.0):
+def run(artifacts, side, mode="nominal", *, cam_run=None, forward_mm=0.0, cam_source=None):
     if cam_run is None:
         route_dir = artifacts / "retained-coral" / side / "continued"
         survey = artifacts / "captive-observer/mono.json"
@@ -56,17 +56,20 @@ def run(artifacts, side, mode="nominal", *, cam_run=None, forward_mm=0.0):
         source = read(RET / "held.json")["cases"][side]["source"]
         folder = artifacts / "reef-correction" / side
     else:
-        cam = artifacts / "cam-scoring"
+        cam = artifacts / "cam-scoring" if cam_source is None else cam_source
         route_dir = cam / side / "route"
         survey = cam / "reef-survey.json"
         camera = cam / "camera.npz"
         pipe = cam / side / "route-piece.npz"
         custody = read(cam / side / "route-piece.json")
-        published = read(HERE.parent / "cam-scoring/results.json")["developmentCases"][side]
-        if (custody["state"] != published["stages"]["route"]["state"]
-                or not custody["allGranted"] or custody["fault"]
-                or custody["piece"] != "coral-A"
-                or custody["wheel"] != published["route"]["trajectory"]):
+        if cam_source is None:
+            published = read(HERE.parent / "cam-scoring/results.json")["developmentCases"][side]
+            if custody["state"] != published["stages"]["route"]["state"]:
+                raise ValueError("Different published development state")
+        station=read(cam/side/"station-piece.json")
+        if (not custody["allGranted"] or custody["fault"] or not station["allGranted"]
+                or custody["piece"] != station["piece"] or custody["piece"]!="coral-A"
+                or custody["before"]!=station["state"] or custody["wheel"] != read(route_dir/"route.json")["trajectory"]):
             raise ValueError("Cam capture or signed route changed")
         source = {"checkpoint": custody["state"], "endWallS": custody["endWallS"],
                   "qualifiedAtWheelEndpoint": {"retained": custody["allGranted"]}}

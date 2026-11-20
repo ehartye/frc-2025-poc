@@ -4,7 +4,7 @@
   "field": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
   "wall": "NAUO36/NAUO1053/GE-25302",
   "basis": "Reopened parked bounds for 1268 installed bodies. Plane X490 spans the full sector at all heights through 457.2 mm. Positive is a sufficient clearance; a negative bound calls for refinement.",
-  "limits": "Stowed jack, closed capture yokes, parked wheel poses during stroke. Horizontal straight slide under 0.04 rad pitch and 5 mm heave. 2 mm is the project SP1 stroke allowance. Covers one stationary field wall, not ALL reef components or flexible leads.",
+  "limits": "Stowed jack, parked wheels. Yokes translate laterally inward from the open CAD bounds. The solved travel is bounded by 0.04 rad pitch and 5 mm heave. The 2.5 mm control adds a 0.5 mm service deadband to the 2 mm SP1 travel allowance. The plane bounds one stationary field wall.",
   "cases": {
     "plus": {
       "chassisSha256": "4bfef386dad21e3c3cb71fbd1a7ffd1451ff87cba48ed2b646cfb80ea74c8bc8",
@@ -49,6 +49,17 @@
           "pitchLimitRad": 0.04,
           "heaveLimitMm": 5,
           "minimumPlaneGapMm": 4.333252193888427,
+          "limitingBody": "Outer slide:1+drilled-slide-L-inner:1/Body1",
+          "lowerZBoundMm": 434.58490877001907,
+          "possibleBodiesBelowWall": 764,
+          "clears": true
+        },
+        {
+          "commandMm": 337,
+          "actualPlusMm": 2.5,
+          "pitchLimitRad": 0.04,
+          "heaveLimitMm": 5,
+          "minimumPlaneGapMm": 3.833252193888427,
           "limitingBody": "Outer slide:1+drilled-slide-L-inner:1/Body1",
           "lowerZBoundMm": 434.58490877001907,
           "possibleBodiesBelowWall": 764,
@@ -110,6 +121,17 @@
           "pitchLimitRad": 0.04,
           "heaveLimitMm": 5,
           "minimumPlaneGapMm": 3.2145382588371945,
+          "limitingBody": "Outer slide:1+drilled-slide-L-inner:1/Body1",
+          "lowerZBoundMm": 434.58490877001907,
+          "possibleBodiesBelowWall": 764,
+          "clears": true
+        },
+        {
+          "commandMm": 337,
+          "actualPlusMm": 2.5,
+          "pitchLimitRad": 0.04,
+          "heaveLimitMm": 5,
+          "minimumPlaneGapMm": 2.7145382588371945,
           "limitingBody": "Outer slide:1+drilled-slide-L-inner:1/Body1",
           "lowerZBoundMm": 434.58490877001907,
           "possibleBodiesBelowWall": 764,

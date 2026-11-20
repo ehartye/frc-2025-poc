@@ -93,7 +93,7 @@ def run(artifacts):
             enclosure=reg["enclosure"],
             trials=[
                 evaluate(native["bodies"], reg["enclosure"], mm, tol, 0.04, 5)
-                for mm, tol in [(345, 0), (345, 2), (337, 2), (337, 8)]
+                for mm, tol in [(345, 0), (345, 2), (337, 2), (337, 2.5), (337, 8)]
             ],
         )
     return dict(
@@ -102,7 +102,7 @@ def run(artifacts):
         field=field["fieldSha256"],
         wall=field["fieldPart"],
         basis="Reopened parked bounds for 1268 installed bodies. Plane X490 spans the full sector at all heights through 457.2 mm. Positive is a sufficient clearance; a negative bound calls for refinement.",
-        limits="Stowed jack, closed capture yokes, parked wheel poses during stroke. Horizontal straight slide under 0.04 rad pitch and 5 mm heave. 2 mm is the project SP1 stroke allowance. Covers one stationary field wall, not ALL reef components or flexible leads.",
+        limits="Stowed jack, parked wheels. Yokes translate laterally inward from the open CAD bounds. The solved travel is bounded by 0.04 rad pitch and 5 mm heave. The 2.5 mm control adds a 0.5 mm service deadband to the 2 mm SP1 travel allowance. The plane bounds one stationary field wall.",
         cases=cases,
     )
 

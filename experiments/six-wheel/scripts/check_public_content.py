@@ -18,6 +18,7 @@ SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': '6ce25b430ec46d594b42f348221d4
 SHOWCASE_ASSETS['cad/swerve-captive/Team-1780-public-captive-swerve.f3d'] = 'baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5'
 SHOWCASE_ASSETS['experiments/swerve-drive/retention/capture.png'] = '7945e7c2172e717400b7cc947d8648392455603f410b2f7f2f4f796581f47e17'
 SHOWCASE_ASSETS['docs/robot/station-witness.png'] = '391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec'
+SHOWCASE_ASSETS['docs/robot/receiver-exit.png'] = '83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47'
 # Two project-machined bodies, six native features and no supplier geometry.
 SHOWCASE_ASSETS['experiments/swerve-drive/score-stroke/cam-lands.f3d'] = 'b5453de8239aa798db60d625ca5925f08bf137860e27168e41a3d6db34a700a5'
 SHOWCASE_ASSETS['experiments/swerve-drive/motion/opening.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'

@@ -11,6 +11,20 @@
   },
   "sources": [
     {
+      "id": "receiver-exit-sections",
+      "label": "Cross sections of the pipe and installed grip supports",
+      "revision": "Signed positive dock, native transverse sections at 3.420 and 3.820 seconds",
+      "file": "docs/robot/receiver-exit.png",
+      "sha256": "83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47",
+      "shareable": true
+    },
+    {
+      "id": "actual-low-placement",
+      "label": "Signed pickup-to-trough runs and installed ejection interference",
+      "revision": "Captured swerve, cam receiver and 337 mm placement stroke",
+      "url": "https://github.com/ehartye/frc-2025-poc/blob/main/experiments/swerve-drive/low-placement/study.md"
+    },
+    {
       "id": "workflow-index",
       "label": "Season workflow documents in the checkout",
       "revision": "Maintained project index",
@@ -178,6 +192,13 @@
   "results": [
     {
       "basis": "modeled",
+      "claim": "The station-fed pipe reached both reef docks, then struck the receiver during ejection",
+      "conditions": "The same pipe stayed in the four-pin capture through the observed stops at 56.10 and 55.21 seconds. A 337 mm extension left at least 2.71 mm of wall clearance in the tested pose and travel bounds.",
+      "limit": "The reduced contact model settled the pipe in the trough, but the installed grip foot and riser intersected its exit path before field contact. Both delivery attempts earn zero points.",
+      "source": "actual-low-placement"
+    },
+    {
+      "basis": "modeled",
       "claim": "The forward jack lifts the chassis in a shallow-cage fixture",
       "conditions": "A registered empty approach at 130 s leaves 4.32 s before powered cutoff. The lowest simulated full-hull carpet clearance is 102.9 mm in the eight tested CG cases.",
       "limit": "Cage-plate strength, mounting and inspection mass remain open. The project robot has zero earned climb points.",
@@ -194,7 +215,7 @@
       "basis": "modeled",
       "claim": "The loaded robot braked with its first pipe still aboard",
       "conditions": "On the two signed wheel paths the fixed camera lost its height bound. Encoders and gyro confirmed a stop at 31.960 or 30.120 s. The pipe moved at most 0.507 or 0.351 mm during each attempt.",
-      "limit": "The receiver has yet to carry the observed pipe from either stop to the scoring dock.",
+      "limit": "These earlier camera-controlled runs finish at their custody-loss stops. The later four-pin receiver starts from its own station capture.",
       "source": "loaded-stops"
     },
     {
@@ -215,7 +236,7 @@
       "basis": "modeled",
       "claim": "The receiver retained its first pipe through 71.8 mm of swerve travel",
       "conditions": "All four signed arrival and contact-refinement runs retained the same pipe through finite braking. Both stereo heads agreed in all 88 moving exposures per run under the wheel-angle mask.",
-      "limit": "Missing a fixed-eye image stopped the drive. Full loaded travel to the scoring dock and a witnessed release remain open.",
+      "limit": "Missing a fixed-eye image stopped this version of the drive. The later cam receiver has a separate loaded approach and release record.",
       "source": "loaded-departure"
     },
     {
@@ -256,6 +277,12 @@
     }
   ],
   "media": [
+    {
+      "asset": "receiver-exit-sections",
+      "source": "actual-low-placement",
+      "description": "Two transverse CAD sections show where the hollow CORAL enters the right grip foot and riser along the predicted exit.",
+      "caption": "Positive calibration at the 337 mm stroke. The red regions occupy both pipe and hardware. The first intersection precedes contact with the reef."
+    },
     {
       "asset": "shallow-film",
       "poster": "shallow-poster",

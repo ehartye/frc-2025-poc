@@ -15,12 +15,20 @@ if __name__ == "__main__":
         "--mode", choices=("nominal", "lost-packets", "missing-eye"), default="nominal"
     )
     p.add_argument("--advance-mm", type=float, default=25)
+    p.add_argument("--held-out", action="store_true")
     p.add_argument(
         "--cargo",
         action="store_true",
         help="Advance the same pipe along the registered corrected wheel trace",
     )
     args = p.parse_args()
+    root = args.artifacts / "low-placement"
+    cam_source = root / "holdout" if args.held_out else None
+    if args.held_out and args.side != "minus":
+        p.error("The registered 0.20 mm holdout uses the minus opening")
+    output = root / (
+        ("heldout-" if args.held_out else "") + f"advance-{args.advance_mm:g}"
+    )
     if args.cargo:
         from importlib.util import spec_from_file_location, module_from_spec
 
@@ -36,9 +44,9 @@ if __name__ == "__main__":
             cargo.run(
                 args.artifacts,
                 args.side,
-                cam_run=args.artifacts
-                / "low-placement"
-                / f"advance-{args.advance_mm:g}",
+                cam_run=output,
+                cam_source=cam_source,
+                gap_mm=0.2 if args.held_out else 0.1,
             )
         )
         sys.exit(0)
@@ -48,7 +56,8 @@ if __name__ == "__main__":
         args.artifacts,
         args.side,
         args.mode,
-        cam_run=args.artifacts / "low-placement" / f"advance-{args.advance_mm:g}",
+        cam_run=output,
+        cam_source=cam_source,
         forward_mm=args.advance_mm,
     )
     print(

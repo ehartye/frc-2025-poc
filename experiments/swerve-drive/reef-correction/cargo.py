@@ -27,18 +27,18 @@ def restore(pipe, state):
         ]
 
 
-def run(artifacts, side, *, cam_run=None):
+def run(artifacts, side, *, cam_run=None, cam_source=None, gap_mm=.1):
     if cam_run is None:
         raw = artifacts / "reef-correction" / side
         state = artifacts / "captive-observer" / side / "state.npz"
         source = held.read(HERE.parent / "retention/held.json")["cases"][side]["source"]
     else:
         raw = cam_run / side
-        arrived = artifacts / "cam-scoring" / side
+        arrived = (artifacts / "cam-scoring" if cam_source is None else cam_source) / side
         state = arrived / "route-piece.npz"
         receipt = held.read(arrived / "route-piece.json")
         issued = held.read(HERE.parent / "cam-scoring/results.json")["developmentCases"][side]
-        if not receipt["allGranted"] or issued["stages"]["route"]["state"] != receipt["state"]:
+        if not receipt["allGranted"] or (cam_source is None and issued["stages"]["route"]["state"] != receipt["state"]):
             raise ValueError("No matched cam cargo at the reef stop")
         source = {"checkpoint": receipt["state"], "piece": receipt["piece"],
                   "endWallS": receipt["endWallS"]}
@@ -56,7 +56,7 @@ def run(artifacts, side, *, cam_run=None):
         sys.path.insert(0, str(HERE.parent / "cam-scoring"))
         import captivity
         src = artifacts / "r4-score-stroke"
-        name = f"cam-station-{side}-31.25us-0.1mm"
+        name = f"cam-station-{side}-31.25us-{gap_mm:g}mm"
         feed = held.read(src / (name + ".json"))
         if feed["candidateStepSha256"] != receipt["cam"] or receipt["cam"] != captivity.CAM["candidateStepSha256"]:
             raise ValueError("Different plate section at restart")

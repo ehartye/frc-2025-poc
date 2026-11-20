@@ -61,7 +61,7 @@ def enclosure(corners, world, eye, target, pixel_error=0.25):
 def run(artifacts, *, scene=None, routes=None, pixel_error=0.25):
     ctx = dock.create_scene(artifacts) if scene is None else scene
     gathered = {}
-    for side in ("plus", "minus"):
+    for side in (("plus", "minus") if routes is None else routes):
         folder = artifacts / "retained-coral" / side / "continued"
         if routes is not None:
             folder = routes[side]

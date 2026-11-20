@@ -126,12 +126,30 @@ def install_floor(pipe, rail):
 
 
 def run(
-    artifacts, side, stroke_mm, dt_us, control, end_time, resume=False, field=False
+    artifacts,
+    side,
+    stroke_mm,
+    dt_us,
+    control,
+    end_time,
+    resume=False,
+    field=False,
+    held_out=False,
 ):
-    out = artifacts / "low-placement/advance-25" / side
+    if held_out and side != "minus":
+        raise ValueError("The registered held-out station uses minus calibration")
+    gap_mm = 0.2 if held_out else 0.1
+    out = (
+        artifacts
+        / "low-placement"
+        / ("heldout-advance-25" if held_out else "advance-25")
+        / side
+    )
     src = artifacts / "r4-score-stroke"
-    name = f"cam-station-{side}-31.25us-0.1mm"
+    name = f"cam-station-{side}-31.25us-{gap_mm:g}mm"
     feed_input = read(src / (name + ".json"))
+    if not math.isclose(feed_input.get("capGapMm", 0.1), gap_mm):
+        raise ValueError("Different physical station plunger setting")
     pipe, _, _ = captivity.restore_station(src / name, feed_input)
     from threadpoolctl import threadpool_limits
 
@@ -164,6 +182,7 @@ def run(
         for key in ("a", "p", "v", "l", "z", "zdot", "plunger")
     }
     rail = RailContact(raw, dt, travel, speed)
+    rail.clear = rail.clear + (gap_mm - 0.1) / 1000
     f = frame(rail, 0.0, 0.0)
     world = (pipe.p.copy(), pipe.v.copy(), pipe.a.copy(), pipe.l.copy())
     local(pipe, f, world, feed)
@@ -464,6 +483,8 @@ def run(
         sourceState=previous["state"],
         piece=previous["piece"],
         sourceTimeS=begin,
+        stationReceiptSha256=digest(src / (name + ".json")),
+        physicalGapMm=gap_mm,
         startWallS=previous["endWallS"],
         endWallS=previous["endWallS"] + pipe.time - begin,
         initialProjectionRollMm=1000 * rail.roll,
@@ -512,6 +533,7 @@ if __name__ == "__main__":
     p.add_argument("--until", type=float, default=4.0)
     p.add_argument("--from-extension", action="store_true")
     p.add_argument("--field", action="store_true")
+    p.add_argument("--held-out", action="store_true")
     p.add_argument(
         "--control",
         choices=(
@@ -535,4 +557,5 @@ if __name__ == "__main__":
         a.until,
         a.from_extension,
         a.field,
+        a.held_out,
     )

@@ -4,7 +4,6 @@ import argparse
 from pathlib import Path
 import hashlib
 import json
-import csv
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -76,7 +75,12 @@ def collect(artifacts):
             read(folder / (name + ".json")) for name in ("missing-eye", "lost-packets")
         ]
         refinements = []
-        for f in sorted(folder.glob("coupled-*.json")):
+        joined = []
+        for f in sorted(folder.glob("*.json")):
+            if not f.stem.startswith(("coupled-", "joined-", "legacy-")):
+                continue
+            if f.name.endswith((".wall.json", ".installed.json", ".supports.json")):
+                continue
             data = read(f)
             if (
                 data["sourceState"] != piece["state"]
@@ -84,8 +88,44 @@ def collect(artifacts):
                 or sha(f.with_suffix(".npy")) != data["trace"]
             ):
                 raise ValueError("Incompatible free-pipe continuation")
-            refinements.append(data)
+            data["receiptSha256"] = sha(f)
+            solid = f.with_suffix(".installed.json")
+            if solid.exists():
+                installation = read(solid)
+                if installation["trace"] != data["trace"]:
+                    raise ValueError("Installed CAD checked a different tube")
+                data["installedShapeChecks"] = installation
+            support = f.with_suffix(".supports.json")
+            if support.exists():
+                report = read(support)
+                if report["trace"] != data["trace"] or report["bodies"] != 4:
+                    raise ValueError("Wrong installed support control")
+                data["frontSupports"] = report
+            wall = f.with_suffix(".wall.json")
+            if wall.exists():
+                detail = read(wall)
+                data["nativeWallCheck"] = {
+                    k: v for k, v in detail.items() if k != "samples"
+                }
+            assessment = f.parent / (f.stem + "-field") / "field.json"
+            if assessment.exists():
+                report = read(assessment)
+                if report["releaseTrace"] != data["trace"]:
+                    raise ValueError("Trough assessment traced a different tube")
+                data["fieldAssessment"] = {
+                    k: v for k, v in report.items() if k != "results"
+                }
+                data["fieldAssessment"]["attained"] = [
+                    r for r in report["results"] if r["case"].startswith("attained/")
+                ]
+                data["fieldAssessment"]["allCases"] = len(report["results"])
+                data["fieldAssessment"]["supportedCases"] = sum(
+                    r["outcome"] == "supported" for r in report["results"]
+                )
+                data["fieldAssessment"]["receiptSha256"] = sha(assessment)
+            (joined if f.name.startswith("joined-") else refinements).append(data)
         out["cases"][side]["freePipe"] = refinements
+        out["cases"][side]["coupledTrough"] = joined
     ref = cohort["cases"][2]
     inputs = root / "holdout" / "minus"
     optics = read(root / "heldout-station.json")
@@ -111,6 +151,19 @@ def collect(artifacts):
         ):
             raise ValueError("Different held-out carried pipe or wheels")
         out["holdout"]["routePiece"] = run
+        corrected = root / "heldout-advance-25/minus"
+        if (corrected / "chassis.json").exists():
+            chassis = read(corrected / "chassis.json")
+            out["holdout"]["observedDock"] = chassis
+            if (corrected / "coral.json").exists():
+                cargo = read(corrected / "coral.json")
+                if (
+                    cargo["source"] != run["state"]
+                    or cargo["wheels"] != chassis["route"]
+                    or cargo["state"] != sha(corrected / "coral.npz")
+                ):
+                    raise ValueError("Different held-out correction state")
+                out["holdout"]["dockCargo"] = cargo
     return out
 
 
