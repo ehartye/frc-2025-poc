@@ -25,3 +25,5 @@ The [matched cam-and-capture carry](../experiments/swerve-drive/cam-scoring/stud
 ### BARGE endgame
 
 The season skill anchors cage and park points to release V0. The mechanism-CAD skill produced the [editable forward jack, contacts and load-path study](../cad/shallow-cage/study.md). The match rehearsal compares the [three historical games and three BARGE variants](../kickoff/series.md) on the [registered assessment clock](../kickoff/barge-assessment.json).
+
+The `frc-mechanism-cad` engineering pass follows the original default-material discovery through to a [source-bound whole-assembly mass register and assembly traveler](../cad/assembly-engineering/issue/drawing-traveler.md). [Compare the cold native archive](../cad/assembly-engineering/issue/cold-reopen.json) with the [signed assembly issue](../cad/assembly-engineering/issue/interfaces.json), [shop upper estimate](../cad/assembly-engineering/issue/mass.json) and [comparison of alternative field reactions](../cad/assembly-engineering/shop.md).

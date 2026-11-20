@@ -8,6 +8,8 @@
 
 **[Open the field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html)** to move a robot on the 2025 field and try both alliances' match plans. From a local checkout, open [the offline lab](kickoff/field-lab.html).
 
+**[Inspect the engineering assembly](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)** or [open its shop traveler and parts register](cad/assembly-engineering/issue/drawing-traveler.md). This fixed-height variant includes the module bearing lands, battery restraint, threaded electronics interfaces and twin jack transmissions. Its estimated inspection margin is 0.119 kg under the stated receiving allowances. Field reaction and loaded receiver clearance remain open.
+
 **[Explore the shallow-cage climb](https://ehartye.github.io/frc-2025-poc/shallow-climb.html)** or [download its editable Fusion variant](cad/shallow-cage/Team-1780-shallow-cage-study.f3d). The forward jack clears the modeled carpet. Cage loads and inspection mass keep competition climb credit at zero. [Design and limits](cad/shallow-cage/study.md)
 
 **[Download the full student Fusion robot](cad/swerve-captive/Team-1780-public-captive-swerve.f3d)** to steer four modules, extend the receiver and operate the bore pins. [Joint guide and verification](cad/swerve-captive/study.md)
