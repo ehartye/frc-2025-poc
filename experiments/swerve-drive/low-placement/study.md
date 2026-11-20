@@ -11,7 +11,7 @@ The Red 2 robot carried its station-fed CORAL to two measured stops within 30 mm
 
 Station stereo establishes which pipe entered the receiver. Both latch switches, both rim probes and both occupied ports subsequently give the controller a fresh retained-cargo decision every 5 ms. At the reef, the controller uses recorded field-tag exposures, the gyro and two fixed views of a surveyed bolt to refine its dock. Removing one view or withholding camera packets on either sign makes the controller brake, with 1.73–2.16 mm of travel after the inhibit. Those four stops need a separate path before another placement can begin. [Wheel, cargo and camera receipts](results.json)
 
-For the held-out minus calibration, a 0.20 mm station plunger gap changes the initial floor and pipe response. Six new field-backed exposures pass the dark-facing gate and none pass the matched-brightness gate. The empty control also holds. Both ports and the physical yokes confirm the loaded pipe through departure at 27.935 s. [Station and route records](results.json)
+For the held-out minus calibration, a 0.20 mm station plunger gap changes the initial floor and pipe response. Six new field-backed exposures pass the dark-facing gate and none pass the matched-brightness gate. The empty control also holds. Both ports and the physical yokes confirm the loaded pipe through departure at 27.935 s. The same pipe remained captive over 5,041 loaded wheel samples to 53.140 s and all 416 correction samples to 55.220 s. Minimum pin engagement during correction was 21.693 mm. The held-out run ends there with zero delivery credit. [Station and route records](results.json)
 
 ## Change the scoring stroke
 
