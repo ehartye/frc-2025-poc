@@ -1,9 +1,9 @@
 # Join the four primary chassis rails
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The candidate uses the four existing aluminum tubes. Each crossrail gets a prepared end on three faces and an interior fillet on the fourth. On the selected shop and camera configuration, the four joints add **3.69 g nominal net metal**. Reserving **20 g** for all four completed welds leaves **65.08 g** against the represented mass upper bound. The assembly still has unweighed items. This study issues a shop trial and records the remaining acceptance measurements. [Dimensioned sheet](frame-sheet.svg) · [Reopened STEP](frame-weldment.step) · [Installed accounting](accounting.json)

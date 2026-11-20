@@ -1,9 +1,9 @@
 # Shop list for the fixed-low, two-camera robot
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 With six accepted bare wheels at **300 g or less each**, the red robot has **0.902 kg of represented inspection headroom** after adding the light inner carriers, wheel screws, fixed camera leads and four welded corners. If the wheels come in at the old 550 g allowance, the same robot is **0.598 kg overweight** at the upper estimate. Weigh the wheel lot before committing to this assembly. The finished robot has no measured weight on file. [Mass calculation](review.json) · [Selected supply list](supply.csv) · [Loose-item and receiving register](loose.csv)

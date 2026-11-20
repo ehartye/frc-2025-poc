@@ -1,9 +1,9 @@
 # Receiver load path in a shared lane
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The provisional station-fed robot retracts its shelf for travel. In that pose the shelf tip lies **260 mm inside** the front bumper outline. At the 240 mm receive stroke it lies **20 mm inside**. At the 370 mm placement stroke it projects **110 mm past** the outline. The respective shelf tops are 610, 880 and 500 mm above the floor. All are above the 190 mm bumper top, so a plan-view setback alone cannot establish protection from an elevated obstruction.

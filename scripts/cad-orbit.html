@@ -4,9 +4,14 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0e161d;color:#e9f1f3;font:16px/1.5 system-ui}main{max-width:76rem;margin:auto;padding:1.3rem}h1{font-size:clamp(1.6rem,4vw,3rem);margin:.2rem 0}p{margin:.35rem 0 1rem}figure{margin:0;position:relative;border:1px solid #546772;background:#0e161d}canvas,img{width:100%;height:min(62vh,42rem);display:block;object-fit:contain}canvas{touch-action:none;cursor:grab}canvas:active{cursor:grabbing}[hidden]{display:none}button{color:inherit;background:#223940;border:1px solid #627d88;border-radius:.3rem;padding:.45rem .8rem;font:inherit}nav{display:flex;gap:.5rem;margin:.7rem 0}a{color:#a2dbed}small{color:#afc4cd}
 #legend{display:flex;flex-wrap:wrap;gap:.35rem 1rem;padding:0;list-style:none}#legend[hidden]{display:none}#legend li{display:flex;align-items:center;gap:.4rem}#legend i{width:.8rem;height:.8rem;border:1px solid #afc4cd;border-radius:.1rem}
+#mechanism{display:grid;gap:.4rem;padding:.65rem .85rem;background:#f4f6fa;color:#172e52;border:1px solid #cbd5df;font:500 .88rem/1.35 system-ui}#mechanism[hidden]{display:none}#mechanism label{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}#mechanism select{max-width:100%;font:inherit}#mechanism input{flex:1;min-width:6rem}#mechanism button{color:#172e52;background:white;padding:.3rem .55rem;font-size:.8rem}#stage-note{margin:0}#mechanism output{font-variant-numeric:tabular-nums}.cad-viewer.embedded #mechanism{grid-column:1/-1;grid-row:4}body.cad-viewer.embedded main:has(#mechanism){grid-template-rows:minmax(12rem,1fr) auto auto auto}
 </style></head><body class="cad-viewer">
 <main><h1>{{title}}</h1><p>{{scope}}</p>
 <figure><img id="poster" src="assembly.png" alt="{{title}} rendered from the source CAD"><canvas tabindex="0" aria-label="Orbit the CAD assembly. Arrow keys rotate, plus and minus zoom, Home resets." hidden></canvas></figure>
+<section id="mechanism" aria-label="Mechanism motion" hidden>
+<label>Mechanism view <select id="stage"><option value="stowed">Stowed robot</option><option value="station">Station pickup</option><option value="capture">Capture the pipe</option><option value="extend">Extend to place · separate fixture</option><option value="release">Release at the reef · separate fixture</option></select></label>
+<label>Scrub motion <button type="button" id="previous-pose" aria-label="Previous sample">−</button><input id="stage-time" type="range" min="0" max="0" value="0" aria-label="Motion sample"><button type="button" id="next-pose" aria-label="Next sample">+</button></label>
+<output id="stage-readout"></output><p id="stage-note"></p></section>
 <ul id="legend" aria-label="Component appearances" hidden></ul>
 <nav aria-label="Camera"><button id="reset">Reset view</button><button id="closer">Zoom in</button><button id="farther">Zoom out</button></nav>
 <p id="status" role="status">Loading assembly…</p><small>{{facts}} · <a href="receipt.json">CAD export record</a></small></main>
@@ -59,7 +64,7 @@ async function start() {
     if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) throw Error('Shader compilation failed');
     gl.attachShader(program,shader);
   }
-  attach(gl.VERTEX_SHADER,'attribute vec3 p,n; uniform mat3 basis; uniform vec2 scale; varying float light; void main(){vec3 v=basis*p; vec3 normal=normalize(basis*n); light=.32+.68*abs(dot(normal,normalize(vec3(-.4,.65,.7)))); gl_Position=vec4(v.xy*scale,-.85*v.z,1.);}');
+  attach(gl.VERTEX_SHADER,'attribute vec3 p,n; uniform vec3 partShift,pipeBase,pipeAxis;uniform float isPipe;uniform mat3 basis; uniform vec2 scale; varying float light; vec3 rotatePipe(vec3 u){vec3 a=normalize(pipeAxis);vec3 k=vec3(a.z,0.,-a.x);return u+cross(k,u)+cross(k,cross(k,u))/max(.00001,1.+a.y);} void main(){vec3 pos=isPipe>.5?pipeBase+rotatePipe(p-pipeBase):p;vec3 v=basis*(pos+partShift);vec3 normal=normalize(basis*(isPipe>.5?rotatePipe(n):n)); light=.32+.68*abs(dot(normal,normalize(vec3(-.4,.65,.7)))); gl_Position=vec4(v.xy*scale,-.85*v.z,1.);}');
   attach(gl.FRAGMENT_SHADER,'precision mediump float; varying float light; uniform vec3 tint; void main(){gl_FragColor=vec4(tint*light,1.);}');
   gl.linkProgram(program);
   if(!gl.getProgramParameter(program,gl.LINK_STATUS)) throw Error('Shader linking failed');
@@ -72,6 +77,7 @@ async function start() {
   const basis=gl.getUniformLocation(program,'basis'), scale=gl.getUniformLocation(program,'scale');
   const tint=gl.getUniformLocation(program,'tint');
   let yaw,tilt,zoom,drag;
+  {{motionScript}}
   function draw() {
     const w=Math.max(1,Math.round(canvas.clientWidth*Math.min(devicePixelRatio,2)));
     const h=Math.max(1,Math.round(canvas.clientHeight*Math.min(devicePixelRatio,2)));
@@ -83,7 +89,8 @@ async function start() {
     gl.uniformMatrix3fv(basis,false,[-b,-a*d,a*c,a,-b*d,b*c,0,c,d]);
     gl.uniform2f(scale,zoom*Math.min(1,h/w),zoom*Math.min(1,w/h));
     let start=0;
-    for(const [triangles,rgb,overlay] of batches){
+    for(const [triangles,rgb,overlay,group] of motionBatches){
+      moveGroup(group);
       // Printed surfaces can share a raster depth with their support at oblique angles.
       if(overlay){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-1);}
       gl.uniform3fv(tint,rgb);
@@ -102,7 +109,7 @@ async function start() {
   canvas.onkeydown=e=>{const keys={ArrowLeft:()=>rotate(-.15,0),ArrowRight:()=>rotate(.15,0),ArrowUp:()=>rotate(0,.15),ArrowDown:()=>rotate(0,-.15),'+':()=>size(1.2),'=':()=>size(1.2),'-':()=>size(1/1.2),Home:reset};if(keys[e.key]){e.preventDefault();keys[e.key]();}};
   document.querySelector('#reset').onclick=reset;document.querySelector('#closer').onclick=()=>size(1.25);
   document.querySelector('#farther').onclick=()=>size(.8);
-  document.querySelector('#poster').hidden=true;canvas.hidden=false;reset();
+  document.querySelector('#poster').hidden=true;canvas.hidden=false;reset();selectStage();
   new ResizeObserver(draw).observe(canvas);
   status.textContent='Drag or use the arrow keys to rotate. Scroll or use the buttons to zoom.';
 }

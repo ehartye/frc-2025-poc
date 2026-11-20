@@ -1,9 +1,9 @@
 # Positively attach both receiver masts to the inner chassis rails
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 Two original machined side splices join the existing low-lock mast tubes directly to the removable 6 mm drive rails. Both foot interfaces can now transmit downward load, rebound and fore/aft pitch in metal bearing. The ribs and cable relief are different on the two sides. The proposed robot is overweight in every issued inspection configuration. Losing an entire side overloads the surviving splice; this is a two-sided prototype, with physical qualification still open. [Shop views](shop.svg) · [Editable geometry](mast.py) · [63-solid shop assembly](mast-joints.step) · [Slotted ribbed-deck alternative](slotted-ribbed-deck.step)

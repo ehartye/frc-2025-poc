@@ -1,9 +1,9 @@
 # Change a wheel with the welded frame assembled
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 The center wheels have a straight removal path with all six hub screws installed. The front and rear wheels need one screw removed temporarily below the frame. Both procedures work on either side in the registered CAD. Each has a nominal 0.050 mm axial clearance somewhere in the stack. A physical first-article trial with the received screws, measured shims and service fixture is still required. [Six-wheel native check](clearances.json) · [Shaft and retainer sequence](../README.md) · [Screw receiving limits](../../design/selected-shop/articles.json)

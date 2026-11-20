@@ -16,6 +16,6 @@ Start with the rulebook and a robot-sized box. Follow one proposed scoring cycle
 
 The selected robot uses four swerve modules, a fixed-height sliding receiver, straight guide arms and the chassis gyro. The older [six-wheel campaign](../experiments/six-wheel/README.md) preserves its own parts and match histories. A result transfers to swerve only where the current project record identifies the shared source and checks the new configuration.
 
-The candidate bore pins and rim probes in the [capture study](../experiments/swerve-drive/retention/study.md) have a [loaded endpoint and dock-observation follow-up](../experiments/swerve-drive/retention/observer-study.md). The static R4 orbit shows the robot before that addition. The downloadable Fusion candidate includes all 26 capture parts.
+The candidate bore pins and rim probes in the [capture study](../experiments/swerve-drive/retention/study.md) have a [loaded endpoint and dock-observation follow-up](../experiments/swerve-drive/retention/observer-study.md). The [interactive capture view](robot/cad/index.html) and downloadable Fusion robot use the same named assembly, including all 26 capture parts. The older R4 STEP and the three-fixture film remain available.
 
 The [observed reef correction](../experiments/swerve-drive/reef-correction/study.md) records the measured cargo and wheel stops, camera calibration and cam-shelf source change for the two development inputs.

@@ -1,9 +1,9 @@
 # Balance the straight-guide robot on its station approach
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 **The 44% lighter-side target is achievable under a specific prebuild mass allocation.** With opposite wheels matched within 20 g per axle, opposite gearboxes within 25 g, the battery construction bound below, and the remaining material centered within Y±10 mm, the lighter side retains at least **44.239%** across both signed approaches. The upper empty-mass endpoint alone gives **45.180%**. The installed bill still leaves enough mass without individual positions to prevent certifying the 44% target from CAD alone. [Student experiment](index.html) · [Signed load-line calculations](transfer.json)

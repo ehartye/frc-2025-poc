@@ -1,9 +1,9 @@
 # Can two optical ports seat the station pipe?
 
 <!-- cad-still -->
-[![Team 1780 · stowed swerve robot](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
 
-**Project CAD · Team 1780 · stowed swerve robot.** Red alliance R4 with numbered bumper covers. Purchased parts use project-created representations in this public assembly. [Source STEP · abbd8ab838](../../../cad/full-swerve-r4/full-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
 <!-- /cad-still -->
 
 On the issued 545-body receiver, a desktop controller brought the centered simulated pipe to **75.67 mm** against the **72–88 mm** seat window. It used two thresholded optical returns and a clock. A zero-speed catch allowed the pipe to hit both drive pulleys. A short outward belt command kept the pipe farther forward, then a slow outward scan located it again. The competition controller still requires physical calibration and an independent custody decision before retracting. [Controller](PortAcquisition.java) · [Results and conditions](results.json) · [Historical controller comparison](../coupled-belt-clock/README.md)
