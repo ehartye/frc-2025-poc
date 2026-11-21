@@ -1,7 +1,7 @@
 // Exercise the actual pre-upload command using an unrelated synthetic issue.
 // Use the ordinary native teaching coupon and its independent reviewer public key.
 import assert from 'node:assert/strict';
-import {generateKeyPairSync,sign} from 'node:crypto';
+import {createHash,generateKeyPairSync,sign} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {copyFileSync,mkdirSync,mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
@@ -44,6 +44,8 @@ try{
     publicRoots:['model'],modelFiles:[...sourceNames,'model/view.html']});
   json('approved/.github/staged-model-policy.json',{schema:'agent-frc/staged-model-policy@1',project:coupon,
     mutableFieldPages:['field.html'],modelFiles:[...stageNames,'view.html']});
+  copyFileSync(path.join(folder,'approved/.github/staged-model-policy.json'),path.join(folder,'project/.github/staged-model-policy.json'));
+  mkdirSync(path.join(folder,'runner/field'),{recursive:true});
   put('approved/scripts/cad-readmes.py',"from pathlib import Path\nassert Path('project/model/view.html').is_file()\n");
   put('project/model/view.html','synthetic historical view');
   for(const n of sourceNames)put('project/'+n,'historical coupon fixture');
@@ -56,11 +58,27 @@ try{
   const workflow=readFileSync(path.join(project,'.github/workflows/robot-showcase.yml'),'utf8').replaceAll('\r\n','\n');
   const block=workflow.split('      - name: Check the source inventory and every final public byte\n')[1]
     .split('      - if:')[0].split('        run: |\n')[1].trimEnd();
-  const script=block.split('\n').map(l=>l.slice(10)).join('\n').replace('54a6eef39b24101effb32da25f01865c237f298f',git('rev-parse','HEAD'));
+  const stationTemplate=readFileSync(path.join(project,'.github/showcase-station.json'));
+  const station=JSON.parse(stationTemplate);
+  station.approvedCommit=git('rev-parse','HEAD');
+  const shared=path.join(verifier,'scripts/local-showcase-release.mjs');
+  const digest=spawnSync(process.execPath,[shared,'digest',path.join(folder,'runner/approved')],{encoding:'utf8'});
+  assert.equal(digest.status,0,digest.stderr);
+  station.approvedSiteSha256=digest.stdout.trim();
+  const fixture=Buffer.from(JSON.stringify(station));
+  put('project/.github/showcase-station.json',fixture);
+  const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+  const pinned=hash(stationTemplate);
+  assert.ok(block.includes(pinned),'Workflow must verify the actual station configuration');
+  const script=block.split('\n').map(l=>l.slice(10)).join('\n').replace(pinned,hash(fixture));
   put('gate.sh',script+'\n');
   mkdirSync(path.join(folder,'verifier/scripts'),{recursive:true});
-  copyFileSync(path.join(verifier,'scripts/public-model-release.mjs'),path.join(folder,'verifier/scripts/public-model-release.mjs'));
+  for(const name of ['public-model-release.mjs','local-showcase-release.mjs'])
+    copyFileSync(path.join(verifier,'scripts',name),path.join(folder,'verifier/scripts',name));
   function check(label,success,expected='',trustedKey=pem){
+    git('add','.');
+    if(git('diff','--cached','--name-only'))
+      git('-c','user.name=Synthetic reviewer','-c','user.email=synthetic@example.invalid','commit','-qm',label);
     const r=spawnSync(bash,['gate.sh'],{cwd:folder,encoding:'utf8',env:{...process.env,
       REVIEW_PUBLIC_KEY:trustedKey,RUNNER_TEMP:'runner',FRC_VERIFIED_FIELD_ROOT:'runner/field'}});
     const output=r.stdout+r.stderr;

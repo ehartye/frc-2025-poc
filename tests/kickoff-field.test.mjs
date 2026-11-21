@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-const root=process.env.AGENT_FRC_PLUGIN_ROOT;
+const root=process.env.AGENT_FRC_HISTORICAL_FIELD_ROOT || process.env.AGENT_FRC_PLUGIN_ROOT;
 if(!root)throw Error('Set AGENT_FRC_PLUGIN_ROOT to the compatible plugin directory.');
 const {createFieldRehearsal}=await import(pathToFileURL(path.resolve(root,'scripts/field-rehearsal.mjs')));
 const {routeStudy}=await import(pathToFileURL(path.resolve(root,'scripts/kickoff-routes.mjs')));
