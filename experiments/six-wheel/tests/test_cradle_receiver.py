@@ -31,11 +31,39 @@ class CradleReceiver(unittest.TestCase):
         self.assertEqual(sum(r["seatAtExistingTime"] is True for r in grid),56)
         self.assertTrue(all(r["support"]["bothRailCoverageMm"] > 31 for r in grid))
 
+    def assert_centered_replay(self, result, original):
+        actual, expected = result.copy(), original.copy()
+        # The Linux and Windows replays differ by at most 1.8e-15 in these
+        # states and 1.4e-11 N at peak contact. Keep the event times exact.
+        for name in ("exit", "firstFloor", "terminal"):
+            observed, reference = actual.pop(name), expected.pop(name)
+            self.assertEqual(len(observed), len(reference), name)
+            first = 0 if name == "terminal" else 1
+            self.assertEqual(observed[:first], reference[:first], name)
+            for index in range(first, len(reference)):
+                self.assertAlmostEqual(observed[index], reference[index], delta=1e-14,
+                                       msg=f"{name}[{index}]")
+        self.assertAlmostEqual(actual.pop("peakNormalN"), expected.pop("peakNormalN"),
+                               delta=2e-11, msg="peakNormalN")
+        self.assertEqual(json.dumps(actual, sort_keys=True), json.dumps(expected, sort_keys=True))
+
     def test_replay_centered_contact(self):
         command = "from study import BASE,one; import json; print(json.dumps(one(('backstop-A', BASE))))"
         result=json.loads(subprocess.check_output([sys.executable,"-B","-c",command],cwd=HERE))
         original=next(r for r in data("study")["rows"] if r["id"]=="backstop-A")
-        self.assertEqual(result, original)
+        self.assert_centered_replay(result, original)
+
+    def test_centered_replay_rejects_drift(self):
+        original = next(row for row in data("study")["rows"] if row["id"] == "backstop-A")
+        shifted_exit = original["exit"].copy()
+        shifted_exit[1] += 1e-6  # one micrometre of physical travel
+        late_exit = original["exit"].copy()
+        late_exit[0] += original["parameters"]["dt"]
+        for change in ({"exit": shifted_exit}, {"exit": late_exit},
+                       {"peakNormalN": original["peakNormalN"] + 1e-6},
+                       {"conditionalSequence": False}):
+            with self.subTest(change=change), self.assertRaises(AssertionError):
+                self.assert_centered_replay(original | change, original)
 
     def test_native_and_station(self):
         native, installed = data("native"), data("installed")

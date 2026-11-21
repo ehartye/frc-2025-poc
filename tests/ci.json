@@ -1,0 +1,67 @@
+{
+  "schema": "agent-frc/project-checks@1",
+  "checks": [
+    {
+      "name": "Public evidence and source checksums",
+      "argv": [
+        "python",
+        "experiments/six-wheel/scripts/check_public_content.py"
+      ],
+      "inputs": []
+    },
+    {
+      "name": "CAD views and rendered README coverage",
+      "argv": [
+        "python",
+        "scripts/cad-readmes.py",
+        ".",
+        "--template",
+        "scripts/cad-orbit.html"
+      ],
+      "inputs": []
+    },
+    {
+      "name": "Matched field rules, series and live controls",
+      "argv": [
+        "node",
+        "--test",
+        "tests/kickoff-field.test.mjs",
+        "tests/reefscape-series.test.mjs",
+        "tests/live-field.test.mjs"
+      ],
+      "inputs": [
+        "kickoff/",
+        "experiments/six-wheel/",
+        "experiments/swerve-drive/",
+        "tests/",
+        "docs/robot/",
+        "scripts/",
+        "cad/"
+      ]
+    },
+    {
+      "name": "Season simulation and mechanical evidence regressions",
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests"
+      ],
+      "inputs": [
+        "tests/",
+        "experiments/",
+        "cad/",
+        "kickoff/",
+        "docs/",
+        "scripts/",
+        "controls/",
+        "sim/",
+        "project-layout.json",
+        "highlights.json",
+        "cad-showcase.json"
+      ]
+    }
+  ]
+}

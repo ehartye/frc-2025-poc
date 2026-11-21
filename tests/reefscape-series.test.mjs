@@ -6,7 +6,7 @@ import test from 'node:test';
 import {pathToFileURL} from 'node:url';
 
 const asset = name => readFile(new URL('../' + name, import.meta.url));
-const plugin = process.env.AGENT_FRC_PLUGIN_ROOT;
+const plugin = process.env.AGENT_FRC_HISTORICAL_FIELD_ROOT || process.env.AGENT_FRC_PLUGIN_ROOT;
 if (!plugin) throw Error('Set AGENT_FRC_PLUGIN_ROOT to the documented rehearsal engine.');
 const {createFieldRehearsal} = await import(pathToFileURL(path.resolve(plugin, 'scripts/field-rehearsal.mjs')));
 const {createMatchSeries} = await import(pathToFileURL(path.resolve(plugin, 'scripts/rehearsal-series-core.mjs')));
