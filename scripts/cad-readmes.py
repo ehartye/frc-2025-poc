@@ -48,10 +48,16 @@ def preliminary_feature(root, config, update):
     spec = policy.get("detailedDesigns")
     if not spec or not spec.get("withdrawn") or not (root / spec["index"]).exists():
         return None
-    index = json.loads((root / spec["index"]).read_bytes())
-    if any(index["designStatus"].get(row["design"]) != "withdrawn" for row in spec["withdrawn"]):
+    try:
+        index = json.loads((root / spec["index"]).read_bytes())
+        statuses, designs = index["designStatus"], index["designs"]
+        if not isinstance(statuses, dict) or not isinstance(designs, list):
+            raise TypeError
+    except (ValueError, KeyError, TypeError):
+        raise ValueError("Unreadable detailed design index: " + spec["index"]) from None
+    if any(statuses.get(row["design"]) != "withdrawn" for row in spec["withdrawn"]):
         return None
-    if index.get("current") is not None or len(index["designs"]) != len(spec["withdrawn"]):
+    if index.get("current") is not None or len(designs) != len(spec["withdrawn"]):
         raise ValueError("A current detailed design needs its own README still")
     handoff = policy.get("preliminaryReadmeArchive")
     if not handoff:
