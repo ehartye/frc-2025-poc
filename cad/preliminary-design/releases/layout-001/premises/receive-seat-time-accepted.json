@@ -1,0 +1,24 @@
+{
+  "id": "receive-seat-time",
+  "scenario": "Station receive: pipe seated in the worm-locked bite after it passes the check flap (G1 receive model, 40 N/mm tread)",
+  "unit": "s",
+  "criterion": {
+    "range": [
+      0.0,
+      1.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "pocket tray",
+    "check flap",
+    "lower nip roller",
+    "upper nip roller",
+    "pipe"
+  ],
+  "source": {
+    "file": "evidence/cycle-rehearsal/summary.json",
+    "sha256": "5639af9fa0fad7b94a149cef5f352e833dd2e69d6208f585570289daadbbd685"
+  },
+  "basis": "Cycle-derived: with the plugin field rehearsal (Agent FRC 0.84.0, waitCycles yield) Red 2 from its real slot 2 credits 15 L1 (second at 16.3 s, 118.7 s TELEOP left) at 0.50 s, 15 L1 (second at 16.7 s, 118.3 s TELEOP left) at 0.70 s, 15 L1 (second at 16.8 s, 118.2 s TELEOP left) at 0.75 s, 14 L1 (second at 17.3 s, 117.7 s TELEOP left) at 1.00 s; 0 permanent wait cycles (--report-deadlocks), and the slot-1 runs give the same counts and times. The role needs two deliveries, so a seat time up to 1.0 s (the longest rehearsed) costs it no score; the project route clock gives 5.93 s from feed to the scheduled carry start (strategy/pan-route-12mm.json). The 0.5 s figure is the evaluation's bench target and stays a G1 physical verification item."
+}

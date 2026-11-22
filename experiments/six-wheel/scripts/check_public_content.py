@@ -44,6 +44,14 @@ SHOWCASE_ASSETS['cad/assembly-engineering/receiver-service/issue/Team-1780-recei
 SHOWCASE_ASSETS['cad/assembly-engineering/issue/Team-1780-engineering-shallow.f3d'] = '29c777fc5e875e5f2131ee2e34c8d3eaaf46e5ff5f8edffdf3399a17c6182254'
 SHOWCASE_ASSETS['cad/shallow-cage/climb-kit.stl.gz'] = '5cfdf0358350c50ea3c33ed343dcd8abeda5259c49240ac6777cdd8ace0513c5'
 
+# Agent FRC 0.89.0 preliminary release tree: the plugin's OFL template fonts and the checked release's compressed display geometry (pinned by its receipt).
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/barlow-condensed-latin-600-normal.woff2'] = '0b281bf2f4179c06ba68f0a427f2341287c41eacc2ce9d534c6f5c513ac633fb'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/barlow-condensed-latin-700-normal.woff2'] = '8320299532b4b81498d5b3714d49c9d5938883b55f4c2a1efe6f105bf4a942bd'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-400-normal.woff2'] = '6edbd48bf7fa0e34a5ad9f8da9e73a70d3ae7f51791deb8362c868fed9a7f68c'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-600-normal.woff2'] = '580c6561987cd9c704bc20c808c2aa7543cbdd4eaca8ec334ae4985e61971333'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-700-normal.woff2'] = '1fc65bcc7790d534cf67a5e046f3f324aad8cc6dc364ec5ad296a18d42868464'
+SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-001/review-scene.json.gz'] = '75d35b69a1397930e6c24f1c760fd75cb849698b3e17a1b7ee92c584fdbc598d'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]

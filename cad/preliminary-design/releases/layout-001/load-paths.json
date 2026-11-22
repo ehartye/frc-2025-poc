@@ -1,0 +1,206 @@
+{
+  "schema": "red2/preliminary-load-paths@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "step": {
+    "file": "package.step",
+    "sha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736"
+  },
+  "paths": [
+    {
+      "load": "CORAL pipe at the seat and on receive",
+      "kind": "support",
+      "chain": [
+        "pipe on the floor (UHMW face) and in the bite of both treads",
+        "2 in 35A wheels and 1/2 in hex shafts",
+        "flanged hex bearings in both side plates",
+        "1/4 in side plates",
+        "two bolts per plate into the upper pan stringer top",
+        "upper pan stringers",
+        "pan truss members 0-5",
+        "truss landings, pan crossmembers, inboard sills and perimeter"
+      ],
+      "reserves": [
+        "CORAL pipe",
+        "Lower nip roller",
+        "Upper nip roller",
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Chassis pan trusses and stringers",
+        "Chassis sills, decks and crossmembers"
+      ],
+      "loads": {
+        "receivePeakBiteN": 480.1,
+        "ejectPeakBiteN": 485.0,
+        "note": "largest summed tread normal force over all receive trials and over the G2 ejects; the shaft span is unsized"
+      },
+      "absent": [
+        "Bearings and shaft collars are inside the shaft-hole partition",
+        "Side-plate bolt pattern and stringer bearing area"
+      ]
+    },
+    {
+      "load": "CORAL pipe on the floor and against the flap",
+      "kind": "support",
+      "chain": [
+        "pipe on the floor",
+        "pocket tray floor",
+        "floor posts to the upper stringers and rear uprights to the rear perimeter",
+        "rearward: check flap rear stop tab -> flap pin -> hood -> hood tabs -> side walls"
+      ],
+      "reserves": [
+        "Pocket tray",
+        "Floor post port",
+        "Floor post starboard",
+        "Rear inlet upright port",
+        "Rear inlet upright starboard",
+        "Check flap",
+        "Hood (removable)"
+      ],
+      "absent": [
+        "Rear stop tab, pin clips and hood tabs undesigned",
+        "Hood strike load unsized"
+      ]
+    },
+    {
+      "load": "Nip rollers",
+      "kind": "drive",
+      "chain": [
+        "NEO 550 case on the worm reducer",
+        "worm and wheel (self-locking)",
+        "lower roller hex shaft",
+        "lower pulley -> belt -> idler -> upper pulley",
+        "upper roller hex shaft"
+      ],
+      "reserves": [
+        "Nip worm reducer and NEO 550",
+        "Lower nip roller",
+        "Nip coupling belt",
+        "Upper nip roller"
+      ],
+      "loads": {
+        "ejectPeakTreadTorqueNmPerRoller": 2.576,
+        "note": "slip-limited tread force x radius under the imposed (commanded) roller speed; motor speed droop is not modelled (finding PD7)"
+      },
+      "provisional": [
+        "Reducer article, ratio and back-drive torque unselected",
+        "Belt and idler unselected"
+      ]
+    },
+    {
+      "load": "Deployable exit lip",
+      "kind": "support",
+      "chain": [
+        "lip plate",
+        "hinge pin",
+        "hinge brackets on both side plates",
+        "deployed hard stop on the side plates (spring preload)"
+      ],
+      "reserves": [
+        "Deployable exit lip",
+        "Port nip side plate",
+        "Starboard nip side plate"
+      ],
+      "absent": [
+        "Deployed hard stop and spring",
+        "Tip load from the reef face or a peer robot: unsized (the lip tip is 24.5 mm ahead of the bumper face)"
+      ]
+    },
+    {
+      "load": "Deployable exit lip",
+      "kind": "drive",
+      "chain": [
+        "torsion spring at the hinge",
+        "lip",
+        "servo pin holds the stowed lip until match start"
+      ],
+      "reserves": [
+        "Deployable exit lip",
+        "Lip latch servo"
+      ],
+      "absent": [
+        "Spring rate and latch pin engagement"
+      ]
+    },
+    {
+      "load": "Each SDS module wheel",
+      "kind": "support",
+      "chain": [
+        "wheel and tread",
+        "wheel mounts and axle",
+        "turret bearing",
+        "module plates",
+        "six 10-32 frame screws",
+        "socket rails and cassettes",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Module steer sweeps",
+        "Module housings",
+        "Chassis cassettes and socket rails",
+        "Chassis perimeter"
+      ]
+    },
+    {
+      "load": "Dressed battery",
+      "kind": "support",
+      "chain": [
+        "battery case on the tray",
+        "end keepers",
+        "four hangers",
+        "inboard sill undersides"
+      ],
+      "reserves": [
+        "Dressed battery",
+        "Battery tray and retention",
+        "Chassis sills, decks and crossmembers"
+      ],
+      "absent": [
+        "Tray, hangers, keepers and hold-down undesigned"
+      ]
+    },
+    {
+      "load": "Electronics",
+      "kind": "support",
+      "chain": [
+        "devices on standoffs",
+        "equipment sheets",
+        "deck keys, pedestals and tabs"
+      ],
+      "reserves": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ],
+      "absent": [
+        "Device brackets and standoffs"
+      ]
+    },
+    {
+      "load": "Bumper ring",
+      "kind": "support",
+      "chain": [
+        "bumper backer",
+        "permanent bumper mounts",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Bumper ring",
+        "Chassis perimeter"
+      ],
+      "absent": [
+        "The 002 bumper mounts are not designed (R103 counts them)"
+      ]
+    }
+  ]
+}

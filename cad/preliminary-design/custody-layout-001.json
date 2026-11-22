@@ -1,0 +1,585 @@
+{
+ "schema": "frc-2025-poc/preliminary-custody@1",
+ "release": "layout-001",
+ "custody": "Red 2 private assets repository, iterations/002/design/preliminary-pocket/ (re-rooted to this release layout before the Agent FRC 0.86.0 check)",
+ "check": "Agent FRC 0.100.0 preliminary-check --write-view --require-checked ran in private custody on the complete package; receipt.json here is its output and pins every withheld file by SHA-256.",
+ "disposition": "B'x is selected for preliminary review only. The guarded-pan baseline A remains the fallback pending bench gates G1-G4.",
+ "rightsGate": {
+  "question": "Does the published preliminary scene contain only block-level layout solids, with no tessellated supplier or vendor geometry and no private CAD bytes?",
+  "step": {
+   "file": "package.step (withheld)",
+   "sha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de",
+   "solids": 68,
+   "nonSolidShapes": 0,
+   "faceTypes": {
+    "plane": 2191,
+    "cylinder": 224
+   },
+   "method": "Every face of every STEP solid classified by OCCT surface type with BRepAdaptor_Surface",
+   "note": "The face-type audit covered the original 68-solid layout STEP (sha256 d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de). package.step is now the same 67 robot solids re-exported by name, and the L1 trough moved to field-fixtures.step as a motion-study fixture; no solid was reshaped.",
+   "currentSha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736"
+  },
+  "result": "pass",
+  "finding": "All 68 solids are bounded only by planes and cylinders. None carries a B-spline, Bezier, offset or swept surface or a triangulated supplier facet. The largest are the four module housings, at 279 planes and 13-14 cylinders each: fused oriented boxes cut by the revolved steer envelope. The supplier-derived blocks (chassis, module housings, steer sweeps and electronics) reduce supplier parts to boxes, box unions or a 4 mm-stepped revolved envelope. They reproduce no supplier surface.",
+  "blocks": {
+   "Battery tray and retention": {
+    "faces": {
+     "plane": 32
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Branch and CAN trunk": {
+    "faces": {
+     "plane": 22
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Breaker reset hand": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Bumper ring": {
+    "faces": {
+     "plane": 14
+    },
+    "construction": "Prism between mitred offsets of the frame plan hull"
+   },
+   "CORAL pipe": {
+    "faces": {
+     "cylinder": 1,
+     "plane": 2
+    },
+    "construction": "Project-drawn cylinder at the game-piece dimensions"
+   },
+   "Chassis battery plug and bracket": {
+    "faces": {
+     "plane": 8
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis cassettes and socket rails": {
+    "faces": {
+     "plane": 20
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis cassettes and socket rails part 2": {
+    "faces": {
+     "plane": 20
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis cassettes and socket rails part 3": {
+    "faces": {
+     "plane": 20
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis cassettes and socket rails part 4": {
+    "faces": {
+     "plane": 20
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis pan trusses and stringers": {
+    "faces": {
+     "plane": 39
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis pan trusses and stringers part 2": {
+    "faces": {
+     "plane": 39
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis perimeter": {
+    "faces": {
+     "plane": 68
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers": {
+    "faces": {
+     "plane": 287
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 2": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 3": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 4": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 5": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 6": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 7": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 8": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Chassis sills, decks and crossmembers part 9": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Union of oriented bounding boxes of the carried-forward chassis bodies, clipped to the frame plan hull and partitioned from higher-priority reserves (build_layout.py CHASSIS_GROUPS)"
+   },
+   "Check flap": {
+    "faces": {
+     "plane": 5,
+     "cylinder": 1
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Deployable exit lip": {
+    "faces": {
+     "plane": 15,
+     "cylinder": 2
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Dressed battery": {
+    "faces": {
+     "plane": 18
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Floor post port": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Floor post starboard": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Hood (removable)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "L1 trough sector A (field)": {
+    "faces": {
+     "plane": 14
+    },
+    "construction": "Project-drawn trough section prism from the field register"
+   },
+   "Lip latch servo": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Lip-deployed switch": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Lower nip roller": {
+    "faces": {
+     "cylinder": 3,
+     "plane": 4
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Main 120 A breaker": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Main power loom": {
+    "faces": {
+     "plane": 15
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Module 1 housing": {
+    "faces": {
+     "plane": 279,
+     "cylinder": 13
+    },
+    "construction": "Union of oriented bounding boxes of the module's non-turret bodies, cut by the steer envelope and chassis reserves"
+   },
+   "Module 1 lead reserve": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Module 1 steer sweep": {
+    "faces": {
+     "plane": 38,
+     "cylinder": 39
+    },
+    "construction": "Revolved envelope: a stepped radial profile in 4 mm Z slabs about the steer axis (build_layout.py revolved)"
+   },
+   "Module 2 housing": {
+    "faces": {
+     "plane": 279,
+     "cylinder": 13
+    },
+    "construction": "Union of oriented bounding boxes of the module's non-turret bodies, cut by the steer envelope and chassis reserves"
+   },
+   "Module 2 lead reserve": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Module 2 steer sweep": {
+    "faces": {
+     "plane": 38,
+     "cylinder": 39
+    },
+    "construction": "Revolved envelope: a stepped radial profile in 4 mm Z slabs about the steer axis (build_layout.py revolved)"
+   },
+   "Module 3 housing": {
+    "faces": {
+     "plane": 279,
+     "cylinder": 14
+    },
+    "construction": "Union of oriented bounding boxes of the module's non-turret bodies, cut by the steer envelope and chassis reserves"
+   },
+   "Module 3 lead reserve": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Module 3 steer sweep": {
+    "faces": {
+     "plane": 38,
+     "cylinder": 39
+    },
+    "construction": "Revolved envelope: a stepped radial profile in 4 mm Z slabs about the steer axis (build_layout.py revolved)"
+   },
+   "Module 4 housing": {
+    "faces": {
+     "plane": 279,
+     "cylinder": 13
+    },
+    "construction": "Union of oriented bounding boxes of the module's non-turret bodies, cut by the steer envelope and chassis reserves"
+   },
+   "Module 4 lead reserve": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Module 4 steer sweep": {
+    "faces": {
+     "plane": 38,
+     "cylinder": 39
+    },
+    "construction": "Revolved envelope: a stepped radial profile in 4 mm Z slabs about the steer axis (build_layout.py revolved)"
+   },
+   "Nip controller (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Nip coupling belt": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Nip worm reducer and NEO 550": {
+    "faces": {
+     "plane": 7,
+     "cylinder": 1
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Plug grip hand": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Pocket tray": {
+    "faces": {
+     "plane": 18
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Port controller 1 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Port controller 2 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Port controller 3 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Port controller 4 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Port nip side plate": {
+    "faces": {
+     "plane": 8,
+     "cylinder": 2
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Power distribution hub": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Rear inlet upright port": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Rear inlet upright starboard": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Seated-pipe sensor": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Starboard controller 1 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Starboard controller 2 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Starboard controller 3 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Starboard controller 4 (SPARK MAX)": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "Starboard nip side plate": {
+    "faces": {
+     "plane": 8,
+     "cylinder": 2
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "Upper nip roller": {
+    "faces": {
+     "cylinder": 3,
+     "plane": 4
+    },
+    "construction": "Project-drawn block: boxes, prisms, cylinders and boolean cuts in build_layout.py / pocket_geometry.py"
+   },
+   "VH-109 radio": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   },
+   "roboRIO 2": {
+    "faces": {
+     "plane": 6
+    },
+    "construction": "Axis-aligned box at the supplier's world bounds (no supplier shape)"
+   }
+  }
+ },
+ "withheld": {
+  "artifacts/resume-20261121/fixed-path-01/comparison.json": {
+   "sha256": "73ae0cc1894b44ac19935aa87a73edea13ca39a876b7cca8f5e5b88e5873c0c6",
+   "reason": "Private evidence outside the package"
+  },
+  "artifacts/resume-20261121/mass-01/mass-study.json": {
+   "sha256": "20a440bdddbefe42dae6bdca148c6b9478643225b43af90780936d017513e627",
+   "reason": "Private evidence outside the package"
+  },
+  "artifacts/resume-20261121/screws-place-01/four-seated-screws.step": {
+   "sha256": "640cb0dd134a722d7a71029b0201d7c0ceab9ade228169f9c009d44e26c9136c",
+   "reason": "Private CAD bytes"
+  },
+  "artifacts/resume-20261121/screws-place-01/native-receipt.json": {
+   "sha256": "8a95072e7cbde3ac7b59e8146eab759c48dd466b038088c02c5eb4a88258b883",
+   "reason": "Private evidence outside the package"
+  },
+  "bench-gates.json": {
+   "sha256": "31a130a3feb9b81486aa1379d1323cecf243496ba95ab61d038ee79f74c55b0a",
+   "reason": "Names private evidence or CAD files"
+  },
+  "build_layout.py": {
+   "sha256": "de60562c2ebd8e6f666b5ae1c0dee77427bfc12f1723ca310c7f2efaf4806fbe",
+   "reason": "Names private evidence or CAD files"
+  },
+  "cad/rear-frame-facets/construction.json": {
+   "sha256": "ac4a7d98f1445cde951c61467842dc7317d523d5d5da6d6b973e0c6d8c948b55",
+   "reason": "Private evidence outside the package"
+  },
+  "chassis-carry-forward.json": {
+   "sha256": "aecaf1626ec122654744398bdba5e1e3f237adf1c08a5d0a0f609ae2570e05a9",
+   "reason": "Names private evidence or CAD files"
+  },
+  "cycle_rehearsal.py": {
+   "sha256": "8911a6bd8333ac9bebe10d52fd5ae2aeed8a19a4f14844a0e83a59acb330ffb8",
+   "reason": "Names private evidence or CAD files"
+  },
+  "design-findings.json": {
+   "sha256": "b2be817592662f38b41bee2d7ebddfe9c277c0a25871f68dbe848ca01fe867b4",
+   "reason": "Names private evidence or CAD files"
+  },
+  "design.json": {
+   "sha256": "638a98114916a6fe0cdfe34914b84ad4ff5d95696f703c6873ec92f9d74f9f4b",
+   "reason": "Names private evidence or CAD files"
+  },
+  "evidence/cycle-rehearsal/summary.json": {
+   "sha256": "5639af9fa0fad7b94a149cef5f352e833dd2e69d6208f585570289daadbbd685",
+   "reason": "Names private evidence or CAD files"
+  },
+  "evidence/premise-measurements.json": {
+   "sha256": "9de46c4856d60914dd6df2bb6934717f7d2a841976eb0bece89637cb3d7e6e17",
+   "reason": "Names private evidence or CAD files"
+  },
+  "field-fixtures.step": {
+   "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7",
+   "reason": "Field fixture STEP (L1 trough sector A from the 2025 field model extraction); kept in private custody with the package STEP"
+  },
+  "iteration-choice.json": {
+   "sha256": "416127f2de78a003e605f83856bd5994348f8e3ad41e27195e680bd1180c1b2a",
+   "reason": "Names private evidence or CAD files"
+  },
+  "iterations/002/design/cad/fusion-authority.json": {
+   "sha256": "6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02",
+   "reason": "Private evidence outside the package"
+  },
+  "iterations/002/design/cad/issue-006/assembly.step": {
+   "sha256": "c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77",
+   "reason": "Private CAD bytes"
+  },
+  "iterations/002/design/cad/issue-006/lineage.json": {
+   "sha256": "83704ba600f860ee2d6cf1095b2087a0a19503f12ed3236959144ad6aab9721f",
+   "reason": "Private evidence outside the package"
+  },
+  "iterations/002/design/cad/private/connected-654-precursor.f3d": {
+   "sha256": "e7c7386af0b1e775a7e0daba344f75082a42e6445ec0064b297497abc077834a",
+   "reason": "Private CAD bytes"
+  },
+  "iterations/002/design/chassis/inset-electrical-package.json": {
+   "sha256": "817f339f9f8fefd852963076847b589a3d762d719df62debe4bc6244ec7a9e7b",
+   "reason": "Private evidence outside the package"
+  },
+  "iterations/002/design/evaluation/evaluation.json": {
+   "sha256": "f6f5fd502c95c9b3cea637ca4a1fafd5c26cb362fd0b94775399350ef5a5b577",
+   "reason": "Private evidence outside the package"
+  },
+  "iterations/002/design/strategy/drive-envelope.json": {
+   "sha256": "e1e9b8a601e0f2fde616c0e0c60360f1ed473bf7b10aa27a9174884de8615f4c",
+   "reason": "Private evidence outside the package"
+  },
+  "layout-blocks.json": {
+   "sha256": "9ae392d4e0323d7d507b2e1bd38d3ee079c83b9a5de6fb6aa4a2db23edef969c",
+   "reason": "Names private evidence or CAD files"
+  },
+  "package.step": {
+   "sha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736",
+   "reason": "Layout STEP built from the private chassis; geometry is block-level (see rightsGate) but the bytes stay in private custody"
+  },
+  "premises/architecture-selection-accepted.json": {
+   "sha256": "52a5b62893a62516ac5ed79f8a0a1b1fb963608de8b676a8ea83b82f4de54bec",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/chassis-interface-accepted.json": {
+   "sha256": "e6a097b2dea16e693c808b5959e26fb9d5b8298e1d5296bc52a15883d2b9c709",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/eject-capture-standoff-accepted.json": {
+   "sha256": "0557a2b8f9abf8069bfab47514bd08457290ee3caf838b0553aa2789994e40a1",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/electronics-layout-accepted.json": {
+   "sha256": "0f3b7454118ee4f66604b2a5ad356b0dcf7343b4ccb72048a9c1c86061138a88",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/electronics-placements-accepted.json": {
+   "sha256": "c8ef96af038231b9a6c6a597d9c489f39a3d45c2aebd14faa352ab6bd0a4b420",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/inspection-mass-accepted.json": {
+   "sha256": "3518a3b2107dae0b3ab67d38c736f9fb39da909aed78975ad108050df96a2b2f",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/seated-clamp-screws-accepted.json": {
+   "sha256": "51f07d974fe8b62853271f1b38157bac022fe282fb896d5815b6de185f943288",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/station-arrival-speed-accepted.json": {
+   "sha256": "6cfa7a133bb3053a98b2a44203afb7d88ef6da5cf4520d6e8334f9e17fafae35",
+   "reason": "Names private evidence or CAD files"
+  },
+  "premises/weak-pack-voltage-accepted.json": {
+   "sha256": "3d5beecb9c88af6ee3468d2cef63755e3de0e16532d30bc9ffebf38ba12a8c3a",
+   "reason": "Names private evidence or CAD files"
+  }
+ }
+}

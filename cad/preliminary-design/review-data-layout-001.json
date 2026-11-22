@@ -1,0 +1,428 @@
+{
+ "schema": "frc-2025-poc/preliminary-review-data@1",
+ "release": "layout-001",
+ "note": "Project-authored inputs for the standardized preliminary review scene. Values cite their source; anything without a source is recorded as not supplied.",
+ "runningAdditions": {
+  "source": {
+   "file": "budgets.json",
+   "sha256": "fcfa7e3682677cd51fe95f204c5090fc387987c645144b00184b5595f58c0f5e"
+  },
+  "basis": "budgets.json runningPayloadBasis: 'Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg'",
+  "items": [
+   {
+    "name": "one-colour bumpers",
+    "kg": [
+     7.5,
+     7.5
+    ],
+    "members": [
+     "Bumper ring"
+    ],
+    "basis": "R103-excluded; 7.5 kg per budgets.json"
+   },
+   {
+    "name": "battery",
+    "kg": [
+     6.17,
+     6.17
+    ],
+    "members": [
+     "Dressed battery"
+    ],
+    "basis": "R103-excluded battery 6.17 kg per budgets.json"
+   },
+   {
+    "name": "carried CORAL",
+    "kg": [
+     0.816466,
+     0.816466
+    ],
+    "members": [
+     "CORAL pipe"
+    ],
+    "basis": "One carried CORAL 0.816466 kg per budgets.json"
+   }
+  ],
+  "totalKg": [
+   14.486466,
+   14.486466
+  ]
+ },
+ "support": {
+  "source": "layout.json mounts (group-level datums) and load-paths.json",
+  "loadPaths": {
+   "file": "load-paths.json",
+   "sha256": "3dd3f41686844bb6003a1d80d8b9a0b10d2582bc64d4f369431fcbc121c98a48"
+  },
+  "members": {
+   "Breaker reset hand": {
+    "path": [],
+    "supplied": false,
+    "reason": "Service gauge (a tool, not a robot part): no mount by design"
+   },
+   "CORAL pipe": {
+    "path": [
+     "Carried by contact transport (exit lip, lower nip roller, pocket tray, upper nip roller) in cases eject-land, eject-lip-root, eject-over-roller, eject-ramp, eject-throat, receive-chute, receive-pocket, receive-ramp, receive-seat"
+    ],
+    "supplied": true,
+    "source": "layout.json stages[].transportedBy"
+   },
+   "Check flap": {
+    "path": [
+     "Group datum: check flap mounts on Hood (removable) at (161.253, 0, 700) mm: 3 mm flap pin in clips under the hood, 4 mm under its underside",
+     "hood mounts on Pocket tray at (200, 162.5, 700) mm: Hood tab on the port side-wall top edge (thumb screw)",
+     "pocket tray mounts on Floor post port at (122.5, 147.5, 579.788) mm: Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights",
+     "tray supports mounts on Chassis pan trusses and stringers at (122.5, 147.5, 489.525) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Deployable exit lip": {
+    "path": [
+     "Group datum: exit lip mounts on Port nip side plate at (366, 170.4, 530.5) mm: Lip hinge pin in brackets on both side plates",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Dressed battery": {
+    "path": [
+     "Group datum: battery mounts on Battery tray and retention at (-150, 0, 29.9) mm: Battery case bottom on the tray",
+     "battery retention mounts on Chassis sills, decks and crossmembers at (-210, 110, 111.13) mm: Port rear hanger under inboard sill 1",
+     "Chassis sills, decks and crossmembers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Hood (removable)": {
+    "path": [
+     "Group datum: hood mounts on Pocket tray at (200, 162.5, 700) mm: Hood tab on the port side-wall top edge (thumb screw)",
+     "pocket tray mounts on Floor post port at (122.5, 147.5, 579.788) mm: Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights",
+     "tray supports mounts on Chassis pan trusses and stringers at (122.5, 147.5, 489.525) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Lip latch servo": {
+    "path": [
+     "Group datum: lip latch mounts on Starboard nip side plate at (348, -170.4, 455) mm: Servo bracket on the starboard side plate extension",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Lip-deployed switch": {
+    "path": [
+     "Group datum: lip sensor mounts on Starboard nip side plate at (340, -173.62, 705) mm: Proposed attachment: switch bracket on the starboard side plate at the lip's deployed stop (bracket undesigned)",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Lower nip roller": {
+    "path": [
+     "Group datum: lower nip roller mounts on Port nip side plate at (335, 170.4, 523.45) mm: Flanged hex bearing in the port side plate",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Nip coupling belt": {
+    "path": [
+     "Group datum: nip coupling mounts on Starboard nip side plate at (335, -170.4, 600) mm: Idler post on the starboard side plate",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Nip worm reducer and NEO 550": {
+    "path": [
+     "Group datum: nip drive mounts on Port nip side plate at (335, 173.6, 523.45) mm: Worm reducer face bolted to the port side plate on the lower shaft",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Plug grip hand": {
+    "path": [],
+    "supplied": false,
+    "reason": "Service gauge (a tool, not a robot part): no mount by design"
+   },
+   "Pocket tray": {
+    "path": [
+     "Group datum: pocket tray mounts on Floor post port at (122.5, 147.5, 579.788) mm: Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights",
+     "tray supports mounts on Chassis pan trusses and stringers at (122.5, 147.5, 489.525) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Port nip side plate": {
+    "path": [
+     "Group datum: nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Seated-pipe sensor": {
+    "path": [
+     "Group datum: pipe sensor mounts on Hood (removable) at (289.45, -10, 675.5) mm: Proposed attachment: sensor bracket on the hood underside over the pipe seat (bracket undesigned); the sensor lifts out with the hood for service",
+     "hood mounts on Pocket tray at (200, 162.5, 700) mm: Hood tab on the port side-wall top edge (thumb screw)",
+     "pocket tray mounts on Floor post port at (122.5, 147.5, 579.788) mm: Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights",
+     "tray supports mounts on Chassis pan trusses and stringers at (122.5, 147.5, 489.525) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Starboard nip side plate": {
+    "path": [
+     "Group datum: nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "Upper nip roller": {
+    "path": [
+     "Group datum: upper nip roller mounts on Port nip side plate at (335, 170.4, 676.55) mm: Flanged hex bearing in the port side plate",
+     "nip side plates mounts on Chassis pan trusses and stringers at (250, 170.4, 489.525) mm: Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)",
+     "Chassis pan trusses and stringers is a structure structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   }
+  }
+ },
+ "modelNotes": [
+  "What it is: the Red 2 iteration 002 B'x preliminary blockout (fixed pocket, worm-held two-roller nip, deploy-once exit lip) on the carried-forward four-module swerve chassis, layout-checked by Agent FRC. B'x is held for review; the guarded-pan baseline A remains the fallback until bench gates G1-G4 pass.",
+  "Simplified: the chassis, module housings and electronics are oriented-box unions or supplier-bounds boxes; the steer sweeps are 4 mm-stepped revolved envelopes; pipe-contact surfaces are reserved 2.5 mm below their contact line and the rollers by their rigid core (rights gate in custody-layout-001.json).",
+  "Prescribed, not simulated, in the package: the pipe path; contact transport is declared per case and bound to the evidence/transport records. Free-piece receive, eject and retention physics is in field-trials.json, a planar compliant-contact model whose stiffness, friction and restitution are bracketed, not measured.",
+  "Unverified: bench gates G1-G5 (bench-gates.json, withheld with the private package); the G412 eject interlock is open (rules-rulings.json); the L1 trough is a planning section from the 2025 field model extraction, not the official field model.",
+  "Sources and cutoff: rule register Kickoff V0, 2025-01-04 release-day packet, V0 only (rules-rulings.json).",
+  "Open items: see openItems (unregistered structure joints and undesigned brackets)."
+ ],
+ "focus": {
+  "component": "CORAL pipe",
+  "basis": "The mission cases (receive-seat, eject-land, trough-landing) follow the pipe from the station chute into the trough"
+ },
+ "caseTimes": {
+  "source": {
+   "file": "evidence/field-trials.json",
+   "sha256": "86be1b9e95ee213c9aeb134e2a33e8130c3f417192f7f92b711328469e427237"
+  },
+  "note": "Package cases are prescribed 25-frame geometric paths. Times come from the nominal field trials and the receive-seat-time premise.",
+  "cases": {
+   "receive-chute": {
+    "seconds": [
+     0.0,
+     0.5434
+    ],
+    "trial": "receive-seat-time premise (G1 receive model, 40 N/mm tread)",
+    "basis": "arrival to seated in the worm-locked bite"
+   },
+   "receive-ramp": {
+    "seconds": [
+     0.0,
+     0.5434
+    ],
+    "trial": "receive-seat-time premise (G1 receive model, 40 N/mm tread)",
+    "basis": "arrival to seated in the worm-locked bite"
+   },
+   "flap-open": {
+    "seconds": [
+     0.0,
+     0.5434
+    ],
+    "trial": "receive-seat-time premise (G1 receive model, 40 N/mm tread)",
+    "basis": "arrival to seated in the worm-locked bite"
+   },
+   "receive-pocket": {
+    "seconds": [
+     0.0,
+     0.5434
+    ],
+    "trial": "receive-seat-time premise (G1 receive model, 40 N/mm tread)",
+    "basis": "arrival to seated in the worm-locked bite"
+   },
+   "receive-seat": {
+    "seconds": [
+     0.0,
+     0.5434
+    ],
+    "trial": "receive-seat-time premise (G1 receive model, 40 N/mm tread)",
+    "basis": "arrival to seated in the worm-locked bite"
+   },
+   "eject-throat": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "eject-over-roller": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "eject-lip-root": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "eject-ramp": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "eject-land": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "release-off-tip": {
+    "seconds": [
+     0.0,
+     0.187
+    ],
+    "trial": "eject-nominal (G2 worm 12 V, 50 mm stand-off)",
+    "basis": "nip start to departure from the lip tip"
+   },
+   "release-flight": {
+    "seconds": [
+     0.187,
+     3.254
+    ],
+    "trial": "eject-nominal",
+    "basis": "departure to captured and supported 2 s after withdrawal"
+   },
+   "trough-landing": {
+    "seconds": [
+     0.187,
+     3.254
+    ],
+    "trial": "eject-nominal",
+    "basis": "departure to captured and supported 2 s after withdrawal"
+   },
+   "withdraw-park": {
+    "seconds": [
+     0.187,
+     3.254
+    ],
+    "trial": "eject-nominal",
+    "basis": "departure to captured and supported 2 s after withdrawal"
+   },
+   "lip-deploy": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "flap-close": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "loaded-carry": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-hood-lift": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-unload-pipe": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-nip-cassette-lift": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-lip-restow": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-battery-lift": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-battery-rear-carry": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-plug-disconnect": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "service-breaker-reset": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "package-displacement-control": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   }
+  }
+ },
+ "targetAperture": {
+  "name": "L1 trough sector A opening",
+  "source": {
+   "geometry": "pocket_geometry.py TROUGH (target.json section of the 2025 field model extraction) and trough_x(NOMINAL_STANDOFF = 50 mm)",
+   "file": {
+    "file": "pocket_geometry.py",
+    "sha256": "ba493c05460e64c3eb044682366e8e9bca3f6edb5da41c84ab1b3d05f7af9232"
+   }
+  },
+  "frame": "Robot datum millimetres at the shown dock (lip face 50 mm ahead of the bumper face)",
+  "cornersMm": [
+   [
+    495.5,
+    -233.5,
+    457.2
+   ],
+   [
+    495.5,
+    233.5,
+    457.2
+   ],
+   [
+    743.337,
+    233.5,
+    517.525
+   ],
+   [
+    743.337,
+    -233.5,
+    517.525
+   ]
+  ],
+  "basis": "Outer lip top edge to inner riser top edge across the 467 mm sector A panel"
+ },
+ "openItems": [
+  "Carried-forward chassis reserves (Chassis perimeter, cassettes and socket rails, pan trusses and stringers, sills, decks and crossmembers) keep their joints inside 2.1 mm partition shells; no joint is registered individually.",
+  "Tray supports register one group datum (port floor post on the upper pan stringer) for Floor post port, Floor post starboard and both rear inlet uprights.",
+  "Bumper ring mount to the chassis perimeter is undesigned.",
+  "Electronics, wiring and the two sensors use proposed host-envelope attachment points; their brackets are undesigned.",
+  "Group-level mount datums: starboard members (Starboard nip side plate, Rear inlet upright starboard, Floor post starboard) cite the port datum."
+ ]
+}

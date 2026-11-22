@@ -1,0 +1,19 @@
+{
+  "id": "station-receive-face",
+  "scenario": "Both TELEOP station receives at the red station, receiving face toward the station",
+  "unit": "face",
+  "criterion": {
+    "equals": "front"
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "pocket tray",
+    "check flap",
+    "pipe"
+  ],
+  "source": {
+    "file": "narrative.md",
+    "sha256": "4936b4a68771f6f8c805ee1975a357da23481969c9085403460e0cc3c4a5b7ce"
+  },
+  "basis": "Selected station-fed L1 role: the robot docks its receiving face to the station chute"
+}
