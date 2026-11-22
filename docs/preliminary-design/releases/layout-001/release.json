@@ -1,0 +1,52 @@
+{
+  "schema": "agent-frc/preliminary-release@1",
+  "release": "layout-001",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "phase": "preliminary-design",
+  "status": "layout-checked",
+  "receipt": {
+    "file": "receipt.json",
+    "sha256": "1cc8a7611956960241b82d04c33d8891b8ce86d1b4c3ee650e72375a07e1f7fa"
+  },
+  "view": {
+    "file": "index.html",
+    "sha256": "1b1c4bd34c9934ab2cdcb477782fc3074a8b5a2da5e067c1103abb63e206d7b1"
+  },
+  "scene": {
+    "file": "motion.json",
+    "sha256": "67b6efdae119028938fca60b28a9bcc38f0937df467b03f5f44da2f984210e09",
+    "stepSha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736"
+  },
+  "missionCases": [
+    {
+      "case": "eject-land",
+      "kind": "field-interaction-trial",
+      "accomplishes": "delivered",
+      "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal",
+      "player": "field/bx-field-trials.html"
+    },
+    {
+      "case": "trough-landing",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal"
+    },
+    {
+      "case": "receive-seat",
+      "kind": "operating-case",
+      "accomplishes": "acquired",
+      "objective": "TELEOP: take one station-issued CORAL from the red station"
+    }
+  ],
+  "fieldPlayers": [
+    {
+      "file": "field/bx-field-trials.html",
+      "sha256": "d3345861afd73b6507e9fa059c136c718839e49ad6d4d29758d77ef1c1999705",
+      "trial": {
+        "file": "eject-land.json",
+        "sha256": "f499072e352f32371633481b0292e732e32947d4385d4ffb035684587c57119d"
+      },
+      "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal"
+    }
+  ]
+}

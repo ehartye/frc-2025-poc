@@ -44,6 +44,29 @@ jobs:
         run: node builder/scripts/robot-highlights.mjs project/highlights.json "$RUNNER_TEMP/showcase"
       - name: Publish student-controlled mechanism motion
         run: node project/scripts/publish-capture.mjs project "$RUNNER_TEMP/showcase"
+      - name: Get the preliminary release checker
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ehartye/agent-frc
+          ref: f17e8bb6b4fdbf6c93e9dda8a6f9574144320168 # Agent FRC 0.101.1
+          path: preliminary-tools
+          persist-credentials: false
+      - name: Add the checked preliminary design releases under preliminary-design/
+        run: |
+          python project/cad/preliminary-design/stage.py --check-index
+          node preliminary-tools/scripts/preliminary-release.mjs verify project/docs/preliminary-design/releases/layout-001
+          cp -r project/docs/preliminary-design "$RUNNER_TEMP/showcase/preliminary-design"
+          # The one secondary, work-in-progress link the preliminary release class admits on the season index.
+          python - "$RUNNER_TEMP/showcase/index.html" <<'PY'
+          import sys
+          page = sys.argv[1]
+          text = open(page, encoding="utf-8").read()
+          anchor = '<a href="role-lab.html#roleLab">Compare station routes</a>'
+          if text.count(anchor) != 1:
+              raise SystemExit("Expected one station route link on the season index")
+          text = text.replace(anchor, anchor + ' <a href="preliminary-design/">Preliminary design (work in progress)</a>')
+          open(page, "w", encoding="utf-8", newline="").write(text)
+          PY
       - name: Hand the final output to an isolated verification runner
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

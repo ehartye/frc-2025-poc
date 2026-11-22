@@ -1,0 +1,2865 @@
+{
+  "schema": "agent-frc/mechanical-motion@1",
+  "step": {
+    "file": "package.step",
+    "sha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736"
+  },
+  "layoutDesignSha256": "638a98114916a6fe0cdfe34914b84ad4ff5d95696f703c6873ec92f9d74f9f4b",
+  "layoutDatum": {
+    "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "id": "lip-deploy",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Match start: the servo pin releases the upright stowed lip; gravity and its torsion spring swing it 120 deg about the hinge to the deployed hard stop; the pipe is still in the station",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      },
+      "moves": {
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "receive-chute",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The station-issued pipe enters at the inlet lip and rolls down the 52.3 deg chute to the kink (centre touching both faces); the receive trials start 25 mm down the chute at the recorded 2.22-2.47 m/s",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "receive-ramp",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Down the 15.74 deg pocket floor to 3.5 mm short of the hanging check flap",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "flap-open",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The arriving pipe swings the check flap forward and up to 74.26 deg, parallel to and 3.2 mm under the hood (prescribed: in the trials the pipe drives it)",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      },
+      "moves": {
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "receive-pocket",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe passes under the open flap along the floor into the pocket",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "receive-seat",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe enters the bite of the worm-locked nip and wedges to its carry seat (the receive trials' end state at 40 N/mm tread)",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "flap-close",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The torsion spring returns the check flap to its rear stop behind the seated pipe",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          }
+        ]
+      },
+      "moves": {
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "loaded-carry",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Loaded carry: an 8 g, 50 ms braking pulse moves the pipe 1.62 mm deeper into the locked bite (the largest sled travel into the nip at 40 N/mm). Steering needs no motion: each steer sweep is a static revolved envelope",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "eject-throat",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Docked at sector A: the nip runs and draws the pipe through the 12 mm squeeze to the throat (roller cores 3.0 mm clear; the squeeze is the trial-qualified tread contact)",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "eject-over-roller",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the upper roller and rolls over the driven lower roller (21.67 deg about its axis, centre on the 76.55 mm compressed-contact circle) onto the deployed lip ramp. Contact transport: no carrier moves with the pipe (the roller cores are axisymmetric and stay put)",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "eject-lip-root",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Pivots 34.24 deg over the lip root corner (exact arc of radius R) onto the ramp",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "eject-ramp",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Rolling down the 30 deg lip ramp into the concave knee, touching ramp and land",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "eject-land",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Along the 25 mm land to the tip, centre 550 mm high and 100 mm beyond the frame line",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              9.686703652561334,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "release-off-tip",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the tip; 40 mm horizontal departure stroke (above the physical trace, which drops about 13 mm over that distance)",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              9.686703652561334,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              40.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "release-flight",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Flight over the trough lip (chord of the nominal physical trace)",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              9.686703652561334,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              40.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              28.52588947875404,
+              0.0,
+              -16.117482052752734
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "trough-landing",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Lands and comes to rest against the trough lip and floor; this pose is 3.5 mm off both (the physical rest is in contact and is assessed 2 s later in the trials)",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              9.686703652561334,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              40.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              28.52588947875404,
+              0.0,
+              -16.117482052752734
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              23.339364118980598,
+              0.0,
+              -48.35244615825803
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "withdraw-park",
+      "stage": "park",
+      "minGapMm": 2.0,
+      "basis": "The robot backs 300 mm away and parks with the lip deployed and the pocket empty; in the robot frame the scored pipe and the trough recede together",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -699.2538165157463,
+              0.0,
+              348.7504155882508
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              152.10727143640284,
+              0.0,
+              -196.87481792080075
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              334.1799433244578,
+              0.0,
+              -94.18552994563743
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              185.19660175488568,
+              0.0,
+              -52.19595139939236
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              27.769999999999982,
+              0.0,
+              -5.494116322420268
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.62,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              20.610000000000014,
+              0.0,
+              0.11000000000001364
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              335.0,
+              0.0,
+              523.45
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 21.6738
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              367.5,
+              0.0,
+              537.594645862196
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 34.2431
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              64.23829634743868,
+              0.0,
+              -37.08799768847666
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              9.686703652561334,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              40.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              28.52588947875404,
+              0.0,
+              -16.117482052752734
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              23.339364118980598,
+              0.0,
+              -48.35244615825803
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.26
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 74.26
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "L1 trough sector A (field)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-hood-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Pit unload, step 1: release the thumb screws and lift the hood, with the check flap on its pin and the seated-pipe sensor on its top, 320 mm clear of the whole robot",
+      "moves": {
+        "Hood (removable)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              320.0
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              320.0
+            ]
+          }
+        ],
+        "Seated-pipe sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              320.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "Hood (removable)",
+        "Check flap",
+        "Seated-pipe sensor"
+      ],
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-unload-pipe",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Pit unload, step 2: roll the unscored pipe back up the floor and lift it out on one hand arc (110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Seated-pipe sensor": "service-hood-lift"
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              380.5881164009652,
+              0.0,
+              840.5156492725268
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 110.0
+          }
+        ]
+      },
+      "extract": [
+        "CORAL pipe"
+      ],
+      "maxDepth": 11,
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-nip-cassette-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "With the hood and pipe out, unbolt the two side plates from the upper stringers and lift the nip cassette (plates, rollers, worm drive, belt, latch, lip-deployed switch and deployed lip) 480 mm, clear of the inlet walls",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Seated-pipe sensor": "service-hood-lift",
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Port nip side plate": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Starboard nip side plate": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Lower nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Upper nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Nip worm reducer and NEO 550": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Nip coupling belt": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Lip latch servo": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ],
+        "Lip-deployed switch": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              480.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Lower nip roller",
+        "Upper nip roller",
+        "Nip worm reducer and NEO 550",
+        "Nip coupling belt",
+        "Lip latch servo",
+        "Deployable exit lip",
+        "Lip-deployed switch"
+      ],
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-lip-restow",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Seated-pipe sensor": "service-hood-lift",
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      },
+      "maxDepth": 11,
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-battery-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "After unplugging, lift the dressed battery 250 mm through the centre gap between the equipment sheets",
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-battery-rear-carry",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Continue from the 250 mm lift rearward under the inlet chute and over the rear bumper until clear",
+      "initialPose": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-plug-disconnect",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches down to grip the SB50 pair from above",
+      "moves": {
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -255.9
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    },
+    {
+      "id": "service-breaker-reset",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches the CB185 reset button outboard of the pocket walls",
+      "moves": {
+        "Breaker reset hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -342.8
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "2faeb91c5725ef4916df75df39f1da6e9daa87cfd1f1647d98403884c80978c7"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture, FRC 2025 red reef L1 trough sector A from the 2025 field model extraction (target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Placed in the robot datum with the lip face 50 mm ahead of the bumper face, the shown dock (pocket_geometry.NOMINAL_STANDOFF)."
+        }
+      ]
+    }
+  ]
+}

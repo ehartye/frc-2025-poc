@@ -1,0 +1,464 @@
+{
+  "basis": "R103 115 lb (2025 kickoff V0 pp. 76/86/112 per the mass-01 ruleBasis) and the project 9 V branch floor, the same limits as the pan baseline",
+  "inspectionLimitKg": 52.163122550000004,
+  "operatingMinV": 9.0,
+  "massLines": [
+    "sds-modules",
+    "chassis-fabricated",
+    "chassis-purchased-hardware",
+    "pocket-package-fabricated",
+    "pocket-package-purchased",
+    "joining-allowance",
+    "electrical-allowance",
+    "battery-tray-retention",
+    "permanent-bumper-mounts",
+    "hardware-finish-remainder",
+    "bumpers-excluded",
+    "battery-excluded",
+    "field-trough-excluded"
+  ],
+  "electricalCases": {
+    "lip-deploy-nominal": {
+      "stage": "lip-deploy",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Release the lip latch at match start (servo stall 1.5 A, robot stationary)",
+      "requiredMotionMinV": 6.0
+    },
+    "lip-deploy-weak": {
+      "stage": "lip-deploy",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Release the lip latch at match start (servo stall 1.5 A, robot stationary)",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-chute-nominal": {
+      "stage": "receive-chute",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-chute-weak": {
+      "stage": "receive-chute",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-ramp-nominal": {
+      "stage": "receive-ramp",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-ramp-weak": {
+      "stage": "receive-ramp",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "flap-open-nominal": {
+      "stage": "flap-open",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "flap-open-weak": {
+      "stage": "flap-open",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-pocket-nominal": {
+      "stage": "receive-pocket",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-pocket-weak": {
+      "stage": "receive-pocket",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-seat-nominal": {
+      "stage": "receive-seat",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-seat-weak": {
+      "stage": "receive-seat",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "flap-close-nominal": {
+      "stage": "flap-close",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "flap-close-weak": {
+      "stage": "flap-close",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the worm holds the nip with no current",
+      "requiredMotionMinV": 6.0
+    },
+    "loaded-carry-nominal": {
+      "stage": "loaded-carry",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the worm holds the nip unpowered",
+      "requiredMotionMinV": 6.0
+    },
+    "loaded-carry-weak": {
+      "stage": "loaded-carry",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the worm holds the nip unpowered",
+      "requiredMotionMinV": 6.0
+    },
+    "eject-throat-nominal": {
+      "stage": "eject-throat",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-throat-weak": {
+      "stage": "eject-throat",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-over-roller-nominal": {
+      "stage": "eject-over-roller",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-over-roller-weak": {
+      "stage": "eject-over-roller",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-lip-root-nominal": {
+      "stage": "eject-lip-root",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-lip-root-weak": {
+      "stage": "eject-lip-root",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-ramp-nominal": {
+      "stage": "eject-ramp",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-ramp-weak": {
+      "stage": "eject-ramp",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-land-nominal": {
+      "stage": "eject-land",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-land-weak": {
+      "stage": "eject-land",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "release-off-tip-nominal": {
+      "stage": "release-off-tip",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "release-off-tip-weak": {
+      "stage": "release-off-tip",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "release-flight-nominal": {
+      "stage": "release-flight",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "release-flight-weak": {
+      "stage": "release-flight",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "trough-landing-nominal": {
+      "stage": "trough-landing",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "trough-landing-weak": {
+      "stage": "trough-landing",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "withdraw-park-nominal": {
+      "stage": "withdraw-park",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the worm holds the nip unpowered",
+      "requiredMotionMinV": 6.0
+    },
+    "withdraw-park-weak": {
+      "stage": "withdraw-park",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the worm holds the nip unpowered",
+      "requiredMotionMinV": 6.0
+    }
+  }
+}

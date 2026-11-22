@@ -1,0 +1,1477 @@
+{
+  "issue": "red2-002-preliminary-layout-Bx",
+  "step": {
+    "file": "package.step",
+    "sha256": "9ec70712e49d0dd15266e7b47f55bb8c5cdb697c24b0ae821119cf8600a48736"
+  },
+  "motion": {
+    "file": "paths.json",
+    "sha256": "67b6efdae119028938fca60b28a9bcc38f0937df467b03f5f44da2f984210e09"
+  },
+  "design": {
+    "file": "design.json",
+    "sha256": "638a98114916a6fe0cdfe34914b84ad4ff5d95696f703c6873ec92f9d74f9f4b"
+  },
+  "requirements": {
+    "file": "package-limits.json",
+    "sha256": "e5a882615339e45fabb99885350506df30033eeaa7bdd02ff57b00c53d90fb4b"
+  },
+  "runningPayloadKg": [
+    14.486466,
+    14.486466
+  ],
+  "runningPayloadBasis": "Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg",
+  "masses": [
+    {
+      "id": "sds-modules",
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep",
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "kg": [
+        10.886216880000001,
+        11.212803386400001
+      ],
+      "basis": "Catalog 6.0 lb SDS MK4i L2 NEO x 4, wiring included; 3 % item growth (mass-01)"
+    },
+    {
+      "id": "chassis-fabricated",
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ],
+      "kg": [
+        18.696588593445778,
+        19.070520365314692
+      ],
+      "basis": "146 taps-02 solids by measured CAD volume at 2700 kg/m3, including the 0.908 kg pan trusses kept as pocket landings; 2 % growth (mass-01)"
+    },
+    {
+      "id": "chassis-purchased-hardware",
+      "members": [],
+      "kg": [
+        0.8510901702945991,
+        0.8991094642263336
+      ],
+      "basis": "116 McMaster chassis screws, 4 seated clamp screws and the steel spacer; 5-20 % growth"
+    },
+    {
+      "id": "pocket-package-fabricated",
+      "members": [
+        "Pocket tray",
+        "Hood (removable)",
+        "Check flap",
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Deployable exit lip",
+        "Rear inlet upright port",
+        "Floor post port",
+        "Rear inlet upright starboard",
+        "Floor post starboard"
+      ],
+      "kg": [
+        4.1636,
+        4.99632
+      ],
+      "basis": "Estimate: tray floor including the station chute, 1/8 in polycarbonate 0.7606 kg; two side walls, 1/8 in polycarbonate, 150 mm 0.6142 kg; station inlet guides and chute extension, polycarbonate 0.8000 kg; hood, 1/16 in polycarbonate 0.1546 kg; rear check flap, pin and torsion spring 0.0800 kg; two nip side plates, 1/4 in 6061, 50 % pocketed 0.5143 kg; deploy-once lip: polycarbonate lip, hinge, deploy spring and stops 0.3000 kg; two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets 0.5899 kg; rivets, screws and nuts 0.3500 kg; +20 % growth (evaluation B'x lines; the 0.159 kg fence is not used)"
+    },
+    {
+      "id": "pocket-package-purchased",
+      "members": [
+        "Lower nip roller",
+        "Upper nip roller",
+        "Nip worm reducer and NEO 550",
+        "Nip coupling belt",
+        "Lip latch servo",
+        "Seated-pipe sensor",
+        "Lip-deployed switch"
+      ],
+      "kg": [
+        1.466,
+        1.7591999999999999
+      ],
+      "basis": "Estimate: two roller shafts, hollow 1/2 in hex, 360 mm 0.2160 kg; eight 2 in 35A compliant wheels 0.2000 kg; four flanged hex bearings 0.0800 kg; coupling belt, two pulleys and idler 0.1100 kg; NEO 550 and self-locking worm reducer (estimate; replaces the 0.3415 kg 12:1 planetary) 0.7500 kg; seated-pipe sensor and lead 0.0300 kg; lip-deployed switch and lead 0.0200 kg; lip latch servo and pin 0.0600 kg; +20 % growth"
+    },
+    {
+      "id": "joining-allowance",
+      "members": [],
+      "kg": [
+        3.4030071985143433,
+        3.4030071985143433
+      ],
+      "basis": "Named allowance: unresolved joints, splices and backing (mass-01, single layer)"
+    },
+    {
+      "id": "electrical-allowance",
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket",
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ],
+      "kg": [
+        5.496355275198802,
+        5.496355275198802
+      ],
+      "basis": "Named allowance: controllers, PDH, roboRIO, radio, breaker, robot-side plug, harness and mounts (mass-01)"
+    },
+    {
+      "id": "battery-tray-retention",
+      "members": [
+        "Battery tray and retention"
+      ],
+      "kg": [
+        0.35,
+        0.35
+      ],
+      "basis": "Named allowance carved from the mass-01 hardware-and-finish allowance (as the baseline)"
+    },
+    {
+      "id": "permanent-bumper-mounts",
+      "members": [],
+      "kg": [
+        0.3,
+        0.3
+      ],
+      "basis": "Named allowance carved from the mass-01 hardware-and-finish allowance; R103 counts permanent mounts"
+    },
+    {
+      "id": "hardware-finish-remainder",
+      "members": [],
+      "kg": [
+        0.85,
+        0.85
+      ],
+      "basis": "Named allowance: the remaining unspecified installed hardware and finish"
+    },
+    {
+      "id": "bumpers-excluded",
+      "members": [
+        "Bumper ring"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes bumpers; the 7.5 kg one-colour set is carried in the running mass"
+    },
+    {
+      "id": "battery-excluded",
+      "members": [
+        "Dressed battery"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes the battery and battery-side leads; 6.17 kg carried in the running mass"
+    },
+    {
+      "id": "field-trough-excluded",
+      "members": [
+        "L1 trough sector A (field)"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "Field element placed for the delivery interaction; not robot mass"
+    }
+  ],
+  "electricalCases": {
+    "lip-deploy-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          1.5
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "lip-deploy-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          1.5
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-chute-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-chute-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-ramp-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-ramp-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "flap-open-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "flap-open-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-pocket-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-pocket-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-seat-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-seat-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "flap-close-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "flap-close-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "loaded-carry-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "loaded-carry-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-throat-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-throat-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-over-roller-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-over-roller-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-lip-root-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-lip-root-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-ramp-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-ramp-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-land-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-land-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-off-tip-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-off-tip-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-flight-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-flight-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "trough-landing-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "trough-landing-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "withdraw-park-nominal": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "withdraw-park-weak": {
+      "loadedKg": [
+        60.94932411745353,
+        62.823781689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.5 A. Nip 0-30 A at its SPARK MAX current limit while ejecting, 0 A otherwise (self-locking worm). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited worm-drive trials capture at (field-trials.json G2, 9-12 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    }
+  }
+}
