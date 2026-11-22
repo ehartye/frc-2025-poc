@@ -29,7 +29,7 @@
  },
  "generator": {
   "file": "iterations/002/design/preliminary-pocket/build_layout.py",
-  "sha256": "6f955ef0ae72aceddd62f907d1bfcb276fe812f5550d593f9379db2371d07e89"
+  "sha256": "8d6f62a945b7dc3abdc6152da8cafc45ed2382e05202777501b54da4dac15525"
  },
  "fixtureGroups": [
   "field trough",
@@ -121,6 +121,11 @@
    "gapMm": 2.45
   },
   {
+   "block": "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+   "neighbour": "Pocket landing shelf port",
+   "gapMm": 3.0
+  },
+  {
    "block": "Hood (removable)",
    "neighbour": "Pocket tray",
    "gapMm": 3.1
@@ -154,11 +159,6 @@
    "block": "Hood (removable)",
    "neighbour": "Starboard nip side plate",
    "gapMm": 9.375
-  },
-  {
-   "block": "Seated-pipe beam emitter (port)",
-   "neighbour": "Pocket tray",
-   "gapMm": 9.7
   }
  ],
  "lipOverTravel": {
@@ -1148,6 +1148,18 @@
     "tread": "upper",
     "pose": "installed",
     "gapMm": 3.604
+   },
+   {
+    "block": "Pocket landing shelf port",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 13.973
+   },
+   {
+    "block": "Pocket landing shelf starboard",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 13.973
    },
    {
     "block": "Port nip side plate",
@@ -2535,11 +2547,53 @@
    "volumeMm3": 59406.4
   },
   {
+   "name": "Pocket landing shelf port",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Port 1/4 in 6061 shelf on the upper pan stringer top, reaching 95 mm inboard under the floor post and the nip side-plate foot",
+   "parent": "fixed: three 10-32 bolts into the upper pan stringer top (Y 232-251.5)",
+   "motion": "fixed",
+   "bounds": "200 x 114.5 x 6.35 mm plate, Z 491.6-497.95",
+   "missing": [
+    "Bolt holes and the post and plate fasteners are sized by calculation (structure-checks.json P4), not drawn"
+   ],
+   "boundsMm": [
+    105.0,
+    137.0,
+    491.6,
+    305.0,
+    251.5,
+    497.95
+   ],
+   "volumeMm3": 145415.0
+  },
+  {
+   "name": "Pocket landing shelf starboard",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Starboard 1/4 in 6061 shelf on the upper pan stringer top, reaching 95 mm inboard under the floor post and the nip side-plate foot",
+   "parent": "fixed: three 10-32 bolts into the upper pan stringer top (Y 232-251.5)",
+   "motion": "fixed",
+   "bounds": "200 x 114.5 x 6.35 mm plate, Z 491.6-497.95",
+   "missing": [
+    "Bolt holes and the post and plate fasteners are sized by calculation (structure-checks.json P4), not drawn"
+   ],
+   "boundsMm": [
+    105.0,
+    -251.5,
+    491.6,
+    305.0,
+    -137.0,
+    497.95
+   ],
+   "volumeMm3": 145415.0
+  },
+  {
    "name": "Port nip side plate",
    "group": "nip side plates",
    "role": "mechanism",
    "function": "Port 1/4 in 6061 side plate: carries both roller bearings, the lip hinge bracket and the drive or coupling",
-   "parent": "fixed: two 10-32 bolts 45 mm apart into the upper pan stringer top (X 245 and 290)",
+   "parent": "fixed: two 10-32 bolts 45 mm apart into the pocket landing shelf (X 245 and 290)",
    "motion": "fixed (service: lifts out with the nip cassette)",
    "bounds": "1/4 in plate profile X 240-368, Z 425-722; shaft holes partitioned 2.1 mm around the shaft",
    "missing": [
@@ -2555,14 +2609,14 @@
     173.625,
     722.0
    ],
-   "volumeMm3": 211243.6
+   "volumeMm3": 204316.5
   },
   {
    "name": "Starboard nip side plate",
    "group": "nip side plates",
    "role": "mechanism",
    "function": "Starboard 1/4 in 6061 side plate: carries both roller bearings, the lip hinge bracket and the drive or coupling",
-   "parent": "fixed: two 10-32 bolts 45 mm apart into the upper pan stringer top (X 245 and 290)",
+   "parent": "fixed: two 10-32 bolts 45 mm apart into the pocket landing shelf (X 245 and 290)",
    "motion": "fixed (service: lifts out with the nip cassette)",
    "bounds": "1/4 in plate profile X 240-368, Z 425-722; shaft holes partitioned 2.1 mm around the shaft",
    "missing": [
@@ -2578,7 +2632,7 @@
     -167.275,
     722.0
    ],
-   "volumeMm3": 211243.6
+   "volumeMm3": 204316.5
   },
   {
    "name": "Lower nip roller",
@@ -2810,7 +2864,8 @@
    "bounds": "1/8 in plate reserved 3.5 mm under the deployed profile [(367.5, 537.6), (445.0, 492.9), (470.0, 492.9)], hinge knuckle radius 3.0 mm",
    "missing": [
     "Sprung deployed stop (two extension springs on a stop bar 30 mm from the hinge, 6 N m preload, 31 deg over-travel) is sized in structure-checks.json L1-L9 and not drawn; the trials treat the lip as rigid",
-    "Deploy torsion spring article"
+    "Deploy torsion spring article",
+    "Hinge brackets to the two side plates are not drawn, so the lip shows about 9 mm clear of the plates"
    ],
    "boundsMm": [
     363.0,
@@ -2848,22 +2903,22 @@
    "name": "Floor post port",
    "group": "tray supports",
    "role": "structure",
-   "function": "Port post from the upper pan stringer to the pocket floor",
-   "parent": "fixed: on the upper pan stringer top (Z 489.5)",
+   "function": "Port post from the pocket landing shelf to the pocket floor",
+   "parent": "fixed: on the pocket landing shelf",
    "motion": "fixed",
-   "bounds": "25 x 15 mm post Z 491.7-580.3",
+   "bounds": "25 x 15 mm post Z 500.45-580.3",
    "missing": [
-    "Floor clip and stringer bolt"
+    "Floor clip and shelf bolt"
    ],
    "boundsMm": [
     110.0,
     140.0,
-    491.7,
+    500.45,
     135.0,
     155.0,
     580.288
    ],
-   "volumeMm3": 33220.4
+   "volumeMm3": 29939.1
   },
   {
    "name": "Rear inlet upright starboard",
@@ -2891,22 +2946,22 @@
    "name": "Floor post starboard",
    "group": "tray supports",
    "role": "structure",
-   "function": "Starboard post from the upper pan stringer to the pocket floor",
-   "parent": "fixed: on the upper pan stringer top (Z 489.5)",
+   "function": "Starboard post from the pocket landing shelf to the pocket floor",
+   "parent": "fixed: on the pocket landing shelf",
    "motion": "fixed",
-   "bounds": "25 x 15 mm post Z 491.7-580.3",
+   "bounds": "25 x 15 mm post Z 500.45-580.3",
    "missing": [
-    "Floor clip and stringer bolt"
+    "Floor clip and shelf bolt"
    ],
    "boundsMm": [
     110.0,
     -155.0,
-    491.7,
+    500.45,
     135.0,
     -140.0,
     580.288
    ],
-   "volumeMm3": 33220.4
+   "volumeMm3": 29939.1
   },
   {
    "name": "CORAL pipe",
@@ -2933,23 +2988,23 @@
    "name": "L1 trough sector A (field)",
    "group": "field trough",
    "role": "other",
-   "function": "Red reef L1 trough section at the shown dock: outer lip, 15 deg floor and inner riser, from the 2025 field model extraction",
-   "parent": "field: lip outer face at X 495.5 mm (50 mm stand-off from the bumper face), sector A |Y| <= 233.5",
+   "function": "Red reef L1 trough section at the shown dock and the neighbouring sector that holds the first pipe: outer lip, 15 deg floor and inner riser, from the 2025 field model extraction; the two walls continue to the carpet as planning walls",
+   "parent": "field: lip outer face at X 495.5 mm (50 mm stand-off from the bumper face), Y -704.5 to 233.5",
    "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
    "bounds": "experiments/six-wheel/mission/target.json section (lip top 457.2, lip 12.7, floor 0.4049 + 0.268 x, riser 247.8-254.2, top 517.5) extruded over sector A",
    "missing": [
-    "Reef structure below Z 300 mm and above the riser (L2 branch) is not placed",
+    "The reef structure is not placed: below the trough the two walls are plain planning walls to the carpet, and the L2 branch above the riser is absent",
     "Panel mounting holes and the sector divider"
    ],
    "boundsMm": [
     495.5,
-    -233.5,
-    300.0,
+    -704.5,
+    0.0,
     749.687,
     233.5,
     517.525
    ],
-   "volumeMm3": 2274684.4
+   "volumeMm3": 9929522.1
   },
   {
    "name": "Coral station chute (field)",

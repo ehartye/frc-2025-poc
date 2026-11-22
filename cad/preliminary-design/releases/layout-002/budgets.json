@@ -2,11 +2,11 @@
   "issue": "red2-002-preliminary-layout-002",
   "step": {
     "file": "cad/preliminary-design/releases/layout-002/package.step",
-    "sha256": "1188ab1a67abe71d7865557faadc9eb52f545aefb5f3ca313809383b0d81f993"
+    "sha256": "2cd0d6371518c63af96a29bea300d77df4d00f595c8ae1e975f9463684c36106"
   },
   "motion": {
     "file": "cad/preliminary-design/releases/layout-002/paths.json",
-    "sha256": "e27011affa21655970bc5eebb3ccc559af226586cf8fef85b4b87939d0fc095d"
+    "sha256": "6f6b8d02df28062f953fc6b18e316fff038cc71eb2ee2e0e18e8adaf54a8ce61"
   },
   "design": {
     "file": "cad/preliminary-design/releases/layout-002/design.json",
@@ -84,16 +84,18 @@
         "Port nip side plate",
         "Starboard nip side plate",
         "Deployable exit lip",
+        "Pocket landing shelf port",
+        "Pocket landing shelf starboard",
         "Rear inlet upright port",
         "Floor post port",
         "Rear inlet upright starboard",
         "Floor post starboard"
       ],
       "kg": [
-        4.1636,
-        4.99632
+        4.5562,
+        5.46744
       ],
-      "basis": "Estimate: tray floor including the station chute, 1/8 in polycarbonate 0.7606 kg; two side walls, 1/8 in polycarbonate, 150 mm 0.6142 kg; station inlet guides and chute extension, polycarbonate 0.8000 kg; hood, 1/16 in polycarbonate 0.1546 kg; rear check flap, pin and torsion spring 0.0800 kg; two nip side plates, 1/4 in 6061, 50 % pocketed 0.5143 kg; deploy-once lip: polycarbonate lip, hinge, deploy spring and stops 0.3000 kg; two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets 0.5899 kg; rivets, screws and nuts 0.3500 kg; +20 % growth (evaluation B'x lines; the 0.159 kg fence is not used)"
+      "basis": "Estimate: tray floor including the station chute, 1/8 in polycarbonate 0.7606 kg; two side walls, 1/8 in polycarbonate, 150 mm 0.6142 kg; station inlet guides and chute extension, polycarbonate 0.8000 kg; hood, 1/16 in polycarbonate 0.1546 kg; rear check flap, pin and torsion spring 0.0800 kg; two nip side plates, 1/4 in 6061, 50 % pocketed 0.5143 kg; deploy-once lip: polycarbonate lip, hinge, deploy spring and stops 0.3000 kg; two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets 0.5899 kg; two pocket landing shelves, 200 x 114.5 x 6.35 mm 6061 0.3926 kg; rivets, screws and nuts 0.3500 kg; +20 % growth (evaluation B'x lines; the 0.159 kg fence is not used)"
     },
     {
       "id": "pocket-package-purchased",
@@ -222,8 +224,8 @@
   "electricalCases": {
     "lip-deploy-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -259,8 +261,8 @@
     },
     "lip-deploy-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -296,8 +298,8 @@
     },
     "receive-01-station-chute-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -333,8 +335,8 @@
     },
     "receive-01-station-chute-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -370,8 +372,8 @@
     },
     "receive-02-drop-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -407,8 +409,8 @@
     },
     "receive-02-drop-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -444,8 +446,8 @@
     },
     "receive-03-drop-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -481,8 +483,8 @@
     },
     "receive-03-drop-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -518,8 +520,8 @@
     },
     "receive-04-drop-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -555,8 +557,8 @@
     },
     "receive-04-drop-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -592,8 +594,8 @@
     },
     "receive-05-drop-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -629,8 +631,8 @@
     },
     "receive-05-drop-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -666,8 +668,8 @@
     },
     "receive-06-inlet-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -703,8 +705,8 @@
     },
     "receive-06-inlet-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -740,8 +742,8 @@
     },
     "receive-07-inlet-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -777,8 +779,8 @@
     },
     "receive-07-inlet-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -814,8 +816,8 @@
     },
     "receive-08-inlet-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -851,8 +853,8 @@
     },
     "receive-08-inlet-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -888,8 +890,8 @@
     },
     "receive-09-inlet-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -925,8 +927,8 @@
     },
     "receive-09-inlet-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -962,8 +964,8 @@
     },
     "receive-10-inlet-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -999,8 +1001,8 @@
     },
     "receive-10-inlet-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1036,8 +1038,8 @@
     },
     "receive-11-pocket-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1073,8 +1075,8 @@
     },
     "receive-11-pocket-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1110,8 +1112,8 @@
     },
     "receive-12-pocket-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1147,8 +1149,8 @@
     },
     "receive-12-pocket-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1184,8 +1186,8 @@
     },
     "receive-13-pocket-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1221,8 +1223,8 @@
     },
     "receive-13-pocket-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1258,8 +1260,8 @@
     },
     "receive-14-captive-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1295,8 +1297,8 @@
     },
     "receive-14-captive-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1332,8 +1334,8 @@
     },
     "receive-15-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1369,8 +1371,8 @@
     },
     "receive-15-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1406,8 +1408,8 @@
     },
     "receive-16-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1443,8 +1445,8 @@
     },
     "receive-16-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1480,8 +1482,8 @@
     },
     "receive-17-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1517,8 +1519,8 @@
     },
     "receive-17-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1554,8 +1556,8 @@
     },
     "receive-18-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1591,8 +1593,8 @@
     },
     "receive-18-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1628,8 +1630,8 @@
     },
     "receive-19-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1665,8 +1667,8 @@
     },
     "receive-19-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1702,8 +1704,8 @@
     },
     "receive-20-drive-away-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1739,8 +1741,8 @@
     },
     "receive-20-drive-away-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1776,8 +1778,8 @@
     },
     "receive-21-brake-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1813,8 +1815,8 @@
     },
     "receive-21-brake-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1850,8 +1852,8 @@
     },
     "receive-22-seat-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1887,8 +1889,8 @@
     },
     "receive-22-seat-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1924,8 +1926,8 @@
     },
     "carry-01-power-off-hit-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1961,8 +1963,8 @@
     },
     "carry-01-power-off-hit-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -1998,8 +2000,8 @@
     },
     "carry-02-power-off-hit-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2035,8 +2037,8 @@
     },
     "carry-02-power-off-hit-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2072,8 +2074,8 @@
     },
     "carry-03-power-off-hit-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2109,8 +2111,8 @@
     },
     "carry-03-power-off-hit-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2146,8 +2148,8 @@
     },
     "eject-01-nip-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2183,8 +2185,8 @@
     },
     "eject-01-nip-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2220,8 +2222,8 @@
     },
     "eject-02-lip-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2257,8 +2259,8 @@
     },
     "eject-02-lip-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2294,8 +2296,8 @@
     },
     "eject-03-lip-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2331,8 +2333,8 @@
     },
     "eject-03-lip-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2368,8 +2370,8 @@
     },
     "eject-04-lip-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2405,8 +2407,8 @@
     },
     "eject-04-lip-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2442,8 +2444,8 @@
     },
     "eject-05-flight-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2479,8 +2481,8 @@
     },
     "eject-05-flight-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2516,8 +2518,8 @@
     },
     "eject-06-flight-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2553,8 +2555,8 @@
     },
     "eject-06-flight-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2590,8 +2592,8 @@
     },
     "eject-07-flight-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2627,8 +2629,8 @@
     },
     "eject-07-flight-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2664,8 +2666,8 @@
     },
     "eject-08-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2701,8 +2703,8 @@
     },
     "eject-08-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2738,8 +2740,8 @@
     },
     "eject-09-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2775,8 +2777,8 @@
     },
     "eject-09-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2812,8 +2814,8 @@
     },
     "eject-10-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2849,8 +2851,8 @@
     },
     "eject-10-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2886,8 +2888,8 @@
     },
     "eject-11-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2923,8 +2925,8 @@
     },
     "eject-11-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2960,8 +2962,8 @@
     },
     "eject-12-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -2997,8 +2999,8 @@
     },
     "eject-12-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3034,8 +3036,8 @@
     },
     "eject-13-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3071,8 +3073,8 @@
     },
     "eject-13-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3108,8 +3110,8 @@
     },
     "eject-14-trough-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3145,8 +3147,8 @@
     },
     "eject-14-trough-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3182,8 +3184,8 @@
     },
     "withdraw-park-nominal": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [
@@ -3219,8 +3221,8 @@
     },
     "withdraw-park-weak": {
       "loadedKg": [
-        61.75732411745353,
-        63.793381689654176
+        62.14992411745353,
+        64.26450168965417
       ],
       "batterySideA": {
         "drive": [

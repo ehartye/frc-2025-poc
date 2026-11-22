@@ -137,13 +137,22 @@ for label, load in ((f"acceptance maximum {BAND_HI:.0f} N/mm", BAND_HI * g.SQUEE
         d_steel, 0.25 * g.SQUEEZE, "mm", need=1.0, note="Allowable: a quarter of the squeeze. An aluminium shaft deflects 2.9 times as far, so the shafts are steel")
 n_h, n_v = (g.BITE_X - g.THROAT_X) / (g.R + g.ROLLER_R), g.ROLLER_DZ / (g.R + g.ROLLER_R)
 f_h = 2 * S["g1RollerN"] * (abs(n_h) + n_v * 1.0)
-arm = (g.POCKET_Z - 491.7) / 1e3
+LANDING_Z = 500.45                          # side-plate foot on the pocket landing shelf (build_layout.py LANDING_Z)
+arm = (g.POCKET_Z - LANDING_Z) / 1e3
 BOLT_SPACING = 0.045
 t_bolt = f_h / 2 * arm / BOLT_SPACING
-row("P1", "Side-plate landing: bolt tension from the receive impact (two 10-32 bolts per plate, 45 mm apart on the stringer top)",
+row("P1", "Side-plate landing: bolt tension from the receive impact (two 10-32 bolts per plate, 45 mm apart on the landing shelf)",
     dict(rollerPeakN=S["g1RollerN"], horizontalBothRollersN=round(f_h, 0), heightAboveLandingMm=round(arm * 1e3, 1), boltSpacingMm=45.0),
     "horizontal F = 2 N (n_x + n_z mu) with tread mu 1.0; per plate T = (F / 2) h / s", t_bolt, 4500.0, "N", need=2.0,
     note="Allowable: 10-32 thread pull-out from 3 mm of 6061 (shear area pi d L / 2 at 200 MPa); the bolt itself proofs at 7.5 kN")
+shelf_arm, shelf_b, shelf_t = (232.0 - 170.45) / 1e3, 0.200, 6.35e-3
+row("P4", "Pocket landing shelf: bending at the stringer edge with the P1 bolt tension applied at the side-plate line (1/4 in 6061, 200 mm long, 61.6 mm overhang)",
+    dict(loadN=round(t_bolt, 0), overhangMm=round(shelf_arm * 1e3, 1), lengthMm=200.0, thicknessMm=6.35),
+    "sigma = 6 F a / (b t^2)", 6 * t_bolt * shelf_arm / (shelf_b * shelf_t ** 2) / 1e6, 276.0, "MPa", need=2.0,
+    note="The shelf carries the side-plate foot and the floor post inboard of the stringer, which has material only outboard of Y 232")
+row("P5", "Pocket landing shelf: tip deflection under the same load",
+    dict(loadN=round(t_bolt, 0), overhangMm=round(shelf_arm * 1e3, 1)), "delta = F a^3 / (3 E I), I = b t^3 / 12, E = 69 GPa",
+    t_bolt * shelf_arm ** 3 / (3 * 69e9 * shelf_b * shelf_t ** 3 / 12) * 1e3, 1.0, "mm", need=1.0, note="Allowable: 1 mm at the plate line")
 plate_t, plate_w = 6.35e-3, 0.060
 row("P2", "Side-plate bending at the landing under the same impact (1/4 in 6061, 60 mm wide section, in plane)",
     dict(momentPerPlateNm=round(f_h / 2 * arm, 1)), "sigma = M / (t w^2 / 6)", f_h / 2 * arm / (plate_t * plate_w ** 2 / 6) / 1e6, 276.0, "MPa", need=2.0)

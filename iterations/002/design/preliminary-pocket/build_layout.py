@@ -327,11 +327,28 @@ add("Check flap", flap, group="check flap", role="mechanism",
     parent=f"moving: revolute on a 3 mm pin at ({hx:.1f}, {hzz:.1f}) mm about +Y, on the hood", motion=f"0 to {pg.FLAP_OPEN_DEG:.1f} deg open",
     bounds="1.6 mm polycarbonate plate 304 mm wide to 6 mm above the floor, plus the pin",
     missing=["Torsion spring, its preload and the rear stop tab are not represented (trials: 0.04 N m preload, 0.06 N m/rad)"])
-# --- nip side plates (land on the upper stringers)
+# --- pocket landing shelves
+# The upper pan stringers have material only outboard of Y 232 (top Z 489.5). The floor posts (Y 140-155) and the nip side
+# plates (Y 167-174) stand 60-90 mm inboard of them, so each side gets a 1/4 in shelf bolted on the stringer top that
+# reaches inboard under the post and the plate foot. Layout-002 first drew the posts and plates against the bounding box
+# of the truss solid, where there is no member.
+STRINGER_TOP, STRINGER_INNER_Y, STRINGER_OUTER_Y = 489.5, 232.0, 251.5
+SHELF_Z0 = STRINGER_TOP + G
+SHELF_T = 6.35
+SHELF_Y_IN = 137.0
+LANDING_Z = round(SHELF_Z0 + SHELF_T + G + 0.4, 2)        # where the posts and side-plate feet start
+for s, label in ((1, "port"), (-1, "starboard")):
+    y0, y1 = sorted((s * SHELF_Y_IN, s * STRINGER_OUTER_Y))
+    add(f"Pocket landing shelf {label}", box([105.0, y0, SHELF_Z0], [305.0, y1, SHELF_Z0 + SHELF_T]), group="tray supports", role="structure",
+        function=f"{label.capitalize()} 1/4 in 6061 shelf on the upper pan stringer top, reaching {STRINGER_INNER_Y - SHELF_Y_IN:.0f} mm inboard under the floor post and the nip side-plate foot",
+        parent="fixed: three 10-32 bolts into the upper pan stringer top (Y 232-251.5)", motion="fixed",
+        bounds=f"200 x {STRINGER_OUTER_Y - SHELF_Y_IN:.1f} x 6.35 mm plate, Z {SHELF_Z0:.1f}-{SHELF_Z0 + SHELF_T:.2f}",
+        missing=["Bolt holes and the post and plate fasteners are sized by calculation (structure-checks.json P4), not drawn"])
+# --- nip side plates (land on the pocket landing shelves)
 # Seated-pipe break beam, along Y just under the top of a seated pipe: 54 mm above the seat centre the pipe wall is solid
 # for +/-18.7 mm, so the beam is blocked for pipe centres X 296.0-333.4 (seats 304.1-310.3) and clear at 10 mm displaced.
 BEAM = (314.7, pg.POCKET_Z + 54.0)
-plate_poly = [(240.0, 491.7), (300.0, 491.7), (300.0, 425.0), (368.0, 425.0), (368.0, 722.0), (240.0, 722.0)]
+plate_poly = [(240.0, LANDING_Z), (307.5, LANDING_Z), (307.5, 425.0), (368.0, 425.0), (368.0, 722.0), (240.0, 722.0)]
 plates = []
 for s in (1, -1):
     y0, y1 = sorted((s * PLATE_Y[0], s * PLATE_Y[1]))
@@ -342,7 +359,7 @@ for s in (1, -1):
 for s, pl in zip(("Port", "Starboard"), plates):
     add(f"{s} nip side plate", pl, group="nip side plates", role="mechanism",
         function=f"{s} 1/4 in 6061 side plate: carries both roller bearings, the lip hinge bracket and the drive or coupling",
-        parent="fixed: two 10-32 bolts 45 mm apart into the upper pan stringer top (X 245 and 290)", motion="fixed (service: lifts out with the nip cassette)",
+        parent="fixed: two 10-32 bolts 45 mm apart into the pocket landing shelf (X 245 and 290)", motion="fixed (service: lifts out with the nip cassette)",
         bounds="1/4 in plate profile X 240-368, Z 425-722; shaft holes partitioned 2.1 mm around the shaft",
         missing=["Flanged bearings sit inside the shaft-hole partition", "Pocketing (50 % assumed in the mass line) is not represented",
                  "Bolt pattern is sized by calculation (structure-checks.json P1-P3), not drawn"])
@@ -421,7 +438,8 @@ add("Deployable exit lip", lip_dep[0], group="exit lip", role="mechanism",
     motion=f"installed deployed (carry configuration); stowed for the start is {pg.LIP_STOW_DEG:.0f} deg about +Y",
     bounds=f"1/8 in plate reserved {LIP_RESERVE} mm under the deployed profile {[tuple(round(v, 1) for v in p) for p in prof]}, hinge knuckle radius 3.0 mm",
     missing=["Sprung deployed stop (two extension springs on a stop bar 30 mm from the hinge, 6 N m preload, 31 deg over-travel) is sized in "
-             "structure-checks.json L1-L9 and not drawn; the trials treat the lip as rigid", "Deploy torsion spring article"])
+             "structure-checks.json L1-L9 and not drawn; the trials treat the lip as rigid", "Deploy torsion spring article",
+             "Hinge brackets to the two side plates are not drawn, so the lip shows about 9 mm clear of the plates"])
 lip_deployed_bounds = aabb(lip_dep[0])
 # --- tray supports: rear uprights on the rear perimeter and two floor posts on the upper stringers
 fb = lambda x: pg.floor_z(x) - (CONTACT_RESERVE + W_T) / c15
@@ -432,10 +450,10 @@ for s, label in ((1, "port"), (-1, "starboard")):
         parent="fixed: foot bracket on the rear perimeter tube", motion="fixed",
         bounds="25 x 25.4 mm tube reserve Z 205.6-800", missing=["Foot bracket to the rear perimeter and the wall clips", "Gusset"])
     top = min(fb(110.0), fb(135.0)) - G
-    add(f"Floor post {label}", box([110.0, min(s * 140.0, s * 155.0), 491.7], [135.0, max(s * 140.0, s * 155.0), top]),
-        group="tray supports", role="structure", function=f"{label.capitalize()} post from the upper pan stringer to the pocket floor",
-        parent="fixed: on the upper pan stringer top (Z 489.5)", motion="fixed",
-        bounds=f"25 x 15 mm post Z 491.7-{top:.1f}", missing=["Floor clip and stringer bolt"])
+    add(f"Floor post {label}", box([110.0, min(s * 140.0, s * 155.0), LANDING_Z], [135.0, max(s * 140.0, s * 155.0), top]),
+        group="tray supports", role="structure", function=f"{label.capitalize()} post from the pocket landing shelf to the pocket floor",
+        parent="fixed: on the pocket landing shelf", motion="fixed",
+        bounds=f"25 x 15 mm post Z {LANDING_Z}-{top:.1f}", missing=["Floor clip and shelf bolt"])
 
 # ---------------------------------------------------------------- the finite pipe at its carry seat
 pipe = cylinder((SEAT[0], -pg.PIPE_LENGTH / 2, SEAT[1]), (0, 1, 0), pg.R, pg.PIPE_LENGTH)
@@ -451,16 +469,22 @@ xl = pg.trough_x(pg.NOMINAL_STANDOFF)
 xr = xl + t["riserX"]
 fl = lambda x: t["floor0"] + t["slope"] * (x - xl)
 hw = t["sectorHalfWidth"]
-trough = fuse([sec_y([(xl, 300.0), (xl + t["lipDepth"], 300.0), (xl + t["lipDepth"], t["lipTop"]), (xl, t["lipTop"])], -hw, hw),
+# Drawn so nothing field-side hangs in the air: the lip and riser walls run down to the carpet as plain planning walls, and the
+# section spans the docked sector and the neighbouring sector toward -Y, where the first scored pipe rests.
+SECTOR_PITCH = 471.0
+TROUGH_Y0 = -SECTOR_PITCH - hw
+trough = fuse([sec_y([(xl, 0.0), (xl + t["lipDepth"], 0.0), (xl + t["lipDepth"], t["lipTop"]), (xl, t["lipTop"])], TROUGH_Y0, hw),
                sec_y([(xl + t["lipDepth"] - 0.5, fl(xl + t["lipDepth"])), (xr + 0.5, fl(xr)), (xr + 0.5, fl(xr) - 6.35),
-                      (xl + t["lipDepth"] - 0.5, fl(xl + t["lipDepth"]) - 6.35)], -hw, hw),
-               sec_y([(xr, 300.0), (xr + t["riserT"], 300.0), (xr + t["riserT"], t["riserTop"]), (xr, t["riserTop"])], -hw, hw)])
+                      (xl + t["lipDepth"] - 0.5, fl(xl + t["lipDepth"]) - 6.35)], TROUGH_Y0, hw),
+               sec_y([(xr, 0.0), (xr + t["riserT"], 0.0), (xr + t["riserT"], t["riserTop"]), (xr, t["riserTop"])], TROUGH_Y0, hw)])
 add("L1 trough sector A (field)", sorted(solids(trough), key=volume, reverse=True)[0], group="field trough", role="other",
-    function="Red reef L1 trough section at the shown dock: outer lip, 15 deg floor and inner riser, from the 2025 field model extraction",
-    parent=f"field: lip outer face at X {xl:.1f} mm ({pg.NOMINAL_STANDOFF:.0f} mm stand-off from the bumper face), sector A |Y| <= {hw}",
+    function="Red reef L1 trough section at the shown dock and the neighbouring sector that holds the first pipe: outer lip, 15 deg floor and inner riser, "
+             "from the 2025 field model extraction; the two walls continue to the carpet as planning walls",
+    parent=f"field: lip outer face at X {xl:.1f} mm ({pg.NOMINAL_STANDOFF:.0f} mm stand-off from the bumper face), Y {TROUGH_Y0:.1f} to {hw}",
     motion="field (recedes 300 mm in the robot frame during withdraw-park)",
     bounds="experiments/six-wheel/mission/target.json section (lip top 457.2, lip 12.7, floor 0.4049 + 0.268 x, riser 247.8-254.2, top 517.5) extruded over sector A",
-    missing=["Reef structure below Z 300 mm and above the riser (L2 branch) is not placed", "Panel mounting holes and the sector divider"])
+    missing=["The reef structure is not placed: below the trough the two walls are plain planning walls to the carpet, and the L2 branch above the riser is absent",
+             "Panel mounting holes and the sector divider"])
 
 # ---------------------------------------------------------------- field: red coral station chute at the receive dock
 ch = ft.station_chute(ft.NOMINAL_DOCK_GAP)
@@ -481,7 +505,6 @@ add("Coral station chute (field)", station[0], group="field station", role="othe
     missing=["Opening upper guard (7 in opening) and side guides (121.99 mm mouth in the field STEP) are not placed",
              "Sill datum: the V0 manual gives the opening sill at 37.5 in; the chute exit is taken on the wall's field face"])
 first = trials["eject"][next(p_["index"] for p_ in trials["playback"] if p_["id"] == "eject-nominal")]["finalFromLipMm"]
-SECTOR_PITCH = 471.0
 fp = cylinder((xl + first[0], -SECTOR_PITCH - pg.PIPE_LENGTH / 2, first[1] + 0.0), (0, 1, 0), pg.R - 3.5, pg.PIPE_LENGTH)
 add("First scored pipe in sector A (field)", fp, group="field first pipe", role="other",
     function="The first pipe at its trial rest pose in sector A while the robot docks at sector B for the second delivery",

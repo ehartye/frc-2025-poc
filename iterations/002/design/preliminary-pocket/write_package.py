@@ -416,7 +416,7 @@ cases.append(dict(id="service-nip-cassette-lift", stage="service", minGapMm=GAP,
                         f"cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) {CASSETTE_LIFT:.0f} mm: clear of the inlet walls after 480 mm "
                         "and of the checked scene's box at the end",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}),
-                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette))
+                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette, maxDepth=12))
 cases.append(dict(id="service-lip-restow", stage="service", minGapMm=GAP,
                   basis="Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, pg.LIP_STOW_DEG)]}, maxDepth=11))
@@ -535,13 +535,14 @@ lz, uz = pg.LOWER_ROLLER[1], pg.UPPER_ROLLER[1]
 mounts = [
     dict(group="pocket tray", on="Floor post port", pointMm=[122.5, 147.5, round(by_name["Floor post port"]["boundsMm"][5] - 0.5, 3)],
          basis="Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights"),
-    dict(group="tray supports", on=host_at("Chassis pan trusses and stringers", [122.5, 147.5, 489.525]), pointMm=[122.5, 147.5, 489.525],
-         basis="Port floor post bolted to the upper pan stringer top (Z 489.5)"),
+    dict(group="tray supports", on=host_at("Chassis pan trusses and stringers", [205.0, 241.5, 489.525]), pointMm=[205.0, 241.5, 489.525],
+         basis="Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard"),
     dict(group="hood", on="Pocket tray", pointMm=[200.0, 162.5, 700.0], basis="Hood tab on the port side-wall top edge (thumb screw)"),
     dict(group="check flap", on="Hood (removable)", pointMm=[pg.FLAP_HINGE[0], 0.0, 700.0],
          basis="3 mm flap pin in clips under the hood, 4 mm under its underside"),
-    dict(group="nip side plates", on=host_at("Chassis pan trusses and stringers", [250.0, 170.4, 489.525]), pointMm=[250.0, 170.4, 489.525],
-         basis="Port side plate foot: two 10-32 bolts 45 mm apart into the upper pan stringer top (structure-checks.json P1), same on starboard"),
+    dict(group="nip side plates", on=host_at("Chassis pan trusses and stringers", [250.0, 241.5, 489.525]), pointMm=[250.0, 241.5, 489.525],
+         basis="Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top "
+               "(structure-checks.json P1, P4 and P5), same on starboard"),
     dict(group="lower nip roller", on="Port nip side plate", pointMm=[pg.LOWER_ROLLER[0], 170.4, lz], basis="Flanged hex bearing in the port side plate"),
     dict(group="upper nip roller", on="Port nip side plate", pointMm=[pg.UPPER_ROLLER[0], 170.4, uz], basis="Flanged hex bearing in the port side plate"),
     dict(group="nip drive", on="Port nip side plate", pointMm=[335.0, 173.6, lz], basis="MAXPlanetary face bolted to the port side plate, its hex socket on the lower shaft"),
@@ -581,7 +582,8 @@ fab_items = [("tray floor including the station chute, 1/8 in polycarbonate", 0.
              ("station inlet guides and chute extension, polycarbonate", 0.8), ("hood, 1/16 in polycarbonate", 0.1546),
              ("rear check flap, pin and torsion spring", 0.08), ("two nip side plates, 1/4 in 6061, 50 % pocketed", 0.5143),
              ("deploy-once lip: polycarbonate lip, hinge, deploy spring and stops", 0.30),
-             ("two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets", 0.5899), ("rivets, screws and nuts", 0.35)]
+             ("two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets", 0.5899),
+             ("two pocket landing shelves, 200 x 114.5 x 6.35 mm 6061", 0.3926), ("rivets, screws and nuts", 0.35)]
 buy_items = [("two roller shafts, 1/2 in steel hex, 360 mm (1.10 kg/m)", 0.792), ("2 in compliant wheels, up to twelve at 18 g (REV drawing mass)", 0.216), ("four flanged hex bearings", 0.08),
              ("coupling belt, two pulleys and idler", 0.11), ("NEO 550 (0.142 kg, REV-21-1651) and MAXPlanetary 4:1 x 3:1 x 3:1 (0.261 + 0.133 + 2 x 0.155 kg, REV load-rating page)", 0.846),
              ("seated-pipe break beam pair and leads", 0.02), ("flap-closed and lip-deployed magnetic switches, magnets and leads", 0.04),
@@ -1042,6 +1044,9 @@ def explain(name, group):
                                 "withdrawal. A latch failure (lip still up) blocks the exit. Its sprung stop lets a frontal hit fold it behind the bumper face."),
         "Floor post port": ("Supports the pocket floor from the port upper stringer.", "The floor spans 650 mm between the inlet and the nip and needs a mid support."),
         "Floor post starboard": ("Supports the pocket floor from the starboard upper stringer.", "Paired floor support."),
+        "Pocket landing shelf port": ("Carries the port floor post and side-plate foot inboard from the port upper stringer.",
+                                      "The stringer has material only outboard of Y 232; the post and the plate stand 60-90 mm inboard of it, so they need a shelf to land on."),
+        "Pocket landing shelf starboard": ("Carries the starboard floor post and side-plate foot inboard from the starboard upper stringer.", "Paired landing shelf."),
         "Rear inlet upright port": ("Carries the inlet walls at the station face from the rear perimeter.", "The 0.8 m inlet lip is far above any chassis member."),
         "Rear inlet upright starboard": ("Carries the inlet walls at the station face from the rear perimeter.", "Paired rear support."),
         "CORAL pipe": ("The finite game piece followed from the station chute through receive, carry, eject, the lip and the trough.",
@@ -1393,6 +1398,9 @@ presentation = dict(
            "restitution are swept, not measured.",
            "Simplified: the chassis, module housings and electronics are oriented-box unions or supplier-bounds boxes; the steer sweeps are 4 mm-stepped revolved "
            "envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
+           "Not drawn, so some real parts show a gap to their support: every mated pair keeps the 2 mm check reserve; the electronics sit 4-7 mm above the "
+           "equipment sheets with no mounting plates; the lip's hinge brackets are missing (9 mm to the side plates). Not robot parts: the two hands are "
+           "service gauges, and the station chute, trough and first pipe are field fixtures that every case must list; the cutaway box hides the fixtures.",
            "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand "
            "formula (structure-checks.json), not finite elements.",
            "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. "
@@ -1405,7 +1413,7 @@ presentation = dict(
                       dict(name="carried CORAL", kg=[0.816466, 0.816466], members=["CORAL pipe"])],
     runningBasis="Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg",
     caseKinds={c["id"]: "nominal" for c in cases}, uncoveredCases=uncovered, caseTimelines=timelines, openingCase=RECEIVE_IDS[0],
-    cutaway=dict(label="Trough cutaway", hides=[trough],
+    cutaway=dict(label="Hide field parts", hides=[trough, station, first_pipe],
                  outline=[[xl, trough_b[1], t["lipTop"]], [xl, trough_b[4], t["lipTop"]], [xr, trough_b[4], t["riserTop"]], [xr, trough_b[1], t["riserTop"]]]),
     loadPathsSource=load_paths, selectedInterface=carry, retention=retention, findings=findings, rulings=ruling,
     benchGates=bench, iterationChoice=choice, fieldTrials=trials_pin, structureChecks=struct_pin, secondTrip=second_trip)

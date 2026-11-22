@@ -7,11 +7,11 @@
   },
   "step": {
     "file": "cad/preliminary-design/releases/layout-002/package.step",
-    "sha256": "1188ab1a67abe71d7865557faadc9eb52f545aefb5f3ca313809383b0d81f993"
+    "sha256": "2cd0d6371518c63af96a29bea300d77df4d00f595c8ae1e975f9463684c36106"
   },
   "motion": {
     "file": "cad/preliminary-design/releases/layout-002/paths.json",
-    "sha256": "e27011affa21655970bc5eebb3ccc559af226586cf8fef85b4b87939d0fc095d"
+    "sha256": "6f6b8d02df28062f953fc6b18e316fff038cc71eb2ee2e0e18e8adaf54a8ce61"
   },
   "datum": {
     "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres",
@@ -152,6 +152,17 @@
         "Check flap"
       ]
     },
+    "tray supports": {
+      "role": "structure",
+      "members": [
+        "Pocket landing shelf port",
+        "Pocket landing shelf starboard",
+        "Rear inlet upright port",
+        "Floor post port",
+        "Rear inlet upright starboard",
+        "Floor post starboard"
+      ]
+    },
     "nip side plates": {
       "role": "mechanism",
       "members": [
@@ -220,15 +231,6 @@
         "Deployable exit lip"
       ]
     },
-    "tray supports": {
-      "role": "structure",
-      "members": [
-        "Rear inlet upright port",
-        "Floor post port",
-        "Rear inlet upright starboard",
-        "Floor post starboard"
-      ]
-    },
     "pipe": {
       "role": "payload",
       "members": [
@@ -269,11 +271,11 @@
       "group": "tray supports",
       "on": "Chassis pan trusses and stringers",
       "pointMm": [
-        122.5,
-        147.5,
+        205.0,
+        241.5,
         489.525
       ],
-      "basis": "Port floor post bolted to the upper pan stringer top (Z 489.5)"
+      "basis": "Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard"
     },
     {
       "group": "hood",
@@ -300,10 +302,10 @@
       "on": "Chassis pan trusses and stringers",
       "pointMm": [
         250.0,
-        170.4,
+        241.5,
         489.525
       ],
-      "basis": "Port side plate foot: two 10-32 bolts 45 mm apart into the upper pan stringer top (structure-checks.json P1), same on starboard"
+      "basis": "Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top (structure-checks.json P1, P4 and P5), same on starboard"
     },
     {
       "group": "lower nip roller",
@@ -1791,7 +1793,7 @@
   "view": "cad/preliminary-design/releases/layout-002/package-motion.html",
   "budgets": {
     "file": "cad/preliminary-design/releases/layout-002/budgets.json",
-    "sha256": "4aa35c8e17509abc7d7766758107e3d59d83797c275aa6e3afa116ae8fc9ab83"
+    "sha256": "2ef5c83c415497fb72897abc21eb6fbe8a24941ce7711856a47c562078388daa"
   },
   "premises": [
     {
@@ -1801,7 +1803,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/station-receive-face-current.json",
-        "sha256": "ceeffe56852b77b869b2c3f734a0ef83f6ce1c7aa0fd26652a2fb1f1b6becef2"
+        "sha256": "f881c463759ecd14be089da903d77a44beec855f7a4af65412bebccff4af6d3f"
       }
     },
     {
@@ -1811,7 +1813,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/station-feed-speed-current.json",
-        "sha256": "0100c0dd4c598ef058bde616437e57b510f0e2fe1ada2784986cf6cc5f98b7d7"
+        "sha256": "61b7ad8e60ecefb1882a940196486283685ec1ebadb1bb0adae6e37004e3ad60"
       }
     },
     {
@@ -1821,7 +1823,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/receive-captive-time-current.json",
-        "sha256": "fe0865f5d1514335b0640e3870c03456fcfbc0dc049dae7580a3f8dc870f4de3"
+        "sha256": "1d370a0930bda74f66053b99bbc2bdbcd954d991520865f29339332d5aa0168c"
       }
     },
     {
@@ -1831,17 +1833,17 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/eject-capture-standoff-current.json",
-        "sha256": "00e554a9a2b47c1cbf6f9bbd6bda024c73bca64793bcbf623dddaf72420ed6fb"
+        "sha256": "fc81f27aaa91635d972818f887162ce765ec24da5cdd7be7a97dfb48ba323fa6"
       }
     },
     {
       "accepted": {
         "file": "cad/preliminary-design/releases/layout-002/premises/lateral-dock-error-accepted.json",
-        "sha256": "207548adc427a696fe913030581d77480c66f93e8582ec65ededb432244f2ac6"
+        "sha256": "d5d9dfb0969ff1dc3558a4764dc4f613ea47e8d889dcd6172bc23eec2ca56e73"
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/lateral-dock-error-current.json",
-        "sha256": "1bde9574dfb821dcf5b740debee37ba1ed03d5b103edea084c09bdf1c92ca162"
+        "sha256": "86832a89928eac111a21dcae4b96588e31d01e2569045fed44315bf29d4b634c"
       }
     },
     {
@@ -1851,7 +1853,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/tread-stiffness-current.json",
-        "sha256": "4229d154759512710b9d3c3172e3d5885018e12ae0e52b624d41c8534c5a43a4"
+        "sha256": "3dafa9783a1074fe0b553be36de30b5058dc15f9852c57baa1d00867e78c445f"
       }
     },
     {
@@ -1861,7 +1863,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/power-off-custody-current.json",
-        "sha256": "adbe4249214682568136d292e8c79c246399038d10b6512fc6e34a687db742e8"
+        "sha256": "867aaefb8ec5434262afa9ca5664d8029bcdd86dfd5dc2b1a6203f780b740ca7"
       }
     },
     {
@@ -1871,7 +1873,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/inspection-mass-current.json",
-        "sha256": "5ee908ccc45921ca89e8db14719e5e7318dcdfd61ba7167de0397ba478691af3"
+        "sha256": "aa562238c50663cddc02467df40a8b24fb621aae9646a1c25aa157d197c3e5d6"
       }
     },
     {
@@ -1881,7 +1883,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/weak-pack-voltage-current.json",
-        "sha256": "fccd72283b211ced33421c0afbe8b20d0393f9a051bbcc268c58a0a766c1f6a8"
+        "sha256": "1c18df47666835b24de47e2abfd87a2ef0544bb3ae8e2919bdda2d35d19966f3"
       }
     },
     {
@@ -1891,7 +1893,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/electronics-layout-current.json",
-        "sha256": "cb22db1259b465f925fb0595f8ba078b4157a0df74d46024b30543fb5e285e3e"
+        "sha256": "ea43185ef02df30cfd3b9915282cdc4afc7c8211a4324d9804549cbb3d9e36da"
       }
     },
     {
@@ -1901,7 +1903,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/r105-deployed-extension-current.json",
-        "sha256": "35ffc5d3393ba0facc77cdc6019af7ff691749762d736693d6b6ce19c1a1c822"
+        "sha256": "c8ce91e7fd272657232ece0b0da39ddd2e21df3849c2b058d2b33d3ae031ed4c"
       }
     },
     {
@@ -1911,7 +1913,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/r102-start-configuration-current.json",
-        "sha256": "ccd77676d2d2752a1b0804f4c271247c4fae9fc3acc1d3b8924a28c9b1885095"
+        "sha256": "56d13448e05083a972893494361643d629cbb0d3ceb556c5482ce2d9bf50e6ed"
       }
     },
     {
@@ -1921,7 +1923,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/r104-start-height-current.json",
-        "sha256": "b8e437407fa534d17df623b8c89802c804757fb5aff6f0a7bb795ae309a9aa38"
+        "sha256": "52dafeb1f632d0ba02886bba2c9f9d2e9ab224feb60be13df1df891c631e66b9"
       }
     },
     {
@@ -1931,7 +1933,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/g412-eject-interlock-current.json",
-        "sha256": "810804ae09c86ca0080f4c07cb71f2ac026e8e74ada60bf75cf6b0a8de7f9f94"
+        "sha256": "fc0fd57f5ba101b4b68627662982a742790084aca87ec226982b0e084596eab3"
       }
     },
     {
@@ -1941,7 +1943,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/architecture-selection-current.json",
-        "sha256": "ab2b12ac8f7d6e587075597e7a42b8602628080e159c511002286adca400c80a"
+        "sha256": "4df9219bdf0e71691a5bc022c24672c745265816423a513818e866914b7f36fd"
       }
     },
     {
@@ -1951,7 +1953,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/chassis-interface-current.json",
-        "sha256": "9af8e0a37327965cbe7c76f9a990afb56b34b1b350d5ea3d61ffbc388b4e3649"
+        "sha256": "2e203286d9d225361ece072d01c5bd6c17cfe9928d16bd0ce703cf1def293412"
       }
     },
     {
@@ -1961,7 +1963,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/seated-clamp-screws-current.json",
-        "sha256": "9919f6600b03d1c0f7b6d1404f131851e2ed6a33860dabdaece0d70474eeced0"
+        "sha256": "5d162f942e929d0d58e65f36989ab1dffab772855671e908db0a30fd4c8a852d"
       }
     },
     {
@@ -1971,7 +1973,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premises/electronics-placements-current.json",
-        "sha256": "8393223b49ca6690ce5606c9812dbb8cf95801d535f5a931962fecf670d04b15"
+        "sha256": "ca1037adbac4e8c6828dcc464eacf94696e463ab31dfc3644bc7eb144bd7e065"
       }
     }
   ],
@@ -1984,6 +1986,7 @@
       "What it is: the Red 2 iteration 002 B'x preliminary blockout, layout-002, on the carried-forward four-module swerve chassis. It supersedes layout-001: the self-locking worm is replaced by a planetary drive with a powered hold, the receive starts on the registered station chute, the robot leaves when the flap closes, the lip stop is sprung, and four sensors are selected and placed.",
       "Trial-driven: every receive and eject case is a straight stroke between two poses of a solved free-piece trace, within 3 mm of it; each frame shows the trial time. The lip deploy and the park drive are prescribed. The trials are a planar compliant-contact model: stiffness, friction and restitution are swept, not measured.",
       "Simplified: the chassis, module housings and electronics are oriented-box unions or supplier-bounds boxes; the steer sweeps are 4 mm-stepped revolved envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
+      "Not drawn, so some real parts show a gap to their support: every mated pair keeps the 2 mm check reserve; the electronics sit 4-7 mm above the equipment sheets with no mounting plates; the lip's hinge brackets are missing (9 mm to the side plates). Not robot parts: the two hands are service gauges, and the station chute, trough and first pipe are field fixtures that every case must list; the cutaway box hides the fixtures.",
       "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand formula (structure-checks.json), not finite elements.",
       "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. Handoff requirement: the nip motor controller's idle mode is brake, so the windings are shorted whenever the robot is disabled with the controller powered. Coast idle mode is not accepted. Brake idle mode is not credited with the breaker off, where the squeeze alone holds.",
       "Bench gates G0-G7 are recorded with pass and fail numbers and are all open; no bench article exists. The guarded-pan baseline A is the fallback if G1, G3 or G7 fails.",
@@ -2302,6 +2305,18 @@
         "purpose": "Lets the arriving pipe in and closes behind it: the pipe is then captive and the robot may leave the station.",
         "rationale": "Isolation: leaving the station without it loses the pipe rearward (0/2 retained); with it 24/24 receive-and-go runs are retained and seated, and every powered sled case is retained (72/72)."
       },
+      "Pocket landing shelf port": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Carries the port floor post and side-plate foot inboard from the port upper stringer.",
+        "rationale": "The stringer has material only outboard of Y 232; the post and the plate stand 60-90 mm inboard of it, so they need a shelf to land on."
+      },
+      "Pocket landing shelf starboard": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Carries the starboard floor post and side-plate foot inboard from the starboard upper stringer.",
+        "rationale": "Paired landing shelf."
+      },
       "Port nip side plate": {
         "category": "plate",
         "material": "1/4 in 6061-T6, pocketed (proposal)",
@@ -2543,14 +2558,16 @@
     },
     "loadPaths": {
       "Pocket tray": "On Floor post port at (122, 148, 580) mm: Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights",
-      "Rear inlet upright port": "On Chassis pan trusses and stringers at (122, 148, 490) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
-      "Floor post port": "On Chassis pan trusses and stringers at (122, 148, 490) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
-      "Rear inlet upright starboard": "On Chassis pan trusses and stringers at (122, 148, 490) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
-      "Floor post starboard": "On Chassis pan trusses and stringers at (122, 148, 490) mm: Port floor post bolted to the upper pan stringer top (Z 489.5)",
+      "Pocket landing shelf port": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
+      "Pocket landing shelf starboard": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
+      "Rear inlet upright port": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
+      "Floor post port": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
+      "Rear inlet upright starboard": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
+      "Floor post starboard": "On Chassis pan trusses and stringers at (205, 242, 490) mm: Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard",
       "Hood (removable)": "On Pocket tray at (200, 162, 700) mm: Hood tab on the port side-wall top edge (thumb screw)",
       "Check flap": "On Hood (removable) at (161, 0, 700) mm: 3 mm flap pin in clips under the hood, 4 mm under its underside",
-      "Port nip side plate": "On Chassis pan trusses and stringers at (250, 170, 490) mm: Port side plate foot: two 10-32 bolts 45 mm apart into the upper pan stringer top (structure-checks.json P1), same on starboard",
-      "Starboard nip side plate": "On Chassis pan trusses and stringers at (250, 170, 490) mm: Port side plate foot: two 10-32 bolts 45 mm apart into the upper pan stringer top (structure-checks.json P1), same on starboard",
+      "Port nip side plate": "On Chassis pan trusses and stringers at (250, 242, 490) mm: Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top (structure-checks.json P1, P4 and P5), same on starboard",
+      "Starboard nip side plate": "On Chassis pan trusses and stringers at (250, 242, 490) mm: Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top (structure-checks.json P1, P4 and P5), same on starboard",
       "Lower nip roller": "On Port nip side plate at (335, 170, 523) mm: Flanged hex bearing in the port side plate",
       "Upper nip roller": "On Port nip side plate at (335, 170, 677) mm: Flanged hex bearing in the port side plate",
       "Nip drive (NEO 550 and MAXPlanetary 36:1)": "On Port nip side plate at (335, 174, 523) mm: MAXPlanetary face bolted to the port side plate, its hex socket on the lower shaft",
@@ -4976,14 +4993,16 @@
     },
     "openingCase": "receive-01-station-chute",
     "cutaway": {
-      "label": "Trough cutaway",
+      "label": "Hide field parts",
       "hides": [
-        "L1 trough sector A (field)"
+        "L1 trough sector A (field)",
+        "Coral station chute (field)",
+        "First scored pipe in sector A (field)"
       ],
       "outline": [
         [
           495.5,
-          -233.5,
+          -704.5,
           457.2
         ],
         [
@@ -4998,14 +5017,14 @@
         ],
         [
           743.3366565710712,
-          -233.5,
+          -704.5,
           517.525461057565
         ]
       ]
     },
     "loadPathsSource": {
       "file": "cad/preliminary-design/releases/layout-002/load-paths.json",
-      "sha256": "a56b5f896233682bc2f209d7fa2145cde5be83b1c924e08464d6ca7618fe2185"
+      "sha256": "eebeb373d83432dfe35cf462a26812407a7172b99b0a410724f94ee7bab1f788"
     },
     "selectedInterface": {
       "file": "cad/preliminary-design/releases/layout-002/chassis-carry-forward.json",
@@ -5013,11 +5032,11 @@
     },
     "retention": {
       "file": "cad/preliminary-design/releases/layout-002/retention-review.json",
-      "sha256": "3599f29d1cbeda2f1af9b591d9185cbe84bfcf96141ace5a7164a84e24934238"
+      "sha256": "0b5000874f752efec25f35d11eaab1b2a12af116b3116125d428a2020fe9acd7"
     },
     "findings": {
       "file": "cad/preliminary-design/releases/layout-002/design-findings.json",
-      "sha256": "61a779e6eebb10155d1cfc88ae62040a8ec96d502539d8dd559042dc83bb1e2e"
+      "sha256": "dae689fdce2f85c5c6045e909648e476e6a883f9f248c82266471be6354a80ac"
     },
     "rulings": {
       "file": "cad/preliminary-design/releases/layout-002/rules-rulings.json",
@@ -5037,11 +5056,11 @@
     },
     "structureChecks": {
       "file": "cad/preliminary-design/releases/layout-002/evidence/structure-checks.json",
-      "sha256": "0982ebc9b9ee8955361776ffd517297fe053975e98ea9d735bfff3801da37edf"
+      "sha256": "3133e8c0c374cb135aed5844473a43f85915f9af7dd897f99dd295214688cc99"
     },
     "secondTrip": {
       "file": "cad/preliminary-design/releases/layout-002/evidence/second-trip.json",
-      "sha256": "1d2ccc56cb1ca1deea29e54b3cbdf1ef8dbd2d571b6f11e3a2ff5a9116b59d93"
+      "sha256": "7459ca5bf88111cb654f7613a73f5f59db2711bba2f4f225d6f4d900013c6661"
     }
   },
   "narrativeReview": {
