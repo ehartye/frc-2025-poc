@@ -1,0 +1,51 @@
+{
+  "schema": "red2/second-trip@1",
+  "issue": "red2-002-preliminary-layout-002",
+  "step": {
+    "file": "cad/preliminary-design/releases/layout-002/package.step",
+    "sha256": "f6446a0f1753cdd4d7f724b4245af53e27ab1335d6cbf8b916dcf900e276f0e5"
+  },
+  "fixtures": {
+    "file": "cad/preliminary-design/releases/layout-002/field-fixtures.step",
+    "sha256": "872d6d7f293f769eb2727fdc112dfb4ddac88570ee8544e10638c19f008c752d"
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
+    "sha256": "7e17fd48c26e0ca2b0f33c48ff14a7c43424eb6cf430bb21ab595b618479921e"
+  },
+  "sectorPitchMm": 471.0,
+  "pipeLengthMm": 301.625,
+  "pipeEndGapAtNominalDocksMm": 169.38,
+  "lateralDockErrorLimitMm": 70.0,
+  "worstEndGapAtLimitMm": 29.38,
+  "method": "Three parts. (1) Clearance: the first pipe at its trial rest pose one sector pitch toward -Y is a fixture of every eject case, so the second delivery's whole trial path is checked against it. (2) Lateral budget: the pipe ends are 169.4 mm apart at nominal docks; with each dock within +/-70 mm the ends stay 29.4 mm apart. (3) Control: the planar trial with the first pipe in the same section, which is what a dock at the wrong sector or a lateral error beyond the budget gives.",
+  "firstPipeToRobotNearestMm": [
+    [
+      164.64,
+      "Nip coupling belt"
+    ],
+    [
+      166.24,
+      "Deployable exit lip"
+    ],
+    [
+      201.55,
+      "Starboard nip side plate"
+    ]
+  ],
+  "sameSectionControl": {
+    "n": 180,
+    "ok": 117,
+    "outcomes": {
+      "captured and supported 2 s after withdrawal; first pipe still in the trough": 24,
+      "fell short / out over lip": 63,
+      "retained on robot": 93
+    }
+  },
+  "sameSectionDepartureMps": [
+    0.095,
+    1.005
+  ],
+  "finding": "With the first pipe in the same section only 24/180 second ejects are captured: the rest stay on the lip against the first pipe or fall short. The second trip therefore needs the sector-B dock inside the lateral budget; with it, the second delivery is the first delivery's physics (the trial is planar).",
+  "limits": "The sector divider panel, pipe yaw and pipe-end contact are not modelled; G4 measures the lateral dock scatter"
+}

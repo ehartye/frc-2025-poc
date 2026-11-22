@@ -6,14 +6,33 @@ voltage; every mission-critical interaction passes a physics trial with a contro
 half-timestep check; the mission animation is trial-driven; every open risk is closed by a design change or recorded as
 a bench test with pass/fail numbers. No physical bench results needed. No Fusion.
 
-## Where things are
+## Where things are (changed 2026-11-22: everything is now in this repository)
 
-- Private design: this folder (`iterations/002/design/preliminary-pocket/`), branch `private/red2-native-successor`.
-- Public project: `.`, worktree to create at
-  `.` (branch `bx-layout-002`). PR, do not merge.
-- Plugin: `PLUGIN` (0.111.1 at start). Friction goes to agent `plugin-backlog`.
-- Python: `python -I -B`.
-- Wiki: `WORKSTATION/repos/frc-wiki-vault/wiki/authored/frc/2025-poc/` (wiki-master skills only, no git).
+- **This repository (`frc-2025-poc`), branch `bx-layout-002`** is the working tree. The former private assets tree was
+  migrated here at the same paths (`iterations/`, `artifacts/`; manifest in `iterations/MIGRATION/`). The private
+  branch `private/red2-native-successor` stops at `bd3353b` and is no longer the source.
+- Builders: `iterations/002/design/preliminary-pocket/` (`field_trials.py`, `structure_checks.py`, `build_layout.py`,
+  `write_package.py`, `design-inputs/revise-002.mjs`, and `build_release.py`, the one command).
+- Release inputs: `cad/preliminary-design/releases/layout-002/` (generated; repository root is the project root).
+- Plugin: an Agent FRC checkout (0.112.0 or later). Friction goes to agent `plugin-backlog`.
+- Wiki: `wiki/authored/frc/2025-poc/` in the FRC wiki vault (wiki-master skills only, no git).
+
+## Rules given by the owner and team lead
+
+- **Bar for effective:** the whole mission cycle checked for clearance, mass and voltage; every mission-critical
+  interaction passes a physics trial with a control, sensitivity brackets and a timestep check, and the mission
+  animation is trial-driven; every open risk closed by a design change or recorded as a bench test with pass/fail
+  numbers. Physical bench results are not required. Use `design.mjs effective-readiness` as the checklist.
+- **Public by design:** every design-critical file lives in this repository. No private store, custody list or
+  derived public copy. No machine paths or LAN addresses in committed files.
+- **Committed scripts only:** every step from design source to staged release is a committed script; no hand edits.
+  CI will rerun the layout check from committed inputs (`build_release.py PLUGIN --check-only`).
+- **Layout:** the view belongs in the release sub-folder with the repository as project root (plugin change pending;
+  today the checker only writes a view at the project root). One viewer with one animation list (plugin change
+  pending; no separate field player pages are built for layout-002).
+- **Do not** open a pull request to main until the simplified gate workflow lands, or ask the team lead first. Do not
+  mark the release effective; recommend.
+- Status in-progress; issued releases are immutable; Git LFS only after asking (nothing is over 100 MB).
 
 ## Custody gap found (2026-11-22)
 
@@ -87,7 +106,10 @@ preserved here (`releases/layout-001/`) verified against `custody-layout-001.jso
   weak bus 9.118 V. Layout-001's re-rooted package copied to `cad/preliminary-design/releases/layout-001/` and verified
   against all 33 custody hashes.
 
-## Reproduce layout-002 (from the repository root; PY = the CAD python, PLUGIN = agent-frc checkout)
+## Reproduce layout-002
+
+One command: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN_ROOT` (rebuild and check) or
+`... PLUGIN_ROOT --check-only` (rerun the check on the committed inputs). The steps it runs:
 
 ```text
 R=cad/preliminary-design/releases/layout-002 ; P=iterations/002/design/preliminary-pocket
@@ -101,3 +123,10 @@ PYTHON=PY node PLUGIN/scripts/design.mjs preliminary-check . $R/layout.json --wr
 
 The builders refuse to overwrite: delete the generated files in `$R` (everything except what an earlier step wrote)
 before re-running a step.
+- 2026-11-22 (migration): design source migrated to `frc-2025-poc` branch `bx-layout-002` (commit `84f8692`), 626 files,
+  37 scrubbed of workstation paths, nothing over 100 MB. First layout check (private tree): 45 of 48 cases passed in
+  126 s; the three failures were undeclared trial contacts (pipe on the opening flap one stroke early; scored pipe
+  resting in the trough during the park) and are fixed in `write_package.py`. `build_release.py` added;
+  `missions.json` now carries the cycle map and risk register, and each trial path record its qualification.
+  **Next:** read the build result; get `layout-checked`; run `effective-readiness`; independent review; stage when
+  the plugin's view-location change lands (or with a root-level view if the team lead says so); wiki pages.

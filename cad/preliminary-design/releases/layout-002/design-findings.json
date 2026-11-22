@@ -1,0 +1,109 @@
+{
+  "schema": "red2/preliminary-design-findings@2",
+  "issue": "red2-002-preliminary-layout-002",
+  "predecessor": "layout-001 (issue red2-002-preliminary-layout-Bx)",
+  "sources": [
+    {
+      "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
+      "sha256": "7e17fd48c26e0ca2b0f33c48ff14a7c43424eb6cf430bb21ab595b618479921e"
+    },
+    {
+      "file": "cad/preliminary-design/releases/layout-002/evidence/structure-checks.json",
+      "sha256": "0982ebc9b9ee8955361776ffd517297fe053975e98ea9d735bfff3801da37edf"
+    },
+    {
+      "file": "cad/preliminary-design/releases/layout-002/evidence/second-trip.json",
+      "sha256": "f0b2e56dd4d0755f37acd53ed60ae363aae08b37d9fb395b564d9b53ae3a1056"
+    },
+    {
+      "file": "iterations/002/design/evaluation/evaluation.json",
+      "sha256": "4803ae5a506039a100b666e10ea448edf4ca08f6c1cdab762dc17d2a97cbf57b"
+    }
+  ],
+  "findings": [
+    {
+      "id": "PD2",
+      "item": "Tread stiffness",
+      "was": "40 N/mm passes, 10 N/mm fails, no measured value",
+      "status": "bounded; bench gate G0",
+      "now": "Acceptance band 40-120 N/mm per roller at the 6 mm squeeze, nominal 80. Receive: 10 N/mm 9/12, 20 N/mm 12/12, 40-160 N/mm 108/108 (tread mu 0.3-1.0). Eject: 10-160 N/mm captured, 240 N/mm 0/8 (stalls). No supplier or community source publishes a 2 in compliant wheel's radial stiffness, so the wheel count and durometer are set on the bench: 240-720 N at 6 mm on the installed roller."
+    },
+    {
+      "id": "PD3/PD6",
+      "item": "Self-locking worm, no part selected",
+      "was": "must self-lock against 4.10 N m; reducer unselected",
+      "status": "closed by a design change",
+      "now": "The worm is removed. Drive: REV NEO 550 through a REV MAXPlanetary 4:1 x 3:1 x 3:1 (36:1, 1/2 in hex socket), with a powered position hold. The worm stalls on treads of 110 N/mm and above (0/4), which would have capped the tread band at about 80; the planetary ejects 480/480 at 9-13 V. Lower ratios overspeed the roll-off, so 36:1 is the ratio. Disabled, the back-drivable nip still seats 4/4 receives and holds 18/18 sled pulses. Peak shaft torque 8.956 N m against a 180 N m class gearbox rating; the hold reaches its 30 A limit on the receive impact."
+    },
+    {
+      "id": "PD11",
+      "item": "Receive seat time",
+      "was": "0.543 s slowest, 0.145-0.689 s with contact stiffness, against 1.0 s (cycle) and 0.5 s (bench target)",
+      "status": "closed by a control change; bench gate G1",
+      "now": "The dwell is the captive time: flap closed behind the pipe, 0.093-0.292 s after it passes the flap, plus 50 ms for the flap switch: 0.342 s against 1.0 s. Seat time is now 0.093-1.216 s (the receive starts on the station chute and rebounds) and no longer holds the robot: leaving 50 ms after the flap closes, at 3 and 6 m/s2, retains 24/24 and the pipe is seated within 0.103 s of the stop. Without the flap the same run loses the pipe (0/2)."
+    },
+    {
+      "id": "PD7",
+      "item": "Exit-lip stop and tip load",
+      "was": "stop, hinge, lip stiffness and tip load unsized; the lip is 24.5 mm ahead of the bumper all match",
+      "status": "closed by a design change; bench gate G6",
+      "now": "The lip stays 100 mm out because the reach is earned: a lip inside the bumper face captures only 3/8 at 100 mm stand-off. A frontal hit on a rigid stop would bend the 1/8 in polycarbonate to 94 MPa (yield 62), so the deployed stop is sprung: 6 N m preload, 31.2 deg over-travel, which folds the tip behind the bumper face at 22 MPa. Landing stress 13.4 MPa, static sag 0.99 mm, deploy 0.172 s. The over-travel swing is a checked case."
+    },
+    {
+      "id": "PD12",
+      "item": "Side-plate attachment",
+      "was": "each plate bears on 20 mm of stringer; bolt pattern and bending unsized",
+      "status": "closed by calculation",
+      "now": "Two 10-32 bolts per plate 45 mm apart: 1416 N bolt tension from the receive impact against 4500 N pull-out (margin 3.18); plate bending 16.7 MPa. Steel 1/2 in hex shafts: 1.1974 mm mid-span at the band maximum against a 1.5 mm allowance (aluminium would deflect 2.9 times as far)."
+    },
+    {
+      "id": "RR3",
+      "item": "Sensor brackets",
+      "was": "seated-pipe sensor and lip switch proposed but undesigned",
+      "status": "closed in this layout; bench gate G5",
+      "now": "Selected and placed as blocks: Adafruit 2168 break beam through windows in both side plates (blocked for pipe centres X 296-333 mm), REV-31-1462 magnetic switches for flap-closed and lip-deployed, and a CTRE CANrange reading the trough face."
+    },
+    {
+      "id": "PD9",
+      "item": "G412",
+      "was": "ruling open; reef zone unregistered; zone sensing unspecified",
+      "status": "closed by ruling and interlock; bench gate G5",
+      "now": "Reef zone tape is 355.6 mm outside the reef face (final manual 5.2: 93.5 in zone, 65.5 in reef). The eject is interlocked on a reef range of 100 mm stand-off or less, which puts the bumper at least 255.6 mm inside the zone. The trough lip's offset from the reef face is the one unread dimension; it cannot exceed the margin."
+    },
+    {
+      "id": "PD13",
+      "item": "Second trip into sector B",
+      "was": "clearance check only",
+      "status": "bounded; bench gate G4",
+      "now": "The first pipe is a fixture of every eject case. Control: in the same section the second eject is captured only 24/180 times, so the second trip needs each dock within +/-70 mm laterally (pipe ends 169.4 mm apart at nominal docks). G4 measures the scatter."
+    },
+    {
+      "id": "PD14",
+      "item": "Station chute",
+      "was": "not a registered fixture; receive trials started on the robot's inlet at an energy estimate",
+      "status": "closed in this layout",
+      "now": "The station chute is a registered fixture and the receive trial starts on it: rest release leaves the sill at 1.479-1.806 m/s and peaks at 2.435-2.955 m/s before the flap (layout-001 assumed 2.22-2.47). Pushed feeds to 3.604 m/s still seat (18/24). The pipe's contact with the chute is a qualified intended interface. A flared hood lead-in was added for the bounce the drop produces."
+    },
+    {
+      "id": "PD15",
+      "item": "Prescribed mission motion",
+      "was": "every mission case was a straight or circular stroke drawn from geometry, pinned to a trial",
+      "status": "closed in this layout",
+      "now": "Every receive and eject case is a stroke between two poses of a solved trace (receive-mission, eject-nominal), within 3.0 mm of it, with the flap angle from the same trace and the trace time on each frame. Only the lip deploy and the park drive are prescribed, and say so."
+    },
+    {
+      "id": "PD16",
+      "item": "Budgets",
+      "was": "weak-pack bus 9.28 V against 9.0 V; 48.34 of 52.16 kg",
+      "status": "within",
+      "now": "Weak-pack minimum bus 9.12 V against 9.0 V; heavy inspection estimate 49.31 of 52.16 kg. The steel shafts and the planetary add mass; the hold adds 5 A to the carry and 30 A to the docked receive."
+    },
+    {
+      "id": "PD5",
+      "item": "B fallback",
+      "was": "B (no lip) dock window ends between 75 and 100 mm",
+      "status": "not re-run",
+      "now": "Layout-002 does not re-run the lip-less B launch. The lip-removed isolation is its nearest evidence and B stays a fallback only in the sense of the evaluation."
+    }
+  ]
+}

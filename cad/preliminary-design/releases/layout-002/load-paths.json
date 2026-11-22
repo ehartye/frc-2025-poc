@@ -1,0 +1,223 @@
+{
+  "schema": "red2/preliminary-load-paths@2",
+  "issue": "red2-002-preliminary-layout-002",
+  "step": {
+    "file": "cad/preliminary-design/releases/layout-002/package.step",
+    "sha256": "f6446a0f1753cdd4d7f724b4245af53e27ab1335d6cbf8b916dcf900e276f0e5"
+  },
+  "structureChecks": {
+    "file": "cad/preliminary-design/releases/layout-002/evidence/structure-checks.json",
+    "sha256": "0982ebc9b9ee8955361776ffd517297fe053975e98ea9d735bfff3801da37edf"
+  },
+  "paths": [
+    {
+      "load": "CORAL pipe at the seat and on receive",
+      "kind": "support",
+      "chain": [
+        "pipe on the floor (UHMW face) and in the bite of both treads",
+        "2 in compliant wheels on 1/2 in steel hex shafts",
+        "flanged hex bearings in both side plates",
+        "1/4 in side plates",
+        "two 10-32 bolts per plate, 45 mm apart, into the upper pan stringer top",
+        "upper pan stringers",
+        "pan truss members 0-5",
+        "truss landings, pan crossmembers, inboard sills and perimeter"
+      ],
+      "reserves": [
+        "CORAL pipe",
+        "Lower nip roller",
+        "Upper nip roller",
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Chassis pan trusses and stringers",
+        "Chassis sills, decks and crossmembers"
+      ],
+      "loads": {
+        "receivePeakRollerN": 452.1,
+        "ejectPeakRollerN": 967.8,
+        "boltTensionN": 1416.2048,
+        "boltMargin": 3.18,
+        "shaftDeflectionAtBandMaxMm": 1.1974,
+        "note": "per-roller peak tread normal force over the receive trials and the G2 ejects; sizing rows S1, S2, P1-P3"
+      },
+      "absent": [
+        "Bearings and shaft collars are inside the shaft-hole partition",
+        "Stringer local bearing under the bolts is not checked"
+      ]
+    },
+    {
+      "load": "CORAL pipe on the floor and against the flap",
+      "kind": "support",
+      "chain": [
+        "pipe on the floor",
+        "pocket tray floor",
+        "floor posts to the upper stringers and rear uprights to the rear perimeter",
+        "rearward: check flap rear stop tab -> flap pin -> hood -> hood tabs -> side walls"
+      ],
+      "reserves": [
+        "Pocket tray",
+        "Floor post port",
+        "Floor post starboard",
+        "Rear inlet upright port",
+        "Rear inlet upright starboard",
+        "Check flap",
+        "Hood (removable)"
+      ],
+      "absent": [
+        "Rear stop tab, pin clips and hood tabs undesigned",
+        "Hood and flare strike load unsized (bench gate G1 watches for a hood strike)"
+      ]
+    },
+    {
+      "load": "Nip rollers",
+      "kind": "drive",
+      "chain": [
+        "NEO 550 on the MAXPlanetary input",
+        "three planetary stages, 36:1",
+        "1/2 in hex socket on the lower roller shaft",
+        "lower pulley -> belt -> idler -> upper pulley",
+        "upper roller hex shaft"
+      ],
+      "reserves": [
+        "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+        "Lower nip roller",
+        "Nip coupling belt",
+        "Upper nip roller"
+      ],
+      "loads": {
+        "peakShaftDemandNm": 8.956,
+        "receiveBackDriveNm": 7.551,
+        "torqueAt30ANm": 7.637,
+        "gearboxMargin": 20.1,
+        "note": "contact reaction fed back into the shaft speed in every trial; efficiency assumed 0.9 per stage"
+      },
+      "provisional": [
+        "Belt and idler unselected",
+        "Gearbox envelope to confirm against the supplier STEP"
+      ]
+    },
+    {
+      "load": "Deployable exit lip",
+      "kind": "support",
+      "chain": [
+        "lip plate",
+        "two 3 mm hinge pins in brackets on both side plates",
+        "sprung stop bar 30 mm from the hinge, two extension springs, 6 N m preload",
+        "stop seat on the side plates"
+      ],
+      "reserves": [
+        "Deployable exit lip",
+        "Port nip side plate",
+        "Starboard nip side plate"
+      ],
+      "loads": {
+        "rigidModelLipN": 394.9,
+        "rigidModelLipMomentNm": 35.781,
+        "landingStressMPa": 13.3697,
+        "frontalHitStressMPa": 22.376,
+        "frontalHitOnRigidStopMPa": 94.3778,
+        "note": "sizing rows L1-L9; the rigid-stop control fails, which is why the stop is sprung"
+      },
+      "absent": [
+        "Stop bar, spring articles and hinge brackets are sized, not drawn"
+      ]
+    },
+    {
+      "load": "Deployable exit lip",
+      "kind": "drive",
+      "chain": [
+        "torsion spring at the hinge (0.10 N m stowed)",
+        "lip",
+        "servo pin holds the stowed lip until match start"
+      ],
+      "reserves": [
+        "Deployable exit lip",
+        "Lip latch servo"
+      ],
+      "absent": [
+        "Latch pin engagement"
+      ]
+    },
+    {
+      "load": "Each SDS module wheel",
+      "kind": "support",
+      "chain": [
+        "wheel and tread",
+        "wheel mounts and axle",
+        "turret bearing",
+        "module plates",
+        "six 10-32 frame screws",
+        "socket rails and cassettes",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Module steer sweeps",
+        "Module housings",
+        "Chassis cassettes and socket rails",
+        "Chassis perimeter"
+      ]
+    },
+    {
+      "load": "Dressed battery",
+      "kind": "support",
+      "chain": [
+        "battery case on the tray",
+        "end keepers",
+        "four hangers",
+        "inboard sill undersides"
+      ],
+      "reserves": [
+        "Dressed battery",
+        "Battery tray and retention",
+        "Chassis sills, decks and crossmembers"
+      ],
+      "absent": [
+        "Tray, hangers, keepers and hold-down undesigned"
+      ]
+    },
+    {
+      "load": "Electronics",
+      "kind": "support",
+      "chain": [
+        "devices on standoffs",
+        "equipment sheets",
+        "deck keys, pedestals and tabs"
+      ],
+      "reserves": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ],
+      "absent": [
+        "Device brackets and standoffs"
+      ]
+    },
+    {
+      "load": "Bumper ring",
+      "kind": "support",
+      "chain": [
+        "bumper backer",
+        "permanent bumper mounts",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Bumper ring",
+        "Chassis perimeter"
+      ],
+      "absent": [
+        "The 002 bumper mounts are not designed (R103 counts them)"
+      ]
+    }
+  ]
+}

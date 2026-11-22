@@ -1,0 +1,26 @@
+{
+  "id": "receive-captive-time",
+  "scenarioId": "receive-captive-time",
+  "scenario": "Station receive dwell: check flap closed behind the pipe plus the 50 ms flap-switch latency, after which the robot may leave",
+  "unit": "s",
+  "criterion": {
+    "range": [
+      0.0,
+      1.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "pocket tray",
+    "check flap",
+    "flap sensor",
+    "lower nip roller",
+    "upper nip roller",
+    "pipe"
+  ],
+  "source": {
+    "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/summary.json",
+    "sha256": "da19b04976cee42380e44ddc15e510d74d57deb3501bc0fb91eb3bc9a5755e66"
+  },
+  "basis": "Cycle-derived (cycle_rehearsal.py, plugin field rehearsal, Red 2 from its real slot with waitCycles yield): receive dwells of 0.50-1.00 s credit 15-14 L1 cycles and leave the two-delivery role unchanged, so a dwell up to 1.0 s costs it no score. Layout-001 held the robot until the pipe had seated (0.54 s model, 0.15-0.69 s with contact stiffness); the receive-and-go trials show it need not wait (24/24 retained and seated within 0.103 s of the stop)"
+}

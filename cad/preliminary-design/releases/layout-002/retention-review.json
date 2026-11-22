@@ -1,0 +1,102 @@
+{
+  "schema": "red2/pocket-retention-review@2",
+  "issue": "red2-002-preliminary-layout-002",
+  "step": {
+    "file": "cad/preliminary-design/releases/layout-002/package.step",
+    "sha256": "f6446a0f1753cdd4d7f724b4245af53e27ab1335d6cbf8b916dcf900e276f0e5"
+  },
+  "method": "Static gravity projection at the seat, rigid sweep of the whole seated pipe from its carry seat toward each opening against every other reserve, and the free-piece receive, receive-and-go and sled trials (evidence/field-trials.json: stick-slip friction, so a seated pipe holds statically) for dynamic capture, power loss and the isolation of each retaining member.",
+  "seat": {
+    "poseMm": [
+      304.13,
+      599.97
+    ],
+    "creepOver3sMm": 0.008,
+    "gravityAlongFloorTowardNipG": 0.2713,
+    "gravityIntoFloorG": 0.9625,
+    "pushBack": [
+      "floor (UHMW face)",
+      "lower and upper treads under the powered hold (front)",
+      "hood 10 mm above (up)",
+      "check flap and its rear stop (rear)",
+      "side walls 10.2 mm from the pipe ends (+/-Y)"
+    ]
+  },
+  "sweepsFromSeat": {
+    "rearward up the floor toward the inlet": {
+      "travelMm": 89.0,
+      "obstruction": [
+        "Check flap"
+      ]
+    },
+    "up (+Z) toward the hood": {
+      "travelMm": 10.0,
+      "obstruction": [
+        "Upper nip roller"
+      ]
+    },
+    "forward (+X) into the nip": {
+      "travelMm": null,
+      "obstruction": [],
+      "note": "no rigid obstruction within 400 mm: the rigid roller cores clear the pipe through the throat; the forward stop is the compliant tread squeeze under the powered hold, qualified by the receive and sled trials"
+    },
+    "down the floor normal": {
+      "travelMm": 3.0,
+      "obstruction": [
+        "Pocket tray"
+      ]
+    }
+  },
+  "powerOff": {
+    "holder": "None needed: with the robot disabled the nip is back-drivable through the 36:1 gearbox and the reflected motor inertia; the pipe must still climb the 12 mm squeeze to leave",
+    "sled": {
+      "n": 18,
+      "ok": 18,
+      "outcomes": {
+        "retained": 18
+      }
+    },
+    "receive": {
+      "n": 4,
+      "ok": 4,
+      "outcomes": {
+        "seated": 4
+      }
+    },
+    "eject": {
+      "n": 1,
+      "ok": 0,
+      "outcomes": {
+        "retained in the bite: robot disabled": 1
+      }
+    },
+    "escapeControl": {
+      "case": "sled-isolation-no-flap and receive-and-go-no-flap (field-trials.json playback)",
+      "result": "check flap removed: 8 g toward the inlet from a gently settled seat 1/2 retained; receive and go 0/2 retained",
+      "firstOpening": "rearward up the floor toward the inlet"
+    }
+  },
+  "isolation": {
+    "drive": "Powered hold: 108/108 receives seat over 40-160 N/mm. Robot disabled: 4/4 receives seat and 18/18 sled pulses are retained. The layout-001 worm lock seats 4/4: the lock adds nothing the powered hold and the gearbox do not give.",
+    "flap": "No flap from the received seat: 1 g 2/2, 3 g 2/2, 8 g 1/2; from a gently settled seat: 1 g 2/2, 3 g 2/2, 8 g 1/2; receive and go without it: 0/2 retained",
+    "hood": "No hood: 4/4 receives seat; no flare: 4/4; peak rise with both 4.49 mm. Not shown to earn their place in the planar model.",
+    "tread": "10 N/mm: 9/12 receives seat; 20 N/mm 12/12; 30 N/mm 12/12; 40-160 N/mm 108/108 with tread mu 0.3-1.0."
+  },
+  "findings": [
+    {
+      "id": "RR1",
+      "status": "bench gate G0",
+      "text": "Tread stiffness decides receive custody: fails at 10 N/mm, passes from 20 N/mm, accepted band 40-120 N/mm per roller. No supplier publishes it; G0 measures the installed stack and sets the wheel count."
+    },
+    {
+      "id": "RR2",
+      "status": "bench gate G3",
+      "text": "Carry custody rests on the flap for rearward loads and the powered hold and squeeze for forward loads; model: 72/72 powered and 18/18 disabled sled cases retained at 1-8 g."
+    },
+    {
+      "id": "RR3",
+      "status": "closed in this layout; bench gate G5",
+      "text": "Seated-pipe beam, flap-closed switch, lip-deployed switch and reef range sensor are selected and placed."
+    }
+  ]
+}
