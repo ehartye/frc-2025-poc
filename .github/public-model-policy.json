@@ -11,6 +11,7 @@
   "modelFiles": [
     ".github/public-model-policy.json",
     ".github/staged-model-policy.json",
+    "README.md",
     "cad-showcase.json",
     "cad/assembly-engineering/receiver-service/issue/assembly-drawings.pdf",
     "cad/assembly-engineering/receiver-service/issue/engineering-reopen.json",
@@ -34,5 +35,24 @@
     "scripts/cad-readmes.py",
     "scripts/capture-motion.js",
     "scripts/publish-capture.mjs"
-  ]
+  ],
+  "detailedDesigns": {
+    "index": "docs/detailed-design/designs.json",
+    "withdrawn": [
+      {
+        "design": "draft-001",
+        "reason": "Rough-draft showcase published before the design-status process.",
+        "files": {
+          "scripts/publish-capture.mjs": "scripts/withdrawn/draft-001/publish-capture.mjs"
+        }
+      }
+    ]
+  },
+  "preliminaryReadmeArchive": {
+    "readmeSha256": "e9970d5bed9ab0503393205f8d3a55efc2046873c203c693b537f8541cf64108",
+    "archive": "README.draft-001.md",
+    "archivedSha256": "0d48a890f4d4aa81422a6cec61f78717aed03855ac9ff0b2df214f4d88a22d72",
+    "image": "docs/robot/preliminary-layout-001.png",
+    "imageSha256": "56bdc0bce7fb491202659593b440e1a42b7fbd93cc3c5d31f0181122cf3ccdfe"
+  }
 }
