@@ -3,7 +3,7 @@
   "issue": "red2-002-preliminary-layout-002",
   "step": {
     "file": "cad/preliminary-design/releases/layout-002/package.step",
-    "sha256": "f6446a0f1753cdd4d7f724b4245af53e27ab1335d6cbf8b916dcf900e276f0e5"
+    "sha256": "1188ab1a67abe71d7865557faadc9eb52f545aefb5f3ca313809383b0d81f993"
   },
   "method": "Static gravity projection at the seat, rigid sweep of the whole seated pipe from its carry seat toward each opening against every other reserve, and the free-piece receive, receive-and-go and sled trials (evidence/field-trials.json: stick-slip friction, so a seated pipe holds statically) for dynamic capture, power loss and the isolation of each retaining member.",
   "seat": {
@@ -48,7 +48,284 @@
     }
   },
   "powerOff": {
-    "holder": "None needed: with the robot disabled the nip is back-drivable through the 36:1 gearbox and the reflected motor inertia; the pipe must still climb the 12 mm squeeze to leave",
+    "holder": "The tread squeeze: to leave forward the pipe must climb the 12 mm squeeze, which needs no power. The 36:1 gearbox is back-drivable and adds only its reflected inertia; brake idle mode adds damping while the controller is powered. Rearward the check flap's stop holds.",
+    "summary": "With the main power off the gearbox coasts and the pipe is held by the tread squeeze: 24/24 required cases retained over 40-160 N/mm (a 1.5 g stop for 0.5 s and an 8 g, 50 ms hit, main power off and brake idle mode), largest travel into the nip 3.79 mm. At 40 N/mm with the power off: sustained 6 g kept, 8 g lost; 50 ms hit 16 g kept, 24 g lost. Static push-through 71.8 N at 40 N/mm against a 14.2 N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g.",
+    "required": {
+      "stepG": 1.5,
+      "stepS": 0.5,
+      "pulseG": 8.0,
+      "pulseS": 0.05
+    },
+    "requiredBasis": "A robot that is not driving stops no harder than its tyres grip: 1.5 g for 0.5 s covers a friction coefficient up to 1.5 and a stop from 4.5 m/s (0.31 s). A hit from another robot is the G3 pulse, 8 g for 50 ms (2.5 m/s change of chassis speed).",
+    "requiredCases": {
+      "n": 24,
+      "ok": 24,
+      "outcomes": {
+        "retained": 24
+      }
+    },
+    "requiredByNipState": {
+      "main power off": {
+        "n": 12,
+        "ok": 12,
+        "outcomes": {
+          "retained": 12
+        }
+      },
+      "disabled, brake idle mode": {
+        "n": 12,
+        "ok": 12,
+        "outcomes": {
+          "retained": 12
+        }
+      },
+      "control: rollers decoupled from the drive": {
+        "n": 6,
+        "ok": 6,
+        "outcomes": {
+          "retained": 6
+        }
+      },
+      "powered hold": {
+        "n": 12,
+        "ok": 12,
+        "outcomes": {
+          "retained": 12
+        }
+      }
+    },
+    "belowBand20NmmByNipState": {
+      "main power off": {
+        "n": 4,
+        "ok": 4,
+        "outcomes": {
+          "retained": 4
+        }
+      },
+      "disabled, brake idle mode": {
+        "n": 4,
+        "ok": 4,
+        "outcomes": {
+          "retained": 4
+        }
+      },
+      "control: rollers decoupled from the drive": {
+        "n": 2,
+        "ok": 1,
+        "outcomes": {
+          "passed the throat (lost forward)": 1,
+          "retained": 1
+        }
+      },
+      "powered hold": {
+        "n": 4,
+        "ok": 4,
+        "outcomes": {
+          "retained": 4
+        }
+      }
+    },
+    "towardFlap": {
+      "n": 30,
+      "ok": 30,
+      "outcomes": {
+        "retained": 30
+      }
+    },
+    "sustainedLimitsG": {
+      "main power off": {
+        "20": {
+          "largestRetainedG": 3.0,
+          "smallestLostG": 4.0
+        },
+        "40": {
+          "largestRetainedG": 6.0,
+          "smallestLostG": 8.0
+        },
+        "80": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        }
+      },
+      "disabled, brake idle mode": {
+        "20": {
+          "largestRetainedG": 8.0,
+          "smallestLostG": 12.0
+        },
+        "40": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "80": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        }
+      },
+      "control: rollers decoupled from the drive": {
+        "20": {
+          "largestRetainedG": 1.5,
+          "smallestLostG": 3.0
+        },
+        "40": {
+          "largestRetainedG": 6.0,
+          "smallestLostG": 8.0
+        },
+        "80": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        }
+      },
+      "powered hold": {
+        "20": {
+          "largestRetainedG": 8.0,
+          "smallestLostG": 12.0
+        },
+        "40": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "80": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": null
+        }
+      }
+    },
+    "hitLimitsG": {
+      "main power off": {
+        "20": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": 16.0
+        },
+        "40": {
+          "largestRetainedG": 16.0,
+          "smallestLostG": 24.0
+        },
+        "80": {
+          "largestRetainedG": 24.0,
+          "smallestLostG": 32.0
+        },
+        "160": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        }
+      },
+      "disabled, brake idle mode": {
+        "20": {
+          "largestRetainedG": 12.0,
+          "smallestLostG": 16.0
+        },
+        "40": {
+          "largestRetainedG": 16.0,
+          "smallestLostG": 24.0
+        },
+        "80": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        }
+      },
+      "control: rollers decoupled from the drive": {
+        "20": {
+          "largestRetainedG": null,
+          "smallestLostG": 8.0
+        },
+        "40": {
+          "largestRetainedG": 8.0,
+          "smallestLostG": 12.0
+        },
+        "80": {
+          "largestRetainedG": 16.0,
+          "smallestLostG": 24.0
+        },
+        "160": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        }
+      },
+      "powered hold": {
+        "20": {
+          "largestRetainedG": 16.0,
+          "smallestLostG": 24.0
+        },
+        "40": {
+          "largestRetainedG": 24.0,
+          "smallestLostG": 32.0
+        },
+        "80": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        },
+        "160": {
+          "largestRetainedG": 32.0,
+          "smallestLostG": null
+        }
+      }
+    },
+    "staticBarrier": {
+      "20": {
+        "peakForceN": 35.9,
+        "energyJ": 0.72,
+        "sustainedG": 4.21
+      },
+      "40": {
+        "peakForceN": 71.8,
+        "energyJ": 1.44,
+        "sustainedG": 8.69
+      },
+      "80": {
+        "peakForceN": 143.5,
+        "energyJ": 2.88,
+        "sustainedG": 17.66
+      },
+      "160": {
+        "peakForceN": 287.1,
+        "energyJ": 5.76,
+        "sustainedG": 35.58
+      },
+      "120": {
+        "peakForceN": 215.3,
+        "energyJ": 4.32,
+        "sustainedG": 26.62
+      }
+    },
+    "stopLoadN": 14.2,
+    "atRest20s": {
+      "n": 6,
+      "ok": 6,
+      "outcomes": {
+        "retained": 6
+      },
+      "finalOffsetMm": [
+        -6.05,
+        0.01
+      ]
+    },
+    "treadRestitutionSensitivity": {
+      "n": 24,
+      "ok": 24,
+      "outcomes": {
+        "retained": 24
+      }
+    },
     "sled": {
       "n": 18,
       "ok": 18,
@@ -92,6 +369,11 @@
       "id": "RR2",
       "status": "bench gate G3",
       "text": "Carry custody rests on the flap for rearward loads and the powered hold and squeeze for forward loads; model: 72/72 powered and 18/18 disabled sled cases retained at 1-8 g."
+    },
+    {
+      "id": "RR4",
+      "status": "closed by trial; bench gate G7",
+      "text": "With the main power off the gearbox coasts and the pipe is held by the tread squeeze: 24/24 required cases retained over 40-160 N/mm (a 1.5 g stop for 0.5 s and an 8 g, 50 ms hit, main power off and brake idle mode), largest travel into the nip 3.79 mm. At 40 N/mm with the power off: sustained 6 g kept, 8 g lost; 50 ms hit 16 g kept, 24 g lost. Static push-through 71.8 N at 40 N/mm against a 14.2 N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g."
     },
     {
       "id": "RR3",

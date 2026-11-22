@@ -36,7 +36,7 @@ import pocket_geometry as pg  # noqa: E402
 G = 2.1
 GM = 3.1
 GT = 4.0
-CHASSIS_STEP = "artifacts/resume-20261121/screws-place-01/four-seated-screws.step"
+CHASSIS_STEP = "iterations/artifacts/resume-20261121/screws-place-01/four-seated-screws.step"
 ELECTRICAL = "iterations/002/design/chassis/inset-electrical-package.json"
 SRC = "iterations/002/design/preliminary-pocket"            # this builder and pocket_geometry.py
 REL = OUT.relative_to(ROOT).as_posix()                       # the release folder, project-relative

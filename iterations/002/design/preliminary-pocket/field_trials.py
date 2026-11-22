@@ -12,6 +12,12 @@ The tread contact reaction is fed back into the shaft speed. 'hold' is the power
 carry (torque-limited at the same 30 A); busV None is the disabled robot (rollers free to back-drive through the
 reflected motor inertia). The layout-001 self-locking worm (30:1, 40 %) is kept only as the comparison drive.
 
+Custody with the power off (custody_trial): the seated pipe under a sustained deceleration or a 50 ms hit, with the nip
+in each state it can be in when the robot is not driving it. Main power off: the gearbox coasts and only its reflected
+inertia resists, no gearbox drag is credited. Robot disabled with the controller powered: brake idle mode shorts the
+windings (bus 0 V). Control: rollers decoupled from the drive, so only the tread squeeze holds. The powered hold is run
+on the same loads for comparison.
+
 Receive starts at rest (or pushed) on the registered station chute (35 deg from horizontal, 419.1 mm ramp, exit sill
 952.5 mm above the carpet), drops onto the robot inlet and runs to the nip. The released pipe continues through the
 trough section (target.json). When it comes to rest the robot withdraws 120 mm at 0.3 m/s; the trough is assessed 2 s
@@ -560,6 +566,62 @@ def sled_trial(args):
                 maxBackDriveNm=round(aux["maxBackDriveNm"], 3), maxHoldDeg=round(aux["maxHoldDeg"], 2), trace=trace, **common(p))
 
 
+CUSTODY_STATES = {
+    "main power off": dict(busV=None, hold=False),
+    "disabled, brake idle mode": dict(busV=0.0, hold=False),
+    "control: rollers decoupled from the drive": dict(rollers="free"),
+    "powered hold": {},
+}
+# What a robot that is not driving can still see. Its tyres bound a stop: 1.5 g covers a carpet friction coefficient up
+# to 1.5 (unmeasured), and from 4.5 m/s that stop lasts 0.31 s, so the trial holds it for 0.5 s. A hit from another
+# robot is the G3 sled pulse: 8 g for 50 ms, a 2.5 m/s change of chassis speed.
+CUSTODY_REQUIRED = dict(stepG=1.5, stepS=0.5, pulseG=8.0, pulseS=0.05)
+
+
+def custody_trial(args):
+    label, state, p, load, seat = args
+    sc = scene(p, lip="deployed", flap=True)
+    kind, gpk, dur, sign = load["kind"], load["g"], load["durS"], load["sign"]
+    if kind == "pulse":
+        acc = lambda tt: sign * gpk * G * math.sin(math.pi * (tt - 0.05) / dur) if 0.05 <= tt <= 0.05 + dur else 0.0
+    else:
+        acc = lambda tt: sign * gpk * G if 0.05 <= tt <= 0.05 + dur else 0.0
+    info = dict(fwd=0.0, back=0.0)
+    tend = 0.05 + dur + 1.5
+
+    def stop(tt, st, aux):
+        x = st[0]
+        info["fwd"] = max(info["fwd"], (x - seat[0]) * 1e3)
+        info["back"] = max(info["back"], (seat[0] - x) * 1e3)
+        if x * 1e3 > g.THROAT_X + 25:
+            return "passed the throat (lost forward)"
+        if x + R < g.FLAP_X / 1e3 - 0.005:
+            return "past the flap (lost rearward)"
+        if tt > tend:
+            return "retained"
+        return None
+    out, st, tt, trace, aux = simulate(seat, p, sc, tend + 0.1, accel=acc, stop=stop, record=0.002)
+    return dict(label=label, nipState=state, load=kind, g=gpk, durationS=dur,
+                direction=("pipe loads toward the flap" if sign > 0 else "pipe loads into the nip"),
+                velocityChangeMps=round(gpk * G * dur * (2 / math.pi if kind == "pulse" else 1.0), 3),
+                outcome=out, maxForwardMm=round(info["fwd"], 2), maxRearwardMm=round(info["back"], 2),
+                finalOffsetMm=round((st[0] - seat[0]) * 1e3, 2), final=[round(st[0] * 1e3, 2), round(st[1] * 1e3, 2)],
+                maxBiteN=round(aux["maxBiteN"], 1), trace=trace, **dict(common(p), drive=state))
+
+
+def nip_barrier(k):
+    """Quasi-static push-through of the unpowered nip with nothing but the squeeze resisting (k in N/m per roller)."""
+    peak, x = 0.0, g.BITE_X
+    while x < g.THROAT_X:
+        dx = g.THROAT_X - x
+        d = math.hypot(dx, g.ROLLER_DZ)
+        peak = max(peak, 2 * k * (g.R + g.ROLLER_R - d) / 1e3 * dx / d)
+        x += 0.05
+    weight = M * G
+    return dict(peakForceN=round(peak, 1), energyJ=round(k * (g.SQUEEZE / 1e3) ** 2, 3),
+                sustainedG=round(peak / weight - math.sin(math.radians(g.FLOOR_DEG)), 2))
+
+
 def good(r):
     o = r["outcome"]
     return o.startswith(("captured", "retained")) and "disabled" not in o and "stowed" not in o or o == "seated"
@@ -653,7 +715,27 @@ def main(out, processes):
         sleds.append(("isolation: no check flap, received seat", P(flap=False), gpk, sign, seats[8.0e4]))
     for sq in (4.0, 8.0):
         sleds.append((f"sensitivity: squeeze {sq:.0f} mm", P(squeeze=sq, muTread=0.6, e=0.5), 8.0, -1, seats[8.0e4]))
+    custody = []
+    into_nip, to_flap = -1, 1
+    for (state, d), kt, mut in product(CUSTODY_STATES.items(), (2.0e4,) + K_BAND, (0.3, 1.0)):
+        if d.get("rollers") == "free" and mut == 0.3:
+            continue                # decoupled rollers carry no tangential load: tread friction is not an input
+        pc = P(kTread=kt, muTread=mut, **d)
+        for gp in (1.5, 3.0, 4.0, 6.0, 8.0, 12.0):
+            custody.append(("custody: sustained deceleration", state, pc, dict(kind="step", g=gp, durS=0.5, sign=into_nip), seats[kt]))
+        for gp in (8.0, 12.0, 16.0, 24.0, 32.0):
+            custody.append(("custody: 50 ms hit", state, pc, dict(kind="pulse", g=gp, durS=0.05, sign=into_nip), seats[kt]))
+        if state != "powered hold":
+            custody.append(("custody: sustained acceleration toward the flap", state, pc, dict(kind="step", g=1.5, durS=0.5, sign=to_flap), seats[kt]))
+            custody.append(("custody: 50 ms hit toward the flap", state, pc, dict(kind="pulse", g=8.0, durS=0.05, sign=to_flap), seats[kt]))
+    for state, kt, et in product(("main power off", "disabled, brake idle mode"), K_BAND, (0.1, 0.7)):
+        pc = P(kTread=kt, eTread=et, **CUSTODY_STATES[state])
+        custody.append(("sensitivity: tread restitution", state, pc, dict(kind="step", g=CUSTODY_REQUIRED["stepG"], durS=0.5, sign=into_nip), seats[kt]))
+        custody.append(("sensitivity: tread restitution", state, pc, dict(kind="pulse", g=CUSTODY_REQUIRED["pulseG"], durS=0.05, sign=into_nip), seats[kt]))
+    for state, kt in product(("main power off", "disabled, brake idle mode"), K_BAND):
+        custody.append(("custody: 20 s at rest", state, P(kTread=kt, **CUSTODY_STATES[state]), dict(kind="step", g=0.0, durS=18.45, sign=into_nip), seats[kt]))
     with Pool(processes) as pool:
+        cu = pool.map(custody_trial, custody, chunksize=1)
         ej = pool.map(eject_trial, ejects, chunksize=1)
         # second trip: the first pipe rests where the nominal 12 V eject left it, relative to the trough lip
         first_rest = {}
@@ -729,9 +811,23 @@ def main(out, processes):
         ("sled-disabled-8g", "Carry sled 8 g with the robot disabled (rollers back-drivable)",
          first(sl, "G3 robot disabled (back-drivable)", g=8.0, direction=into)),
         ("sled-isolation-no-flap", "Isolation: check flap removed, gently settled seat", first(sl, "isolation: no check flap, gently settled seat")),
+        ("custody-power-off-hit", "Main power off, hit: 8 g for 50 ms into the nip, 80 N/mm tread (the mission carry seat)",
+         pick(cu, label="custody: 50 ms hit", nipState="main power off", g=8.0, kTreadNmm=80.0, muTread=1.0)),
+        ("custody-power-off-stop", "Main power off, tyre-limited stop: 1.5 g for 0.5 s into the nip, 40 N/mm tread",
+         pick(cu, label="custody: sustained deceleration", nipState="main power off", g=1.5, kTreadNmm=40.0, muTread=1.0)),
+        ("custody-power-off-soft-hit", "Main power off, hit: 8 g for 50 ms into the nip, 40 N/mm tread (softest accepted)",
+         pick(cu, label="custody: 50 ms hit", nipState="main power off", g=8.0, kTreadNmm=40.0, muTread=0.3)),
+        ("custody-power-off-limit-stop", "Bracket: main power off, the first sustained deceleration that pushes the pipe through, 40 N/mm tread",
+         first(cu, "custody: sustained deceleration", nipState="main power off", kTreadNmm=40.0)),
+        ("custody-power-off-limit-hit", "Bracket: main power off, the first 50 ms hit that pushes the pipe through, 40 N/mm tread",
+         first(cu, "custody: 50 ms hit", nipState="main power off", kTreadNmm=40.0)),
+        ("custody-control-decoupled-soft", "Control: rollers decoupled from the drive and a tread below the band (20 N/mm), 8 g hit",
+         pick(cu, label="custody: 50 ms hit", nipState="control: rollers decoupled from the drive", g=8.0, kTreadNmm=20.0)),
+        ("custody-brake-hit", "Robot disabled with brake idle mode: 8 g for 50 ms into the nip, 40 N/mm tread",
+         pick(cu, label="custody: 50 ms hit", nipState="disabled, brake idle mode", g=8.0, kTreadNmm=40.0, muTread=0.3)),
     ]
     kept = {id(r) for _, _, r in playback}
-    for rows in (ej, rc, sl):
+    for rows in (ej, rc, sl, cu):
         for r in rows:
             if id(r) not in kept:
                 r.pop("trace", None)
@@ -739,10 +835,11 @@ def main(out, processes):
                 r["trace"] = r["trace"][::2]
 
     def rerun(pid, r):
-        kind = "eject" if pid.startswith("eject") else "receive" if pid.startswith("receive") else "sled"
-        src = {"eject": ejects, "receive": receives, "sled": sleds}[kind][{"eject": ej, "receive": rc, "sled": sl}[kind].index(r)]
+        kind = pid.split("-")[0]
+        src = {"eject": ejects, "receive": receives, "sled": sleds, "custody": custody}[kind][{"eject": ej, "receive": rc, "sled": sl, "custody": cu}[kind].index(r)]
         args = list(src)
-        args[1] = dict(args[1], dt=DT_DEFAULT / 2)
+        ip = 2 if kind == "custody" else 1
+        args[ip] = dict(args[ip], dt=DT_DEFAULT / 2)
         return (kind, tuple(args))
     reruns = [rerun(i, r) for i, _, r in playback]
     with Pool(processes) as pool:
@@ -750,7 +847,7 @@ def main(out, processes):
     sensitivity = []
     for (pid, _, r), (kind, _), h in zip(playback, reruns, halves):
         keys = {"eject": ("outcome", "final"), "receive": ("outcome", "final", "captiveAfterFlapS", "seatedAfterFlapS"),
-                "sled": ("outcome", "final", "maxTravelMm")}[kind]
+                "sled": ("outcome", "final", "maxTravelMm"), "custody": ("outcome", "final", "maxForwardMm")}[kind]
         sensitivity.append(dict(id=pid, dtS=DT_DEFAULT / 2, base={k: r.get(k) for k in keys}, half={k: h.get(k) for k in keys},
                                 sameOutcome=h["outcome"] == r["outcome"]))
     G2 = [r for r in ej if r["label"] == "G2 eject"]
@@ -760,6 +857,34 @@ def main(out, processes):
     G3 = [r for r in sl if r["label"] == "G3 powered hold"]
     SEC = [r for r in ej if r["label"].startswith("second trip")]
     lab = lambda rows, l: [r for r in rows if r["label"] == l]
+    kept_ = lambda r: r["outcome"] == "retained"
+
+    def limits(state, k, label):
+        rows = [r for r in lab(cu, label) if r["nipState"] == state and r["kTreadNmm"] == k]
+        bad = sorted({r["g"] for r in rows if not kept_(r)})
+        ok = sorted({r["g"] for r in rows} - set(bad))
+        below = [x for x in ok if not bad or x < bad[0]]
+        return dict(largestRetainedG=below[-1] if below else None, smallestLostG=bad[0] if bad else None)
+    req = lambda r: r["label"] in ("custody: sustained deceleration", "custody: 50 ms hit") and \
+        r["g"] == (CUSTODY_REQUIRED["stepG"] if r["load"] == "step" else CUSTODY_REQUIRED["pulseG"])
+    off = ("main power off", "disabled, brake idle mode")
+    band_k = [k / 1e3 for k in K_BAND]
+    in_band = lambda r: r["kTreadNmm"] in band_k
+    custody_summary = dict(
+        required=CUSTODY_REQUIRED,
+        requiredBasis="A robot that is not driving stops no harder than its tyres grip: 1.5 g for 0.5 s covers a friction coefficient up to 1.5 and a "
+                      "stop from 4.5 m/s (0.31 s). A hit from another robot is the G3 pulse, 8 g for 50 ms (2.5 m/s change of chassis speed).",
+        powerOffRequired=tally(cu, pred=lambda r: req(r) and r["nipState"] in off and in_band(r)),
+        requiredByState={s_: tally(cu, pred=lambda r, s_=s_: req(r) and r["nipState"] == s_ and in_band(r)) for s_ in CUSTODY_STATES},
+        belowBandRequired={s_: tally(cu, pred=lambda r, s_=s_: req(r) and r["nipState"] == s_ and r["kTreadNmm"] == 20.0) for s_ in CUSTODY_STATES},
+        maxForwardMmRequired=rng([r for r in cu if req(r) and r["nipState"] in off and in_band(r)], "maxForwardMm", 2)[1],
+        towardFlap=tally(cu, pred=lambda r: "toward the flap" in r["label"] and in_band(r)),
+        sustainedLimitsG={s_: {str(int(k / 1e3)): limits(s_, k / 1e3, "custody: sustained deceleration") for k in (2.0e4,) + K_BAND} for s_ in CUSTODY_STATES},
+        hitLimitsG={s_: {str(int(k / 1e3)): limits(s_, k / 1e3, "custody: 50 ms hit") for k in (2.0e4,) + K_BAND} for s_ in CUSTODY_STATES},
+        restitution=tally(lab(cu, "sensitivity: tread restitution")),
+        atRest=tally(lab(cu, "custody: 20 s at rest")), atRestFinalOffsetMm=rng(lab(cu, "custody: 20 s at rest"), "finalOffsetMm", 2),
+        staticBarrier={str(int(k / 1e3)): nip_barrier(k) for k in (2.0e4,) + K_BAND + (1.2e5,)},
+    )
     summary = dict(
         bandNmm=[k / 1e3 for k in K_BAND], acceptanceBandNmm=list(ACCEPT_BAND), nominalNmm=80.0,
         g2=tally(G2), g2ByStandOff={str(int(s)): tally(G2, standOffMm=float(s)) for s in (0, 25, 50, 75, 100)},
@@ -796,11 +921,12 @@ def main(out, processes):
             "G3 powered hold, gently settled seat", "isolation: no check flap, gently settled seat", "isolation: no check flap, received seat")},
         sensitivity={l: tally(lab(ej + rc + sl, l)) for l in ("sensitivity: squeeze 4 mm", "sensitivity: squeeze 8 mm",
                                                                "sensitivity: tangential stiffness 10 N/mm", "sensitivity: tangential stiffness 40 N/mm")},
+        custody=custody_summary,
         timestepSameOutcome=sum(s_["sameOutcome"] for s_ in sensitivity), timestepCases=len(sensitivity),
     )
-    result = dict(schema="red2/pocket-field-trials@3", summary=summary, timestepSensitivity=sensitivity,
-                  playback=[dict(id=i, title=t_, kind=("eject" if i.startswith("eject") else "receive" if i.startswith("receive") else "sled"),
-                                 index=(ej if i.startswith("eject") else rc if i.startswith("receive") else sl).index(r)) for i, t_, r in playback],
+    result = dict(schema="red2/pocket-field-trials@4", summary=summary, timestepSensitivity=sensitivity,
+                  playback=[dict(id=i, title=t_, kind=i.split("-")[0],
+                                 index={"eject": ej, "receive": rc, "sled": sl, "custody": cu}[i.split("-")[0]].index(r)) for i, t_, r in playback],
                   model=__doc__.strip(), dtS=DT_DEFAULT, rigidStiffnessNpm=K_RIGID, tangentialStiffnessNpm=KT_DEFAULT,
                   motor=MOTOR, rollerInertiaKgm2=J_ROLLERS, drive=MAX36, holdRad=HOLD_RAD, comparisonWorm=WORM, station=STATION,
                   nominalDockGapMm=NOMINAL_DOCK_GAP, sensorLatencyS=SENSOR_LATENCY,
@@ -808,12 +934,12 @@ def main(out, processes):
                   nominal={k: (v if not isinstance(v, dict) else "MAXPlanetary 36:1") for k, v in NOMINAL.items()},
                   settledSeatMm=[settled[0] * 1e3, settled[1] * 1e3], disabledSeatMm=[disabled_seat[0] * 1e3, disabled_seat[1] * 1e3],
                   carrySeatsByTreadStiffness={str(k / 1e3): [v[0] * 1e3, v[1] * 1e3] for k, v in seats.items()},
-                  seatCreepMmOver3s=creep, eject=ej, receive=rc, sled=sl)
+                  seatCreepMmOver3s=creep, eject=ej, receive=rc, sled=sl, custody=cu)
     Path(out).write_text(json.dumps(result, separators=(",", ":"), allow_nan=False) + "\n", encoding="utf-8")
 
 
 def _run(kind, args):
-    return {"eject": eject_trial, "receive": receive_trial, "sled": sled_trial}[kind](args)
+    return {"eject": eject_trial, "receive": receive_trial, "sled": sled_trial, "custody": custody_trial}[kind](args)
 
 
 if __name__ == "__main__":

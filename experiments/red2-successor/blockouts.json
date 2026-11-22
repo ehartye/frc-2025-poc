@@ -1,0 +1,47 @@
+{
+  "basis": "Editable original concept dimensions in millimetres in the current Fusion chassis frame. All upper structure, loaded CG allocation, motor limits, service volumes and camera rays are engineering hypotheses.",
+  "datum": {"origin":"wheel rectangle centre on carpet","x":"front","y":"robot left","z":"up","wheelbase":564,"track":554,"frameHalfXY":350,"rearChamfer":65,"bumperHalfXY":425,"bumperZ":[42.5,181.5],"troughPlaneX":490},
+  "shared": {
+    "power": {"batteryKg":6.17,"batteryCenter":[-205,-14,240],"driveBranchPeakA":104,"otherA":12,"overlapPlanA":150},
+    "limits": {"inspectionMassKg":52.16312255,"bareBaseAllowanceKg":[24,33],"baseCGmm":[-70,0,208],"withBumpersKg":7.089134,"pipeKg":0.816466266,"reserveEmptyMassKg":2.0},
+    "cameras": {"station":[-225,185,500],"reef":[275,-160,520],"stationRayTo":[-530,150,990],"reefRayTo":[980,-180,365],"tagLoss":"Hold loaded and braked. Resume only after a consistent fresh pose or back away within the reserved corridor."},
+    "service": {"batteryLiftBox":[-315,-145,160,-105,145,625],"mainPowerToolBox":[-325,85,170,-302,120,255],"wireChannel":[-280,-225,156,260,-199,190]},
+    "interfaces": ["One station operator feeds one registered pipe per release, with the same actor, source and time window in all cases.","Drive and handling share the battery bus; reserve time to stow before leaving the reef.","A lost capture observation inhibits driving and scoring. Remain stopped, reacquire or park empty before the match deadline."],
+    "abandonedFunctions":["Climbing","High-branch placement","Moving station/reef camera harness"]
+  },
+  "layouts": {
+    "tip-tray": {
+      "path":"Open rear station mouth, passively supported transverse pipe, one tipping bed and a retracting gate, forward gravity delivery.",
+      "receiveProfileMm":[[-338,855],[-290,725],[202,599],[205,580],[575,550],[575,630]],"mouthHalfWidthMm":205,
+      "boundsStowed":[-338,-210,405,342,210,961],"supportXZ":[[205,580],[332,928]],"supportDeployedXZ":[[205,580],[567,503]],
+      "releaseLocalMm":[567,0,503],"massUpperKg":5.2,"massLowerKg":2.8,"mechanismCGmm":[165,0,625],"handlingA":20,
+      "capture":"Station feeds into a rear funnel. Two independent end witnesses must see the pipe seated before drive.",
+      "release":"Tip to 12 degrees and open the gate after stopped pose confirmation. The 370 mm rail and 55 mm gravity run are from the conditional sweep.",
+      "reset":"Close the gate and stow only after custody clears. If the pipe bridges the rim, hold still, inhibit the next feed and back out only after clearance.",
+      "access":[130,128,460,275,268,662],"service":"Withdraw the gate drive outward without reaching through the pipe path. A straight downward gate would strike the trough panel; a folding gate needs a new measured sweep.",
+      "trade":"A single handling bed avoids a second transfer. Its rotating upper sweep and two low sightlines compete."
+    },
+    "fixed-rollers": {
+      "path":"Rear station funnel into a fixed high reversible belt, two front pinch rollers eject the transverse pipe across the bumper.",
+      "receiveProfileMm":[[-335,865],[-290,720],[-170,676],[268,665],[330,701],[335,765]],"mouthHalfWidthMm":201,
+      "boundsStowed":[-335,-225,470,350,225,865],"supportXZ":[[-240,665],[347,665]],"supportDeployedXZ":[[-240,665],[347,665]],
+      "releaseLocalMm":[347,0,665],"exitSpeedMps":1.25,"massUpperKg":6.8,"massLowerKg":3.4,"mechanismCGmm":[20,0,655],"handlingA":40,
+      "capture":"Dispenser feeds the fixed channel, belt advances to two end stops, seated sensor inhibits further feed.",
+      "release":"A commanded surface speed draws both ends through a fixed nip and sends the pipe to L1. Wheel slip, spin and actual release remain unmeasured.",
+      "reset":"Brake rollers and confirm both exits clear before permitting another feed. Reverse only on confirmed retained cargo.",
+      "access":[120,150,515,360,320,735],"service":"Release belt tension and remove the transverse shaft from the left. This overlaps a driver-side camera service corridor.",
+      "trade":"Eliminates lift and exterior reach. Current overlap, spin uncertainty and finite free-flight accuracy dominate."
+    },
+    "split-drop": {
+      "path":"Rear station cradle carries a transverse pipe; a short horizontal slide presents two split supports above the trough; the supports open sideways.",
+      "receiveProfileMm":[[-340,875],[-255,704],[-65,585],[205,550],[290,595],[315,698]],"mouthHalfWidthMm":210,
+      "boundsStowed":[-340,-228,405,349,228,875],"supportXZ":[[-65,585],[315,698]],"supportDeployedXZ":[[339,585],[719,698]],"travelMm":404,"supportTravelPerSideMm":90,
+      "releaseLocalMm":[598,0,592],"massUpperKg":8.2,"massLowerKg":4.1,"mechanismCGmm":[150,0,555],"handlingA":26,
+      "capture":"Dispenser seats both ends on the split cradle. A left/right support indication and observed end positions permit travel.",
+      "release":"Extend to the registered drop position and splay the two supports sideways. A zero-horizontal-speed drop tests the field condition only.",
+      "reset":"Retract supports on independent clear signals, then retract slide before driving. Failed side opening inhibits the feed and chassis.",
+      "access":[75,125,415,290,310,650],"service":"Isolate the slide, pin the cradle, withdraw both side pivots, restore home references and confirm matching separation.",
+      "trade":"Vertical release limits horizontal kinetic energy. The extra slide, two-sided openings and service access increase dependencies."
+    }
+  }
+}

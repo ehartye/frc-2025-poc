@@ -1,0 +1,106 @@
+{
+  "authority": {
+    "file": "cad/fusion-authority.json",
+    "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+  },
+  "foundation": {
+    "file": "cad/red2-split-drop/chassis-foundation-r2.json",
+    "sha256": "74e7565af7d34db21cf96fd42166a62a4107db086bd57e19f13d812a28bbbbb3"
+  },
+  "selection": "340 mm single-pivot guarded pan",
+  "baseline": "Retain the split-drop R5 physical receipt for comparison. Its 11.701104 kg upper precedes both motors and attachments.",
+  "settings": {
+    "pivot": [
+      0.205,
+      0.58
+    ],
+    "pan": [
+      [
+        -0.1,
+        0.11
+      ],
+      [
+        -0.09,
+        0
+      ],
+      [
+        0.34,
+        0
+      ]
+    ],
+    "stowDeg": 70,
+    "worldDumpDeg": -2,
+    "tipStartBeforeReleaseS": 3.5,
+    "tipDurationS": 1.6,
+    "feed": [
+      [
+        -0.34,
+        0.795
+      ],
+      [
+        -0.255,
+        0.685
+      ],
+      [
+        -0.035,
+        0.6229999999999999
+      ],
+      [
+        0.075,
+        0.592
+      ]
+    ],
+    "feedHalfWidthsM": [
+      0.192,
+      0.192,
+      0.082,
+      0.082
+    ],
+    "floorHalfWidthM": 0.161,
+    "wallSlotHalfWidthM": 0.096,
+    "wallLimitM": 0.161,
+    "wallHeightM": 0.12
+  },
+  "source": [
+    {
+      "file": "artifacts/split-drop-native/launch-inputs.json",
+      "sha256": "412ab0f1379945cf3f94bcf031ece4156b9ee48e7759e4a71e4c9331dd9056aa"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-unguarded.json",
+      "sha256": "5d60e903d25a68c744f93a0f5e60923a035e6681b0c1283c58dbc0c6cb12591e"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-challenge.json",
+      "sha256": "cd959a0d11dbd1067a7dd96f7d6f96bbc04e125ae36fde2808523b20dc5e4b8c"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-field/cases.csv",
+      "sha256": "b981aac301f410e216d7baedfd5bf7065755909cf406eba18fbea8abf4881d75"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-field/summary.json",
+      "sha256": "361d01428292a106f20829448dcb524adb268aec0653bfd7c12a667884161c60"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-field/post-impact-reset.csv",
+      "sha256": "c2c5cf06d9b02b89767fc4a649c8e48b93a0a5440f350c1313ef16f3facc3134"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-field/result.csv",
+      "sha256": "7cdf47231aafc87f7588ad5492bb612a001dbd2127c522cf17acf666c001bfb3"
+    }
+  ],
+  "result": {
+    "unguardedLost": 16,
+    "guardedRetained": 40,
+    "simulatedReceiverSupport": 120,
+    "endpointsRetainSupport": 120,
+    "minimumPostImpactGapMm": 1.802049,
+    "recognizedCompleteRobotScores": 0
+  },
+  "limits": [
+    "Prescribed pan drive motion; exact supplier drive integration, braking, loads and thermal duty are outstanding.",
+    "Source-to-first-field-contact integrated obstacle clearance and complete match-reset sensing must be checked on the native installed assembly."
+  ]
+}

@@ -8,6 +8,10 @@ source checkout or this repository becomes repository-relative, the plugin check
 becomes python, and any other home-directory path becomes WORKSTATION/... . Each scrubbed file is listed in
 manifest.json with its SHA-256 before and after, because records written before the migration pin the old bytes.
 Without --write it only reports.
+
+After the run the artifacts/ tree was moved to iterations/artifacts/ (manifest.json, relocated), because the project
+layout check keeps a top-level artifacts folder for generated, untracked output. Do not rerun this script with --write:
+it would restore the old location and overwrite files that have changed since.
 """
 import hashlib
 import json

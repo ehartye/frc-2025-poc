@@ -1,0 +1,1644 @@
+{
+ "schema": "red2/seat-screws-receipt@1",
+ "before": [],
+ "status": "four seated purchased screws placed; mechanical review pending",
+ "steps": [
+  {
+   "ordinal": 1,
+   "label": "234,-132",
+   "status": "settled",
+   "acceptedArchive": "WORKSTATION\\Documents\\FRC Native\\2025\\station\\red2-seat-screws-01\\inputs\\artifacts\\seat-screws\\taps-02\\four-tapped-holes.f3d",
+   "acceptedSha256": "e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471",
+   "output": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-1.f3d",
+   "request": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+    "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     32.25281498892141,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     20.376337647439097,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "interfaces": [
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.1,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 5:1",
+        "Pan truss -1 member 5"
+       ]
+      ],
+      "basis": "Study measured 2.2143 mm from the installed screw to Pan truss -1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.7,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 2:1",
+        "Pan truss -1 member 2"
+       ]
+      ],
+      "basis": "Study measured 3.4758 mm from the installed screw to Pan truss -1 member 2 with zero common. Required minimum 1.7 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet -1:1",
+        "Equipment sheet -1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet -1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     }
+    ]
+   },
+   "observed": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+    "sourceWorldCm": [
+     0.8276944549050208,
+     0.5611790171767655,
+     -8.417150268394178e-16,
+     23.33789755157235,
+     -0.5611790171767654,
+     0.8276944549050209,
+     -7.0359183686456655e-16,
+     25.711579510314436,
+     3.018418848199644e-16,
+     1.054711873393899e-15,
+     1.0,
+     10.098336287672986,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "attainedWorldCm": [
+     0.9214390342614521,
+     -0.38852298019463727,
+     1.3165090544950183e-16,
+     23.399999999999995,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     -13.20000000000001,
+     -3.0184188481996434e-16,
+     -1.0547118733938987e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "report": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+    "worldTransformCm": [
+     0.9214390342614521,
+     -0.38852298019463716,
+     1.3165090544950203e-16,
+     23.4,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     -13.200000000000005,
+     -3.018418848199644e-16,
+     -1.054711873393899e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "status": "pass",
+    "broadPhaseClear": 650,
+    "operation": "insert",
+    "referenceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "movingSolids": 1,
+    "stationarySolids": 654,
+    "unchangedInternalPairs": 0,
+    "measured": [
+     {
+      "bodies": [
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 5:1",
+        "Pan truss -1 member 5"
+       ],
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 1.1,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+         "Body1"
+        ],
+        [
+         "Red 2 inset structural machining:1+Pan truss -1 member 5:1",
+         "Pan truss -1 member 5"
+        ]
+       ],
+       "basis": "Study measured 2.2143 mm from the installed screw to Pan truss -1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       654,
+       259
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 5:1",
+        "Pan truss -1 member 5"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 2.2142606834832197
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 0.2,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Pan crossmember 250:1",
+         "Pan crossmember 250"
+        ]
+       ],
+       "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       654,
+       266
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 0.40000000000012237
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Truss landing 250 -145:1",
+         "Truss landing 250 -145"
+        ]
+       ],
+       "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+      },
+      "pair": [
+       654,
+       269
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 7.105427357601002e-14
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+         "Captive truss landing nutbar 250 -145"
+        ]
+       ],
+       "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+      },
+      "pair": [
+       654,
+       270
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 1.5072887603364239e-13
+     }
+    ],
+    "acceptedSha256": "e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471",
+    "successorSha256": "9c109c152e1b4e26d8648c88e9d4575ed349dd4bbc74e0a28c84730562946922"
+   }
+  },
+  {
+   "ordinal": 2,
+   "label": "234,132",
+   "status": "settled",
+   "acceptedArchive": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-1.f3d",
+   "acceptedSha256": "9c109c152e1b4e26d8648c88e9d4575ed349dd4bbc74e0a28c84730562946922",
+   "output": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-2.f3d",
+   "request": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+    "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     32.25281498892139,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     46.77633764743909,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "interfaces": [
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.1,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 5:1",
+        "Pan truss 1 member 5"
+       ]
+      ],
+      "basis": "Study measured 2.2143 mm from the installed screw to Pan truss 1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.7,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 2:1",
+        "Pan truss 1 member 2"
+       ]
+      ],
+      "basis": "Study measured 3.4758 mm from the installed screw to Pan truss 1 member 2 with zero common. Required minimum 1.7 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet 1:1",
+        "Equipment sheet 1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet 1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     }
+    ]
+   },
+   "observed": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+    "sourceWorldCm": [
+     0.8276944549050208,
+     0.5611790171767655,
+     -8.417150268394178e-16,
+     23.33789755157235,
+     -0.5611790171767654,
+     0.8276944549050209,
+     -7.0359183686456655e-16,
+     25.711579510314436,
+     3.018418848199644e-16,
+     1.054711873393899e-15,
+     1.0,
+     10.098336287672986,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "attainedWorldCm": [
+     0.9214390342614521,
+     -0.38852298019463727,
+     1.3165090544950183e-16,
+     23.39999999999998,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     13.199999999999987,
+     -3.0184188481996434e-16,
+     -1.0547118733938987e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "report": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+    "worldTransformCm": [
+     0.9214390342614521,
+     -0.38852298019463716,
+     1.3165090544950203e-16,
+     23.399999999999984,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     13.19999999999999,
+     -3.018418848199644e-16,
+     -1.054711873393899e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "status": "pass",
+    "broadPhaseClear": 651,
+    "operation": "insert",
+    "referenceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "movingSolids": 1,
+    "stationarySolids": 655,
+    "unchangedInternalPairs": 0,
+    "measured": [
+     {
+      "bodies": [
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 5:1",
+        "Pan truss 1 member 5"
+       ],
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 1.1,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+         "Body1"
+        ],
+        [
+         "Red 2 inset structural machining:1+Pan truss 1 member 5:1",
+         "Pan truss 1 member 5"
+        ]
+       ],
+       "basis": "Study measured 2.2143 mm from the installed screw to Pan truss 1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       655,
+       265
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 5:1",
+        "Pan truss 1 member 5"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 2.2142606834835368
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 0.2,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Pan crossmember 250:1",
+         "Pan crossmember 250"
+        ]
+       ],
+       "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       655,
+       266
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 0.4000000000002373
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Truss landing 250 145:1",
+         "Truss landing 250 145"
+        ]
+       ],
+       "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+      },
+      "pair": [
+       655,
+       271
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 7.105427357601002e-14
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+         "Captive truss landing nutbar 250 145"
+        ]
+       ],
+       "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+      },
+      "pair": [
+       655,
+       272
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 2.1018137570293106e-13
+     }
+    ],
+    "acceptedSha256": "9c109c152e1b4e26d8648c88e9d4575ed349dd4bbc74e0a28c84730562946922",
+    "successorSha256": "1bb7691f19b1645b0d428a6e1cbe9900ff053802050e6d8e4018c79258615e39"
+   }
+  },
+  {
+   "ordinal": 3,
+   "label": "266,158",
+   "status": "settled",
+   "acceptedArchive": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-2.f3d",
+   "acceptedSha256": "1bb7691f19b1645b0d428a6e1cbe9900ff053802050e6d8e4018c79258615e39",
+   "output": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-3.f3d",
+   "request": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+    "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     35.4528149889214,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     49.3763376474391,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "interfaces": [
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.85,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 2:1",
+        "Pan truss 1 member 2"
+       ]
+      ],
+      "basis": "Study measured 1.7125 mm from the installed screw to Pan truss 1 member 2 with zero common. Required minimum 0.85 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet 1:1",
+        "Equipment sheet 1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet 1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     }
+    ]
+   },
+   "observed": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+    "sourceWorldCm": [
+     0.8276944549050208,
+     0.5611790171767655,
+     -8.417150268394178e-16,
+     23.33789755157235,
+     -0.5611790171767654,
+     0.8276944549050209,
+     -7.0359183686456655e-16,
+     25.711579510314436,
+     3.018418848199644e-16,
+     1.054711873393899e-15,
+     1.0,
+     10.098336287672986,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "attainedWorldCm": [
+     0.9214390342614521,
+     -0.38852298019463727,
+     1.3165090544950183e-16,
+     26.59999999999999,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     15.799999999999995,
+     -3.0184188481996434e-16,
+     -1.0547118733938987e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "report": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+    "worldTransformCm": [
+     0.9214390342614521,
+     -0.38852298019463716,
+     1.3165090544950203e-16,
+     26.599999999999994,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     15.799999999999999,
+     -3.018418848199644e-16,
+     -1.054711873393899e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "status": "pass",
+    "broadPhaseClear": 653,
+    "operation": "insert",
+    "referenceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "movingSolids": 1,
+    "stationarySolids": 656,
+    "unchangedInternalPairs": 0,
+    "measured": [
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 0.2,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Pan crossmember 250:1",
+         "Pan crossmember 250"
+        ]
+       ],
+       "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       656,
+       266
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 0.4000000000001638
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Truss landing 250 145:1",
+         "Truss landing 250 145"
+        ]
+       ],
+       "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+      },
+      "pair": [
+       656,
+       271
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 7.105427357601002e-14
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+         "Captive truss landing nutbar 250 145"
+        ]
+       ],
+       "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+      },
+      "pair": [
+       656,
+       272
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 1.5072887603364239e-13
+     }
+    ],
+    "acceptedSha256": "1bb7691f19b1645b0d428a6e1cbe9900ff053802050e6d8e4018c79258615e39",
+    "successorSha256": "8954a55c40e5ae0b0a769c366bcc70bf8436890a6275a9e82cf46b82748bb753"
+   }
+  },
+  {
+   "ordinal": 4,
+   "label": "266,-158",
+   "status": "settled",
+   "acceptedArchive": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-3.f3d",
+   "acceptedSha256": "8954a55c40e5ae0b0a769c366bcc70bf8436890a6275a9e82cf46b82748bb753",
+   "output": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-4.f3d",
+   "request": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+    "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     35.4528149889214,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     17.776337647439096,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "interfaces": [
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 0.85,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 2:1",
+        "Pan truss -1 member 2"
+       ]
+      ],
+      "basis": "Study measured 1.7125 mm from the installed screw to Pan truss -1 member 2 with zero common. Required minimum 0.85 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet -1:1",
+        "Equipment sheet -1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet -1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     }
+    ]
+   },
+   "observed": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+    "sourceWorldCm": [
+     0.8276944549050208,
+     0.5611790171767655,
+     -8.417150268394178e-16,
+     23.33789755157235,
+     -0.5611790171767654,
+     0.8276944549050209,
+     -7.0359183686456655e-16,
+     25.711579510314436,
+     3.018418848199644e-16,
+     1.054711873393899e-15,
+     1.0,
+     10.098336287672986,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "attainedWorldCm": [
+     0.9214390342614521,
+     -0.38852298019463727,
+     1.3165090544950183e-16,
+     26.59999999999999,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     -15.800000000000004,
+     -3.0184188481996434e-16,
+     -1.0547118733938987e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "report": {
+    "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+    "worldTransformCm": [
+     0.9214390342614521,
+     -0.38852298019463716,
+     1.3165090544950203e-16,
+     26.599999999999994,
+     -0.3885229801946371,
+     -0.9214390342614522,
+     1.0891251986819804e-15,
+     -15.800000000000006,
+     -3.018418848199644e-16,
+     -1.054711873393899e-15,
+     -1.0,
+     16.827499999999993,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "status": "pass",
+    "broadPhaseClear": 654,
+    "operation": "insert",
+    "referenceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+    "movingSolids": 1,
+    "stationarySolids": 657,
+    "unchangedInternalPairs": 0,
+    "measured": [
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interface": "clearance",
+      "rule": {
+       "kind": "clearance",
+       "minGapMm": 0.2,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Pan crossmember 250:1",
+         "Pan crossmember 250"
+        ]
+       ],
+       "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+      },
+      "pair": [
+       657,
+       266
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 0.4000000000001472
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Truss landing 250 -145:1",
+         "Truss landing 250 -145"
+        ]
+       ],
+       "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+      },
+      "pair": [
+       657,
+       269
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 7.105427357601002e-14
+     },
+     {
+      "bodies": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "interface": "bearing",
+      "rule": {
+       "kind": "bearing",
+       "maxGapMm": 0.01,
+       "bodies": [
+        [
+         "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+         "Body1"
+        ],
+        [
+         "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+         "Captive truss landing nutbar 250 -145"
+        ]
+       ],
+       "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+      },
+      "pair": [
+       657,
+       270
+      ],
+      "identities": [
+       [
+        "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "interferenceMm3": 0,
+      "temporaryCommonMm3": 0.0,
+      "status": "pass",
+      "gapMm": 1.329303737937672e-13
+     }
+    ],
+    "acceptedSha256": "8954a55c40e5ae0b0a769c366bcc70bf8436890a6275a9e82cf46b82748bb753",
+    "successorSha256": "6c7bfa634ce56927ad67a3a9784cdff0b406ba5e70817b513ca7a1073caac483"
+   }
+  }
+ ],
+ "inputSha256": "4c21eed737660d98520cdebefde01a637d08918cd56df2b58bf44073054c9a9b",
+ "allowedPendingRows": [],
+ "authority": {
+  "status": "pass",
+  "policy": "registered-offline-archive",
+  "id": "red2-two-sill-robot",
+  "configuration": "Four parked matched SDS L2 modules and editable inset perimeter, electronics decks and pan support trusses",
+  "revision": "002-connected-machining-654-r6",
+  "asOf": "2026-11-21T14:01:40.849439+00:00",
+  "archiveSha256": "e7c7386af0b1e775a7e0daba344f75082a42e6445ec0064b297497abc077834a",
+  "stepSha256": "c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77"
+ },
+ "compositionProofs": {
+  "234,-132": {
+   "seatLandingErrorCm": 7.105427357601002e-15,
+   "phaseDeg": 57.00000000000001,
+   "axisPointErrorCm": 0.0
+  },
+  "234,132": {
+   "seatLandingErrorCm": 7.944109290391274e-15,
+   "phaseDeg": 57.00000000000001,
+   "axisPointErrorCm": 3.972054645195637e-15
+  },
+  "266,158": {
+   "seatLandingErrorCm": 3.552713678800501e-15,
+   "phaseDeg": 57.00000000000001,
+   "axisPointErrorCm": 5.0242958677880805e-15
+  },
+  "266,-158": {
+   "seatLandingErrorCm": 0.0,
+   "phaseDeg": 57.00000000000001,
+   "axisPointErrorCm": 3.552713678800501e-15
+  }
+ },
+ "sourceWorldCm": [
+  0.8276944549050208,
+  0.5611790171767655,
+  -8.417150268394178e-16,
+  23.33789755157235,
+  -0.5611790171767654,
+  0.8276944549050209,
+  -7.0359183686456655e-16,
+  25.711579510314436,
+  3.018418848199644e-16,
+  1.054711873393899e-15,
+  1.0,
+  10.098336287672986,
+  0.0,
+  0.0,
+  0.0,
+  1.0
+ ],
+ "probe": [
+  {
+   "label": "234,-132",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    23.399999999999995,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    -13.20000000000001,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.105427357601002e-14
+  },
+  {
+   "label": "234,132",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    23.39999999999998,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    13.199999999999987,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 1.6758116906701664e-13
+  },
+  {
+   "label": "266,158",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    26.59999999999999,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    15.799999999999995,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.32410687763558e-14
+  },
+  {
+   "label": "266,-158",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    26.59999999999999,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    -15.800000000000004,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.105427357601002e-14
+  }
+ ],
+ "lastAccepted": {
+  "path": "WORKSTATION\\Documents\\FRC Native\\2025\\resume-20261121-2025\\screws-place-01\\screws-step-4.f3d",
+  "sha256": "6c7bfa634ce56927ad67a3a9784cdff0b406ba5e70817b513ca7a1073caac483",
+  "afterLabel": "266,-158"
+ },
+ "nativeSha256": "6c7bfa634ce56927ad67a3a9784cdff0b406ba5e70817b513ca7a1073caac483",
+ "stepSha256": "640cb0dd134a722d7a71029b0201d7c0ceab9ade228169f9c009d44e26c9136c",
+ "bodyCount": 658,
+ "stepSolids": 658,
+ "cold": [
+  {
+   "label": "234,-132",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:3",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    23.399999999999995,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    -13.20000000000001,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.105427357601002e-14
+  },
+  {
+   "label": "234,132",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:4",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    23.39999999999998,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    13.199999999999987,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 1.6758116906701664e-13
+  },
+  {
+   "label": "266,158",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:5",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    26.59999999999999,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    15.799999999999995,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.32410687763558e-14
+  },
+  {
+   "label": "266,-158",
+   "occurrence": "Screw, .25-20 X 1 Socket, 91251A542_91251A542:6",
+   "worldCm": [
+    0.9214390342614521,
+    -0.38852298019463727,
+    1.3165090544950183e-16,
+    26.59999999999999,
+    -0.3885229801946371,
+    -0.9214390342614522,
+    1.0891251986819804e-15,
+    -15.800000000000004,
+    -3.0184188481996434e-16,
+    -1.0547118733938987e-15,
+    -1.0,
+    16.827499999999993,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "seatLandingErrorMm": 7.105427357601002e-14
+  }
+ ],
+ "after": [],
+ "restored": true
+}

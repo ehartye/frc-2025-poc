@@ -282,5 +282,10 @@
   }
  ],
  "over95MB": [],
- "note": "Records written before the migration pin the pre-scrub bytes of the scrubbed files; compare with sha256Before."
+ "note": "Records written before the migration pin the pre-scrub bytes of the scrubbed files; compare with sha256Before.",
+ "relocated": {
+  "from": "artifacts/",
+  "to": "iterations/artifacts/",
+  "reason": "The project layout check keeps a top-level artifacts folder for generated, untracked output, so the migrated evidence moved under iterations/. Records written before the move name the old path; the bytes are unchanged."
+ }
 }

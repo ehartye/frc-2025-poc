@@ -1,0 +1,880 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "pooledSources": {
+    "SPARK MAX": {
+      "sourceFile": "REV-11-2158.STEP",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "representation": "solid",
+      "count": 18,
+      "bounds": [
+        -40.62499999999999,
+        -6.7000001000000005,
+        -17.25000010000001,
+        40.625,
+        22.95000000000003,
+        17.2500001
+      ]
+    },
+    "PDH": {
+      "sourceFile": "REV-11-1850.STEP",
+      "sourceSha256": "bb14d12b33e8b21bb49f85166f9fb55e358d3044f85580321a291e3a7b9a1fa9",
+      "representation": "solid",
+      "count": 403,
+      "bounds": [
+        -56.36249592447267,
+        -1.0000000710542735e-07,
+        -112.71250010000003,
+        56.36266217143879,
+        39.72179010000058,
+        114.41250233573057
+      ]
+    },
+    "roboRIO 2": {
+      "sourceFile": "am-3000a NI roboRIO 2.STEP",
+      "sourceSha256": "6e19ed3e825c8c521f57ec510eda860556ac422f134dc584b8342ca4d94be791",
+      "representation": "solid",
+      "count": 4,
+      "bounds": [
+        -73.07580068231519,
+        -71.58990068231522,
+        -9.652036909230302,
+        73.07601414676702,
+        71.58990032375829,
+        25.057406339148972
+      ]
+    },
+    "VH-109": {
+      "sourceFile": "VH-109.STEP",
+      "sourceSha256": "6abe89119794aecd6b1bc33c1f67fedadb808f791462987719902850999ce97e",
+      "representation": "solid",
+      "count": 11,
+      "bounds": [
+        -57.50000010289504,
+        -26.994762917391764,
+        -1.1100009800202315e-12,
+        59.699999999999996,
+        26.994762917391537,
+        30.1000001
+      ]
+    },
+    "CB185": {
+      "sourceFile": "am-0282-CB185-120.step",
+      "sourceSha256": "04a04028b1caeee883fe617c27f6e6646067fbb889c7d48ce72324a0f53653a7",
+      "representation": "open supplier shell",
+      "count": 16,
+      "bounds": [
+        -36.851405809996685,
+        -4.826000000000003,
+        -24.130000100000593,
+        36.85140580999668,
+        37.32303193016646,
+        24.130000100000586
+      ]
+    },
+    "SB50": {
+      "sourceFile": "SB 50 (Std)-02-08-STEP.stp",
+      "sourceSha256": "b5a233b9a0c845159b742b22e9a8e6158a2644bfc5989308ecbf71ad3cccc32e",
+      "representation": "solid",
+      "count": 1,
+      "bounds": [
+        -18.256250100000003,
+        -24.48095367497845,
+        -29.560721525021588,
+        18.256250100000003,
+        23.54092152502156,
+        -13.513156672984014
+      ]
+    }
+  },
+  "sourceCounts": {
+    "SPARK MAX": 18,
+    "PDH": 403,
+    "roboRIO 2": 4,
+    "VH-109": 11,
+    "CB185": 16,
+    "SB50": 1
+  },
+  "sourceArticleInstances": 15,
+  "mountedSourceBodiesAndShells": 598,
+  "projectedLowerBodies": 488,
+  "candidatePlacements": {
+    "Power distribution": {
+      "source": "PDH",
+      "sourceSha256": "bb14d12b33e8b21bb49f85166f9fb55e358d3044f85580321a291e3a7b9a1fa9",
+      "worldMatrixMm": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          -145.85000111786528
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          151.99991687651695
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          212.0000001
+        ]
+      ],
+      "boundsMm": [
+        -258.5625012178653,
+        95.63742095204428,
+        212.0,
+        -31.43749878213471,
+        208.36257904795573,
+        251.72179020000058
+      ]
+    },
+    "Control computer": {
+      "source": "roboRIO 2",
+      "sourceSha256": "6e19ed3e825c8c521f57ec510eda860556ac422f134dc584b8342ca4d94be791",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -142.0001067322259
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -158.99999982072154
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          221.6520369092303
+        ]
+      ],
+      "boundsMm": [
+        -215.0759074145411,
+        -230.58990050303674,
+        212.0,
+        -68.92409258545888,
+        -87.41009949696326,
+        246.70944324837927
+      ]
+    },
+    "Radio": {
+      "source": "VH-109",
+      "sourceSha256": "6abe89119794aecd6b1bc33c1f67fedadb808f791462987719902850999ce97e",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -143.09999994855247
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -282.9999999999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          212.0000000000011
+        ]
+      ],
+      "boundsMm": [
+        -200.6000000514475,
+        -309.99476291739165,
+        212.0,
+        -83.39999994855248,
+        -256.00523708260835,
+        242.1000001000011
+      ]
+    },
+    "Main 120 A breaker": {
+      "source": "CB185",
+      "sourceSha256": "04a04028b1caeee883fe617c27f6e6646067fbb889c7d48ce72324a0f53653a7",
+      "worldMatrixMm": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          -96.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          274.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          216.826
+        ]
+      ],
+      "boundsMm": [
+        -120.13000010000059,
+        237.1485941900033,
+        212.0,
+        -71.86999989999941,
+        310.85140580999666,
+        254.14903193016644
+      ]
+    },
+    "starboard controller 1": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          38.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -116.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        -2.624999999999993,
+        -133.2500001,
+        212.0,
+        78.625,
+        -98.74999989999999,
+        241.65000010000006
+      ]
+    },
+    "starboard controller 2": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          38.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -196.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        -2.624999999999993,
+        -213.2500001,
+        212.0,
+        78.625,
+        -178.74999989999998,
+        241.65000010000006
+      ]
+    },
+    "starboard controller 3": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          194.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -116.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        153.375,
+        -133.2500001,
+        212.0,
+        234.625,
+        -98.74999989999999,
+        241.65000010000006
+      ]
+    },
+    "starboard controller 4": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          194.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          -196.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        153.375,
+        -213.2500001,
+        212.0,
+        234.625,
+        -178.74999989999998,
+        241.65000010000006
+      ]
+    },
+    "port controller 1": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          38.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          116.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        -2.624999999999993,
+        98.7499999,
+        212.0,
+        78.625,
+        133.25000010000002,
+        241.65000010000006
+      ]
+    },
+    "port controller 2": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          38.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          196.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        -2.624999999999993,
+        178.7499999,
+        212.0,
+        78.625,
+        213.25000010000002,
+        241.65000010000006
+      ]
+    },
+    "port controller 3": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          194.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          116.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        153.375,
+        98.7499999,
+        212.0,
+        234.625,
+        133.25000010000002,
+        241.65000010000006
+      ]
+    },
+    "port controller 4": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          194.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          196.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        153.375,
+        178.7499999,
+        212.0,
+        234.625,
+        213.25000010000002,
+        241.65000010000006
+      ]
+    },
+    "Pan controller": {
+      "source": "SPARK MAX",
+      "sourceSha256": "b8b374fc3dbb3bfa07ed10c9bdbc2ee407591a35bbe42035ddda87a0dcfa7e4d",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          38.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          273.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          218.7000001
+        ]
+      ],
+      "boundsMm": [
+        -2.624999999999993,
+        255.7499999,
+        212.0,
+        78.625,
+        290.2500001,
+        241.65000010000006
+      ]
+    },
+    "Chassis battery plug": {
+      "source": "SB50",
+      "sourceSha256": "b5a233b9a0c845159b742b22e9a8e6158a2644bfc5989308ecbf71ad3cccc32e",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -299.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          95.47001607497845
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          209.5607215250216
+        ]
+      ],
+      "boundsMm": [
+        -317.2562501,
+        70.9890624,
+        180.0,
+        -280.7437499,
+        119.0109376,
+        196.04756485203757
+      ]
+    },
+    "Battery plug": {
+      "source": "SB50",
+      "sourceSha256": "b5a233b9a0c845159b742b22e9a8e6158a2644bfc5989308ecbf71ad3cccc32e",
+      "worldMatrixMm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -299.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          61.001859125021554
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          166.48684332701598
+        ]
+      ],
+      "boundsMm": [
+        -317.2562501,
+        37.460937599999994,
+        180.0,
+        -280.7437499,
+        85.4828128,
+        196.04756485203757
+      ]
+    }
+  },
+  "deviceNeighbors": {
+    "Power distribution": {
+      "minBoundMm": 27.321932220263083,
+      "nearest": "Chassis battery plug",
+      "overlappingBoxes": []
+    },
+    "Control computer": {
+      "minBoundMm": 25.4153365795716,
+      "nearest": "Radio",
+      "overlappingBoxes": []
+    },
+    "Radio": {
+      "minBoundMm": 19.058516228164137,
+      "nearest": "proposed ring 4",
+      "overlappingBoxes": []
+    },
+    "Main 120 A breaker": {
+      "minBoundMm": 18.3029335210345,
+      "nearest": "proposed ring 0",
+      "overlappingBoxes": []
+    },
+    "starboard controller 1": {
+      "minBoundMm": 25.38811237567694,
+      "nearest": "proposed upper crossmember 110",
+      "overlappingBoxes": []
+    },
+    "starboard controller 2": {
+      "minBoundMm": 25.38811237567694,
+      "nearest": "proposed upper crossmember 110",
+      "overlappingBoxes": []
+    },
+    "starboard controller 3": {
+      "minBoundMm": 24.67500000000001,
+      "nearest": "proposed upper crossmember 250",
+      "overlappingBoxes": []
+    },
+    "starboard controller 4": {
+      "minBoundMm": 24.67500000000001,
+      "nearest": "proposed upper crossmember 250",
+      "overlappingBoxes": []
+    },
+    "port controller 1": {
+      "minBoundMm": 25.38811237567694,
+      "nearest": "proposed upper crossmember 110",
+      "overlappingBoxes": []
+    },
+    "port controller 2": {
+      "minBoundMm": 25.38811237567694,
+      "nearest": "proposed upper crossmember 110",
+      "overlappingBoxes": []
+    },
+    "port controller 3": {
+      "minBoundMm": 24.67500000000001,
+      "nearest": "proposed upper crossmember 250",
+      "overlappingBoxes": []
+    },
+    "port controller 4": {
+      "minBoundMm": 24.67500000000001,
+      "nearest": "proposed upper crossmember 250",
+      "overlappingBoxes": []
+    },
+    "Pan controller": {
+      "minBoundMm": 28.872456550318,
+      "nearest": "proposed upper crossmember 110",
+      "overlappingBoxes": []
+    },
+    "Chassis battery plug": {
+      "minBoundMm": 0.0,
+      "nearest": "Battery plug",
+      "overlappingBoxes": [
+        {
+          "id": "Battery plug",
+          "overlapXYZmm": [
+            36.51250019999998,
+            14.49375040000001,
+            16.047564852037567
+          ]
+        }
+      ]
+    },
+    "Battery plug": {
+      "minBoundMm": 0.0,
+      "nearest": "Chassis battery plug",
+      "overlappingBoxes": [
+        {
+          "id": "Chassis battery plug",
+          "overlapXYZmm": [
+            36.51250019999998,
+            14.49375040000001,
+            16.047564852037567
+          ]
+        }
+      ]
+    }
+  },
+  "gaugesMm": {
+    "largest battery parked": [
+      -241.5,
+      -39.0,
+      33.0,
+      -58.5,
+      39.0,
+      202.0
+    ],
+    "dressed battery and grip vertical 250mm": [
+      -255.0,
+      -60.0,
+      33.0,
+      -45.0,
+      60.0,
+      510.0
+    ],
+    "rearward carry after 250mm": [
+      -650.0,
+      -60.0,
+      283.0,
+      -45.0,
+      60.0,
+      510.0
+    ],
+    "full breaker above-hand corridor": [
+      -143.0,
+      233.0,
+      256.0,
+      -49.0,
+      315.0,
+      720.0
+    ],
+    "plug grip from above": [
+      -329.0,
+      27.0,
+      198.0,
+      -269.0,
+      115.0,
+      440.0
+    ]
+  },
+  "service": {
+    "largest battery parked": {
+      "minBoundMm": 39.24374990000001,
+      "nearest": "Battery plug",
+      "overlappingBoxes": []
+    },
+    "dressed battery and grip vertical 250mm": {
+      "minBoundMm": 25.74374990000001,
+      "nearest": "Battery plug",
+      "overlappingBoxes": []
+    },
+    "rearward carry after 250mm": {
+      "minBoundMm": 45.478764976371444,
+      "nearest": "Control computer",
+      "overlappingBoxes": []
+    },
+    "full breaker above-hand corridor": {
+      "minBoundMm": 25.00611105832014,
+      "nearest": "Power distribution",
+      "overlappingBoxes": []
+    },
+    "plug grip from above": {
+      "minBoundMm": 1.952435147962433,
+      "nearest": "Battery plug",
+      "overlappingBoxes": []
+    },
+    "SB50 matched source shell fit": {
+      "offsetSamplesMm": {
+        "-0.25": {
+          "commonMm3": 17.188885090252512
+        },
+        "0.0": {
+          "commonMm3": 0.0
+        },
+        "24.7": {
+          "separationLowerBoundMm": 10.206249599999992
+        }
+      },
+      "sourcePairReadbackSha256": "ec290825a2774fed81575b1a3e5849aa5d51d47624b51eec5a72128c344ad399",
+      "relativeCenterMm": [
+        0.0,
+        -33.5281248,
+        0.0
+      ],
+      "envelopeMm": [
+        -317.2562501,
+        12.760937599999995,
+        180.0,
+        -280.7437499,
+        85.4828128,
+        196.04756485203757
+      ],
+      "externalSweepBoundMm": 14.643749899999989,
+      "nearest": "proposed ring 2",
+      "externalObjectCount": 512,
+      "scope": "The corrected and short-mated positions are congruent to the two historical vendor BRep measurements. The endpoint is physically separated. The finite envelope bounds all external bodies across the stroke. Intermediate shell-to-shell release, contact springs, boots and the detached cable still need independent checks."
+    },
+    "otherDevicesVsLeads": {
+      "Power distribution terminal allowance": {
+        "minBoundMm": 3.7860151420475745,
+        "nearest": "Main 120 A breaker",
+        "overlappingBoxes": []
+      },
+      "Control computer terminal allowance": {
+        "minBoundMm": 25.4153365795716,
+        "nearest": "Radio",
+        "overlappingBoxes": []
+      },
+      "starboard controller 1 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "starboard controller 2 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "starboard controller 3 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "starboard controller 4 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "port controller 1 lead allowance": {
+        "minBoundMm": 1.8124987821347176,
+        "nearest": "Power distribution",
+        "overlappingBoxes": []
+      },
+      "port controller 2 lead allowance": {
+        "minBoundMm": 1.8124987821347176,
+        "nearest": "Power distribution",
+        "overlappingBoxes": []
+      },
+      "port controller 3 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "port controller 4 lead allowance": {
+        "minBoundMm": 24.67500000000001,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      },
+      "Pan controller lead allowance": {
+        "minBoundMm": 28.247444526009794,
+        "nearest": "proposed upper crossmember 110",
+        "overlappingBoxes": []
+      }
+    }
+  },
+  "negative": {
+    "plannedBattery": [
+      -245,
+      -40,
+      33,
+      -55,
+      40,
+      203
+    ],
+    "plannedCentralPanel": [
+      -175,
+      -150,
+      155,
+      175,
+      150,
+      235
+    ],
+    "overlapXYZmm": [
+      120,
+      80,
+      48
+    ],
+    "earlierFixedPlugBounds": [
+      -215.25625,
+      58.9890624,
+      180.0,
+      -178.74375,
+      107.0109376,
+      196.047565
+    ],
+    "earlierPlugVsLiftXYZmm": [
+      36.51249999999999,
+      1.0109375999999983,
+      16.04756499999999
+    ]
+  },
+  "scope": "Positions are prospective in iteration 002. Independent full-article world bounds give conservative positive separations. Overlapping boxes are unresolved unless a narrower geometric measurement is performed. The main breaker supplier file contains 16 open shells; there is no solid-contact inference. The separate breaker-access receipt checks a finite finger against the red trip button. The original once-issued battery method informs the 250 mm rise. New mounting brackets, battery retention, contacts and booted cable travel, rated cable bend radius, pan sweep and dressed wiring remain open. The small frame test did not install electronics in Fusion."
+}

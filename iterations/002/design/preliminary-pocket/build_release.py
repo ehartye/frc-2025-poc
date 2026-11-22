@@ -26,7 +26,8 @@ PLUGIN = Path(sys.argv[1]).resolve()
 REL = "cad/preliminary-design/releases/layout-002"
 R = ROOT / REL
 SRC = HERE.relative_to(ROOT).as_posix()
-PREVIOUS = "docs/preliminary-design/releases/layout-001/receipt.json"
+ISSUED_PREVIOUS = "docs/preliminary-design/releases/layout-001/receipt.json"
+PREVIOUS = f"{REL}/held-layout-001-receipt.json"     # the same bytes, kept with the inputs so a rerun finds it
 procs = sys.argv[sys.argv.index("--processes") + 1] if "--processes" in sys.argv else str(max(2, (os.cpu_count() or 4) - 2))
 view = sys.argv[sys.argv.index("--view") + 1] if "--view" in sys.argv else None
 py = sys.executable
@@ -53,13 +54,24 @@ if "--check-only" in sys.argv:
     print("status", new["status"], "| committed", old["status"], "| case results", "match" if same else "DIFFER")
     sys.exit(0 if same and new["status"] == "layout-checked" else 1)
 
-if R.exists():
-    shutil.rmtree(R)
-(R / "evidence").mkdir(parents=True)
-run(py, "-I", "-B", f"{SRC}/field_trials.py", f"{REL}/evidence/field-trials.json", "--processes", procs)
-run(py, "-I", "-B", f"{SRC}/structure_checks.py", f"{REL}/evidence/field-trials.json", f"{REL}/evidence/structure-checks.json")
-run(py, "-B", f"{SRC}/build_layout.py", ".", REL, PLUGIN / "scripts", f"{REL}/evidence/field-trials.json", stdout=subprocess.DEVNULL)
-run("node", f"{SRC}/design-inputs/revise-002.mjs", PLUGIN, f"{SRC}/design.json", f"{REL}/design.json")
+KEEP = {"evidence/field-trials.json", "evidence/structure-checks.json", "package.step", "field-fixtures.step", "layout-blocks.json", "design.json",
+        "held-layout-001-receipt.json"}
+if "--records-only" in sys.argv:
+    # Rewrite the records, plan and receipt from the trials, sizing, STEP files and design record already in the release folder.
+    for f in sorted(R.rglob("*"), reverse=True):
+        if f.is_file() and f.relative_to(R).as_posix() not in KEEP:
+            f.unlink()
+        elif f.is_dir() and not any(f.iterdir()):
+            f.rmdir()
+else:
+    if R.exists():
+        shutil.rmtree(R)
+    (R / "evidence").mkdir(parents=True)
+    shutil.copyfile(ROOT / ISSUED_PREVIOUS, ROOT / PREVIOUS)
+    run(py, "-I", "-B", f"{SRC}/field_trials.py", f"{REL}/evidence/field-trials.json", "--processes", procs)
+    run(py, "-I", "-B", f"{SRC}/structure_checks.py", f"{REL}/evidence/field-trials.json", f"{REL}/evidence/structure-checks.json")
+    run(py, "-B", f"{SRC}/build_layout.py", ".", REL, PLUGIN / "scripts", f"{REL}/evidence/field-trials.json", stdout=subprocess.DEVNULL)
+    run("node", f"{SRC}/design-inputs/revise-002.mjs", PLUGIN, f"{SRC}/design.json", f"{REL}/design.json")
 run(py, "-B", f"{SRC}/write_package.py", ".", PLUGIN / "scripts", REL, *([view] if view else []))
 check(f"{REL}/receipt.json", bool(view))
 print(json.loads((R / "receipt.json").read_text(encoding="utf-8"))["status"])

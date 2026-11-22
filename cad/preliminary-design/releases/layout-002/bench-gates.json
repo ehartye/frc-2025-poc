@@ -91,6 +91,18 @@
         "predicted": "pass"
       },
       "status": "open"
+    },
+    {
+      "id": "G7",
+      "name": "custody with the power off",
+      "test": "Nip drive unplugged from its controller. (a) Push a seated pipe through the nip with a force gauge, 5 times. (b) Stand the article nose-down (floor vertical, 1 g into the nip) with a pipe seated for 60 s, 5 times. (c) 8 g, 50 ms pulses into the nip, 20 times. Repeat (c) with the controller powered, disabled, in brake idle mode",
+      "pass_": "(a) every push-through force >= 61 N (model 71.8 N at 40 N/mm, 143.5 N at 80); (b) 5/5 stay seated; (c) 20/20 and 20/20 retained, pipe back on the seat (beam blocked) within 0.5 s",
+      "kill": "Any push-through force below 29 N (twice the 14.2 N stop load), any pipe out nose-down, or any loss in (c)",
+      "prediction": {
+        "model": "With the main power off the gearbox coasts and the pipe is held by the tread squeeze: 24/24 required cases retained over 40-160 N/mm (a 1.5 g stop for 0.5 s and an 8 g, 50 ms hit, main power off and brake idle mode), largest travel into the nip 3.79 mm. At 40 N/mm with the power off: sustained 6 g kept, 8 g lost; 50 ms hit 16 g kept, 24 g lost. Static push-through 71.8 N at 40 N/mm against a 14.2 N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g.",
+        "predicted": "pass inside the G0 band; the force in (a) is also the G0 stiffness cross-check"
+      },
+      "status": "open"
     }
   ],
   "measurementsFirst": [
@@ -98,5 +110,5 @@
     "PVC restitution on UHMW and on the tread",
     "Drive current through the squeeze at 9 V"
   ],
-  "decision": "G0-G3 and G5-G6 pass: carry B'x into detailed design. G1 or G3 fails inside the G0 band: keep the guarded-pan baseline A. G2 fails: revisit the lip or the ratio before A. G4 is a whole-robot gate and runs with the drivetrain."
+  "decision": "G0-G3 and G5-G7 pass: carry B'x into detailed design. G1, G3 or G7 fails inside the G0 band: keep the guarded-pan baseline A. G2 fails: revisit the lip or the ratio before A. G4 is a whole-robot gate and runs with the drivetrain."
 }

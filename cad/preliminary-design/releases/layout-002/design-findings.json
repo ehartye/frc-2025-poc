@@ -5,7 +5,7 @@
   "sources": [
     {
       "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
-      "sha256": "7e17fd48c26e0ca2b0f33c48ff14a7c43424eb6cf430bb21ab595b618479921e"
+      "sha256": "e2d1d20cc817a5df258134e2714e7ba504b028cc581383fdf26f76602bb10184"
     },
     {
       "file": "cad/preliminary-design/releases/layout-002/evidence/structure-checks.json",
@@ -13,7 +13,7 @@
     },
     {
       "file": "cad/preliminary-design/releases/layout-002/evidence/second-trip.json",
-      "sha256": "f0b2e56dd4d0755f37acd53ed60ae363aae08b37d9fb395b564d9b53ae3a1056"
+      "sha256": "1d2ccc56cb1ca1deea29e54b3cbdf1ef8dbd2d571b6f11e3a2ff5a9116b59d93"
     },
     {
       "file": "iterations/002/design/evaluation/evaluation.json",
@@ -34,6 +34,13 @@
       "was": "must self-lock against 4.10 N m; reducer unselected",
       "status": "closed by a design change",
       "now": "The worm is removed. Drive: REV NEO 550 through a REV MAXPlanetary 4:1 x 3:1 x 3:1 (36:1, 1/2 in hex socket), with a powered position hold. The worm stalls on treads of 110 N/mm and above (0/4), which would have capped the tread band at about 80; the planetary ejects 480/480 at 9-13 V. Lower ratios overspeed the roll-off, so 36:1 is the ratio. Disabled, the back-drivable nip still seats 4/4 receives and holds 18/18 sled pulses. Peak shaft torque 8.956 N m against a 180 N m class gearbox rating; the hold reaches its 30 A limit on the receive impact."
+    },
+    {
+      "id": "PD17",
+      "item": "Custody with the power off",
+      "was": "layout-001 relied on the worm's self-lock; with the worm removed, 18 disabled sled pulses were the only evidence",
+      "status": "closed by trial and a control setting; bench gate G7",
+      "now": "With the main power off the gearbox coasts and the pipe is held by the tread squeeze: 24/24 required cases retained over 40-160 N/mm (a 1.5 g stop for 0.5 s and an 8 g, 50 ms hit, main power off and brake idle mode), largest travel into the nip 3.79 mm. At 40 N/mm with the power off: sustained 6 g kept, 8 g lost; 50 ms hit 16 g kept, 24 g lost. Static push-through 71.8 N at 40 N/mm against a 14.2 N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g. The nip controller is set to brake idle mode, which holds further while the controller is powered (16 g kept, 24 g lost for a 50 ms hit at 40 N/mm) but is not credited with the breaker off. Limit: at 40 N/mm with the power off the pipe is pushed through by 8 g sustained or a 24 g hit; it then rolls out over the lip. No lock, detent or gate is added."
     },
     {
       "id": "PD11",

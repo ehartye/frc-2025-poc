@@ -10,8 +10,8 @@ cad/preliminary-design/releases/layout-002 and already holds design.json, packag
 layout-blocks.json (build_layout.py), evidence/field-trials.json (field_trials.py) and evidence/structure-checks.json
 (structure_checks.py). Every pin is project-relative.
 
-Every mission case's pipe and flap motion is a chord of a solved trial trace (receive-mission and eject-nominal in
-field-trials.json): the trace is reduced to straight strokes that stay within CHORD_TOL of it, split at each change of
+Every mission case's pipe and flap motion is a chord of a solved trial trace (receive-mission, custody-power-off-hit and
+eject-nominal in field-trials.json): the trace is reduced to straight strokes that stay within CHORD_TOL of it, split at each change of
 support, and each case records its trace window and its largest deviation. Only the lip deploy (a hinge rotation, timed
 by structure-checks.json L8) and the final park drive are prescribed, and they say so.
 """
@@ -285,6 +285,12 @@ SPEC = dict(
               mechanisms=["pocket tray", "check flap", "lower nip roller", "upper nip roller"],
               drive={"pocket tray": TRAY, "check flap": FLAPD, "lower nip roller": HOLD, "upper nip roller": HOLD + ", through the coupling belt"},
               what="The robot is stopped; the pipe settles on its carry seat and the seated-pipe beam is blocked.", basis="The pipe settles in the bite of the held nip"),
+    poweroff=dict(kind="transport", label="Hit with the main power off", contacts=["Pocket tray"],
+                  mechanisms=["pocket tray", "lower nip roller", "upper nip roller"],
+                  drive={"pocket tray": TRAY, "lower nip roller": "Unpowered: the 6 mm tread squeeze holds the pipe and the coasting gearbox adds only its inertia",
+                         "upper nip roller": "Unpowered, coupled to the lower shaft by the belt"},
+                  what="Carrying with the main power off, the robot is hit: 8 g for 50 ms drives the pipe into the unpowered nip; the squeeze stops it and returns it to the seat.",
+                  basis="The pipe climbs part of the tread squeeze and rolls back to its seat with no power on the nip"),
     nip=dict(kind="transport", label="Driven through the nip", contacts=["Pocket tray"], mechanisms=["lower nip roller", "upper nip roller"],
              drive={"lower nip roller": "NEO 550 through the MAXPlanetary 36:1 at 12 V open loop, 30 A limit",
                     "upper nip roller": "Counter-rotated from the lower shaft by the coupling belt"},
@@ -323,6 +329,11 @@ n_rec = trace_cases("receive", "receive-mission", rec_pts,
                      ("pocket", i_flap, i_closed, SPEC["pocket"]), ("captive", i_closed, i_go, SPEC["captive"]), ("drive-away", i_go, i_brake, SPEC["away"]),
                      ("brake", i_brake, i_stop, SPEC["brake"]), ("seat", i_stop, len(rec_pts) - 1, SPEC["seat"])], fixtures=(station,), snap_end=SEAT)
 assert state[pipe] == SEAT and state[flap] == 0.0, state
+CUH = play("custody-power-off-hit")
+assert CUH["outcome"] == "retained" and CUH["nipState"] == "main power off" and math.dist(SEAT, CUH["trace"][0][1:3]) < 0.2, CUH["outcome"]
+cu_pts = [(q[0], q[1], q[2], q[4]) for q in CUH["trace"]]
+n_cu = trace_cases("carry", "custody-power-off-hit", cu_pts, [("power-off-hit", 0, len(cu_pts) - 1, SPEC["poweroff"])], fixtures=(station,), snap_end=SEAT)
+assert state[pipe] == SEAT and state[flap] == 0.0, state
 ej_all = [(q[0], q[1] - q[5], q[2], 0.0, q[5]) for q in EJN["trace"]]
 i_wd = first_index(ej_all, lambda q: q[4] != 0.0) - 1
 ej_pts = [q[:4] for q in ej_all[:i_wd + 1]]
@@ -351,31 +362,61 @@ QUAL = {
                   dict(input="lip tip beyond the frame line at 100 mm stand-off", unit="mm", passing=100, failing=72)],
         timestep=dict(coarseS=trials["dtS"], fineS=TS_["eject-nominal"]["dtS"], sameOutcome=TS_["eject-nominal"]["sameOutcome"])),
 }
+CU = S["custody"]
+OFF, DEC = "main power off", "control: rollers decoupled from the drive"
+CU_CONTROL = play("custody-control-decoupled-soft")
+soft = str(int(S["bandNmm"][0]))
+QUAL["custody-power-off-hit"] = dict(
+    result="pass",
+    control=dict(condition=f"Rollers decoupled from the drive on a 20 N/mm tread (below the band), same 8 g hit: {CU_CONTROL['outcome']}", rejected=True),
+    brackets=[dict(input=f"50 ms hit into the nip, main power off, {soft} N/mm tread", unit="g", passing=CU["hitLimitsG"][OFF][soft]["largestRetainedG"],
+                   failing=CU["hitLimitsG"][OFF][soft]["smallestLostG"]),
+              dict(input=f"0.5 s deceleration into the nip, main power off, {soft} N/mm tread", unit="g", passing=CU["sustainedLimitsG"][OFF][soft]["largestRetainedG"],
+                   failing=CU["sustainedLimitsG"][OFF][soft]["smallestLostG"]),
+              dict(input="tread stiffness per roller, rollers decoupled, 8 g hit", unit="N/mm", passing=40, failing=20)],
+    timestep=dict(coarseS=trials["dtS"], fineS=TS_["custody-power-off-hit"]["dtS"], sameOutcome=TS_["custody-power-off-hit"]["sameOutcome"]))
+assert CU_CONTROL["outcome"] != "retained" and CU["powerOffRequired"]["ok"] == CU["powerOffRequired"]["n"] > 0, CU["powerOffRequired"]
+assert all(b["passing"] is not None and b["failing"] is not None for b in QUAL["custody-power-off-hit"]["brackets"])
+assert CU["hitLimitsG"][DEC]["40"]["largestRetainedG"] >= 8.0 and CU["hitLimitsG"][DEC]["20"]["smallestLostG"] == 8.0
+assert CU["sustainedLimitsG"][OFF][soft]["largestRetainedG"] >= 2 * CU["required"]["stepG"] and CU["hitLimitsG"][OFF][soft]["largestRetainedG"] >= CU["required"]["pulseG"]
+assert all(TS_[i]["sameOutcome"] for i in TS_ if i.startswith("custody-")), [i for i in TS_ if i.startswith("custody-") and not TS_[i]["sameOutcome"]]
 assert all(q["timestep"]["sameOutcome"] for q in QUAL.values())
 assert S["goNoFlap"]["ok"] == 0 and S["latchFailed"]["ok"] == 0 and S["standOff125"]["ok"] < S["standOff125"]["n"]
 RECEIVE_IDS = [c for c in cycle if c.startswith("receive-")]
 EJECT_IDS = [c for c in cycle if c.startswith("eject-")]
+CARRY_IDS = [c for c in cycle if c.startswith("carry-")]
 MISSION = dict(acquired=next(c for c in RECEIVE_IDS if c.endswith("-seat") and c == RECEIVE_IDS[-1]), delivered=EJECT_IDS[-1],
                ejectLoaded=next(c for c in EJECT_IDS if "-lip" in c))
 
-# service cases start from the installed (carry-configuration) assembly: pipe at its carry seat, lip deployed
+# service cases start from the installed (carry-configuration) assembly: pipe at its carry seat, lip deployed.
+# An extraction ends clear of the box around everything left in the scene. The three field fixtures are in every
+# case's roster, so that box reaches the top of the station chute and each lift goes above it.
+SCENE_TOP = max(by_name[n]["boundsMm"][5] for n in by_name)
+lift_clear = lambda names: math.ceil((SCENE_TOP - min(by_name[n]["boundsMm"][2] for n in names) + 20.0) / 10.0) * 10.0
 PIV = (SEAT[0] + 250.0 * math.sin(math.radians(pg.FLOOR_DEG)), SEAT[1] + 250.0 * math.cos(math.radians(pg.FLOOR_DEG)))
 HOOD_SET = [hood, flap, FLAP_SW]
+HOOD_LIFT = lift_clear(HOOD_SET)
+_pz = ft.rot_xz(SEAT, PIV, 110.0)[1]
+PIPE_LIFT = math.ceil((SCENE_TOP - (_pz - R) + 20.0) / 10.0) * 10.0
 hood_removed = {n: "service-hood-lift" for n in HOOD_SET}
 cases.append(dict(id="service-hood-lift", stage="service", minGapMm=GAP,
-                  basis="Pit unload, step 1: release the thumb screws and lift the hood, with the check flap on its pin and the flap-closed switch on its top, 320 mm clear of the whole robot",
-                  moves={n: [tr3([0, 0, 320])] for n in HOOD_SET}, extract=HOOD_SET))
+                  basis=f"Pit unload, step 1: release the thumb screws and lift the hood, with the check flap on its pin and the flap-closed switch on its top, {HOOD_LIFT:.0f} mm: "
+                        "clear of the whole robot after 320 mm and of the checked scene's box, which includes the station chute fixture, at the end",
+                  moves={n: [tr3([0, 0, HOOD_LIFT])] for n in HOOD_SET}, extract=HOOD_SET))
 cases.append(dict(id="service-unload-pipe", stage="service", minGapMm=GAP,
                   basis="Pit unload, step 2: roll the unscored pipe back up the floor and lift it out on one hand arc "
-                        "(110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot",
-                  removed=dict(hood_removed), moves={pipe: [rot(PIV, 110.0)]}, extract=[pipe], maxDepth=11))
+                        f"(110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot, then {PIPE_LIFT:.0f} mm straight up "
+                        "out of the checked scene's box",
+                  removed=dict(hood_removed), moves={pipe: [rot(PIV, 110.0), tr3([0, 0, PIPE_LIFT])]}, extract=[pipe], maxDepth=11))
 cassette = by_group["nip side plates"] + by_group["lower nip roller"] + by_group["upper nip roller"] + by_group["nip drive"] + \
     by_group["nip coupling"] + by_group["lip latch"] + by_group["exit lip"] + by_group["lip sensor"] + by_group["pipe sensor"] + by_group["reef sensor"]
+CASSETTE_LIFT = lift_clear(cassette)
 cases.append(dict(id="service-nip-cassette-lift", stage="service", minGapMm=GAP,
                   basis="With the hood and pipe out, unbolt the two side plates from the upper stringers and lift the nip "
-                        "cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) 480 mm, clear of the inlet walls",
+                        f"cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) {CASSETTE_LIFT:.0f} mm: clear of the inlet walls after 480 mm "
+                        "and of the checked scene's box at the end",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}),
-                  moves={n: [tr3([0, 0, 480])] for n in cassette}, extract=cassette))
+                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette))
 cases.append(dict(id="service-lip-restow", stage="service", minGapMm=GAP,
                   basis="Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, pg.LIP_STOW_DEG)]}, maxDepth=11))
@@ -389,6 +430,7 @@ cases.append(dict(id="service-battery-lift", stage="service", minGapMm=GAP,
 cases.append(dict(id="service-battery-rear-carry", stage="service", minGapMm=GAP,
                   basis="Continue from the 250 mm lift rearward under the inlet chute and over the rear bumper until clear",
                   initialPose={"Dressed battery": [tr3([0, 0, 250.0])]}, moves={"Dressed battery": [tr3([-420.0, 0, 0])]}))
+PIT_CASES = ("service-battery-rear-carry",)       # the battery leaves over the rear bumper, where the station stands when docked
 cases.append(dict(id="service-plug-disconnect", stage="service", minGapMm=GAP, basis="A hand reaches down to grip the SB50 pair from above",
                   moves={"Plug grip hand": [tr3([0, 0, 199.1 - 455.0])]}))
 cases.append(dict(id="service-breaker-reset", stage="service", minGapMm=GAP, basis="A hand reaches the CB185 reset button outboard of the pocket walls",
@@ -398,6 +440,10 @@ cases.append(dict(id="service-breaker-reset", stage="service", minGapMm=GAP, bas
 # ahead of it at the reef. They are 950 mm apart in the robot frame and never interact.
 for c in cases:
     c["fixtures"] = [FIX[f] for f in (station, trough, first_pipe)]
+    if c["id"] in PIT_CASES:
+        # In the pit there is no station behind the robot. The roster must still list it, so it starts 1500 mm away.
+        c["initialPose"] = dict(c.get("initialPose", {}), **{station: [tr3([-1500.0, 0, 0])]})
+        c["basis"] += ". In the pit no station stands behind the robot: the station fixture, which every case must list, starts 1500 mm rearward"
 by_case = {c["id"]: c for c in cases}
 
 # ------------------------------------------------------------------ evidence bound to each trial-driven case
@@ -526,7 +572,7 @@ for g in ("electronics", "wiring"):
         mounts.append(dict(group=g, on=h, pointMm=clamp_point(n, h), basis="Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"))
 
 # ------------------------------------------------------------------ budgets (same basis as the pan baseline)
-mass = read("artifacts/resume-20261121/mass-01/mass-study.json")
+mass = read("iterations/artifacts/resume-20261121/mass-01/mass-study.json")
 line = {r["id"]: r["kg"] for r in mass["ledger"]["lines"]}
 growth = {r["item"]: r["kg"] for r in mass["ledger"]["growth"]}
 gw = lambda *ids: sum(growth[i] for i in ids)
@@ -579,11 +625,14 @@ station_l = dict(drive=[0, 10], steer=[0, 4], nip=[0, 30], latch=[0, 0.2], contr
 moving = dict(drive=[0, 52], steer=[0, 20], nip=[0, 5], latch=[0, 0.2], controls=[3, 6.6])
 eject = dict(drive=[0, 10], steer=[0, 4], nip=[0, 30], latch=[0, 0.2], controls=[3, 6.6])
 start = dict(drive=[0, 10], steer=[0, 4], nip=[0, 0], latch=[0, 1.5], controls=[3, 6.6])
+unpowered = dict(drive=[0, 0], steer=[0, 0], nip=[0, 0], latch=[0, 0], controls=[0, 6.6])
 
 
 def loads_for(cid):
     if cid == "lip-deploy":
         return start
+    if cid.startswith("carry-"):
+        return unpowered
     if cid == "withdraw-park" or "-drive-away" in cid or "-brake" in cid:
         return moving
     return eject if cid.startswith("eject-") else station_l
@@ -594,8 +643,9 @@ packs = {"nominal": ([11.8, 12.4], [0.025, 0.027]), "weak": ([11.8, 11.8], [0.03
 duty = {"start": "Release the lip latch at match start (servo stall 1.5 A, robot stationary)",
         "station": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
         "moving": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
-        "eject": "Run the nip under its 30 A limit while docked at the reef"}
-kind = {id(start): "start", id(station_l): "station", id(moving): "moving", id(eject): "eject"}
+        "eject": "Run the nip under its 30 A limit while docked at the reef",
+        "unpowered": "Carry a seated pipe with every motor output off: main power off (0 A) or disabled with only the controls drawing"}
+kind = {id(start): "start", id(station_l): "station", id(moving): "moving", id(eject): "eject", id(unpowered): "unpowered"}
 commissioned, electrical = {}, {}
 for st_ in cycle:
     for cond, (voc, res) in packs.items():
@@ -715,6 +765,20 @@ second_trip = write(f"{REL}/evidence/second-trip.json", dict(
             "needs the sector-B dock inside the lateral budget; with it, the second delivery is the first delivery's physics (the trial is planar).",
     limits="The sector divider panel, pipe yaw and pipe-end contact are not modelled; G4 measures the lateral dock scatter"))
 
+# ------------------------------------------------------------------ custody with the power off
+BK = {k: v for k, v in CU["staticBarrier"].items()}
+STOP_LOAD_N = round(pg.PIPE_MASS * ft.G * (CU["required"]["stepG"] + math.sin(math.radians(pg.FLOOR_DEG))), 1)   # 1.5 g stop plus the floor slope
+PUSH_PASS_N = math.floor(0.85 * BK[soft]["peakForceN"])          # 85 % of the model's push-through force at the softest accepted tread
+PUSH_FAIL_N = math.ceil(2 * STOP_LOAD_N)                         # a suddenly applied stop load can reach twice its static value
+lim = lambda table, state, k: f"{table[state][k]['largestRetainedG']:g} g kept, {table[state][k]['smallestLostG']:g} g lost" \
+    if table[state][k]["smallestLostG"] is not None else f"{table[state][k]['largestRetainedG']:g} g kept (largest run)"
+POWER_OFF_TEXT = (
+    f"With the main power off the gearbox coasts and the pipe is held by the tread squeeze: {frac(CU['powerOffRequired'])} required cases retained over "
+    f"{S['bandNmm'][0]:.0f}-{S['bandNmm'][-1]:.0f} N/mm (a {CU['required']['stepG']} g stop for {CU['required']['stepS']} s and an {CU['required']['pulseG']:.0f} g, 50 ms hit, "
+    f"main power off and brake idle mode), largest travel into the nip {CU['maxForwardMmRequired']} mm. At {soft} N/mm with the power off: sustained "
+    f"{lim(CU['sustainedLimitsG'], OFF, soft)}; 50 ms hit {lim(CU['hitLimitsG'], OFF, soft)}. Static push-through {BK[soft]['peakForceN']} N at {soft} N/mm "
+    f"against a {STOP_LOAD_N} N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g.")
+
 # ------------------------------------------------------------------ premise measurements
 rules = blocks["rules"]
 G2 = [r for r in EJ if r["label"] == "G2 eject"]
@@ -733,6 +797,7 @@ measure = write(f"{REL}/evidence/premise-measurements.json", dict(
     ejectCaptureStandOffMaxMm=capture_max,
     lateralDockErrorLimitMm=LATERAL_LIMIT,
     treadStiffnessNominalNmm=S["nominalNmm"],
+    powerOffSustainedG=CU["sustainedLimitsG"][OFF][soft]["largestRetainedG"],
     inspectionHeavyKg=total[1],
     weakPackMinBusV=weak_min,
     electronicsMinClearanceMm=elec_min[0],
@@ -751,6 +816,8 @@ measure = write(f"{REL}/evidence/premise-measurements.json", dict(
                              note="flap closed behind the pipe, rest-release and pushed feeds, plus the 50 ms switch latency"),
         ejectCaptureStandOffMaxMm=dict(source=trials_pin, field="largest stand-off s with every G2 eject at s and below captured and supported 2 s"),
         lateralDockErrorLimitMm=dict(source=second_trip, field="lateralDockErrorLimitMm", note="allocated control requirement, not a measurement"),
+        powerOffSustainedG=dict(source=trials_pin, field=f"summary.custody.sustainedLimitsG['main power off']['{soft}'].largestRetainedG",
+                                note="largest 0.5 s deceleration into the nip that every run at the softest trialled tread retains with the main power off"),
         treadStiffnessNominalNmm=dict(source=trials_pin, field="summary.nominalNmm", note="design nominal; no supplier publishes it and bench gate G0 measures it"),
         inspectionHeavyKg=dict(source=budgets, field="sum of masses[].kg upper"),
         weakPackMinBusV=dict(source=budgets, field="min over cycle stages of weak Voc - sum(upper source A) x R"),
@@ -761,7 +828,7 @@ measure = write(f"{REL}/evidence/premise-measurements.json", dict(
         ejectInterlock=dict(source=ruling, field="rulings[1].interlock", note="control requirement recorded by the G412 ruling"),
         selectedArchitecture=dict(source=pin("iterations/002/design/evaluation/evaluation.json"), field="recommendation.select"),
         chassisInterface=dict(source=pin("iterations/002/design/cad/fusion-authority.json"), field="registered revision"),
-        seatedClampScrews=dict(source=pin("artifacts/resume-20261121/screws-place-01/native-receipt.json"), field="status"),
+        seatedClampScrews=dict(source=pin("iterations/artifacts/resume-20261121/screws-place-01/native-receipt.json"), field="status"),
         electronicsPlacements=dict(source=pin("iterations/002/design/chassis/inset-electrical-package.json"), field="candidatePlacements"))))
 
 RULES = pin("experiments/six-wheel/kickoff/rule-register-v0.json")
@@ -796,9 +863,13 @@ premise_specs = [
      f"Receive seats {frac(S['g1'])} and eject captures {frac(S['g2'])} over 40-160 N/mm; receive fails at 10 N/mm ({frac(S['receiveStiffnessBracket']['10'])}) "
      f"and the drive stalls at 240 N/mm ({frac(S['ejectStiffnessBracket']['240'])}). The bench band stops at 120 N/mm so the steel shafts stay within a "
      "quarter of the squeeze (structure-checks.json S2)"),
+    ("power-off-custody", "preliminary-design", "g", {"range": [2 * CU["required"]["stepG"], 1000.0]}, NIP + ["nip drive", "pocket tray", "pipe"],
+     "Seated pipe with the main power off: largest 0.5 s deceleration into the nip retained at the softest accepted tread", "powerOffSustainedG", trials_pin,
+     f"A robot that is not driving stops no harder than its tyres grip, taken as {CU['required']['stepG']} g; the limit is twice that because a suddenly "
+     "applied load can reach twice its static value. " + POWER_OFF_TEXT),
     ("inspection-mass", "preliminary-design", "kg", {"range": [0.0, mass["rule"]["limitKg"]]}, robot_groups,
      "R103 heavy single-contingency estimate of the inspected configuration", "inspectionHeavyKg",
-     pin("artifacts/resume-20261121/mass-01/mass-study.json"), "Heavy estimate at or under 115 lb"),
+     pin("iterations/artifacts/resume-20261121/mass-01/mass-study.json"), "Heavy estimate at or under 115 lb"),
     ("weak-pack-voltage", "preliminary-design", "V", {"range": [9.0, 13.0]}, ["nip drive", "steer sweeps", "electronics", "battery"],
      "Every cycle stage on the weak 11.8 V / 32 mOhm pack at the conservative simultaneous current", "weakPackMinBusV",
      pin("iterations/002/design/strategy/drive-envelope.json"), "Lumped bus stays at or above the 9 V project branch floor"),
@@ -830,7 +901,7 @@ premise_specs = [
      "loads or a lighter structure need other landings, if the bumper outline must change, or if a fresh frame serves the pocket better"),
     ("seated-clamp-screws", "preliminary-design", "fit", {"equals": "four 91251A542 seated in UNC-2B taps"}, ["structure"],
      "Four tapped nutbar holes and seated 1/4-20 x 1 in screws as a revisable premise", "seatedClampScrews",
-     pin("artifacts/resume-20261121/screws-place-01/native-receipt.json"),
+     pin("iterations/artifacts/resume-20261121/screws-place-01/native-receipt.json"),
      "Retained with the chassis; preload, thread phase and service travel remain open"),
     ("electronics-placements", "preliminary-design", "placement", {"equals": "552-r5 prospective placements"}, ["electronics", "wiring", "battery", "battery retention"],
      "Electronics, wiring, battery tray and battery service paths carried from the pan baseline as revisable premises", "electronicsPlacements",
@@ -1087,7 +1158,7 @@ carry = write(f"{REL}/chassis-carry-forward.json", dict(
            "chassis evidence (six issues, occupied-shape closeout, seated screws) is the deepest the project has. Carrying it lets this "
            "package test the scoring mechanism alone; it is not a constraint on the Fusion design.",
     evidence=[pin("iterations/002/design/cad/fusion-authority.json"), pin("iterations/002/design/cad/issue-006/lineage.json"),
-              pin("artifacts/resume-20261121/screws-place-01/native-receipt.json"), pin(blocks["inputs"]["chassisStep"]["file"])]))
+              pin("iterations/artifacts/resume-20261121/screws-place-01/native-receipt.json"), pin(blocks["inputs"]["chassisStep"]["file"])]))
 
 seat_g = math.sin(math.radians(pg.FLOOR_DEG))
 iso_gs = S["sledIso"]
@@ -1102,8 +1173,12 @@ retention = write(f"{REL}/retention-review.json", dict(
               pushBack=["floor (UHMW face)", "lower and upper treads under the powered hold (front)", "hood 10 mm above (up)",
                         "check flap and its rear stop (rear)", "side walls 10.2 mm from the pipe ends (+/-Y)"]),
     sweepsFromSeat=sweeps,
-    powerOff=dict(holder="None needed: with the robot disabled the nip is back-drivable through the 36:1 gearbox and the reflected motor inertia; "
-                         "the pipe must still climb the 12 mm squeeze to leave",
+    powerOff=dict(holder="The tread squeeze: to leave forward the pipe must climb the 12 mm squeeze, which needs no power. The 36:1 gearbox is back-drivable "
+                         "and adds only its reflected inertia; brake idle mode adds damping while the controller is powered. Rearward the check flap's stop holds.",
+                  summary=POWER_OFF_TEXT, required=CU["required"], requiredBasis=CU["requiredBasis"], requiredCases=CU["powerOffRequired"],
+                  requiredByNipState=CU["requiredByState"], belowBand20NmmByNipState=CU["belowBandRequired"], towardFlap=CU["towardFlap"],
+                  sustainedLimitsG=CU["sustainedLimitsG"], hitLimitsG=CU["hitLimitsG"], staticBarrier=CU["staticBarrier"], stopLoadN=STOP_LOAD_N,
+                  atRest20s=dict(CU["atRest"], finalOffsetMm=CU["atRestFinalOffsetMm"]), treadRestitutionSensitivity=CU["restitution"],
                   sled=S["g3Disabled"], receive=S["receiveIso"]["control: robot disabled (rollers back-drivable)"], eject=S["ejectDisabled"],
                   escapeControl=dict(case="sled-isolation-no-flap and receive-and-go-no-flap (field-trials.json playback)",
                                      result=f"check flap removed: 8 g toward the inlet from a gently settled seat {frac(iso_gs['isolation: no check flap, gently settled seat']['8'])} "
@@ -1124,6 +1199,7 @@ retention = write(f"{REL}/retention-review.json", dict(
              "per roller. No supplier publishes it; G0 measures the installed stack and sets the wheel count."),
         dict(id="RR2", status="bench gate G3", text="Carry custody rests on the flap for rearward loads and the powered hold and squeeze for forward loads; "
              f"model: {frac(S['g3'])} powered and {frac(S['g3Disabled'])} disabled sled cases retained at 1-8 g."),
+        dict(id="RR4", status="closed by trial; bench gate G7", text=POWER_OFF_TEXT),
         dict(id="RR3", status="closed in this layout; bench gate G5", text="Seated-pipe beam, flap-closed switch, lip-deployed switch and reef range sensor are selected and placed."),
     ]))
 
@@ -1142,6 +1218,12 @@ findings = write(f"{REL}/design-findings.json", dict(
                  f"planetary ejects {frac(S['g2'])} at 9-13 V. Lower ratios overspeed the roll-off, so 36:1 is the ratio. Disabled, the back-drivable nip still "
                  f"seats {frac(S['receiveIso']['control: robot disabled (rollers back-drivable)'])} receives and holds {frac(S['g3Disabled'])} sled pulses. Peak shaft "
                  f"torque {S['g2ShaftDemandNm']} N m against a 180 N m class gearbox rating; the hold reaches its 30 A limit on the receive impact."),
+        dict(id="PD17", item="Custody with the power off", was="layout-001 relied on the worm's self-lock; with the worm removed, 18 disabled sled pulses were the only evidence",
+             status="closed by trial and a control setting; bench gate G7",
+             now=POWER_OFF_TEXT + " The nip controller is set to brake idle mode, which holds further while the controller is powered "
+                 f"({lim(CU['hitLimitsG'], 'disabled, brake idle mode', soft)} for a 50 ms hit at {soft} N/mm) but is not credited with the breaker off. "
+                 f"Limit: at {soft} N/mm with the power off the pipe is pushed through by {CU['sustainedLimitsG'][OFF][soft]['smallestLostG']:g} g sustained or a "
+                 f"{CU['hitLimitsG'][OFF][soft]['smallestLostG']:g} g hit; it then rolls out over the lip. No lock, detent or gate is added."),
         dict(id="PD11", item="Receive seat time", was="0.543 s slowest, 0.145-0.689 s with contact stiffness, against 1.0 s (cycle) and 0.5 s (bench target)",
              status="closed by a control change; bench gate G1",
              now=f"The dwell is the captive time: flap closed behind the pipe, {S['g1CaptiveS'][0]}-{max(S['g1CaptiveS'][1], S['pushedCaptiveS'][1])} s after it passes the flap, "
@@ -1223,9 +1305,16 @@ bench = write(f"{REL}/bench-gates.json", dict(
         gate("G6", "lip stop and frontal hit", "Static: pipe on the tip, measure sag. Drop the pipe 60 mm onto the land 20 times. Push the tip rearward with 300 N, 50 times; then drive the bench cart into a wall at 1 m/s, 5 times",
              f"Sag <= 3 mm (model {SC['L2']['value']:.2f} mm); the lip folds behind the bumper face and returns within 1 mm every time; no crack; deploy within 1.0 s of release (model {struct['lip']['deployS']} s)",
              "Any permanent set over 1 mm or any crack", f"landing {SC['L3']['value']:.1f} MPa, frontal {SC['L5']['value']:.1f} MPa against 62 MPa yield; rigid-stop control {SC['L5-control']['value']:.0f} MPa", "pass"),
+        gate("G7", "custody with the power off", "Nip drive unplugged from its controller. (a) Push a seated pipe through the nip with a force gauge, 5 times. (b) Stand the article "
+             "nose-down (floor vertical, 1 g into the nip) with a pipe seated for 60 s, 5 times. (c) 8 g, 50 ms pulses into the nip, 20 times. Repeat (c) with the "
+             "controller powered, disabled, in brake idle mode",
+             f"(a) every push-through force >= {PUSH_PASS_N} N (model {BK[soft]['peakForceN']} N at {soft} N/mm, {BK['80']['peakForceN']} N at 80); (b) 5/5 stay seated; "
+             "(c) 20/20 and 20/20 retained, pipe back on the seat (beam blocked) within 0.5 s",
+             f"Any push-through force below {PUSH_FAIL_N} N (twice the {STOP_LOAD_N} N stop load), any pipe out nose-down, or any loss in (c)",
+             POWER_OFF_TEXT, "pass inside the G0 band; the force in (a) is also the G0 stiffness cross-check"),
     ],
     measurementsFirst=["G0: installed tread stiffness and the three friction coefficients", "PVC restitution on UHMW and on the tread", "Drive current through the squeeze at 9 V"],
-    decision="G0-G3 and G5-G6 pass: carry B'x into detailed design. G1 or G3 fails inside the G0 band: keep the guarded-pan baseline A. G2 fails: revisit the lip "
+    decision="G0-G3 and G5-G7 pass: carry B'x into detailed design. G1, G3 or G7 fails inside the G0 band: keep the guarded-pan baseline A. G2 fails: revisit the lip "
              "or the ratio before A. G4 is a whole-robot gate and runs with the drivetrain."))
 
 choice = write(f"{REL}/iteration-choice.json", dict(
@@ -1253,7 +1342,8 @@ narrative = dict(
                    "weak-pack voltage premise. A frontal hit on the lip is the sprung-stop case service-lip-over-travel. Peer routing itself is a field-rehearsal question."),
         dict(objective="Sustain a deliverable load: keep custody when accelerating, braking or contacted, and detect displacement or loss",
              disposition="represented", basis=f"Sled trials: powered {frac(S['g3'])}, disabled {frac(S['g3Disabled'])} retained; the seated-pipe beam, flap-closed switch and "
-                   "lip-deployed switch are selected and placed. Physical retention and detection are bench gates G3 and G5."),
+                   f"lip-deployed switch are selected and placed. Power off: case {CARRY_IDS[0]} follows the custody-power-off-hit trial; {frac(CU['powerOffRequired'])} required "
+                   "stop and hit cases retained on the squeeze alone. Physical retention and detection are bench gates G3, G5 and G7."),
         dict(objective=OBJ_DELIVER, disposition="represented",
              basis=f"Cases {EJECT_IDS[0]} to {EJECT_IDS[-1]} follow the eject-nominal trial into the placed trough; G2 ejects {frac(S['g2'])} captured and supported 2 s after a "
                    "120 mm withdrawal at every 0-100 mm stand-off, with latch-failed, disabled, lip-removed, short-lip and 125 mm controls."),
@@ -1276,7 +1366,7 @@ for mnt in mounts:
         if n not in support:
             support[n] = f"On {mnt['on']} at ({mnt['pointMm'][0]:.0f}, {mnt['pointMm'][1]:.0f}, {mnt['pointMm'][2]:.0f}) mm: {mnt['basis']}"
 for n in by_group["pipe"]:
-    support[n] = "Moved by contact (tray, flap, held or driven rollers, lip) or free, along the receive-mission and eject-nominal trial traces"
+    support[n] = "Moved by contact (tray, flap, held or driven rollers, lip) or free, along the receive-mission, custody-power-off-hit and eject-nominal trial traces"
 for g_ in ("breaker service hand", "plug service hand"):
     for n in by_group[g_]:
         support[n] = "Service gauge (a hand, not a robot part): no mount by design"
@@ -1303,8 +1393,9 @@ presentation = dict(
            "envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
            "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand "
            "formula (structure-checks.json), not finite elements.",
-           "Bench gates G0-G6 are recorded with pass and fail numbers and are all open; no bench article exists. The guarded-pan baseline A is the fallback if "
-           "G1 or G3 fails.",
+           "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review.",
+           "Bench gates G0-G7 are recorded with pass and fail numbers and are all open; no bench article exists. The guarded-pan baseline A is the fallback if "
+           "G1, G3 or G7 fails.",
            "Rules: read from the final 2025 manual; the project register is the kickoff V0 packet and the V0 archive could not be re-read on 2026-11-22."],
     components=components, required=required, loadMembers=load_members, loadPaths=support,
     runningAdditions=[dict(name="one-colour bumpers", kg=[7.5, 7.5], members=["Bumper ring"]), dict(name="battery", kg=[6.17, 6.17], members=["Dressed battery"]),
@@ -1340,6 +1431,12 @@ risks = [
          **bt("Displaced or missing pipes flagged within 50 ms; range error; eject commands accepted at 150 mm or beyond", "all flagged; within 15; 0", "any missed loss or any eject accepted beyond 150 mm", "mm")),
     dict(id="bench-G6", risk="Lip sag, landing and frontal hit on the sprung stop",
          **bt("Tip sag under the pipe; permanent set after 50 pushes of 300 N and 5 wall hits at 1 m/s", "<= 3; <= 1", "set over 1 or any crack", "mm")),
+    dict(id="bench-G7", risk="Custody with the power off rests on the installed tread squeeze, which is unmeasured",
+         **bt("Force to push a seated pipe through the unpowered nip; pipes kept nose-down for 60 s out of 5; kept through 8 g, 50 ms pulses out of 20",
+              f">= {PUSH_PASS_N}; 5; 20", f"< {PUSH_FAIL_N}, or any pipe lost", "N; count; count")),
+    dict(id="PD17-power-off-custody", risk="With the worm removed nothing locks the nip when the robot is disabled or the main power is off",
+         closedBy=f"Trials show the tread squeeze alone holds: {frac(CU['powerOffRequired'])} required stop and hit cases retained with the power off, checked case "
+                  f"{CARRY_IDS[0]}, premise power-off-custody; brake idle mode is set (design-findings.json PD17). The installed squeeze is bench gate G7"),
     dict(id="second-trip-same-section", risk="A second delivery into the section that already holds the first pipe fails in the trials",
          closedBy=f"Premise lateral-dock-error holds each dock within {LATERAL_LIMIT:.0f} mm so the pipes land in different sectors (second-trip.json); the dock scatter itself is bench gate G4"),
     dict(id="PD3-worm", risk="Layout-001 needed a self-locking worm that held 4.10 N m, with no part selected",
@@ -1361,7 +1458,7 @@ write(f"{REL}/missions.json", dict(
         dict(case=MISSION["acquired"], kind="operating-case", accomplishes="acquired", objective=OBJ_RECEIVE)],
     cycle=dict(
         acquire=dict(cases=has("-station-chute", "-drop", "-inlet", "-pocket", "-captive")),
-        retain=dict(cases=has("-drive-away", "-brake", "-seat")),
+        retain=dict(cases=has("-drive-away", "-brake", "-seat", "-power-off-hit")),
         transfer=dict(cases=has("-nip", "-lip")),
         deliver=dict(cases=has("-flight", "-trough")),
         reset=dict(notApplicable="The pocket is fixed and the lip stays deployed: after the eject the robot is ready for the next station receive with no reset motion"),
@@ -1369,4 +1466,4 @@ write(f"{REL}/missions.json", dict(
         park=dict(cases=["withdraw-park"]),
         service=dict(cases=[c["id"] for c in cases if c["stage"] == "service"])),
     risks=risks))
-print(len(cases), "cases:", n_rec, "receive,", n_ej, "eject; mass", round(total[1], 3), "weak bus", round(weak_min, 3), "captive", captive)
+print(len(cases), "cases:", n_rec, "receive,", n_cu, "carry,", n_ej, "eject; mass", round(total[1], 3), "weak bus", round(weak_min, 3), "captive", captive)

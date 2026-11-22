@@ -1,0 +1,359 @@
+{
+  "schema": "agent-frc/design-review@1",
+  "cases": [
+    {
+      "id": "nominal",
+      "condition": "Recorded Red 2 plus-wheel dock and nominal station clock."
+    },
+    {
+      "id": "adverse",
+      "condition": "Opposite wheel calibration, biased release, low friction and late-B clock."
+    }
+  ],
+  "objectives": [
+    {
+      "id": "metCarryOnTime",
+      "unit": "Identified pipes held by their carry deadline and on both supports through the two-sided chassis acceleration",
+      "min": 2
+    },
+    {
+      "id": "measuredReleases",
+      "unit": "Identified pipes attaining bilateral release in every step and offset challenge",
+      "min": 2
+    },
+    {
+      "id": "acceptedPieces",
+      "unit": "Independently recognized integrated L1 deliveries",
+      "min": 2
+    },
+    {
+      "id": "verifiedResets",
+      "unit": "Confirmed loaded-cycle reset after scoring",
+      "min": 2
+    }
+  ],
+  "concepts": [
+    {
+      "id": "narrow",
+      "architecture": "Two 12 mm entrance rails lead to an opposed pair of sliding cradle rails.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/narrow/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/narrow/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/narrow/nominal/measuredReleases",
+            "acceptedPieces": "/runs/narrow/nominal/acceptedPieces",
+            "verifiedResets": "/runs/narrow/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/narrow/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/narrow/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/narrow/adverse/measuredReleases",
+            "acceptedPieces": "/runs/narrow/adverse/acceptedPieces",
+            "verifiedResets": "/runs/narrow/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wide-pan-guides",
+      "architecture": "High full-width receiving pan with fixed taper guides and two sliding cradle rails.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/wide-pan-guides/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/wide-pan-guides/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/wide-pan-guides/nominal/measuredReleases",
+            "acceptedPieces": "/runs/wide-pan-guides/nominal/acceptedPieces",
+            "verifiedResets": "/runs/wide-pan-guides/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/wide-pan-guides/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/wide-pan-guides/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/wide-pan-guides/adverse/measuredReleases",
+            "acceptedPieces": "/runs/wide-pan-guides/adverse/acceptedPieces",
+            "verifiedResets": "/runs/wide-pan-guides/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lower-pan",
+      "architecture": "Lower passive receiving pan includes fixed taper guides and two sliding cradle rails.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/lower-pan/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/lower-pan/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/lower-pan/nominal/measuredReleases",
+            "acceptedPieces": "/runs/lower-pan/nominal/acceptedPieces",
+            "verifiedResets": "/runs/lower-pan/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/lower-pan/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/lower-pan/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/lower-pan/adverse/measuredReleases",
+            "acceptedPieces": "/runs/lower-pan/adverse/acceptedPieces",
+            "verifiedResets": "/runs/lower-pan/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "driven-pan",
+      "architecture": "Lower receiving conveyor has a 0.48 m/s driven surface and two sliding cradle rails.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/driven-pan/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/driven-pan/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/driven-pan/nominal/measuredReleases",
+            "acceptedPieces": "/runs/driven-pan/nominal/acceptedPieces",
+            "verifiedResets": "/runs/driven-pan/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/driven-pan/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/driven-pan/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/driven-pan/adverse/measuredReleases",
+            "acceptedPieces": "/runs/driven-pan/adverse/acceptedPieces",
+            "verifiedResets": "/runs/driven-pan/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "moving-cheeks",
+      "architecture": "Lower passive receiving pan guides the pipe into a sliding cradle with an end fence attached to each jaw.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/moving-cheeks/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/moving-cheeks/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/moving-cheeks/nominal/measuredReleases",
+            "acceptedPieces": "/runs/moving-cheeks/nominal/acceptedPieces",
+            "verifiedResets": "/runs/moving-cheeks/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/moving-cheeks/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/moving-cheeks/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/moving-cheeks/adverse/measuredReleases",
+            "acceptedPieces": "/runs/moving-cheeks/adverse/acceptedPieces",
+            "verifiedResets": "/runs/moving-cheeks/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "slow-carry",
+      "architecture": "The same guided cradle traverses the matched 0.945 m pulse distance with 1.05 m/s\u00b2 peak and 0.30 s extra time.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/slow-carry/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/slow-carry/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/slow-carry/nominal/measuredReleases",
+            "acceptedPieces": "/runs/slow-carry/nominal/acceptedPieces",
+            "verifiedResets": "/runs/slow-carry/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/slow-carry/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/slow-carry/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/slow-carry/adverse/measuredReleases",
+            "acceptedPieces": "/runs/slow-carry/adverse/acceptedPieces",
+            "verifiedResets": "/runs/slow-carry/adverse/verifiedResets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "steeper-saddle",
+      "architecture": "A 17 mm higher aft end of the saddle and two moving cheek plates resist the original carry pulse, with a passive receiving pan.",
+      "interfaces": [
+        {
+          "from": "Station",
+          "to": "Receiver",
+          "exchange": "A unique transverse pipe from the source lip."
+        },
+        {
+          "from": "Receiver",
+          "to": "Suspended field target",
+          "exchange": "Release from the physically propagated state."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/steeper-saddle/nominal",
+          "values": {
+            "metCarryOnTime": "/runs/steeper-saddle/nominal/metCarryOnTime",
+            "measuredReleases": "/runs/steeper-saddle/nominal/measuredReleases",
+            "acceptedPieces": "/runs/steeper-saddle/nominal/acceptedPieces",
+            "verifiedResets": "/runs/steeper-saddle/nominal/verifiedResets"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/guided-executions.json",
+            "sha256": "ed43a793013fbb5153f6294152fe6acd98cd4884d22a8222bdbc4fee81c8db1d"
+          },
+          "execution": "/runs/steeper-saddle/adverse",
+          "values": {
+            "metCarryOnTime": "/runs/steeper-saddle/adverse/metCarryOnTime",
+            "measuredReleases": "/runs/steeper-saddle/adverse/measuredReleases",
+            "acceptedPieces": "/runs/steeper-saddle/adverse/acceptedPieces",
+            "verifiedResets": "/runs/steeper-saddle/adverse/verifiedResets"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -47,7 +47,10 @@
         "receive-19-drive-away",
         "receive-20-drive-away",
         "receive-21-brake",
-        "receive-22-seat"
+        "receive-22-seat",
+        "carry-01-power-off-hit",
+        "carry-02-power-off-hit",
+        "carry-03-power-off-hit"
       ]
     },
     "transfer": {
@@ -164,6 +167,21 @@
         "fail": "set over 1 or any crack",
         "unit": "mm"
       }
+    },
+    {
+      "id": "bench-G7",
+      "risk": "Custody with the power off rests on the installed tread squeeze, which is unmeasured",
+      "benchTest": {
+        "measure": "Force to push a seated pipe through the unpowered nip; pipes kept nose-down for 60 s out of 5; kept through 8 g, 50 ms pulses out of 20",
+        "pass": ">= 61; 5; 20",
+        "fail": "< 29, or any pipe lost",
+        "unit": "N; count; count"
+      }
+    },
+    {
+      "id": "PD17-power-off-custody",
+      "risk": "With the worm removed nothing locks the nip when the robot is disabled or the main power is off",
+      "closedBy": "Trials show the tread squeeze alone holds: 24/24 required stop and hit cases retained with the power off, checked case carry-01-power-off-hit, premise power-off-custody; brake idle mode is set (design-findings.json PD17). The installed squeeze is bench gate G7"
     },
     {
       "id": "second-trip-same-section",
