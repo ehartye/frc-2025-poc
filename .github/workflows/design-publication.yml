@@ -119,6 +119,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           path: project
+          # The showcase evidence links to earlier project revisions, so the builder needs the history.
+          fetch-depth: 0
           persist-credentials: false
       - name: Get the showcase builder that issued the field pages
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
