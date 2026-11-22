@@ -1985,7 +1985,7 @@
       "Trial-driven: every receive and eject case is a straight stroke between two poses of a solved free-piece trace, within 3 mm of it; each frame shows the trial time. The lip deploy and the park drive are prescribed. The trials are a planar compliant-contact model: stiffness, friction and restitution are swept, not measured.",
       "Simplified: the chassis, module housings and electronics are oriented-box unions or supplier-bounds boxes; the steer sweeps are 4 mm-stepped revolved envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
       "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand formula (structure-checks.json), not finite elements.",
-      "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review.",
+      "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. Handoff requirement: the nip motor controller's idle mode is brake, so the windings are shorted whenever the robot is disabled with the controller powered. Coast idle mode is not accepted. Brake idle mode is not credited with the breaker off, where the squeeze alone holds.",
       "Bench gates G0-G7 are recorded with pass and fail numbers and are all open; no bench article exists. The guarded-pan baseline A is the fallback if G1, G3 or G7 fails.",
       "Rules: read from the final 2025 manual; the project register is the kickoff V0 packet and the V0 archive could not be re-read on 2026-11-22."
     ],
@@ -5013,11 +5013,11 @@
     },
     "retention": {
       "file": "cad/preliminary-design/releases/layout-002/retention-review.json",
-      "sha256": "d393f7899b8e0e8d5819b751d12c301a12c008a6184cd1eeef216c191ccb181d"
+      "sha256": "3599f29d1cbeda2f1af9b591d9185cbe84bfcf96141ace5a7164a84e24934238"
     },
     "findings": {
       "file": "cad/preliminary-design/releases/layout-002/design-findings.json",
-      "sha256": "f48ce59db6737f4cb8f63e5e0876d8441867181399bc25a0f0a8586630f3630d"
+      "sha256": "61a779e6eebb10155d1cfc88ae62040a8ec96d502539d8dd559042dc83bb1e2e"
     },
     "rulings": {
       "file": "cad/preliminary-design/releases/layout-002/rules-rulings.json",

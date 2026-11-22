@@ -50,6 +50,7 @@
   "powerOff": {
     "holder": "The tread squeeze: to leave forward the pipe must climb the 12 mm squeeze, which needs no power. The 36:1 gearbox is back-drivable and adds only its reflected inertia; brake idle mode adds damping while the controller is powered. Rearward the check flap's stop holds.",
     "summary": "With the main power off the gearbox coasts and the pipe is held by the tread squeeze: 24/24 required cases retained over 40-160 N/mm (a 1.5 g stop for 0.5 s and an 8 g, 50 ms hit, main power off and brake idle mode), largest travel into the nip 3.79 mm. At 40 N/mm with the power off: sustained 6 g kept, 8 g lost; 50 ms hit 16 g kept, 24 g lost. Static push-through 71.8 N at 40 N/mm against a 14.2 N stop load. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g.",
+    "controlRequirement": "Handoff requirement: the nip motor controller's idle mode is brake, so the windings are shorted whenever the robot is disabled with the controller powered. Coast idle mode is not accepted. Brake idle mode is not credited with the breaker off, where the squeeze alone holds.",
     "required": {
       "stepG": 1.5,
       "stepS": 0.5,

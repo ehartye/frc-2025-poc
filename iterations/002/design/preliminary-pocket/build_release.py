@@ -38,6 +38,13 @@ def run(*cmd, **kw):
     subprocess.run([str(c) for c in cmd], cwd=ROOT, check=True, **kw)
 
 
+def plugin_identity():
+    """The Agent FRC revision this run checked with, recorded beside the receipt."""
+    rev = subprocess.run(["git", "-C", str(PLUGIN), "rev-parse", "HEAD"], capture_output=True, text=True)
+    version = json.loads((PLUGIN / "package.json").read_text(encoding="utf-8")).get("version")
+    return dict(repository="ehartye/agent-frc", version=version, commit=rev.stdout.strip() if rev.returncode == 0 else None)
+
+
 def check(output, write_view):
     env = dict(os.environ, PYTHON=py)
     cmd = ["node", PLUGIN / "scripts/design.mjs", "preliminary-check", ".", f"{REL}/layout.json", "--previous", PREVIOUS, "--output", output]
@@ -74,4 +81,7 @@ else:
     run("node", f"{SRC}/design-inputs/revise-002.mjs", PLUGIN, f"{SRC}/design.json", f"{REL}/design.json")
 run(py, "-B", f"{SRC}/write_package.py", ".", PLUGIN / "scripts", REL, *([view] if view else []))
 check(f"{REL}/receipt.json", bool(view))
+(R / "checked-with.json").write_text(json.dumps(dict(
+    schema="frc-2025-poc/checked-with@1", receipt=f"{REL}/receipt.json", plugin=plugin_identity(),
+    note="The Agent FRC revision that ran the layout check and wrote the review view of this release."), indent=2) + "\n", encoding="utf-8")
 print(json.loads((R / "receipt.json").read_text(encoding="utf-8"))["status"])

@@ -772,6 +772,8 @@ PUSH_PASS_N = math.floor(0.85 * BK[soft]["peakForceN"])          # 85 % of the m
 PUSH_FAIL_N = math.ceil(2 * STOP_LOAD_N)                         # a suddenly applied stop load can reach twice its static value
 lim = lambda table, state, k: f"{table[state][k]['largestRetainedG']:g} g kept, {table[state][k]['smallestLostG']:g} g lost" \
     if table[state][k]["smallestLostG"] is not None else f"{table[state][k]['largestRetainedG']:g} g kept (largest run)"
+BRAKE_REQUIREMENT = ("Handoff requirement: the nip motor controller's idle mode is brake, so the windings are shorted whenever the robot is disabled "
+                     "with the controller powered. Coast idle mode is not accepted. Brake idle mode is not credited with the breaker off, where the squeeze alone holds.")
 POWER_OFF_TEXT = (
     f"With the main power off the gearbox coasts and the pipe is held by the tread squeeze: {frac(CU['powerOffRequired'])} required cases retained over "
     f"{S['bandNmm'][0]:.0f}-{S['bandNmm'][-1]:.0f} N/mm (a {CU['required']['stepG']} g stop for {CU['required']['stepS']} s and an {CU['required']['pulseG']:.0f} g, 50 ms hit, "
@@ -1175,7 +1177,7 @@ retention = write(f"{REL}/retention-review.json", dict(
     sweepsFromSeat=sweeps,
     powerOff=dict(holder="The tread squeeze: to leave forward the pipe must climb the 12 mm squeeze, which needs no power. The 36:1 gearbox is back-drivable "
                          "and adds only its reflected inertia; brake idle mode adds damping while the controller is powered. Rearward the check flap's stop holds.",
-                  summary=POWER_OFF_TEXT, required=CU["required"], requiredBasis=CU["requiredBasis"], requiredCases=CU["powerOffRequired"],
+                  summary=POWER_OFF_TEXT, controlRequirement=BRAKE_REQUIREMENT, required=CU["required"], requiredBasis=CU["requiredBasis"], requiredCases=CU["powerOffRequired"],
                   requiredByNipState=CU["requiredByState"], belowBand20NmmByNipState=CU["belowBandRequired"], towardFlap=CU["towardFlap"],
                   sustainedLimitsG=CU["sustainedLimitsG"], hitLimitsG=CU["hitLimitsG"], staticBarrier=CU["staticBarrier"], stopLoadN=STOP_LOAD_N,
                   atRest20s=dict(CU["atRest"], finalOffsetMm=CU["atRestFinalOffsetMm"]), treadRestitutionSensitivity=CU["restitution"],
@@ -1220,7 +1222,7 @@ findings = write(f"{REL}/design-findings.json", dict(
                  f"torque {S['g2ShaftDemandNm']} N m against a 180 N m class gearbox rating; the hold reaches its 30 A limit on the receive impact."),
         dict(id="PD17", item="Custody with the power off", was="layout-001 relied on the worm's self-lock; with the worm removed, 18 disabled sled pulses were the only evidence",
              status="closed by trial and a control setting; bench gate G7",
-             now=POWER_OFF_TEXT + " The nip controller is set to brake idle mode, which holds further while the controller is powered "
+             now=POWER_OFF_TEXT + " " + BRAKE_REQUIREMENT + " It holds further while the controller is powered "
                  f"({lim(CU['hitLimitsG'], 'disabled, brake idle mode', soft)} for a 50 ms hit at {soft} N/mm) but is not credited with the breaker off. "
                  f"Limit: at {soft} N/mm with the power off the pipe is pushed through by {CU['sustainedLimitsG'][OFF][soft]['smallestLostG']:g} g sustained or a "
                  f"{CU['hitLimitsG'][OFF][soft]['smallestLostG']:g} g hit; it then rolls out over the lip. No lock, detent or gate is added."),
@@ -1393,7 +1395,8 @@ presentation = dict(
            "envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
            "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand "
            "formula (structure-checks.json), not finite elements.",
-           "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review.",
+           "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. "
+           + BRAKE_REQUIREMENT,
            "Bench gates G0-G7 are recorded with pass and fail numbers and are all open; no bench article exists. The guarded-pan baseline A is the fallback if "
            "G1, G3 or G7 fails.",
            "Rules: read from the final 2025 manual; the project register is the kickoff V0 packet and the V0 archive could not be re-read on 2026-11-22."],

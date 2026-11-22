@@ -121,6 +121,11 @@ preserved here (`releases/layout-001/`) verified against `custody-layout-001.jso
   The view needs the plugin change that keeps a view in its release folder (plugin PR 182); with it the receipt is
   `layout-checked` and `effective-readiness` reads 3 of 3 met.
 
+- 2026-11-22 (issued for review): receipt and view written by Agent FRC 0.118.0 (`98ab7b3`, recorded in `checked-with.json` beside the
+  receipt); staged as in progress, layout-001 superseded; `effective-readiness` reads 3 of 3 met. Brake idle mode on the nip controller is a
+  handoff requirement (PD17, retention review). The plugin's replay entries for the one motion list had not landed, so the list holds the 51
+  checked cases. Every tracked file of the former private tree was compared with this repository (`iterations/MIGRATION/remaining-files.json`).
+
 ## Reproduce layout-002
 
 One command: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN_ROOT --view cad/preliminary-design/releases/layout-002/package-motion.html`
