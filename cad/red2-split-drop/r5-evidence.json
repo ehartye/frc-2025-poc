@@ -1,0 +1,197 @@
+{
+  "authority": {
+    "file": "artifacts/fusion-authority/receiver-service-original-vendor-motors-and-plates.f3d",
+    "sha256": "a53b05b14a730ea55b01f1e4780446fa894bdf8cf6121ae2e5cc33015d74932f"
+  },
+  "qualifyingWholeRobot": false,
+  "checkpoint": {
+    "file": "artifacts/split-drop-native/red2-split-drop-fixture-r5-geometry.f3d",
+    "sha256": "28affe272152de52de8c096bdda51bfe14b3cc03d0e6d6242dcbfff7c73544f7"
+  },
+  "archive": {
+    "file": "artifacts/split-drop-native/red2-split-drop-fixture-r5.f3d",
+    "sha256": "4cc6eb7181ae62bc86db2f015e0f843ca688be2fcc03463fe6d8406b923c1f09"
+  },
+  "exchange": {
+    "file": "artifacts/split-drop-native/r5-export.step",
+    "sha256": "736498963c98a8f8b58b57dc90eed43e4e84f969b62ecdbbac36b15d14d3c58f",
+    "pose": "reset"
+  },
+  "bodyCount": 93,
+  "materials": {
+    "Supplier alloy steel, black oxide, grade unspecified": 24,
+    "Supplier nylon insert, grade unspecified": 24,
+    "Supplier zinc plated steel shell, grade unspecified": 24,
+    "Aluminum 6061 T6 0 Cold Formed": 13,
+    "UHMW, White": 4,
+    "Supplier 6061-T6 aluminum": 2,
+    "Supplier 4140 steel, temper unspecified": 1,
+    "Supplier 7075 aluminum, temper unspecified": 1
+  },
+  "poses": [
+    {
+      "pose": "home",
+      "measured": 227,
+      "positive": 48,
+      "maxSourceRelativeTransformDifference": 0.0,
+      "maxDifferenceFromIndependentlySourceClassifiedR4Mm3": 0.0
+    },
+    {
+      "pose": "present",
+      "measured": 206,
+      "positive": 48,
+      "maxSourceRelativeTransformDifference": 0.0,
+      "maxDifferenceFromIndependentlySourceClassifiedR4Mm3": 0.0
+    },
+    {
+      "pose": "clear",
+      "measured": 215,
+      "positive": 48,
+      "maxSourceRelativeTransformDifference": 0.0,
+      "maxDifferenceFromIndependentlySourceClassifiedR4Mm3": 0.0
+    },
+    {
+      "pose": "before-release",
+      "measured": 216,
+      "positive": 48,
+      "maxSourceRelativeTransformDifference": 0.0,
+      "maxDifferenceFromIndependentlySourceClassifiedR4Mm3": 0.0
+    }
+  ],
+  "floor": {
+    "signedNormalSamples": 320,
+    "matchedFiniteSamples": 48,
+    "minFiniteMm": 2.1807582839383324,
+    "minimumWithOneMmLocalFabricationError": 0.9157241162941396
+  },
+  "risers": {
+    "Left splitting support:1/Left pipe rail": {
+      "samples": 1280,
+      "minConservativeMm": 5.57532278162598
+    },
+    "Right splitting support:1/Right pipe rail": {
+      "samples": 1280,
+      "minConservativeMm": 5.127864901169756
+    }
+  },
+  "pipeWitnesses": {
+    "open": {
+      "bodies": 93,
+      "maximumOverlapMm3": 0
+    },
+    "seated": {
+      "bodies": 93,
+      "maximumOverlapMm3": 0
+    }
+  },
+  "asDrawnGuide": {
+    "cases": 20,
+    "maxForceN": 73.12781282689103,
+    "peakTwoRibMomentNmm": 630.282597961668,
+    "peakSingleReachableRibCantileverMomentNmm": 414.3870247968405,
+    "designFactor": 1.5,
+    "peakStressMPaByEffectiveStrikeWidthMm": {
+      "1": 226.9017352662005,
+      "3": 75.63391175540016,
+      "5": 45.380347053240094,
+      "10": 22.690173526620047
+    },
+    "effectiveWidthRequiredFor105MPaMm": 2.1609689072971476,
+    "limits": "Effective impact width, rib and HAZ stiffness, fracture, repeated weld loads and physical validation remain open."
+  },
+  "fieldOnly": {
+    "supported": 120
+  },
+  "recognizedCompleteRobotScores": 0,
+  "verifiedCompleteRobotResets": 0,
+  "inputs": {
+    "r5-load-01.json": {
+      "file": "artifacts/split-drop-native/r5-load-01.json",
+      "sha256": "8b59125428946655f21d913b1cb704e99f7f45d336d7459293b34cb8443c597a"
+    },
+    "r5-seat-01.json": {
+      "file": "artifacts/split-drop-native/r5-seat-01.json",
+      "sha256": "0a05916bdbd947e6b12155e1789ae1ec480591a4340400071e1206a1c019373f"
+    },
+    "r5-material-preflight-01.json": {
+      "file": "artifacts/split-drop-native/r5-material-preflight-01.json",
+      "sha256": "9b05acc8fbe034590c6f5266128a69a79eb8a95c7131c552fde0dfbf14617b7d"
+    },
+    "r4-qualified-catalog-mates.json": {
+      "file": "artifacts/split-drop-native/r4-qualified-catalog-mates.json",
+      "sha256": "162cc31b109db7907e38300d4dcd4a2bed6b4fab2b2a301b0270618594479d41"
+    },
+    "r5-home-native.json": {
+      "file": "artifacts/split-drop-native/r5-home-native.json",
+      "sha256": "9579b63c3ec8b6610cc9ad28c0a2acf72841ec3ea22034302ca7a84cd8c6a32b"
+    },
+    "r4-home-native.json": {
+      "file": "artifacts/split-drop-native/r4-home-native.json",
+      "sha256": "326bbd3a51ead1c2e3d3d89dbb3a6e288d3608b9393e087004b3ee97319ab86b"
+    },
+    "r5-present-native.json": {
+      "file": "artifacts/split-drop-native/r5-present-native.json",
+      "sha256": "e24b78bb4ce71e653b984f7ee13d079d763390899ac16443cca759b428368ccf"
+    },
+    "r4-present-native.json": {
+      "file": "artifacts/split-drop-native/r4-present-native.json",
+      "sha256": "dc2a375a5496348ee79a1d1ef4f78949e7a844839533e483e2e46c44df05c2e5"
+    },
+    "r5-clear-native.json": {
+      "file": "artifacts/split-drop-native/r5-clear-native.json",
+      "sha256": "b261856c93b0682669c37f3d3c3f3ac57692663dc4206a7acae0d7b6e25b23bd"
+    },
+    "r4-clear-native.json": {
+      "file": "artifacts/split-drop-native/r4-clear-native.json",
+      "sha256": "30c89edda889b171007eab0f5b57e484c05843f97ea510dd58b9ca6c0af0504d"
+    },
+    "r5-before-release-native.json": {
+      "file": "artifacts/split-drop-native/r5-before-release-native.json",
+      "sha256": "a7b09aab1bcd127705d44d6790d81d63ab07031846f87c25f5fb881f1e811116"
+    },
+    "r4-before-release-native.json": {
+      "file": "artifacts/split-drop-native/r4-before-release-native.json",
+      "sha256": "87f664f79969d1a60869ff48f2b786c6ab00597e8c8c3f86441c52c219f56107"
+    },
+    "r5-exact-floor-plane.json": {
+      "file": "artifacts/split-drop-native/r5-exact-floor-plane.json",
+      "sha256": "3c1765b5554a0367396c3a4fd63caf298db427302e3b493c0daa70902ac9f493"
+    },
+    "r5-jaw-riser-clearance.json": {
+      "file": "artifacts/split-drop-native/r5-jaw-riser-clearance.json",
+      "sha256": "fc9bb04f44a5ed8ba7f7f9641a9eea3bed5abe8e932cf0b7cdc8652e7e2d5adf"
+    },
+    "r4-spatial-r5-as-drawn-challenge-strike.json": {
+      "file": "artifacts/split-drop-native/r4-spatial-r5-as-drawn-challenge-strike.json",
+      "sha256": "5132b13311e6f3b13986f9035fbd4bfe7e7a8b8e04c1943cd12ecd432fdce45a"
+    },
+    "r5-field/result.csv": {
+      "file": "artifacts/split-drop-native/r5-field/result.csv",
+      "sha256": "b574e7007fa55dce329d01c06a51a51af55d6d2eef5b40b826cb775af25f75a2"
+    },
+    "r5-build-02.json": {
+      "file": "artifacts/split-drop-native/r5-build-02.json",
+      "sha256": "7bfc0f95c7b4ab0fdccfd21f0a3458c92f4ce306936926a6d7586f1c86ea28de"
+    },
+    "r5-finalize-01.json": {
+      "file": "artifacts/split-drop-native/r5-finalize-01.json",
+      "sha256": "74bcfe1dd47d4b6be0a55191d48433b1a419978723606b1b01d506410279aaab"
+    },
+    "r5-census-01.json": {
+      "file": "artifacts/split-drop-native/r5-census-01.json",
+      "sha256": "ad4c731dc9423f7eaa522d7230ac021b480f4c3a9411b8cd9ed39a37e03a94c5"
+    },
+    "output-mount-fit.json": {
+      "file": "artifacts/split-drop-native/output-mount-fit.json",
+      "sha256": "53c3dd224ffd2f375891592b55bf75fc674606cdefcbde043f9f610c12073fa8"
+    },
+    "output-thread-witness.json": {
+      "file": "artifacts/split-drop-native/output-thread-witness.json",
+      "sha256": "d5ec985d50b72bdc625346b14d32b99e0b5ccb4d3a060e5c0151ff08d55468b3"
+    },
+    "seam-options.json": {
+      "file": "artifacts/split-drop-native/seam-options.json",
+      "sha256": "67e5a9dddf8756002910ddf058f462cb02a6dd3bd73da21358919979bff3260f"
+    }
+  }
+}

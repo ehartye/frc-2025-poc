@@ -1,0 +1,2238 @@
+{
+  "schema": "agent-frc/rehearsal-series@1",
+  "profileSha256": "4b0da98181c6a42464e9474007c0c236b60c24388fa0011c8fb8bf1e53025a35",
+  "stepS": 0.05,
+  "playbackRate": 10,
+  "modelSeconds": 150,
+  "playbackSeconds": 15,
+  "matches": [
+    {
+      "id": "Qual 2",
+      "basis": "Deeper cages. The red partner clears the trough lane for repeated CORAL cycles; blue misses a trough attempt.",
+      "setup": "deep",
+      "roster": [
+        {
+          "id": "B1",
+          "side": "blue",
+          "slot": 1,
+          "plans": {
+            "AUTO": "preload-l2",
+            "TELEOP": "coral-high-miss"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": 0,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "blue-chute-low",
+            "quantity": 1
+          }
+        },
+        {
+          "id": "B2",
+          "side": "blue",
+          "slot": 2,
+          "plans": {
+            "AUTO": "preload-l1",
+            "TELEOP": "processor"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": 0,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "blue-chute-low",
+            "quantity": 1
+          }
+        },
+        {
+          "id": "B3",
+          "side": "blue",
+          "slot": 3,
+          "plans": {
+            "AUTO": "preload-l4",
+            "TELEOP": "net"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": 0,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "blue-chute-high",
+            "quantity": 1
+          }
+        },
+        {
+          "id": "R1",
+          "side": "red",
+          "slot": 1,
+          "plans": {
+            "AUTO": "preload-l1",
+            "TELEOP": "keep-lane"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": -180,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "red-chute-low",
+            "quantity": 1
+          }
+        },
+        {
+          "id": "R2",
+          "side": "red",
+          "slot": 2,
+          "plans": {
+            "AUTO": "preload-l2",
+            "TELEOP": "station"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": -180,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "red-chute-low",
+            "quantity": 1
+          }
+        },
+        {
+          "id": "R3",
+          "side": "red",
+          "slot": 3,
+          "plans": {
+            "AUTO": "preload-l3",
+            "TELEOP": "net"
+          },
+          "length": 26,
+          "width": 26,
+          "height": 30,
+          "bumper": 3.25,
+          "heading": -180,
+          "speed": 60,
+          "capacity": 1,
+          "preload": {
+            "station": "red-chute-high",
+            "quantity": 1
+          }
+        }
+      ],
+      "periods": [
+        {
+          "phase": "AUTO",
+          "seconds": 15,
+          "robots": [
+            {
+              "id": "B1",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 101.55294185792943,
+              "blocked": "",
+              "position": [
+                205.5,
+                108
+              ]
+            },
+            {
+              "id": "B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 62.5,
+              "blocked": "",
+              "position": [
+                235,
+                158.5
+              ]
+            },
+            {
+              "id": "B3",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 216.7632059717454,
+              "blocked": "",
+              "position": [
+                119,
+                158.5
+              ]
+            },
+            {
+              "id": "R1",
+              "visits": 1,
+              "waitSeconds": 1.4000000000000001,
+              "travelIn": 112.46555028096388,
+              "blocked": "",
+              "position": [
+                455.875,
+                158.5
+              ]
+            },
+            {
+              "id": "R2",
+              "visits": 1,
+              "waitSeconds": 1,
+              "travelIn": 107.28783790372017,
+              "blocked": "",
+              "position": [
+                485.375,
+                209
+              ]
+            },
+            {
+              "id": "R3",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 156.04166110369374,
+              "blocked": "",
+              "position": [
+                543.375,
+                108
+              ]
+            }
+          ],
+          "deadlocks": [
+            {
+              "phase": "AUTO",
+              "timeS": 1.8,
+              "sinceS": 0.8,
+              "cycle": [
+                "R1",
+                "R2"
+              ],
+              "yielded": "R2"
+            }
+          ]
+        },
+        {
+          "phase": "TELEOP",
+          "seconds": 135,
+          "robots": [
+            {
+              "id": "B1",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 451.1403259196073,
+              "blocked": "",
+              "position": [
+                235,
+                158.5
+              ]
+            },
+            {
+              "id": "B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 356.8108747919576,
+              "blocked": "",
+              "position": [
+                236,
+                24
+              ]
+            },
+            {
+              "id": "B3",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 219.9570546114561,
+              "blocked": "",
+              "position": [
+                306,
+                213
+              ]
+            },
+            {
+              "id": "R1",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 55,
+              "blocked": "",
+              "position": [
+                400.875,
+                158.5
+              ]
+            },
+            {
+              "id": "R2",
+              "visits": 15,
+              "waitSeconds": 0,
+              "travelIn": 6441.462283392759,
+              "blocked": "",
+              "position": [
+                528.4983083608415,
+                224.89889145622823
+              ]
+            },
+            {
+              "id": "R3",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 159.23551040376637,
+              "blocked": "",
+              "position": [
+                384.875,
+                104
+              ]
+            }
+          ]
+        }
+      ],
+      "game": {
+        "reserve": {
+          "blue-chute-low": [
+            {
+              "id": "blue-chute-low/4",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/5",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/6",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/7",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/8",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/9",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/10",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/11",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/12",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/13",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/14",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/15",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/16",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/17",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/18",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/19",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/20",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/21",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/22",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/23",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/24",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/25",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/26",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/27",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/28",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/29",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-low/30",
+              "type": "CORAL"
+            }
+          ],
+          "red-chute-low": [
+            {
+              "id": "red-chute-low/19",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/20",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/21",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/22",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/23",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/24",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/25",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/26",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/27",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/28",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/29",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-low/30",
+              "type": "CORAL"
+            }
+          ],
+          "blue-chute-high": [
+            {
+              "id": "blue-chute-high/4",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/5",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/6",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/7",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/8",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/9",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/10",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/11",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/12",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/13",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/14",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/15",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/16",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/17",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/18",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/19",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/20",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/21",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/22",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/23",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/24",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/25",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/26",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/27",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/28",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/29",
+              "type": "CORAL"
+            },
+            {
+              "id": "blue-chute-high/30",
+              "type": "CORAL"
+            }
+          ],
+          "red-chute-high": [
+            {
+              "id": "red-chute-high/3",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/4",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/5",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/6",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/7",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/8",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/9",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/10",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/11",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/12",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/13",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/14",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/15",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/16",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/17",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/18",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/19",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/20",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/21",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/22",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/23",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/24",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/25",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/26",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/27",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/28",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/29",
+              "type": "CORAL"
+            },
+            {
+              "id": "red-chute-high/30",
+              "type": "CORAL"
+            }
+          ],
+          "blue-processor-exit": [],
+          "red-processor-exit": []
+        },
+        "operators": {
+          "blue-chute-low-attendant": {
+            "stations": [
+              "blue-chute-low"
+            ],
+            "next": 0,
+            "job": null
+          },
+          "red-chute-low-attendant": {
+            "stations": [
+              "red-chute-low"
+            ],
+            "next": 0,
+            "job": null
+          },
+          "blue-chute-high-attendant": {
+            "stations": [
+              "blue-chute-high"
+            ],
+            "next": 0,
+            "job": null
+          },
+          "red-chute-high-attendant": {
+            "stations": [
+              "red-chute-high"
+            ],
+            "next": 0,
+            "job": null
+          },
+          "blue-processor-attendant": {
+            "stations": [
+              "blue-processor-exit"
+            ],
+            "next": 0,
+            "job": null
+          },
+          "red-processor-attendant": {
+            "stations": [
+              "red-processor-exit"
+            ],
+            "next": 0,
+            "job": null
+          }
+        },
+        "motion": {
+          "pieces": [
+            {
+              "id": "blue-chute-high/3",
+              "type": "CORAL",
+              "p": [
+                41,
+                264
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 4.5,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-chute-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-chute-low/3",
+              "type": "CORAL",
+              "p": [
+                41,
+                53
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 4.5,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-chute-low",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-floor-algae-high/1",
+              "type": "ALGAE",
+              "p": [
+                38.151570188787446,
+                230.50905636060412
+              ],
+              "radiusIn": 8.125,
+              "heightIn": 16.25,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-floor-algae-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-floor-algae-mid/1",
+              "type": "ALGAE",
+              "p": [
+                42.81202086667514,
+                158.5
+              ],
+              "radiusIn": 8.125,
+              "heightIn": 16.25,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-floor-algae-mid",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-floor-coral-high/1",
+              "type": "CORAL",
+              "p": [
+                48.33922198608751,
+                228.5463093425275
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-floor-coral-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-floor-coral-low/1",
+              "type": "CORAL",
+              "p": [
+                53.18702086667514,
+                86.5
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-floor-coral-low",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "blue-floor-coral-mid/1",
+              "type": "CORAL",
+              "p": [
+                53.18702086667514,
+                158.5
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "blue-floor-coral-mid",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-chute-high/2",
+              "type": "CORAL",
+              "p": [
+                649.875,
+                53
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 4.5,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-chute-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-chute-low/18",
+              "type": "CORAL",
+              "p": [
+                649.875,
+                264
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 4.5,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-chute-low",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-algae-high/1",
+              "type": "ALGAE",
+              "p": [
+                637.6879791333254,
+                86.50000000000207
+              ],
+              "radiusIn": 8.125,
+              "heightIn": 16.25,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-algae-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-algae-low/1",
+              "type": "ALGAE",
+              "p": [
+                637.6879791333243,
+                230.50000000000207
+              ],
+              "radiusIn": 8.125,
+              "heightIn": 16.25,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-algae-low",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-algae-mid/1",
+              "type": "ALGAE",
+              "p": [
+                637.6879791333249,
+                158.50000000000207
+              ],
+              "radiusIn": 8.125,
+              "heightIn": 16.25,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-algae-mid",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-coral-high/1",
+              "type": "CORAL",
+              "p": [
+                648.0629791333254,
+                86.50000000000207
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-coral-high",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-coral-low/1",
+              "type": "CORAL",
+              "p": [
+                648.0629791333243,
+                230.50000000000207
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-coral-low",
+              "v": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "red-floor-coral-mid/1",
+              "type": "CORAL",
+              "p": [
+                648.0629791333249,
+                158.50000000000207
+              ],
+              "radiusIn": 2.25,
+              "heightIn": 11.875,
+              "massKg": 1,
+              "dragInS2": 18,
+              "restitution": 0.22,
+              "station": "red-floor-coral-mid",
+              "v": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "opening": {
+          "B1": {
+            "fallback": "preload"
+          },
+          "R1": {
+            "fallback": "preload"
+          },
+          "B2": {
+            "fallback": "preload"
+          },
+          "R2": {
+            "fallback": "preload"
+          },
+          "B3": {
+            "fallback": "preload"
+          },
+          "R3": {
+            "fallback": "preload"
+          }
+        },
+        "stock": {
+          "blue-chute-low": [
+            {
+              "id": "blue-chute-low/3",
+              "type": "CORAL"
+            }
+          ],
+          "red-chute-low": [
+            {
+              "id": "red-chute-low/18",
+              "type": "CORAL"
+            }
+          ],
+          "blue-chute-high": [
+            {
+              "id": "blue-chute-high/3",
+              "type": "CORAL"
+            }
+          ],
+          "red-chute-high": [
+            {
+              "id": "red-chute-high/2",
+              "type": "CORAL"
+            }
+          ],
+          "blue-floor-coral-mid": [
+            {
+              "id": "blue-floor-coral-mid/1",
+              "type": "CORAL"
+            }
+          ],
+          "blue-floor-algae-mid": [
+            {
+              "id": "blue-floor-algae-mid/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-reef-algae-5": [
+            {
+              "id": "blue-reef-algae-5/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-reef-algae-4": [
+            {
+              "id": "blue-reef-algae-4/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-reef-algae-0": [
+            {
+              "id": "blue-reef-algae-0/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-reef-algae-2": [
+            {
+              "id": "blue-reef-algae-2/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-reef-algae-1": [],
+          "blue-reef-algae-3": [
+            {
+              "id": "blue-reef-algae-3/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-floor-coral-low": [
+            {
+              "id": "blue-floor-coral-low/1",
+              "type": "CORAL"
+            }
+          ],
+          "blue-floor-coral-high": [
+            {
+              "id": "blue-floor-coral-high/1",
+              "type": "CORAL"
+            }
+          ],
+          "blue-floor-algae-low": [],
+          "blue-floor-algae-high": [
+            {
+              "id": "blue-floor-algae-high/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-floor-coral-mid": [
+            {
+              "id": "red-floor-coral-mid/1",
+              "type": "CORAL"
+            }
+          ],
+          "red-floor-algae-mid": [
+            {
+              "id": "red-floor-algae-mid/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-floor-coral-low": [
+            {
+              "id": "red-floor-coral-low/1",
+              "type": "CORAL"
+            }
+          ],
+          "red-floor-coral-high": [
+            {
+              "id": "red-floor-coral-high/1",
+              "type": "CORAL"
+            }
+          ],
+          "red-floor-algae-low": [
+            {
+              "id": "red-floor-algae-low/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-floor-algae-high": [
+            {
+              "id": "red-floor-algae-high/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-reef-algae-3": [
+            {
+              "id": "red-reef-algae-3/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-reef-algae-1": [],
+          "red-reef-algae-2": [
+            {
+              "id": "red-reef-algae-2/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-reef-algae-0": [
+            {
+              "id": "red-reef-algae-0/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-reef-algae-4": [
+            {
+              "id": "red-reef-algae-4/1",
+              "type": "ALGAE"
+            }
+          ],
+          "red-reef-algae-5": [
+            {
+              "id": "red-reef-algae-5/1",
+              "type": "ALGAE"
+            }
+          ],
+          "blue-processor-exit": [],
+          "red-processor-exit": []
+        },
+        "initial": {
+          "blue-chute-low": 30,
+          "red-chute-low": 30,
+          "blue-chute-high": 30,
+          "red-chute-high": 30,
+          "blue-floor-coral-mid": 1,
+          "blue-floor-algae-mid": 1,
+          "blue-reef-algae-5": 1,
+          "blue-reef-algae-4": 1,
+          "blue-reef-algae-0": 1,
+          "blue-reef-algae-2": 1,
+          "blue-reef-algae-1": 1,
+          "blue-reef-algae-3": 1,
+          "blue-floor-coral-low": 1,
+          "blue-floor-coral-high": 1,
+          "blue-floor-algae-low": 1,
+          "blue-floor-algae-high": 1,
+          "red-floor-coral-mid": 1,
+          "red-floor-algae-mid": 1,
+          "red-floor-coral-low": 1,
+          "red-floor-coral-high": 1,
+          "red-floor-algae-low": 1,
+          "red-floor-algae-high": 1,
+          "red-reef-algae-3": 1,
+          "red-reef-algae-1": 1,
+          "red-reef-algae-2": 1,
+          "red-reef-algae-0": 1,
+          "red-reef-algae-4": 1,
+          "red-reef-algae-5": 1,
+          "blue-processor-exit": 0,
+          "red-processor-exit": 0
+        },
+        "cargo": {
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "R1": [],
+          "R2": [],
+          "R3": []
+        },
+        "capacity": {
+          "B1": 1,
+          "B2": 1,
+          "B3": 1,
+          "R1": 1,
+          "R2": 1,
+          "R3": 1
+        },
+        "score": {
+          "blue": 24,
+          "red": 47
+        },
+        "attempts": {
+          "blue-l1": 2,
+          "red-l1": 16,
+          "blue-l2": 1,
+          "red-l2": 1,
+          "blue-l3": 0,
+          "red-l3": 1,
+          "blue-l4": 1,
+          "red-l4": 0,
+          "blue-processor": 1,
+          "red-processor": 0,
+          "blue-net": 1,
+          "red-net": 2
+        },
+        "occupied": {
+          "blue-l1": 1,
+          "red-l1": 16,
+          "blue-l2": 1,
+          "red-l2": 1,
+          "blue-l3": 0,
+          "red-l3": 1,
+          "blue-l4": 1,
+          "red-l4": 0,
+          "blue-processor": 0,
+          "red-processor": 0,
+          "blue-net": 1,
+          "red-net": 1
+        },
+        "returning": [],
+        "firstPeriodCount": {
+          "blue": 3,
+          "red": 3
+        },
+        "terminal": [
+          {
+            "id": "blue-chute-low/2",
+            "type": "CORAL",
+            "station": "blue-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "blue-chute-low/1",
+            "type": "CORAL",
+            "station": "blue-l2",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-high/1",
+            "type": "CORAL",
+            "station": "red-l3",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/2",
+            "type": "CORAL",
+            "station": "red-l2",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/1",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "blue-chute-high/1",
+            "type": "CORAL",
+            "station": "blue-l4",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-reef-algae-1/1",
+            "type": "ALGAE",
+            "station": "red-net",
+            "outcome": "credited"
+          },
+          {
+            "id": "blue-reef-algae-1/1",
+            "type": "ALGAE",
+            "station": "blue-net",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/3",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "blue-chute-high/2",
+            "type": "CORAL",
+            "station": "blue-l1",
+            "outcome": "missed"
+          },
+          {
+            "id": "blue-floor-algae-low/1",
+            "type": "ALGAE",
+            "station": "red-net",
+            "outcome": "unresolved"
+          },
+          {
+            "id": "red-chute-low/4",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/5",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/6",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/7",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/8",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/9",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/10",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/11",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/12",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/13",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/14",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/15",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/16",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          },
+          {
+            "id": "red-chute-low/17",
+            "type": "CORAL",
+            "station": "red-l1",
+            "outcome": "credited"
+          }
+        ],
+        "events": [
+          {
+            "phase": "AUTO",
+            "timeS": 1.9500000000000002,
+            "robot": "B2",
+            "station": "blue-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "blue-chute-low/2"
+            ],
+            "points": 3,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "AUTO",
+            "timeS": 2.6,
+            "robot": "B1",
+            "station": "blue-l2",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "blue-chute-low/1"
+            ],
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "AUTO",
+            "timeS": 3.5500000000000003,
+            "robot": "R3",
+            "station": "red-l3",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-high/1"
+            ],
+            "points": 6,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "AUTO",
+            "timeS": 3.8000000000000003,
+            "robot": "R2",
+            "station": "red-l2",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/2"
+            ],
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "AUTO",
+            "timeS": 4.2,
+            "robot": "R1",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/1"
+            ],
+            "points": 3,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "AUTO",
+            "timeS": 4.6000000000000005,
+            "robot": "B3",
+            "station": "blue-l4",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "blue-chute-high/1"
+            ],
+            "points": 7,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 1.8,
+            "robot": "R3",
+            "station": "red-reef-algae-1",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-reef-algae-1/1"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 2.85,
+            "robot": "B3",
+            "station": "blue-reef-algae-1",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "blue-reef-algae-1/1"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 3,
+            "robot": "human/blue-chute-low-attendant",
+            "station": "blue-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "blue-chute-low/3"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 3,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/3"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 3,
+            "robot": "human/blue-chute-high-attendant",
+            "station": "blue-chute-high",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "blue-chute-high/2"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 3,
+            "robot": "human/red-chute-high-attendant",
+            "station": "red-chute-high",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-high/2"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 3.3000000000000003,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/3"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 4,
+            "robot": "B2",
+            "station": "blue-floor-algae-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "blue-floor-algae-low/1"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 4.4,
+            "robot": "R3",
+            "station": "red-net",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-reef-algae-1/1"
+            ],
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 4.800000000000001,
+            "robot": "B1",
+            "station": "blue-chute-high",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "blue-chute-high/2"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 5.45,
+            "robot": "B3",
+            "station": "blue-net",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "blue-reef-algae-1/1"
+            ],
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 6.3500000000000005,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/4"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 7.75,
+            "robot": "B2",
+            "station": "blue-processor",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "blue-floor-algae-low/1"
+            ],
+            "points": 6,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 7.8500000000000005,
+            "robot": "human/blue-chute-high-attendant",
+            "station": "blue-chute-high",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "blue-chute-high/3"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 7.8500000000000005,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/3"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 9.35,
+            "robot": "B1",
+            "station": "blue-l1",
+            "operation": "attempt",
+            "outcome": "missed",
+            "pieces": [
+              "blue-chute-high/2"
+            ],
+            "points": 0,
+            "prescribedOutcome": "missed",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 12.25,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/4"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 13.75,
+            "robot": "human/red-processor-attendant",
+            "station": "red-net",
+            "operation": "attempt",
+            "outcome": "unresolved",
+            "pieces": [
+              "blue-floor-algae-low/1"
+            ],
+            "points": 0,
+            "prescribedOutcome": "unresolved",
+            "activity": "active",
+            "basis": "The human player attempts the net. Throw accuracy is unmeasured."
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 15.3,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/5"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 16.8,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/4"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 21.200000000000003,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/5"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 24.25,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/6"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 25.75,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/5"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 30.150000000000002,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/6"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 33.2,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/7"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 34.7,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/6"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 39.1,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/7"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 42.150000000000006,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/8"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 43.650000000000006,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/7"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 48.050000000000004,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/8"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 51.1,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/9"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 52.6,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/8"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 57,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/9"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 60.050000000000004,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/10"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 61.550000000000004,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/9"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 65.95,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/10"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 69,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/11"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 70.5,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/10"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 74.9,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/11"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 77.95,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/12"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 79.45,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/11"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 83.85000000000001,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/12"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 86.9,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/13"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 88.4,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/12"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 92.80000000000001,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/13"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 95.85000000000001,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/14"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 97.35000000000001,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/13"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 101.75,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/14"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 104.80000000000001,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/15"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 106.30000000000001,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/14"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 110.7,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/15"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 113.75,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/16"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 115.25,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/15"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 119.65,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/16"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 122.7,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/17"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 124.2,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/16"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 128.6,
+            "robot": "R2",
+            "station": "red-chute-low",
+            "operation": "acquire",
+            "outcome": "acquired",
+            "pieces": [
+              "red-chute-low/17"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 131.65,
+            "robot": "human/red-chute-low-attendant",
+            "station": "red-chute-low",
+            "operation": "release",
+            "outcome": "available",
+            "pieces": [
+              "red-chute-low/18"
+            ]
+          },
+          {
+            "phase": "TELEOP",
+            "timeS": 133.15,
+            "robot": "R2",
+            "station": "red-l1",
+            "operation": "attempt",
+            "outcome": "credited",
+            "pieces": [
+              "red-chute-low/17"
+            ],
+            "points": 2,
+            "prescribedOutcome": "credited",
+            "activity": "active"
+          }
+        ],
+        "endgame": {
+          "period": "TELEOP",
+          "basis": "V0 §§5.4.1, 6.3.5 and 6.5. Match points awarded once per robot. Service and contact witnesses for peer robots are scenario inputs.",
+          "sources": [
+            "Kickoff V0 §§6.5, 6.5.2, Table 6-2",
+            "January FE-2025 hanging inventory",
+            "Robot-specific empty south parking route"
+          ],
+          "activeCutoffS": 150,
+          "periodCutoffS": 135,
+          "maxDelayS": 3,
+          "atRestAfterS": null,
+          "assessmentTimeS": 153,
+          "assessed": true,
+          "attempts": [],
+          "bonusAwards": [],
+          "ordinaryScore": {
+            "blue": 24,
+            "red": 47
+          },
+          "terminalScore": {
+            "blue": 0,
+            "red": 0
+          }
+        }
+      }
+    }
+  ]
+}

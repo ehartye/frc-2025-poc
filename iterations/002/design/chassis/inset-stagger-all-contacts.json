@@ -1,0 +1,391 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "ledgerSha256": "a73e487e5ae05d0218b742117efe4b2f6b4673844a4d853953d112252127b5d3",
+  "forceLocationsAndPatches": 1250,
+  "matchedPhysicalRoutes": 2,
+  "stiffnessTriples": 8,
+  "tireCases": 9,
+  "massKg": 68.54950304514392,
+  "loadCase": "12.33891 kN contact on one finite face at a time, no ground reaction at the modules, including point and finite uniformly/triangularly loaded 100 mm patches. Up to 0.8mg at a single physical wheel, both signs parallel to the incident face, bounds intermediate co-directional tire-load distributions. Two independently supported payload rosters. Ideal section and quasistatic impact are conditional. Screw scalar peak is bounded by sec(2.5 deg) after actual force vector projection.",
+  "maximumRigidWrenchResidual": 1.0710209608078003e-08,
+  "freeEnergyControl": {
+    "fullMassZeroTire": {
+      "MPa": 112.28310436157943,
+      "retainedLoadFactor": 1.0,
+      "site": [
+        -114.30000000000001,
+        -345.95
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -114.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffness": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "payload": 1
+    },
+    "fixed18mmFreeEnergy": {
+      "MPa": 109.30127330969167,
+      "retainedLoadFactor": 0.9929269140061867,
+      "site": [
+        14.300000000000011,
+        345.95
+      ],
+      "contact": {
+        "face": 0,
+        "atMm": [
+          14.300000000000011,
+          345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffness": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "payload": 1
+    },
+    "fixedStiffnessFreeEnergy": {
+      "MPa": 109.85875901646067,
+      "retainedLoadFactor": 0.9920503336404997,
+      "site": [
+        0.0,
+        -345.95
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          0.0,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffness": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "payload": 1
+    }
+  },
+  "peaks": {
+    "ringNetMPa": {
+      "value": 114.33262157759827,
+      "site": [
+        -114.30000000000001,
+        -345.95
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -114.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1,
+      "signedSection": {
+        "member": 254,
+        "endAxialN": 1380.4617638373747,
+        "endMomentAboutZ_Nmm": 1120568.3860110044,
+        "fibreSign": 1,
+        "signedNetStressMPa": 114.33262157756246,
+        "Amm2": 753.5999999999998,
+        "IzzMm4": 189748.23299999992,
+        "extremeMm": 19.049999999999997
+      }
+    },
+    "lowerGrossMPa": {
+      "value": 62.03639544078335,
+      "site": [
+        "Front transverse",
+        [
+          -165.875,
+          -140.3
+        ]
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -21.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        3000.0,
+        3000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "innerScrewForceUpperN": {
+      "value": 6328.660874570613,
+      "site": [
+        323.27500000000003,
+        -165.875
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -29.25,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "middleScrewForceUpperN": {
+      "value": 1913.0434371253164,
+      "site": [
+        196.275,
+        -318.27500000000003
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          9.0,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "outerScrewForceUpperN": {
+      "value": 4068.472217380319,
+      "site": [
+        323.27500000000003,
+        -216.675
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -29.25,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        3000.0,
+        3000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "outerScrewAlongAbsN": {
+      "value": 1433.9428689843676,
+      "site": [
+        323.27500000000003,
+        -216.675
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          9.0,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 3,
+      "tireForceSign": 1
+    },
+    "outerScrewAcrossAbsN": {
+      "value": 3992.9747283077754,
+      "site": [
+        323.27500000000003,
+        -216.675
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -33.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        3000.0,
+        3000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "middleScrewAlongAbsN": {
+      "value": 1469.4514827041746,
+      "site": [
+        323.27500000000003,
+        -191.275
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          9.0,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 3,
+      "tireForceSign": 1
+    },
+    "middleScrewAcrossAbsN": {
+      "value": 1501.8988703231362,
+      "site": [
+        196.275,
+        -318.27500000000003
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          40.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 3,
+      "tireForceSign": -1
+    },
+    "innerScrewAlongAbsN": {
+      "value": 1541.3540893768568,
+      "site": [
+        323.27500000000003,
+        -165.875
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          9.0,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 3,
+      "tireForceSign": 1
+    },
+    "innerScrewAcrossAbsN": {
+      "value": 6164.26489888507,
+      "site": [
+        323.27500000000003,
+        -165.875
+      ],
+      "contact": {
+        "face": 4,
+        "atMm": [
+          -33.30000000000001,
+          -345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 2,
+      "tireForceSign": 1
+    },
+    "lowerSaddleForceUpperN": {
+      "value": 5659.894022418153,
+      "site": 2,
+      "contact": {
+        "face": 0,
+        "atMm": [
+          350.95,
+          345.95
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "stiffnessNPerMm": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "payloadCase": 1,
+      "tireWheel": 1,
+      "tireForceSign": 1
+    }
+  }
+}

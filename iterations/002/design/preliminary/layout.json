@@ -1,0 +1,1338 @@
+{
+  "schema": "agent-frc/preliminary-layout@1",
+  "issue": "red2-002-preliminary-layout-A",
+  "design": {
+    "file": "iterations/002/design/preliminary/design.json",
+    "sha256": "82b445bb6111b839bd366df9bb3c423a31d6600a5f59d2e4971c195fea41a394"
+  },
+  "step": {
+    "file": "iterations/002/design/preliminary/layout.step",
+    "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+  },
+  "motion": {
+    "file": "iterations/002/design/preliminary/motion.json",
+    "sha256": "e7e4bb38f5812baa5e567b35a3448926322785b063d7c20eb634c89fe4d033b7"
+  },
+  "datum": {
+    "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the dump (reef) face, +Y port, +Z up, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "groups": {
+    "structure": {
+      "role": "structure",
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ]
+    },
+    "steer sweeps": {
+      "role": "drive",
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep"
+      ]
+    },
+    "module housings": {
+      "role": "drive",
+      "members": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ]
+    },
+    "upper support": {
+      "role": "structure",
+      "members": [
+        "Upper support",
+        "Upper support part 2"
+      ]
+    },
+    "pan cassette": {
+      "role": "mechanism",
+      "members": [
+        "Pan cassette"
+      ]
+    },
+    "pan": {
+      "role": "mechanism",
+      "members": [
+        "Guarded pan"
+      ]
+    },
+    "inlet": {
+      "role": "mechanism",
+      "members": [
+        "Inlet chute crossmember 1",
+        "Inlet chute crossmember 2",
+        "Inlet guides and frame",
+        "Inlet guides and frame part 2",
+        "Inlet chute panels",
+        "Inlet chute panels part 2",
+        "Inlet chute panels part 3",
+        "Inlet chute panels part 4",
+        "Inlet chute panels part 5"
+      ]
+    },
+    "bumpers": {
+      "role": "bumper",
+      "members": [
+        "Bumper ring"
+      ]
+    },
+    "electronics": {
+      "role": "other",
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Pan controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ]
+    },
+    "wiring": {
+      "role": "other",
+      "members": [
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ]
+    },
+    "battery retention": {
+      "role": "other",
+      "members": [
+        "Battery tray and retention"
+      ]
+    },
+    "battery": {
+      "role": "battery",
+      "members": [
+        "Dressed battery"
+      ]
+    },
+    "breaker service hand": {
+      "role": "service",
+      "members": [
+        "Breaker reset hand"
+      ]
+    },
+    "plug service hand": {
+      "role": "service",
+      "members": [
+        "Plug grip hand"
+      ]
+    },
+    "pipe": {
+      "role": "payload",
+      "members": [
+        "CORAL pipe"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "group": "pan",
+      "on": "Pan cassette",
+      "pointMm": [
+        205.0,
+        0.0,
+        580.0
+      ],
+      "basis": "Pan axis through the REV-21-1915 hex bearings in both carriers (Y +/-195)"
+    },
+    {
+      "group": "pan cassette",
+      "on": "Chassis pan trusses and stringers",
+      "pointMm": [
+        110.0,
+        232.475,
+        480.0
+      ],
+      "basis": "Cradle 110 port end clip on the upper pan stringer inboard face (pan/geometry.json attachments)"
+    },
+    {
+      "group": "upper support",
+      "on": "Chassis pan trusses and stringers",
+      "pointMm": [
+        100.6,
+        242.0,
+        480.0
+      ],
+      "basis": "Port stringer extension butt splice to the upper pan stringer (X 100.475; datum 0.125 mm inside the stringer reserve)"
+    },
+    {
+      "group": "inlet",
+      "on": "Upper support part 2",
+      "pointMm": [
+        -242.5,
+        242.0,
+        489.5
+      ],
+      "basis": "Port inlet mounting foot 1 on the stringer extension top"
+    },
+    {
+      "group": "battery",
+      "on": "Battery tray and retention",
+      "pointMm": [
+        -150.0,
+        0.0,
+        29.9
+      ],
+      "basis": "Battery case bottom on the tray"
+    },
+    {
+      "group": "battery retention",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -210.0,
+        110.0,
+        111.13
+      ],
+      "basis": "Port rear hanger under inboard sill 1"
+    },
+    {
+      "group": "bumpers",
+      "on": "Chassis perimeter",
+      "pointMm": [
+        370.0,
+        0.0,
+        150.0
+      ],
+      "basis": "Front bumper backer on the front perimeter face (mount undesigned)"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 1 housing",
+      "pointMm": [
+        269.3,
+        264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 2 housing",
+      "pointMm": [
+        269.3,
+        -264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 3 housing",
+      "pointMm": [
+        -269.3,
+        -264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 4 housing",
+      "pointMm": [
+        -269.3,
+        264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 2",
+      "pointMm": [
+        238.826,
+        233.803,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the 50.8 mm socket rail between the module plates (nearest host point to the housing centre)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 3",
+      "pointMm": [
+        238.803,
+        -233.826,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the 50.8 mm socket rail between the module plates (nearest host point to the housing centre)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 4",
+      "pointMm": [
+        -238.826,
+        -233.803,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the 50.8 mm socket rail between the module plates (nearest host point to the housing centre)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails",
+      "pointMm": [
+        -238.803,
+        233.826,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the 50.8 mm socket rail between the module plates (nearest host point to the housing centre)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -145.0,
+        152.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -142.0,
+        -159.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -142.0,
+        -283.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -96.0,
+        274.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        -116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        -196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        -116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        -196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        273.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -305.272,
+        99.555,
+        188.024
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -219.55,
+        178.0,
+        201.0
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        105.55,
+        0.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        177.5,
+        172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        177.5,
+        -172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -177.5,
+        -172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -177.5,
+        172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: the host-envelope point nearest the reserve centre (bracket undesigned)"
+    }
+  ],
+  "stages": {
+    "receive-chute": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "receive-over-edge": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "receive-seat": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "loaded-carry": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pan",
+        "pipe"
+      ],
+      "carriedWith": {
+        "pipe": "pan"
+      },
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "tip-to-dump": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pan",
+        "pipe"
+      ],
+      "carriedWith": {
+        "pipe": "pan"
+      },
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "release": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "reset-to-stow": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pan"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: 0.5 mm for the +/-0.05 deg stow placement at the 560 mm pan radius, 1.5 mm fabrication and working-load deflection; every mated face is partitioned at 2.1 mm"
+    },
+    "park": {
+      "purpose": "park",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation"
+    },
+    "service-unload-pipe": {
+      "purpose": "service",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-pan-cassette-lift": {
+      "purpose": "service",
+      "movingGroups": [
+        "pan",
+        "pan cassette"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-battery-lift": {
+      "purpose": "service",
+      "movingGroups": [
+        "battery"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-battery-rear-carry": {
+      "purpose": "service",
+      "movingGroups": [
+        "battery"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-plug-disconnect": {
+      "purpose": "service",
+      "movingGroups": [
+        "plug service hand"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-breaker-reset": {
+      "purpose": "service",
+      "movingGroups": [
+        "breaker service hand"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    }
+  },
+  "missingInputs": [],
+  "control": {
+    "case": "tip-to-dump",
+    "displaced": "Breaker reset hand",
+    "moving": "Guarded pan",
+    "offsetMm": [
+      560.0,
+      -274.0,
+      120.0
+    ],
+    "basis": "A service hand left over the pan arc between the clear stow and dump endpoints"
+  },
+  "cycle": [
+    "receive-chute",
+    "receive-over-edge",
+    "receive-seat",
+    "loaded-carry",
+    "tip-to-dump",
+    "release",
+    "reset-to-stow",
+    "park"
+  ],
+  "view": "iterations/002/design/preliminary/package-motion.html",
+  "budgets": {
+    "file": "iterations/002/design/preliminary/budgets.json",
+    "sha256": "1f7482bd5903d0f6b8f059c03faeed2e6146a88dd46ffd355f998d3b279335ad"
+  },
+  "premises": [
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/station-receive-face-accepted.json",
+        "sha256": "7d8ec3241aee21f5127291224360ef69e5907ebbdffebe392471cc85c5572d28"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/station-receive-face-current.json",
+        "sha256": "70da0a8cb360a9fa1975bb8f54e7798da47ae644615557da11d91bf2ca81e16d"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/station-receive-time-accepted.json",
+        "sha256": "2292e4ee86fce4681f5cb290616505210e7950838a78df2f7f4dc925c9b1c359"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/station-receive-time-current.json",
+        "sha256": "bdc673089d6e2ccfd4cfb7d07451da998de7a325bd5baf6c6d672314f4613132"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/dock-support-margin-accepted.json",
+        "sha256": "c9d17d3689ed2d5a6b67b04d38db1af23ca2466fec22a1c5fb4c2c582238365a"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/dock-support-margin-current.json",
+        "sha256": "2e7524f7fe9495c51127980bc2ffa34569cdba929b3f3677f16461a697ecbd33"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/station-arrival-speed-accepted.json",
+        "sha256": "ccd0f8934d6faadb2d29d8f5ece2863b8605a786f375878dfc24ab791618a01b"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/station-arrival-speed-current.json",
+        "sha256": "be072c46c012e9b4c50caa20825fbf38735514b00540f7af2f28ca817a43426d"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/inspection-mass-accepted.json",
+        "sha256": "ac69a9e00850c90ed5257f175a2db1915956e61a339785ad76b8f38a69ff6fd4"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/inspection-mass-current.json",
+        "sha256": "1621656b607e1d0340d8ddc84358caf7b027bced60b1e4947064ec838cc5c3a2"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/weak-pack-voltage-accepted.json",
+        "sha256": "f9989d817b14706e07ad961c4ad62f8113e67f7fddb14e10f3e9e7cfe8c56ab9"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/weak-pack-voltage-current.json",
+        "sha256": "5378fad8904134fa02daf990ca3485aedcb8f151864c3964c2841f3bc19be888"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/electronics-layout-accepted.json",
+        "sha256": "490d04007c4baf5999cf961d0a34396ba98668df9b6f7508102b3c5208097c6f"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/electronics-layout-current.json",
+        "sha256": "99a28cf169ba63ac8dfebef3f5f22cf990addbfdf038c0125ff2fc4bdecce801"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/chassis-interface-accepted.json",
+        "sha256": "5439952b32597d4a03868aaa75c5a6cf5a399c898f3f1e7c1209d701274d33e5"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/chassis-interface-current.json",
+        "sha256": "8b6c66ff092054a7f35e1d353105ff8f86d5674f88ab97bd72e68ec54254d845"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/pan-package-geometry-accepted.json",
+        "sha256": "9af67256c0513448d58699ef75737c0b41bd5c695570ecde65e73277bae9fcc9"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/pan-package-geometry-current.json",
+        "sha256": "c063fbcffd8d912e1e76d8a26dfda98bff19135ef1e90f75fd99ebba9cca4348"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/seated-clamp-screws-accepted.json",
+        "sha256": "c5074755aa2d030c2f47792ccbe6f8a6df75f041982aa414f21264f79db2f667"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/seated-clamp-screws-current.json",
+        "sha256": "73b9eb7eebf9294c05a358e9fe67b4645ce046b3fd82127b38533f86e0b1fab7"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary/premises/pan-selection-accepted.json",
+        "sha256": "bcacd739c22f329edf56c920d71a6f147e338d64561f1cb92e60c8794948239f"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary/premises/pan-selection-current.json",
+        "sha256": "e52009610e960352975bec07efd6090f1be54ba6a9ea30481b0dc136b08a5043"
+      }
+    }
+  ],
+  "presentation": {
+    "components": {
+      "Chassis perimeter": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Closes the frame perimeter that carries the bumpers and reacts strikes into the wheel stations.",
+        "rationale": "The bumper ring and the frame-perimeter rules bound the robot; strike loads must reach the module stations."
+      },
+      "Chassis cassettes and socket rails": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails.",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner."
+      },
+      "Chassis cassettes and socket rails part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner."
+      },
+      "Chassis cassettes and socket rails part 3": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner."
+      },
+      "Chassis cassettes and socket rails part 4": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner."
+      },
+      "Chassis pan trusses and stringers": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Raises the upper pan stringers to Z 470-490 for the cradles and stringer extensions.",
+        "rationale": "The pan pivot at Z 580 needs support stringers on both sides, clear of the electronics below."
+      },
+      "Chassis pan trusses and stringers part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Raises the upper pan stringers to Z 470-490 for the cradles and stringer extensions. (separated piece after partition)",
+        "rationale": "The pan pivot at Z 580 needs support stringers on both sides, clear of the electronics below."
+      },
+      "Chassis sills, decks and crossmembers": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets.",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 3": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 4": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 5": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 6": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 7": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 8": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Chassis sills, decks and crossmembers part 9": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills, spans the pan crossmembers, seats the clamp screws and carries the two equipment sheets. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central, reaches the pan loads into both sills and leaves the battery lift gap between the decks."
+      },
+      "Module 1 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 1 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full 360 deg steer sweep must stay clear of the frame, bumpers, leads and battery while the robot re-azimuths during the loaded carry."
+      },
+      "Module 1 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 1 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module; its motors sit inboard and govern the lead and crossmember space under the equipment sheet."
+      },
+      "Module 2 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 2 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full 360 deg steer sweep must stay clear of the frame, bumpers, leads and battery while the robot re-azimuths during the loaded carry."
+      },
+      "Module 2 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 2 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module; its motors sit inboard and govern the lead and crossmember space under the equipment sheet."
+      },
+      "Module 3 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 3 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full 360 deg steer sweep must stay clear of the frame, bumpers, leads and battery while the robot re-azimuths during the loaded carry."
+      },
+      "Module 3 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 3 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module; its motors sit inboard and govern the lead and crossmember space under the equipment sheet."
+      },
+      "Module 4 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 4 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full 360 deg steer sweep must stay clear of the frame, bumpers, leads and battery while the robot re-azimuths during the loaded carry."
+      },
+      "Module 4 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 4 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module; its motors sit inboard and govern the lead and crossmember space under the equipment sheet."
+      },
+      "Upper support": {
+        "category": "structure",
+        "material": "6061-T6 tube (r3 stringer extensions and inlet truss)",
+        "purpose": "Extends the upper pan stringers rearward and lands the inlet truss on the perimeter.",
+        "rationale": "The fixed inlet sits behind the pan pivot and above the battery path, so it needs its own stringer extensions and truss legs reaching the frame."
+      },
+      "Upper support part 2": {
+        "category": "structure",
+        "material": "6061-T6 tube (r3 stringer extensions and inlet truss)",
+        "purpose": "Extends the upper pan stringers rearward and lands the inlet truss on the perimeter.",
+        "rationale": "The fixed inlet sits behind the pan pivot and above the battery path, so it needs its own stringer extensions and truss legs reaching the frame."
+      },
+      "Pan cassette": {
+        "category": "mechanism",
+        "material": "6061-T6 cradles and plates, REV bearings, UltraPlanetary and NEO 550 (r3)",
+        "purpose": "Carries the pan bearings, drive gearbox and NEO 550, both stops, the closing spring and the inhibit cam and switch, and lifts out as one unit for service.",
+        "rationale": "The guarded pan needs a removable support on the X110 and X250 cradles so its drive, stops and journals can be serviced without disturbing the chassis."
+      },
+      "Guarded pan": {
+        "category": "receiver",
+        "material": "5052-H32 sheet with 6061-T6 stringers and plates (r3)",
+        "purpose": "Receives the station pipe at 70 deg stow, carries it and tips 72 deg to release it into the L1 trough.",
+        "rationale": "The matched fixed-path comparison lost an adverse pipe in every variant, so the role relies on a powered rotating pan with positive stops (pan-selection premise)."
+      },
+      "Inlet chute crossmember 1": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Supports the feed panels at their joint.",
+        "rationale": "The chute panels are thin sheet and need a cross support under the rolling pipe at the panel break."
+      },
+      "Inlet chute crossmember 2": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Supports the feed panels at their joint.",
+        "rationale": "The chute panels are thin sheet and need a cross support under the rolling pipe at the panel break."
+      },
+      "Inlet guides and frame": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Guides the station pipe laterally and supports the chute from the stringer extensions.",
+        "rationale": "The pipe arrives at about 2.5 m/s from the station chute; side guides keep its 301.6 mm length square to the pan opening."
+      },
+      "Inlet guides and frame part 2": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Guides the station pipe laterally and supports the chute from the stringer extensions.",
+        "rationale": "The pipe arrives at about 2.5 m/s from the station chute; side guides keep its 301.6 mm length square to the pan opening."
+      },
+      "Inlet chute panels": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Forms the rolling surface that brings the station pipe down into the stowed pan.",
+        "rationale": "A passive chute lets the pan stay at stow during receive, so the receive needs no extra actuator."
+      },
+      "Inlet chute panels part 2": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Forms the rolling surface that brings the station pipe down into the stowed pan.",
+        "rationale": "A passive chute lets the pan stay at stow during receive, so the receive needs no extra actuator."
+      },
+      "Inlet chute panels part 3": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Forms the rolling surface that brings the station pipe down into the stowed pan.",
+        "rationale": "A passive chute lets the pan stay at stow during receive, so the receive needs no extra actuator."
+      },
+      "Inlet chute panels part 4": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Forms the rolling surface that brings the station pipe down into the stowed pan.",
+        "rationale": "A passive chute lets the pan stay at stow during receive, so the receive needs no extra actuator."
+      },
+      "Inlet chute panels part 5": {
+        "category": "guide",
+        "material": "5052-H32 sheet and 6061-T6 tube (r3 fixed inlet)",
+        "purpose": "Forms the rolling surface that brings the station pipe down into the stowed pan.",
+        "rationale": "A passive chute lets the pan stay at stow during receive, so the receive needs no extra actuator."
+      },
+      "Bumper ring": {
+        "category": "bumper",
+        "material": "4 mm backer, 69.5 mm PE foam, 0.5 mm cover (project rear-facet record)",
+        "purpose": "Protects the frame perimeter in contact with field elements and robots.",
+        "rationale": "Bumpers are required on the frame perimeter; the ring follows the actual frame plan hull so its backing clears the lower cassette corners."
+      },
+      "Power distribution hub": {
+        "category": "power",
+        "material": "REV PDH (supplier)",
+        "purpose": "Distributes battery power to the nine motor controllers and the control system through branch breakers.",
+        "rationale": "Every motor and controller load in the voltage budget draws through it."
+      },
+      "roboRIO 2": {
+        "category": "compute",
+        "material": "NI roboRIO 2 (supplier)",
+        "purpose": "Runs the robot program, the pan limits and the drive control.",
+        "rationale": "A control computer is required to operate the robot."
+      },
+      "VH-109 radio": {
+        "category": "compute",
+        "material": "VH-109 radio (supplier)",
+        "purpose": "Links the robot to the driver station and field.",
+        "rationale": "Required robot communications."
+      },
+      "Main 120 A breaker": {
+        "category": "power",
+        "material": "Eaton CB185 120 A breaker (supplier)",
+        "purpose": "Disconnects and protects the main battery circuit.",
+        "rationale": "Required main disconnect; its reset button needs the hand path checked in service-breaker-reset."
+      },
+      "Starboard controller 1 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Starboard controller 2 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Starboard controller 3 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Starboard controller 4 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Port controller 1 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Port controller 2 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Port controller 3 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Port controller 4 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors."
+      },
+      "Pan controller (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands the pan NEO 550 under its 30 A limit with the reverse-limit inhibit input.",
+        "rationale": "The opening-only drive inhibit at -3.5 deg is wired to this controller, independent of the roboRIO."
+      },
+      "Chassis battery plug and bracket": {
+        "category": "power",
+        "material": "Anderson SB50 and bracket reserve",
+        "purpose": "Mates the battery SB50 to the robot-side main leads.",
+        "rationale": "The battery must disconnect at a plug the plug-grip hand can reach."
+      },
+      "Main power loom": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the main lead route from the SB50 to the breaker and PDH.",
+        "rationale": "The main leads must avoid the battery lift, the plug grip and the inlet truss legs."
+      },
+      "Branch and CAN trunk": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the branch power and CAN route from the PDH to the controllers.",
+        "rationale": "Branch and CAN wiring must cross the centre gap between the equipment sheets above the pan crossmembers."
+      },
+      "Module 1 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 1 motor and CANcoder leads between the module top and the equipment sheet.",
+        "rationale": "Module leads must leave the housing under the sheet without entering the steer sweep or the crossmembers."
+      },
+      "Module 2 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 2 motor and CANcoder leads between the module top and the equipment sheet.",
+        "rationale": "Module leads must leave the housing under the sheet without entering the steer sweep or the crossmembers."
+      },
+      "Module 3 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 3 motor and CANcoder leads between the module top and the equipment sheet.",
+        "rationale": "Module leads must leave the housing under the sheet without entering the steer sweep or the crossmembers."
+      },
+      "Module 4 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 4 motor and CANcoder leads between the module top and the equipment sheet.",
+        "rationale": "Module leads must leave the housing under the sheet without entering the steer sweep or the crossmembers."
+      },
+      "Battery tray and retention": {
+        "category": "plate",
+        "material": "Aluminium tray and hangers (planning reserve)",
+        "purpose": "Supports and retains the battery case below the sills.",
+        "rationale": "The battery sits low and central for CG and must be retained against strikes yet lift out through the centre gap."
+      },
+      "Dressed battery": {
+        "category": "battery",
+        "material": "Sealed lead-acid FRC battery with leads (excluded by R103)",
+        "purpose": "Supplies the robot; its case, leads and battery-side SB50 move together in service.",
+        "rationale": "The pack is the voltage source of the budget and its lift and rearward carry set the service path."
+      },
+      "Breaker reset hand": {
+        "category": "reserved-space",
+        "material": "Clearance gauge: no robot material",
+        "purpose": "Clearance gauge for a hand reaching the main breaker reset from above.",
+        "rationale": "Resetting the breaker between matches must not require removing the stringer extension or the inlet."
+      },
+      "Plug grip hand": {
+        "category": "reserved-space",
+        "material": "Clearance gauge: no robot material",
+        "purpose": "Clearance gauge for a hand gripping the SB50 pair to disconnect the battery.",
+        "rationale": "The battery swap begins with this disconnect; the gauge keeps the space above the plugs free of leads."
+      },
+      "CORAL pipe": {
+        "category": "game-piece",
+        "material": "PVC CORAL pipe (field element)",
+        "purpose": "The finite game piece followed from the station chute through the seat, tip and release.",
+        "rationale": "The role scores two station pipes in the L1 trough; every receive, carry and release clearance is checked against the actual pipe length and diameter."
+      }
+    },
+    "required": {
+      "wheels": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep"
+      ],
+      "drive actuators": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "steer actuators": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "control computer": [
+        "roboRIO 2"
+      ],
+      "power distribution": [
+        "Power distribution hub"
+      ],
+      "main disconnect": [
+        "Main 120 A breaker"
+      ],
+      "battery supply": [
+        "Dressed battery",
+        "Chassis battery plug and bracket"
+      ],
+      "comms": [
+        "VH-109 radio"
+      ],
+      "pan pivot": [
+        "Pan cassette",
+        "Guarded pan"
+      ],
+      "pan drive": [
+        "Pan cassette",
+        "Pan controller (SPARK MAX)"
+      ],
+      "pan stops": [
+        "Pan cassette"
+      ],
+      "pan encoder": [],
+      "pan clutch": [
+        "Pan cassette"
+      ]
+    },
+    "loadMembers": {
+      "drive": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)"
+      ],
+      "steer": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing",
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)"
+      ],
+      "pan": [
+        "Pan cassette",
+        "Guarded pan",
+        "Pan controller (SPARK MAX)"
+      ],
+      "controls": [
+        "roboRIO 2",
+        "VH-109 radio",
+        "Power distribution hub"
+      ]
+    },
+    "provisional": {
+      "pan encoder": "Not designed or placed: absolute encoder for the -2 deg soft limit",
+      "pan clutch": "Required slip clutch not designed; only the gearbox envelope reserves it",
+      "pan cam and switch": "r3 sizing only, inside the cassette cam-sweep reserve"
+    },
+    "loadPaths": {
+      "file": "iterations/002/design/preliminary/load-paths.json",
+      "sha256": "558741cbb07cae62febda764d4c4041c1eea9a528a2685f4aa5b8581454a290a"
+    },
+    "selectedInterface": {
+      "file": "iterations/002/design/preliminary/chassis-carry-forward.json",
+      "sha256": "8a00e473b0113f0c7baeb083157a0c7660fae2c46f19331051159772e55ede48"
+    },
+    "retention": {
+      "file": "iterations/002/design/preliminary/retention-review.json",
+      "sha256": "6451bd871501ad674388ce83f41e2ddd814287c9b18ff5905cf930b391459d02"
+    },
+    "corrections": {
+      "file": "iterations/002/design/preliminary/modelling-corrections.json",
+      "sha256": "a34f6852e816db56f85cf240fcbde3532fbd20a1d7133906cd35f397e0244744"
+    }
+  },
+  "narrativeReview": {
+    "source": {
+      "file": "kickoff/selected-role.md",
+      "sha256": "4936b4a68771f6f8c805ee1975a357da23481969c9085403460e0cc3c4a5b7ce"
+    },
+    "read": "Read end to end on 2026-11-21: the opening LEAVE, two TELEOP station-to-L1 cycles in sectors A and B, custody, trough release and support, park, the endgame choice and the empty-start fallback. commissioning.md restates the two-pipe objective for iteration 002.",
+    "objectives": [
+      {
+        "objective": "AUTO: leave the starting line with the whole occupied robot (3 points)",
+        "disposition": "out-of-scope",
+        "basis": "A field-route objective for the empty robot; this package reserves the stowed starting configuration (940.5 mm tall, perimeter 2919.8 mm) but has no field fixture. Replay the opening-line study with the 17.25 mm rear cutback in the field rehearsal."
+      },
+      {
+        "objective": "TELEOP: take one station-issued CORAL from the red station (front approach)",
+        "disposition": "represented",
+        "basis": "Cases receive-chute, receive-over-edge and receive-seat; premises station-receive-face, station-receive-time and station-arrival-speed."
+      },
+      {
+        "objective": "Carry it to the red reef while crossing peer routes",
+        "disposition": "represented",
+        "basis": "Case loaded-carry (seated pipe in the pan hold band; steer covered by the static revolved envelopes); weak-pack voltage premise; peer traffic is field-side."
+      },
+      {
+        "objective": "Sustain a deliverable load: keep custody when accelerating, braking or contacted, and detect displacement or loss",
+        "disposition": "open",
+        "basis": "retention-review.json: no positive restraint on the open face at stow; powered events lift the pipe 24-114 ms (study-06); unpowered holding loses it at 3 g opening contact (study-05). No seated-pipe sensor or camera view is placed in this layout."
+      },
+      {
+        "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal",
+        "disposition": "open",
+        "basis": "Cases tip-to-dump, release and reset-to-stow carry the pipe out past the pan edge, and the dock-support-margin premise holds the replay support; the reef wall and trough fixture are not placed, so whole-robot wall clearance at the 12 mm stand-off is not checked in this package."
+      },
+      {
+        "objective": "Return for a second station CORAL and score it in sector B with the first pipe as an obstacle",
+        "disposition": "represented",
+        "basis": "The same ordered cycle repeats from reset-to-stow; sector B timing and the first-pipe obstacle are covered by the twelve-case replays behind the premises."
+      },
+      {
+        "objective": "PARK: reserve the south lane, stow, reach the zone and stop",
+        "disposition": "represented",
+        "basis": "Case park (withdraw 300 mm from the scored pipe, pan stowed); the lane reservation is field-side."
+      },
+      {
+        "objective": "Endgame alternatives: shallow or deep CAGE",
+        "disposition": "out-of-scope",
+        "basis": "The selected role parks; the occupied receiver has no demonstrated climb route (selected-role.md)."
+      },
+      {
+        "objective": "Fallback: empty-start leave-and-park for 5 points",
+        "disposition": "represented",
+        "basis": "The stowed starting configuration and the park case are the same robot with no pipe aboard."
+      },
+      {
+        "objective": "Partner and station dependence: Red 1 station change and station depletion",
+        "disposition": "out-of-scope",
+        "basis": "An alliance-chain and field-supply comparison owned by conceptual design; it changes no package volume."
+      }
+    ]
+  }
+}

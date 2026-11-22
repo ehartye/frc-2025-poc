@@ -1,0 +1,1424 @@
+{
+  "schema": "red2/pan-stop-study@3",
+  "supersedes": "replay basis of pan-stop-study.json and pan-stop-study-02.json, for the r1 riveted pan package",
+  "worktree": {
+    "path": ".",
+    "branch": "private/red2-native-successor",
+    "commit": "202750f76ba11ce7674d0c8856fb2cdc9dc54ec5",
+    "status": [
+      "?? iterations/002/design/chassis/connected-seven-retained.json",
+      "?? iterations/002/design/chassis/connected-thread-input.json",
+      "?? iterations/002/design/pan/"
+    ]
+  },
+  "plugin": {
+    "path": "PLUGIN",
+    "commit": "7e1ed2dccd67e8f3fdeb023c295ff2d364090140",
+    "version": "0.74.0",
+    "loaded": "scripts/hardening.mjs rotary from the main checkout as-is (PR #130 not merged), via npm run mechanism:review -- rotary"
+  },
+  "packageInputs": {
+    "geometry.json": {
+      "sha256": "9064cc4201a20a5792b2591ea097187d39811f2eeffdb052561f1c4edc2004a7",
+      "tracked": false,
+      "readOnly": true
+    },
+    "README.md": {
+      "sha256": "0d1bc19e8e53c18977a924e2f1a6ad92412ce72d1276ac92eb5ab076289865e1",
+      "tracked": false,
+      "readOnly": true
+    },
+    "structure.json": {
+      "sha256": "bed13a5ba992c77f319c676fab270de51493fa56e7dd49cbc53a8242400cb62a",
+      "tracked": false,
+      "readOnly": true
+    },
+    "operating-intent.json": {
+      "sha256": "a9fe4f101a12d1999882e74374cdeae68848b6b414e50c36feacf40f7e903f78",
+      "tracked": false,
+      "readOnly": true
+    }
+  },
+  "batteryInput": {
+    "path": "artifacts/red2-integrated/pan-duty-summary.json",
+    "sha256": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac"
+  },
+  "appliedChanges": {
+    "panProps": {
+      "source": "geometry.json /reconciliation/achievedIncludingOffAxisJoiningHardware",
+      "massKg": 3.3997649570616133,
+      "firstMomentUKgMm": 397.5400346223797,
+      "firstMomentWKgMm": 147.46647678110742,
+      "inertiaKgM2": 0.11569853647945291,
+      "simCentreMm": [
+        321.93162311019586,
+        -0.7467819128632048,
+        623.3754917306287
+      ],
+      "relativeError": {
+        "mass": 0.0163,
+        "U": -0.00737,
+        "W": -0.00914,
+        "inertia": 0.00577
+      },
+      "appliedIn": "pan sim (solver shop mass/centre/inertia and controller J) and Java return (gravity arm, mass, inertia)"
+    },
+    "stowStop": {
+      "contactAtStowMm": [
+        85.21498785396454,
+        149.5,
+        512.0335655494389
+      ],
+      "padPushDirection": [
+        0.2397140055132868,
+        0.9708435484468008
+      ],
+      "leverMm": 100.0,
+      "kNmPerRad": [
+        4209.462791017131,
+        5418.96917696776
+      ],
+      "cNmsPerRad": 15.8,
+      "basis": "structure.json stowStopStiffness series bounds (0.70 and 0.90 of 6000); pad damping kept",
+      "note": "contact point and push direction enter the 1-DOF lumped model only through the 100 mm lever; they set per-pad force direction for the structure"
+    },
+    "spring": {
+      "rateNmPerRad": 1.1936620731892151,
+      "atStowNm": 1.5,
+      "zeroAtDeg": -2.0,
+      "wireMm": 2.5,
+      "idMm": 18,
+      "bodyCoils": 4.96,
+      "law": "identical to the study 01 preload law (72 deg range, leg lifts off beyond -2 deg)"
+    },
+    "softStop": {
+      "thetaDeg": -5.0,
+      "kNmPerRad": 1250.0,
+      "cNmsPerRad": 3.95,
+      "leverMm": 50,
+      "pads": 2,
+      "padMm": 12,
+      "appliedIn": "pan sim and Java return"
+    }
+  },
+  "scripts": {
+    "pan_stop_03.mjs": "a096325963ba72bfde28eaefe13203e1974eb3ed8bc657d6b5dabe60563d89bf",
+    "run_stop_field_03.py": "2ffd60cc8ac266190578e78de414b48c1e5a58b81e07b2bcea2412f9be3f1bc2",
+    "run_all_03.sh": "759be74664e79e6f6a8ee5d36396c72065363dc6b5681924c4033fe2396c1176",
+    "fault_softstop_03.py": "bdfad14fc8c1f8444a4f5a9b6c683929c78a811e5073d5c2c2ceb0301059fe18",
+    "build_study_03.py": "0e20495c2004ae377104c3c4f9296e79772a5d7e341bb457fe292bd11d8ac808"
+  },
+  "outputs": {
+    "B3-revised-nostop-limit.field-bus.json": "e25ae7592dad54ff41f864d4ca5efbd42aba8c1d591a2708ff8cd1c0d28a5444",
+    "B3-revised-nostop-limit.field-bus.recovery.java.inc": "ce4150fdc8a8d1455a3a3c01aa471e57e03e14b0e0e7e123783bbe9a791221b5",
+    "B3-revised-nostop-limit.field.log": "81306fd629d74b5fa5f4ac72ef4bb28db678d2f1319bd8ed9431f2ab7a29f3e9",
+    "B3-revised-nostop-limit.hist.json": "4dfc2dead1e1a8bfa7e00809995f2d5886c8897cd8b53f1012f43dcc99195df6",
+    "B3-revised-nostop-limit.lowline.field-bus.json": "19c3ea69f567542330f3a9afbba3ceca5977960a5f62ef79b2d6d27b789e49de",
+    "B3-revised-nostop-limit.lowline.field-bus.recovery.java.inc": "ce4150fdc8a8d1455a3a3c01aa471e57e03e14b0e0e7e123783bbe9a791221b5",
+    "B3-revised-nostop-limit.lowline.log": "103a5ceeb0712db0552def7c801727631ed3b0686ae8d8136499d1796480317f",
+    "B3-revised-nostop-limit.pan.json": "321fb92ef317f424d14162604af0fde1736a807b5b8f52aece4013f7e16e8fb6",
+    "B3-revised-nostop-limit.pan.json.partial": "a5a61599e6614ebbb4f2470352b114272f77e529448ee6515af92e19bdc0a13b",
+    "B3-revised-nostop-limit.pan.log": "002a2f605270e0c636dbd757084387f560382e05b59b62a13da3c13d4f5cac9d",
+    "fault\\fault-softstop.json": "43baac5a40f29d8a427eda16f9f91ad46355d0cbdd8ac4a1b4e5b2ba014b0926",
+    "P3-K4210-limit.field-bus.json": "c86b1a83f67eeb41d5fa82d301ba64baa6af594981abbb3197cc5a8e1fba363b",
+    "P3-K4210-limit.field-bus.recovery.java.inc": "95bb4e2af1157485149f7952ef6b823148cd6040e4c4d1b4a217bf00244289fd",
+    "P3-K4210-limit.field.log": "21d66eed62c12457d4a760195b784cc86ad3b96f6162f1432e4b555541a27383",
+    "P3-K4210-limit.hist.json": "967f95b8470dd9cb3fea9361570ad6347052615b82de1537fd02d48d7916f346",
+    "P3-K4210-limit.lowline.field-bus.json": "4095de4fe251e0293cd68a5a8abbcea838b22ef2a5818ca821ca96740b4b2efa",
+    "P3-K4210-limit.lowline.field-bus.recovery.java.inc": "95bb4e2af1157485149f7952ef6b823148cd6040e4c4d1b4a217bf00244289fd",
+    "P3-K4210-limit.lowline.log": "3df4ad7524c2674d3e54fe56e9759cf6cae199ca087cdb65ef00cbb2823761d4",
+    "P3-K4210-limit.pan.json": "dd9997b1f6adea038f626a07bd295db3a06fc6d7354736e10216315cca5b848b",
+    "P3-K4210-limit.pan.json.partial": "857ad8e33a2ab0722587a5ca899c2ae98d4b3a62ce622171a2f530aae2b7fc33",
+    "P3-K4210-limit.pan.log": "857e6e59d95e3b30741ec0b250fde06114cb5a2bb5fedb0bd2596dad4c399a78",
+    "P3-K4210-unpowered.field-bus.json": "680d1c8be99bb4c8e9d9d85182d9af49313a828b3238c32aedb8e424498f3288",
+    "P3-K4210-unpowered.field-bus.recovery.java.inc": "95bb4e2af1157485149f7952ef6b823148cd6040e4c4d1b4a217bf00244289fd",
+    "P3-K4210-unpowered.field.log": "e4dbdcbb727b292fcb0ab1ac2218e6af7b5452c09966970c282e8bade148e5ea",
+    "P3-K4210-unpowered.hist.json": "7649409a72807766debf8c2f6ee723910f856067f50656ff8ddfaf50ddcd6c07",
+    "P3-K4210-unpowered.lowline.field-bus.json": "7767f2eeb65043077251020f1e8705d4325da44464cc028ea301578277c24999",
+    "P3-K4210-unpowered.lowline.field-bus.recovery.java.inc": "95bb4e2af1157485149f7952ef6b823148cd6040e4c4d1b4a217bf00244289fd",
+    "P3-K4210-unpowered.lowline.log": "a8a63e3a6ca69d2b1d4b1b7dfcb9e5f8db638851ab2e535230bc39afc3dc3fc7",
+    "P3-K4210-unpowered.pan.json": "f46baa8efd1f5448d4383fdf977d3e1db5e747d1a593d38d1f0904cff3764c88",
+    "P3-K4210-unpowered.pan.json.partial": "20e86194efc4f1beb96275bf5e490590ce39feb5988978a733e07cced853c425",
+    "P3-K4210-unpowered.pan.log": "85cd40b692deb5d94341c5af195d350baed0c5b239ca79807eba5086f2a274a9",
+    "P3-K5420-limit.field-bus.json": "7336953474f7c1dcf31828a807f0f2f2e14e35b5fb91a3db8f9403e1a2adccc2",
+    "P3-K5420-limit.field-bus.recovery.java.inc": "2147bd4b19685f6a643c3897cbe7c33c715538bcaec40773ad2b695d355c4958",
+    "P3-K5420-limit.field.log": "4d279bab0f04735d496db903c484c7d14b3d36f4754dab06d0fa9c39fc2f1f8f",
+    "P3-K5420-limit.hist.json": "cada9b2e6d815c1193566aaec0e9a8a37668f1ab723c4cea35ee0193691a67a1",
+    "P3-K5420-limit.lowline.field-bus.json": "4e2452d87b43a4e5de11f8a10bafd5ca44424910012a17b7a4e8e56657138b33",
+    "P3-K5420-limit.lowline.field-bus.recovery.java.inc": "2147bd4b19685f6a643c3897cbe7c33c715538bcaec40773ad2b695d355c4958",
+    "P3-K5420-limit.lowline.log": "8c9627d6c6c2f085b796ce895a1348445a981c06604eaf3ee34319e4646ab4e0",
+    "P3-K5420-limit.pan.json": "7d2c6d13db4f9a7581a2f632ef0c3b96a1a4ebb3dd76af7ef0ebecdde57b3246",
+    "P3-K5420-limit.pan.json.partial": "c47d2f9a5a8e6d7a1663c216a77e1d286e483c33d0ad07972b9b94fc23d10b92",
+    "P3-K5420-limit.pan.log": "4bf27ff6a9f6f5e40d91d96491eb986831522476173cbbe7cd41bfdf6ae09e51",
+    "P3-K5420-unpowered.field-bus.json": "26d7d9309d81aa7ba5acde8d73b6ae4f9061f0c7a9cae61168b5aa4a404fd1a6",
+    "P3-K5420-unpowered.field-bus.recovery.java.inc": "2147bd4b19685f6a643c3897cbe7c33c715538bcaec40773ad2b695d355c4958",
+    "P3-K5420-unpowered.field.log": "4838d84b28f81e8bdaaf1a5ca892404df7fab4d8066c4a3840ff835802ffb49b",
+    "P3-K5420-unpowered.hist.json": "9e992cee4f73c3860bba36ee2470c2eb0325e5f3c4f761d5c636403c8a148751",
+    "P3-K5420-unpowered.lowline.field-bus.json": "1a417be0793c0f287742c0bc55a8ef6f20d84f084bc5304632520fe24a0566e2",
+    "P3-K5420-unpowered.lowline.field-bus.recovery.java.inc": "2147bd4b19685f6a643c3897cbe7c33c715538bcaec40773ad2b695d355c4958",
+    "P3-K5420-unpowered.lowline.log": "5d9c9df34fb3950d9340878f52716b8400e3102aa264cab4be100e88370f4e79",
+    "P3-K5420-unpowered.pan.json": "48af81821b6df27189c10ea3a1683c36ca68bb89f459e66b48f2b7936918843e",
+    "P3-K5420-unpowered.pan.json.partial": "af0624d1b1d44a3d4d7cb7a8789612b880ddfb5a7424d7f0d4f9f241615dc4ce",
+    "P3-K5420-unpowered.pan.log": "0760a9e6ddae9d675e9244a88786db1e1bcca7cafeae9093d83a7c639f3999c7",
+    "rotary\\pan-rotary-model-03.json": "403935d6fff6a28216cc465cefdb1edf5aa8502d7ef45cb52ffdf4ae080ed2b0",
+    "rotary\\pan-rotary-result-03.json": "e3ebfed128e451be93921a620ba12cd28b605806a07ff323ba37c47dc3d82576",
+    "rotary\\pan-rotary-study-03.json": "a9a9e4a13ad70427f6de138efec182644effb7ba948e213c07f7629e8f0875fe"
+  },
+  "criteria": {
+    "support": ">= 1.83 mm",
+    "resets": "all 12 met",
+    "branch": ">= 9 V conservative pan branch",
+    "custody": "both pipes kept, released, supported and held in all 12 cases"
+  },
+  "baselineForComparison": {
+    "source": "pan-stop-study.json and -02 (old properties)",
+    "minSupportMm": 1.828296,
+    "minResetMs": 89.827,
+    "minBranchV_lowLine": 9.4735,
+    "minBranchV_fourTerminal": 9.4202,
+    "proposal30A": {
+      "minSupportMm": 1.831508,
+      "minResetMs": 71.827
+    },
+    "proposalUnpowered": {
+      "minSupportMm": 1.829889,
+      "minResetMs": 72.327
+    }
+  },
+  "results": {
+    "B3-revised-nostop-limit": {
+      "description": "reference: revised pan props + soft stop, no stow stop or spring, 30 A",
+      "fourTerminal": {
+        "file": "B3-revised-nostop-limit.field-bus.json",
+        "sha256": "e25ae7592dad54ff41f864d4ca5efbd42aba8c1d591a2708ff8cd1c0d28a5444",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.827711,
+        "resetsMet": 12,
+        "minResetMarginMs": 90.52700000000158,
+        "minConservativePanBranchV": 9.659100871178852,
+        "peakPanPhaseA": 22.477048616312047,
+        "maxLoadedDrivingPanA": 7.3998869,
+        "returnStowStopPeakNm": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086914123,
+        "criteria": {
+          "support183": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": false,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.77297263581382,
+            "peakPhaseA": 22.477048616312047,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.012320246539274216,
+              "maxAtS": 22.346,
+              "min": -0.015177221397418172,
+              "minAtS": 22.065
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8615726361704,
+            "peakPhaseA": 22.360459425301574,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.012320246539274216,
+              "maxAtS": 72.747,
+              "min": -0.015177221397418172,
+              "minAtS": 72.466
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.80747263581497,
+            "peakPhaseA": 20.733607226513563,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 2.055198726311725,
+            "minThetaRad": -0.08890427282969007,
+            "stowDeviationRad": {
+              "max": 0.0161470509881263,
+              "maxAtS": 22.349,
+              "min": -0.00869444776021,
+              "minAtS": 22.123
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.89817263617161,
+            "peakPhaseA": 20.74792415264909,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 2.0559994111028934,
+            "minThetaRad": -0.08890471970535613,
+            "stowDeviationRad": {
+              "max": 0.0161470509881263,
+              "maxAtS": 72.75,
+              "min": -0.00869444776021,
+              "minAtS": 72.524
+            }
+          }
+        }
+      },
+      "lowLine": {
+        "file": "B3-revised-nostop-limit.lowline.field-bus.json",
+        "sha256": "19c3ea69f567542330f3a9afbba3ceca5977960a5f62ef79b2d6d27b789e49de",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.827711,
+        "resetsMet": 12,
+        "minResetMarginMs": 90.52700000000158,
+        "minConservativePanBranchV": 9.710790418584798,
+        "peakPanPhaseA": 22.477048616312047,
+        "maxLoadedDrivingPanA": 7.3998869,
+        "returnStowStopPeakNm": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086914123,
+        "criteria": {
+          "support183": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": false,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.77297263581382,
+            "peakPhaseA": 22.477048616312047,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.012320246539274216,
+              "maxAtS": 22.346,
+              "min": -0.015177221397418172,
+              "minAtS": 22.065
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8615726361704,
+            "peakPhaseA": 22.360459425301574,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.012320246539274216,
+              "maxAtS": 72.747,
+              "min": -0.015177221397418172,
+              "minAtS": 72.466
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.80747263581497,
+            "peakPhaseA": 20.733607226513563,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 2.055198726311725,
+            "minThetaRad": -0.08890427282969007,
+            "stowDeviationRad": {
+              "max": 0.0161470509881263,
+              "maxAtS": 22.349,
+              "min": -0.00869444776021,
+              "minAtS": 22.123
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.89817263617161,
+            "peakPhaseA": 20.74792415264909,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "softStopPeakNm": 2.0559994111028934,
+            "minThetaRad": -0.08890471970535613,
+            "stowDeviationRad": {
+              "max": 0.0161470509881263,
+              "maxAtS": 72.75,
+              "min": -0.00869444776021,
+              "minAtS": 72.524
+            }
+          }
+        }
+      },
+      "config": {
+        "drive": "limit",
+        "panProps": {
+          "movingShopStockKg": 3.3997649570616133,
+          "movingShopCentreMm": [
+            321.93162311019586,
+            -0.7467819128632048,
+            623.3754917306287
+          ],
+          "movingStockInertiaKgM2": 0.11569853647945291
+        },
+        "softStop": {
+          "thetaRad": -0.08726646259971647,
+          "kNmPerRad": 1250.0000000000002,
+          "cNmsPerRad": 3.9500000000000006
+        }
+      }
+    },
+    "P3-K4210-limit": {
+      "description": "proposal, stow stop at package lower series bound 4210 N m/rad (pinned cradle), 30 A",
+      "fourTerminal": {
+        "file": "P3-K4210-limit.field-bus.json",
+        "sha256": "c86b1a83f67eeb41d5fa82d301ba64baa6af594981abbb3197cc5a8e1fba363b",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8248959999999999,
+        "resetsMet": 12,
+        "minResetMarginMs": 78.92700000000019,
+        "minConservativePanBranchV": 9.665990601208684,
+        "peakPanPhaseA": 22.474687111517486,
+        "maxLoadedDrivingPanA": 5.5059704,
+        "returnStowStopPeakNm": 5.868726,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086835586,
+        "criteria": {
+          "support183": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": false,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.79847263581467,
+            "peakPhaseA": 22.398393096417948,
+            "stowStopPeakNm": 7.890596809224107,
+            "stowStopSustained500msNm": 2.0497159580259243,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014669700779945671,
+              "maxAtS": 22.074,
+              "min": -0.006026914527604177,
+              "minAtS": 22.04
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8919726361714,
+            "peakPhaseA": 22.474687111517486,
+            "stowStopPeakNm": 7.890596809224107,
+            "stowStopSustained500msNm": 2.0497159580259243,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014669700779945671,
+              "maxAtS": 72.475,
+              "min": -0.006026914527604177,
+              "minAtS": 72.441
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.81967263581537,
+            "peakPhaseA": 20.9549502470164,
+            "stowStopPeakNm": 7.529639536194896,
+            "stowStopSustained500msNm": 2.0511366877913355,
+            "softStopPeakNm": 2.00540853937519,
+            "minThetaRad": -0.08886440788284705,
+            "stowDeviationRad": {
+              "max": 0.0016074484691248614,
+              "maxAtS": 22.311,
+              "min": -0.0008562505986196012,
+              "minAtS": 22.025
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91187263617206,
+            "peakPhaseA": 20.940930719980066,
+            "stowStopPeakNm": 7.529639536194896,
+            "stowStopSustained500msNm": 2.0511366877913355,
+            "softStopPeakNm": 2.004414538534979,
+            "minThetaRad": -0.08886368865102218,
+            "stowDeviationRad": {
+              "max": 0.0016074484691248614,
+              "maxAtS": 72.712,
+              "min": -0.0008562505986196012,
+              "minAtS": 72.426
+            }
+          }
+        }
+      },
+      "lowLine": {
+        "file": "P3-K4210-limit.lowline.field-bus.json",
+        "sha256": "4095de4fe251e0293cd68a5a8abbcea838b22ef2a5818ca821ca96740b4b2efa",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8248959999999999,
+        "resetsMet": 12,
+        "minResetMarginMs": 78.92700000000019,
+        "minConservativePanBranchV": 9.717540404765666,
+        "peakPanPhaseA": 22.474687111517486,
+        "maxLoadedDrivingPanA": 5.5059704,
+        "returnStowStopPeakNm": 5.868726,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086835586,
+        "criteria": {
+          "support183": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": false,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.79847263581467,
+            "peakPhaseA": 22.398393096417948,
+            "stowStopPeakNm": 7.890596809224107,
+            "stowStopSustained500msNm": 2.0497159580259243,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014669700779945671,
+              "maxAtS": 22.074,
+              "min": -0.006026914527604177,
+              "minAtS": 22.04
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8919726361714,
+            "peakPhaseA": 22.474687111517486,
+            "stowStopPeakNm": 7.890596809224107,
+            "stowStopSustained500msNm": 2.0497159580259243,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014669700779945671,
+              "maxAtS": 72.475,
+              "min": -0.006026914527604177,
+              "minAtS": 72.441
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.81967263581537,
+            "peakPhaseA": 20.9549502470164,
+            "stowStopPeakNm": 7.529639536194896,
+            "stowStopSustained500msNm": 2.0511366877913355,
+            "softStopPeakNm": 2.00540853937519,
+            "minThetaRad": -0.08886440788284705,
+            "stowDeviationRad": {
+              "max": 0.0016074484691248614,
+              "maxAtS": 22.311,
+              "min": -0.0008562505986196012,
+              "minAtS": 22.025
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91187263617206,
+            "peakPhaseA": 20.940930719980066,
+            "stowStopPeakNm": 7.529639536194896,
+            "stowStopSustained500msNm": 2.0511366877913355,
+            "softStopPeakNm": 2.004414538534979,
+            "minThetaRad": -0.08886368865102218,
+            "stowDeviationRad": {
+              "max": 0.0016074484691248614,
+              "maxAtS": 72.712,
+              "min": -0.0008562505986196012,
+              "minAtS": 72.426
+            }
+          }
+        }
+      },
+      "config": {
+        "drive": "limit",
+        "stop": {
+          "gapRad": 0,
+          "kNmPerRad": 4209.462791017131,
+          "cNmsPerRad": 15.8
+        },
+        "preload": {
+          "tpNm": 1.5,
+          "rangeRad": 1.2566370614359172
+        },
+        "panProps": {
+          "movingShopStockKg": 3.3997649570616133,
+          "movingShopCentreMm": [
+            321.93162311019586,
+            -0.7467819128632048,
+            623.3754917306287
+          ],
+          "movingStockInertiaKgM2": 0.11569853647945291
+        },
+        "softStop": {
+          "thetaRad": -0.08726646259971647,
+          "kNmPerRad": 1250.0000000000002,
+          "cNmsPerRad": 3.9500000000000006
+        }
+      }
+    },
+    "P3-K4210-unpowered": {
+      "description": "proposal, 4210 N m/rad, unpowered from station feed to tip start - 0.3 s",
+      "fourTerminal": {
+        "file": "P3-K4210-unpowered.field-bus.json",
+        "sha256": "680d1c8be99bb4c8e9d9d85182d9af49313a828b3238c32aedb8e424498f3288",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8312009999999999,
+        "resetsMet": 12,
+        "minResetMarginMs": 79.5269999999988,
+        "minConservativePanBranchV": 9.678665684730563,
+        "peakPanPhaseA": 22.443905914973584,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnStowStopPeakNm": 5.8785017,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086841143,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.79737263581463,
+            "peakPhaseA": 22.413428418654373,
+            "stowStopPeakNm": 8.672803544156878,
+            "stowStopSustained500msNm": 2.8129458316235456,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0016337456173471931,
+              "maxAtS": 22.088,
+              "min": -0.007154890444634132,
+              "minAtS": 22.047
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.89047263617135,
+            "peakPhaseA": 22.443905914973584,
+            "stowStopPeakNm": 8.672803544156878,
+            "stowStopSustained500msNm": 2.8129458316235456,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0016337456173471931,
+              "maxAtS": 72.489,
+              "min": -0.007154890444634132,
+              "minAtS": 72.448
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.817972635815316,
+            "peakPhaseA": 20.93487821938093,
+            "stowStopPeakNm": 7.464437582124015,
+            "stowStopSustained500msNm": 2.7636098270884486,
+            "softStopPeakNm": 2.0109781157276903,
+            "minThetaRad": -0.08886877213835143,
+            "stowDeviationRad": {
+              "max": 0.0015950690896833208,
+              "maxAtS": 22.311,
+              "min": -0.0009059236375517088,
+              "minAtS": 22.026
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.910072636172,
+            "peakPhaseA": 20.92135075384092,
+            "stowStopPeakNm": 7.464437582124015,
+            "stowStopSustained500msNm": 2.780203688084209,
+            "softStopPeakNm": 2.00988459661315,
+            "minThetaRad": -0.08886801379388856,
+            "stowDeviationRad": {
+              "max": 0.0015950690896833208,
+              "maxAtS": 72.712,
+              "min": -0.0009059236375517088,
+              "minAtS": 72.427
+            }
+          }
+        }
+      },
+      "lowLine": {
+        "file": "P3-K4210-unpowered.lowline.field-bus.json",
+        "sha256": "7767f2eeb65043077251020f1e8705d4325da44464cc028ea301578277c24999",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8312009999999999,
+        "resetsMet": 12,
+        "minResetMarginMs": 79.5269999999988,
+        "minConservativePanBranchV": 9.730045056254145,
+        "peakPanPhaseA": 22.443905914973584,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnStowStopPeakNm": 5.8785017,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086841143,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.79737263581463,
+            "peakPhaseA": 22.413428418654373,
+            "stowStopPeakNm": 8.672803544156878,
+            "stowStopSustained500msNm": 2.8129458316235456,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0016337456173471931,
+              "maxAtS": 22.088,
+              "min": -0.007154890444634132,
+              "minAtS": 22.047
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.89047263617135,
+            "peakPhaseA": 22.443905914973584,
+            "stowStopPeakNm": 8.672803544156878,
+            "stowStopSustained500msNm": 2.8129458316235456,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0016337456173471931,
+              "maxAtS": 72.489,
+              "min": -0.007154890444634132,
+              "minAtS": 72.448
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.817972635815316,
+            "peakPhaseA": 20.93487821938093,
+            "stowStopPeakNm": 7.464437582124015,
+            "stowStopSustained500msNm": 2.7636098270884486,
+            "softStopPeakNm": 2.0109781157276903,
+            "minThetaRad": -0.08886877213835143,
+            "stowDeviationRad": {
+              "max": 0.0015950690896833208,
+              "maxAtS": 22.311,
+              "min": -0.0009059236375517088,
+              "minAtS": 22.026
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.910072636172,
+            "peakPhaseA": 20.92135075384092,
+            "stowStopPeakNm": 7.464437582124015,
+            "stowStopSustained500msNm": 2.780203688084209,
+            "softStopPeakNm": 2.00988459661315,
+            "minThetaRad": -0.08886801379388856,
+            "stowDeviationRad": {
+              "max": 0.0015950690896833208,
+              "maxAtS": 72.712,
+              "min": -0.0009059236375517088,
+              "minAtS": 72.427
+            }
+          }
+        }
+      },
+      "config": {
+        "drive": "unpowered",
+        "unpoweredFromFeedS": 0,
+        "unpoweredLeadS": 0.3,
+        "stop": {
+          "gapRad": 0,
+          "kNmPerRad": 4209.462791017131,
+          "cNmsPerRad": 15.8
+        },
+        "preload": {
+          "tpNm": 1.5,
+          "rangeRad": 1.2566370614359172
+        },
+        "panProps": {
+          "movingShopStockKg": 3.3997649570616133,
+          "movingShopCentreMm": [
+            321.93162311019586,
+            -0.7467819128632048,
+            623.3754917306287
+          ],
+          "movingStockInertiaKgM2": 0.11569853647945291
+        },
+        "softStop": {
+          "thetaRad": -0.08726646259971647,
+          "kNmPerRad": 1250.0000000000002,
+          "cNmsPerRad": 3.9500000000000006
+        }
+      }
+    },
+    "P3-K5420-limit": {
+      "description": "proposal, upper series bound 5420 N m/rad (fixed cradle), 30 A",
+      "fourTerminal": {
+        "file": "P3-K5420-limit.field-bus.json",
+        "sha256": "7336953474f7c1dcf31828a807f0f2f2e14e35b5fb91a3db8f9403e1a2adccc2",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.832414,
+        "resetsMet": 12,
+        "minResetMarginMs": 74.42700000000002,
+        "minConservativePanBranchV": 9.66551333483662,
+        "peakPanPhaseA": 22.4239296395076,
+        "maxLoadedDrivingPanA": 5.3490957,
+        "returnStowStopPeakNm": 6.5110027,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086794231,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.807372635814964,
+            "peakPhaseA": 22.37596858706136,
+            "stowStopPeakNm": 8.779181451181227,
+            "stowStopSustained500msNm": 2.0568181698274732,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.001338171429195345,
+              "maxAtS": 22.074,
+              "min": -0.006081340576922001,
+              "minAtS": 22.04
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8978726361716,
+            "peakPhaseA": 22.4239296395076,
+            "stowStopPeakNm": 8.779181451181227,
+            "stowStopSustained500msNm": 2.0568181698274732,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.001338171429195345,
+              "maxAtS": 72.475,
+              "min": -0.006081340576922001,
+              "minAtS": 72.441
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.8264726358156,
+            "peakPhaseA": 21.025737899691688,
+            "stowStopPeakNm": 7.948530826499617,
+            "stowStopSustained500msNm": 2.0626823303753,
+            "softStopPeakNm": 1.9856956705367224,
+            "minThetaRad": -0.08884878671331513,
+            "stowDeviationRad": {
+              "max": 0.0013534120842733088,
+              "maxAtS": 22.31,
+              "min": -0.0007956372567479164,
+              "minAtS": 22.024
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91747263617225,
+            "peakPhaseA": 21.018993286817555,
+            "stowStopPeakNm": 7.948530826499617,
+            "stowStopSustained500msNm": 2.0626823303753,
+            "softStopPeakNm": 1.9858944873325435,
+            "minThetaRad": -0.08884873805185463,
+            "stowDeviationRad": {
+              "max": 0.0013534120842733088,
+              "maxAtS": 72.711,
+              "min": -0.0007956372567479164,
+              "minAtS": 72.425
+            }
+          }
+        }
+      },
+      "lowLine": {
+        "file": "P3-K5420-limit.lowline.field-bus.json",
+        "sha256": "4e2452d87b43a4e5de11f8a10bafd5ca44424910012a17b7a4e8e56657138b33",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.832414,
+        "resetsMet": 12,
+        "minResetMarginMs": 74.42700000000002,
+        "minConservativePanBranchV": 9.717061126132009,
+        "peakPanPhaseA": 22.4239296395076,
+        "maxLoadedDrivingPanA": 5.3490957,
+        "returnStowStopPeakNm": 6.5110027,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086794231,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.807372635814964,
+            "peakPhaseA": 22.37596858706136,
+            "stowStopPeakNm": 8.779181451181227,
+            "stowStopSustained500msNm": 2.0568181698274732,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.001338171429195345,
+              "maxAtS": 22.074,
+              "min": -0.006081340576922001,
+              "minAtS": 22.04
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.8978726361716,
+            "peakPhaseA": 22.4239296395076,
+            "stowStopPeakNm": 8.779181451181227,
+            "stowStopSustained500msNm": 2.0568181698274732,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.001338171429195345,
+              "maxAtS": 72.475,
+              "min": -0.006081340576922001,
+              "minAtS": 72.441
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.8264726358156,
+            "peakPhaseA": 21.025737899691688,
+            "stowStopPeakNm": 7.948530826499617,
+            "stowStopSustained500msNm": 2.0626823303753,
+            "softStopPeakNm": 1.9856956705367224,
+            "minThetaRad": -0.08884878671331513,
+            "stowDeviationRad": {
+              "max": 0.0013534120842733088,
+              "maxAtS": 22.31,
+              "min": -0.0007956372567479164,
+              "minAtS": 22.024
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91747263617225,
+            "peakPhaseA": 21.018993286817555,
+            "stowStopPeakNm": 7.948530826499617,
+            "stowStopSustained500msNm": 2.0626823303753,
+            "softStopPeakNm": 1.9858944873325435,
+            "minThetaRad": -0.08884873805185463,
+            "stowDeviationRad": {
+              "max": 0.0013534120842733088,
+              "maxAtS": 72.711,
+              "min": -0.0007956372567479164,
+              "minAtS": 72.425
+            }
+          }
+        }
+      },
+      "config": {
+        "drive": "limit",
+        "stop": {
+          "gapRad": 0,
+          "kNmPerRad": 5418.96917696776,
+          "cNmsPerRad": 15.8
+        },
+        "preload": {
+          "tpNm": 1.5,
+          "rangeRad": 1.2566370614359172
+        },
+        "panProps": {
+          "movingShopStockKg": 3.3997649570616133,
+          "movingShopCentreMm": [
+            321.93162311019586,
+            -0.7467819128632048,
+            623.3754917306287
+          ],
+          "movingStockInertiaKgM2": 0.11569853647945291
+        },
+        "softStop": {
+          "thetaRad": -0.08726646259971647,
+          "kNmPerRad": 1250.0000000000002,
+          "cNmsPerRad": 3.9500000000000006
+        }
+      }
+    },
+    "P3-K5420-unpowered": {
+      "description": "proposal, 5420 N m/rad, unpowered",
+      "fourTerminal": {
+        "file": "P3-K5420-unpowered.field-bus.json",
+        "sha256": "26d7d9309d81aa7ba5acde8d73b6ae4f9061f0c7a9cae61168b5aa4a404fd1a6",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8324159999999998,
+        "resetsMet": 12,
+        "minResetMarginMs": 74.82699999999909,
+        "minConservativePanBranchV": 9.67739605493614,
+        "peakPanPhaseA": 22.430263978707845,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnStowStopPeakNm": 6.5301928,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086786355,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.80667263581494,
+            "peakPhaseA": 22.354637514549786,
+            "stowStopPeakNm": 9.740952216437883,
+            "stowStopSustained500msNm": 2.8113359737417136,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014961978043055435,
+              "maxAtS": 22.087,
+              "min": -0.0072309357923581175,
+              "minAtS": 22.047
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.89747263617159,
+            "peakPhaseA": 22.430263978707845,
+            "stowStopPeakNm": 9.740952216437883,
+            "stowStopSustained500msNm": 2.8113359737417136,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014961978043055435,
+              "maxAtS": 72.488,
+              "min": -0.0072309357923581175,
+              "minAtS": 72.448
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.82527263581556,
+            "peakPhaseA": 21.01338754511748,
+            "stowStopPeakNm": 7.900632907157442,
+            "stowStopSustained500msNm": 2.7628581693292436,
+            "softStopPeakNm": 1.9892983343006243,
+            "minThetaRad": -0.08885158265817214,
+            "stowDeviationRad": {
+              "max": 0.0013451629317502434,
+              "maxAtS": 22.31,
+              "min": -0.0008277371462104277,
+              "minAtS": 22.025
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91657263617222,
+            "peakPhaseA": 20.998701000061224,
+            "stowStopPeakNm": 7.900632907157442,
+            "stowStopSustained500msNm": 2.7794484449488577,
+            "softStopPeakNm": 1.9891822880881567,
+            "minThetaRad": -0.08885133899880222,
+            "stowDeviationRad": {
+              "max": 0.0013451629317502434,
+              "maxAtS": 72.711,
+              "min": -0.0008277371462104277,
+              "minAtS": 72.426
+            }
+          }
+        }
+      },
+      "lowLine": {
+        "file": "P3-K5420-unpowered.lowline.field-bus.json",
+        "sha256": "1a417be0793c0f287742c0bc55a8ef6f20d84f084bc5304632520fe24a0566e2",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "keptAndReleasedAllTrips": true,
+        "heldAfterSupportAll": true,
+        "supportedAll": true,
+        "minSupportMarginMm": 1.8324159999999998,
+        "resetsMet": 12,
+        "minResetMarginMs": 74.82699999999909,
+        "minConservativePanBranchV": 9.728782446788905,
+        "peakPanPhaseA": 22.430263978707845,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnStowStopPeakNm": 6.5301928,
+        "returnSoftStopPeakNm": 0.0,
+        "returnMinAngleRad": -0.086786355,
+        "criteria": {
+          "support183": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        },
+        "allCriteriaPass": true,
+        "panTrips": {
+          "nominal/coral-A/30": {
+            "releaseWallS": 47.80667263581494,
+            "peakPhaseA": 22.354637514549786,
+            "stowStopPeakNm": 9.740952216437883,
+            "stowStopSustained500msNm": 2.8113359737417136,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014961978043055435,
+              "maxAtS": 22.087,
+              "min": -0.0072309357923581175,
+              "minAtS": 22.047
+            }
+          },
+          "nominal/coral-B/30": {
+            "releaseWallS": 97.89747263617159,
+            "peakPhaseA": 22.430263978707845,
+            "stowStopPeakNm": 9.740952216437883,
+            "stowStopSustained500msNm": 2.8113359737417136,
+            "softStopPeakNm": 0,
+            "minThetaRad": null,
+            "stowDeviationRad": {
+              "max": 0.0014961978043055435,
+              "maxAtS": 72.488,
+              "min": -0.0072309357923581175,
+              "minAtS": 72.448
+            }
+          },
+          "adverse/coral-A/30": {
+            "releaseWallS": 47.82527263581556,
+            "peakPhaseA": 21.01338754511748,
+            "stowStopPeakNm": 7.900632907157442,
+            "stowStopSustained500msNm": 2.7628581693292436,
+            "softStopPeakNm": 1.9892983343006243,
+            "minThetaRad": -0.08885158265817214,
+            "stowDeviationRad": {
+              "max": 0.0013451629317502434,
+              "maxAtS": 22.31,
+              "min": -0.0008277371462104277,
+              "minAtS": 22.025
+            }
+          },
+          "adverse/coral-B/30": {
+            "releaseWallS": 97.91657263617222,
+            "peakPhaseA": 20.998701000061224,
+            "stowStopPeakNm": 7.900632907157442,
+            "stowStopSustained500msNm": 2.7794484449488577,
+            "softStopPeakNm": 1.9891822880881567,
+            "minThetaRad": -0.08885133899880222,
+            "stowDeviationRad": {
+              "max": 0.0013451629317502434,
+              "maxAtS": 72.711,
+              "min": -0.0008277371462104277,
+              "minAtS": 72.426
+            }
+          }
+        }
+      },
+      "config": {
+        "drive": "unpowered",
+        "unpoweredFromFeedS": 0,
+        "unpoweredLeadS": 0.3,
+        "stop": {
+          "gapRad": 0,
+          "kNmPerRad": 5418.96917696776,
+          "cNmsPerRad": 15.8
+        },
+        "preload": {
+          "tpNm": 1.5,
+          "rangeRad": 1.2566370614359172
+        },
+        "panProps": {
+          "movingShopStockKg": 3.3997649570616133,
+          "movingShopCentreMm": [
+            321.93162311019586,
+            -0.7467819128632048,
+            623.3754917306287
+          ],
+          "movingStockInertiaKgM2": 0.11569853647945291
+        },
+        "softStop": {
+          "thetaRad": -0.08726646259971647,
+          "kNmPerRad": 1250.0000000000002,
+          "cNmsPerRad": 3.9500000000000006
+        }
+      }
+    }
+  },
+  "driveFault": {
+    "source": "fault_softstop_03.py (independent reimplementation; package law reproduced plus the registered sim motor law)",
+    "cases": [
+      {
+        "stopNm": 60.85009156370979,
+        "gearboxOutputNm": 18.909883348690737,
+        "gearboxAtStopPeakNm": 18.909883348690737,
+        "thetaMinDeg": -7.695986902240335,
+        "contactSpeedRadS": -4.0914000058531785,
+        "peakPhaseA": 30.000000000000004,
+        "label": "F1 package reproduction (eta=1, 11 V, revised props)",
+        "startThetaDeg": -2,
+        "startRateRadS": 0,
+        "efficiency": 1.0,
+        "motorModel": "package",
+        "busV": 11.0,
+        "pitchRad": 0.0,
+        "padForceEachN": 608.5009156370978,
+        "padStrain": 0.19605770014473475,
+        "overTravelBeyondSoftDeg": 2.6959869022403353
+      },
+      {
+        "stopNm": 52.46349637858279,
+        "gearboxOutputNm": 14.603180827535057,
+        "gearboxAtStopPeakNm": 14.603180827535057,
+        "thetaMinDeg": -7.3215937133225655,
+        "contactSpeedRadS": -3.659422625051599,
+        "peakPhaseA": 30.000000000000004,
+        "label": "F1 eta=0.75",
+        "startThetaDeg": -2,
+        "startRateRadS": 0,
+        "efficiency": 0.75,
+        "motorModel": "package",
+        "busV": 11.0,
+        "pitchRad": 0.0,
+        "padForceEachN": 524.6349637858278,
+        "padStrain": 0.16883105912950047,
+        "overTravelBeyondSoftDeg": 2.3215937133225655
+      },
+      {
+        "stopNm": 59.31077775024582,
+        "gearboxOutputNm": 18.107857116529225,
+        "gearboxAtStopPeakNm": 18.107857116529225,
+        "thetaMinDeg": -7.6272405490456565,
+        "contactSpeedRadS": -4.013850614938319,
+        "peakPhaseA": 30,
+        "label": "F1 sim motor law, 12 V branch, eta=1",
+        "startThetaDeg": -2,
+        "startRateRadS": 0,
+        "efficiency": 1.0,
+        "motorModel": "sim",
+        "busV": 12.0,
+        "pitchRad": 0.0,
+        "padForceEachN": 593.1077775024581,
+        "padStrain": 0.19105832426145944,
+        "overTravelBeyondSoftDeg": 2.6272405490456565
+      },
+      {
+        "stopNm": 46.1896189169205,
+        "gearboxOutputNm": 11.514944098604815,
+        "gearboxAtStopPeakNm": 11.514944017738177,
+        "thetaMinDeg": -7.041844157770786,
+        "contactSpeedRadS": -3.316946913766284,
+        "peakPhaseA": 30,
+        "label": "F1 sim motor law, 9 V branch, eta=0.6 (registered)",
+        "startThetaDeg": -2,
+        "startRateRadS": 0,
+        "efficiency": 0.6,
+        "motorModel": "sim",
+        "busV": 9.0,
+        "pitchRad": 0.0,
+        "padForceEachN": 461.896189169205,
+        "padStrain": 0.14848709735712826,
+        "overTravelBeyondSoftDeg": 2.041844157770786
+      },
+      {
+        "stopNm": 41.76414292900738,
+        "gearboxOutputNm": 17.533530828441574,
+        "gearboxAtStopPeakNm": 17.533530828441574,
+        "thetaMinDeg": -6.864572094743929,
+        "contactSpeedRadS": -1.987346560277503,
+        "peakPhaseA": 30.000000000000004,
+        "label": "F1 at the adverse commanded dump (pan frame -4.29 deg, pitch +0.04 rad), eta=1",
+        "startThetaDeg": -4.2918311805232925,
+        "startRateRadS": 0,
+        "efficiency": 1.0,
+        "motorModel": "package",
+        "busV": 11.0,
+        "pitchRad": 0.04,
+        "padForceEachN": 417.64142929007375,
+        "padStrain": 0.1355955091420384,
+        "overTravelBeyondSoftDeg": 1.864572094743929
+      },
+      {
+        "stopNm": 31.370583061956737,
+        "gearboxOutputNm": 16.78246574865482,
+        "gearboxAtStopPeakNm": 16.782465505026128,
+        "thetaMinDeg": -6.411860633632322,
+        "contactSpeedRadS": 0,
+        "peakPhaseA": 30.000000000000004,
+        "label": "F1 starting at the replayed adverse dump pose already on the pad (-5.09 deg), eta=1",
+        "startThetaDeg": -5.09,
+        "startRateRadS": 0,
+        "efficiency": 1.0,
+        "motorModel": "package",
+        "busV": 11.0,
+        "pitchRad": 0.04,
+        "padForceEachN": 313.70583061956734,
+        "padStrain": 0.10267340265073917,
+        "overTravelBeyondSoftDeg": 1.4118606336323216
+      }
+    ],
+    "gearboxBoundNm": 7.113667837887667,
+    "conclusion": "Package F1 reproduced with the revised properties: 60.9 N m at the soft stop, 609 N per pad, 0.196 strain, 18.91 N m gearbox output (2.66x the 7.11 N m bound). With the registered motor law at 9 V and eta 0.6 it is 46.2 N m, 462 N and 11.5 N m. Every case exceeds the 7.1 N m gearbox bound, so the output-stage rating stays OPEN."
+  },
+  "rotaryReview": {
+    "result": {
+      "schema": "agent-frc/rotary-holding-result@1",
+      "revision": "Red 2 iteration 002 guarded pan r1 (riveted, machined cheeks) proposal; pan-stop-01 study 03",
+      "source": {
+        "path": "pan-rotary-model-03.json",
+        "sha256": "403935d6fff6a28216cc465cefdb1edf5aa8502d7ef45cb52ffdf4ae080ed2b0",
+        "pointer": ""
+      },
+      "cases": [
+        {
+          "id": "stow-empty",
+          "frame": "single_pivot_spatial.mjs world: +X forward, +Y port, +Z up, metres; zero body pitch",
+          "custody": "no article",
+          "otherAxesHeld": "chassis parked level; pivot fixed",
+          "omissions": [
+            "closing spring (separate law, 1.5 N m at stow)",
+            "pad hardware",
+            "body pitch and drive acceleration (covered by the coupled replay)"
+          ],
+          "movingMassKg": 3.3997649570616133,
+          "startHoldingNm": -0.025560645129429356,
+          "holdingExtremaNm": {
+            "min": {
+              "angleRad": 0.2583,
+              "value": -1.0868309283426387
+            },
+            "max": {
+              "angleRad": -0.35,
+              "value": 1.4017713637305018
+            }
+          },
+          "potentialChangeAtEndsJ": [
+            -0.24332591403338752,
+            -0.14446950339536957
+          ],
+          "intervalRad": [
+            -0.35,
+            0.2583
+          ]
+        },
+        {
+          "id": "stow-carry",
+          "frame": "single_pivot_spatial.mjs world: +X forward, +Y port, +Z up, metres; zero body pitch",
+          "custody": "one seated article",
+          "otherAxesHeld": "chassis parked level; pivot fixed",
+          "omissions": [
+            "closing spring (separate law, 1.5 N m at stow)",
+            "pad hardware",
+            "body pitch and drive acceleration (covered by the coupled replay)"
+          ],
+          "movingMassKg": 4.216231223061613,
+          "startHoldingNm": -0.5594043873000448,
+          "holdingExtremaNm": {
+            "min": {
+              "angleRad": 0.2583,
+              "value": -1.569217904468091
+            },
+            "max": {
+              "angleRad": -0.35,
+              "value": 0.8549915397119291
+            }
+          },
+          "potentialChangeAtEndsJ": [
+            -0.05226235565892062,
+            -0.2764503190618406
+          ],
+          "intervalRad": [
+            -0.35,
+            0.2583
+          ],
+          "stop": {
+            "freeRad": 0.004363323129985824,
+            "compressionRad": 0.0014,
+            "gravityWorkToContactJ": 0.002479178258665927,
+            "gravityWorkToEndJ": 0.003290872554365282,
+            "downhillThroughout": true,
+            "meanResistingMagnitudeNmFromRest": 2.3506232531180586
+          }
+        },
+        {
+          "id": "dump-empty-to-soft-stop",
+          "frame": "single_pivot_spatial.mjs world: +X forward, +Y port, +Z up, metres; zero body pitch",
+          "custody": "article released",
+          "otherAxesHeld": "chassis parked level; pivot fixed",
+          "omissions": [
+            "closing spring (separate law, 1.5 N m at stow)",
+            "pad hardware",
+            "body pitch and drive acceleration (covered by the coupled replay)"
+          ],
+          "movingMassKg": 3.3997649570616133,
+          "startHoldingNm": 3.9466310790463295,
+          "holdingExtremaNm": {
+            "min": {
+              "angleRad": 0.2,
+              "value": 3.607860501867971
+            },
+            "max": {
+              "angleRad": -0.1,
+              "value": 4.057617691584115
+            }
+          },
+          "potentialChangeAtEndsJ": [
+            -0.4005462827451536,
+            0.7579774355433332
+          ],
+          "intervalRad": [
+            -0.1,
+            0.2
+          ],
+          "stop": {
+            "freeRad": -0.05235987755982988,
+            "compressionRad": -0.04709,
+            "gravityWorkToContactJ": 0.2083449440529956,
+            "gravityWorkToEndJ": 0.39831423380919245,
+            "downhillThroughout": true,
+            "meanResistingMagnitudeNmFromRest": 8.458573663393341
+          }
+        }
+      ],
+      "scope": "Analytic gravity demand for the listed rigid members about one fixed axis. A stop mean assumes release from rest and only gravity work. Moving disable, achieved clearance, peak loads and installed holding capacity require separate evidence.",
+      "studySha256": "a9a9e4a13ad70427f6de138efec182644effb7ba948e213c07f7629e8f0875fe"
+    },
+    "note": "stow holding with article -0.559 N m (was -0.562): gravity still closes onto the stow stop. At -2 deg the empty pan gravity opens with 3.95 N m toward the soft stop."
+  },
+  "findings": [
+    "All 12 cases keep, release, support and hold both pipes, and meet every reset, in all five revised variants at both stiffness bounds, at 30 A and unpowered. Branch voltage >= 9.66 V (four-terminal) and >= 9.71 V (low-line).",
+    "Support criterion: the 5420 N m/rad runs (1.8324 mm) and 4210 unpowered (1.8312 mm) meet 1.83 mm. 4210 at 30 A gives 1.8249 mm and the no-stop revised reference 1.8277 mm, below 1.83 by 5.1 and 2.3 um. The old baseline (1.8283) was itself 1.7 um below 1.83, so the criterion has no resolution at this level. Nominal placement 2 governs.",
+    "Reset: minimum 74.4-79.5 ms for the proposal vs 89.8 ms old baseline and 90.5 ms revised no-stop reference. The softer stop bound gives more reset margin.",
+    "The -5 deg soft stop is struck in NORMAL adverse dumps, not only in faults. The commanded dump is -2 deg minus +0.04 rad pitch = -4.29 deg in the pan frame, and the pan overshoots to -5.09 deg (2.0-2.1 N m, about 20 N per pad). The package assumes a 3 deg gap at dump; the adverse gap is 0.71 deg before overshoot.",
+    "Correction to commissioning.md and study 01: the 29.62 A peak is at the end of the adverse dump (t=47.69 s, pan at -6.7 deg), not during the station feed. With the soft stop catching the overshoot the peak falls to 20.7-22.5 A and the branch voltage rises (9.42 -> 9.66 V four-terminal).",
+    "Adverse release moves 43-61 ms later with the soft stop in place. Support margins there are about 30 mm, so this does not govern."
+  ],
+  "limits": [
+    "One-plane rigid pan about a fixed pivot; stop is a lumped linear spring-damper (no pad nonlinearity, set, temperature or wear).",
+    "Power loss modeled as zero motor torque only; NEO 550 brake-mode, gearbox back-drive friction and controller reboot behaviour are not modeled (back-drive friction would help).",
+    "Preload is an ideal torque law; real spring geometry, hysteresis and attachment not designed.",
+    "Pad contact point and push direction enter only through the lever; no 3-D stop force model.",
+    "Reflected rotor inertia 0.00902 kg m2 is the package assumption, not a measured value."
+  ],
+  "nextSteps": [
+    "Decide whether the soft stop may be touched in normal adverse dumps, or move it or the dump command so the 3 deg gap holds at +0.04 rad pitch.",
+    "Confirm the gearbox output-stage rating for >= 18.9 N m (F1), or add an interlock that bounds it; current bound 7.1 N m.",
+    "Bench-measure stow and soft pad stiffness and loss; replay again if series stiffness < 3000 N m/rad.",
+    "After the native build, check the revised mass properties against the reconciliation."
+  ],
+  "pluginFriction": [
+    "rotary-holding (7e1ed2d) still rejects zero free travel and has no preload or soft-stop impact duty; the fault duty was again built project-side."
+  ]
+}

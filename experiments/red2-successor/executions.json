@@ -1,0 +1,1471 @@
+{
+  "scope": "Concept screening only. The field solver intentionally removes deployed hardware beyond X425. A field-only supported pipe cannot establish a score. Separate sectors use their signed local target offset. Both concepts with defined exit velocities are conditional bounds.",
+  "sources": [
+    {
+      "path": "cad/fusion-authority.json",
+      "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+    },
+    {
+      "path": "experiments/six-wheel/mission/field-registration.json",
+      "sha256": "b652c3f62805eba1351c920b9fdfc8dbfa09799099f96afee728a77b872525ef"
+    },
+    {
+      "path": "experiments/six-wheel/mission/moving-traffic.json",
+      "sha256": "ba796f1f198a5ae7304e02f6bafa65621341db7e9f244a9d7d7f508d69ee817a"
+    },
+    {
+      "path": "experiments/six-wheel/mission/target.json",
+      "sha256": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37"
+    },
+    {
+      "path": "experiments/six-wheel/spatial-contact/events.csv",
+      "sha256": "7db7bae0ce4f87b836a27b311ea976aaa612a4b8a73c3e5d4e79133effcc9a96"
+    },
+    {
+      "path": "experiments/six-wheel/spatial-contact/SpatialContact.java",
+      "sha256": "3da5b7703edbfa0bbd1e1a45d6e5338f50bf1b73cad6a7533f818101ad1190c9"
+    },
+    {
+      "path": "experiments/swerve-drive/low-placement/red2-demand.json",
+      "sha256": "0681e5bd5fdabc0a3e0d1e596e09fe92b63e57c36b72d686412fb69947e0c418"
+    },
+    {
+      "path": "experiments/swerve-drive/low-placement/results.json",
+      "sha256": "46a30c9056a5d4100953a7ad0212f441313bf05216a804df09af0c5689a43ad8"
+    },
+    {
+      "path": "experiments/red2-successor/blockouts.json",
+      "sha256": "903c7fc3a345c8ac391d9b39cf845075f2ab01e7455dd8afbbbebdc9835798b6"
+    },
+    {
+      "path": "experiments/red2-successor/inputs/tray-release.json",
+      "sha256": "2f3ada96f7c95762b0b82baf6e0f44c069077de857e6b693751dcd61f7e3433c"
+    },
+    {
+      "path": "artifacts/red2-architecture-evidence/field.csv",
+      "sha256": "006de0c5af0d8d7e84744f47f2d8a755ded990b448bdb83e880531cefd436e00"
+    }
+  ],
+  "runs": {
+    "tip-tray": {
+      "nominal": {
+        "concept": "tip-tray",
+        "case": "nominal",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.739272635314283,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "withdrawAtWallS": 98.39,
+            "motionAtWallS": 98.425,
+            "stowAtWallS": 100.86,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.14027263531429,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 100.86,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.06760000000000001,
+          "stationarySeatS": 1.1388,
+          "heldAfterAcceleration": true,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            517.8608198398251,
+            611.836130912831
+          ],
+          "peakNormalN": 588.8584651269331,
+          "maxCompressionMm": 3.8631307044928107,
+          "transverseEnvelopeMarginMm": 51.1875,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 1,
+        "staticStartMarginMm": 8,
+        "inspectionAllocationMarginKg": 11.963122549999998,
+        "loadedCGMinMm": [
+          -53.13046084749451,
+          -2.113241137448205,
+          226.55297338848877
+        ],
+        "loadedCGMaxMm": [
+          -37.524924373003955,
+          -1.652396138168909,
+          252.50869942024343
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "106947e813bb62526b2f02756897bcbe4023ab804f48e26df481980f5cae20a3",
+        "fieldOnlySupportedFraction": 1.0,
+        "fieldOnlyOutcomes": {
+          "supported": 12
+        },
+        "straightGateFieldClearanceMm": -48.27190990949433,
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      },
+      "adverse": {
+        "concept": "tip-tray",
+        "case": "adverse",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.744872635314284,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "holdAtWallS": 98.21,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.14587263531429,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": null,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.0732,
+          "stationarySeatS": 1.5182,
+          "heldAfterAcceleration": true,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            517.8801583703607,
+            611.8375178302452
+          ],
+          "peakNormalN": 476.1643019892706,
+          "maxCompressionMm": 3.116221248075514,
+          "transverseEnvelopeMarginMm": 26.769289768007468,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 1,
+        "staticStartMarginMm": 8,
+        "inspectionAllocationMarginKg": 11.963122549999998,
+        "loadedCGMinMm": [
+          -53.13046084749451,
+          -2.113241137448205,
+          226.55297338848877
+        ],
+        "loadedCGMaxMm": [
+          -37.524924373003955,
+          -1.652396138168909,
+          252.50869942024343
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "b3663b48a37a5b3e02cae74371ca348c9dc159c85485cabc140e14c4f3a755c9",
+        "fieldOnlySupportedFraction": 1.0,
+        "fieldOnlyOutcomes": {
+          "supported": 12
+        },
+        "straightGateFieldClearanceMm": -48.27190990949433,
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      }
+    },
+    "fixed-rollers": {
+      "nominal": {
+        "concept": "fixed-rollers",
+        "case": "nominal",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.731472635314283,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": false,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "withdrawAtWallS": 98.39,
+            "motionAtWallS": 98.425,
+            "stowAtWallS": 100.86,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.13247263531429,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": false,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 100.86,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 40,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 40,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.059800000000000006,
+          "stationarySeatS": null,
+          "heldAfterAcceleration": false,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            259.28562374299656,
+            725.6908104647126
+          ],
+          "peakNormalN": 506.52049320572456,
+          "maxCompressionMm": 3.381104465411712,
+          "transverseEnvelopeMarginMm": 47.1875,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 0,
+        "staticStartMarginMm": 0,
+        "inspectionAllocationMarginKg": 10.363122549999996,
+        "loadedCGMinMm": [
+          -63.86325647858319,
+          -2.0826702795380827,
+          235.9304894272181
+        ],
+        "loadedCGMaxMm": [
+          -56.278605539043284,
+          -1.6033232033335318,
+          273.28287537541013
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "048ed2979d3e623803c2f00ce4211b7a50ccd775393a848c727e1bf60cbf97c2",
+        "fieldOnlySupportedFraction": 0.6666666666666666,
+        "fieldOnlyOutcomes": {
+          "inner-riser-separation-unproven": 4,
+          "supported": 8
+        },
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      },
+      "adverse": {
+        "concept": "fixed-rollers",
+        "case": "adverse",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.739872635314285,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "holdAtWallS": 98.21,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.1408726353143,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported",
+                  "inner-riser-separation-unproven",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": null,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 40,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 40,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.0682,
+          "stationarySeatS": 1.7386000000000001,
+          "heldAfterAcceleration": true,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            -57.512956088676205,
+            730.2095562727267
+          ],
+          "peakNormalN": 537.9964195957649,
+          "maxCompressionMm": 3.5929118109818137,
+          "transverseEnvelopeMarginMm": 22.769289768007468,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 1,
+        "staticStartMarginMm": 0,
+        "inspectionAllocationMarginKg": 10.363122549999996,
+        "loadedCGMinMm": [
+          -63.86325647858319,
+          -2.0826702795380827,
+          235.9304894272181
+        ],
+        "loadedCGMaxMm": [
+          -56.278605539043284,
+          -1.6033232033335318,
+          273.28287537541013
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "9c373bde3bb0ceba75e65cd2547917165710cf0ddb5ef688e9c368bc9ed36b9a",
+        "fieldOnlySupportedFraction": 0.5,
+        "fieldOnlyOutcomes": {
+          "inner-riser-separation-unproven": 6,
+          "supported": 6
+        },
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      }
+    },
+    "split-drop": {
+      "nominal": {
+        "concept": "split-drop",
+        "case": "nominal",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.724872635314284,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "withdrawAtWallS": 98.39,
+            "motionAtWallS": 98.425,
+            "stowAtWallS": 100.86,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.1258726353143,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 100.86,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 26,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 26,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.053200000000000004,
+          "stationarySeatS": 2.2552000000000003,
+          "heldAfterAcceleration": true,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            194.204818211087,
+            608.917435452216
+          ],
+          "peakNormalN": 617.6382296715054,
+          "maxCompressionMm": 4.17401533916377,
+          "transverseEnvelopeMarginMm": 56.1875,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 1,
+        "staticStartMarginMm": 1,
+        "inspectionAllocationMarginKg": 8.963122549999998,
+        "loadedCGMinMm": [
+          -48.29651552859422,
+          -2.048103629947278,
+          232.48639929244828
+        ],
+        "loadedCGMaxMm": [
+          -26.50647783888867,
+          -1.5627148250641847,
+          265.823262513355
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "6f8b152c8baa9a275bca6af07d126b0dc0bc21c725d9e27c43e5d503fcfd24e0",
+        "fieldOnlySupportedFraction": 1.0,
+        "fieldOnlyOutcomes": {
+          "supported": 12
+        },
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      },
+      "adverse": {
+        "concept": "split-drop",
+        "case": "adverse",
+        "pieces": {
+          "coral-A": {
+            "readyS": 0,
+            "sector": "A",
+            "feedAtWallS": 21.1,
+            "seatAtWallS": 23.14,
+            "carryAtWallS": 27.032,
+            "releaseAtWallS": 48.01,
+            "withdrawAtWallS": 48.295,
+            "motionAtWallS": 48.33,
+            "stowAtWallS": 50.765,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 21.1,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 21.733672635314285,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 48.01,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": 50.765,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          },
+          "coral-B": {
+            "readyS": 35,
+            "sector": "B",
+            "feedAtWallS": 71.501,
+            "seatAtWallS": 73.54,
+            "carryAtWallS": 77.434,
+            "releaseAtWallS": 98.1,
+            "holdAtWallS": 98.21,
+            "chain": [
+              {
+                "stage": "station feed",
+                "wallS": 71.501,
+                "scope": "Same scheduled identified pipe and clock"
+              },
+              {
+                "stage": "contact",
+                "wallS": 72.13467263531429,
+                "scope": "Candidate modeled mouth contact"
+              },
+              {
+                "stage": "capture-and-hold",
+                "success": true,
+                "scope": "Seating and applied acceleration, before transit"
+              },
+              {
+                "stage": "release window",
+                "wallS": 98.1,
+                "scope": "Conditioned exit state, independently of upstream capture"
+              },
+              {
+                "stage": "field assessment",
+                "outcomes": [
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported",
+                  "supported"
+                ],
+                "scope": "Hardware-removed control only"
+              },
+              {
+                "stage": "reset",
+                "scheduledAtWallS": null,
+                "verified": false,
+                "scope": "A missing end-state inhibits next feed; fallback to stationary loaded hold or empty park."
+              }
+            ]
+          }
+        },
+        "resourceUses": [
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.71,
+            "amount": 12,
+            "activity": "coral-A electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 46.809999999999995,
+            "endS": 48.01,
+            "amount": 104,
+            "activity": "coral-A drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 20,
+            "activity": "coral-A stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 48.01,
+            "endS": 48.71,
+            "amount": 26,
+            "activity": "coral-A handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 18.1,
+            "endS": 21.1,
+            "amount": 1,
+            "activity": "coral-A one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 21.1,
+            "endS": 48.01,
+            "amount": 1,
+            "activity": "coral-A occupied receiver allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.8,
+            "amount": 12,
+            "activity": "coral-B electronics and control"
+          },
+          {
+            "resource": "battery",
+            "startS": 96.89999999999999,
+            "endS": 98.1,
+            "amount": 104,
+            "activity": "coral-B drive allocation on final approach"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 20,
+            "activity": "coral-B stopped drive hold allocation"
+          },
+          {
+            "resource": "battery",
+            "startS": 98.1,
+            "endS": 98.8,
+            "amount": 26,
+            "activity": "coral-B handling current allowance"
+          },
+          {
+            "resource": "human",
+            "startS": 68.501,
+            "endS": 71.501,
+            "amount": 1,
+            "activity": "coral-B one station keeper"
+          },
+          {
+            "resource": "receiver",
+            "startS": 71.501,
+            "endS": 98.1,
+            "amount": 1,
+            "activity": "coral-B occupied receiver allocation"
+          }
+        ],
+        "capture": {
+          "feedToLipS": 0.5716726353142818,
+          "firstContactS": 0.062,
+          "stationarySeatS": 2.383,
+          "heldAfterAcceleration": true,
+          "lastS": 4.4998000000000005,
+          "finalCenterMm": [
+            192.61680792463176,
+            609.0999513050515
+          ],
+          "peakNormalN": 481.5072598044599,
+          "maxCompressionMm": 3.180447572978758,
+          "transverseEnvelopeMarginMm": 31.769289768007468,
+          "scope": "Finite longitudinal rail cross-section and transverse mouth test. Assumes matched rail support. Off-axis impulse, actual sensing, actuator coupling, whole-robot transit and independent score still require an integrated test."
+        },
+        "retainedOnMatchedPulse": 1,
+        "staticStartMarginMm": 1,
+        "inspectionAllocationMarginKg": 8.963122549999998,
+        "loadedCGMinMm": [
+          -48.29651552859422,
+          -2.048103629947278,
+          232.48639929244828
+        ],
+        "loadedCGMaxMm": [
+          -26.50647783888867,
+          -1.5627148250641847,
+          265.823262513355
+        ],
+        "hypothesis": "Allocated current, mass, geometry and window. The new robot has no integrated source-to-score episode.",
+        "runId": "07933bf02038bd54a8702b6170af7284b88c56e1af7eebb2162444400cc5a3cd",
+        "fieldOnlySupportedFraction": 1.0,
+        "fieldOnlyOutcomes": {
+          "supported": 12
+        },
+        "unresolved": [
+          "Complete installed pipe custody and two sector-specific scores",
+          "Deployed-hardware separation",
+          "Station acquisition with pipe attitude and camera occlusion",
+          "Repeatable reset and safe stow",
+          "Measured electrical load and CG",
+          "Endgame parking with five peers"
+        ]
+      }
+    }
+  }
+}

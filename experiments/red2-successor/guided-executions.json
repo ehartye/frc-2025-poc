@@ -1,0 +1,1003 @@
+{
+  "scope": "Concept-only. Each measured free state continues into the alternate signed target dock. The field-only control excludes the robot above its bumper. The two broad sheet faces and proposed guides remain idealized.",
+  "sources": [
+    {
+      "path": "cad/fusion-authority.json",
+      "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+    },
+    {
+      "path": "artifacts/split-drop-native/red2-split-drop-fixture-r4.f3d",
+      "sha256": "f5e8108bcb670eac14df65c619e04b4bc884d1b2d1000a6af482b75e19bb56ad"
+    },
+    {
+      "path": "experiments/six-wheel/spatial-contact/events.csv",
+      "sha256": "7db7bae0ce4f87b836a27b311ea976aaa612a4b8a73c3e5d4e79133effcc9a96"
+    },
+    {
+      "path": "experiments/six-wheel/mission/field-registration.json",
+      "sha256": "b652c3f62805eba1351c920b9fdfc8dbfa09799099f96afee728a77b872525ef"
+    },
+    {
+      "path": "experiments/six-wheel/mission/target.json",
+      "sha256": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37"
+    },
+    {
+      "path": "experiments/red2-successor/blockouts.json",
+      "sha256": "903c7fc3a345c8ac391d9b39cf845075f2ab01e7455dd8afbbbebdc9835798b6"
+    },
+    {
+      "path": "cad/red2-split-drop/rail_transfer.mjs",
+      "sha256": "bc0724d703d9c991d964b8fe60a61735f0ef72f4df90f28ad99557125e95cac1"
+    },
+    {
+      "path": "experiments/six-wheel/spatial-contact/SpatialContact.java",
+      "sha256": "3da5b7703edbfa0bbd1e1a45d6e5338f50bf1b73cad6a7533f818101ad1190c9"
+    },
+    {
+      "path": "artifacts/split-drop-native/attained-field/result.csv",
+      "sha256": "bb8982e5923987d6290bc746b0464101b267c1c7c217db0d1c84a684f6d83f87"
+    },
+    {
+      "path": "artifacts/split-drop-native/attained-field/cases.csv",
+      "sha256": "2ab87613a4f47755bf2d8e61112cf128348f0c74f3bdedb9db802e92115ef177"
+    },
+    {
+      "path": "cad/red2-split-drop/station_clock.py",
+      "sha256": "1ea44fbaa9fd9010eadef819492669178b28d9336ce032592c37a872e27f625b"
+    }
+  ],
+  "runs": {
+    "narrow": {
+      "nominal": {
+        "concept": "narrow",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-narrow.json",
+          "sha256": "0f9ac4c2e06f790055ef6af99128b3ae3c19163e98ab0f3a8e53a7bd180e21ac"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.142472635308525,
+              24.159072635308487
+            ],
+            "releaseWallS": [
+              48.027179166713886,
+              48.03647916666332
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 44.79999999999984
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              74.54347263539631,
+              74.56007263539686
+            ],
+            "releaseWallS": [
+              98.1171791667139,
+              98.1264791667142
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 44.79999999999984
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "c838fb444ce2f28164e293d96aca91ba858c84934d743cfb961953f76174a1c7"
+      },
+      "adverse": {
+        "concept": "narrow",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-narrow.json",
+          "sha256": "0f9ac4c2e06f790055ef6af99128b3ae3c19163e98ab0f3a8e53a7bd180e21ac"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          }
+        },
+        "metCarryOnTime": 0,
+        "measuredReleases": 0,
+        "fieldOnlyOutcomes": {},
+        "fieldOnlyTrials": 0,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "303efb691a903ba6e8f95d05584def5aa13d1f34ba3d5542ac3f553b70d1140b"
+      }
+    },
+    "wide-pan-guides": {
+      "nominal": {
+        "concept": "wide-pan-guides",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-wide-pan-guides.json",
+          "sha256": "ded88e59d91d2f30238f596e08ccdd4d7962e7f6a1e2a62a55cf8baf1acead5c"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.139472635308532,
+              24.14987263530851
+            ],
+            "releaseWallS": [
+              48.03547916666332,
+              48.040379166714324
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 50.70000000000042
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              74.54047263539621,
+              74.55087263539656
+            ],
+            "releaseWallS": [
+              98.12547916671417,
+              98.13037916671433
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 50.70000000000042
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "80734265cd2a5732b3c65a31589a611e3d928a6723a18309d6efed204b65281d"
+      },
+      "adverse": {
+        "concept": "wide-pan-guides",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-wide-pan-guides.json",
+          "sha256": "ded88e59d91d2f30238f596e08ccdd4d7962e7f6a1e2a62a55cf8baf1acead5c"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          }
+        },
+        "metCarryOnTime": 0,
+        "measuredReleases": 0,
+        "fieldOnlyOutcomes": {},
+        "fieldOnlyTrials": 0,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "b2e01d5ddf35110fbf2ddfe520560063c0e22ce9eb9274049864c57560b3582e"
+      }
+    },
+    "lower-pan": {
+      "nominal": {
+        "concept": "lower-pan",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-lower-pan.json",
+          "sha256": "56288915d988946824fa2381873b6f4b77dd750c76784685fb6876b0cadab61e"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.743472635307125,
+              24.756272635307095
+            ],
+            "releaseWallS": [
+              48.026579166713866,
+              48.02867916666334
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 32.599999999999916
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              75.14447263541626,
+              75.15727263541669
+            ],
+            "releaseWallS": [
+              98.11657916671388,
+              98.11867916671395
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 32.599999999999916
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "7c182931e1dd8ebd89540e7d0c96c996b41bd0a9ba09f0aac43dc7b213ef8570"
+      },
+      "adverse": {
+        "concept": "lower-pan",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-lower-pan.json",
+          "sha256": "56288915d988946824fa2381873b6f4b77dd750c76784685fb6876b0cadab61e"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          }
+        },
+        "metCarryOnTime": 0,
+        "measuredReleases": 0,
+        "fieldOnlyOutcomes": {},
+        "fieldOnlyTrials": 0,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "fa4900092bbe86601292aab60631fd0d046b4f5a7e5e59419e8fc6a336c70a2f"
+      }
+    },
+    "driven-pan": {
+      "nominal": {
+        "concept": "driven-pan",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-driven-pan.json",
+          "sha256": "e8a7d22ad834a650b57d1cc65667286cbd2d440c1caa5d9d2266c991238f5b8e"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.274972635308217,
+              24.460272635307785
+            ],
+            "releaseWallS": [
+              48.02367916671377,
+              48.02447916666335
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 25.799999999999955
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              74.67597263540071,
+              74.86127263540686
+            ],
+            "releaseWallS": [
+              98.11367916671378,
+              98.1144791667138
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 25.799999999999955
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "53ff4a340ba75882aecae5086d6730f8893eef8cee3b5efcf60cf766561ea6a6"
+      },
+      "adverse": {
+        "concept": "driven-pan",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-driven-pan.json",
+          "sha256": "e8a7d22ad834a650b57d1cc65667286cbd2d440c1caa5d9d2266c991238f5b8e"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 2,
+            "custody": 0,
+            "releases": 0,
+            "readyWallS": [],
+            "releaseWallS": [],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": null,
+            "maximumUnilateralSupportMs": 0
+          }
+        },
+        "metCarryOnTime": 0,
+        "measuredReleases": 0,
+        "fieldOnlyOutcomes": {},
+        "fieldOnlyTrials": 0,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "b4cb82bc6385fcc0b78a9f75f6162728470ca8bc6662057c43853c9750d1f450"
+      }
+    },
+    "moving-cheeks": {
+      "nominal": {
+        "concept": "moving-cheeks",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-moving-cheeks-challenge.json",
+          "sha256": "86a559f3395f26f21105a92602270c88aa6ce59dcad2dff4b91165adc1f57945"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.654022635413288,
+              24.756272635307095
+            ],
+            "releaseWallS": [
+              48.025979166713846,
+              48.026579166713866
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 29.29999999999988
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              75.0550226354133,
+              75.15727263541669
+            ],
+            "releaseWallS": [
+              98.11597916671386,
+              98.11657916671388
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 29.29999999999988
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "6fc98b8f3044f4f7f856401adab761e06e94ffe643e4794f71d32c0ba2a2826f"
+      },
+      "adverse": {
+        "concept": "moving-cheeks",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-moving-cheeks-challenge.json",
+          "sha256": "86a559f3395f26f21105a92602270c88aa6ce59dcad2dff4b91165adc1f57945"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              23.421972635310205,
+              23.74557263538313
+            ],
+            "releaseWallS": [
+              48.010279166713325,
+              48.01532916671349
+            ],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 90.98232580676961,
+            "longestBilateralInterruptionMs": 5.299999999999995,
+            "maximumUnilateralSupportMs": 10.149999999999967
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              73.8229726353724,
+              74.14657263538314
+            ],
+            "releaseWallS": [
+              98.10027916671334,
+              98.1053291667135
+            ],
+            "retainedThroughoutDrivePulse": 0,
+            "worstGuideForceN": 90.98232580676961,
+            "longestBilateralInterruptionMs": 5.299999999999995,
+            "maximumUnilateralSupportMs": 10.149999999999967
+          }
+        },
+        "metCarryOnTime": 0,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 96
+        },
+        "fieldOnlyTrials": 96,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "81233af7aafa279200741cdc84725fec247838ac7013a3bd73bf3ba4ca1cd509"
+      }
+    },
+    "slow-carry": {
+      "nominal": {
+        "concept": "slow-carry",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-slow-carry-challenge.json",
+          "sha256": "2b78ca919548b411d126c6643cfe408cf9239970bcca20263ba3fee9325f52d0"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.654022635413288,
+              24.756272635307095
+            ],
+            "releaseWallS": [
+              48.025979166713846,
+              48.026579166713866
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 29.29999999999988
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              75.0550226354133,
+              75.15727263541669
+            ],
+            "releaseWallS": [
+              98.11597916671386,
+              98.11657916671388
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 29.29999999999988
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "9981e1b68020c3a2b4e26450713f763b50fab2de0912b022673b48a13ffd3f72"
+      },
+      "adverse": {
+        "concept": "slow-carry",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-slow-carry-challenge.json",
+          "sha256": "2b78ca919548b411d126c6643cfe408cf9239970bcca20263ba3fee9325f52d0"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              23.421972635310205,
+              23.74557263538313
+            ],
+            "releaseWallS": [
+              48.010279166713325,
+              48.01527916671349
+            ],
+            "retainedThroughoutDrivePulse": 8,
+            "worstGuideForceN": 90.98232580676961,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 10.049999999999967
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              73.8229726353724,
+              74.14657263538314
+            ],
+            "releaseWallS": [
+              98.10027916671334,
+              98.1052791667135
+            ],
+            "retainedThroughoutDrivePulse": 8,
+            "worstGuideForceN": 90.98232580676961,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 10.049999999999967
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 96
+        },
+        "fieldOnlyTrials": 96,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "2f485093907d0e1d6e99206c3c9ed35dec80ee8cd563c1a4c5451b8c709d503b"
+      }
+    },
+    "steeper-saddle": {
+      "nominal": {
+        "concept": "steeper-saddle",
+        "case": "nominal",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-steeper-saddle-challenge.json",
+          "sha256": "1d792ca66482fe98548de299627e2d71ac1a34b9a6bac8377ee4cff77709f76c"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              24.246872635308282,
+              24.252622635399963
+            ],
+            "releaseWallS": [
+              48.029279166713955,
+              48.02972916671397
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 34.35000000000047
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "withdraw": 98.39,
+              "motion": 98.425,
+              "stow": 100.86
+            },
+            "trials": 2,
+            "custody": 2,
+            "releases": 2,
+            "readyWallS": [
+              74.64787263539978,
+              74.65362263539997
+            ],
+            "releaseWallS": [
+              98.11927916671397,
+              98.11972916671398
+            ],
+            "retainedThroughoutDrivePulse": 2,
+            "worstGuideForceN": 0,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 34.35000000000047
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 24
+        },
+        "fieldOnlyTrials": 24,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "e27bf58f1866dd730f3f0a3e2a564af61bf49087d3e106e3d17a58ebd4080262"
+      },
+      "adverse": {
+        "concept": "steeper-saddle",
+        "case": "adverse",
+        "trace": {
+          "path": "artifacts/split-drop-native/r4-spatial-steeper-saddle-challenge.json",
+          "sha256": "1d792ca66482fe98548de299627e2d71ac1a34b9a6bac8377ee4cff77709f76c"
+        },
+        "pieces": {
+          "coral-A": {
+            "clock": {
+              "feed": 21.1,
+              "seat": 23.14,
+              "carry": 27.032,
+              "release": 48.01,
+              "withdraw": 48.295,
+              "motion": 48.33,
+              "stow": 50.765
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              23.30017263531049,
+              23.383022635371095
+            ],
+            "releaseWallS": [
+              48.010929166713346,
+              48.02312916671375
+            ],
+            "retainedThroughoutDrivePulse": 8,
+            "worstGuideForceN": 43.577720958555005,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 24.100000000000176
+          },
+          "coral-B": {
+            "clock": {
+              "feed": 71.501,
+              "seat": 73.54,
+              "carry": 77.434,
+              "release": 98.1,
+              "hold": 98.21
+            },
+            "trials": 8,
+            "custody": 8,
+            "releases": 8,
+            "readyWallS": [
+              73.70117263536835,
+              73.7840226353711
+            ],
+            "releaseWallS": [
+              98.10092916671336,
+              98.11312916671376
+            ],
+            "retainedThroughoutDrivePulse": 8,
+            "worstGuideForceN": 43.577720958555005,
+            "longestBilateralInterruptionMs": 0,
+            "maximumUnilateralSupportMs": 24.100000000000176
+          }
+        },
+        "metCarryOnTime": 2,
+        "measuredReleases": 2,
+        "fieldOnlyOutcomes": {
+          "supported": 96
+        },
+        "fieldOnlyTrials": 96,
+        "acceptedPieces": 0,
+        "verifiedResets": 0,
+        "unresolved": "No complete native successor with guide mounts, paid-out cables, differential arrival sensing, clear-channel readback and loaded drive-to-reset. Field-only scoring cannot qualify the integrated robot.",
+        "runId": "aaa172928a4b61272ef5582b9da60a562ad416f8658b87ec3c50e4d6cb4fc89c"
+      }
+    }
+  }
+}

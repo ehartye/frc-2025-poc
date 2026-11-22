@@ -1,0 +1,32 @@
+# Files read by native_pan_build.py (geometry revision 002-pan-r3), relative to CONFIG["jobInputs"] (the staged project copy).
+# Stage every file with `native_job.py stage` and its sha256. Paths under external/ come from outside the project;
+# the source is shown after "<-". Recompute the recipe and geometry digests if either is edited.
+# sha256                                                            path
+081552df448113ed4c4f05f81418f33c4bd0f65e034446bcc12492f4cdd346d4  iterations/002/design/pan/native_pan_build.py   (recipe)
+e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313  iterations/002/design/pan/geometry.json
+57824e75d536ed5c797a44ebf856b950cae149351800a8f5884d66c6ee9f528e  iterations/002/design/chassis/native_job_telemetry.py
+bfd15c5a11d3929c962c7266d4f744c41d46c30c061b9e294cf807eb59056340  iterations/active.json                          (read by fusion_authority.active_design)
+0d87c833884e5ad08dd1a28ea2b0dcaa3455ab20acdc3d59cd2b66e46f1267d8  iterations/002/iteration.json                  (read by fusion_authority.active_design)
+081ce22c7cbde1ce6f85ef7073a25b75657b183644b4a21a797075d65ff81d84  iterations/001/retrospective.json              (read by fusion_authority.verify_active)
+6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02  iterations/002/design/cad/fusion-authority.json
+a1d02df1e031dddaa600035a60f7ab428a08e3f4db6074d07c8f8d2f455b9ac2  iterations/002/design/cad/issue-006/lineage.json
+e7c7386af0b1e775a7e0daba344f75082a42e6445ec0064b297497abc077834a  iterations/002/design/cad/private/connected-654-precursor.f3d   (lineage archive, hashed only)
+c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77  iterations/002/design/cad/issue-006/assembly.step              (lineage STEP, hashed only)
+e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471  external/taps-02/four-tapped-holes.f3d   <- FRC Native/2025/resume-20261121-2025/taps-02/four-tapped-holes.f3d (opened)
+69ad4908e45caa26d87e2e9c710f81c19c841ffbf6a5fbbe17788695b728fa91  external/taps-02/native-receipt.json    <- FRC Native/2025/resume-20261121-2025/taps-02/native-receipt.json
+#
+# Read from the staged plugin package (CONFIG["plugin"] = its scripts directory), agent-frc 7ed1f7c / 0.73.0:
+223ae25eacc3163b7c056a2bb5be2e60d36c5f41ef2ab656ba986acf717952cc  scripts/fusion_authority.py   (must equal lineage exporterSha256)
+#
+# CONFIG keys used: jobInputs, resultDirectory (must not already hold pan-build.f3d/.step or native-progress files),
+# plugin, and optionally parentArchive (absolute fallback when external/taps-02 is not staged; still sha-checked).
+# Writes into resultDirectory only: native-progress.jsonl, native-progress.json, pan-build.f3d, pan-build.step, native-receipt.json.
+#
+# Not read by the recipe (offline provenance; pinned in geometry.json "inputs" or in each output's "inputs"):
+#   artifacts/red2-integrated/pan-shop-plan.json, artifacts/red2-integrated/pan-mechanics.json, artifacts/red2-integrated/pan-duty-summary.json,
+#   external/taps-02/four-tapped-holes.step, iterations/002/design/references/pan-floor-430x322.step,
+#   iterations/002/design/chassis/inset-electrical-package.json, iterations/002/design/chassis/inspection-mass-552.json,
+#   kickoff/rules-v0.json, kickoff/rule-register-v0.json,
+#   iterations/002/design/pan/{pan_geometry,pan_structure,pan_roster,pan_mass_plan,pan_intent}.py and their outputs
+#   structure.json, target-roster.json, mass-plan.json, operating-intent.json, fabrication-plan.json (written by pan_roster.py)
+# Regeneration order: pan_geometry.py -> pan_structure.py -> pan_roster.py -> pan_mass_plan.py -> pan_intent.py

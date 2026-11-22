@@ -1,9 +1,9 @@
 # 2025 REEFSCAPE proof of concept
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
 [Replay the straight-guide robot from the starting line to its station and reef decisions](straight-guide-match/replay.html). [Match evidence and controls](straight-guide-match/README.md)
@@ -171,4 +171,4 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 
 ## Public contribution checks
 
-Run `python -m unittest discover -s tests` and `python scripts/check_public_content.py` after committing changes. The guard checks committed bytes, private paths/network addresses, unexplained machine aliases and binary additions. Reports identify file/category only. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
+Run `python -m unittest discover -s tests` after committing changes. The repository's **Paths and secrets** job scans every pushed branch for personal machine paths and credentials. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.

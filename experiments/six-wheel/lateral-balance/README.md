@@ -1,9 +1,9 @@
 # Balance the straight-guide robot on its station approach
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
 **The 44% lighter-side target is achievable under a specific prebuild mass allocation.** With opposite wheels matched within 20 g per axle, opposite gearboxes within 25 g, the battery construction bound below, and the remaining material centered within Y±10 mm, the lighter side retains at least **44.239%** across both signed approaches. The upper empty-mass endpoint alone gives **45.180%**. The installed bill still leaves enough mass without individual positions to prevent certifying the 44% target from CAD alone. [Student experiment](index.html) · [Signed load-line calculations](transfer.json)

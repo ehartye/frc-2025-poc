@@ -8,7 +8,7 @@ The issued full robot uses square rear frame joints. A new chassis can use a 19.
 
 ## Inspect the fixed-low engineering alternate
 
-[Download the receiver service master](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) and [inspect its shop drawings and bench order](assembly-engineering/receiver-service/shop.md). The 1,268-part alternate adds bolted grip drives, adjustable end switches, an insulating battery keeper, a stepped Anderson disconnect mount and a removable USB support. The [interactive assembly](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/engineering-assembly.html) operates the shelf, capture yokes and cage jack. [Revision and acceptance checks](assembly-engineering/receiver-service/verification.md) · [Native reopen](assembly-engineering/receiver-service/issue/cold-reopen.json)
+[Download the receiver service master](assembly-engineering/receiver-service/issue/Team-1780-receiver-service.f3d) and [inspect its shop drawings and bench order](assembly-engineering/receiver-service/shop.md). The 1,268-part alternate adds bolted grip drives, adjustable end switches, an insulating battery keeper, a stepped Anderson disconnect mount and a removable USB support. The [interactive assembly](https://ehartye.github.io/frc-2025-poc/detailed-design/) operates the shelf, capture yokes and cage jack. [Revision and acceptance checks](assembly-engineering/receiver-service/verification.md) · [Native reopen](assembly-engineering/receiver-service/issue/cold-reopen.json)
 
 Open the [earlier front-jack engineering master](assembly-engineering/issue/Team-1780-engineering-shallow.f3d) to inspect the module saddle lands, equipment mounts, battery tie-downs and separate jack transmissions. Use that revision’s [unit-by-unit bill](assembly-engineering/issue/material-register.csv) and [shop assembly sequence](assembly-engineering/issue/drawing-traveler.md) together. The independent [cold Fusion measurements](assembly-engineering/issue/cold-reopen.json) record geometric tolerances and the motion graph for this issued assembly.
 
@@ -18,7 +18,7 @@ Open the [earlier front-jack engineering master](assembly-engineering/issue/Team
 
 ## Try the front-jack climb variant
 
-The separate full assembly adds a forward shallow-cage jack to the stowed receiver and four-module chassis. Drive the crosshead, both shoes and lower clamp to inspect the bearing contact. Added mass and field-plate load still exceed the evidence for a match-ready climb. [Download the climbing variant](shallow-cage/Team-1780-shallow-cage-study.f3d) · [Rotate and operate the climb](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/shallow-climb.html) · [Native measurements and loads](shallow-cage/study.md)
+The separate full assembly adds a forward shallow-cage jack to the stowed receiver and four-module chassis. Drive the crosshead, both shoes and lower clamp to inspect the bearing contact. Added mass and field-plate load still exceed the evidence for a match-ready climb. [Download the climbing variant](shallow-cage/Team-1780-shallow-cage-study.f3d) · [Rotate and operate the climb](https://ehartye.github.io/frc-2025-poc/detailed-design/) · [Native measurements and loads](shallow-cage/study.md)
 
 ## Supplier-detail capture candidate
 

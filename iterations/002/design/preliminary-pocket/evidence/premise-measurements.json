@@ -1,0 +1,130 @@
+{
+  "schema": "red2/premise-measurements@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "designSha256": "638a98114916a6fe0cdfe34914b84ad4ff5d95696f703c6873ec92f9d74f9f4b",
+  "stepSha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de",
+  "receiveFace": "front",
+  "stationArrivalMps": 2.465696950433656,
+  "receiveSeatedAfterFlapS": 0.5434,
+  "ejectCaptureStandOffMaxMm": 100.0,
+  "inspectionHeavyKg": 48.337315689654176,
+  "weakPackMinBusV": 9.281600000000001,
+  "electronicsMinClearanceMm": 2.089062399999989,
+  "deployedLipProjectionMm": 100.0,
+  "startProjectionMm": 0.0,
+  "startHeightMm": 886.708,
+  "ejectInterlock": "reef-zone bumper overlap AND pipe present AND lip deployed",
+  "selectedArchitecture": "B'x",
+  "chassisInterface": "002-connected-machining-654-r6",
+  "seatedClampScrews": "four 91251A542 seated in UNC-2B taps",
+  "electronicsPlacements": "552-r5 prospective placements",
+  "provenance": {
+    "receiveFace": "The inlet mouth is on the robot -X face, the face that docks to the station (kickoff/selected-role.md, commissioning.md).",
+    "stationArrivalMps": {
+      "source": {
+        "file": "artifacts/resume-20261121/fixed-path-01/comparison.json",
+        "sha256": "824ba7280b1faebb3d8fbf304631ca18da33a7fa1d5326245a59e4564b42344b"
+      },
+      "field": "fixedPath.receiveScreen.arrivals.adverse.speedMps",
+      "note": "energy estimate, adverse admission"
+    },
+    "receiveSeatedAfterFlapS": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/field-trials.json",
+        "sha256": "fd5a7e6e0090b76275f27ec9f07f6f4bdc714b99aa785382f52cfda2bce6c241"
+      },
+      "field": "max over receive[label='G1 locked', kTreadNmm=40].seatedAfterFlapS"
+    },
+    "ejectCaptureStandOffMaxMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/field-trials.json",
+        "sha256": "fd5a7e6e0090b76275f27ec9f07f6f4bdc714b99aa785382f52cfda2bce6c241"
+      },
+      "field": "largest stand-off s with every G2 eject at s and below captured and supported 2 s"
+    },
+    "inspectionHeavyKg": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/budgets.json",
+        "sha256": "7ab4af41a2202250d2510260887439263ceee373119e6d1475cbd4127515fc02"
+      },
+      "field": "sum of masses[].kg upper"
+    },
+    "weakPackMinBusV": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/budgets.json",
+        "sha256": "7ab4af41a2202250d2510260887439263ceee373119e6d1475cbd4127515fc02"
+      },
+      "field": "min over cycle stages of weak Voc - sum(upper source A) x R"
+    },
+    "electronicsMinClearanceMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/layout.step",
+        "sha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de"
+      },
+      "pair": [
+        "Chassis battery plug and bracket",
+        "Main power loom"
+      ],
+      "note": "installed scene, every electrical reserve against every other reserve"
+    },
+    "deployedLipProjectionMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/layout-blocks.json",
+        "sha256": "f83f3dc0fea69d18d357f1cf21dbaae5705b27eadb2db3461e12253d2e03723b"
+      },
+      "field": "rules.deployedProjectionBeyondFrameMm",
+      "note": "max X of the deployed lip solid minus the 370 mm frame face"
+    },
+    "startProjectionMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/layout-blocks.json",
+        "sha256": "f83f3dc0fea69d18d357f1cf21dbaae5705b27eadb2db3461e12253d2e03723b"
+      },
+      "field": "rules.startProjectionBeyondFrontMm",
+      "note": "max X of every robot reserve except bumpers in the start configuration minus the frame face"
+    },
+    "startHeightMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/layout-blocks.json",
+        "sha256": "f83f3dc0fea69d18d357f1cf21dbaae5705b27eadb2db3461e12253d2e03723b"
+      },
+      "field": "rules.startMaxZMm"
+    },
+    "ejectInterlock": {
+      "source": {
+        "file": "iterations/002/design/preliminary-pocket/rules-rulings.json",
+        "sha256": "c2f3786632606d747bcf246e537ca30e553431fe50352060482e47385880be2a"
+      },
+      "field": "rulings[1].interlock",
+      "note": "control requirement recorded by the G412 ruling"
+    },
+    "selectedArchitecture": {
+      "source": {
+        "file": "iterations/002/design/evaluation/evaluation.json",
+        "sha256": "4803ae5a506039a100b666e10ea448edf4ca08f6c1cdab762dc17d2a97cbf57b"
+      },
+      "field": "recommendation.select"
+    },
+    "chassisInterface": {
+      "source": {
+        "file": "iterations/002/design/cad/fusion-authority.json",
+        "sha256": "6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02"
+      },
+      "field": "registered revision"
+    },
+    "seatedClampScrews": {
+      "source": {
+        "file": "artifacts/resume-20261121/screws-place-01/native-receipt.json",
+        "sha256": "5dc040a1a86298f1244723f63af01f5308ad0363490f2dea9752ea7716e61136"
+      },
+      "field": "status"
+    },
+    "electronicsPlacements": {
+      "source": {
+        "file": "iterations/002/design/chassis/inset-electrical-package.json",
+        "sha256": "383e593a04e8c3d30571fa69da1ddb96e46d743b2fbfbac097f35edb484d8eb9"
+      },
+      "field": "candidatePlacements"
+    }
+  }
+}

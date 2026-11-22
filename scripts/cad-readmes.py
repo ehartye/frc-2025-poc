@@ -38,48 +38,39 @@ def digest(path):
 
 
 def preliminary_feature(root, config, update):
-    """Return the README feature once the approved policy's declared withdrawal has left no detailed design current.
+    """Return the README feature when the detailed design index shows no current detailed design.
 
-    The legacy showcase model keeps the README still until the committed detailed design index shows every
-    declared design withdrawn. From then on each README features the current preliminary design release, with
-    the still and README pins taken from the gated source policy.
+    A current detailed design keeps the README still. Otherwise each README features the current preliminary
+    design release, with the still preliminary-still.py rendered from that release's published review scene.
     """
-    policy = json.loads((root / ".github/public-model-policy.json").read_text(encoding="utf-8"))
-    spec = policy.get("detailedDesigns")
-    if not spec or not spec.get("withdrawn") or not (root / spec["index"]).exists():
+    listing = root / "docs/detailed-design/designs.json"
+    if not listing.exists():
         return None
     try:
-        index = json.loads((root / spec["index"]).read_bytes())
+        index = json.loads(listing.read_bytes())
         statuses, designs = index["designStatus"], index["designs"]
         if not isinstance(statuses, dict) or not isinstance(designs, list):
             raise TypeError
     except (ValueError, KeyError, TypeError):
-        raise ValueError("Unreadable detailed design index: " + spec["index"]) from None
-    if any(statuses.get(row["design"]) != "withdrawn" for row in spec["withdrawn"]):
+        raise ValueError("Unreadable detailed design index: docs/detailed-design/designs.json") from None
+    if index.get("current") is not None or any(statuses.get(name) in ("in-progress", "effective") for name in designs):
         return None
-    if index.get("current") is not None or len(designs) != len(spec["withdrawn"]):
-        raise ValueError("A current detailed design needs its own README still")
-    handoff = policy.get("preliminaryReadmeArchive")
-    if not handoff:
-        raise ValueError("The withdrawn showcase needs the approved README handoff (preliminaryReadmeArchive)")
-    image = root / handoff["image"]
-    checked(image, handoff["imageSha256"])
     served = root / "docs/preliminary-design"
     releases = json.loads((served / "releases.json").read_bytes())
     release = releases.get("current")
     status = releases.get("designStatus", {}).get(release, "in-progress")
     if release not in releases["releases"] or status not in STATUS_WORDS:
         raise ValueError("The README needs a current in-progress or effective preliminary design release")
+    image = root / "docs/robot" / f"preliminary-{release}.png"
+    if not image.exists() or not image.with_suffix(".json").exists():
+        raise ValueError("Render the README still of " + release + " with preliminary-still.py.")
     record = json.loads(image.with_suffix(".json").read_bytes())
     folder = served / "releases" / release
-    if (record["release"] != release or record["imageSha256"] != handoff["imageSha256"]
+    if (record["release"] != release or record["imageSha256"] != digest(image)
             or record["releaseRecordSha256"] != digest(folder / "release.json")
             or record["receiptSha256"] != digest(folder / "receipt.json")
             or record["sceneSha256"] != digest(folder / "review-scene.json.gz")):
         raise ValueError("The preliminary still differs from the current release. Regenerate it with preliminary-still.py.")
-    if not update and (digest(root / "README.md") != handoff["readmeSha256"]
-                       or digest(root / handoff["archive"]) != handoff["archivedSha256"]):
-        raise ValueError("README.md or its archived predecessor differs from the approved handoff")
     caption = record["caption"]
     return dict(image=image, heading=f"Preliminary design · {STATUS_WORDS[status]} · {release}",
                 review=config["viewerUrl"] + "preliminary-design/", receipt=folder / "receipt.json",

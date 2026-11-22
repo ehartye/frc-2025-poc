@@ -1,0 +1,45 @@
+{
+  "schema": "red2/selected-interface@1",
+  "issue": "red2-002-preliminary-layout-A",
+  "decision": "revisable premise",
+  "ownerGuidance": "The preliminary design must find what will actually work and inform the Fusion design; existing Fusion CAD does not constrain it. Each carried item below is a premise with its evidence and its replacement trigger.",
+  "premises": [
+    "chassis-interface",
+    "pan-package-geometry",
+    "seated-clamp-screws"
+  ],
+  "replaceIf": {
+    "chassis": "A mass evaluation that cannot hold the R103 margin without structural savings, a bumper or battery packaging result that needs a different perimeter or corner, or a scoring architecture that needs other module stations or landings",
+    "panPackage": "A retention result needing a retainer, latch or different stow and receive geometry; a physical dock test outside the 1.828 mm support margin; or a mass result needing the inlet or cassette lightened",
+    "tapsAndScrews": "Replacement of the chassis, or a load and maintenance review that rejects the clamp"
+  },
+  "interface": "Iteration 002 chassis: 146 fabricated bodies, four SDS MK4i L2 NEO modules and four seated 91251A542 clamp screws",
+  "reason": "The layout carries the existing 002 chassis forward as a revisable premise rather than starting greenfield. Six issued chassis revisions converged on it (cad/issue-001 to issue-006, registered master 002-connected-machining-654-r6); the occupied-shape replay closed with all eight retained bodies in the same occupied form; and the four purchased screws are seated in the tapped nutbars on the selected STEP.",
+  "evidence": [
+    {
+      "file": "iterations/002/design/cad/fusion-authority.json",
+      "sha256": "6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02"
+    },
+    {
+      "file": "iterations/002/design/cad/issue-006/lineage.json",
+      "sha256": "a1d02df1e031dddaa600035a60f7ab428a08e3f4db6074d07c8f8d2f455b9ac2"
+    },
+    {
+      "file": "artifacts/resume-20261121/seven-retained-8-closeout.json",
+      "sha256": "5194fa50eff2e7ca1e7217def27cedb412a862a1ad16ed9860a9a3fedcb7feae"
+    },
+    {
+      "file": "artifacts/resume-20261121/screws-place-01/native-receipt.json",
+      "sha256": "5dc040a1a86298f1244723f63af01f5308ad0363490f2dea9752ea7716e61136"
+    },
+    {
+      "file": "artifacts/resume-20261121/screws-place-01/four-seated-screws.step",
+      "sha256": "640cb0dd134a722d7a71029b0201d7c0ceab9ade228169f9c009d44e26c9136c"
+    }
+  ],
+  "reopen": [
+    "The bumper outline: the lower cassette corners set a 17.25 mm rear cutback, not the recorded 57.8 mm chamfer",
+    "Any change at the four module stations, the upper pan stringers or the pan-truss landings",
+    "Perimeter strike stress (149-241 MPa, open) or module-screw loads beyond their review"
+  ]
+}

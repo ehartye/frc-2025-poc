@@ -1,0 +1,24 @@
+{
+  "id": "tread-stiffness",
+  "scenarioId": "tread-stiffness",
+  "scenario": "Installed tread stiffness per roller at the 6 mm squeeze (design nominal until bench gate G0 measures it)",
+  "unit": "N/mm",
+  "criterion": {
+    "range": [
+      40.0,
+      120.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "lower nip roller",
+    "upper nip roller",
+    "nip drive",
+    "pipe"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
+    "sha256": "e2d1d20cc817a5df258134e2714e7ba504b028cc581383fdf26f76602bb10184"
+  },
+  "basis": "Receive seats 108/108 and eject captures 480/480 over 40-160 N/mm; receive fails at 10 N/mm (9/12) and the drive stalls at 240 N/mm (0/8). The bench band stops at 120 N/mm so the steel shafts stay within a quarter of the squeeze (structure-checks.json S2)"
+}

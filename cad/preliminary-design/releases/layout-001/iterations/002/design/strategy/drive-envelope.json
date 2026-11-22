@@ -1,0 +1,322 @@
+{
+  "sources": {
+    "experiments/six-wheel/spatial-contact/events.csv": "7db7bae0ce4f87b836a27b311ea976aaa612a4b8a73c3e5d4e79133effcc9a96",
+    "experiments/six-wheel/mission/field-registration.json": "b652c3f62805eba1351c920b9fdfc8dbfa09799099f96afee728a77b872525ef",
+    "artifacts/red2-integrated/pan-duty-summary.json": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac",
+    "WORKSTATION/Documents/FRC Native/supplier-sources/sds-mk4i-neo/configuration-20261121.json": "7fb6a4b961769925601fb4628c8831dcb3bfa2eb39ea7200e005f5dbd16a554f",
+    "experiments/swerve-drive/low-placement/red2-demand.json": "0681e5bd5fdabc0a3e0d1e596e09fe92b63e57c36b72d686412fb69947e0c418",
+    "experiments/six-wheel/scripts/registered_transit.py": "7da80bfff88386d49d958fefa9241fac8dd7ae6a1ed6d449280acae618153350",
+    "experiments/swerve-drive/motion/model.json": "f4cdd01c862d1b2a0410416eb03b1f6e1b3527d03410b9e03dc4e7ab7450646b",
+    "experiments/swerve-drive/power/electrical.py": "2d15c7c72fb07aa2c3a681ad0490a966a1e3c6289346330fc2e918a5ce09dd71",
+    "artifacts/cam-scoring/plus/route/path.npz": "b8fffbcad67bdd322bd2e386aee616bbb3f3ede83ccb612e71b581e0048d341a",
+    "artifacts/low-placement/holdout/minus/route/path.npz": "815646de8ac456e0d2a7de3ef53ef6a8762faab6b64b411309e6b6bb4cb5e0e4"
+  },
+  "requirement": {
+    "criterionId": "red2-v0-l1-contact",
+    "criterion": "Same station-issued CORAL contacts the red L1 trough after leaving the robot and remains in a V0 qualifying state at assessment.",
+    "focalRobot": "R2",
+    "outcome": "credited",
+    "station": "red-l1",
+    "requiredPieces": 2,
+    "windowS": 135,
+    "anchor": {
+      "basis": "phase-start",
+      "phase": "TELEOP",
+      "offsetS": 0
+    },
+    "basis": "The selected Red 2 role attempts two distinct station CORAL deliveries in sectors A and B during its actual 18 to 153 s TELEOP window, with the same finite supply and the other five participants. Parking and LEAVE have separate criteria."
+  },
+  "historicalPhysicalStationLegs": {
+    "artifacts/cam-scoring/plus/route/path.npz": {
+      "durationS": 25.195,
+      "peakMps": 0.4799986315324602,
+      "sampleCount": 5040
+    },
+    "artifacts/low-placement/holdout/minus/route/path.npz": {
+      "durationS": 25.205000000000002,
+      "peakMps": 0.4799969362038325,
+      "sampleCount": 5042
+    }
+  },
+  "cases": {
+    "nominal": {
+      "inputs": {
+        "limits": [
+          1.8,
+          1.8,
+          1.75,
+          0.9,
+          6,
+          28
+        ],
+        "mass": 65,
+        "yawInertia": 5,
+        "mu": 0.8,
+        "cRoll": 0.025,
+        "gearEfficiency": 0.83,
+        "pack": [
+          12.4,
+          0.025
+        ],
+        "panEfficiency": 0.6,
+        "steerInertia": 0.017,
+        "scrubArm": 0.015
+      },
+      "pieces": {
+        "coral-A": {
+          "stationFeedS": 21.1,
+          "carryStartS": 27.032,
+          "sectorM": -0.18,
+          "routeCenterlineM": 8.948798139066927,
+          "turnAnglesRad": [
+            2.2339311353598386,
+            1.3768536112315586,
+            1.7297239366608388
+          ],
+          "loadedTravelS": 15.670064647382029,
+          "azimuthChanges": 6,
+          "azimuthTimeEachS": 0.3568642093318678,
+          "sameClockTipStartS": 44.51,
+          "releaseS": 48.01,
+          "historicStowedS": 50.765,
+          "parkedLeadBeforeTipS": 1.5579353526179691
+        },
+        "coral-B": {
+          "stationFeedS": 71.501,
+          "carryStartS": 77.434,
+          "sectorM": 0.18,
+          "routeCenterlineM": 8.59412579938851,
+          "turnAnglesRad": [
+            2.2339311353598386,
+            1.3490956133706489,
+            1.7574819345217494
+          ],
+          "loadedTravelS": 15.473024458671796,
+          "azimuthChanges": 6,
+          "azimuthTimeEachS": 0.3568642093318678,
+          "sameClockTipStartS": 94.6,
+          "releaseS": 98.1,
+          "historicStowedS": 100.86,
+          "parkedLeadBeforeTipS": 1.4429755413282006
+        }
+      },
+      "minLoadedNormalN": 119.94316888297871,
+      "maxLoadedNormalN": 198.77295611702127,
+      "frictionMarginN": 61.735211203457446,
+      "wheelDemandN": 34.21932390292553,
+      "brakingDistanceAtSpeedM": 0.936,
+      "yawAccelerationRadS2": 3.1034482758620694,
+      "steer": {
+        "phaseA": 9.50343396685761,
+        "terminalV": 3.7608549211097877,
+        "supplyWatts": 40.41226266855373
+      },
+      "pan": {
+        "phaseA": 43.900590703576476,
+        "terminalV": 6.75898821897165,
+        "supplyWatts": 330.39286152374416
+      },
+      "panDemandBeforeFreeCurrentNm": 13.563104159579888,
+      "panCurrentMarginToRetired30ACap": -13.900590703576476,
+      "ratioComparison": {
+        "L1": {
+          "ratio": 8.142857142857142,
+          "drive": {
+            "phaseA": 12.18714465869497,
+            "terminalV": 7.264204071746239,
+            "supplyWatts": 99.0665620585027
+          },
+          "bus": {
+            "stable": true,
+            "totalSupplyA": 103.660945564752,
+            "busV": 9.808476362883827,
+            "branchTerminalV": [
+              9.580998574601438,
+              9.662086744281352,
+              8.575611299439167,
+              9.653506771478982
+            ],
+            "dutyVoltageMarginV": [
+              2.316794502855199,
+              5.901231823171564,
+              1.816623080467517
+            ],
+            "speedAtRequiredTorqueMps": 2.5284064305007234
+          },
+          "drivePhaseMarginTo40A": 27.81285534130503
+        },
+        "L2": {
+          "ratio": 6.746031746031747,
+          "drive": {
+            "phaseA": 14.337894611554164,
+            "terminalV": 6.553722464036838,
+            "supplyWatts": 105.1073133363725
+          },
+          "bus": {
+            "stable": true,
+            "totalSupplyA": 107.43996957925044,
+            "busV": 9.714000761960806,
+            "branchTerminalV": [
+              9.469818587613261,
+              9.56614292580153,
+              8.465030471221333,
+              9.557474048691326
+            ],
+            "dutyVoltageMarginV": [
+              2.9160961235764233,
+              5.805288004691743,
+              1.7060422522496825
+            ],
+            "speedAtRequiredTorqueMps": 2.906665899072881
+          },
+          "drivePhaseMarginTo40A": 25.662105388445838
+        },
+        "L3": {
+          "ratio": 6.122448979591837,
+          "drive": {
+            "phaseA": 15.614902396064311,
+            "terminalV": 6.276556999896676,
+            "supplyWatts": 109.59758326302314
+          },
+          "bus": {
+            "stable": true,
+            "totalSupplyA": 110.34056845752347,
+            "busV": 9.641485789475656,
+            "branchTerminalV": [
+              9.384558757081393,
+              9.492480565430165,
+              8.379814471484416,
+              9.483742150277685
+            ],
+            "dutyVoltageMarginV": [
+              3.1080017571847174,
+              5.731625644320378,
+              1.6208262525127655
+            ],
+            "speedAtRequiredTorqueMps": 3.0996282820900576
+          },
+          "drivePhaseMarginTo40A": 24.38509760393569
+        }
+      }
+    },
+    "adverse": {
+      "inputs": {
+        "limits": [
+          1.55,
+          1.5,
+          1.5,
+          0.85,
+          5,
+          22
+        ],
+        "mass": 67,
+        "yawInertia": 7,
+        "mu": 0.5,
+        "cRoll": 0.05,
+        "gearEfficiency": 0.75,
+        "pack": [
+          11.8,
+          0.032
+        ],
+        "panEfficiency": 0.45,
+        "steerInertia": 0.03,
+        "scrubArm": 0.025
+      },
+      "pieces": {
+        "coral-A": {
+          "stationFeedS": 21.1,
+          "carryStartS": 27.032,
+          "sectorM": -0.18,
+          "routeCenterlineM": 8.948798139066927,
+          "turnAnglesRad": [
+            2.2339311353598386,
+            1.3768536112315586,
+            1.7297239366608388
+          ],
+          "loadedTravelS": 17.259063331681265,
+          "azimuthChanges": 6,
+          "azimuthTimeEachS": 0.40003408189302064,
+          "sameClockTipStartS": 44.51,
+          "releaseS": 48.01,
+          "historicStowedS": 50.765,
+          "parkedLeadBeforeTipS": -0.03106333168126696
+        },
+        "coral-B": {
+          "stationFeedS": 71.501,
+          "carryStartS": 77.434,
+          "sectorM": 0.18,
+          "routeCenterlineM": 8.59412579938851,
+          "turnAnglesRad": [
+            2.2339311353598386,
+            1.3490956133706489,
+            1.7574819345217494
+          ],
+          "loadedTravelS": 17.03024246737261,
+          "azimuthChanges": 6,
+          "azimuthTimeEachS": 0.40003408189302064,
+          "sameClockTipStartS": 94.6,
+          "releaseS": 98.1,
+          "historicStowedS": 100.86,
+          "parkedLeadBeforeTipS": -0.11424246737261257
+        }
+      },
+      "minLoadedNormalN": 130.40500452127657,
+      "maxLoadedNormalN": 198.1177704787234,
+      "frictionMarginN": 30.171613736702113,
+      "wheelDemandN": 35.03088852393617,
+      "brakingDistanceAtSpeedM": 0.8318333333333334,
+      "yawAccelerationRadS2": 2.931034482758621,
+      "steer": {
+        "phaseA": 10.24434804495704,
+        "terminalV": 3.429962108686482,
+        "supplyWatts": 39.74191735822121
+      },
+      "pan": {
+        "phaseA": 58.0674542714353,
+        "terminalV": 8.68568166420045,
+        "supplyWatts": 561.0949142802264
+      },
+      "panDemandBeforeFreeCurrentNm": 13.563104159579888,
+      "panCurrentMarginToRetired30ACap": -28.067454271435302,
+      "ratioComparison": {
+        "L1": {
+          "ratio": 8.142857142857142,
+          "drive": {
+            "phaseA": 13.567731135463147,
+            "terminalV": 6.643393837289825,
+            "supplyWatts": 100.8508682348235
+          },
+          "bus": {
+            "stable": false
+          },
+          "drivePhaseMarginTo40A": 26.43226886453685
+        },
+        "L2": {
+          "ratio": 6.746031746031747,
+          "drive": {
+            "phaseA": 16.00434369998257,
+            "terminalV": 6.105414066147654,
+            "supplyWatts": 109.27016127259463
+          },
+          "bus": {
+            "stable": false
+          },
+          "drivePhaseMarginTo40A": 23.99565630001743
+        },
+        "L3": {
+          "ratio": 6.122448979591837,
+          "drive": {
+            "phaseA": 17.45108241016598,
+            "terminalV": 5.910576707686327,
+            "supplyWatts": 115.30662357493513
+          },
+          "bus": {
+            "stable": false
+          },
+          "drivePhaseMarginTo40A": 22.54891758983402
+        }
+      }
+    }
+  },
+  "scope": "Early prebuild bound on new SDS 4-inch, NEO drive and NEO azimuth. Preserves registered centerline, six rest-to-rest azimuth changes, 20 ms transition latency each, 250 ms dock settle and a 3.5 s stationary pre-tip window. Differential profile class controls the center position and yaw only. Does not certify tracking, thermal capacity, DC braking energy acceptance, occupancy, 4-wheel traction distribution, sensed placement or source pan drive. Articulated inertia, pan speed limit, total mass/CG, scrub and wire resistance are provisional. Regeneration contributes zero available supply. All nine motors plus 68 W auxiliary concurrently budgeted as a sufficient envelope, not an observation. Weak pack, loaded tire radius, path/clock, achievable steering and current limits can reopen the ratios."
+}

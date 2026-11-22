@@ -1,0 +1,1803 @@
+{
+  "schema": "agent-frc/preliminary-layout@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "design": {
+    "file": "iterations/002/design/preliminary-pocket/design.json",
+    "sha256": "638a98114916a6fe0cdfe34914b84ad4ff5d95696f703c6873ec92f9d74f9f4b"
+  },
+  "step": {
+    "file": "iterations/002/design/preliminary-pocket/layout.step",
+    "sha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de"
+  },
+  "motion": {
+    "file": "iterations/002/design/preliminary-pocket/motion.json",
+    "sha256": "50f60b2fe7674f01d850e9c7105a0d67794f14e4d91ee3aeab7ba62d30649a9d"
+  },
+  "datum": {
+    "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "groups": {
+    "structure": {
+      "role": "structure",
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ]
+    },
+    "steer sweeps": {
+      "role": "drive",
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep"
+      ]
+    },
+    "module housings": {
+      "role": "drive",
+      "members": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ]
+    },
+    "bumpers": {
+      "role": "bumper",
+      "members": [
+        "Bumper ring"
+      ]
+    },
+    "electronics": {
+      "role": "other",
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ]
+    },
+    "wiring": {
+      "role": "other",
+      "members": [
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ]
+    },
+    "battery retention": {
+      "role": "other",
+      "members": [
+        "Battery tray and retention"
+      ]
+    },
+    "battery": {
+      "role": "battery",
+      "members": [
+        "Dressed battery"
+      ]
+    },
+    "breaker service hand": {
+      "role": "service",
+      "members": [
+        "Breaker reset hand"
+      ]
+    },
+    "plug service hand": {
+      "role": "service",
+      "members": [
+        "Plug grip hand"
+      ]
+    },
+    "pocket tray": {
+      "role": "mechanism",
+      "members": [
+        "Pocket tray"
+      ]
+    },
+    "hood": {
+      "role": "mechanism",
+      "members": [
+        "Hood (removable)"
+      ]
+    },
+    "check flap": {
+      "role": "mechanism",
+      "members": [
+        "Check flap"
+      ]
+    },
+    "nip side plates": {
+      "role": "mechanism",
+      "members": [
+        "Port nip side plate",
+        "Starboard nip side plate"
+      ]
+    },
+    "lower nip roller": {
+      "role": "mechanism",
+      "members": [
+        "Lower nip roller"
+      ]
+    },
+    "upper nip roller": {
+      "role": "mechanism",
+      "members": [
+        "Upper nip roller"
+      ]
+    },
+    "nip drive": {
+      "role": "mechanism",
+      "members": [
+        "Nip worm reducer and NEO 550"
+      ]
+    },
+    "nip coupling": {
+      "role": "mechanism",
+      "members": [
+        "Nip coupling belt"
+      ]
+    },
+    "pipe sensor": {
+      "role": "other",
+      "members": [
+        "Seated-pipe sensor"
+      ]
+    },
+    "lip sensor": {
+      "role": "other",
+      "members": [
+        "Lip-deployed switch"
+      ]
+    },
+    "lip latch": {
+      "role": "mechanism",
+      "members": [
+        "Lip latch servo"
+      ]
+    },
+    "exit lip": {
+      "role": "mechanism",
+      "members": [
+        "Deployable exit lip"
+      ]
+    },
+    "tray supports": {
+      "role": "structure",
+      "members": [
+        "Rear inlet upright port",
+        "Floor post port",
+        "Rear inlet upright starboard",
+        "Floor post starboard"
+      ]
+    },
+    "pipe": {
+      "role": "payload",
+      "members": [
+        "CORAL pipe"
+      ]
+    },
+    "field trough": {
+      "role": "other",
+      "members": [
+        "L1 trough sector A (field)"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "group": "pocket tray",
+      "on": "Floor post port",
+      "pointMm": [
+        122.5,
+        147.5,
+        579.788
+      ],
+      "basis": "Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights"
+    },
+    {
+      "group": "tray supports",
+      "on": "Chassis pan trusses and stringers",
+      "pointMm": [
+        122.5,
+        147.5,
+        489.525
+      ],
+      "basis": "Port floor post bolted to the upper pan stringer top (Z 489.5)"
+    },
+    {
+      "group": "hood",
+      "on": "Pocket tray",
+      "pointMm": [
+        200.0,
+        162.5,
+        700.0
+      ],
+      "basis": "Hood tab on the port side-wall top edge (thumb screw)"
+    },
+    {
+      "group": "check flap",
+      "on": "Hood (removable)",
+      "pointMm": [
+        161.25339824511434,
+        0.0,
+        700.0
+      ],
+      "basis": "3 mm flap pin in clips under the hood, 4 mm under its underside"
+    },
+    {
+      "group": "nip side plates",
+      "on": "Chassis pan trusses and stringers",
+      "pointMm": [
+        250.0,
+        170.4,
+        489.525
+      ],
+      "basis": "Port side plate foot bolted to the upper pan stringer top at X 240-260 (two bolts each side)"
+    },
+    {
+      "group": "lower nip roller",
+      "on": "Port nip side plate",
+      "pointMm": [
+        335.0,
+        170.4,
+        523.45
+      ],
+      "basis": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "upper nip roller",
+      "on": "Port nip side plate",
+      "pointMm": [
+        335.0,
+        170.4,
+        676.55
+      ],
+      "basis": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "nip drive",
+      "on": "Port nip side plate",
+      "pointMm": [
+        335.0,
+        173.6,
+        523.45
+      ],
+      "basis": "Worm reducer face bolted to the port side plate on the lower shaft"
+    },
+    {
+      "group": "nip coupling",
+      "on": "Starboard nip side plate",
+      "pointMm": [
+        335.0,
+        -170.4,
+        600.0
+      ],
+      "basis": "Idler post on the starboard side plate"
+    },
+    {
+      "group": "lip latch",
+      "on": "Starboard nip side plate",
+      "pointMm": [
+        348.0,
+        -170.4,
+        455.0
+      ],
+      "basis": "Servo bracket on the starboard side plate extension"
+    },
+    {
+      "group": "exit lip",
+      "on": "Port nip side plate",
+      "pointMm": [
+        366.0,
+        170.4,
+        530.5
+      ],
+      "basis": "Lip hinge pin in brackets on both side plates"
+    },
+    {
+      "group": "battery",
+      "on": "Battery tray and retention",
+      "pointMm": [
+        -150.0,
+        0.0,
+        29.9
+      ],
+      "basis": "Battery case bottom on the tray"
+    },
+    {
+      "group": "battery retention",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -210.0,
+        110.0,
+        111.13
+      ],
+      "basis": "Port rear hanger under inboard sill 1"
+    },
+    {
+      "group": "bumpers",
+      "on": "Chassis perimeter",
+      "pointMm": [
+        370.0,
+        0.0,
+        150.0
+      ],
+      "basis": "Front bumper backer on the front perimeter face (mount undesigned)"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 1 housing",
+      "pointMm": [
+        269.3,
+        264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 2 housing",
+      "pointMm": [
+        269.3,
+        -264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 3 housing",
+      "pointMm": [
+        -269.3,
+        -264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 4 housing",
+      "pointMm": [
+        -269.3,
+        264.3,
+        100.0
+      ],
+      "basis": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 2",
+      "pointMm": [
+        238.826,
+        233.803,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 3",
+      "pointMm": [
+        238.803,
+        -233.826,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 4",
+      "pointMm": [
+        -238.826,
+        -233.803,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails",
+      "pointMm": [
+        -238.803,
+        233.826,
+        94.633
+      ],
+      "basis": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -145.0,
+        152.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -142.0,
+        -159.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -142.0,
+        -283.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -96.0,
+        274.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        -116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        -196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        -116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        -196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        116.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        194.0,
+        196.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        38.0,
+        273.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -305.272,
+        99.555,
+        188.024
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -219.55,
+        178.0,
+        201.0
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        105.55,
+        0.0,
+        208.407
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        177.5,
+        172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        177.5,
+        -172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -177.5,
+        -172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "pointMm": [
+        -177.5,
+        172.5,
+        187.75
+      ],
+      "basis": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    }
+  ],
+  "stages": {
+    "lip-deploy": {
+      "purpose": "operating",
+      "movingGroups": [
+        "exit lip"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "receive-chute": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "pocket tray"
+          ],
+          "drive": {
+            "pocket tray": "Gravity on the fixed 52.3 deg inlet chute; no actuator"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/receive-chute.json",
+            "sha256": "5bd4614a223682ad9266969a5f24a49a95c49ca84c1763bbdc840172346586ec"
+          },
+          "basis": "The pipe rolls down the fixed inlet chute under gravity"
+        }
+      }
+    },
+    "receive-ramp": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "pocket tray"
+          ],
+          "drive": {
+            "pocket tray": "Gravity on the fixed 15.74 deg pocket floor"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/receive-ramp.json",
+            "sha256": "af2381311936cf39ac9cb172bcc3490c94898587e4cc7a5628847e81986dbfb6"
+          },
+          "basis": "The pipe rolls down the fixed pocket floor under gravity"
+        }
+      }
+    },
+    "flap-open": {
+      "purpose": "operating",
+      "movingGroups": [
+        "check flap"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "receive-pocket": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "pocket tray"
+          ],
+          "drive": {
+            "pocket tray": "Gravity on the fixed 15.74 deg pocket floor"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/receive-pocket.json",
+            "sha256": "5ee449f8ac41b91586f2131217dcd4c242d422b6307bd0d9db0280ecc3cba1c1"
+          },
+          "basis": "The pipe rolls under the open flap along the fixed floor"
+        }
+      }
+    },
+    "receive-seat": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "pocket tray",
+            "lower nip roller",
+            "upper nip roller"
+          ],
+          "drive": {
+            "pocket tray": "Gravity on the fixed floor",
+            "lower nip roller": "Held by the self-locking worm (unpowered)",
+            "upper nip roller": "Held through the coupling belt by the self-locking worm (unpowered)"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/receive-seat.json",
+            "sha256": "4fa805487ce2908c3ce026755189d83ae4939578b2e072ea3c56e7fdf2b195e6"
+          },
+          "basis": "The pipe rolls into the bite of the locked nip and wedges to its carry seat"
+        }
+      }
+    },
+    "flap-close": {
+      "purpose": "operating",
+      "movingGroups": [
+        "check flap"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "loaded-carry": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "eject-throat": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "lower nip roller",
+            "upper nip roller"
+          ],
+          "drive": {
+            "lower nip roller": "NEO 550 through the self-locking worm, 30 A limit, torque-limited (9-12 V)",
+            "upper nip roller": "Counter-rotated from the lower shaft by the coupling belt"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/eject-throat.json",
+            "sha256": "9534ee1aa0f6c484dabf564cef30dae601e61e0ad1b5b7d252084aaa73ef4f28"
+          },
+          "basis": "Both treads squeeze and drive the pipe through the throat"
+        }
+      }
+    },
+    "eject-over-roller": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "lower nip roller"
+          ],
+          "drive": {
+            "lower nip roller": "NEO 550 through the self-locking worm, torque-limited"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/eject-over-roller.json",
+            "sha256": "04ec639bae3f29ed60e6d1c5f8084714eed40d2f175156121830b36ae389aff6"
+          },
+          "basis": "The driven lower roller carries the pipe over its top onto the lip"
+        }
+      }
+    },
+    "eject-lip-root": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "exit lip"
+          ],
+          "drive": {
+            "exit lip": "Gravity: the pipe pivots over the fixed root corner of the deployed lip"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/eject-lip-root.json",
+            "sha256": "75df321d485bd2165aca081f1a7b0649e7ea9f8f053a03b2966b2f93e4748a60"
+          },
+          "basis": "The pipe pivots over the lip root onto the ramp"
+        }
+      }
+    },
+    "eject-ramp": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "exit lip"
+          ],
+          "drive": {
+            "exit lip": "Gravity on the fixed 30 deg deployed ramp"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/eject-ramp.json",
+            "sha256": "e381e0b78d87cfae47c3557832375e466962b34ca5a83a6d9c83d84caadc8da5"
+          },
+          "basis": "The pipe rolls down the deployed ramp"
+        }
+      }
+    },
+    "eject-land": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json",
+      "transportedBy": {
+        "pipe": {
+          "mechanisms": [
+            "exit lip"
+          ],
+          "drive": {
+            "exit lip": "Gravity and momentum along the fixed deployed land"
+          },
+          "evidence": {
+            "file": "iterations/002/design/preliminary-pocket/evidence/transport/eject-land.json",
+            "sha256": "9257108d303fb91075d9c14a656ebdfbeee42acebd3468bb13749f2de21caed8"
+          },
+          "basis": "The pipe rolls along the land to the tip"
+        }
+      }
+    },
+    "release-off-tip": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "release-flight": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "trough-landing": {
+      "purpose": "operating",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. Pipe-contact surfaces are reserved 2.5 mm below their contact line and the roller treads by their rigid core: rolling, seated and squeezed contact is qualified by evidence/field-trials.json"
+    },
+    "withdraw-park": {
+      "purpose": "park",
+      "movingGroups": [
+        "field trough",
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation"
+    },
+    "service-hood-lift": {
+      "purpose": "service",
+      "movingGroups": [
+        "check flap",
+        "hood",
+        "pipe sensor"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-unload-pipe": {
+      "purpose": "service",
+      "movingGroups": [
+        "pipe"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-nip-cassette-lift": {
+      "purpose": "service",
+      "movingGroups": [
+        "exit lip",
+        "lip latch",
+        "lip sensor",
+        "lower nip roller",
+        "nip coupling",
+        "nip drive",
+        "nip side plates",
+        "upper nip roller"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-lip-restow": {
+      "purpose": "service",
+      "movingGroups": [
+        "exit lip"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-battery-lift": {
+      "purpose": "service",
+      "movingGroups": [
+        "battery"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-battery-rear-carry": {
+      "purpose": "service",
+      "movingGroups": [
+        "battery"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-plug-disconnect": {
+      "purpose": "service",
+      "movingGroups": [
+        "plug service hand"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    },
+    "service-breaker-reset": {
+      "purpose": "service",
+      "movingGroups": [
+        "breaker service hand"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+    }
+  },
+  "missingInputs": [],
+  "control": {
+    "case": "receive-pocket",
+    "displaced": "Hood (removable)",
+    "moving": "CORAL pipe",
+    "offsetMm": [
+      0.0,
+      0.0,
+      -12.0
+    ],
+    "basis": "The removable hood seated 12 mm low (a missing tab or a sagging 1/16 in sheet) over the 10 mm receive gap"
+  },
+  "cycle": [
+    "lip-deploy",
+    "receive-chute",
+    "receive-ramp",
+    "flap-open",
+    "receive-pocket",
+    "receive-seat",
+    "flap-close",
+    "loaded-carry",
+    "eject-throat",
+    "eject-over-roller",
+    "eject-lip-root",
+    "eject-ramp",
+    "eject-land",
+    "release-off-tip",
+    "release-flight",
+    "trough-landing",
+    "withdraw-park"
+  ],
+  "view": "iterations/002/design/preliminary-pocket/package-motion.html",
+  "budgets": {
+    "file": "iterations/002/design/preliminary-pocket/budgets.json",
+    "sha256": "7ab4af41a2202250d2510260887439263ceee373119e6d1475cbd4127515fc02"
+  },
+  "premises": [
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/station-receive-face-accepted.json",
+        "sha256": "1cfcc9d0e1cfd1f49914031f61743d62d8ef4e3deae625e7b9d58afed4c9164e"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/station-receive-face-current.json",
+        "sha256": "8db5289aacfae80f8905338862af4e4685e0ceb3a33da55173eb9cd075873cb5"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/station-arrival-speed-accepted.json",
+        "sha256": "34023fc12497da4c5e5f8e8cf793f589d016fd67404ad957386473bb01e685a3"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/station-arrival-speed-current.json",
+        "sha256": "0a4639f513ce630371f21ea76eae6be0043b113e94e49999f13f9d960462b0b5"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/receive-seat-time-accepted.json",
+        "sha256": "c3502f71b87abf53af96adb9e700dc89414815fe95916989661c39ef46298d87"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/receive-seat-time-current.json",
+        "sha256": "89452abf310989f255bf44e775d3e5b4d83ff024e3228e2f9935a9b142981918"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/eject-capture-standoff-accepted.json",
+        "sha256": "f06813bbb9c88c4a2a3f51741648616cea8e1c0df45c04c11684e094b3f693e8"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/eject-capture-standoff-current.json",
+        "sha256": "b0996784ccdcc97d7f1f82be4b804dacd11227de69240e3e55e8f856e0a73e3b"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/inspection-mass-accepted.json",
+        "sha256": "994dc7e9691d11bcf2cb17922fa9fe19c1087566b50a593ed376e3dc0497fa75"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/inspection-mass-current.json",
+        "sha256": "fc72a25576f6681db9caa85a0e8de73bdc58f902d770c3f01f96366419eefd14"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/weak-pack-voltage-accepted.json",
+        "sha256": "8726c0e2b5c2fe09009ff70510b3f447ad511275ca031aa6c40ba55c47dc3994"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/weak-pack-voltage-current.json",
+        "sha256": "4e1d615730b99c290a86a636a4c7b019a4db63d80f25c424d34ce0ee4ee0ef90"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/electronics-layout-accepted.json",
+        "sha256": "3321f0e9fc6d4872bb8503880c155846b4113f2212013149631ddaa5407318aa"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/electronics-layout-current.json",
+        "sha256": "897048ad8a27b20ef4c4ed91a366ab27ab03204be833d3989cf909f07f444ef5"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r105-deployed-extension-accepted.json",
+        "sha256": "973f10d6bb1034df2fc62bed273eac845c8b8e0d294d2f1bd92f7c99052dd96c"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r105-deployed-extension-current.json",
+        "sha256": "884c99e07327ff7ca7156dad4300cc720e44c90cfd2bde797bb59876101c8f43"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r102-start-configuration-accepted.json",
+        "sha256": "3e943b94956b7128b58a227a60ca14a72f696f1417ad28aea2975714d7241405"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r102-start-configuration-current.json",
+        "sha256": "df4574cf1e67d7da8592e6f58cf51ba5a5d957ea637f05d515a1a5a5fee8d54f"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r104-start-height-accepted.json",
+        "sha256": "9233c1b21cf1f31dcff024e09e36baa540e2a9ee6e7e8a7ff3d1f0cc3e881927"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/r104-start-height-current.json",
+        "sha256": "e04666f7da7ac9cfe9747c98ba50f58d4875647486827eb929592b948b2b0f1b"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/g412-eject-interlock-accepted.json",
+        "sha256": "ae45347f28452efdf86e2a54f76d78a0b1830339f982c74ae7a4c73d30feb4ef"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/g412-eject-interlock-current.json",
+        "sha256": "5ad372a184d015ceee32e3f6ff30370acb302d2d078c5c5e6d33258f42f92c76"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/architecture-selection-accepted.json",
+        "sha256": "773de3f75aa406c8260aa20259f69af53c5af4d371e36daa2b0d146397aff945"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/architecture-selection-current.json",
+        "sha256": "70b642e21bdab4ed08494ac722555af6ded3085bf81ecc7c768754a5b7802dcf"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/chassis-interface-accepted.json",
+        "sha256": "093cac2a6ab6ea1e316b7f23c3f66cec2835f58486db813cf740b3afa6723f3f"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/chassis-interface-current.json",
+        "sha256": "a8faad517d9a40095b3810e8114ad8e3ed1cb2e8096ed092dc47977d16658d9d"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/seated-clamp-screws-accepted.json",
+        "sha256": "53419133412e7e31412dee57ff2c1881719bbed566f1af7734309a9e46c25efe"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/seated-clamp-screws-current.json",
+        "sha256": "279344b59f2b855beedd022b302b6cdeab2aa16937f8517e7e299be46b31f3e9"
+      }
+    },
+    {
+      "accepted": {
+        "file": "iterations/002/design/preliminary-pocket/premises/electronics-placements-accepted.json",
+        "sha256": "3f2c3caaf20be74919ebf9b2792e634aa2d82b4feccae3488817ab65d53789ef"
+      },
+      "current": {
+        "file": "iterations/002/design/preliminary-pocket/premises/electronics-placements-current.json",
+        "sha256": "0fda528953191d3e0af5e63c67170711fb3117044cdb6493164f6a85dc6af9f5"
+      }
+    }
+  ],
+  "presentation": {
+    "components": {
+      "Chassis perimeter": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Closes the frame perimeter that carries the bumpers and reacts strikes into the wheel stations.",
+        "rationale": "The bumper ring and the perimeter rules bound the robot; strike loads must reach the module stations. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis cassettes and socket rails": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails.",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis cassettes and socket rails part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis cassettes and socket rails part 3": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis cassettes and socket rails part 4": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
+        "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis pan trusses and stringers": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Raises the upper stringers to Z 470-490; the nip side plates and floor posts land on them.",
+        "rationale": "The pocket needs landings near Z 490 on both sides of the pipe path; the existing stringers already sit there. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis pan trusses and stringers part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Raises the upper stringers to Z 470-490; the nip side plates and floor posts land on them. (separated piece after partition)",
+        "rationale": "The pocket needs landings near Z 490 on both sides of the pipe path; the existing stringers already sit there. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers.",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 2": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 3": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 4": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 5": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 6": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 7": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 8": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis sills, decks and crossmembers part 9": {
+        "category": "frame",
+        "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
+        "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 1 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 1 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 1 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 1 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 2 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 2 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 2 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 2 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 3 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 3 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 3 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 3 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 4 steer sweep": {
+        "category": "wheel",
+        "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "purpose": "Occupies the module 4 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
+        "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 4 housing": {
+        "category": "drive",
+        "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "purpose": "Holds the module 4 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
+        "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Bumper ring": {
+        "category": "bumper",
+        "material": "4 mm backer, 69.5 mm PE foam, 0.5 mm cover (project rear-facet record)",
+        "purpose": "Protects the frame perimeter in contact with field elements and robots.",
+        "rationale": "Required bumpers; the ring follows the actual frame plan hull. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Power distribution hub": {
+        "category": "power",
+        "material": "REV PDH (supplier)",
+        "purpose": "Distributes battery power to the controllers and the control system.",
+        "rationale": "Every load in the voltage budget draws through it. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "roboRIO 2": {
+        "category": "compute",
+        "material": "NI roboRIO 2 (supplier)",
+        "purpose": "Runs the robot program, the eject interlock and the drive control.",
+        "rationale": "A control computer is required. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "VH-109 radio": {
+        "category": "compute",
+        "material": "VH-109 radio (supplier)",
+        "purpose": "Links the robot to the driver station and field.",
+        "rationale": "Required communications. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Main 120 A breaker": {
+        "category": "power",
+        "material": "Eaton CB185 120 A breaker (supplier)",
+        "purpose": "Disconnects and protects the main battery circuit.",
+        "rationale": "Required main disconnect; reset path checked in service-breaker-reset. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Starboard controller 1 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Starboard controller 2 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Starboard controller 3 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Starboard controller 4 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Port controller 1 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Port controller 2 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Port controller 3 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module drive NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Port controller 4 (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands one module steer NEO.",
+        "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Nip controller (SPARK MAX)": {
+        "category": "electrical",
+        "material": "REV SPARK MAX (supplier)",
+        "purpose": "Commands the nip NEO 550 under its 30 A limit, gated by the eject interlock.",
+        "rationale": "Uses the pan controller's placement on the equipment sheet. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Chassis battery plug and bracket": {
+        "category": "power",
+        "material": "Anderson SB50 and bracket reserve",
+        "purpose": "Mates the battery SB50 to the robot-side main leads.",
+        "rationale": "The battery disconnects at a plug the plug-grip hand can reach. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Main power loom": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the main lead route from the SB50 to the breaker and PDH.",
+        "rationale": "The main leads must avoid the battery lift and the plug grip. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Branch and CAN trunk": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the branch power and CAN route to the controllers.",
+        "rationale": "Branch and CAN wiring cross the centre gap above the crossmembers. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 1 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 1 motor and CANcoder leads under the equipment sheet.",
+        "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 2 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 2 motor and CANcoder leads under the equipment sheet.",
+        "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 3 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 3 motor and CANcoder leads under the equipment sheet.",
+        "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Module 4 lead reserve": {
+        "category": "electrical",
+        "material": "Copper conductor and insulation reserve",
+        "purpose": "Reserves the module 4 motor and CANcoder leads under the equipment sheet.",
+        "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Battery tray and retention": {
+        "category": "plate",
+        "material": "Aluminium tray and hangers (planning reserve)",
+        "purpose": "Supports and retains the battery case below the sills.",
+        "rationale": "The battery sits low and central and lifts out through the centre gap. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Dressed battery": {
+        "category": "battery",
+        "material": "Sealed lead-acid FRC battery with leads (excluded by R103)",
+        "purpose": "Supplies the robot; its case, leads and battery-side SB50 move together in service.",
+        "rationale": "The pack is the voltage source of the budget. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Breaker reset hand": {
+        "category": "reserved-space",
+        "material": "Clearance gauge: no robot material",
+        "purpose": "Clearance gauge for a hand reaching the main breaker reset from above.",
+        "rationale": "Resetting the breaker must not need the pocket removed. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Plug grip hand": {
+        "category": "reserved-space",
+        "material": "Clearance gauge: no robot material",
+        "purpose": "Clearance gauge for a hand gripping the SB50 pair.",
+        "rationale": "The battery swap starts with this disconnect. Carried forward from the iteration 002 baseline as a revisable premise."
+      },
+      "Pocket tray": {
+        "category": "receiver",
+        "material": "1/8 in polycarbonate with a UHMW contact face (proposal)",
+        "purpose": "Receives the station pipe on a 52.3 deg chute, rolls it down the 15.74 deg floor and holds it between two walls 10 mm clear of its ends.",
+        "rationale": "A fixed path replaces the pan's moving receiver; the 15.74 deg floor keeps the seated pipe pressed toward the nip at 0.27 g and the walls square its 301.6 mm length."
+      },
+      "Hood (removable)": {
+        "category": "guide",
+        "material": "1/16 in polycarbonate (proposal)",
+        "purpose": "Caps the pocket 10 mm above the pipe so a rebound cannot lift it, and carries the check-flap pin.",
+        "rationale": "Isolation: without it 4/4 adverse receives still seat (peak rise with it 0.74 mm), so the trials do not show it earning its place; it is kept as the flap carrier and a bound on an unmodelled pipe-end or yawed bounce, and lifts off for the pit unload path."
+      },
+      "Check flap": {
+        "category": "mechanism",
+        "material": "1/16 in polycarbonate, steel pin and torsion spring (proposal)",
+        "purpose": "Lets the arriving pipe in and stops it rolling back up the floor when the chassis accelerates toward the reef.",
+        "rationale": "Isolation: without it a gently settled pipe is lost rearward at 8 g (1/2 retained; 3 g 2/2); with it every worm-locked sled case is retained."
+      },
+      "Port nip side plate": {
+        "category": "plate",
+        "material": "1/4 in 6061-T6, pocketed (proposal)",
+        "purpose": "Carries the port bearings of both rollers, the worm drive and the lip hinge, and lands the cassette on the port stringer.",
+        "rationale": "The nip is the pocket's front stop and must hold its 12 mm squeeze and the 0.4-0.5 kN receive bite load."
+      },
+      "Starboard nip side plate": {
+        "category": "plate",
+        "material": "1/4 in 6061-T6, pocketed (proposal)",
+        "purpose": "Carries the starboard bearings, the coupling belt and idler, the latch servo and the lip hinge.",
+        "rationale": "Paired with the port plate it makes the nip a removable cassette."
+      },
+      "Lower nip roller": {
+        "category": "roller",
+        "material": "2 in 35A compliant wheels on 1/2 in hollow hex (COTS)",
+        "purpose": "Lower half of the nip: front stop on receive, driven eject roller, and the roller the pipe rolls over onto the lip.",
+        "rationale": "With the upper roller it replaces the evaluation's fence, which no nip could lift the pipe over (finding PD1)."
+      },
+      "Upper nip roller": {
+        "category": "roller",
+        "material": "2 in 35A compliant wheels on 1/2 in hollow hex (COTS)",
+        "purpose": "Upper half of the nip: clamps the pipe in the bite and drives it through the throat.",
+        "rationale": "A two-sided squeeze moves the pipe without spin and holds it in the bite when the worm locks."
+      },
+      "Nip worm reducer and NEO 550": {
+        "category": "actuator",
+        "material": "NEO 550 and a self-locking worm reducer (article not selected)",
+        "purpose": "Drives the lower roller through a self-locking worm, so the unpowered nip cannot be back-driven.",
+        "rationale": "Isolation: with free-turning rollers 3/4 adverse receives seat (the rest pass through the nip); locked, 16/16 seat. At 9 V it still drives the pipe through the squeeze (slowest 0.44 m/s in the nip)."
+      },
+      "Nip coupling belt": {
+        "category": "transmission",
+        "material": "Timing belt, pulleys and idler (article not selected)",
+        "purpose": "Counter-rotates the upper roller from the lower shaft.",
+        "rationale": "Both rollers must turn so the pipe leaves the throat without spin and the worm locks both."
+      },
+      "Seated-pipe sensor": {
+        "category": "sensor",
+        "material": "Reflective sensor (article not selected)",
+        "purpose": "Reports a seated, displaced or missing pipe from the hood top.",
+        "rationale": "The narrative requires detecting displacement or loss, and the eject interlock needs pipe presence (gate G5)."
+      },
+      "Lip-deployed switch": {
+        "category": "sensor",
+        "material": "Limit switch (article not selected)",
+        "purpose": "Reports that the lip reached its deployed stop.",
+        "rationale": "The eject interlock must not run the nip into a stowed lip (latch-failed control)."
+      },
+      "Lip latch servo": {
+        "category": "actuator",
+        "material": "Hobby-class servo and steel pin (article not selected)",
+        "purpose": "Holds the upright stowed lip for the starting configuration and releases it once at match start.",
+        "rationale": "R102 needs the lip inside the perimeter at the start; the deploy happens on the field."
+      },
+      "Deployable exit lip": {
+        "category": "mechanism",
+        "material": "1/8 in polycarbonate, hinge pin and torsion spring (proposal)",
+        "purpose": "Rolls the ejected pipe off a tip 100 mm beyond the frame line at 0.55 m so it drops into the trough.",
+        "rationale": "Isolation: with the lip removed the 12 V eject is captured at 0 and 50 mm stand-off and lost at 75 and 100 mm; deployed, 80/80 G2 ejects over 0-100 mm are captured and supported after withdrawal. A latch failure (lip still up) blocks the exit."
+      },
+      "Rear inlet upright port": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Carries the inlet walls at the station face from the rear perimeter.",
+        "rationale": "The 0.8 m inlet lip is far above any chassis member."
+      },
+      "Floor post port": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Supports the pocket floor from the port upper stringer.",
+        "rationale": "The floor spans 650 mm between the inlet and the nip and needs a mid support."
+      },
+      "Rear inlet upright starboard": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Carries the inlet walls at the station face from the rear perimeter.",
+        "rationale": "Paired rear support."
+      },
+      "Floor post starboard": {
+        "category": "structure",
+        "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "purpose": "Supports the pocket floor from the starboard upper stringer.",
+        "rationale": "Paired floor support."
+      },
+      "CORAL pipe": {
+        "category": "game-piece",
+        "material": "PVC CORAL pipe (field element)",
+        "purpose": "The finite game piece followed from the station chute through receive, carry, eject, the lip and the trough.",
+        "rationale": "The role scores two station pipes in the L1 trough; every clearance and trial uses its actual diameter and length."
+      },
+      "L1 trough sector A (field)": {
+        "category": "field",
+        "material": "Reef L1 trough section (field element, not robot)",
+        "purpose": "Field fixture: the red L1 trough section the pipe must land in and stay supported in.",
+        "rationale": "The delivery interaction is checked against the registered trough section at the shown 50 mm dock."
+      }
+    },
+    "required": {
+      "wheels": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep"
+      ],
+      "drive actuators": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "steer actuators": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "control computer": [
+        "roboRIO 2"
+      ],
+      "power distribution": [
+        "Power distribution hub"
+      ],
+      "main disconnect": [
+        "Main 120 A breaker"
+      ],
+      "battery supply": [
+        "Dressed battery",
+        "Chassis battery plug and bracket"
+      ],
+      "comms": [
+        "VH-109 radio"
+      ],
+      "receiver": [
+        "Pocket tray",
+        "Hood (removable)",
+        "Check flap"
+      ],
+      "front stop and eject drive": [
+        "Lower nip roller",
+        "Upper nip roller",
+        "Nip worm reducer and NEO 550",
+        "Nip coupling belt"
+      ],
+      "nip controller": [
+        "Nip controller (SPARK MAX)"
+      ],
+      "exit lip and latch": [
+        "Deployable exit lip",
+        "Lip latch servo"
+      ],
+      "seated-pipe sensor": [
+        "Seated-pipe sensor"
+      ],
+      "lip-deployed sensor": [
+        "Lip-deployed switch"
+      ]
+    },
+    "loadMembers": {
+      "drive": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)"
+      ],
+      "steer": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing",
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)"
+      ],
+      "nip": [
+        "Nip worm reducer and NEO 550",
+        "Nip controller (SPARK MAX)",
+        "Lower nip roller",
+        "Upper nip roller"
+      ],
+      "latch": [
+        "Lip latch servo"
+      ],
+      "controls": [
+        "roboRIO 2",
+        "VH-109 radio",
+        "Power distribution hub"
+      ]
+    },
+    "provisional": {
+      "seated-pipe sensor": "Not placed: needed by the eject interlock (RR3)",
+      "lip-deployed sensor": "Not placed: needed by the eject interlock (RR3)",
+      "worm reducer": "Article not selected (PD6)"
+    },
+    "loadPaths": {
+      "file": "iterations/002/design/preliminary-pocket/load-paths.json",
+      "sha256": "2cdb7bec0b1ffc525e8ebea98f7fb13754194ef181e75ef33647e921d9fe93eb"
+    },
+    "selectedInterface": {
+      "file": "iterations/002/design/preliminary-pocket/chassis-carry-forward.json",
+      "sha256": "279fbe4d8630c3f9369948b5b4f0ee66177aefa0a396049e80c50dd2e5a3eb8d"
+    },
+    "retention": {
+      "file": "iterations/002/design/preliminary-pocket/retention-review.json",
+      "sha256": "6a9890f1c61a675ed75b6304da4b9212b608075e95331812b13f5df476ac9ac0"
+    },
+    "findings": {
+      "file": "iterations/002/design/preliminary-pocket/design-findings.json",
+      "sha256": "4fffdfaa77302485fe8a76744d7981dcb9cf3b7f0698e31da8d2cb0e827c6b12"
+    },
+    "rulings": {
+      "file": "iterations/002/design/preliminary-pocket/rules-rulings.json",
+      "sha256": "c2f3786632606d747bcf246e537ca30e553431fe50352060482e47385880be2a"
+    },
+    "benchGates": {
+      "file": "iterations/002/design/preliminary-pocket/bench-gates.json",
+      "sha256": "41105df26eac4a269e549a110e120f64c87eed61d483351aabbe2ed8eee379c6"
+    },
+    "iterationChoice": {
+      "file": "iterations/002/design/preliminary-pocket/iteration-choice.json",
+      "sha256": "88c9c73d6b61d3a3396b130e06457cf63219aad3bcbee84340f7f6a6afbd05fd"
+    },
+    "fieldTrials": {
+      "file": "iterations/002/design/preliminary-pocket/evidence/field-trials.json",
+      "sha256": "fd5a7e6e0090b76275f27ec9f07f6f4bdc714b99aa785382f52cfda2bce6c241"
+    }
+  },
+  "narrativeReview": {
+    "source": {
+      "file": "kickoff/selected-role.md",
+      "sha256": "4936b4a68771f6f8c805ee1975a357da23481969c9085403460e0cc3c4a5b7ce"
+    },
+    "read": "Read end to end on 2026-11-22: LEAVE, two TELEOP station-to-L1 cycles in sectors A and B, custody, trough release and support, park, the endgame choice and the empty-start fallback. commissioning.md restates the two-pipe objective.",
+    "objectives": [
+      {
+        "objective": "AUTO: leave the starting line with the whole occupied robot (3 points)",
+        "disposition": "out-of-scope",
+        "basis": "A field-route objective for the empty robot; this package reserves the stowed starting configuration (886.7 mm tall, lip inside the perimeter) and deploys the lip at match start (lip-deploy) but places no starting-line fixture."
+      },
+      {
+        "objective": "TELEOP: take one station-issued CORAL from the red station",
+        "disposition": "represented",
+        "basis": "Cases receive-chute to flap-close; receive trials (field-trials.json, G1 model); premises station-receive-face, station-arrival-speed and receive-seat-time."
+      },
+      {
+        "objective": "Carry it to the red reef while crossing peer routes",
+        "disposition": "represented",
+        "basis": "Case loaded-carry; sled trials 1-8 g both directions; weak-pack voltage premise. A peer contact on the forward lip is not loaded (PD7)."
+      },
+      {
+        "objective": "Sustain a deliverable load: keep custody when accelerating, braking or contacted, and detect displacement or loss",
+        "disposition": "represented",
+        "basis": "Case loaded-carry and the sled trials (every worm-locked case retained); the seated-pipe sensor and lip-deployed switch are placed reserves. Physical retention and detection are verification gates per docs/preliminary-design.md line 57 ('retention ... and physical performance require their own commissioned evidence'): G3 (60/60 retained, kill on any loss at <= 3 g) and G5 (every displaced or missing pipe flagged within 50 ms, no false loss); tread stiffness PD2 is measured first."
+      },
+      {
+        "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal",
+        "disposition": "represented",
+        "basis": "Cases eject-throat to trough-landing against the placed trough fixture; eject trials capture the pipe and assess support 2 s after a 120 mm withdrawal at every 0-100 mm stand-off; field-interaction.html plays them with the latch-failed control."
+      },
+      {
+        "objective": "Return for a second station CORAL and score it in sector B with the first pipe as an obstacle",
+        "disposition": "represented",
+        "basis": "The cycle resets (empty pocket, lip stays deployed) and the same eject cases apply at sector B; evidence/sector-b-check.json places the first pipe at its sector-A rest pose (471 mm across) and measures the robot and the second pipe's release path against it. The cycle rehearsal credits a second L1 delivery at every rehearsed receive time. The sector divider panel is not modelled."
+      },
+      {
+        "objective": "PARK: reserve the south lane, stow, reach the zone and stop",
+        "disposition": "represented",
+        "basis": "Case withdraw-park; the lip stays deployed (it has no in-match stow), which the park envelope and R105 premise both include."
+      },
+      {
+        "objective": "Endgame alternatives: shallow or deep CAGE",
+        "disposition": "out-of-scope",
+        "basis": "The selected role parks."
+      },
+      {
+        "objective": "Fallback: empty-start leave-and-park for 5 points",
+        "disposition": "represented",
+        "basis": "The same robot with no pipe aboard; lip-deploy and withdraw-park need no pipe."
+      },
+      {
+        "objective": "Partner and station dependence: Red 1 station change and station depletion",
+        "disposition": "out-of-scope",
+        "basis": "An alliance-chain comparison owned by conceptual design; it changes no package volume."
+      }
+    ]
+  }
+}

@@ -67,17 +67,19 @@ def expected(root, release, case_id, pose):
     packed = (served / "review-scene.json.gz").read_bytes()
     scene = json.loads(gzip.decompress(packed))
     issued = json.loads((served / "release.json").read_bytes())
-    if issued["release"] != release or issued["phase"] != "preliminary-design" or issued["status"] != "layout-checked":
+    # The release record no longer repeats the receipt's status or digest; read the published receipt itself.
+    receipt_bytes = (served / "receipt.json").read_bytes()
+    checked = json.loads(receipt_bytes)
+    if (issued["release"] != release or issued["phase"] != "preliminary-design" or checked.get("status") != "layout-checked"
+            or checked.get("issue") != issued["issue"]):
         raise ValueError("The still needs a layout-checked preliminary design release")
-    if sha((served / "receipt.json").read_bytes()) != issued["receipt"]["sha256"]:
-        raise ValueError("The published receipt differs from the release record")
     case = next((c for c in scene["cases"] if c["id"] == case_id), None)
     if case is None or case["kind"] != "nominal" or case["status"] != "pass":
         raise ValueError("Pose the still in a passing nominal case of the release")
     grouped, shown, hidden = facets(scene, case, pose)
     receipt = dict(schema=SCHEMA, release=release, issue=issued["issue"], phase=issued["phase"],
                    releaseRecordSha256=sha((served / "release.json").read_bytes()),
-                   receiptSha256=issued["receipt"]["sha256"], sceneSha256=sha(packed),
+                   receiptSha256=sha(receipt_bytes), sceneSha256=sha(packed),
                    scene=f"docs/preliminary-design/releases/{release}/review-scene.json.gz",
                    case=case_id, pose=pose, shownBodies=len(shown), hiddenBodies=hidden,
                    triangles=sum(len(rows) for rows in grouped.values()),

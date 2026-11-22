@@ -1,0 +1,320 @@
+{
+  "schema": "red2/pan-stop-study@2",
+  "supplements": "pan-stop-study.json (sha256 1f3712081a9af88938524acc013d3c00d8c6e653a21d8821c365ce7533e85317); its batteryVoltageStep OPEN status is closed here",
+  "worktree": {
+    "path": ".",
+    "branch": "private/red2-native-successor",
+    "commit": "202750f76ba11ce7674d0c8856fb2cdc9dc54ec5",
+    "status": [
+      "?? iterations/002/design/chassis/connected-seven-retained.json",
+      "?? iterations/002/design/chassis/connected-thread-input.json"
+    ],
+    "changedSinceStudy01": [
+      ".gitattributes",
+      "artifacts/red2-integrated/pan-duty-summary.json"
+    ]
+  },
+  "plugin": {
+    "path": "PLUGIN",
+    "commit": "7ed1f7c71b457ff52534766a07b990d78e8ef286",
+    "version": "0.73.0",
+    "loaded": "nothing executed from the plugin in study 02 (battery stage is project code clocked_bus.py); study 01 used 69c2857/0.72.1 rotary reviewer"
+  },
+  "batteryInput": {
+    "path": "artifacts/red2-integrated/pan-duty-summary.json",
+    "sha256": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac",
+    "expected": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac",
+    "tracked": true
+  },
+  "method": "run_stop_field_bus.py = run_stop_field.py with clocked_bus.run kept (unmodified limited_field.py bus stage); same pan sims final/*.pan.json from study 01 (pan inputs unchanged at 202750f). Run on both chassis clocks: four-terminal (terminal-mass-clock.json, 68.59 kg, study 01 field basis) and low-line (default low-line-frame-clock.json, 67.21 kg, the commissioning.md voltage basis).",
+  "commissioningCheck": {
+    "claimed": {
+      "branchV": 9.47,
+      "massKg": 67.21,
+      "packV": 11.8,
+      "sourceOhm": 0.032,
+      "peakPanA": 29.62,
+      "loadedDrivingPanA": 7.45
+    },
+    "reproduced": {
+      "branchV": 9.473471422713992,
+      "massKg": 67.21033684873568,
+      "peakPanA": 29.619234829549562,
+      "loadedDrivingPanA": 7.444839
+    },
+    "note": "byte-identical to limited-field-12mm-executed.json; loaded-driving peak is 7.4448 A (commissioning rounds to 7.45)"
+  },
+  "results": {
+    "four-terminal": {
+      "F0-baseline": {
+        "file": "F0-baseline.field-bus.json",
+        "sha256": "54df4acd7601ac79589f878720a073e1f4c46418e7eeb6f7fd22ce91aa483b89",
+        "fieldMassKg": 68.5897453150442,
+        "minConservativePanBranchV": 9.420380419782234,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.8777363,
+        "peakPanPhaseA": 29.619234829549562,
+        "maxLoadedDrivingPanA": 7.444839,
+        "minParkedReturnBranchV": 11.05740614941525,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 89.82699999999966,
+        "minSupportMarginMm": 1.8282960000000001,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.960448567207688,
+            "peakA": 22.570673109728983,
+            "loadedDrivingPanA": 6.8608467,
+            "releaseMarginS": 0.23702736418617576
+          },
+          "nominal/coral-B/30": {
+            "branchV": 10.968431693316589,
+            "peakA": 22.45412358186158,
+            "loadedDrivingPanA": 6.7368051,
+            "releaseMarginS": 0.23842736382960084
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.420380419782234,
+            "peakA": 29.619234829549562,
+            "loadedDrivingPanA": 7.444839,
+            "releaseMarginS": 0.2453273641864513
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.428525721921531,
+            "peakA": 29.50944397221505,
+            "loadedDrivingPanA": 7.2277572,
+            "releaseMarginS": 0.24372736382977678
+          }
+        }
+      },
+      "F2-proposal-limit": {
+        "file": "F2-proposal-limit.field-bus.json",
+        "sha256": "5a55159f2cfb084634366c6751b171c1b56be367be91c4344cb2b4115393e7ed",
+        "fieldMassKg": 68.5897453150442,
+        "minConservativePanBranchV": 9.436344802858585,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.8905982,
+        "peakPanPhaseA": 29.59788556010288,
+        "maxLoadedDrivingPanA": 5.3313309,
+        "minParkedReturnBranchV": 11.01887659407738,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 71.82699999999897,
+        "minSupportMarginMm": 1.831508,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.965044044465907,
+            "peakA": 22.55292187519352,
+            "loadedDrivingPanA": 4.3189176,
+            "releaseMarginS": 0.19932736418492425
+          },
+          "nominal/coral-B/30": {
+            "branchV": 10.968467871278126,
+            "peakA": 22.487333823943775,
+            "loadedDrivingPanA": 4.3343636,
+            "releaseMarginS": 0.2000273638283261
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.436344802858585,
+            "peakA": 29.59788556010288,
+            "loadedDrivingPanA": 5.2576502,
+            "releaseMarginS": 0.21852736418556162
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.443098688692508,
+            "peakA": 29.436222330768054,
+            "loadedDrivingPanA": 5.3313309,
+            "releaseMarginS": 0.21962736382897674
+          }
+        }
+      },
+      "F3-proposal-unpowered": {
+        "file": "F3-proposal-unpowered.field-bus.json",
+        "sha256": "3efd26d1bd8a6e602848b328f4d6969d6d35d5aa5b5efece7418e72fd2f1b386",
+        "fieldMassKg": 68.5897453150442,
+        "minConservativePanBranchV": 9.447462977101912,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.9020488,
+        "peakPanPhaseA": 29.614605206618865,
+        "maxLoadedDrivingPanA": 1.4,
+        "minParkedReturnBranchV": 11.02680543511354,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 72.32700000000136,
+        "minSupportMarginMm": 1.8298889999999999,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.970685073412483,
+            "peakA": 22.542435688004346,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.19982736418494085
+          },
+          "nominal/coral-B/30": {
+            "branchV": 10.972743697815996,
+            "peakA": 22.491679289829293,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.20032736382833605
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.447462977101912,
+            "peakA": 29.614605206618865,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.2199273641856081
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.45571097080536,
+            "peakA": 29.452314629773145,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.22062736382900994
+          }
+        }
+      },
+      "reproduction": {
+        "reference": "iterations\\002\\design\\strategy\\limited-field-four-terminals.json",
+        "referenceSha256": "3ab46d835599f3d095708c32abb4e2163cbad1046a5e0c63d88b9f9320cc3d4a",
+        "runsIdentical": true,
+        "fieldIdentical": true
+      }
+    },
+    "low-line": {
+      "F0-baseline": {
+        "file": "F0-baseline.lowline.field-bus.json",
+        "sha256": "4dcc51ff71adbe44d2feed47d5049fcab901d973c0febfcb42c803f0f3c8d06f",
+        "fieldMassKg": 67.21033684873568,
+        "minConservativePanBranchV": 9.473471422713992,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.9282642,
+        "peakPanPhaseA": 29.619234829549562,
+        "maxLoadedDrivingPanA": 7.444839,
+        "minParkedReturnBranchV": 11.05740614941525,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 89.82699999999966,
+        "minSupportMarginMm": 1.8282960000000001,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.987994368512009,
+            "peakA": 22.570673109728983,
+            "loadedDrivingPanA": 6.8608467,
+            "releaseMarginS": 0.23702736418617576
+          },
+          "nominal/coral-B/30": {
+            "branchV": 10.995841079517405,
+            "peakA": 22.45412358186158,
+            "loadedDrivingPanA": 6.7368051,
+            "releaseMarginS": 0.23842736382960084
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.473471422713992,
+            "peakA": 29.619234829549562,
+            "loadedDrivingPanA": 7.444839,
+            "releaseMarginS": 0.2453273641864513
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.481490347501648,
+            "peakA": 29.50944397221505,
+            "loadedDrivingPanA": 7.2277572,
+            "releaseMarginS": 0.24372736382977678
+          }
+        }
+      },
+      "F2-proposal-limit": {
+        "file": "F2-proposal-limit.lowline.field-bus.json",
+        "sha256": "3a1fed9777127c6b97addd72b0e2a7b6aa0606097593c39cedf256c488d647a6",
+        "fieldMassKg": 67.21033684873568,
+        "minConservativePanBranchV": 9.489230146261637,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.9409519,
+        "peakPanPhaseA": 29.59788556010288,
+        "maxLoadedDrivingPanA": 5.3313309,
+        "minParkedReturnBranchV": 11.01887659407738,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 71.82699999999897,
+        "minSupportMarginMm": 1.831508,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.992562512644959,
+            "peakA": 22.55292187519352,
+            "loadedDrivingPanA": 4.3189176,
+            "releaseMarginS": 0.19932736418492425
+          },
+          "nominal/coral-B/30": {
+            "branchV": 10.99598762172599,
+            "peakA": 22.487333823943775,
+            "loadedDrivingPanA": 4.3343636,
+            "releaseMarginS": 0.2000273638283261
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.489230146261637,
+            "peakA": 29.59788556010288,
+            "loadedDrivingPanA": 5.2576502,
+            "releaseMarginS": 0.21852736418556162
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.495868237211226,
+            "peakA": 29.436222330768054,
+            "loadedDrivingPanA": 5.3313309,
+            "releaseMarginS": 0.21962736382897674
+          }
+        }
+      },
+      "F3-proposal-unpowered": {
+        "file": "F3-proposal-unpowered.lowline.field-bus.json",
+        "sha256": "c678e616be13a019fbbb21e6c8b836a659d62cc200596f396936fb4b79b50c6f",
+        "fieldMassKg": 67.21033684873568,
+        "minConservativePanBranchV": 9.500185563655192,
+        "allAboveNineVolt": true,
+        "lowestBusV": 9.9522486,
+        "peakPanPhaseA": 29.614605206618865,
+        "maxLoadedDrivingPanA": 1.4,
+        "minParkedReturnBranchV": 11.02680543511354,
+        "resetsMet": 12,
+        "of": 12,
+        "minResetMarginMs": 72.32700000000136,
+        "minSupportMarginMm": 1.8298889999999999,
+        "perTrip": {
+          "nominal/coral-A/30": {
+            "branchV": 10.998182596530523,
+            "peakA": 22.542435688004346,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.19982736418494085
+          },
+          "nominal/coral-B/30": {
+            "branchV": 11.000238511017608,
+            "peakA": 22.491679289829293,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.20032736382833605
+          },
+          "adverse/coral-A/30": {
+            "branchV": 9.500185563655192,
+            "peakA": 29.614605206618865,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.2199273641856081
+          },
+          "adverse/coral-B/30": {
+            "branchV": 9.508309269387983,
+            "peakA": 29.452314629773145,
+            "loadedDrivingPanA": 1.4,
+            "releaseMarginS": 0.22062736382900994
+          }
+        }
+      },
+      "reproduction": {
+        "reference": "iterations\\002\\design\\strategy\\limited-field-12mm-executed.json",
+        "referenceSha256": "fed9ec70fdab2753434a4e9747d6795a8316eb995878e39da4fbc08ee34ab476",
+        "runsIdentical": true,
+        "fieldIdentical": true
+      }
+    }
+  },
+  "criterionChange": "None. All variants keep every trip above the 9 V branch assumption, all 12 resets met, support and reset margins unchanged from study 01. The stop raises the minimum branch voltage (less pan current while driving).",
+  "scripts": {
+    "run_stop_field_bus.py": "0d97d55fb2198f9102c99d9f9ed5374128d89f5c96ddba7bafdda76cca166510",
+    "build_study_02.py": "d29f3bd812a9585731689d86da0b01e2cd3eb81abfe6bc1a50b763a353bd9e7c"
+  },
+  "limits": [
+    "Unpowered variant counts zero pan current during the outage; it does not model a brownout cause.",
+    "Pack/source values are the project envelope (11.8 V, 32 mOhm), not a measured battery."
+  ]
+}

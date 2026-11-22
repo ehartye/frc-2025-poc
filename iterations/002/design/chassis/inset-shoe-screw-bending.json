@@ -1,0 +1,97 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "sources": {
+    "inset-socket-shoe.json": "edeff08b6fcaef0d619258fee2c02e239567ded3a40114f3e7bba151cf373d66",
+    "inset-shoe-screw-cores.json": "5dceac7bca1a700f85c7e8b3b0203c9a30affd536abda54618a61eff3a0fcc50"
+  },
+  "cases": [
+    {
+      "rank": "inner",
+      "configuration": "inboard shoe alone",
+      "forceAtLeastN": 6322.637391734455,
+      "oneEndReactionAtLeastN": 3161.3186958672277,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 3.2,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 5.458831841185295,
+      "minimumMomentNm": 9.372386702671163,
+      "minimumElasticBendingMPa": 849.3532483805701,
+      "requiredYieldFoS2MPa": 1698.7064967611402
+    },
+    {
+      "rank": "inner",
+      "configuration": "positive bearing flush to OEM plate, ideal lower bound",
+      "forceAtLeastN": 6322.637391734455,
+      "oneEndReactionAtLeastN": 3161.3186958672277,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 0.0,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 5.458831841185295,
+      "minimumMomentNm": 4.314276789283598,
+      "minimumElasticBendingMPa": 390.9724514830965,
+      "requiredYieldFoS2MPa": 781.944902966193
+    },
+    {
+      "rank": "middle",
+      "configuration": "inboard shoe alone",
+      "forceAtLeastN": 1911.2226436688918,
+      "oneEndReactionAtLeastN": 955.6113218344459,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 3.2,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 1.6501093414740398,
+      "minimumMomentNm": 1.923193907179457,
+      "minimumElasticBendingMPa": 174.28548822713935,
+      "requiredYieldFoS2MPa": 348.5709764542787
+    },
+    {
+      "rank": "middle",
+      "configuration": "positive bearing flush to OEM plate, ideal lower bound",
+      "forceAtLeastN": 1911.2226436688918,
+      "oneEndReactionAtLeastN": 955.6113218344459,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 0.0,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 1.6501093414740398,
+      "minimumMomentNm": 0.3942157922443435,
+      "minimumElasticBendingMPa": 35.7249945320999,
+      "requiredYieldFoS2MPa": 71.4499890641998
+    },
+    {
+      "rank": "outer",
+      "configuration": "inboard shoe alone",
+      "forceAtLeastN": 4064.599933329005,
+      "oneEndReactionAtLeastN": 2032.2999666645026,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 3.2,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 3.5092898996140742,
+      "minimumMomentNm": 5.034662383163643,
+      "minimumElasticBendingMPa": 456.2559127464052,
+      "requiredYieldFoS2MPa": 912.5118254928104
+    },
+    {
+      "rank": "outer",
+      "configuration": "positive bearing flush to OEM plate, ideal lower bound",
+      "forceAtLeastN": 4064.599933329005,
+      "oneEndReactionAtLeastN": 2032.2999666645026,
+      "favorableMajorDiameterMm": 4.826,
+      "usableUnsupportedGapMm": 0.0,
+      "peakSupportNPerMm": 579.12,
+      "minimumLoadedLandMm": 3.5092898996140742,
+      "minimumMomentNm": 1.7829824365004394,
+      "minimumElasticBendingMPa": 161.579112374391,
+      "requiredYieldFoS2MPa": 323.158224748782
+    }
+  ],
+  "scope": "Necessary conditions for the no-friction, shoe-only shear path with at most 120 MPa nominal projected aluminum bearing. The uncoupled minimum is favorable to the screw: zero outer plate thickness, coincident ideal reaction, arbitrary favorable end moment, entire nominal screw major diameter solid. It does not establish actual thread strength or bending. Contact at the original tube-wall bores, a separately registered direct module seat, preload or an integral raised bearing can change this load path. Flush control removes the gap only; it is not an installed part. No full-robot claim."
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "red2/trial-path@2",
+  "issue": "red2-002-preliminary-layout-002",
+  "freePath": {
+    "case": "receive-05-drop",
+    "payload": "pipe",
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            67.14000000000001,
+            0.0,
+            -108.63999999999999
+          ]
+        }
+      ]
+    },
+    "initialPose": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            -595.29,
+            0.0,
+            255.26
+          ]
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
+    "sha256": "e2d1d20cc817a5df258134e2714e7ba504b028cc581383fdf26f76602bb10184"
+  },
+  "playback": "receive-mission",
+  "traceWindowS": [
+    0.628,
+    0.68
+  ],
+  "maxDeviationFromTraceMm": 1.846,
+  "endSnapMm": 0.0,
+  "chordToleranceMm": 3.0,
+  "qualification": {
+    "result": "pass",
+    "control": {
+      "condition": "Check flap removed, same receive and go: 0/2 retained",
+      "rejected": true
+    },
+    "brackets": [
+      {
+        "input": "tread stiffness per roller",
+        "unit": "N/mm",
+        "passing": 20,
+        "failing": 10
+      },
+      {
+        "input": "check flap",
+        "unit": "present",
+        "passing": 1,
+        "failing": 0
+      }
+    ],
+    "timestep": {
+      "coarseS": 4e-05,
+      "fineS": 2e-05,
+      "sameOutcome": true
+    }
+  },
+  "basis": "The pipe is in free flight between the station and the inlet. The stroke joins two poses of the solved free-piece trace and stays within the recorded deviation of it; the trace, its control and its half-timestep repeat are in field-trials.json."
+}

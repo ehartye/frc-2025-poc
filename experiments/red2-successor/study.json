@@ -1,0 +1,237 @@
+{
+  "schema": "agent-frc/design-review@1",
+  "objectives": [
+    {
+      "id": "acceptedPieces",
+      "unit": "distinct independently scored pipes per common 135 s window",
+      "min": 2
+    },
+    {
+      "id": "fieldOnlySupportedFraction",
+      "unit": "conditional fraction",
+      "min": 1
+    },
+    {
+      "id": "staticStartMarginMm",
+      "unit": "mm fore-aft stow allowance",
+      "min": 0
+    },
+    {
+      "id": "inspectionAllocationMarginKg",
+      "unit": "kg modeled inspection allocation",
+      "min": 0
+    },
+    {
+      "id": "retainedOnMatchedPulse",
+      "unit": "registered pipe remaining inside the receiving supports after the acceleration pulse",
+      "min": 1
+    },
+    {
+      "id": "straightGateFieldClearanceMm",
+      "unit": "mm mechanism to registered L1 floor",
+      "min": 0
+    }
+  ],
+  "cases": [
+    {
+      "id": "nominal",
+      "condition": "Recorded Red 2 plus-wheel dock and nominal station clock."
+    },
+    {
+      "id": "adverse",
+      "condition": "Opposite wheel calibration, biased release, low friction and late-B clock."
+    }
+  ],
+  "resources": [
+    {
+      "id": "battery",
+      "unit": "A allocated",
+      "capacity": 150,
+      "basis": "Provisional simultaneous-bus allocation pending native load model."
+    },
+    {
+      "id": "receiver",
+      "unit": "slots",
+      "capacity": 1,
+      "basis": "Single-pipe custody."
+    },
+    {
+      "id": "human",
+      "unit": "operators",
+      "capacity": 1,
+      "basis": "One station operator, 3 seconds per feed."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "tip-tray",
+      "architecture": "Open rear station mouth, passively supported transverse pipe, one tipping bed and a retracting gate, forward gravity delivery.",
+      "interfaces": [
+        {
+          "from": "station operator",
+          "to": "receiver",
+          "exchange": "Station feeds into a rear funnel. Two independent end witnesses must see the pipe seated before drive."
+        },
+        {
+          "from": "receiver",
+          "to": "reef",
+          "exchange": "Tip to 12 degrees and open the gate after stopped pose confirmation. The 370 mm rail and 55 mm gravity run are from the conditional sweep."
+        },
+        {
+          "from": "custody sensing",
+          "to": "driver",
+          "exchange": "Close the gate and stow only after custody clears. If the pipe bridges the rim, hold still, inhibit the next feed and back out only after clearance."
+        },
+        {
+          "from": "pit crew",
+          "to": "mechanism",
+          "exchange": "Withdraw the gate drive outward without reaching through the pipe path. A straight downward gate would strike the trough panel; a folding gate needs a new measured sweep."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/tip-tray/nominal",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/tip-tray/nominal/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/tip-tray/nominal/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/tip-tray/nominal/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/tip-tray/nominal/inspectionAllocationMarginKg",
+            "straightGateFieldClearanceMm": "/runs/tip-tray/nominal/straightGateFieldClearanceMm"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/tip-tray/adverse",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/tip-tray/adverse/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/tip-tray/adverse/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/tip-tray/adverse/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/tip-tray/adverse/inspectionAllocationMarginKg",
+            "straightGateFieldClearanceMm": "/runs/tip-tray/adverse/straightGateFieldClearanceMm"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fixed-rollers",
+      "architecture": "Rear station funnel into a fixed high reversible belt, two front pinch rollers eject the transverse pipe across the bumper.",
+      "interfaces": [
+        {
+          "from": "station operator",
+          "to": "receiver",
+          "exchange": "Dispenser feeds the fixed channel, belt advances to two end stops, seated sensor inhibits further feed."
+        },
+        {
+          "from": "receiver",
+          "to": "reef",
+          "exchange": "A commanded surface speed draws both ends through a fixed nip and sends the pipe to L1. Wheel slip, spin and actual release remain unmeasured."
+        },
+        {
+          "from": "custody sensing",
+          "to": "driver",
+          "exchange": "Brake rollers and confirm both exits clear before permitting another feed. Reverse only on confirmed retained cargo."
+        },
+        {
+          "from": "pit crew",
+          "to": "mechanism",
+          "exchange": "Release belt tension and remove the transverse shaft from the left. This overlaps a driver-side camera service corridor."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/fixed-rollers/nominal",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/fixed-rollers/nominal/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/fixed-rollers/nominal/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/fixed-rollers/nominal/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/fixed-rollers/nominal/inspectionAllocationMarginKg"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/fixed-rollers/adverse",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/fixed-rollers/adverse/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/fixed-rollers/adverse/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/fixed-rollers/adverse/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/fixed-rollers/adverse/inspectionAllocationMarginKg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "split-drop",
+      "architecture": "Rear station cradle carries a transverse pipe; a short horizontal slide presents two split supports above the trough; the supports open sideways.",
+      "interfaces": [
+        {
+          "from": "station operator",
+          "to": "receiver",
+          "exchange": "Dispenser seats both ends on the split cradle. A left/right support indication and observed end positions permit travel."
+        },
+        {
+          "from": "receiver",
+          "to": "reef",
+          "exchange": "Extend to the registered drop position and splay the two supports sideways. A zero-horizontal-speed drop tests the field condition only."
+        },
+        {
+          "from": "custody sensing",
+          "to": "driver",
+          "exchange": "Retract supports on independent clear signals, then retract slide before driving. Failed side opening inhibits the feed and chassis."
+        },
+        {
+          "from": "pit crew",
+          "to": "mechanism",
+          "exchange": "Isolate the slide, pin the cradle, withdraw both side pivots, restore home references and confirm matching separation."
+        }
+      ],
+      "runs": [
+        {
+          "case": "nominal",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/split-drop/nominal",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/split-drop/nominal/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/split-drop/nominal/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/split-drop/nominal/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/split-drop/nominal/inspectionAllocationMarginKg"
+          }
+        },
+        {
+          "case": "adverse",
+          "source": {
+            "path": "experiments/red2-successor/executions.json",
+            "sha256": "9f72cf59c6e2557bc5b42a7ce6fb7036c2b9153423af761d4907f423d1eed646"
+          },
+          "execution": "/runs/split-drop/adverse",
+          "values": {
+            "retainedOnMatchedPulse": "/runs/split-drop/adverse/retainedOnMatchedPulse",
+            "fieldOnlySupportedFraction": "/runs/split-drop/adverse/fieldOnlySupportedFraction",
+            "staticStartMarginMm": "/runs/split-drop/adverse/staticStartMarginMm",
+            "inspectionAllocationMarginKg": "/runs/split-drop/adverse/inspectionAllocationMarginKg"
+          }
+        }
+      ]
+    }
+  ]
+}

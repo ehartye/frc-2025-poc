@@ -1,0 +1,2675 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Both front SDS MK4i NEO L2/billet modules, port and front six-hole rails, normal floor and parked azimuth",
+    "revision": "002-front-244-source-r2",
+    "asOf": "2026-11-21T07:16:49.980198+00:00",
+    "archiveSha256": "bd668b49aec05219c1281d83132593d0df4365291c9882cb719d341e4f021741",
+    "stepSha256": "661c5a8e9051f9be060ec1e87c4e35d3780933bd06a3542484e2336618a73b01"
+  },
+  "receipts": {
+    "iterations\\002\\design\\strategy\\timed-bus.json": "739465be437cfd997123bbda4b1f812dd436a0764f93857471594e5a87e71a79",
+    "artifacts\\red2-integrated\\pan-mechanics.json": "0b743fed1f082404b07faa25f77aac6f76e9830aecd5e2b4847d8bb6d0c024a0",
+    "iterations\\002\\design\\chassis\\through-frame-paths.json": "fcf450f87e53edf27e3288bc8b48f702815ee5d125c9003d6db1c2ff9397e319",
+    "iterations\\002\\design\\chassis\\bumper-duty.json": "e6839b118992cfac9b6a2d65bf8b4166184e9ad15093f0ad8da96b15363c68a1"
+  },
+  "studies": {
+    "pocketedAluminum": {
+      "items": [
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "Port longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Starboard longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            -330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Front transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "Rear transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            -335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "miter-ring segment 0",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 1",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 2",
+          "kg": 1.3523465645103967,
+          "cgMm": [
+            -357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.21815525203401642
+        },
+        {
+          "name": "miter-ring segment 3",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            -335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 4",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            -352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 5",
+          "kg": 1.4994412499339236,
+          "cgMm": [
+            357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.25345813165278075
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            -100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.054586053501414815
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04181131190342881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04181131190342881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.03770622821792881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.03770622821792881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04181131190342881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04181131190342881
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04306130988566356
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04306130988566356
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.038956226200163556
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.038956226200163556
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04306130988566356
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.4105083685499999,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.04306130988566356
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "18 grid splices, four rail ties, six miter splice joints and fastening allowance",
+          "kg": 2.8,
+          "cgMm": [
+            0,
+            0,
+            142
+          ],
+          "group": "robot",
+          "basis": "New drawing allowance of 100 g per connection, conditional; it covers no load capacity",
+          "estimatedOriginYawInertiaKgM2": 0.11666666666666665
+        },
+        {
+          "name": "battery and registered lead",
+          "kg": 6.17,
+          "cgMm": [
+            -150,
+            0,
+            118
+          ],
+          "group": "battery",
+          "basis": "Prior issued field battery bound, proposed new receiving location",
+          "estimatedOriginYawInertiaKgM2": 0.16067708333333333
+        },
+        {
+          "name": "non-module robot electronics, eight controllers, radio, power distribution, main leads, sensors and panel",
+          "kg": 7,
+          "cgMm": [
+            0,
+            0,
+            195
+          ],
+          "group": "robot",
+          "basis": "Commissioned complete electronics/loom/panel allowance, independent of module-included harness",
+          "estimatedOriginYawInertiaKgM2": 0.12395833333333332
+        },
+        {
+          "name": "protected pan drive, formed tray, guides, bearings, real supports and attached cables",
+          "kg": 8.2,
+          "cgMm": [
+            220,
+            0,
+            540
+          ],
+          "group": "robot",
+          "basis": "Design allocation. Prior fixed and moving fabricated stock alone weighs 6.497 kg, excluding purchased drive, supports and complete cable; new hardware is unissued.",
+          "estimatedOriginYawInertiaKgM2": 0.6767904166666665
+        },
+        {
+          "name": "miscellaneous build allowance",
+          "kg": 1.5,
+          "cgMm": [
+            0,
+            0,
+            210
+          ],
+          "group": "robot",
+          "basis": "Explicit remaining finish and overlooked installed hardware",
+          "estimatedOriginYawInertiaKgM2": 0.04
+        },
+        {
+          "name": "removable bumper kit, one alliance color installed",
+          "kg": 7.5,
+          "cgMm": [
+            0,
+            0,
+            137
+          ],
+          "group": "bumper",
+          "basis": "Historical upper field allowance for comparable section; proposed six backing/foam/cover segments, clamps and numbers require a new mass. Ring and fixed hardware above stay with robot.",
+          "estimatedOriginYawInertiaKgM2": 1.6483999999999999
+        },
+        {
+          "name": "one CORAL",
+          "kg": 0.816466,
+          "cgMm": [
+            240,
+            0,
+            550
+          ],
+          "group": "pipe",
+          "basis": "Historical article value; maximum held count one",
+          "estimatedOriginYawInertiaKgM2": 0.05410632071710834
+        }
+      ],
+      "fieldKg": 70.39448889747713,
+      "bareKg": 55.90802289747713,
+      "bareWithBumpersKg": 63.40802289747713,
+      "estimatedCgMm": [
+        15.715602979986366,
+        0.0,
+        188.63213506923128
+      ],
+      "yawInertiaKgM2": 7.206756491209794,
+      "fieldAllocationRemainingKg": -5.394488897477132,
+      "inspectionBareLimitMarginKg": -3.7449003474771345,
+      "bumperInspectionMarginKg": -2.1730529474771316,
+      "weakPackDockKineticJ": 10.560776533943987,
+      "cruiseDesignJ": 114.03907201391296,
+      "conditionalCruiseForceNAt18mm": 12671.008001545884
+    },
+    "fullAluminum": {
+      "items": [
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "Port longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Starboard longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            -330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Front transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "Rear transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            -335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "miter-ring segment 0",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 1",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 2",
+          "kg": 1.3523465645103967,
+          "cgMm": [
+            -357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.21815525203401642
+        },
+        {
+          "name": "miter-ring segment 3",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            -335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 4",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            -352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 5",
+          "kg": 1.4994412499339236,
+          "cgMm": [
+            357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.25345813165278075
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            -100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.054586053501414815
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06506219197575952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06506219197575952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.05867430959025952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.05867430959025952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06506219197575952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06506219197575952
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06700730216214427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06700730216214427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06061941977664427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06061941977664427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06700730216214427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 0.63878823855,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.06700730216214427
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "18 grid splices, four rail ties, six miter splice joints and fastening allowance",
+          "kg": 2.8,
+          "cgMm": [
+            0,
+            0,
+            142
+          ],
+          "group": "robot",
+          "basis": "New drawing allowance of 100 g per connection, conditional; it covers no load capacity",
+          "estimatedOriginYawInertiaKgM2": 0.11666666666666665
+        },
+        {
+          "name": "battery and registered lead",
+          "kg": 6.17,
+          "cgMm": [
+            -150,
+            0,
+            118
+          ],
+          "group": "battery",
+          "basis": "Prior issued field battery bound, proposed new receiving location",
+          "estimatedOriginYawInertiaKgM2": 0.16067708333333333
+        },
+        {
+          "name": "non-module robot electronics, eight controllers, radio, power distribution, main leads, sensors and panel",
+          "kg": 7,
+          "cgMm": [
+            0,
+            0,
+            195
+          ],
+          "group": "robot",
+          "basis": "Commissioned complete electronics/loom/panel allowance, independent of module-included harness",
+          "estimatedOriginYawInertiaKgM2": 0.12395833333333332
+        },
+        {
+          "name": "protected pan drive, formed tray, guides, bearings, real supports and attached cables",
+          "kg": 8.2,
+          "cgMm": [
+            220,
+            0,
+            540
+          ],
+          "group": "robot",
+          "basis": "Design allocation. Prior fixed and moving fabricated stock alone weighs 6.497 kg, excluding purchased drive, supports and complete cable; new hardware is unissued.",
+          "estimatedOriginYawInertiaKgM2": 0.6767904166666665
+        },
+        {
+          "name": "miscellaneous build allowance",
+          "kg": 1.5,
+          "cgMm": [
+            0,
+            0,
+            210
+          ],
+          "group": "robot",
+          "basis": "Explicit remaining finish and overlooked installed hardware",
+          "estimatedOriginYawInertiaKgM2": 0.04
+        },
+        {
+          "name": "removable bumper kit, one alliance color installed",
+          "kg": 7.5,
+          "cgMm": [
+            0,
+            0,
+            137
+          ],
+          "group": "bumper",
+          "basis": "Historical upper field allowance for comparable section; proposed six backing/foam/cover segments, clamps and numbers require a new mass. Ring and fixed hardware above stay with robot.",
+          "estimatedOriginYawInertiaKgM2": 1.6483999999999999
+        },
+        {
+          "name": "one CORAL",
+          "kg": 0.816466,
+          "cgMm": [
+            240,
+            0,
+            550
+          ],
+          "group": "pipe",
+          "basis": "Historical article value; maximum held count one",
+          "estimatedOriginYawInertiaKgM2": 0.05410632071710834
+        }
+      ],
+      "fieldKg": 73.13384733747714,
+      "bareKg": 58.64738133747713,
+      "bareWithBumpersKg": 66.14738133747713,
+      "estimatedCgMm": [
+        15.126947094507555,
+        0.0,
+        186.799294844505
+      ],
+      "yawInertiaKgM2": 7.481457755705038,
+      "fieldAllocationRemainingKg": -8.133847337477135,
+      "inspectionBareLimitMarginKg": -6.484258787477131,
+      "bumperInspectionMarginKg": -4.912411387477128,
+      "weakPackDockKineticJ": 10.971742687464143,
+      "cruiseDesignJ": 118.47683268671297,
+      "conditionalCruiseForceNAt18mm": 13164.092520745886
+    },
+    "fullSteel": {
+      "items": [
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            -282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            -277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "SDS NEO L2 kit including two NEOs, encoder, plate, wire and screws",
+          "kg": 2.7215542200000002,
+          "cgMm": [
+            282,
+            277,
+            100
+          ],
+          "group": "robot",
+          "basis": "Original supplier catalog 6.0 lb/module. Kingpin-centered CG and uniformly filled extents bound used only as nominal approximation; centroid and internal mass distribution remain unqualified.",
+          "estimatedOriginYawInertiaKgM2": 0.44172775437790995
+        },
+        {
+          "name": "Port longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Starboard longitudinal socket rail",
+          "kg": 0.5778838225669292,
+          "cgMm": [
+            0.0,
+            -330.975,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.0744304042220349
+        },
+        {
+          "name": "Front transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "Rear transverse socket rail",
+          "kg": 0.5658445762634515,
+          "cgMm": [
+            -335.975,
+            0.0,
+            69.23336287672979
+          ],
+          "group": "robot",
+          "basis": "Full ASTM B221 stock cut weight from Alro, before holes; two actual rails, two projected",
+          "estimatedOriginYawInertiaKgM2": 0.07431876071189514
+        },
+        {
+          "name": "miter-ring segment 0",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 1",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 2",
+          "kg": 1.3523465645103967,
+          "cgMm": [
+            -357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.21815525203401642
+        },
+        {
+          "name": "miter-ring segment 3",
+          "kg": 0.1040116495394779,
+          "cgMm": [
+            -340.01974387893085,
+            -335.01974387893085,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.023719932243737748
+        },
+        {
+          "name": "miter-ring segment 4",
+          "kg": 1.4471746516152049,
+          "cgMm": [
+            17.280256121069158,
+            -352.3,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.23581957835212605
+        },
+        {
+          "name": "miter-ring segment 5",
+          "kg": 1.4994412499339236,
+          "cgMm": [
+            357.3,
+            0.0,
+            152.4
+          ],
+          "group": "robot",
+          "basis": "1 x 4 x .125 supplied stock weight on actual nominal centerline, excluding local holes",
+          "estimatedOriginYawInertiaKgM2": 0.25345813165278075
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            -100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.054586053501414815
+        },
+        {
+          "name": "continuous crossbeam",
+          "kg": 1.41203304781,
+          "cgMm": [
+            100,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "2 x 3 x .125 listed stock weight",
+          "estimatedOriginYawInertiaKgM2": 0.06870638397951483
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.00029834239209388963
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.02708922239385164
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            -235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            -50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.10228507943499998,
+          "cgMm": [
+            50.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.0013211931864438892
+        },
+        {
+          "name": "segmented longitudinal tie",
+          "kg": 0.4557091343933333,
+          "cgMm": [
+            235.0,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Crossbeam occupies intersections; requires eighteen structural interior splices. Interconnection design open.",
+          "estimatedOriginYawInertiaKgM2": 0.031646313737784974
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.18916229889248604
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.18916229889248604
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.17059012232723605
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.17059012232723605
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.019959378806541427
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            0,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.016533959999999997
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.18916229889248604
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            -302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.18916229889248604
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022134398768260333
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            100,
+            302,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.01833396
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.19481752665660468
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.19481752665660468
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            -100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.17624535009135467
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.17624535009135467
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.020621672384884833
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            0,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.017082059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.19481752665660468
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            -307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "captured end block",
+          "kg": 1.8572176565250003,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Cut stock, nominal rectangular pocket with 10 mm side lugs and 23 mm closed end. No final load-qualified drawing.",
+          "estimatedOriginYawInertiaKgM2": 0.19481752665660468
+        },
+        {
+          "name": "steel internal spreader and four positive shear sleeves",
+          "kg": 0.21750199617189034,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "Gross envelope before drilling plate; actual retention and readback pending",
+          "estimatedOriginYawInertiaKgM2": 0.022796692346603736
+        },
+        {
+          "name": "ten purchased end and side screws plus load washers",
+          "kg": 0.18,
+          "cgMm": [
+            307,
+            100,
+            139.7
+          ],
+          "group": "robot",
+          "basis": "180 g station receipt limit. Reweigh from exact installed hardware; no mass credit from missing items.",
+          "estimatedOriginYawInertiaKgM2": 0.018882059999999996
+        },
+        {
+          "name": "18 grid splices, four rail ties, six miter splice joints and fastening allowance",
+          "kg": 2.8,
+          "cgMm": [
+            0,
+            0,
+            142
+          ],
+          "group": "robot",
+          "basis": "New drawing allowance of 100 g per connection, conditional; it covers no load capacity",
+          "estimatedOriginYawInertiaKgM2": 0.11666666666666665
+        },
+        {
+          "name": "battery and registered lead",
+          "kg": 6.17,
+          "cgMm": [
+            -150,
+            0,
+            118
+          ],
+          "group": "battery",
+          "basis": "Prior issued field battery bound, proposed new receiving location",
+          "estimatedOriginYawInertiaKgM2": 0.16067708333333333
+        },
+        {
+          "name": "non-module robot electronics, eight controllers, radio, power distribution, main leads, sensors and panel",
+          "kg": 7,
+          "cgMm": [
+            0,
+            0,
+            195
+          ],
+          "group": "robot",
+          "basis": "Commissioned complete electronics/loom/panel allowance, independent of module-included harness",
+          "estimatedOriginYawInertiaKgM2": 0.12395833333333332
+        },
+        {
+          "name": "protected pan drive, formed tray, guides, bearings, real supports and attached cables",
+          "kg": 8.2,
+          "cgMm": [
+            220,
+            0,
+            540
+          ],
+          "group": "robot",
+          "basis": "Design allocation. Prior fixed and moving fabricated stock alone weighs 6.497 kg, excluding purchased drive, supports and complete cable; new hardware is unissued.",
+          "estimatedOriginYawInertiaKgM2": 0.6767904166666665
+        },
+        {
+          "name": "miscellaneous build allowance",
+          "kg": 1.5,
+          "cgMm": [
+            0,
+            0,
+            210
+          ],
+          "group": "robot",
+          "basis": "Explicit remaining finish and overlooked installed hardware",
+          "estimatedOriginYawInertiaKgM2": 0.04
+        },
+        {
+          "name": "removable bumper kit, one alliance color installed",
+          "kg": 7.5,
+          "cgMm": [
+            0,
+            0,
+            137
+          ],
+          "group": "bumper",
+          "basis": "Historical upper field allowance for comparable section; proposed six backing/foam/cover segments, clamps and numbers require a new mass. Ring and fixed hardware above stay with robot.",
+          "estimatedOriginYawInertiaKgM2": 1.6483999999999999
+        },
+        {
+          "name": "one CORAL",
+          "kg": 0.816466,
+          "cgMm": [
+            240,
+            0,
+            550
+          ],
+          "group": "pipe",
+          "basis": "Historical article value; maximum held count one",
+          "estimatedOriginYawInertiaKgM2": 0.05410632071710834
+        }
+      ],
+      "fieldKg": 87.75500035317714,
+      "bareKg": 73.26853435317713,
+      "bareWithBumpersKg": 80.76853435317713,
+      "estimatedCgMm": [
+        12.606596034863509,
+        0.0,
+        178.95192439174943
+      ],
+      "yawInertiaKgM2": 8.946970811263098,
+      "fieldAllocationRemainingKg": -22.755000353177138,
+      "inspectionBareLimitMarginKg": -21.105411803177134,
+      "bumperInspectionMarginKg": -19.53356440317713,
+      "weakPackDockKineticJ": 13.165248629275775,
+      "cruiseDesignJ": 142.16310057214696,
+      "conditionalCruiseForceNAt18mm": 15795.900063571886
+    }
+  },
+  "sourceUrls": {
+    "module": "https://www.swervedrivespecialties.com/products/mk4i-swerve-module",
+    "stock": "https://www.alro.com/Resources/WebResources/AlroCom/MetalsGuideCatalog/PDFs/006-Aluminum.pdf",
+    "socketScrew": "https://shop.boeing.com/cpd/bdsis4_91251a542"
+  },
+  "scope": "Mass-budget comparison before purchasing or authoring the whole six-member grid. All unissued system allocations, uncertain complete joints and component CGs remain visible. Rear modules are still projections. Uniform extents estimate yaw, not a supplier inertia or exact four-wheel reaction. For a broad class of offsets, a torque bound on actual wheel reactions and a timed branch-current replay are recorded separately."
+}

@@ -1,0 +1,622 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "halfTrackXYm": [
+    0.2693,
+    0.2643
+  ],
+  "ringGrossCatalogKg": 6.322116687725387,
+  "ringCADKg": 6.290641605196466,
+  "newFourLowerRailsKg": 2.1446467211770406,
+  "newSillsAndCrossbarsKg": 2.651677761150003,
+  "eightCompleteSaddleGroupsKg": 3.1386054424211856,
+  "innerScrewContingencySleevesKg": 0.06190486806934254,
+  "originalGrossCentralStockKg": 5.300624507128333,
+  "fullRetainedJoiningAndBracketsAllowanceKg": 8.08665211464434,
+  "netTo552Kg": -2.071216569956625,
+  "cases": {
+    "low-line-budget": {
+      "fieldKg": 64.4782864751873,
+      "carriedPipeKg": 0.816466,
+      "removableOneColorBumperKg": 7.5,
+      "excludedBatteryAndLimitedBatterySideLeadsKg": 6.17,
+      "fixedRobotKg": 49.99182047518729,
+      "R103MarginKg": 2.1713020748127145,
+      "withBumpersKg": 57.49182047518729,
+      "R408MarginKg": 3.7431494748127103,
+      "I103AdditionalMechanismMarginKg": 18.047035024812708
+    },
+    "heavy-offset-control": {
+      "fieldKg": 66.4782864751873,
+      "carriedPipeKg": 0.816466,
+      "removableOneColorBumperKg": 7.5,
+      "excludedBatteryAndLimitedBatterySideLeadsKg": 6.17,
+      "fixedRobotKg": 51.99182047518729,
+      "R103MarginKg": 0.17130207481271453,
+      "withBumpersKg": 59.49182047518729,
+      "R408MarginKg": 1.7431494748127103,
+      "I103AdditionalMechanismMarginKg": 16.047035024812708
+    }
+  },
+  "clock": {
+    "budgetSha256": "ddcaec6b8f9d2eda5f1948f4b3c962816b49c9c99ae378565c895bdb1e22aac3",
+    "roleTraceSha256": "9a85d8609793b54d1318ce089d5a76e8f3e1d22d89850e494954ebb3bc727cad",
+    "originalDriveEnvelopeSha256": "88d816e9143e4dc0f74c92109cb6572f229da7ceffb5968de3cd89191f8908c6",
+    "cases": {
+      "low-line-budget": {
+        "fieldKg": 64.4782864751873,
+        "moduleHalfSpacingM": [
+          0.2693,
+          0.2643
+        ],
+        "estimatedYawInertiaKgM2": 7.392376661743697,
+        "cgMm": [
+          16.964976611882935,
+          0.0,
+          192.17851681812417
+        ],
+        "loadedNormals": {
+          "nominal": {
+            "minimumN": 118.55969231132796,
+            "maximumN": 197.59830171961977,
+            "minimumTractionN": 94.84775384906237
+          },
+          "adverse": {
+            "minimumN": 123.4865039647684,
+            "maximumN": 192.67149006617933,
+            "minimumTractionN": 61.7432519823842
+          }
+        },
+        "traction": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17 / baseline": {
+            "marginN": 60.89256734906237,
+            "wallS": 27.05,
+            "phase": "drive"
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / baseline": {
+            "marginN": 27.9303200823842,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "marginN": 27.9303200823842,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17 / baseline": {
+            "marginN": 60.89256734906237,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / baseline": {
+            "marginN": 27.9303200823842,
+            "wallS": 27.05,
+            "phase": "drive"
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "marginN": 27.9303200823842,
+            "wallS": 27.05,
+            "phase": "drive"
+          }
+        },
+        "branchResults": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": 1.5573937885621305,
+            "plannedParkAtS": 42.70260621143787,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 11.297405799836968,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 4.551963834090373,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 14.241115158179483,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 9.465483594018487,
+                "wallS": 28.37,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 43.900590703576476,
+                "wallS": 22.01,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 44.10376804571876,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": -0.11485343402637227,
+            "plannedParkAtS": 94.46485343402637,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.225210940177337,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.9584785841687946,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 15.510485999549363,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.061059761842577,
+                "wallS": 78.91,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 72.39,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 49.21215818382453,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "dockSettleMarginToTipS": 0.07488967709275585,
+            "plannedParkAtS": 94.27511032290724,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.11989571042232,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.45016022260097,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 15.510485999549363,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.061059761842577,
+                "wallS": 78.91,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 72.39,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 52.503259076865895,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": 1.442433977272401,
+            "plannedParkAtS": 92.9075660227276,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 11.297434767584459,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 4.552178194443495,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 14.241115158179483,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 9.465483594018487,
+                "wallS": 78.79,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 43.900590703576476,
+                "wallS": 72.41,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 44.102609335807735,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": -0.03167429833502666,
+            "plannedParkAtS": 44.291674298335025,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.225404204983949,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.959422168646329,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 15.510485999549363,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.061059761842577,
+                "wallS": 28.51,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 21.99,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 49.20611865850867,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "dockSettleMarginToTipS": 0.17825888904663856,
+            "plannedParkAtS": 44.08174111095336,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.117701151754634,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.4396924389359125,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 15.510485999549363,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.061059761842577,
+                "wallS": 28.51,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 21.99,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 52.57183903578378,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              }
+            }
+          }
+        },
+        "rawTimedCsvSha256": "ad8eced16f23ac6b97d8bca09826b7015cab76b64ab52a37a3309aa574d265b2"
+      },
+      "heavy-offset-control": {
+        "fieldKg": 66.4782864751873,
+        "moduleHalfSpacingM": [
+          0.2693,
+          0.2643
+        ],
+        "estimatedYawInertiaKgM2": 7.779145537020687,
+        "cgMm": [
+          42.73214469904619,
+          15.599534969742127,
+          215.53850934274556
+        ],
+        "loadedNormals": {
+          "nominal": {
+            "minimumN": 93.31848084391366,
+            "maximumN": 232.64616318703406,
+            "minimumTractionN": 74.65478467513093
+          },
+          "adverse": {
+            "minimumN": 99.01556096036593,
+            "maximumN": 226.9490830705818,
+            "minimumTractionN": 49.507780480182966
+          }
+        },
+        "traction": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17 / baseline": {
+            "marginN": 38.923401675130926,
+            "wallS": 27.05,
+            "phase": "drive"
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / baseline": {
+            "marginN": 13.230968880182964,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "marginN": 13.230968880182964,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17 / baseline": {
+            "marginN": 38.923401675130926,
+            "wallS": 77.45,
+            "phase": "drive"
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / baseline": {
+            "marginN": 13.230968880182964,
+            "wallS": 27.05,
+            "phase": "drive"
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "marginN": 13.230968880182964,
+            "wallS": 27.05,
+            "phase": "drive"
+          }
+        },
+        "branchResults": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": 1.5573937885621305,
+            "plannedParkAtS": 42.70260621143787,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 11.234692171038786,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 4.393472325210018,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 14.891910160720855,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.597799118350332,
+                "wallS": 28.37,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 43.900590703576476,
+                "wallS": 22.01,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 46.6123132306396,
+                "wallS": 37.99,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": -0.11485343402637227,
+            "plannedParkAtS": 94.46485343402637,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.081446640939808,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.664427091786182,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 16.509541257973822,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 11.21463260333689,
+                "wallS": 78.91,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 72.39,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 53.70479250954042,
+                "wallS": 89.07,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "dockSettleMarginToTipS": 0.07488967709275585,
+            "plannedParkAtS": 94.27511032290724,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 9.964292146744013,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.142297895029163,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 16.509541257973822,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 11.21463260333689,
+                "wallS": 78.91,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 72.39,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 57.3658704350543,
+                "wallS": 82.83,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": 1.442433977272401,
+            "plannedParkAtS": 92.9075660227276,
+            "records": 1468,
+            "worst": {
+              "minimumBusV": {
+                "value": 11.23472294121099,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 4.393688877496988,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 14.891910160720855,
+                "wallS": 77.45,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 10.597799118350332,
+                "wallS": 78.79,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 43.900590703576476,
+                "wallS": 72.41,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 46.61108242373038,
+                "wallS": 83.99,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / baseline": {
+            "dockSettleMarginToTipS": -0.03167429833502666,
+            "plannedParkAtS": 44.291674298335025,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 10.081661110748634,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.665395414385003,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 16.509541257973822,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 11.21463260333689,
+                "wallS": 28.51,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 21.99,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 53.69809032794056,
+                "wallS": 39.21,
+                "phase": "drive / carry"
+              }
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17 / extended-cruise": {
+            "dockSettleMarginToTipS": 0.17825888904663856,
+            "plannedParkAtS": 44.08174111095336,
+            "records": 1484,
+            "worst": {
+              "minimumBusV": {
+                "value": 9.96184462865697,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              },
+              "minimumControllerVoltageHeadroomV": {
+                "value": 3.131535049859618,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              },
+              "maximumDrivePhaseA": {
+                "value": 16.509541257973822,
+                "wallS": 27.05,
+                "phase": "drive / carry"
+              },
+              "maximumSteerPhaseA": {
+                "value": 11.21463260333689,
+                "wallS": 28.51,
+                "phase": "azimuth / carry"
+              },
+              "maximumPanPhaseA": {
+                "value": 30.108624566009368,
+                "wallS": 21.99,
+                "phase": "parked / feed"
+              },
+              "maximumSupplyA": {
+                "value": 57.442355375742515,
+                "wallS": 32.43,
+                "phase": "drive / carry"
+              }
+            }
+          }
+        },
+        "rawTimedCsvSha256": "7e2c863cfdda07e54df8ead57b3afa0683027f202ef35ec5c08cf6c07dfc492e"
+      }
+    },
+    "limits": "Schedule is accepted only if positive simultaneous voltage headroom, traction and timing remain on both matched trips for that condition. Actual pan trace is a carried original load on the same clock and still exceeds the nominal 30 A cap in some static holds. Six occupied robots, tracking, tread slip, strong impacts and recognized scores remain separate. A mass allocation cannot qualify unmodeled joints or hardware; the 70.39 kg grid must be lightened on inspection grounds regardless of drive capability."
+  },
+  "scope": "Source-derived stock and eight groups include nominal proposed metal and all 64 actual catalog screw shapes. The original full 8.08665 kg allowance for splices, backing and unresolved frame joints is preserved in addition, as are all high-mass reserves. Four saddle-motor collisions in the unrelieved screening configuration remain a design failure. The yaw inertia, cg and final 12 mm docking stand-off remain adverse design references while the contracted wheelbase is explicitly replayed. No credit from slot drilling and no claimed operational score without independently simulated receiver support."
+}

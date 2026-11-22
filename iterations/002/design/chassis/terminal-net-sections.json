@@ -1,0 +1,339 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four named 121-body NEO SDS MK4i L2 modules and four editable six-hole 6061-T6 lower socket rails at parked azimuth",
+    "revision": "002-lower-488-r3",
+    "asOf": "2026-11-21T08:06:07.749420+00:00",
+    "archiveSha256": "a9f58f0edb2902a77acc9083f6af81590038097a2cb66c11eec46ed4b77f6262",
+    "stepSha256": "793c239e059e58026bfbabdfa045d04bdc3cb037fe9779cfcf2a22e6c5179cc7"
+  },
+  "loadInputSha256": "80be675d1f49daf107fee1905880627f4f35e0d9e65cab99a734ef8b71076bc3",
+  "maximumCaseN": 12097.860632772425,
+  "otherLoadFactors": {
+    "low-line-budget": {
+      "routineN": 0.08242365040931326,
+      "upperN": 0.9702426725742912
+    },
+    "heavy-offset-control": {
+      "routineN": 0.0836005358582749,
+      "upperN": 1.0
+    }
+  },
+  "workingLimitMPa": 120,
+  "minimumWallMm": 3,
+  "outerHoleDiameterMm": 14.3,
+  "innerHoleDiameterMm": 13.1,
+  "runs": [
+    {
+      "meshMm": 12.0,
+      "loadCases": 904,
+      "meshNodes": 330,
+      "results": {
+        "all anchors/point": {
+          "MPa": 111.48874344846759,
+          "forceN": -931.697722561768,
+          "momentNm": -511.53099086855866,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            357.3,
+            109.0
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              109.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "missingMm": null
+        },
+        "all anchors/flat": {
+          "MPa": 85.89573603684285,
+          "forceN": -1122.0873973191615,
+          "momentNm": -535.1660130842665,
+          "Amm2": 726.0000000000002,
+          "Imm4": 80576.116,
+          "extremeFiberMm": 12.7,
+          "locationMm": [
+            196.53333333333336,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              196.53333333333336,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "flat"
+          },
+          "missingMm": null
+        },
+        "all anchors/triangular": {
+          "MPa": 93.13966923301088,
+          "forceN": -1138.4496843603308,
+          "momentNm": -580.9827068173855,
+          "Amm2": 726.0000000000002,
+          "Imm4": 80576.116,
+          "extremeFiberMm": 12.7,
+          "locationMm": [
+            196.53333333333336,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              196.53333333333336,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "triangular"
+          },
+          "missingMm": null
+        },
+        "one anchor absent/point": {
+          "MPa": 173.12602948079774,
+          "forceN": 1469.816793842464,
+          "momentNm": 794.1433252871818,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              109.0,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        },
+        "one anchor absent/flat": {
+          "MPa": 143.22824728241088,
+          "forceN": -1475.2507520535005,
+          "momentNm": -654.8496149099027,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              116.14999999999998,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "flat"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        },
+        "one anchor absent/triangular": {
+          "MPa": 152.79643274490041,
+          "forceN": -1459.2090474678296,
+          "momentNm": -699.54638847681,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              109.0,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "triangular"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        }
+      }
+    },
+    {
+      "meshMm": 6.0,
+      "loadCases": 1580,
+      "meshNodes": 582,
+      "results": {
+        "all anchors/point": {
+          "MPa": 111.5957335454128,
+          "forceN": 931.5640363781404,
+          "momentNm": 512.0304049528709,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            357.3,
+            -109.0
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              -109.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "missingMm": null
+        },
+        "all anchors/flat": {
+          "MPa": 85.82006499218224,
+          "forceN": 1123.4299634377023,
+          "momentNm": 534.6741795855704,
+          "Amm2": 726.0000000000002,
+          "Imm4": 80576.116,
+          "extremeFiberMm": 12.7,
+          "locationMm": [
+            192.61219512195117,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              192.61219512195117,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "flat"
+          },
+          "missingMm": null
+        },
+        "all anchors/triangular": {
+          "MPa": 92.98470455305012,
+          "forceN": -1139.2498756759474,
+          "momentNm": -579.9925286779848,
+          "Amm2": 726.0000000000002,
+          "Imm4": 80576.116,
+          "extremeFiberMm": 12.7,
+          "locationMm": [
+            192.61219512195117,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              192.61219512195117,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "triangular"
+          },
+          "missingMm": null
+        },
+        "one anchor absent/point": {
+          "MPa": 173.21759446093074,
+          "forceN": 1468.8342181468315,
+          "momentNm": 794.5779370873751,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              109.0,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        },
+        "one anchor absent/flat": {
+          "MPa": 143.12744772233935,
+          "forceN": 1472.0586475889515,
+          "momentNm": 654.4066148167567,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              115.55000000000001,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "flat"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        },
+        "one anchor absent/triangular": {
+          "MPa": 152.80597172757837,
+          "forceN": 1470.7993608038864,
+          "momentNm": 699.4946948019056,
+          "Amm2": 561.6000000000003,
+          "Imm4": 59818.90092307692,
+          "extremeFiberMm": 12.843589743589742,
+          "locationMm": [
+            109.0,
+            -352.3
+          ],
+          "supportNPerMm": 3000.0,
+          "contact": {
+            "face": 4,
+            "atMm": [
+              112.27500000000003,
+              -352.3
+            ],
+            "widthMm": 100,
+            "profile": "triangular"
+          },
+          "missingMm": [
+            100.0,
+            -352.3
+          ]
+        }
+      }
+    }
+  ],
+  "scope": "Actual four screw positions per station and upper/lower rows. Geometric net-section zero-radius extreme fibers; shared nominal miter rigidity and 3/30 kN/mm support values; closed total force on all solved cases. The local hole stress concentration, connection rotation, neutral-axis offset coupling, deflection and contact width of the real assembled backing/foam, and reinforcement from end boxes are not resolved. No section strength credit from adjoining materials. Rare upper pulse is conditional on assumed stopping stroke; a failed point case stays recorded separately from broad contact and approach."
+}

@@ -1,0 +1,2709 @@
+{
+ "schema": "red2/preliminary-layout-blocks@1",
+ "partitionMm": 2.1,
+ "inputs": {
+  "chassisStep": {
+   "file": "artifacts/resume-20261121/screws-place-01/four-seated-screws.step",
+   "sha256": "640cb0dd134a722d7a71029b0201d7c0ceab9ade228169f9c009d44e26c9136c"
+  },
+  "electrical": {
+   "file": "iterations/002/design/chassis/inset-electrical-package.json",
+   "sha256": "817f339f9f8fefd852963076847b589a3d762d719df62debe4bc6244ec7a9e7b"
+  },
+  "bumperRecord": {
+   "file": "cad/rear-frame-facets/construction.json",
+   "sha256": "ac4a7d98f1445cde951c61467842dc7317d523d5d5da6d6b973e0c6d8c948b55"
+  },
+  "pocketGeometry": {
+   "file": "pocket_geometry.py",
+   "sha256": "ba493c05460e64c3eb044682366e8e9bca3f6edb5da41c84ab1b3d05f7af9232"
+  },
+  "fieldTrials": {
+   "file": "evidence/field-trials.json",
+   "sha256": "86be1b9e95ee213c9aeb134e2a33e8130c3f417192f7f92b711328469e427237"
+  },
+  "trough": {
+   "file": "experiments/six-wheel/mission/target.json",
+   "sha256": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37"
+  }
+ },
+ "generator": {
+  "file": "build_layout.py",
+  "sha256": "de60562c2ebd8e6f666b5ae1c0dee77427bfc12f1723ca310c7f2efaf4806fbe"
+ },
+ "frameOutlineMm": [
+  [
+   370.0,
+   -365.0
+  ],
+  [
+   370.0,
+   365.0
+  ],
+  [
+   -352.75,
+   365.0
+  ],
+  [
+   -370.0,
+   347.75
+  ],
+  [
+   -370.0,
+   -347.75
+  ],
+  [
+   -352.75,
+   -365.0
+  ]
+ ],
+ "rearCutbackMm": 17.25,
+ "poses": {
+  "seatMm": [
+   312.77,
+   599.89
+  ],
+  "throatMm": [
+   335.0,
+   600.0
+  ],
+  "lowerRollerMm": [
+   335.0,
+   523.45
+  ],
+  "upperRollerMm": [
+   335.0,
+   676.55
+  ],
+  "coreRadiusMm": 16.4,
+  "inlet": [
+   [
+    -340.0,
+    795.0
+   ],
+   [
+    -268.05562566273466,
+    701.8812722474144
+   ],
+   [
+    306.6,
+    539.9198926958687
+   ]
+  ],
+  "kink": [
+   -268.05562566273466,
+   701.8812722474144
+  ],
+  "flapHingeMm": [
+   161.25339824511434,
+   706.0269984015403
+  ],
+  "flapLengthMm": 119.14250868079819,
+  "flapOpenDeg": 74.26,
+  "hood": [
+   [
+    121.25339824511434,
+    721.3006288903924
+   ],
+   [
+    306.6,
+    669.0624013766669
+   ]
+  ],
+  "hoodGapMm": 10.0,
+  "lipHingeMm": [
+   366.0,
+   530.5
+  ],
+  "lipProfile": [
+   [
+    367.5,
+    537.594645862196
+   ],
+   [
+    445.0,
+    492.85
+   ],
+   [
+    470.0,
+    492.85
+   ]
+  ],
+  "lipDeployDeg": 120.0,
+  "troughLipXMm": 495.5,
+  "standOffMm": 50.0,
+  "contactReserveMm": 2.5,
+  "lipReserveMm": 3.5,
+  "partitionMm": {
+   "default": 2.1,
+   "besideMoving": 3.1,
+   "steerToHousing": 4.0
+  },
+  "steer": {
+   "1": {
+    "axis": [
+     269.3,
+     264.3
+    ],
+    "revolvedProfile": [
+     [
+      0.0,
+      4.0,
+      27.888760505577164
+     ],
+     [
+      4.0,
+      8.0,
+      33.60396257340345
+     ],
+     [
+      8.0,
+      12.0,
+      37.973303733005736
+     ],
+     [
+      12.0,
+      16.0,
+      39.55835833061189
+     ],
+     [
+      16.0,
+      20.0,
+      44.29493561949873
+     ],
+     [
+      20.0,
+      24.0,
+      47.13050330123158
+     ],
+     [
+      24.0,
+      28.0,
+      48.26629374976499
+     ],
+     [
+      28.0,
+      32.0,
+      50.96645505806696
+     ],
+     [
+      32.0,
+      36.0,
+      51.30185780347405
+     ],
+     [
+      36.0,
+      40.0,
+      53.19087101432615
+     ],
+     [
+      40.0,
+      44.0,
+      53.28576934726701
+     ],
+     [
+      44.0,
+      48.0,
+      54.12627795643739
+     ],
+     [
+      48.0,
+      52.0,
+      54.14725775016337
+     ],
+     [
+      52.0,
+      56.0,
+      54.14725775016348
+     ],
+     [
+      56.0,
+      60.0,
+      53.85659168001679
+     ],
+     [
+      60.0,
+      64.0,
+      53.19087101432633
+     ],
+     [
+      64.0,
+      68.0,
+      51.30185780347448
+     ],
+     [
+      68.0,
+      72.0,
+      50.966455058067304
+     ],
+     [
+      72.0,
+      76.0,
+      48.2662937497654
+     ],
+     [
+      76.0,
+      80.0,
+      47.632444571123365
+     ],
+     [
+      80.0,
+      84.0,
+      44.29493561949931
+     ],
+     [
+      84.0,
+      88.0,
+      47.632444571123195
+     ],
+     [
+      88.0,
+      92.0,
+      51.30000000000009
+     ],
+     [
+      92.0,
+      96.0,
+      40.307394717130826
+     ],
+     [
+      96.0,
+      100.0,
+      51.300000000000054
+     ],
+     [
+      100.0,
+      104.0,
+      41.96421351931822
+     ],
+     [
+      104.0,
+      108.0,
+      43.680000000000234
+     ],
+     [
+      108.0,
+      112.0,
+      40.54790401582728
+     ],
+     [
+      112.0,
+      116.0,
+      14.546200000000072
+     ],
+     [
+      116.0,
+      120.0,
+      49.71250000000021
+     ],
+     [
+      120.0,
+      124.0,
+      40.54790401582724
+     ],
+     [
+      124.0,
+      128.0,
+      3.675004280266801
+     ],
+     [
+      128.0,
+      132.0,
+      1.0
+     ],
+     [
+      132.0,
+      136.0,
+      33.52000000000013
+     ],
+     [
+      136.0,
+      140.0,
+      28.64088319344398
+     ],
+     [
+      140.0,
+      144.0,
+      33.52000000000013
+     ],
+     [
+      144.0,
+      148.0,
+      12.50000000300008
+     ],
+     [
+      148.0,
+      152.0,
+      12.50000000300008
+     ],
+     [
+      152.0,
+      152.78666305672976,
+      5.262500000000211
+     ]
+    ],
+    "envelopeRadiusMm": 54.14725775016348
+   },
+   "2": {
+    "axis": [
+     269.3,
+     -264.3
+    ],
+    "revolvedProfile": [
+     [
+      0.0,
+      4.0,
+      27.888760505577164
+     ],
+     [
+      4.0,
+      8.0,
+      33.60396257340345
+     ],
+     [
+      8.0,
+      12.0,
+      37.973303733005736
+     ],
+     [
+      12.0,
+      16.0,
+      39.55835833061189
+     ],
+     [
+      16.0,
+      20.0,
+      44.29493561949873
+     ],
+     [
+      20.0,
+      24.0,
+      47.13050330123158
+     ],
+     [
+      24.0,
+      28.0,
+      48.26629374976499
+     ],
+     [
+      28.0,
+      32.0,
+      50.96645505806696
+     ],
+     [
+      32.0,
+      36.0,
+      51.30185780347405
+     ],
+     [
+      36.0,
+      40.0,
+      53.19087101432615
+     ],
+     [
+      40.0,
+      44.0,
+      53.28576934726701
+     ],
+     [
+      44.0,
+      48.0,
+      54.12627795643739
+     ],
+     [
+      48.0,
+      52.0,
+      54.14725775016337
+     ],
+     [
+      52.0,
+      56.0,
+      54.14725775016348
+     ],
+     [
+      56.0,
+      60.0,
+      53.85659168001679
+     ],
+     [
+      60.0,
+      64.0,
+      53.19087101432633
+     ],
+     [
+      64.0,
+      68.0,
+      51.30185780347448
+     ],
+     [
+      68.0,
+      72.0,
+      50.966455058067304
+     ],
+     [
+      72.0,
+      76.0,
+      48.2662937497654
+     ],
+     [
+      76.0,
+      80.0,
+      47.632444571123365
+     ],
+     [
+      80.0,
+      84.0,
+      44.29493561949931
+     ],
+     [
+      84.0,
+      88.0,
+      47.632444571123195
+     ],
+     [
+      88.0,
+      92.0,
+      51.30000000000009
+     ],
+     [
+      92.0,
+      96.0,
+      40.307394717130826
+     ],
+     [
+      96.0,
+      100.0,
+      51.300000000000054
+     ],
+     [
+      100.0,
+      104.0,
+      41.96421351931822
+     ],
+     [
+      104.0,
+      108.0,
+      43.680000000000234
+     ],
+     [
+      108.0,
+      112.0,
+      40.54790401582728
+     ],
+     [
+      112.0,
+      116.0,
+      14.546200000000072
+     ],
+     [
+      116.0,
+      120.0,
+      49.71250000000021
+     ],
+     [
+      120.0,
+      124.0,
+      40.54790401582724
+     ],
+     [
+      124.0,
+      128.0,
+      3.675004280266801
+     ],
+     [
+      128.0,
+      132.0,
+      1.0
+     ],
+     [
+      132.0,
+      136.0,
+      33.52000000000013
+     ],
+     [
+      136.0,
+      140.0,
+      28.64088319344398
+     ],
+     [
+      140.0,
+      144.0,
+      33.52000000000013
+     ],
+     [
+      144.0,
+      148.0,
+      12.50000000300008
+     ],
+     [
+      148.0,
+      152.0,
+      12.50000000300008
+     ],
+     [
+      152.0,
+      152.78666305672976,
+      5.262500000000211
+     ]
+    ],
+    "envelopeRadiusMm": 54.14725775016348
+   },
+   "3": {
+    "axis": [
+     -269.3,
+     -264.3
+    ],
+    "revolvedProfile": [
+     [
+      0.0,
+      4.0,
+      27.888760505577164
+     ],
+     [
+      4.0,
+      8.0,
+      33.60396257340345
+     ],
+     [
+      8.0,
+      12.0,
+      37.973303733005736
+     ],
+     [
+      12.0,
+      16.0,
+      39.55835833061189
+     ],
+     [
+      16.0,
+      20.0,
+      44.29493561949873
+     ],
+     [
+      20.0,
+      24.0,
+      47.13050330123158
+     ],
+     [
+      24.0,
+      28.0,
+      48.26629374976499
+     ],
+     [
+      28.0,
+      32.0,
+      50.96645505806696
+     ],
+     [
+      32.0,
+      36.0,
+      51.30185780347405
+     ],
+     [
+      36.0,
+      40.0,
+      53.19087101432615
+     ],
+     [
+      40.0,
+      44.0,
+      53.28576934726701
+     ],
+     [
+      44.0,
+      48.0,
+      54.12627795643739
+     ],
+     [
+      48.0,
+      52.0,
+      54.14725775016337
+     ],
+     [
+      52.0,
+      56.0,
+      54.14725775016348
+     ],
+     [
+      56.0,
+      60.0,
+      53.85659168001679
+     ],
+     [
+      60.0,
+      64.0,
+      53.19087101432633
+     ],
+     [
+      64.0,
+      68.0,
+      51.30185780347448
+     ],
+     [
+      68.0,
+      72.0,
+      50.966455058067304
+     ],
+     [
+      72.0,
+      76.0,
+      48.2662937497654
+     ],
+     [
+      76.0,
+      80.0,
+      47.632444571123365
+     ],
+     [
+      80.0,
+      84.0,
+      44.29493561949931
+     ],
+     [
+      84.0,
+      88.0,
+      47.632444571123195
+     ],
+     [
+      88.0,
+      92.0,
+      51.30000000000009
+     ],
+     [
+      92.0,
+      96.0,
+      40.307394717130826
+     ],
+     [
+      96.0,
+      100.0,
+      51.300000000000054
+     ],
+     [
+      100.0,
+      104.0,
+      41.96421351931822
+     ],
+     [
+      104.0,
+      108.0,
+      43.680000000000234
+     ],
+     [
+      108.0,
+      112.0,
+      40.54790401582728
+     ],
+     [
+      112.0,
+      116.0,
+      14.546200000000072
+     ],
+     [
+      116.0,
+      120.0,
+      49.71250000000021
+     ],
+     [
+      120.0,
+      124.0,
+      40.54790401582724
+     ],
+     [
+      124.0,
+      128.0,
+      3.675004280266801
+     ],
+     [
+      128.0,
+      132.0,
+      1.0
+     ],
+     [
+      132.0,
+      136.0,
+      33.52000000000013
+     ],
+     [
+      136.0,
+      140.0,
+      28.64088319344398
+     ],
+     [
+      140.0,
+      144.0,
+      33.52000000000013
+     ],
+     [
+      144.0,
+      148.0,
+      12.50000000300008
+     ],
+     [
+      148.0,
+      152.0,
+      12.50000000300008
+     ],
+     [
+      152.0,
+      152.78666305672976,
+      5.262500000000211
+     ]
+    ],
+    "envelopeRadiusMm": 54.14725775016348
+   },
+   "4": {
+    "axis": [
+     -269.3,
+     264.3
+    ],
+    "revolvedProfile": [
+     [
+      0.0,
+      4.0,
+      27.888760505577164
+     ],
+     [
+      4.0,
+      8.0,
+      33.60396257340345
+     ],
+     [
+      8.0,
+      12.0,
+      37.973303733005736
+     ],
+     [
+      12.0,
+      16.0,
+      39.55835833061189
+     ],
+     [
+      16.0,
+      20.0,
+      44.29493561949873
+     ],
+     [
+      20.0,
+      24.0,
+      47.13050330123158
+     ],
+     [
+      24.0,
+      28.0,
+      48.26629374976499
+     ],
+     [
+      28.0,
+      32.0,
+      50.96645505806696
+     ],
+     [
+      32.0,
+      36.0,
+      51.30185780347405
+     ],
+     [
+      36.0,
+      40.0,
+      53.19087101432615
+     ],
+     [
+      40.0,
+      44.0,
+      53.28576934726701
+     ],
+     [
+      44.0,
+      48.0,
+      54.12627795643739
+     ],
+     [
+      48.0,
+      52.0,
+      54.14725775016337
+     ],
+     [
+      52.0,
+      56.0,
+      54.14725775016348
+     ],
+     [
+      56.0,
+      60.0,
+      53.85659168001679
+     ],
+     [
+      60.0,
+      64.0,
+      53.19087101432633
+     ],
+     [
+      64.0,
+      68.0,
+      51.30185780347448
+     ],
+     [
+      68.0,
+      72.0,
+      50.966455058067304
+     ],
+     [
+      72.0,
+      76.0,
+      48.2662937497654
+     ],
+     [
+      76.0,
+      80.0,
+      47.632444571123365
+     ],
+     [
+      80.0,
+      84.0,
+      44.29493561949931
+     ],
+     [
+      84.0,
+      88.0,
+      47.632444571123195
+     ],
+     [
+      88.0,
+      92.0,
+      51.30000000000009
+     ],
+     [
+      92.0,
+      96.0,
+      40.307394717130826
+     ],
+     [
+      96.0,
+      100.0,
+      51.300000000000054
+     ],
+     [
+      100.0,
+      104.0,
+      41.96421351931822
+     ],
+     [
+      104.0,
+      108.0,
+      43.680000000000234
+     ],
+     [
+      108.0,
+      112.0,
+      40.54790401582728
+     ],
+     [
+      112.0,
+      116.0,
+      14.546200000000072
+     ],
+     [
+      116.0,
+      120.0,
+      49.71250000000021
+     ],
+     [
+      120.0,
+      124.0,
+      40.54790401582724
+     ],
+     [
+      124.0,
+      128.0,
+      3.675004280266801
+     ],
+     [
+      128.0,
+      132.0,
+      1.0
+     ],
+     [
+      132.0,
+      136.0,
+      33.52000000000013
+     ],
+     [
+      136.0,
+      140.0,
+      28.64088319344398
+     ],
+     [
+      140.0,
+      144.0,
+      33.52000000000013
+     ],
+     [
+      144.0,
+      148.0,
+      12.50000000300008
+     ],
+     [
+      148.0,
+      152.0,
+      12.50000000300008
+     ],
+     [
+      152.0,
+      152.78666305672976,
+      5.262500000000211
+     ]
+    ],
+    "envelopeRadiusMm": 54.14725775016348
+   }
+  }
+ },
+ "treadClearance": {
+  "minGapMm": 2.321,
+  "rows": [
+   {
+    "block": "Pocket tray",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 6.499
+   },
+   {
+    "block": "Pocket tray",
+    "tread": "upper",
+    "pose": "installed",
+    "gapMm": 9.652
+   },
+   {
+    "block": "Hood (removable)",
+    "tread": "upper",
+    "pose": "installed",
+    "gapMm": 3.604
+   },
+   {
+    "block": "Port nip side plate",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 7.275
+   },
+   {
+    "block": "Port nip side plate",
+    "tread": "upper",
+    "pose": "installed",
+    "gapMm": 7.275
+   },
+   {
+    "block": "Starboard nip side plate",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 7.275
+   },
+   {
+    "block": "Starboard nip side plate",
+    "tread": "upper",
+    "pose": "installed",
+    "gapMm": 7.275
+   },
+   {
+    "block": "Seated-pipe sensor",
+    "tread": "upper",
+    "pose": "installed",
+    "gapMm": 4.613
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "installed",
+    "gapMm": 3.392
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 0 deg toward stowed",
+    "gapMm": 3.392
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 0 deg toward stowed",
+    "gapMm": 119.878
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 10 deg toward stowed",
+    "gapMm": 3.392
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 10 deg toward stowed",
+    "gapMm": 119.834
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 20 deg toward stowed",
+    "gapMm": 3.175
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 20 deg toward stowed",
+    "gapMm": 119.917
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 30 deg toward stowed",
+    "gapMm": 2.804
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 30 deg toward stowed",
+    "gapMm": 120.124
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 40 deg toward stowed",
+    "gapMm": 2.553
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 40 deg toward stowed",
+    "gapMm": 120.211
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 50 deg toward stowed",
+    "gapMm": 2.434
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 50 deg toward stowed",
+    "gapMm": 119.051
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 60 deg toward stowed",
+    "gapMm": 2.453
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 60 deg toward stowed",
+    "gapMm": 113.189
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 70 deg toward stowed",
+    "gapMm": 2.607
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 70 deg toward stowed",
+    "gapMm": 96.945
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 80 deg toward stowed",
+    "gapMm": 2.581
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 80 deg toward stowed",
+    "gapMm": 77.573
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 90 deg toward stowed",
+    "gapMm": 2.382
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 90 deg toward stowed",
+    "gapMm": 58.109
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 100 deg toward stowed",
+    "gapMm": 2.321
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 100 deg toward stowed",
+    "gapMm": 39.328
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 110 deg toward stowed",
+    "gapMm": 2.401
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 110 deg toward stowed",
+    "gapMm": 22.928
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "lower",
+    "pose": "swing 120 deg toward stowed",
+    "gapMm": 2.62
+   },
+   {
+    "block": "Deployable exit lip",
+    "tread": "upper",
+    "pose": "swing 120 deg toward stowed",
+    "gapMm": 12.628
+   }
+  ],
+  "basis": "Distance of every non-pipe reserve to the unloaded 2 in tread cylinders (|Y| <= 160), installed and along the lip's stow swing"
+ },
+ "rules": {
+  "deployedLipBoundsMm": [
+   363.0,
+   -158.0,
+   486.175,
+   470.0,
+   158.0,
+   534.564
+  ],
+  "stowedLipBoundsMm": [
+   349.637,
+   -158.0,
+   526.605,
+   369.0,
+   158.0,
+   642.729
+  ],
+  "stowedLipInsideFrameMm": 1.0,
+  "deploySwingMaxProjectionMm": 108.989,
+  "deployedProjectionBeyondFrameMm": 100.0,
+  "startMaxXMm": 370.0,
+  "startProjectionBeyondFrontMm": 0.0,
+  "startMaxZMm": 886.708,
+  "startExcludes": "bumpers, field trough, service hands and the pipe; the lip in its stowed pose"
+ },
+ "blocks": [
+  {
+   "name": "Chassis perimeter",
+   "group": "structure",
+   "role": "structure",
+   "function": "Structural perimeter tubes, the two rear chamfer tubes, frame supports and wheel-station sleeves",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 62 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -370.0,
+    -365.0,
+    55.0,
+    370.0,
+    365.0,
+    203.45
+   ],
+   "volumeMm3": 11939434.9
+  },
+  {
+   "name": "Chassis cassettes and socket rails",
+   "group": "structure",
+   "role": "structure",
+   "function": "Lower module cassettes and the eight socket-rail ends the module plates clamp",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 16 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -361.375,
+    94.0,
+    43.833,
+    -94.0,
+    356.375,
+    94.633
+   ],
+   "volumeMm3": 731964.3
+  },
+  {
+   "name": "Chassis cassettes and socket rails part 2",
+   "group": "structure",
+   "role": "structure",
+   "function": "Lower module cassettes and the eight socket-rail ends the module plates clamp (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 16 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    94.0,
+    94.0,
+    43.833,
+    361.375,
+    356.375,
+    94.633
+   ],
+   "volumeMm3": 731964.3
+  },
+  {
+   "name": "Chassis cassettes and socket rails part 3",
+   "group": "structure",
+   "role": "structure",
+   "function": "Lower module cassettes and the eight socket-rail ends the module plates clamp (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 16 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    94.0,
+    -356.375,
+    43.833,
+    361.375,
+    -94.0,
+    94.633
+   ],
+   "volumeMm3": 731964.3
+  },
+  {
+   "name": "Chassis cassettes and socket rails part 4",
+   "group": "structure",
+   "role": "structure",
+   "function": "Lower module cassettes and the eight socket-rail ends the module plates clamp (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 16 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -361.375,
+    -356.375,
+    43.833,
+    -94.0,
+    -94.0,
+    94.633
+   ],
+   "volumeMm3": 731964.3
+  },
+  {
+   "name": "Chassis pan trusses and stringers",
+   "group": "structure",
+   "role": "structure",
+   "function": "Port and starboard pan trusses (members 0-5) and the upper pan stringers, kept as the pocket landings",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 12 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    100.225,
+    135.49,
+    180.143,
+    260.236,
+    251.525,
+    489.525
+   ],
+   "volumeMm3": 582550.5
+  },
+  {
+   "name": "Chassis pan trusses and stringers part 2",
+   "group": "structure",
+   "role": "structure",
+   "function": "Port and starboard pan trusses (members 0-5) and the upper pan stringers, kept as the pocket landings (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 12 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    100.225,
+    -251.525,
+    180.143,
+    260.236,
+    -135.49,
+    489.525
+   ],
+   "volumeMm3": 582550.5
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -311.55,
+    -324.8,
+    111.125,
+    311.55,
+    324.8,
+    208.407
+   ],
+   "volumeMm3": 3974362.5
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 2",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -260.25,
+    -357.95,
+    205.3,
+    -198.25,
+    -333.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 3",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -141.25,
+    333.95,
+    205.3,
+    -79.25,
+    357.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 4",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -141.25,
+    -357.95,
+    205.3,
+    -79.25,
+    -333.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 5",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    79.25,
+    -357.95,
+    205.3,
+    141.25,
+    -333.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 6",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    79.25,
+    333.95,
+    205.3,
+    141.25,
+    357.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 7",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    190.3,
+    333.95,
+    205.3,
+    252.3,
+    357.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 8",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    190.3,
+    -357.95,
+    205.3,
+    252.3,
+    -333.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Chassis sills, decks and crossmembers part 9",
+   "group": "structure",
+   "role": "structure",
+   "function": "Inboard sills, pan crossmembers, truss landings and nutbars, equipment sheets, tabs, perimeter keys, keyed pedestals and nutbars, and the four seated 91251A542 clamp screws (separated piece of the same reserve)",
+   "parent": "fixed (robot datum)",
+   "motion": "fixed",
+   "bounds": "Union of per-body boxes of 60 chassis bodies in artifacts/resume-20261121/screws-place-01/four-seated-screws.step clipped to the frame plan hull and partitioned 2.1 mm from the higher-priority chassis reserves; holes and pockets filled",
+   "missing": [
+    "Bolted and riveted joints between chassis reserves lie inside the 2.1 mm partition shells"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -260.25,
+    333.95,
+    205.3,
+    -198.25,
+    357.95,
+    208.407
+   ],
+   "volumeMm3": 4623.2
+  },
+  {
+   "name": "Module 1 steer sweep",
+   "group": "steer sweeps",
+   "role": "drive",
+   "function": "front-left SDS MK4i L2 turret: wheel, wheel mounts, steering pulley and turret gears, full 360 deg steer swept volume",
+   "parent": "static envelope about the module 1 steer axis (269.30, 264.30) mm, +Z; covers every azimuth",
+   "motion": "none (the revolved envelope already contains every steer angle)",
+   "bounds": "Solid of revolution of the turret constituents' radial profile in 4 mm slabs (max meshed radius + 0.5 mm, largest 54.1 mm) about the steer axis, Z 0-152.8 mm",
+   "missing": [
+    "Loaded tire radius and tread compression (factory tire floor Z = 0)"
+   ],
+   "carried": true,
+   "boundsMm": [
+    215.153,
+    210.153,
+    0.0,
+    323.447,
+    318.447,
+    152.787
+   ],
+   "volumeMm3": 890141.1
+  },
+  {
+   "name": "Module 1 housing",
+   "group": "module housings",
+   "role": "drive",
+   "function": "front-left module fixed housing: plates, drive and steer NEOs, CANcoder, gears, belt and 10-32 frame screws",
+   "parent": "fixed: clamped to the chassis cassette and socket rails",
+   "motion": "fixed",
+   "bounds": "Per-body boxes of the 84 non-turret module solids, partitioned from the chassis and the steer sweep",
+   "missing": [
+    "Frame-screw seating and clamp are inside the 2.1 mm partition shell"
+   ],
+   "carried": true,
+   "boundsMm": [
+    141.676,
+    136.63,
+    35.896,
+    335.975,
+    330.975,
+    172.249
+   ],
+   "volumeMm3": 1214665.8
+  },
+  {
+   "name": "Module 2 steer sweep",
+   "group": "steer sweeps",
+   "role": "drive",
+   "function": "front-right SDS MK4i L2 turret: wheel, wheel mounts, steering pulley and turret gears, full 360 deg steer swept volume",
+   "parent": "static envelope about the module 2 steer axis (269.30, -264.30) mm, +Z; covers every azimuth",
+   "motion": "none (the revolved envelope already contains every steer angle)",
+   "bounds": "Solid of revolution of the turret constituents' radial profile in 4 mm slabs (max meshed radius + 0.5 mm, largest 54.1 mm) about the steer axis, Z 0-152.8 mm",
+   "missing": [
+    "Loaded tire radius and tread compression (factory tire floor Z = 0)"
+   ],
+   "carried": true,
+   "boundsMm": [
+    215.153,
+    -318.447,
+    0.0,
+    323.447,
+    -210.153,
+    152.787
+   ],
+   "volumeMm3": 890141.1
+  },
+  {
+   "name": "Module 2 housing",
+   "group": "module housings",
+   "role": "drive",
+   "function": "front-right module fixed housing: plates, drive and steer NEOs, CANcoder, gears, belt and 10-32 frame screws",
+   "parent": "fixed: clamped to the chassis cassette and socket rails",
+   "motion": "fixed",
+   "bounds": "Per-body boxes of the 84 non-turret module solids, partitioned from the chassis and the steer sweep",
+   "missing": [
+    "Frame-screw seating and clamp are inside the 2.1 mm partition shell"
+   ],
+   "carried": true,
+   "boundsMm": [
+    141.63,
+    -330.975,
+    35.896,
+    335.975,
+    -136.676,
+    172.249
+   ],
+   "volumeMm3": 1214613.6
+  },
+  {
+   "name": "Module 3 steer sweep",
+   "group": "steer sweeps",
+   "role": "drive",
+   "function": "rear-right SDS MK4i L2 turret: wheel, wheel mounts, steering pulley and turret gears, full 360 deg steer swept volume",
+   "parent": "static envelope about the module 3 steer axis (-269.30, -264.30) mm, +Z; covers every azimuth",
+   "motion": "none (the revolved envelope already contains every steer angle)",
+   "bounds": "Solid of revolution of the turret constituents' radial profile in 4 mm slabs (max meshed radius + 0.5 mm, largest 54.1 mm) about the steer axis, Z 0-152.8 mm",
+   "missing": [
+    "Loaded tire radius and tread compression (factory tire floor Z = 0)"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -323.447,
+    -318.447,
+    0.0,
+    -215.153,
+    -210.153,
+    152.787
+   ],
+   "volumeMm3": 890141.1
+  },
+  {
+   "name": "Module 3 housing",
+   "group": "module housings",
+   "role": "drive",
+   "function": "rear-right module fixed housing: plates, drive and steer NEOs, CANcoder, gears, belt and 10-32 frame screws",
+   "parent": "fixed: clamped to the chassis cassette and socket rails",
+   "motion": "fixed",
+   "bounds": "Per-body boxes of the 84 non-turret module solids, partitioned from the chassis and the steer sweep",
+   "missing": [
+    "Frame-screw seating and clamp are inside the 2.1 mm partition shell"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -335.975,
+    -330.975,
+    35.896,
+    -141.676,
+    -136.63,
+    172.249
+   ],
+   "volumeMm3": 1214790.6
+  },
+  {
+   "name": "Module 4 steer sweep",
+   "group": "steer sweeps",
+   "role": "drive",
+   "function": "rear-left SDS MK4i L2 turret: wheel, wheel mounts, steering pulley and turret gears, full 360 deg steer swept volume",
+   "parent": "static envelope about the module 4 steer axis (-269.30, 264.30) mm, +Z; covers every azimuth",
+   "motion": "none (the revolved envelope already contains every steer angle)",
+   "bounds": "Solid of revolution of the turret constituents' radial profile in 4 mm slabs (max meshed radius + 0.5 mm, largest 54.1 mm) about the steer axis, Z 0-152.8 mm",
+   "missing": [
+    "Loaded tire radius and tread compression (factory tire floor Z = 0)"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -323.447,
+    210.153,
+    0.0,
+    -215.153,
+    318.447,
+    152.787
+   ],
+   "volumeMm3": 890141.1
+  },
+  {
+   "name": "Module 4 housing",
+   "group": "module housings",
+   "role": "drive",
+   "function": "rear-left module fixed housing: plates, drive and steer NEOs, CANcoder, gears, belt and 10-32 frame screws",
+   "parent": "fixed: clamped to the chassis cassette and socket rails",
+   "motion": "fixed",
+   "bounds": "Per-body boxes of the 84 non-turret module solids, partitioned from the chassis and the steer sweep",
+   "missing": [
+    "Frame-screw seating and clamp are inside the 2.1 mm partition shell"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -335.975,
+    136.676,
+    35.896,
+    -141.63,
+    330.975,
+    172.249
+   ],
+   "volumeMm3": 1214738.4
+  },
+  {
+   "name": "Bumper ring",
+   "group": "bumpers",
+   "role": "bumper",
+   "function": "Continuous bumper backing, foam and cover around the chamfered frame, both alliance covers",
+   "parent": "fixed: removable bumper on the frame perimeter",
+   "motion": "fixed",
+   "bounds": "Mitred normal offsets of the actual frame plan hull (17.25 mm rear cutback): 1 mm gap, 4 mm backer, 69.5 mm foam, 0.5 mm cover, Z 43-181 mm",
+   "missing": [
+    "002 bumper construction, mounts and the applicable R4xx edition check are not issued",
+    "Front-strike crush not represented"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -445.5,
+    -440.5,
+    43.0,
+    445.5,
+    440.5,
+    181.0
+   ],
+   "volumeMm3": 32449522.8
+  },
+  {
+   "name": "Power distribution hub",
+   "group": "electronics",
+   "role": "other",
+   "function": "PDH at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (PDH)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -258.563,
+    95.637,
+    212.0,
+    -31.437,
+    208.363,
+    251.722
+   ],
+   "volumeMm3": 1016985.1
+  },
+  {
+   "name": "roboRIO 2",
+   "group": "electronics",
+   "role": "other",
+   "function": "roboRIO 2 at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (roboRIO 2)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -215.076,
+    -230.59,
+    212.0,
+    -68.924,
+    -87.41,
+    246.709
+   ],
+   "volumeMm3": 726329.4
+  },
+  {
+   "name": "VH-109 radio",
+   "group": "electronics",
+   "role": "other",
+   "function": "VH-109 at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (VH-109)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -200.6,
+    -309.995,
+    212.0,
+    -83.4,
+    -256.005,
+    242.1
+   ],
+   "volumeMm3": 190459.9
+  },
+  {
+   "name": "Main 120 A breaker",
+   "group": "electronics",
+   "role": "other",
+   "function": "CB185 at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (CB185)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -120.13,
+    237.149,
+    212.0,
+    -71.87,
+    310.851,
+    254.149
+   ],
+   "volumeMm3": 149919.8
+  },
+  {
+   "name": "Starboard controller 1 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -2.625,
+    -133.25,
+    212.0,
+    78.625,
+    -98.75,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Starboard controller 2 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -2.625,
+    -213.25,
+    212.0,
+    78.625,
+    -178.75,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Starboard controller 3 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    153.375,
+    -133.25,
+    212.0,
+    234.625,
+    -98.75,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Starboard controller 4 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    153.375,
+    -213.25,
+    212.0,
+    234.625,
+    -178.75,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Port controller 1 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -2.625,
+    98.75,
+    212.0,
+    78.625,
+    133.25,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Port controller 2 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -2.625,
+    178.75,
+    212.0,
+    78.625,
+    213.25,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Port controller 3 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    153.375,
+    98.75,
+    212.0,
+    234.625,
+    133.25,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Port controller 4 (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    153.375,
+    178.75,
+    212.0,
+    234.625,
+    213.25,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Nip controller (SPARK MAX)",
+   "group": "electronics",
+   "role": "other",
+   "function": "SPARK MAX at its 552-r5 prospective placement on the equipment sheet",
+   "parent": "fixed: on standoffs on the equipment sheet (Z 205.2)",
+   "motion": "fixed",
+   "bounds": "World bounds of the mounted supplier solids (SPARK MAX)",
+   "missing": [
+    "Device brackets and standoffs between Z 205.2 and the device",
+    "Connector and lead bend-radius envelopes"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -2.625,
+    255.75,
+    212.0,
+    78.625,
+    290.25,
+    241.65
+   ],
+   "volumeMm3": 83112.7
+  },
+  {
+   "name": "Chassis battery plug and bracket",
+   "group": "electronics",
+   "role": "other",
+   "function": "Robot-side SB50 (mates the battery plug) and its bracket to the rear perimeter",
+   "parent": "fixed: bracket to structural perimeter 2",
+   "motion": "fixed",
+   "bounds": "SB50 supplier bounds partitioned at the mating plane Y 78; bracket reserve",
+   "missing": [
+    "Bracket design and fasteners"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -329.8,
+    80.1,
+    180.0,
+    -280.744,
+    119.011,
+    196.048
+   ],
+   "volumeMm3": 30608.8
+  },
+  {
+   "name": "Main power loom",
+   "group": "wiring",
+   "role": "other",
+   "function": "6 AWG main leads: chassis SB50 riser, rear run and run to the 120 A breaker and PDH",
+   "parent": "fixed: tied to the rear frame and the equipment sheet",
+   "motion": "fixed",
+   "bounds": "Rectangular channels clear of the battery lift and plug grip",
+   "missing": [
+    "Lead bend radius at terminals",
+    "Strain relief"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -317.0,
+    121.1,
+    180.0,
+    -122.1,
+    234.9,
+    222.0
+   ],
+   "volumeMm3": 99301.2
+  },
+  {
+   "name": "Branch and CAN trunk",
+   "group": "wiring",
+   "role": "other",
+   "function": "PDH branch and CAN trunk on the centerline with cross runs to the drive and steer controllers",
+   "parent": "fixed: supported from the equipment sheets across the centre gap",
+   "motion": "fixed",
+   "bounds": "15.8 mm high channels at Z 210.2-226",
+   "missing": [
+    "Runs to the outer controllers and the nip and latch leads; route undesigned"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -28.9,
+    -96.6,
+    210.2,
+    240.0,
+    96.6,
+    226.0
+   ],
+   "volumeMm3": 344225.1
+  },
+  {
+   "name": "Module 1 lead reserve",
+   "group": "wiring",
+   "role": "other",
+   "function": "Drive, steer and CANcoder leads leaving module 1 under the equipment sheet",
+   "parent": "fixed: between the module housing and the sheet",
+   "motion": "fixed",
+   "bounds": "55 x 55 x 26.7 mm reserve over the inboard motor ends",
+   "missing": [
+    "Sheet pass-through and grommet"
+   ],
+   "carried": true,
+   "boundsMm": [
+    150.0,
+    145.0,
+    174.4,
+    205.0,
+    200.0,
+    201.1
+   ],
+   "volumeMm3": 80767.5
+  },
+  {
+   "name": "Module 2 lead reserve",
+   "group": "wiring",
+   "role": "other",
+   "function": "Drive, steer and CANcoder leads leaving module 2 under the equipment sheet",
+   "parent": "fixed: between the module housing and the sheet",
+   "motion": "fixed",
+   "bounds": "55 x 55 x 26.7 mm reserve over the inboard motor ends",
+   "missing": [
+    "Sheet pass-through and grommet"
+   ],
+   "carried": true,
+   "boundsMm": [
+    150.0,
+    -200.0,
+    174.4,
+    205.0,
+    -145.0,
+    201.1
+   ],
+   "volumeMm3": 80767.5
+  },
+  {
+   "name": "Module 3 lead reserve",
+   "group": "wiring",
+   "role": "other",
+   "function": "Drive, steer and CANcoder leads leaving module 3 under the equipment sheet",
+   "parent": "fixed: between the module housing and the sheet",
+   "motion": "fixed",
+   "bounds": "55 x 55 x 26.7 mm reserve over the inboard motor ends",
+   "missing": [
+    "Sheet pass-through and grommet"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -205.0,
+    -200.0,
+    174.4,
+    -150.0,
+    -145.0,
+    201.1
+   ],
+   "volumeMm3": 80767.5
+  },
+  {
+   "name": "Module 4 lead reserve",
+   "group": "wiring",
+   "role": "other",
+   "function": "Drive, steer and CANcoder leads leaving module 4 under the equipment sheet",
+   "parent": "fixed: between the module housing and the sheet",
+   "motion": "fixed",
+   "bounds": "55 x 55 x 26.7 mm reserve over the inboard motor ends",
+   "missing": [
+    "Sheet pass-through and grommet"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -205.0,
+    145.0,
+    174.4,
+    -150.0,
+    200.0,
+    201.1
+   ],
+   "volumeMm3": 80767.5
+  },
+  {
+   "name": "Battery tray and retention",
+   "group": "battery retention",
+   "role": "other",
+   "function": "Battery tray, four hangers to the inboard sills and two end keepers",
+   "parent": "fixed: hangers bolted under the inboard sills",
+   "motion": "fixed",
+   "bounds": "Planning reserve sized around the largest battery case; not a design",
+   "missing": [
+    "Tray, hanger and keeper design; top hold-down strap"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -250.0,
+    -100.5,
+    21.0,
+    -50.0,
+    100.5,
+    109.0
+   ],
+   "volumeMm3": 648553.2
+  },
+  {
+   "name": "Dressed battery",
+   "group": "battery",
+   "role": "battery",
+   "function": "Largest supported battery case, its leads and the battery-side SB50",
+   "parent": "fixed in operation on the tray; withdrawn for service",
+   "motion": "service: lift 250 mm then rearward",
+   "bounds": "Largest-battery gauge plus lead and plug reserves",
+   "missing": [
+    "Exact battery article"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -317.0,
+    -39.0,
+    33.0,
+    -58.5,
+    77.0,
+    202.0
+   ],
+   "volumeMm3": 2505082.0
+  },
+  {
+   "name": "Breaker reset hand",
+   "group": "breaker service hand",
+   "role": "service",
+   "function": "Hand reaching the CB185 red trip-reset button from above",
+   "parent": "service envelope, parked above the breaker",
+   "motion": "service: down to 3.2 mm above the breaker",
+   "bounds": "32 x 32 mm hand column",
+   "missing": [
+    "Finger contact on the button"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -96.0,
+    258.0,
+    600.0,
+    -64.0,
+    290.0,
+    760.0
+   ],
+   "volumeMm3": 163840.0
+  },
+  {
+   "name": "Plug grip hand",
+   "group": "plug service hand",
+   "role": "service",
+   "function": "Hand gripping the SB50 pair from above to disconnect the battery",
+   "parent": "service envelope, parked under the inlet chute",
+   "motion": "service: down to 3.1 mm above both plugs",
+   "bounds": "plug grip from above gauge",
+   "missing": [
+    "Unmating stroke of the SB50 pair"
+   ],
+   "carried": true,
+   "boundsMm": [
+    -321.0,
+    27.0,
+    455.0,
+    -286.1,
+    115.0,
+    640.0
+   ],
+   "volumeMm3": 568172.0
+  },
+  {
+   "name": "Pocket tray",
+   "group": "pocket tray",
+   "role": "mechanism",
+   "function": "Station inlet chute (52.3 deg), 15.74 deg pocket floor and two 322 mm-apart side walls in 1/8 in polycarbonate",
+   "parent": "fixed: on the rear uprights and the two floor posts on the upper stringers",
+   "motion": "fixed",
+   "bounds": "Floor 3.175 mm thick reserved 2.5 mm below the pipe-contact polyline [(-340.0, 795.0), (-268.1, 701.9), (306.6, 539.9)]; walls 150 mm above the contact line, X to 300",
+   "missing": [
+    "Floor stiffening ribs and wall-to-floor joints are not represented",
+    "Low-friction face (UHMW tape) and its measured mu; the trials sweep 0.15-0.35"
+   ],
+   "boundsMm": [
+    -344.491,
+    -164.175,
+    534.458,
+    305.922,
+    164.175,
+    886.708
+   ],
+   "volumeMm3": 1365786.4
+  },
+  {
+   "name": "Hood (removable)",
+   "group": "hood",
+   "role": "mechanism",
+   "function": "1/16 in polycarbonate hood 10 mm above the seated pipe, carrying the check-flap pin; thumb-screw removable",
+   "parent": "fixed: tabs on the side-wall tops (thumb screws)",
+   "motion": "fixed (service: lift off)",
+   "bounds": "1.6 mm plate on the hood line, flap to the upper roller",
+   "missing": [
+    "Hood tabs and thumb screws",
+    "Hood deflection under a hood strike (unsized)"
+   ],
+   "boundsMm": [
+    121.253,
+    -157.9,
+    669.062,
+    306.6,
+    157.9,
+    722.901
+   ],
+   "volumeMm3": 93651.9
+  },
+  {
+   "name": "Check flap",
+   "group": "check flap",
+   "role": "mechanism",
+   "function": "One-way spring check flap: the arriving pipe swings it forward and up; its rear stop at vertical blocks a rebound or rearward carry load",
+   "parent": "moving: revolute on a 3 mm pin at (161.3, 706.0) mm about +Y, on the hood",
+   "motion": "0 to 74.3 deg open",
+   "bounds": "1.6 mm polycarbonate plate 304 mm wide to 6 mm above the floor, plus the pin",
+   "missing": [
+    "Torsion spring, its preload and the rear stop tab are not represented (trials: 0.04 N m preload, 0.06 N m/rad)"
+   ],
+   "boundsMm": [
+    159.753,
+    -152.0,
+    586.884,
+    162.753,
+    152.0,
+    707.527
+   ],
+   "volumeMm3": 59406.4
+  },
+  {
+   "name": "Port nip side plate",
+   "group": "nip side plates",
+   "role": "mechanism",
+   "function": "Port 1/4 in 6061 side plate: carries both roller bearings, the lip hinge bracket and the drive or coupling",
+   "parent": "fixed: bolted to the upper pan stringer top at X 240-260",
+   "motion": "fixed (service: lifts out with the nip cassette)",
+   "bounds": "1/4 in plate profile X 240-368, Z 425-722; shaft holes partitioned 2.1 mm around the shaft",
+   "missing": [
+    "Flanged bearings sit inside the shaft-hole partition",
+    "Pocketing (50 % assumed in the mass line) is not represented"
+   ],
+   "boundsMm": [
+    240.0,
+    167.275,
+    425.0,
+    368.0,
+    173.625,
+    722.0
+   ],
+   "volumeMm3": 212684.9
+  },
+  {
+   "name": "Starboard nip side plate",
+   "group": "nip side plates",
+   "role": "mechanism",
+   "function": "Starboard 1/4 in 6061 side plate: carries both roller bearings, the lip hinge bracket and the drive or coupling",
+   "parent": "fixed: bolted to the upper pan stringer top at X 240-260",
+   "motion": "fixed (service: lifts out with the nip cassette)",
+   "bounds": "1/4 in plate profile X 240-368, Z 425-722; shaft holes partitioned 2.1 mm around the shaft",
+   "missing": [
+    "Flanged bearings sit inside the shaft-hole partition",
+    "Pocketing (50 % assumed in the mass line) is not represented"
+   ],
+   "boundsMm": [
+    240.0,
+    -173.625,
+    425.0,
+    368.0,
+    -167.275,
+    722.0
+   ],
+   "volumeMm3": 212684.9
+  },
+  {
+   "name": "Lower nip roller",
+   "group": "lower nip roller",
+   "role": "mechanism",
+   "function": "Lower roller of the nip: four 2 in 35A compliant wheels on a 1/2 in hollow hex shaft; with its mate it is the pocket's front stop and the eject drive",
+   "parent": "moving (spin): revolute about +Y through (335.00, 523.45) mm in the side-plate bearings",
+   "motion": "spins; its occupied core is axisymmetric",
+   "bounds": "Rigid hub/core reserve radius 16.4 mm over |Y| <= 160 plus the shaft to |Y| 175.97; the outer 9.0 mm of tread (6 mm designed squeeze + 3 mm) is the trial-qualified contact",
+   "missing": [
+    "Wheel hubs, spacers and shaft collars",
+    "Tread stiffness (trials bracket 10 and 40 N/mm per roller) and mu"
+   ],
+   "boundsMm": [
+    318.6,
+    -175.975,
+    507.05,
+    351.4,
+    175.975,
+    539.85
+   ],
+   "volumeMm3": 275306.4
+  },
+  {
+   "name": "Upper nip roller",
+   "group": "upper nip roller",
+   "role": "mechanism",
+   "function": "Upper roller of the nip: four 2 in 35A compliant wheels on a 1/2 in hollow hex shaft; with its mate it is the pocket's front stop and the eject drive",
+   "parent": "moving (spin): revolute about +Y through (335.00, 676.55) mm in the side-plate bearings",
+   "motion": "spins; its occupied core is axisymmetric",
+   "bounds": "Rigid hub/core reserve radius 16.4 mm over |Y| <= 160 plus the shaft to |Y| 175.97; the outer 9.0 mm of tread (6 mm designed squeeze + 3 mm) is the trial-qualified contact",
+   "missing": [
+    "Wheel hubs, spacers and shaft collars",
+    "Tread stiffness (trials bracket 10 and 40 N/mm per roller) and mu"
+   ],
+   "boundsMm": [
+    318.6,
+    -175.975,
+    660.15,
+    351.4,
+    175.975,
+    692.95
+   ],
+   "volumeMm3": 275306.4
+  },
+  {
+   "name": "Nip worm reducer and NEO 550",
+   "group": "nip drive",
+   "role": "mechanism",
+   "function": "NEO 550 into a self-locking single-start worm reducer (about 30:1) on the lower roller shaft",
+   "parent": "fixed: on the port side plate outside face",
+   "motion": "fixed",
+   "bounds": "60 x 54 x 60 mm reducer envelope plus a 35.2 mm x 113 mm motor cylinder along -X",
+   "missing": [
+    "Reducer article not selected: must self-lock against 4.10 N m at the lower shaft (largest locked back-drive in the receive and sled trials, both rollers) and give >= 0.44 m/s rim speed through the squeeze at 9 V (trial minimum)",
+    "Motor encoder and lead exit"
+   ],
+   "boundsMm": [
+    190.0,
+    178.075,
+    495.45,
+    365.0,
+    232.0,
+    555.45
+   ],
+   "volumeMm3": 306041.1
+  },
+  {
+   "name": "Nip coupling belt",
+   "group": "nip coupling",
+   "role": "mechanism",
+   "function": "Serpentine belt, two pulleys and an idler counter-rotating the upper roller from the lower shaft",
+   "parent": "fixed: on the starboard side plate outside face",
+   "motion": "fixed (belt runs inside the envelope)",
+   "bounds": "Box envelope over both pulleys, the idler and the belt run",
+   "missing": [
+    "Belt article, idler and tension adjustment"
+   ],
+   "boundsMm": [
+    300.0,
+    -232.0,
+    497.45,
+    368.0,
+    -178.075,
+    702.55
+   ],
+   "volumeMm3": 752081.2
+  },
+  {
+   "name": "Seated-pipe sensor",
+   "group": "pipe sensor",
+   "role": "other",
+   "function": "Reflective sensor on the hood top looking down through a hood window at the seated pipe: custody present, displaced or lost",
+   "parent": "fixed: on the hood top over the seat",
+   "motion": "fixed",
+   "bounds": "15 x 20 x 16 mm sensor envelope 2.1 mm above the hood plate",
+   "missing": [
+    "Sensor article and its hood window",
+    "Lead to the roboRIO"
+   ],
+   "boundsMm": [
+    290.0,
+    -10.0,
+    677.441,
+    305.0,
+    10.0,
+    693.441
+   ],
+   "volumeMm3": 4800.0
+  },
+  {
+   "name": "Lip-deployed switch",
+   "group": "lip sensor",
+   "role": "other",
+   "function": "Limit switch on the starboard side plate that the deployed lip's tab closes: lip state for the eject interlock",
+   "parent": "fixed: on the starboard side plate outside face above the belt",
+   "motion": "fixed",
+   "bounds": "26 x 54 x 15 mm switch envelope",
+   "missing": [
+    "Switch article and the lip tab that reaches it"
+   ],
+   "boundsMm": [
+    340.0,
+    -232.0,
+    705.0,
+    366.0,
+    -178.075,
+    720.0
+   ],
+   "volumeMm3": 21030.8
+  },
+  {
+   "name": "Lip latch servo",
+   "group": "lip latch",
+   "role": "mechanism",
+   "function": "Start latch: a servo-driven pin holds the upright stowed lip and releases it once at match start",
+   "parent": "fixed: on the port side plate outside face above the worm drive",
+   "motion": "fixed (pin stroke inside the envelope)",
+   "bounds": "36 x 51 x 50 mm servo and pin envelope",
+   "missing": [
+    "Servo article, PWM port and power",
+    "Pin engagement with the lip tab through the plate"
+   ],
+   "boundsMm": [
+    330.0,
+    178.075,
+    600.0,
+    366.0,
+    232.0,
+    650.0
+   ],
+   "volumeMm3": 97065.0
+  },
+  {
+   "name": "Deployable exit lip",
+   "group": "exit lip",
+   "role": "mechanism",
+   "function": "Deploy-once polycarbonate exit lip: stowed folded up in front of the nip inside the frame, released at match start and swung 120 deg forward and down by gravity and its spring to a 30 deg ramp and a 25 mm land whose tip is 100 mm beyond the frame line",
+   "parent": "moving: revolute about +Y through (366.0, 530.5) mm on hinge brackets on both side plates",
+   "motion": "installed deployed (carry configuration); stowed for the start is -120 deg about +Y",
+   "bounds": "1/8 in plate reserved 3.5 mm under the deployed profile [(367.5, 537.6), (445.0, 492.9), (470.0, 492.9)], hinge knuckle radius 3.0 mm",
+   "missing": [
+    "Deployed hard stop on the side plates: the pipe's weight on the land and a frontal tip push both rotate the lip into it; stop, lip stiffness and tip load (reef face or peer) are unsized",
+    "Deploy torsion spring rate"
+   ],
+   "boundsMm": [
+    363.0,
+    -158.0,
+    486.175,
+    470.0,
+    158.0,
+    534.564
+   ],
+   "volumeMm3": 122975.2
+  },
+  {
+   "name": "Rear inlet upright port",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Port 1 x 1 in upright carrying the inlet walls at the station face",
+   "parent": "fixed: foot bracket on the rear perimeter tube",
+   "motion": "fixed",
+   "bounds": "25 x 25.4 mm tube reserve Z 205.6-800",
+   "missing": [
+    "Foot bracket to the rear perimeter and the wall clips",
+    "Gusset"
+   ],
+   "boundsMm": [
+    -368.0,
+    170.0,
+    205.6,
+    -343.0,
+    195.4,
+    800.0
+   ],
+   "volumeMm3": 377444.0
+  },
+  {
+   "name": "Floor post port",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Port post from the upper pan stringer to the pocket floor",
+   "parent": "fixed: on the upper pan stringer top (Z 489.5)",
+   "motion": "fixed",
+   "bounds": "25 x 15 mm post Z 491.7-580.3",
+   "missing": [
+    "Floor clip and stringer bolt"
+   ],
+   "boundsMm": [
+    110.0,
+    140.0,
+    491.7,
+    135.0,
+    155.0,
+    580.288
+   ],
+   "volumeMm3": 33220.4
+  },
+  {
+   "name": "Rear inlet upright starboard",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Starboard 1 x 1 in upright carrying the inlet walls at the station face",
+   "parent": "fixed: foot bracket on the rear perimeter tube",
+   "motion": "fixed",
+   "bounds": "25 x 25.4 mm tube reserve Z 205.6-800",
+   "missing": [
+    "Foot bracket to the rear perimeter and the wall clips",
+    "Gusset"
+   ],
+   "boundsMm": [
+    -368.0,
+    -195.4,
+    205.6,
+    -343.0,
+    -170.0,
+    800.0
+   ],
+   "volumeMm3": 377444.0
+  },
+  {
+   "name": "Floor post starboard",
+   "group": "tray supports",
+   "role": "structure",
+   "function": "Starboard post from the upper pan stringer to the pocket floor",
+   "parent": "fixed: on the upper pan stringer top (Z 489.5)",
+   "motion": "fixed",
+   "bounds": "25 x 15 mm post Z 491.7-580.3",
+   "missing": [
+    "Floor clip and stringer bolt"
+   ],
+   "boundsMm": [
+    110.0,
+    -155.0,
+    491.7,
+    135.0,
+    -140.0,
+    580.288
+   ],
+   "volumeMm3": 33220.4
+  },
+  {
+   "name": "CORAL pipe",
+   "group": "pipe",
+   "role": "payload",
+   "function": "One station-issued CORAL from the station chute through receive, carry, eject and the trough",
+   "parent": "moving: installed pose is the carry seat, the 40 N/mm nominal receive end state (statically held: 1.551 mm settling over a 3 s dwell)",
+   "motion": "station -> chute -> ramp -> flap -> seat -> carry -> throat -> over the lower roller -> lip -> tip -> trough",
+   "bounds": "Cylinder of the 114.3 mm OD, 301.625 mm pipe (bore filled)",
+   "missing": [
+    "CORAL geometry is not registered in kickoff/rules-v0.json"
+   ],
+   "boundsMm": [
+    255.62,
+    -150.812,
+    542.74,
+    369.92,
+    150.812,
+    657.04
+   ],
+   "volumeMm3": 3094921.8
+  },
+  {
+   "name": "L1 trough sector A (field)",
+   "group": "field trough",
+   "role": "other",
+   "function": "Red reef L1 trough section at the shown dock: outer lip, 15 deg floor and inner riser, from the 2025 field model extraction",
+   "parent": "field: lip outer face at X 495.5 mm (50 mm stand-off from the bumper face), sector A |Y| <= 233.5",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "experiments/six-wheel/mission/target.json section (lip top 457.2, lip 12.7, floor 0.4049 + 0.268 x, riser 247.8-254.2, top 517.5) extruded over sector A",
+   "missing": [
+    "Reef structure below Z 300 mm and above the riser (L2 branch) is not placed",
+    "Panel mounting holes and the sector divider"
+   ],
+   "boundsMm": [
+    495.5,
+    -233.5,
+    300.0,
+    749.687,
+    233.5,
+    517.525
+   ],
+   "volumeMm3": 2274684.4
+  }
+ ]
+}

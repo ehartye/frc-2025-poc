@@ -1,0 +1,3151 @@
+{
+  "schema": "red2/fixed-path-comparison@2",
+  "supersedes": "comparison.json (NOT EVALUATED; inputs then absent)",
+  "worktree": {
+    "path": ".",
+    "branch": "private/red2-native-successor",
+    "commit": "f3c9a45c4d563fe81ba2acd3bbdffda7cdb1b6ad",
+    "status": [
+      "?? iterations/002/design/chassis/connected-seven-retained.json",
+      "?? iterations/002/design/chassis/connected-thread-input.json"
+    ]
+  },
+  "plugin": {
+    "path": "PLUGIN",
+    "commitLoaded": "69c28574a3321ad76358ee4852b298c5a7969da4",
+    "version": "0.72.1",
+    "usedFor": "scripts/showcase_contacts.py and scripts/mechanical_motion.py imported by pan_mechanics.py during the (superseded) local regeneration; no plugin code in the replays"
+  },
+  "inputs": [
+    {
+      "path": "iterations/002/design/strategy/limited-field-four-terminals.json",
+      "sha256": "3ab46d835599f3d095708c32abb4e2163cbad1046a5e0c63d88b9f9320cc3d4a"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited-field.json",
+      "sha256": "594e7c08dadde42448a2fc139f4da29eacad2bf47182d58576e07d4210677dd2"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited-pan-12mm.json",
+      "sha256": "7059712cfb9830725cca2c90c4f342a579521c2f7c70ab9189fce8ae52193285"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited-pan.json",
+      "sha256": "1417c0847c0280514cce5d9ff0b24e4b794654344789edeb8aa41fb8c6bb35e9"
+    },
+    {
+      "path": "iterations/002/design/strategy/pan-route-12mm.json",
+      "sha256": "fc071b376f66bcd2b99625bb540197499807cb9321ff210eca4cfea838609119"
+    },
+    {
+      "path": "iterations/002/design/strategy/pan-route-schedule.json",
+      "sha256": "020c7050def755fab2647f1ecb1ef4716b5660e744046db20cbc2ce115f236da"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited_field.py",
+      "sha256": "b49f2a20aaf1c210289c7e0d7c1e0d205d72a5577de17f643b80ef46c5df5b87"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited_pan.mjs",
+      "sha256": "4b0940c297f22bf90b3ba6037a442aec15ea922a11eb5f946eb93214509aa0e9"
+    },
+    {
+      "path": "iterations/002/design/strategy/limited_recovery.java.inc",
+      "sha256": "b2d565f7d4beed2bc37f757997e32fbc9984c1dbcb386b416f9bf647612edd05"
+    },
+    {
+      "path": "iterations/002/design/strategy/clocked_bus.py",
+      "sha256": "38cf9cbec36794e547ca79ee27e77d028d9d1219ffbae2e2f5bd23af1e8daa82"
+    },
+    {
+      "path": "iterations/002/design/strategy/drive_envelope.py",
+      "sha256": "88324d9e58ea6f881cb74bd01062b5793e126f3717b8c6f445f8b9c6553c8bb9"
+    },
+    {
+      "path": "iterations/002/design/strategy/drive-envelope.json",
+      "sha256": "88d816e9143e4dc0f74c92109cb6572f229da7ceffb5968de3cd89191f8908c6"
+    },
+    {
+      "path": "iterations/002/design/strategy/timed-bus.json",
+      "sha256": "739465be437cfd997123bbda4b1f812dd436a0764f93857471594e5a87e71a79"
+    },
+    {
+      "path": "iterations/002/design/chassis/terminal-mass-clock.json",
+      "sha256": "b4b65e9e2e571949f278271e884ae4cf7cfc8b34d7ed1e882c1adf0bee8d138c"
+    },
+    {
+      "path": "iterations/002/design/chassis/low-line-frame-clock.json",
+      "sha256": "18f1932ba5dbe312a432537bbdc9c242ffcf12bb9223d41edd886b3a8e68f26a"
+    },
+    {
+      "path": "iterations/002/design/commissioning.md",
+      "sha256": "d2edf8438ec9bfbd403e07c02a958684c4d7d8af6c158059de1b26375210c921"
+    },
+    {
+      "path": "iterations/001/retrospective.json",
+      "sha256": "081ce22c7cbde1ce6f85ef7073a25b75657b183644b4a21a797075d65ff81d84"
+    },
+    {
+      "path": "iterations/002/carry-forward/floor-profile.json",
+      "sha256": "86680700e6aaa87d575920980236308b16b65f029ce9c980415b72a727916ec7"
+    },
+    {
+      "path": "experiments/red2-successor/guided-decision.md",
+      "sha256": "ce1aa67f266a508b7acd7cf38917cdc0eb8ee56a47634045c986d6af7afe11dd"
+    },
+    {
+      "path": "experiments/red2-successor/decision.md",
+      "sha256": "ffb96c01787e2eb352a7757c8f687ca70da4a60e572f4d5b3f1980df586ede64"
+    },
+    {
+      "path": "cad/red2-split-drop/single_pivot_spatial.mjs",
+      "sha256": "7a921f81ed82efc811b15e8b53a4cb752581594c8cc8f7d38baf1e91187f1fd2"
+    },
+    {
+      "path": "cad/red2-split-drop/PanContactStudy.java",
+      "sha256": "8a730c66b863b8f92bd234639d9eea427b5167b3ad9c3e446ee33ac78f23ccba"
+    },
+    {
+      "path": "cad/red2-split-drop/single_pivot_field.py",
+      "sha256": "f02501f146f27b2ee2c423328d3989974b27f955f28ef36edbffbe8e09959c86"
+    },
+    {
+      "path": "cad/red2-split-drop/pan_mechanics.py",
+      "sha256": "e22d39d0d5e719b01ae0d4230d5172e920d07da5798485651f6b3dc08e06f2f9"
+    },
+    {
+      "path": "cad/red2-split-drop/station_clock.py",
+      "sha256": "1ea44fbaa9fd9010eadef819492669178b28d9336ce032592c37a872e27f625b"
+    },
+    {
+      "path": "cad/fusion-authority.json",
+      "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+    },
+    {
+      "path": "experiments/six-wheel/spatial-contact/SpatialContact.java",
+      "sha256": "3da5b7703edbfa0bbd1e1a45d6e5338f50bf1b73cad6a7533f818101ad1190c9"
+    },
+    {
+      "path": "experiments/six-wheel/mission/target.json",
+      "sha256": "0f98acc7aa54911d4e6e885ab9b580e0fade8a28ce7c869150027b3bac47be37"
+    },
+    {
+      "path": "artifacts/red2-integrated/pan-mechanics.json",
+      "sha256": "0b743fed1f082404b07faa25f77aac6f76e9830aecd5e2b4847d8bb6d0c024a0"
+    },
+    {
+      "path": "artifacts/red2-integrated/single-pivot-rim-field/source-frames.json",
+      "sha256": "df501768c809dbf5dd69976e1c0aa663adf3db42778caa04c5763521f85c699b"
+    },
+    {
+      "path": "artifacts/red2-integrated/single-pivot-rim-field/cases.csv",
+      "sha256": "080f941f4031857cb87f7294f1da7886303afed82e2699bbe3e1a2e207d97a84"
+    },
+    {
+      "path": "artifacts/red2-integrated/pan-shop-plan.json",
+      "sha256": "aabe15674a34107e05d77c6beea9a02422e280664cd4fe25f9c2b02309651023"
+    },
+    {
+      "path": "artifacts/red2-integrated/red2-integrated-foundation-r2.f3d",
+      "sha256": "43b97f1a056c23c8e973ed1b5371e0ca5972cd15bc26e0fbf750a777dd04fbc2"
+    },
+    {
+      "path": "artifacts/red2-integrated/single-pivot-spatial-rim.json",
+      "sha256": "fec6c9ee32ea40a3341a90f7280409902a7ced0abec6ad24ff355ec75c9c4f83"
+    },
+    {
+      "path": "artifacts/fusion-authority/receiver-service-original-vendor-motors-and-plates.f3d",
+      "sha256": "a53b05b14a730ea55b01f1e4780446fa894bdf8cf6121ae2e5cc33015d74932f"
+    }
+  ],
+  "regeneratedLocally": {
+    "note": "Untracked outputs left in the worktree artifacts/ by local regeneration (single_pivot_field.py rim, station_clock logic).",
+    "files": [
+      {
+        "path": "artifacts/split-drop-native/launch-inputs.json",
+        "sha256": "412ab0f1379945cf3f94bcf031ece4156b9ee48e7759e4a71e4c9331dd9056aa"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/panels.csv",
+        "sha256": "ff1ddad4ddb6ab428eee9a1221ed38706b038afce18b08c0f5119bdc514d0362"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/post-impact-reset.csv",
+        "sha256": "e65d80b57f40b921bd4e1b15f5d981eead1bec52f84d00362f74c0608a106797"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/summary.json",
+        "sha256": "66766b6342971e738e24baa22add55f162979ae35d08647952a759c7b1ab9560"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/assessment-clock.csv",
+        "sha256": "4af634d3a3081c96579c13b3ba26b620be0ac851c5a7eee856f4b6ee2f32075f"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/result.csv",
+        "sha256": "83c0909a76f89d834e775efa384253b7a5a216689b16939c2b52fdbbdffe6371"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/trace.csv",
+        "sha256": "e09bd5ee1102f56679ff17da6a7ac4de83c5ffea6dab462866b065e5492a4025"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/old-rack-removed.csv",
+        "sha256": "0000f88ed775a65607601c23fc0c5fb1ddcb6ab1eaac248b72e533d77005e857"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/PanContactStudy.class",
+        "sha256": "c9d3e4c618422fa105277539d6453a75c653dda86725396ed0c3a2bee353aca5"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/SpatialContact.class",
+        "sha256": "4d68590dc02c8097b20162b12db55dea1fb3847144f83ac6669dfd335b28f52c"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/SpatialContact$Hole.class",
+        "sha256": "c491d476f360d8c450a62cf59740aa064257afcc4873b9e0d8e3242b9a89f12b"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/SpatialContact$Line.class",
+        "sha256": "9a13e0c00ceebd4f1fd915e1da4fef4e5a7359d3aaeb5a576c8f1441b816308a"
+      },
+      {
+        "path": "artifacts/red2-integrated/single-pivot-rim-field/SpatialContact$Panel.class",
+        "sha256": "43caf940b1fbc88bf7b383b9fc3b02868b5b25546f45681ccf1bdd6321059c6d"
+      }
+    ],
+    "supersededCopies": "../regenerated-artifacts/ holds the regenerated pan-mechanics.json, source-frames.json, cases.csv (byte-identical to the owner originals now in f3c9a45)"
+  },
+  "scripts": {
+    "build_comparison_02.py": "c9cd1c20a653e8033c92a4d9fc463bed271e13f16950910b6aea9f13e198a062",
+    "fixed_path.mjs": "aba0ae4cc1afcde62c7fa33a6e7f6e58aeda3c99e9353d94a84246cb54c648a0",
+    "limited_pan_out.mjs": "0efea95191bcf47f44eef706575436f2db84f536fc8d8be8c3da35168678475b",
+    "run_all_02.sh": "c2dec07c3000cd404fedc2a44ef3f55179969e73dffa1300e680f10e5f9bfecf",
+    "run_fixed.sh": "85ab60096692bf3a8f2c63c4c5ede11f6df8af748271c4a32d782aafbb05d448",
+    "run_pan_field.py": "c4e1d1caa0011534e96389a0b74a9d2a1ff53022b279b7fcc93a17bc1d5ec5a8"
+  },
+  "criterion": {
+    "passIf": "All 12 cases keep and score both pipes with >= 1.83 mm support and >= 89.8 ms reset margin -> select fixed path",
+    "failIf": "Any adverse carry loses a pipe -> detail the pan (measure the stow stop first)",
+    "budgetA": 30,
+    "stationFeedS": [
+      21.1,
+      71.501
+    ],
+    "peers": 5,
+    "caseSet": "2 scenarios (nominal, adverse mass/battery/admission) x 2 pipes x 3 registered field placements"
+  },
+  "batteryVoltageStep": {
+    "status": "OPEN for both architectures",
+    "missing": "artifacts/red2-integrated/pan-duty-summary.json",
+    "expectedSha256": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac",
+    "effect": "clocked_bus.run (branch-voltage replay) removed from an in-memory copy of limited_field.py; field support, reset, carry and motor-side current are unaffected."
+  },
+  "panBaseline": {
+    "reExecuted": true,
+    "panSimSha256": "7059712cfb9830725cca2c90c4f342a579521c2f7c70ab9189fce8ae52193285",
+    "panSimMatchesRecorded": true,
+    "fieldResultsIdenticalToRecorded": true,
+    "peakPanPhaseA": 29.619234829549562,
+    "passCount": 12,
+    "of": 12,
+    "minSupportMarginMm": 1.8282960000000001,
+    "minResetMarginMs": 89.82699999999966,
+    "cases": {
+      "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.77297263581382,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 3.467154,
+        "resetMarginMs": 134.92699999999758,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.570673109728983,
+        "firstFailure": null
+      },
+      "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.77297263581382,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 3.2249510000000003,
+        "resetMarginMs": 137.52699999999862,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.570673109728983,
+        "firstFailure": null
+      },
+      "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.77297263581382,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 1.828671,
+        "resetMarginMs": 89.82699999999966,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.570673109728983,
+        "firstFailure": null
+      },
+      "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.8615726361704,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 3.45905,
+        "resetMarginMs": 121.026999999998,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.45412358186158,
+        "firstFailure": null
+      },
+      "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.8615726361704,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 3.225639,
+        "resetMarginMs": 133.02699999999845,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.45412358186158,
+        "firstFailure": null
+      },
+      "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.8615726361704,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 1.8282960000000001,
+        "resetMarginMs": 113.92700000000389,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 22.45412358186158,
+        "firstFailure": null
+      },
+      "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.76467263581355,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 33.488125000000004,
+        "resetMarginMs": 358.52700000000226,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.619234829549562,
+        "firstFailure": null
+      },
+      "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.76467263581355,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 32.573111000000004,
+        "resetMarginMs": 370.22699999999986,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.619234829549562,
+        "firstFailure": null
+      },
+      "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 47.76467263581355,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 29.729094,
+        "resetMarginMs": 357.726999999997,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.619234829549562,
+        "firstFailure": null
+      },
+      "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.85627263617022,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 33.489662,
+        "resetMarginMs": 337.2269999999986,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.50944397221505,
+        "firstFailure": null
+      },
+      "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.85627263617022,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 32.590908,
+        "resetMarginMs": 391.327000000004,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.50944397221505,
+        "firstFailure": null
+      },
+      "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+        "keptThroughReceiveAndCarry": true,
+        "released": true,
+        "releaseWallS": 97.85627263617022,
+        "supported": true,
+        "keptAfterSupport": true,
+        "credited": true,
+        "supportMarginMm": 29.982794,
+        "resetMarginMs": 352.62699999999825,
+        "closestMember": "pan_floor",
+        "peakPanPhaseA": 29.50944397221505,
+        "firstFailure": null
+      }
+    }
+  },
+  "knownFailureControls": {
+    "panOriginalDock": {
+      "reExecuted": true,
+      "panSimSha256": "1417c0847c0280514cce5d9ff0b24e4b794654344789edeb8aa41fb8c6bb35e9",
+      "panSimMatchesRecorded": true,
+      "fieldIdenticalToRecorded": true,
+      "detectedFailures": {
+        "nominal/coral-A/1/1/-0.04/0.0001/17/2": "released pipe never reached finite field support (cleared far lip)",
+        "nominal/coral-B/1/1/-0.04/0.0001/17/2": "released pipe never reached finite field support (cleared far lip)"
+      }
+    },
+    "fixedFlatNoLip": {
+      "file": "control-flat-no-lip.json",
+      "lostAllTrips": true
+    }
+  },
+  "fixedPath": {
+    "method": "The pan solver (single_pivot_spatial.mjs, sha 7a921f81) with the same limited_pan.mjs route/inertia coupling, admission, clock and field placements; receiver held rigidly at -8 deg with the blockout profile substituted; release by a scripted zero-net-displacement chassis manoeuvre at the pan tip-start clock (2 m/s^2 back-off, 0.35 m/s creep, 9 m/s^2 stop).",
+    "geometryNote": "Retained 430 x 322 mm floor footprint, side walls and slotted aft wall; sills Y=+/-242, cradle X~110/250 unchanged; no shaft, motor or stop.",
+    "variants": {
+      "fixed-notch-undamped": {
+        "description": "Blockout as defined: notch (8 mm rear bump, 4 mm play, 14 mm front lip), floor fixed at -8 deg, no damper",
+        "damperRole": "none",
+        "file": "fixed-notch-undamped.json",
+        "sha256": "e50f8ab32fd16f0b30bf6ea42dc34968ce96e57b50b9a5c28bf439fcc5b21dcc",
+        "config": {
+          "id": "fixed-notch-undamped",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.2137,
+              0
+            ],
+            [
+              0.2177,
+              0.008
+            ],
+            [
+              0.2217,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 0,
+          "damperRegionXM": [
+            -0.3,
+            0.2
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "nominal/coral-A/1/1/-0.04/0.0001/17/0",
+          "phase": "receive (station feed to carry start)",
+          "wallS": 22.263172635312905,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.950083615312609,
+            0.002185428807742981,
+            0.5907773614739386
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.263172635312905,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.263172635312905,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.263172635312905,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.66417263533393,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.66417263533393,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.66417263533393,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.950083615312609,
+                0.002185428807742981,
+                0.5907773614739386
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.331072635312747,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.331072635312747,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 22.331072635312747,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.73207263533618,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.73207263533618,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 0,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 72.73207263533618,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9501989485529301,
+                -0.013703666414117582,
+                0.5348752368612062
+              ]
+            }
+          }
+        }
+      },
+      "fixed-notch-damped-c6": {
+        "description": "Same notch + passive inlet brush, 6 N s/m over robot X -0.30..0.20 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-notch-damped-c6.json",
+        "sha256": "c8f4c15183510b86312c109a79a04a4edfe887d372f8812be5c4b10535e9a0e7",
+        "config": {
+          "id": "fixed-notch-damped-c6",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.2137,
+              0
+            ],
+            [
+              0.2177,
+              0.008
+            ],
+            [
+              0.2217,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 6,
+          "damperRegionXM": [
+            -0.3,
+            0.2
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "receive (station feed to carry start)",
+          "wallS": 23.030272635311118,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.9149225555304561,
+            -0.0642021558938814,
+            0.11991183573473192
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.305572635310476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.305572635310476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.305572635310476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.70657263536853,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.70657263536853,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 6.506854813284462,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.70657263536853,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7320570599162264,
+                0.007638959247858406,
+                0.11993824321894368
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.030272635311118,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.030272635311118,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 23.030272635311118,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.43127263535939,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.43127263535939,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.263193340405557,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 73.43127263535939,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9149225555304561,
+                -0.0642021558938814,
+                0.11991183573473192
+              ]
+            }
+          }
+        }
+      },
+      "fixed-notch-damped-c10": {
+        "description": "Same notch + passive inlet brush, 10 N s/m over X -0.30..0.20 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-notch-damped-c10.json",
+        "sha256": "01a997819183cb5ed61f604c35678618eff8fc3cf44952bffee6b588a9bed205",
+        "config": {
+          "id": "fixed-notch-damped-c10",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.2137,
+              0
+            ],
+            [
+              0.2177,
+              0.008
+            ],
+            [
+              0.2217,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 10,
+          "damperRegionXM": [
+            -0.3,
+            0.2
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "receive (station feed to carry start)",
+          "wallS": 24.35917263530802,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.7116136921831403,
+            0.02086435189271204,
+            0.11998853120385121
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.512972635307662,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.512972635307662,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.512972635307662,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.91397263540861,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.91397263540861,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.24633079724816,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.91397263540861,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.706487872822823,
+                -0.009391275986091276,
+                0.11996472304658136
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.35917263530802,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.35917263530802,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 24.35917263530802,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.7601726354035,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.7601726354035,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": false,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.185500678177893,
+            "firstFailure": {
+              "phase": "receive (station feed to carry start)",
+              "wallS": 74.7601726354035,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7116136921831403,
+                0.02086435189271204,
+                0.11998853120385121
+              ]
+            }
+          }
+        }
+      },
+      "fixed-notch-damped-c15": {
+        "description": "Same notch + passive inlet brush, 15 N s/m over X -0.30..0.20 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-notch-damped-c15.json",
+        "sha256": "a166bb2dc8db88c18768ef9d559e8b95eef4a4d45557b454dbfdaeb60421121b",
+        "config": {
+          "id": "fixed-notch-damped-c15",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.2137,
+              0
+            ],
+            [
+              0.2177,
+              0.008
+            ],
+            [
+              0.2217,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 15,
+          "damperRegionXM": [
+            -0.3,
+            0.2
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "carry",
+          "wallS": 35.33667263540098,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.931201532157136,
+            -0.02792884257895339,
+            0.11972823045214911
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.444172635307822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 43.33477263566649,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6972696374054904,
+                -0.003436151638422792,
+                0.11986279267463679
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.444172635307822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 43.33477263566649,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6972696374054904,
+                -0.003436151638422792,
+                0.11986279267463679
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.444172635307822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 43.33477263566649,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6972696374054904,
+                -0.003436151638422792,
+                0.11986279267463679
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84517263540633,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 93.54377263602706,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6992531970569809,
+                -0.003173193424695535,
+                0.11985814431761181
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84517263540633,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 93.54377263602706,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6992531970569809,
+                -0.003173193424695535,
+                0.11985814431761181
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84517263540633,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.463313141769394,
+            "firstFailure": {
+              "phase": "parked before release",
+              "wallS": 93.54377263602706,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.6992531970569809,
+                -0.003173193424695535,
+                0.11985814431761181
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.204334387339762,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 35.33667263540098,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.931201532157136,
+                -0.02792884257895339,
+                0.11972823045214911
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.204334387339762,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 35.33667263540098,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.931201532157136,
+                -0.02792884257895339,
+                0.11972823045214911
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.204334387339762,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 35.33667263540098,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.931201532157136,
+                -0.02792884257895339,
+                0.11972823045214911
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.2043900326598465,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 85.73897263576796,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9311411773669046,
+                -0.028019316116959264,
+                0.11992869562672163
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.2043900326598465,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 85.73897263576796,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9311411773669046,
+                -0.028019316116959264,
+                0.11992869562672163
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.2043900326598465,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 85.73897263576796,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9311411773669046,
+                -0.028019316116959264,
+                0.11992869562672163
+              ]
+            }
+          }
+        }
+      },
+      "fixed-notch-damped-c22": {
+        "description": "Same notch + passive inlet brush, 22 N s/m over X -0.30..0.20 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-notch-damped-c22.json",
+        "sha256": "6ff8591772be0520328a25dced99d6c39e285a9f51134ed2e88f77f9c76c2229",
+        "config": {
+          "id": "fixed-notch-damped-c22",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.2137,
+              0
+            ],
+            [
+              0.2177,
+              0.008
+            ],
+            [
+              0.2217,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 22,
+          "damperRegionXM": [
+            -0.3,
+            0.2
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "carry",
+          "wallS": 32.16677263529575,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.9500307412677984,
+            -0.16195826234787625,
+            0.26234328284332675
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04250000000000019,
+            "readyS": 26.02437263530414,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.6010614865724456e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04250000000000019,
+            "readyS": 26.02437263530414,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.6010614865724456e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04250000000000019,
+            "readyS": 26.02437263530414,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.6010614865724456e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04260000000000019,
+            "readyS": 76.42537263545879,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.601061486535423e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04260000000000019,
+            "readyS": 76.42537263545879,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.601061486535423e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.04260000000000019,
+            "readyS": 76.42537263545879,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.2443383494542,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.35277612158824045,
+                0.10385513182011971,
+                0.6212620978416469
+              ],
+              "finalAxis": [
+                0.9944573160604915,
+                1.601061486535423e-08,
+                -0.10514107919250079
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.7883871493712005,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 32.16677263529575,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500307412677984,
+                -0.16195826234787625,
+                0.26234328284332675
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.7883871493712005,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 32.16677263529575,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500307412677984,
+                -0.16195826234787625,
+                0.26234328284332675
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.7883871493712005,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 32.16677263529575,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500307412677984,
+                -0.16195826234787625,
+                0.26234328284332675
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.788387437890595,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 82.56587263566263,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500785796984449,
+                -0.16224853971434114,
+                0.2624283262934411
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.788387437890595,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 82.56587263566263,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500785796984449,
+                -0.16224853971434114,
+                0.2624283262934411
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 3.788387437890595,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 82.56587263566263,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500785796984449,
+                -0.16224853971434114,
+                0.2624283262934411
+              ]
+            }
+          }
+        }
+      },
+      "fixed-lip-floorbrush-c10": {
+        "description": "Front 14 mm lip only (no rear bump) + brush along chute and floor, 10 N s/m over X -0.30..0.44 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-lip-floorbrush-c10.json",
+        "sha256": "3a6cb02a4d3ac46a01ac59fcd7334b78203c45cc9339c028dd558358105aed2c",
+        "config": {
+          "id": "fixed-lip-floorbrush-c10",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 10,
+          "damperRegionXM": [
+            -0.3,
+            0.44
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "carry",
+          "wallS": 30.397572635293947,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.7630735428900267,
+            -0.10431224727981898,
+            0.11983277807390681
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 29.317772635296464,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588505639841179,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 34.25637263536512,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.770893994441934,
+                -0.006759765734352276,
+                0.11998039669630024
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 29.317772635296464,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588505639841179,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 34.25637263536512,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.770893994441934,
+                -0.006759765734352276,
+                0.11998039669630024
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 29.317772635296464,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588505639841179,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 34.25637263536512,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.770893994441934,
+                -0.006759765734352276,
+                0.11998039669630024
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 79.72107263556819,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588962142133193,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 84.65837263573209,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7709243444411595,
+                -0.0067247257678632825,
+                0.11990237533840528
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 79.72107263556819,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588962142133193,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 84.65837263573209,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7709243444411595,
+                -0.0067247257678632825,
+                0.11990237533840528
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0,
+            "readyS": 79.72107263556819,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.588962142133193,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 84.65837263573209,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7709243444411595,
+                -0.0067247257678632825,
+                0.11990237533840528
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.4470999999999671,
+            "readyS": 25.459372635305456,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610826085720772,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 30.397572635293947,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7630735428900267,
+                -0.10431224727981898,
+                0.11983277807390681
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.4470999999999671,
+            "readyS": 25.459372635305456,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610826085720772,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 30.397572635293947,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7630735428900267,
+                -0.10431224727981898,
+                0.11983277807390681
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.4470999999999671,
+            "readyS": 25.459372635305456,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610826085720772,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 30.397572635293947,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7630735428900267,
+                -0.10431224727981898,
+                0.11983277807390681
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.44749999999996704,
+            "readyS": 75.86037263544003,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610851245874784,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 80.80007263560401,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7631867796727393,
+                -0.1042921952746266,
+                0.11979751740872785
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.44749999999996704,
+            "readyS": 75.86037263544003,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610851245874784,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 80.80007263560401,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7631867796727393,
+                -0.1042921952746266,
+                0.11979751740872785
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 0.44749999999996704,
+            "readyS": 75.86037263544003,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.610851245874784,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 80.80007263560401,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.7631867796727393,
+                -0.1042921952746266,
+                0.11979751740872785
+              ]
+            }
+          }
+        }
+      },
+      "fixed-lip-floorbrush-c15": {
+        "description": "Front 14 mm lip only + floor brush, 15 N s/m over X -0.30..0.44 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-lip-floorbrush-c15.json",
+        "sha256": "e811f1ca9e47eabcca4eca73a43606112b449bde065362cc5122bd93007d7d8e",
+        "config": {
+          "id": "fixed-lip-floorbrush-c15",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 15,
+          "damperRegionXM": [
+            -0.3,
+            0.44
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "carry",
+          "wallS": 42.08697263562507,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.798223300682941,
+            0.07474508868239114,
+            0.11981729937934116
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.44487263530782,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846427991884696,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38982396634689304,
+                -8.769011063471955e-06,
+                0.6116062009955203
+              ],
+              "finalAxis": [
+                0.29889623727947123,
+                0.9533483852360582,
+                -0.04228351579486136
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.44487263530782,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846427991884696,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38982396634689304,
+                -8.769011063471955e-06,
+                0.6116062009955203
+              ],
+              "finalAxis": [
+                0.29889623727947123,
+                0.9533483852360582,
+                -0.04228351579486136
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 24.44487263530782,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846427991884696,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38982396634689304,
+                -8.769011063471955e-06,
+                0.6116062009955203
+              ],
+              "finalAxis": [
+                0.29889623727947123,
+                0.9533483852360582,
+                -0.04228351579486136
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84587263540635,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846625175796376,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38851408383508684,
+                -8.769011063438225e-06,
+                0.6117902929770916
+              ],
+              "finalAxis": [
+                0.2988962372794774,
+                0.9533483852360565,
+                -0.042283515794861955
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84587263540635,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846625175796376,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38851408383508684,
+                -8.769011063438225e-06,
+                0.6117902929770916
+              ],
+              "finalAxis": [
+                0.2988962372794774,
+                0.9533483852360565,
+                -0.042283515794861955
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 74.84587263540635,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.846625175796376,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.38851408383508684,
+                -8.769011063438225e-06,
+                0.6117902929770916
+              ],
+              "finalAxis": [
+                0.2988962372794774,
+                0.9533483852360565,
+                -0.042283515794861955
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.492032363510417,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 42.08697263562507,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.798223300682941,
+                0.07474508868239114,
+                0.11981729937934116
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.492032363510417,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 42.08697263562507,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.798223300682941,
+                0.07474508868239114,
+                0.11981729937934116
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 31.806972635290663,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.492032363510417,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 42.08697263562507,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.798223300682941,
+                0.07474508868239114,
+                0.11981729937934116
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.4916311765808565,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 92.26957263598476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8006825871346098,
+                0.07068961086922182,
+                0.11996283104172262
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.4916311765808565,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 92.26957263598476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8006825871346098,
+                0.07068961086922182,
+                0.11996283104172262
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5999999999998402,
+            "readyS": 82.20257263565057,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 4.4916311765808565,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 92.26957263598476,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8006825871346098,
+                0.07068961086922182,
+                0.11996283104172262
+              ]
+            }
+          }
+        }
+      },
+      "fixed-lip-floorbrush-c22": {
+        "description": "Front 14 mm lip only + floor brush, 22 N s/m over X -0.30..0.44 m",
+        "damperRole": "passive inlet energy absorber (variant)",
+        "file": "fixed-lip-floorbrush-c22.json",
+        "sha256": "7199a20a4f83adf4460fbfde184cb8215a44f4b92069ea2c7b13ded17094b950",
+        "config": {
+          "id": "fixed-lip-floorbrush-c22",
+          "thetaDeg": -8,
+          "profile": [
+            [
+              -0.1,
+              0.11
+            ],
+            [
+              -0.09,
+              0
+            ],
+            [
+              0.34,
+              0
+            ],
+            [
+              0.34,
+              0.014
+            ]
+          ],
+          "damperNsPerM": 22,
+          "damperRegionXM": [
+            -0.3,
+            0.44
+          ],
+          "release": {
+            "backAccel": 2,
+            "forwardAccel": 2,
+            "forwardS": 0.175,
+            "stopDecel": 9
+          }
+        },
+        "passCount": 0,
+        "of": 12,
+        "adverseCasesLosingPipe": 6,
+        "firstFailure": {
+          "case": "adverse/coral-A/-1/1/0.04/0.0001/17/0",
+          "phase": "carry",
+          "wallS": 39.667072635544734,
+          "mode": "pipe left the receiver and fell (solver loss bound)",
+          "finalPositionM": [
+            0.9500439472974191,
+            0.16419651616526626,
+            0.22305658059431752
+          ]
+        },
+        "cases": {
+          "nominal/coral-A/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 26.00727263530418,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.351251208097315,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.34802465297617086,
+                -0.05838483357180251,
+                0.6174792079391324
+              ],
+              "finalAxis": [
+                0.9376133305337095,
+                0.321662647657049,
+                -0.13196356886558458
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 26.00727263530418,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.351251208097315,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.34802465297617086,
+                -0.05838483357180251,
+                0.6174792079391324
+              ],
+              "finalAxis": [
+                0.9376133305337095,
+                0.321662647657049,
+                -0.13196356886558458
+              ]
+            }
+          },
+          "nominal/coral-A/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 26.00727263530418,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.351251208097315,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 49.009972635854886,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.34802465297617086,
+                -0.05838483357180251,
+                0.6174792079391324
+              ],
+              "finalAxis": [
+                0.9376133305337095,
+                0.321662647657049,
+                -0.13196356886558458
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 76.40827263545822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.354779022587618,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.3473222780330608,
+                -0.058119802400709034,
+                0.617577930429635
+              ],
+              "finalAxis": [
+                0.93693189111015,
+                0.3236811010505954,
+                -0.13186802585703758
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 76.40827263545822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.354779022587618,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.3473222780330608,
+                -0.058119802400709034,
+                0.617577930429635
+              ],
+              "finalAxis": [
+                0.93693189111015,
+                0.3236811010505954,
+                -0.13186802585703758
+              ]
+            }
+          },
+          "nominal/coral-B/1/1/-0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": true,
+            "maxCarrySupportGapS": 0,
+            "readyS": 76.40827263545822,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.354779022587618,
+            "firstFailure": {
+              "phase": "release manoeuvre",
+              "wallS": 99.0999726362115,
+              "mode": "retained but not released by the chassis manoeuvre",
+              "finalPositionM": [
+                0.3473222780330608,
+                -0.058119802400709034,
+                0.617577930429635
+              ],
+              "finalAxis": [
+                0.93693189111015,
+                0.3236811010505954,
+                -0.13186802585703758
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.73807600906611,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 39.667072635544734,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500439472974191,
+                0.16419651616526626,
+                0.22305658059431752
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.73807600906611,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 39.667072635544734,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500439472974191,
+                0.16419651616526626,
+                0.22305658059431752
+              ]
+            }
+          },
+          "adverse/coral-A/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5440999999998464,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 8.73807600906611,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 39.667072635544734,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.9500439472974191,
+                0.16419651616526626,
+                0.22305658059431752
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/0": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.389147243688893,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 90.10537263591291,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8142837063717316,
+                0.0703513597508972,
+                0.11982937415591512
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/1": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.389147243688893,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 90.10537263591291,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8142837063717316,
+                0.0703513597508972,
+                0.11982937415591512
+              ]
+            }
+          },
+          "adverse/coral-B/-1/1/0.04/0.0001/17/2": {
+            "keptThroughReceive": true,
+            "keptThroughCarry": false,
+            "maxCarrySupportGapS": 1.5427999999998465,
+            "readyS": null,
+            "released": false,
+            "supported": null,
+            "credited": false,
+            "supportMarginMm": null,
+            "resetMarginMs": null,
+            "damperDissipatedJ": 9.389147243688893,
+            "firstFailure": {
+              "phase": "carry",
+              "wallS": 90.10537263591291,
+              "mode": "pipe left the receiver and fell (solver loss bound)",
+              "finalPositionM": [
+                0.8142837063717316,
+                0.0703513597508972,
+                0.11982937415591512
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "sectorPlacementNote": "Both architectures use the baseline sectorM -0.18/+0.18; the FRC wiki records +180 mm overlapping the first settled pipe and recommends -180/+220. Not changed here.",
+  "limits": [
+    "Battery-voltage step open (see batteryVoltageStep).",
+    "Fixed-path receivers that lost or kept the pipe without release were not passed to the finite field replay (no released state to replay).",
+    "Damper is an ideal linear translational drag in a fixed X window; brush friction on spin, compliance and wear are not modelled; values swept on the evaluated cases.",
+    "Release manoeuvre assumes a 9 m/s^2 bumper-assisted stop that was not qualified for traction or reef contact.",
+    "Five peer footprints are carried only through the inherited route clock; no new peer interaction was simulated."
+  ],
+  "verdict": {
+    "battery": "open",
+    "result": "FAIL",
+    "selected": "guarded pan (detail the pan; measure the stow stop first)",
+    "reason": "Every fixed-path variant, undamped and damped, loses at least one pipe in the adverse cases before scoring, which meets the FAIL condition irrespective of the open battery step."
+  }
+}

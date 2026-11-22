@@ -1,0 +1,406 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "inputs": {
+    "single-pivot-spatial-rim-installed-reactions-frame-anchors.json": "568b78c3f07de82aed81494da05b3cffdbde88c977224e5db5df90800249f915",
+    "two-sill-cartridge-selected-duty.json": "12f1611420a508606a59d9fc96e587bc2ccefa30e3d7fbf00a6345cd30f33457",
+    "pan-mechanics.json": "0b743fed1f082404b07faa25f77aac6f76e9830aecd5e2b4847d8bb6d0c024a0",
+    "inset-electrical-package.json": "383e593a04e8c3d30571fa69da1ddb96e46d743b2fbfbac097f35edb484d8eb9"
+  },
+  "events": 1600,
+  "workingMPa": 120,
+  "layout": {
+    "-1": {
+      "nodes": [
+        [
+          110.0,
+          -242.0,
+          480.0
+        ],
+        [
+          250.0,
+          -242.0,
+          480.0
+        ],
+        [
+          110.0,
+          -145.0,
+          187.325
+        ],
+        [
+          110.0,
+          -212.0,
+          187.325
+        ],
+        [
+          250.0,
+          -145.0,
+          187.325
+        ],
+        [
+          250.0,
+          -212.0,
+          187.325
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    "1": {
+      "nodes": [
+        [
+          110.0,
+          242.0,
+          480.0
+        ],
+        [
+          250.0,
+          242.0,
+          480.0
+        ],
+        [
+          110.0,
+          145.0,
+          187.325
+        ],
+        [
+          110.0,
+          212.0,
+          187.325
+        ],
+        [
+          250.0,
+          145.0,
+          187.325
+        ],
+        [
+          250.0,
+          212.0,
+          187.325
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  },
+  "stock": [
+    {
+      "side": -1,
+      "start": [
+        110.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        110.0,
+        -145.0,
+        187.325
+      ],
+      "massKg": 0.0923124549531742,
+      "minimumDeviceOrServiceGapBoundMm": 21.28258190181045,
+      "limiting": "starboard controller 2"
+    },
+    {
+      "side": -1,
+      "start": [
+        110.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        110.0,
+        -212.0,
+        187.325
+      ],
+      "massKg": 0.08808443234239242,
+      "minimumDeviceOrServiceGapBoundMm": 17.930413659776477,
+      "limiting": "starboard controller 2"
+    },
+    {
+      "side": -1,
+      "start": [
+        250.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        -145.0,
+        187.325
+      ],
+      "massKg": 0.0923124549531742,
+      "minimumDeviceOrServiceGapBoundMm": 7.971832392130807,
+      "limiting": "starboard controller 4"
+    },
+    {
+      "side": -1,
+      "start": [
+        250.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        -212.0,
+        187.325
+      ],
+      "massKg": 0.08808443234239242,
+      "minimumDeviceOrServiceGapBoundMm": 1.9571919428309759,
+      "limiting": "starboard controller 4"
+    },
+    {
+      "side": -1,
+      "start": [
+        110.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        -242.0,
+        480.0
+      ],
+      "massKg": 0.041915238750000014,
+      "minimumDeviceOrServiceGapBoundMm": 225.5881860475349,
+      "limiting": "dressed battery and grip vertical 250mm"
+    },
+    {
+      "side": -1,
+      "start": [
+        110.0,
+        -242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        -145.0,
+        187.325
+      ],
+      "massKg": 0.10138282191254748,
+      "minimumDeviceOrServiceGapBoundMm": 1.4754522484839523,
+      "limiting": "starboard controller 4"
+    },
+    {
+      "side": 1,
+      "start": [
+        110.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        110.0,
+        145.0,
+        187.325
+      ],
+      "massKg": 0.0923124549531742,
+      "minimumDeviceOrServiceGapBoundMm": 21.282581901810456,
+      "limiting": "port controller 2"
+    },
+    {
+      "side": 1,
+      "start": [
+        110.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        110.0,
+        212.0,
+        187.325
+      ],
+      "massKg": 0.08808443234239242,
+      "minimumDeviceOrServiceGapBoundMm": 17.930413659776477,
+      "limiting": "port controller 2"
+    },
+    {
+      "side": 1,
+      "start": [
+        250.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        145.0,
+        187.325
+      ],
+      "massKg": 0.0923124549531742,
+      "minimumDeviceOrServiceGapBoundMm": 7.971832392130828,
+      "limiting": "port controller 4"
+    },
+    {
+      "side": 1,
+      "start": [
+        250.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        212.0,
+        187.325
+      ],
+      "massKg": 0.08808443234239242,
+      "minimumDeviceOrServiceGapBoundMm": 1.957191942830974,
+      "limiting": "port controller 4"
+    },
+    {
+      "side": 1,
+      "start": [
+        110.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        242.0,
+        480.0
+      ],
+      "massKg": 0.041915238750000014,
+      "minimumDeviceOrServiceGapBoundMm": 145.52961581839628,
+      "limiting": "full breaker above-hand corridor"
+    },
+    {
+      "side": 1,
+      "start": [
+        110.0,
+        242.0,
+        480.0
+      ],
+      "end": [
+        250.0,
+        145.0,
+        187.325
+      ],
+      "massKg": 0.10138282191254748,
+      "minimumDeviceOrServiceGapBoundMm": 1.475452248483979,
+      "limiting": "port controller 4"
+    }
+  ],
+  "idealPinEndedStockMassKg": 1.0081836705073615,
+  "sizing": {
+    "rail": {
+      "MPa": 50.92652517820179,
+      "normalMPa": 47.80018826951744,
+      "shearMPa": 10.143190952961303,
+      "x": 250.0,
+      "y": -115.3,
+      "netN": [
+        596.5871542370219,
+        267.9407766785846,
+        -1791.0329133363093
+      ],
+      "momentNmm": [
+        145101.45544148763,
+        7576.656858810171,
+        17718.638480839552
+      ],
+      "event": {
+        "run": "adverse/coral-A/1/1/-0.04/0.0001/17",
+        "channel": "port/netFootUpliftN",
+        "time": 21.993272635313534
+      }
+    },
+    "stock": {
+      "MPa": 21.806174068758455,
+      "forcesN": [
+        2418.018498190661,
+        -1131.1780426666542,
+        925.7029229697864,
+        -1430.0003461125718,
+        298.29357711851094,
+        -1442.9999927729261
+      ],
+      "event": {
+        "run": "adverse/coral-A/1/1/-0.04/0.0001/17",
+        "channel": "port/netFootUpliftN",
+        "time": 21.993272635313534
+      },
+      "side": -1
+    },
+    "buckling": {
+      "ratio": 0.04282250832390902,
+      "event": {
+        "run": "adverse/coral-A/-1/-1/-0.04/0.0001/17",
+        "channel": "port/netFootCompressionN",
+        "time": 21.993272635313534
+      },
+      "side": 1
+    },
+    "foot": {
+      "N": 2418.018498190661,
+      "station": [
+        110.0,
+        -145.0,
+        187.325
+      ],
+      "reactionN": [
+        0.0,
+        -760.7027058563488,
+        2295.2439632629575
+      ],
+      "event": {
+        "run": "adverse/coral-A/1/1/-0.04/0.0001/17",
+        "channel": "port/netFootUpliftN",
+        "time": 21.993272635313534
+      }
+    }
+  },
+  "limits": "A prospective triangulated support joins the existing four upper pickup datums to two full-depth stations on each X110/250 beam. The 10.5 mm end relief carries no upper fitting. Two separate side trusses with actual force/moment equilibrium, geometry, nominal 19.05 square x 1.5875 wall section and signed peak event loads from the old 2x duty. Buckling uses pinned ends. Connection offset, stock tolerance, fitting and fastener mass, in-plane wall event, actual pan and wiring sweeps remain to be resolved. A negative capsule-to-box lower bound is inconclusive and needs actual geometry."
+}

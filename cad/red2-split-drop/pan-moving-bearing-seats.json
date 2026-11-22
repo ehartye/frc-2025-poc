@@ -1,0 +1,67 @@
+{
+  "schema": "red2/moving-thrust-checkpoint@1",
+  "engineeringAuthority": {
+    "file": "artifacts/fusion-authority/receiver-service-original-vendor-motors-and-plates.f3d",
+    "sha256": "a53b05b14a730ea55b01f1e4780446fa894bdf8cf6121ae2e5cc33015d74932f"
+  },
+  "engineeringAuthorityRegister": {
+    "file": "cad/fusion-authority.json",
+    "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+  },
+  "privateParent": {
+    "file": "artifacts/red2-integrated/pan-thrust/fixed-races/checked-297.f3d",
+    "sha256": "f2c30b59a6fef5d1bd511819d3bc33252c99c8f6bac45627abfb6a2ea7779f75"
+  },
+  "inboardWasherCheckpoint": {
+    "file": "artifacts/red2-integrated/pan-thrust/moving-stack/checked-298.f3d",
+    "sha256": "76f9f778fa7e0625480e1aad1220a46b09e03dfa1c77d8662b77a2a349bc1e6d"
+  },
+  "savedCandidate": {
+    "file": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/checked-301.f3d",
+    "sha256": "51d0d68d9be9b47eddb01155e4e40b5171946798062b846dd1cbfedd0bc482ee"
+  },
+  "candidateStep": {
+    "file": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/checked-301.step",
+    "sha256": "8b910727e915f035a42e481fa30d7d2cf53cf1e090af2a245b0811316abff175"
+  },
+  "coldSourceReceipt": {
+    "file": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/r3-moving-proxy-short-01.json",
+    "sha256": "48f5b298745cf53dea430a319cb4dd718d9869142ed7572ed9223785b64b19e6"
+  },
+  "trueSourceAndFaceComparison": {
+    "file": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/four-seats-and-shapes.json",
+    "sha256": "3eebb00f4d1029d65692bbb91cf0d2ea806c8ce6d597b4b04aa2d64d67ec728b"
+  },
+  "teachingFixtureOnOriginalParts": {
+    "file": "artifacts/red2-integrated/pan-thrust/nested-shim-coupon/nested-shaft-shim.json",
+    "sha256": "812564f43b24e78d5036a083d04fee5f7031d050b0edf1198b7d237cad480805"
+  },
+  "guardedPlan": {
+    "file": "artifacts/red2-integrated/pan-thrust/native-r3-moving-stack-proxy-job.json",
+    "sha256": "1f794d666c8f887c729465ac886bbe2c105d29149f0c7f218746c8206ad21eab"
+  },
+  "bodyCount": 301,
+  "shaftAnglesDeg": [
+    -54.0,
+    -38.0,
+    -54.0,
+    -70.0
+  ],
+  "fixedArticles": 3,
+  "movingArticles": 4,
+  "maximumMaterialVertexErrorMm": 4.43961293735052e-13,
+  "status": "Private installed candidate for the two fixed races, two rotating races, shim, support and cap. The 18 rolling articles and six fasteners have no installed verification in this issue.",
+  "delta": "297 fixed-race issue, then 298 inboard moving race, 299 original 302 shim, 300 original 6061-T6 cap, 301 outboard moving race. Private prebuild controls only.",
+  "physicalRestrictions": [
+    "The fixed diaphragm and both housing washers block inserting the inboard moving washer after closure. The washer-first 294 nominal bare-shank path is valid in geometry. Temporary assembly restraint, fit with stock variation, bearing life, screw retention, support and loaded motion remain open.",
+    "Lower-driven fasteners clear on the initial eight sites. The wide-shoe control collides with eight knee stations. The tested sidewall single-sill option can open under actual sampled force. A transverse removable cartridge spanning both sills reduces overturning demands."
+  ],
+  "structureScreen": {
+    "file": "artifacts/red2-integrated/pan-thrust/two-sill-cartridge-selected-duty.json",
+    "sha256": "12f1611420a508606a59d9fc96e587bc2ccefa30e3d7fbf00a6345cd30f33457"
+  },
+  "crossframeClearance": {
+    "file": "artifacts/red2-integrated/pan-thrust/two-sill-cartridge-fit.json",
+    "sha256": "1cf078cd9a7b0afdbee7893c6e1afbace361703db26877c4ac6be8638743e3ac"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "red2/tipping-retention-review@1",
+  "issue": "red2-002-preliminary-layout-A",
+  "step": {
+    "file": "iterations/002/design/preliminary/layout.step",
+    "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+  },
+  "method": "Static gravity projection into the pan frame at each change of support, rigid sweep of the whole seated pipe from its stow seat toward each opening against every other reserve, and the existing free-piece replays for dynamic capture, power loss and peer contact. Separate from the prescribed (carriedWith) animation.",
+  "supportChanges": [
+    {
+      "thetaDeg": 70.0,
+      "stage": "stow: station receive and loaded carry",
+      "gravityAlongFloorG": -0.9396926207859083,
+      "gravityIntoFloorG": 0.3420201433256688,
+      "pushBack": [
+        "rear lip (-u)",
+        "floor (-w)",
+        "cheeks (+/-Y)"
+      ],
+      "exitDirection": "toward the lip; retained"
+    },
+    {
+      "thetaDeg": 34.0,
+      "stage": "mid-tip",
+      "gravityAlongFloorG": -0.5591929034707469,
+      "gravityIntoFloorG": 0.8290375725550417,
+      "pushBack": [
+        "rear lip (-u)",
+        "floor (-w)",
+        "cheeks (+/-Y)"
+      ],
+      "exitDirection": "toward the lip; retained"
+    },
+    {
+      "thetaDeg": 0.0,
+      "stage": "lip unloads: gravity along the floor reaches zero",
+      "gravityAlongFloorG": -0.0,
+      "gravityIntoFloorG": 1.0,
+      "pushBack": [
+        "floor (-w)",
+        "cheeks (+/-Y)",
+        "friction only along u"
+      ],
+      "exitDirection": "none"
+    },
+    {
+      "thetaDeg": -2.0,
+      "stage": "commanded dump: release toward the open front edge",
+      "gravityAlongFloorG": 0.03489949670250097,
+      "gravityIntoFloorG": 0.9993908270190958,
+      "pushBack": [
+        "floor (-w)",
+        "cheeks (+/-Y)"
+      ],
+      "exitDirection": "toward the open front edge"
+    },
+    {
+      "thetaDeg": -5.0,
+      "stage": "soft stop: unpowered rest after an opening event",
+      "gravityAlongFloorG": 0.08715574274765817,
+      "gravityIntoFloorG": 0.9961946980917455,
+      "pushBack": [
+        "floor (-w)",
+        "cheeks (+/-Y)"
+      ],
+      "exitDirection": "toward the open front edge"
+    }
+  ],
+  "stowLiftoffForwardAccelMps2": 3.5693286978666543,
+  "sweepsFromStowSeat": {
+    "open face (+w, rear and up)": {
+      "travelMm": 10,
+      "obstruction": [
+        "Inlet chute panels part 3"
+      ]
+    },
+    "up the floor (+u)": {
+      "travelMm": null,
+      "obstruction": [],
+      "note": "free beyond 400 mm: the pipe leaves the pan"
+    }
+  },
+  "restraints": [
+    "Rear lip (slotted, |Y| 96..161) and floor carry the pipe at stow; cheeks bound it in Y with 10 mm side play",
+    "Powered stow hold at 30 A on the 5420 N m/rad stow stop with the 1.5 N m closing spring",
+    "Unpowered: the closing spring holds station impact and 2 g opening contact (pan-stop-study-05 H5-o2g50 kept)",
+    "Open face: a rigid sweep of the seated pipe along +w meets Inlet chute panels part 3 after 10 mm, so the chute stops a rearward escape; the path up the floor (+u) is free"
+  ],
+  "evidence": {
+    "unpowered": {
+      "file": "artifacts/resume-20261121/pan-stop-01/pan-stop-study-05.json",
+      "sha256": "4fffe7cae5b1e58225d590b783e04758338e168bd9bfe6895d0e7f4676f43cfb"
+    },
+    "powered": {
+      "file": "iterations/002/design/preliminary/evidence/pan-stop-study-06.json",
+      "sha256": "3322a8e566e2e4b11eb1eb5ca9fbdc2dbf74eb247050e1ec7ab5b8f282b08dd6"
+    }
+  },
+  "powerOffEscapeControl": {
+    "case": "H5-o3g50-spring-unpowered (pan-stop-study-05)",
+    "result": "lost: a 3 g, 50 ms opening contact with power removed opens the pan and the pipe leaves before scoring",
+    "worstLoadedAngleDeg": -5.0,
+    "note": "With the pan open to its -5 deg soft stop, gravity points 0.087 g along the floor through the open front edge"
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "status": "open",
+      "text": "No positive restraint on the open face at stow. A forward chassis acceleration above 3.57 m/s2 lifts the pipe off the floor; study-06 shows it lift and re-seat for 24-114 ms in every powered event (3 g to the front strike). Custody was kept powered, but the continuous-support test is interrupted."
+    },
+    {
+      "id": "R2",
+      "status": "open",
+      "text": "With power removed the pipe is retained only to 2 g opening contact; 3 g, 4 g, 5 g and the front strike lose it (study-05 holds). Add an article retainer or a latched stow and retest, or accept powered custody only."
+    },
+    {
+      "id": "R3",
+      "status": "open",
+      "text": "No measured PVC-on-pan friction or seated-pipe sensing; release angle and slip rely on the replay model."
+    }
+  ]
+}

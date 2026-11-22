@@ -1,0 +1,3258 @@
+{
+  "issue": "red2-002-preliminary-layout-002",
+  "step": {
+    "file": "cad/preliminary-design/releases/layout-002/package.step",
+    "sha256": "1188ab1a67abe71d7865557faadc9eb52f545aefb5f3ca313809383b0d81f993"
+  },
+  "motion": {
+    "file": "cad/preliminary-design/releases/layout-002/paths.json",
+    "sha256": "e27011affa21655970bc5eebb3ccc559af226586cf8fef85b4b87939d0fc095d"
+  },
+  "design": {
+    "file": "cad/preliminary-design/releases/layout-002/design.json",
+    "sha256": "a589dedaa02dc2bacc2dee741c5fc2d5c90be6a3910abfa7b1d96e0c914f95a8"
+  },
+  "requirements": {
+    "file": "cad/preliminary-design/releases/layout-002/package-limits.json",
+    "sha256": "9b6a3e7525eabb2a41562738394eabda7da1f12715802f09992814635bdc265d"
+  },
+  "runningPayloadKg": [
+    14.486466,
+    14.486466
+  ],
+  "runningPayloadBasis": "Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg",
+  "masses": [
+    {
+      "id": "sds-modules",
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep",
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "kg": [
+        10.886216880000001,
+        11.212803386400001
+      ],
+      "basis": "Catalog 6.0 lb SDS MK4i L2 NEO x 4, wiring included; 3 % item growth (mass-01)"
+    },
+    {
+      "id": "chassis-fabricated",
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ],
+      "kg": [
+        18.696588593445778,
+        19.070520365314692
+      ],
+      "basis": "146 taps-02 solids by measured CAD volume at 2700 kg/m3, including the 0.908 kg pan trusses kept as pocket landings; 2 % growth (mass-01)"
+    },
+    {
+      "id": "chassis-purchased-hardware",
+      "members": [],
+      "kg": [
+        0.8510901702945991,
+        0.8991094642263336
+      ],
+      "basis": "116 McMaster chassis screws, 4 seated clamp screws and the steel spacer; 5-20 % growth"
+    },
+    {
+      "id": "pocket-package-fabricated",
+      "members": [
+        "Pocket tray",
+        "Hood (removable)",
+        "Check flap",
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Deployable exit lip",
+        "Rear inlet upright port",
+        "Floor post port",
+        "Rear inlet upright starboard",
+        "Floor post starboard"
+      ],
+      "kg": [
+        4.1636,
+        4.99632
+      ],
+      "basis": "Estimate: tray floor including the station chute, 1/8 in polycarbonate 0.7606 kg; two side walls, 1/8 in polycarbonate, 150 mm 0.6142 kg; station inlet guides and chute extension, polycarbonate 0.8000 kg; hood, 1/16 in polycarbonate 0.1546 kg; rear check flap, pin and torsion spring 0.0800 kg; two nip side plates, 1/4 in 6061, 50 % pocketed 0.5143 kg; deploy-once lip: polycarbonate lip, hinge, deploy spring and stops 0.3000 kg; two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets 0.5899 kg; rivets, screws and nuts 0.3500 kg; +20 % growth (evaluation B'x lines; the 0.159 kg fence is not used)"
+    },
+    {
+      "id": "pocket-package-purchased",
+      "members": [
+        "Lower nip roller",
+        "Upper nip roller",
+        "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+        "Nip coupling belt",
+        "Lip latch servo",
+        "Seated-pipe beam emitter (port)",
+        "Seated-pipe beam receiver (starboard)",
+        "Lip-deployed switch",
+        "Flap-closed switch",
+        "Reef range sensor (CANrange)"
+      ],
+      "kg": [
+        2.274,
+        2.7288
+      ],
+      "basis": "Estimate: two roller shafts, 1/2 in steel hex, 360 mm (1.10 kg/m) 0.7920 kg; 2 in compliant wheels, up to twelve at 18 g (REV drawing mass) 0.2160 kg; four flanged hex bearings 0.0800 kg; coupling belt, two pulleys and idler 0.1100 kg; NEO 550 (0.142 kg, REV-21-1651) and MAXPlanetary 4:1 x 3:1 x 3:1 (0.261 + 0.133 + 2 x 0.155 kg, REV load-rating page) 0.8460 kg; seated-pipe break beam pair and leads 0.0200 kg; flap-closed and lip-deployed magnetic switches, magnets and leads 0.0400 kg; CANrange reef range sensor (0.6 oz) and bracket 0.0400 kg; lip latch servo (58 g) and pin 0.0700 kg; sprung lip stop: stop bar and two extension springs 0.0600 kg; +20 % growth"
+    },
+    {
+      "id": "joining-allowance",
+      "members": [],
+      "kg": [
+        3.4030071985143433,
+        3.4030071985143433
+      ],
+      "basis": "Named allowance: unresolved joints, splices and backing (mass-01, single layer)"
+    },
+    {
+      "id": "electrical-allowance",
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket",
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ],
+      "kg": [
+        5.496355275198802,
+        5.496355275198802
+      ],
+      "basis": "Named allowance: controllers, PDH, roboRIO, radio, breaker, robot-side plug, harness and mounts (mass-01)"
+    },
+    {
+      "id": "battery-tray-retention",
+      "members": [
+        "Battery tray and retention"
+      ],
+      "kg": [
+        0.35,
+        0.35
+      ],
+      "basis": "Named allowance carved from the mass-01 hardware-and-finish allowance (as the baseline)"
+    },
+    {
+      "id": "permanent-bumper-mounts",
+      "members": [],
+      "kg": [
+        0.3,
+        0.3
+      ],
+      "basis": "Named allowance carved from the mass-01 hardware-and-finish allowance; R103 counts permanent mounts"
+    },
+    {
+      "id": "hardware-finish-remainder",
+      "members": [],
+      "kg": [
+        0.85,
+        0.85
+      ],
+      "basis": "Named allowance: the remaining unspecified installed hardware and finish"
+    },
+    {
+      "id": "bumpers-excluded",
+      "members": [
+        "Bumper ring"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes bumpers; the 7.5 kg one-colour set is carried in the running mass"
+    },
+    {
+      "id": "battery-excluded",
+      "members": [
+        "Dressed battery"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes the battery and battery-side leads; 6.17 kg carried in the running mass"
+    },
+    {
+      "id": "field-fixtures-excluded",
+      "members": [
+        "L1 trough sector A (field)",
+        "Coral station chute (field)",
+        "First scored pipe in sector A (field)"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "Field elements placed for the receive and delivery interactions; not robot mass"
+    }
+  ],
+  "electricalCases": {
+    "lip-deploy-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          1.5
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "lip-deploy-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          1.5
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-01-station-chute-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-01-station-chute-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-02-drop-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-02-drop-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-03-drop-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-03-drop-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-04-drop-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-04-drop-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-05-drop-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-05-drop-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-06-inlet-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-06-inlet-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-07-inlet-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-07-inlet-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-08-inlet-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-08-inlet-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-09-inlet-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-09-inlet-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-10-inlet-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-10-inlet-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-11-pocket-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-11-pocket-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-12-pocket-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-12-pocket-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-13-pocket-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-13-pocket-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-14-captive-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-14-captive-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-15-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-15-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-16-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-16-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-17-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-17-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-18-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-18-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-19-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-19-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-20-drive-away-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-20-drive-away-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-21-brake-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-21-brake-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-22-seat-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-22-seat-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-01-power-off-hit-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-01-power-off-hit-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-02-power-off-hit-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-02-power-off-hit-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-03-power-off-hit-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "carry-03-power-off-hit-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          0
+        ],
+        "steer": [
+          0,
+          0
+        ],
+        "nip": [
+          0,
+          0
+        ],
+        "latch": [
+          0,
+          0
+        ],
+        "controls": [
+          0,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-01-nip-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-01-nip-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-02-lip-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-02-lip-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-03-lip-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-03-lip-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-04-lip-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-04-lip-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-05-flight-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-05-flight-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-06-flight-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-06-flight-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-07-flight-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-07-flight-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-08-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-08-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-09-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-09-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-10-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-10-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-11-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-11-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-12-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-12-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-13-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-13-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-14-trough-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "eject-14-trough-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "nip": [
+          0,
+          30
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "withdraw-park-nominal": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "withdraw-park-weak": {
+      "loadedKg": [
+        61.75732411745353,
+        63.793381689654176
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "nip": [
+          0,
+          5
+        ],
+        "latch": [
+          0,
+          0.2
+        ],
+        "controls": [
+          3,
+          6.6
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges as the pan baseline: drive 0-52 A moving (adverse replay bus total less mechanism and controls) or 0-10 A docked; steer 0-20 A moving, 0-4 A docked; controls 3-6.6 A including the CANrange. Nip 0-30 A at its SPARK MAX current limit while ejecting and while holding against the receive impact (trials: the hold reaches the limit for the impact), 0-5 A holding in the carry (the 8 g sled back-drive is 1.68 N m against 7.64 N m at 30 A). Latch servo 1.5 A stall at the release, 0.2 A idle. Required: eject 9.0 V, the lowest bus the torque-limited eject trials capture at (field-trials.json G2, 9-13 V); other duties 6.0 V; the 9 V project floor governs. Pack: 12.4 V / 25 mOhm and 11.8 V / 27 mOhm nominal, 11.8 V / 32 mOhm weak (experiments/six-wheel/conditioned-match/supply.py)."
+    }
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "schema": "red2/cycle-rehearsal@1",
+  "source": {
+    "file": "kickoff/live-profile.json",
+    "sha256": "e21070b6d52f08d17e59f1e04b3d8a7725221a04b05b8c665c217f797b55bd30"
+  },
+  "plugin": {
+    "script": "scripts/rehearsal-series.mjs",
+    "version": "0.84.0"
+  },
+  "generator": {
+    "file": "iterations/002/design/preliminary-pocket/cycle_rehearsal.py",
+    "sha256": "8911a6bd8333ac9bebe10d52fd5ae2aeed8a19a4f14844a0e83a59acb330ffb8"
+  },
+  "method": "Re-derive the receive-time requirement from the match cycle with the plugin's field rehearsal.\n\n    python -I -B cycle_rehearsal.py PROJECT_ROOT PLUGIN_ROOT\n\nRuns one-match variants of the project's kickoff/live-profile.json through the plugin's scripts/rehearsal-series.mjs.\nThe match is the profile's \"Qual 2\", its working station-cycling setup: one red robot cycles red-chute-low -> red L1\nwhile its partner keeps the trough lane clear. The cycling robot runs a copy of the profile's station program with the\nreceive (acquire) dwell set to 0.50, 0.70, 0.75 (the profile's own value) and 1.00 s. Recorded per variant: credited L1\ndeliveries in TELEOP, the time of the second (the narrative needs two), the TELEOP time left after it, and the score.\n\nTwo variants, each with the plugin's --report-deadlocks wait-cycle report: \"slot1\" (the profile's working Qual 2 setup, the\nstation duty from red slot 1, default waitCycles) and \"slot2-yield\" (Red 2's real slot: the red slot-1 and slot-2 plans and\npreloads exchanged, with rehearsal.waitCycles \"yield\" from Agent FRC 0.84.0). Before 0.84.0 the slot-2 setup deadlocked the\nred pair permanently (deadlock-repro/).\nThe project's own role clock (iterations/002/design/strategy/pan-route-12mm.json: feed 21.1 s, carry start 27.032 s) gives\nthe role-specific receive window.",
+  "rows": [
+    {
+      "variant": "slot1",
+      "receiveDwellS": 0.5,
+      "stationRobot": "R1",
+      "waitCycles": "report",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot1-receive-050.json",
+        "sha256": "5f7d2822a86055c47dc1864f2367f0c9a4ed82378005e97c2fea8825d8f43bf0"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot1-receive-050.json",
+        "sha256": "2a81bba90a3cfdb91bb67e4e91088e7315da2b2552b9d61afc59524b8b929b3d"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot1-receive-050.json",
+        "sha256": "404a1db362fcca60b15757de423a4cace8baf56692771e646872a56cb9305c91",
+        "cycleCount": 0,
+        "permanentCount": 0
+      },
+      "yields": [],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.3,
+      "teleopReserveAfterSecondS": 118.7,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.6000000000000005,
+        16.3
+      ]
+    },
+    {
+      "variant": "slot1",
+      "receiveDwellS": 0.7,
+      "stationRobot": "R1",
+      "waitCycles": "report",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot1-receive-070.json",
+        "sha256": "0798ae354e61b736b11a97557a13402442dcfff554e4d1ec7cbd63c44a03e6e0"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot1-receive-070.json",
+        "sha256": "d4e64732717d54486ddcf0e4fe0f8ef05d58db6e79a07350fa69dcd350186d9f"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot1-receive-070.json",
+        "sha256": "3c15944e1d116e4f3a21cddb7976a3e295712083fbfbd94c4b79acfb197a31b8",
+        "cycleCount": 0,
+        "permanentCount": 0
+      },
+      "yields": [],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.7,
+      "teleopReserveAfterSecondS": 118.3,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.800000000000001,
+        16.7
+      ]
+    },
+    {
+      "variant": "slot1",
+      "receiveDwellS": 0.75,
+      "stationRobot": "R1",
+      "waitCycles": "report",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot1-receive-075.json",
+        "sha256": "35befe62d709d4ebf38e86d9e268ea10370004c98a32f4b4eb83317b47cbfb8e"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot1-receive-075.json",
+        "sha256": "df579dabec7cb7eda4057a1a230672d197de4d9153b6ca3231932aebfc3aa1f7"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot1-receive-075.json",
+        "sha256": "ffa0beebd7fb4defd5f86fad9f66ac8707ef17cb1d39e0a8100cb996ce116015",
+        "cycleCount": 0,
+        "permanentCount": 0
+      },
+      "yields": [],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.8,
+      "teleopReserveAfterSecondS": 118.2,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.8500000000000005,
+        16.8
+      ]
+    },
+    {
+      "variant": "slot1",
+      "receiveDwellS": 1.0,
+      "stationRobot": "R1",
+      "waitCycles": "report",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot1-receive-100.json",
+        "sha256": "f260915f9d5fa62c70278b9bdf9385f3b423f1eea50a5a8f898e58cb915933d1"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot1-receive-100.json",
+        "sha256": "38b1137ebf2b82a6e6360e04e97619f5fa6ebc7fa3e10bc92f6641a3a0979a0e"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot1-receive-100.json",
+        "sha256": "4ed63fefb023e1f7ebbdedea4006226ca3c6f82c4cf23d68e029647f2bf0f75b",
+        "cycleCount": 0,
+        "permanentCount": 0
+      },
+      "yields": [],
+      "creditedL1Teleop": 14,
+      "secondDeliveryTeleopS": 17.3,
+      "teleopReserveAfterSecondS": 117.7,
+      "redScore": 45,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        8.1,
+        17.3
+      ]
+    },
+    {
+      "variant": "slot2-yield",
+      "receiveDwellS": 0.5,
+      "stationRobot": "R2",
+      "waitCycles": "yield",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot2-yield-receive-050.json",
+        "sha256": "03d22faa89d0971d9811b17cfe03483c4442a8deeee5374916c6e2a12189651a"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot2-yield-receive-050.json",
+        "sha256": "9fc458db959066f65079d748420dadb374fb578d0e62fdb77e2b273481d44655"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot2-yield-receive-050.json",
+        "sha256": "5bfabf6ab1b3ca60f7e387b1a99a1d115beeb184eed1a06ed2e83162abc79b37",
+        "cycleCount": 1,
+        "permanentCount": 0
+      },
+      "yields": [
+        {
+          "phase": "AUTO",
+          "timeS": 1.8,
+          "sinceS": 0.8,
+          "cycle": [
+            "R1",
+            "R2"
+          ],
+          "yielded": "R2"
+        }
+      ],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.3,
+      "teleopReserveAfterSecondS": 118.7,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.6000000000000005,
+        16.3
+      ]
+    },
+    {
+      "variant": "slot2-yield",
+      "receiveDwellS": 0.7,
+      "stationRobot": "R2",
+      "waitCycles": "yield",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot2-yield-receive-070.json",
+        "sha256": "71e84379ec5b559cd30a97fb36d407651eb17962e6bfe3d5efd91e7ed764a915"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot2-yield-receive-070.json",
+        "sha256": "4ff944b8732ad431a72cdaade614e706906c495c359f0666396bdf96126e7981"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot2-yield-receive-070.json",
+        "sha256": "d9cf5e4f949438ab288b173f5c1d811e6c248b6b39b205b3488599e64dadd24b",
+        "cycleCount": 1,
+        "permanentCount": 0
+      },
+      "yields": [
+        {
+          "phase": "AUTO",
+          "timeS": 1.8,
+          "sinceS": 0.8,
+          "cycle": [
+            "R1",
+            "R2"
+          ],
+          "yielded": "R2"
+        }
+      ],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.7,
+      "teleopReserveAfterSecondS": 118.3,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.800000000000001,
+        16.7
+      ]
+    },
+    {
+      "variant": "slot2-yield",
+      "receiveDwellS": 0.75,
+      "stationRobot": "R2",
+      "waitCycles": "yield",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot2-yield-receive-075.json",
+        "sha256": "2550e74e627fa21ed4946cde6994a096c8d717b2a7ed349749a162199239c116"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot2-yield-receive-075.json",
+        "sha256": "70d7b0779cbdd2962c903bff464114418b4c0ddd4ed62a02e1761417c4e9894e"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot2-yield-receive-075.json",
+        "sha256": "35a4f38b45ded4c675cdfa4d1147fd1bb4dc4f9b05287d7f6fe9cc66b3a24c5f",
+        "cycleCount": 1,
+        "permanentCount": 0
+      },
+      "yields": [
+        {
+          "phase": "AUTO",
+          "timeS": 1.8,
+          "sinceS": 0.8,
+          "cycle": [
+            "R1",
+            "R2"
+          ],
+          "yielded": "R2"
+        }
+      ],
+      "creditedL1Teleop": 15,
+      "secondDeliveryTeleopS": 16.8,
+      "teleopReserveAfterSecondS": 118.2,
+      "redScore": 47,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        7.8500000000000005,
+        16.8
+      ]
+    },
+    {
+      "variant": "slot2-yield",
+      "receiveDwellS": 1.0,
+      "stationRobot": "R2",
+      "waitCycles": "yield",
+      "profile": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/profile-slot2-yield-receive-100.json",
+        "sha256": "8c5ab336139b93f001846248504e0652a18de8c34ba6bfeba48eb3d055666e51"
+      },
+      "series": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/series-slot2-yield-receive-100.json",
+        "sha256": "7655b7a9376170cfd3f5738dacb10dd9016a9ce9c8c61aeb78c6cc840be95e9b"
+      },
+      "deadlocks": {
+        "file": "iterations/002/design/preliminary-pocket/evidence/cycle-rehearsal/deadlocks-slot2-yield-receive-100.json",
+        "sha256": "3def592a752ed89cae5fdb7c983e1b218d56c46f87402a79a527a815b9c2b083",
+        "cycleCount": 1,
+        "permanentCount": 0
+      },
+      "yields": [
+        {
+          "phase": "AUTO",
+          "timeS": 1.8,
+          "sinceS": 0.8,
+          "cycle": [
+            "R1",
+            "R2"
+          ],
+          "yielded": "R2"
+        }
+      ],
+      "creditedL1Teleop": 14,
+      "secondDeliveryTeleopS": 17.3,
+      "teleopReserveAfterSecondS": 117.7,
+      "redScore": 45,
+      "blueScore": 24,
+      "firstTwoTeleopS": [
+        8.1,
+        17.3
+      ]
+    }
+  ]
+}

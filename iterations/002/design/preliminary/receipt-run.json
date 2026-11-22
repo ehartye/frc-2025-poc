@@ -1,0 +1,34 @@
+{
+  "schema": "red2/preliminary-run@1",
+  "receipt": {
+    "file": "iterations/002/design/preliminary/receipt.json",
+    "sha256": "2ccf89631297a9788342b0b9aad605dca78e366ad0657ed58366a6d9d12b554f"
+  },
+  "plugin": {
+    "loadedCommit": "157ca45",
+    "loadedVersion": "0.80.0",
+    "currentCommit": "f8fcc24",
+    "currentVersion": "0.81.2",
+    "scriptsChangedBetween": "none: #135-#137 changed docs and skills only, so scripts/ is byte-identical"
+  },
+  "command": "node scripts/design.mjs preliminary-check PROJECT iterations/002/design/preliminary/layout.json --require-checked --write-view",
+  "wallSeconds": 3141,
+  "status": "provisional",
+  "caseSeconds": {
+    "receive-chute": 31.96,
+    "receive-over-edge": 1.41,
+    "receive-seat": 1.89,
+    "loaded-carry": 6.93,
+    "tip-to-dump": 1005.47,
+    "release": 13.86,
+    "reset-to-stow": 1020.38,
+    "park": 1.02,
+    "service-unload-pipe": 2.6,
+    "service-pan-cassette-lift": 37.8,
+    "service-battery-lift": 10.41,
+    "service-battery-rear-carry": 1.0,
+    "service-plug-disconnect": 1.66,
+    "service-breaker-reset": 1.69,
+    "package-displacement-control": 999.19
+  }
+}

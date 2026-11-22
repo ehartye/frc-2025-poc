@@ -1,0 +1,97 @@
+{
+  "schema": "red2/pocket-retention-review@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "step": {
+    "file": "iterations/002/design/preliminary-pocket/layout.step",
+    "sha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de"
+  },
+  "method": "Static gravity projection at the seat, rigid sweep of the whole seated pipe from its carry seat toward each opening against every other reserve, and the free-piece receive and sled trials (evidence/field-trials.json: stick-slip friction, so a seated pipe holds statically) for dynamic capture, power loss and the isolation of each retaining member.",
+  "seat": {
+    "poseMm": [
+      312.77,
+      599.89
+    ],
+    "creepOver3sMm": 1.551,
+    "gravityAlongFloorTowardNipG": 0.2713,
+    "gravityIntoFloorG": 0.9625,
+    "pushBack": [
+      "floor (UHMW face)",
+      "lower and upper treads in the worm-locked bite (front)",
+      "hood 10 mm above (up)",
+      "check flap and its rear stop (rear)",
+      "side walls 10.2 mm from the pipe ends (+/-Y)"
+    ]
+  },
+  "sweepsFromSeat": {
+    "rearward up the floor toward the inlet": {
+      "travelMm": 98.0,
+      "obstruction": [
+        "Check flap"
+      ]
+    },
+    "up (+Z) toward the hood": {
+      "travelMm": 7.0,
+      "obstruction": [
+        "Upper nip roller"
+      ]
+    },
+    "forward (+X) into the nip": {
+      "travelMm": null,
+      "obstruction": [],
+      "note": "no rigid obstruction within 400 mm: the rigid roller cores clear the pipe through the throat; the forward stop is the compliant tread squeeze, qualified by the receive and sled trials"
+    },
+    "down the floor normal": {
+      "travelMm": 5.0,
+      "obstruction": [
+        "Pocket tray"
+      ]
+    }
+  },
+  "powerOff": {
+    "holder": "Self-locking worm: the unpowered nip cannot be back-driven",
+    "sled": {
+      "at40": {
+        "n": 24,
+        "ok": 24,
+        "outcomes": [
+          "retained"
+        ]
+      },
+      "at10": {
+        "n": 24,
+        "ok": 24,
+        "outcomes": [
+          "retained"
+        ]
+      }
+    },
+    "escapeControl": {
+      "case": "sled-isolation-no-flap (field-trials.json playback)",
+      "result": "check flap removed, gently settled pipe, 8 g toward the inlet: 1/2 retained",
+      "firstOpening": "rearward up the floor toward the inlet"
+    }
+  },
+  "isolation": {
+    "worm": "Free-turning rollers: 3/4 adverse receives seat; worm locked: 16/16 at 40 N/mm. Carry sled with free rollers from a free-settled seat: 1 g 2/2, 3 g 2/2, 8 g 2/2.",
+    "flap": "No flap from the received seat: 1 g 2/2, 3 g 2/2, 8 g 2/2; from a gently settled seat: 1 g 2/2, 3 g 2/2, 8 g 1/2",
+    "hood": "No hood: 4/4 adverse receives seat (baseline 4/4); peak rise with the hood 0.74 mm. Not shown to earn its place in this model.",
+    "tread": "10 N/mm tread: 8/16 receives seat clear of the throat (4 pass through, 4 stop in the throat); 40 N/mm: 16/16."
+  },
+  "findings": [
+    {
+      "id": "RR1",
+      "status": "open",
+      "text": "Tread stiffness decides receive custody: passing value 40 N/mm per roller, failing value 10 N/mm, same arrivals, e and mu. Measure the installed bite stiffness of the 35A wheel stack before G1."
+    },
+    {
+      "id": "RR2",
+      "status": "open",
+      "text": "Carry custody in the model rests on static friction in the locked bite and on the flap for a gently settled pipe at 8 g; both need G3 on the bench with the real wheels and reducer."
+    },
+    {
+      "id": "RR3",
+      "status": "open",
+      "text": "No seated-pipe sensor or lip-deployed sensor is placed; the eject interlock needs both."
+    }
+  ]
+}

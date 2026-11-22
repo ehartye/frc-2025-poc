@@ -1,0 +1,1761 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "upperCaseN": 12338.910548125907,
+  "workingStressMPa": 120.0,
+  "distinctLoads": 828,
+  "signedInputFiles": {
+    "corner-tie-trial.json": "419c77f587d948d75abc0fa1370959a2227688025192c4d1675b9d95ee11fc3d",
+    "socket-holes.json": "fe445a83997d4cbd63cba501df2f88fbb8735aeffde6e7a7441d56c0d3556769",
+    "terminal_net_sections.py": "0129a02b1c949c5037242a08008a034b1ebe96b11678de4dea3f471d14f1efd6",
+    "perimeter_footprint.py": "477048f5573a93a13d6d6ddd17e2cf537518ba51e7ab33f1d6b05824cca34bc7"
+  },
+  "corners": "Two genuine three-screw socket connections per rail, both walls, ground in translation through independent stiffness. The module plate attachment is the assumed reaction for this conservative stopped-frame screen.",
+  "scope": "Gross 6061-T6 linear planar lower rail strain, including finite in-plane cartridge rotation and actual axial locations with the upper pilots offset from the lower neutral axis. Working limit 120 MPa. Plate deformation, tire or inertial redistribution, holes, out-of-plane twist, finite upper stock bending, miter stiffness, tube-wall handling, preload and fatigue need independent qualification. Assumed reaction stiffness spans 3\u201330 kN/mm in each group. The analysis covers intact hardware only.",
+  "states": [
+    {
+      "kRingPilotPlateNPerMm": [
+        3000.0,
+        3000.0,
+        3000.0
+      ],
+      "lowerGross": {
+        "rail": "Starboard longitudinal",
+        "spanMm": [
+          35.0,
+          65.0
+        ],
+        "stressMPa": 82.0838696185991,
+        "case": {
+          "face": 4,
+          "atMm": [
+            83.85000000000002,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          282.37514570079014,
+          -271.9960328927413
+        ],
+        "axialN": 62.30229014552552
+      },
+      "highestPrimaryPilotN": 2152.320678616543,
+      "governingPilot": 0,
+      "pilotCase": {
+        "face": 4,
+        "atMm": [
+          357.3,
+          -352.3
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          109.0,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            109.0,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 148.96738890269827
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.6731689374045702,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            -18.52710951146914,
+            1413.1469156141852
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4253.547368055672,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            82.13556268361249,
+            4253.547368055672
+          ],
+          "screwsXYN": [
+            [
+              19.045703728647872,
+              1413.1480965723024
+            ],
+            [
+              27.50694100398769,
+              1416.6716697191698
+            ],
+            [
+              35.58291795097693,
+              1423.7276017642005
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2218.2556200451504,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            2218.2556200451504,
+            83.99533333624458
+          ],
+          "screwsXYN": [
+            [
+              -36.14549747967139,
+              27.905612693183137
+            ],
+            [
+              739.8922714503605,
+              27.975193134023748
+            ],
+            [
+              1514.5088460744614,
+              28.114527509037693
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              -97.55000000000001
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 1532.5120614376585,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            183.575,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            -13.74513287651742,
+            -1532.450420005198
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              70.31,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1416.9990978688038,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -203.975
+          ],
+          "forceXY": [
+            -30.515212227384524,
+            -1416.6704857459697
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              357.3,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 1413.2764349823572,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -229.375
+          ],
+          "forceXY": [
+            19.045703728647872,
+            1413.1480965723024
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 1532.5120614376585,
+      "highestDiagonalN": 4542.2940135190065,
+      "maxForceResidualN": 0.0024811059520288836,
+      "maxMomentResidualNmm": 0.10453333612531424
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        3000.0,
+        3000.0,
+        30000.0
+      ],
+      "lowerGross": {
+        "rail": "Starboard longitudinal",
+        "spanMm": [
+          -35.0,
+          35.0
+        ],
+        "stressMPa": 61.87298869870569,
+        "case": {
+          "face": 4,
+          "atMm": [
+            91.0,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          160.511691514754,
+          -212.95677834033248
+        ],
+        "axialN": 32.97125399190257
+      },
+      "highestPrimaryPilotN": 2148.9190141158247,
+      "governingPilot": 0,
+      "pilotCase": {
+        "face": 4,
+        "atMm": [
+          357.3,
+          -352.3
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          109.0,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            109.0,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 140.83933666547225
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.6539209933704709,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            43.09446669806281,
+            1372.740754200123
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4256.007339753788,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            80.85557446249051,
+            4256.007339753788
+          ],
+          "screwsXYN": [
+            [
+              -31.087925453604658,
+              1372.7468175768342
+            ],
+            [
+              25.493269453796817,
+              1406.9751750688308
+            ],
+            [
+              86.45023046229835,
+              1476.285347108123
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2615.0387551761614,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            2615.0387551761614,
+            -51.82841627332721
+          ],
+          "screwsXYN": [
+            [
+              -2478.303442426769,
+              -16.716910432624683
+            ],
+            [
+              743.7307113567639,
+              -17.133733388703067
+            ],
+            [
+              4349.611486246166,
+              -17.97777245199946
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              -91.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 4436.320335142255,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            183.575,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            20.68018911169646,
+            -4436.272133872651
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              70.31,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1407.2622198445354,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -28.728027650991585,
+            1406.968960506611
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 2596.7229595163362,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            234.375,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            18.055631241130797,
+            2596.660186212236
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              56.77000000000004,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 4436.320335142255,
+      "highestDiagonalN": 4159.376828769043,
+      "maxForceResidualN": 0.001979516906430945,
+      "maxMomentResidualNmm": 0.08794410317204893
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "lowerGross": {
+        "rail": "Starboard longitudinal",
+        "spanMm": [
+          35.0,
+          65.0
+        ],
+        "stressMPa": 83.54805732026415,
+        "case": {
+          "face": 4,
+          "atMm": [
+            116.14999999999998,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          238.73104868639376,
+          -285.6790640609234
+        ],
+        "axialN": 286.47668399157465
+      },
+      "highestPrimaryPilotN": 3840.7118511841363,
+      "governingPilot": 0,
+      "pilotCase": {
+        "face": 5,
+        "atMm": [
+          357.3,
+          -130.04117647058825
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          109.0,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            109.0,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 137.8282902043424
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.7093565617426566,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            -42.05029337840179,
+            1489.113626012229
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4482.228154773723,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            186.06874116979574,
+            4482.228154773723
+          ],
+          "screwsXYN": [
+            [
+              42.33726210652595,
+              1489.1222871738257
+            ],
+            [
+              62.30943640848903,
+              1492.8352959633605
+            ],
+            [
+              81.42204265478077,
+              1500.2705716365365
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2289.715931944475,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            2289.715931944475,
+            73.57343267653951
+          ],
+          "screwsXYN": [
+            [
+              79.60702877543005,
+              24.443164104851093
+            ],
+            [
+              764.3636066656737,
+              24.504111203653565
+            ],
+            [
+              1445.7452965033713,
+              24.626157368034846
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              -109.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 1502.7928548546388,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -178.575
+          ],
+          "forceXY": [
+            -87.18233406465977,
+            -1500.2618455553663
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              357.3,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1494.243109831461,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -203.975
+          ],
+          "forceXY": [
+            -65.04747815847857,
+            -1492.8266131282687
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              357.3,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 1489.7240113257499,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -229.375
+          ],
+          "forceXY": [
+            42.33726210652595,
+            1489.1222871738257
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 1502.7928548546388,
+      "highestDiagonalN": 4884.156509791675,
+      "maxForceResidualN": 0.001956357929884689,
+      "maxMomentResidualNmm": 0.08731595240533352
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        3000.0,
+        30000.0,
+        30000.0
+      ],
+      "lowerGross": {
+        "rail": "Starboard longitudinal",
+        "spanMm": [
+          65.0,
+          183.575
+        ],
+        "stressMPa": 59.148066859650044,
+        "case": {
+          "face": 4,
+          "atMm": [
+            116.14999999999998,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          201.7213368199653,
+          87.93273570913702
+        ],
+        "axialN": -270.50390566131983
+      },
+      "highestPrimaryPilotN": 3367.090839872594,
+      "governingPilot": 0,
+      "pilotCase": {
+        "face": 5,
+        "atMm": [
+          357.3,
+          -130.04117647058825
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          109.0,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            109.0,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 128.84502992578635
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.771222525087303,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            133.56599428965245,
+            1618.98547604004
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 5019.572649715883,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            319.33301136960813,
+            5019.572649715883
+          ],
+          "screwsXYN": [
+            [
+              -123.51066340385917,
+              1619.0297220896757
+            ],
+            [
+              100.6436477183591,
+              1659.3989492539934
+            ],
+            [
+              342.2000270551082,
+              1741.1439783722137
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2501.058835508506,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            2501.058835508506,
+            -259.89818509184494
+          ],
+          "screwsXYN": [
+            [
+              -2050.2368248825355,
+              -83.82842838317677
+            ],
+            [
+              728.8663793636864,
+              -85.91862402446516
+            ],
+            [
+              3822.429281027355,
+              -90.15113268420298
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              -109.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 3859.654842793725,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            183.575,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            91.09738305124,
+            -3858.5796314579634
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              91.0,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1662.5792820486624,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -103.51569631583138,
+            1659.3535999640626
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 2138.8074206136034,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            234.375,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            74.08579650300504,
+            2137.5239126681904
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              70.31,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 3859.654842793725,
+      "highestDiagonalN": 4786.186492668255,
+      "maxForceResidualN": 0.0014723620952281635,
+      "maxMomentResidualNmm": 0.07024652557447553
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        30000.0,
+        3000.0,
+        3000.0
+      ],
+      "lowerGross": {
+        "rail": "Starboard longitudinal",
+        "spanMm": [
+          35.0,
+          65.0
+        ],
+        "stressMPa": 81.40094426814038,
+        "case": {
+          "face": 4,
+          "atMm": [
+            91.0,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          280.0773916727941,
+          -273.0405182943676
+        ],
+        "axialN": 55.146858882610715
+      },
+      "highestPrimaryPilotN": 2099.082790016089,
+      "governingPilot": 0,
+      "pilotCase": {
+        "face": 4,
+        "atMm": [
+          357.3,
+          -352.3
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          -109.0,
+          -352.3
+        ],
+        "case": {
+          "face": 4,
+          "atMm": [
+            -109.0,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 127.99891578903498
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.6590515133991062,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            -12.094627335402846,
+            1383.5109756870445
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4164.344727881844,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            52.62801115275482,
+            4164.344727881844
+          ],
+          "screwsXYN": [
+            [
+              12.750849492232785,
+              1383.512470055584
+            ],
+            [
+              17.62793258459129,
+              1386.9621491088042
+            ],
+            [
+              22.249229075930746,
+              1393.870108717456
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2229.6978498212475,
+          "rail": "Front transverse",
+          "endSign": 1,
+          "groupXYN": [
+            2229.6978498212475,
+            -65.56520962275958
+          ],
+          "screwsXYN": [
+            [
+              1506.791317957606,
+              -21.94568217493442
+            ],
+            [
+              743.7928084157045,
+              -21.836920328977154
+            ],
+            [
+              -20.88627655206323,
+              -21.78260711884801
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              101.85000000000002
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 1514.2849022203238,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            183.575,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            -15.173172529065894,
+            -1514.2088825283713
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              91.0,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1387.1262693894432,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -21.43454614895092,
+            1386.9606510141746
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 1383.5712265590364,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -229.375
+          ],
+          "forceXY": [
+            12.750849492232785,
+            1383.512470055584
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 1514.2849022203238,
+      "highestDiagonalN": 5982.606343414928,
+      "maxForceResidualN": 0.0014398842704395065,
+      "maxMomentResidualNmm": 0.09654413582757115
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        30000.0,
+        3000.0,
+        30000.0
+      ],
+      "lowerGross": {
+        "rail": "Port longitudinal",
+        "spanMm": [
+          35.0,
+          65.0
+        ],
+        "stressMPa": 62.40029159234431,
+        "case": {
+          "face": 0,
+          "atMm": [
+            97.55000000000001,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          -214.78420173000973,
+          199.82017960592853
+        ],
+        "axialN": -31.639135146726346
+      },
+      "highestPrimaryPilotN": 2199.2170095576794,
+      "governingPilot": 3,
+      "pilotCase": {
+        "face": 5,
+        "atMm": [
+          357.3,
+          130.0411764705882
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          -109.0,
+          -352.3
+        ],
+        "case": {
+          "face": 4,
+          "atMm": [
+            -109.0,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 117.74304965625706
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.6377320008710906,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            27.32602092659037,
+            1338.756083271002
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4150.648965584824,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            32.991140595238136,
+            4150.648965584824
+          ],
+          "screwsXYN": [
+            [
+              -11.301413845196633,
+              1338.7641757955157
+            ],
+            [
+              10.477766537793764,
+              1372.1452029593556
+            ],
+            [
+              33.814787902641,
+              1439.7395868299523
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2659.9441962204774,
+          "rail": "Front transverse",
+          "endSign": 1,
+          "groupXYN": [
+            2659.9441962204774,
+            108.31183006499879
+          ],
+          "screwsXYN": [
+            [
+              4359.848264459964,
+              37.57022835695413
+            ],
+            [
+              759.8531324036439,
+              35.806342400843484
+            ],
+            [
+              -2459.757200643131,
+              34.93525930720116
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              101.85000000000002
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 4425.323031374811,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            -183.575,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            -40.14867555486752,
+            -4425.140903504377
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              -84.44999999999999,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1372.2166701400463,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -14.795057259406663,
+            1372.1369086541356
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 2561.2666720179986,
+          "rail": "Starboard longitudinal",
+          "screwXY": [
+            -234.375,
+            -330.97499999999997
+          ],
+          "forceXY": [
+            -36.597097217747184,
+            2561.005196727525
+          ],
+          "case": {
+            "face": 4,
+            "atMm": [
+              -70.31,
+              -352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 4425.323031374811,
+      "highestDiagonalN": 5554.935282104147,
+      "maxForceResidualN": 0.0009939012943505077,
+      "maxMomentResidualNmm": 0.07670947327278554
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        30000.0,
+        30000.0,
+        3000.0
+      ],
+      "lowerGross": {
+        "rail": "Port longitudinal",
+        "spanMm": [
+          35.0,
+          65.0
+        ],
+        "stressMPa": 98.49822732255068,
+        "case": {
+          "face": 0,
+          "atMm": [
+            129.54722222222225,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          -271.9479697485235,
+          337.6854827119995
+        ],
+        "axialN": 223.60387582224286
+      },
+      "highestPrimaryPilotN": 4840.757533780308,
+      "governingPilot": 3,
+      "pilotCase": {
+        "face": 5,
+        "atMm": [
+          357.3,
+          130.0411764705882
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          196.53333333333336,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            196.53333333333336,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 110.23170812142335
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.70421817365174,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            -30.662352414927188,
+            1478.3268875303497
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 4449.770719742115,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            134.24323132814217,
+            4449.770719742115
+          ],
+          "screwsXYN": [
+            [
+              31.0641419774575,
+              1478.3390141629266
+            ],
+            [
+              44.95728488725533,
+              1482.0251357130355
+            ],
+            [
+              58.22180446342935,
+              1489.4065698661525
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 2687.5427644415904,
+          "rail": "Front transverse",
+          "endSign": 1,
+          "groupXYN": [
+            2687.5427644415904,
+            98.45051672536957
+          ],
+          "screwsXYN": [
+            [
+              1619.8991791064173,
+              32.952899295894746
+            ],
+            [
+              897.5847847475077,
+              32.78958616083263
+            ],
+            [
+              170.0588005876653,
+              32.7080312686422
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              116.14999999999998
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 1622.2499317179397,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            178.575
+          ],
+          "forceXY": [
+            1621.8142069677,
+            37.59679556277987
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              109.0
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1482.815907959502,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -48.79085402725192,
+            1482.0129788436584
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 1478.6653514953982,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            -229.375
+          ],
+          "forceXY": [
+            31.0641419774575,
+            1478.3390141629266
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 1622.2499317179397,
+      "highestDiagonalN": 6051.6032648750825,
+      "maxForceResidualN": 0.00095893338402675,
+      "maxMomentResidualNmm": 0.07697460637427866
+    },
+    {
+      "kRingPilotPlateNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "lowerGross": {
+        "rail": "Port longitudinal",
+        "spanMm": [
+          65.0,
+          183.575
+        ],
+        "stressMPa": 78.06731036221409,
+        "case": {
+          "face": 0,
+          "atMm": [
+            129.54722222222225,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "endMomentsNm": [
+          -263.7680446725309,
+          -95.58576694303879
+        ],
+        "axialN": -675.7723106332772
+      },
+      "highestPrimaryPilotN": 4650.933681383575,
+      "governingPilot": 3,
+      "pilotCase": {
+        "face": 5,
+        "atMm": [
+          357.3,
+          130.0411764705882
+        ],
+        "widthMm": 0,
+        "profile": "point"
+      },
+      "ringNet": {
+        "atMm": [
+          209.93055555555557,
+          352.3
+        ],
+        "case": {
+          "face": 0,
+          "atMm": [
+            209.93055555555557,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "stressMPa": 105.04568408947364
+      },
+      "plateBounds": {
+        "axialTwoWallTearout": {
+          "mode": "axialTwoWallTearout",
+          "ratio": 0.7695957594671012,
+          "screwXY": [
+            335.97499999999997,
+            229.375
+          ],
+          "forceXY": [
+            81.68577253814698,
+            1615.5704955041306
+          ],
+          "rail": "Front transverse",
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          },
+          "ligamentMm": 2.5250000000000004
+        },
+        "axialEndGroupN": {
+          "mode": "axialEndGroupN",
+          "ratio": 5009.066942402781,
+          "rail": "Front transverse",
+          "endSign": -1,
+          "groupXYN": [
+            172.9611733530146,
+            5009.066942402781
+          ],
+          "screwsXYN": [
+            [
+              -65.62292518862493,
+              1615.641176175822
+            ],
+            [
+              54.58177747749326,
+              1655.925912624567
+            ],
+            [
+              184.00232106414626,
+              1737.4998536023925
+            ]
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "radialEndGroupN": {
+          "mode": "radialEndGroupN",
+          "ratio": 3118.8382199912944,
+          "rail": "Front transverse",
+          "endSign": 1,
+          "groupXYN": [
+            3118.8382199912944,
+            681.895176176874
+          ],
+          "screwsXYN": [
+            [
+              4501.225011390281,
+              236.52963364294084
+            ],
+            [
+              922.6985611379696,
+              225.42479565731927
+            ],
+            [
+              -2305.085352536956,
+              219.9407468766139
+            ]
+          ],
+          "case": {
+            "face": 5,
+            "atMm": [
+              357.3,
+              116.14999999999998
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "innerScrewN": {
+          "mode": "innerScrewN",
+          "ratio": 4519.221187694755,
+          "rail": "Port longitudinal",
+          "screwXY": [
+            183.575,
+            330.97499999999997
+          ],
+          "forceXY": [
+            236.3106199198793,
+            4513.038603227572
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              109.0,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "middleScrewN": {
+          "mode": "middleScrewN",
+          "ratio": 1656.910307917266,
+          "rail": "Front transverse",
+          "screwXY": [
+            335.97499999999997,
+            203.975
+          ],
+          "forceXY": [
+            -59.16971980634969,
+            1655.853469586161
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              357.3,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        },
+        "outerScrewN": {
+          "mode": "outerScrewN",
+          "ratio": 2388.695463440529,
+          "rail": "Port longitudinal",
+          "screwXY": [
+            234.375,
+            330.97499999999997
+          ],
+          "forceXY": [
+            213.63635261778458,
+            -2379.1228480054433
+          ],
+          "case": {
+            "face": 0,
+            "atMm": [
+              98.14999999999998,
+              352.3
+            ],
+            "widthMm": 0,
+            "profile": "point"
+          }
+        }
+      },
+      "highestModuleScrewN": 4519.221187694755,
+      "highestDiagonalN": 6152.208855034161,
+      "maxForceResidualN": 0.0005249005807854701,
+      "maxMomentResidualNmm": 0.05400225264020264
+    }
+  ]
+}

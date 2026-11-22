@@ -1,0 +1,227 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four original SDS L2 modules, two machined longitudinal rails, two transverse rails, one 16-body port terminal cartridge and six phased fully seated fasteners",
+    "revision": "002-port-anchor-504-r4",
+    "asOf": "2026-11-21T09:18:39.656690+00:00",
+    "archiveSha256": "5b2f874aedfd98d165da82808f0002bf3f72c13e9d87672f2938388e54584231",
+    "stepSha256": "b0cbcecbbf149b7dcc2b6b956e667795fc6f181bd73c0523ce807941de9fda26"
+  },
+  "inputSha256": {
+    "port-504-independent.json": "bb042b25861282545751421259f0398077af53b64b413023de496d7aab636da5",
+    "terminal-bolt-loads.json": "3fc7f54e367e38e388bb561c825c4d7734476c8ed6ece5efb8855c466edd21c5",
+    "lower-terminal-anchor-loads.json": "80be675d1f49daf107fee1905880627f4f35e0d9e65cab99a734ef8b71076bc3"
+  },
+  "annularBearingMm": [
+    3.35,
+    4.445
+  ],
+  "areaMm2": 26.81514263453203,
+  "meanHeadFrictionRadiusMm": 3.923136626042334,
+  "trialThreadAndHeadFrictionRange": [
+    0.12,
+    0.18
+  ],
+  "toolRelativeScatter": 0.04,
+  "threadPitchMm": 1.27,
+  "conditionalProofMPa": 965.26602104352,
+  "windows": {
+    "6000-9000": {
+      "dialIntervalNm": [
+        9.340410049651204,
+        9.187656744889017
+      ],
+      "feasible": false,
+      "illustrativeInstallation": {},
+      "loadCases": {
+        "low-line-budget/routine/intact": {
+          "factoredExternalN": 40.92917593581105,
+          "clampRemainingAfter20PctSettleN": 4765.21020045456,
+          "headAverageMPa": 336.1654768887583,
+          "boltCombinedMPa": 746.0758600126227,
+          "fractionConditionalProof": 0.7729225350811194
+        },
+        "low-line-budget/routine/one-lost": {
+          "factoredExternalN": 50.3631013459589,
+          "clampRemainingAfter20PctSettleN": 4757.191363855935,
+          "headAverageMPa": 336.28861156451046,
+          "boltCombinedMPa": 746.1705278419156,
+          "fractionConditionalProof": 0.7730206094225228
+        },
+        "low-line-budget/routine/all-port-lost": {
+          "factoredExternalN": 78.02480959957096,
+          "clampRemainingAfter20PctSettleN": 4733.678911840365,
+          "headAverageMPa": 336.6496612154751,
+          "boltCombinedMPa": 746.4482389214572,
+          "fractionConditionalProof": 0.7733083136133753
+        },
+        "low-line-budget/upper/intact": {
+          "factoredExternalN": 481.7941555490439,
+          "clampRemainingAfter20PctSettleN": 4390.474967783312,
+          "headAverageMPa": 341.91979059753277,
+          "boltCombinedMPa": 750.5239350782175,
+          "fractionConditionalProof": 0.7775306689723198
+        },
+        "low-line-budget/upper/one-lost": {
+          "factoredExternalN": 592.8447697520529,
+          "clampRemainingAfter20PctSettleN": 4296.0819457107555,
+          "headAverageMPa": 343.3692594853469,
+          "boltCombinedMPa": 751.6520720050222,
+          "fractionConditionalProof": 0.7786994005988461
+        },
+        "low-line-budget/upper/all-port-lost": {
+          "factoredExternalN": 918.4621090797267,
+          "clampRemainingAfter20PctSettleN": 4019.3072072822324,
+          "headAverageMPa": 347.61932335104956,
+          "boltCombinedMPa": 754.9775934992881,
+          "fractionConditionalProof": 0.7821445871295714
+        },
+        "heavy-offset-control/routine/intact": {
+          "factoredExternalN": 41.51358285491303,
+          "clampRemainingAfter20PctSettleN": 4764.713454573324,
+          "headAverageMPa": 336.1731047587447,
+          "boltCombinedMPa": 746.0817237778124,
+          "fractionConditionalProof": 0.772928609847103
+        },
+        "heavy-offset-control/routine/one-lost": {
+          "factoredExternalN": 51.082210495387464,
+          "clampRemainingAfter20PctSettleN": 4756.5801210789205,
+          "headAverageMPa": 336.2979976120034,
+          "boltCombinedMPa": 746.1777449086715,
+          "fractionConditionalProof": 0.7730280861870608
+        },
+        "heavy-offset-control/routine/all-port-lost": {
+          "factoredExternalN": 79.1388862343685,
+          "clampRemainingAfter20PctSettleN": 4732.7319467007865,
+          "headAverageMPa": 336.664202507591,
+          "boltCombinedMPa": 746.4594278256003,
+          "fractionConditionalProof": 0.7733199051372651
+        },
+        "heavy-offset-control/upper/intact": {
+          "factoredExternalN": 496.5707746812721,
+          "clampRemainingAfter20PctSettleN": 4377.914841520918,
+          "headAverageMPa": 342.1126598567706,
+          "boltCombinedMPa": 750.673869635873,
+          "fractionConditionalProof": 0.7776859987512479
+        },
+        "heavy-offset-control/upper/one-lost": {
+          "factoredExternalN": 611.0273094658788,
+          "clampRemainingAfter20PctSettleN": 4280.626786954003,
+          "headAverageMPa": 343.60658393245404,
+          "boltCombinedMPa": 751.8370770584852,
+          "fractionConditionalProof": 0.7788910628447242
+        },
+        "heavy-offset-control/upper/all-port-lost": {
+          "factoredExternalN": 946.6313274418472,
+          "clampRemainingAfter20PctSettleN": 3995.36337167443,
+          "headAverageMPa": 347.98699718971284,
+          "boltCombinedMPa": 755.2665144561934,
+          "fractionConditionalProof": 0.7824439045722312
+        }
+      }
+    },
+    "4000-8000": {
+      "dialIntervalNm": [
+        6.226940033100802,
+        8.166805995456905
+      ],
+      "feasible": true,
+      "illustrativeInstallation": {
+        "dialNm": 7.2,
+        "clampRangeN": [
+          4625.064613904527,
+          7052.940896605379
+        ]
+      },
+      "loadCases": {
+        "low-line-budget/routine/intact": {
+          "factoredExternalN": 40.92917593581105,
+          "clampRemainingAfter20PctSettleN": 3165.2102004545604,
+          "headAverageMPa": 298.87311512029174,
+          "boltCombinedMPa": 663.2241749878965,
+          "fractionConditionalProof": 0.6870895282016711
+        },
+        "low-line-budget/routine/one-lost": {
+          "factoredExternalN": 50.3631013459589,
+          "clampRemainingAfter20PctSettleN": 3157.191363855935,
+          "headAverageMPa": 298.9962497960439,
+          "boltCombinedMPa": 663.318856519559,
+          "fractionConditionalProof": 0.6871876167385079
+        },
+        "low-line-budget/routine/all-port-lost": {
+          "factoredExternalN": 78.02480959957096,
+          "clampRemainingAfter20PctSettleN": 3133.678911840365,
+          "headAverageMPa": 299.35729944700853,
+          "boltCombinedMPa": 663.5966240552806,
+          "fractionConditionalProof": 0.6874753794170505
+        },
+        "low-line-budget/upper/intact": {
+          "factoredExternalN": 481.7941555490439,
+          "clampRemainingAfter20PctSettleN": 2790.4749677833124,
+          "headAverageMPa": 304.6274288290662,
+          "boltCombinedMPa": 667.675873102353,
+          "fractionConditionalProof": 0.6917014155129471
+        },
+        "low-line-budget/upper/one-lost": {
+          "factoredExternalN": 592.8447697520529,
+          "clampRemainingAfter20PctSettleN": 2696.081945710755,
+          "headAverageMPa": 306.07689771688035,
+          "boltCombinedMPa": 668.8058688529525,
+          "fractionConditionalProof": 0.6928720728508879
+        },
+        "low-line-budget/upper/all-port-lost": {
+          "factoredExternalN": 918.4621090797267,
+          "clampRemainingAfter20PctSettleN": 2419.3072072822324,
+          "headAverageMPa": 310.326961582583,
+          "boltCombinedMPa": 672.1389802974863,
+          "fractionConditionalProof": 0.6963251224474442
+        },
+        "heavy-offset-control/routine/intact": {
+          "factoredExternalN": 41.51358285491303,
+          "clampRemainingAfter20PctSettleN": 3164.713454573324,
+          "headAverageMPa": 298.88074299027824,
+          "boltCombinedMPa": 663.230039519781,
+          "fractionConditionalProof": 0.6870956037619381
+        },
+        "heavy-offset-control/routine/one-lost": {
+          "factoredExternalN": 51.082210495387464,
+          "clampRemainingAfter20PctSettleN": 3156.5801210789205,
+          "headAverageMPa": 299.00563584353694,
+          "boltCombinedMPa": 663.3260747467061,
+          "fractionConditionalProof": 0.6871950947051926
+        },
+        "heavy-offset-control/routine/all-port-lost": {
+          "factoredExternalN": 79.1388862343685,
+          "clampRemainingAfter20PctSettleN": 3132.731946700787,
+          "headAverageMPa": 299.3718407391245,
+          "boltCombinedMPa": 663.6078157412252,
+          "fractionConditionalProof": 0.6874869738228419
+        },
+        "heavy-offset-control/upper/intact": {
+          "factoredExternalN": 496.5707746812721,
+          "clampRemainingAfter20PctSettleN": 2777.914841520919,
+          "headAverageMPa": 304.82029808830407,
+          "boltCombinedMPa": 667.8260333263712,
+          "fractionConditionalProof": 0.6918569790785805
+        },
+        "heavy-offset-control/upper/one-lost": {
+          "factoredExternalN": 611.0273094658788,
+          "clampRemainingAfter20PctSettleN": 2680.626786954003,
+          "headAverageMPa": 306.3142221639875,
+          "boltCombinedMPa": 668.9912139335146,
+          "fractionConditionalProof": 0.6930640873593461
+        },
+        "heavy-offset-control/upper/all-port-lost": {
+          "factoredExternalN": 946.6313274418472,
+          "clampRemainingAfter20PctSettleN": 2395.36337167443,
+          "headAverageMPa": 310.6946354212463,
+          "boltCombinedMPa": 672.428705789566,
+          "fractionConditionalProof": 0.6966252733755443
+        }
+      }
+    }
+  },
+  "scope": "Lower cartridge primary A542 screws only. The pilots carry transverse shear. The modeled coefficients, tool scatter, preload loss and joint load sharing are trial bounds. A representative nutbar, screw finish and washer must establish a controlled torque\u2013clamp relation, retention and repeatability. A positive average clamp and a screw proof screen do not measure washer bending or certify 10-32 keepers, the outer bumper mounts, fatigue, or incoming stock."
+}

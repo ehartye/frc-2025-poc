@@ -1,0 +1,731 @@
+{
+  "issue": "red2-002-preliminary-layout-A",
+  "step": {
+    "file": "iterations/002/design/preliminary/layout.step",
+    "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+  },
+  "motion": {
+    "file": "iterations/002/design/preliminary/motion.json",
+    "sha256": "e7e4bb38f5812baa5e567b35a3448926322785b063d7c20eb634c89fe4d033b7"
+  },
+  "design": {
+    "file": "iterations/002/design/preliminary/design.json",
+    "sha256": "82b445bb6111b839bd366df9bb3c423a31d6600a5f59d2e4971c195fea41a394"
+  },
+  "requirements": {
+    "file": "iterations/002/design/preliminary/budget-limits.json",
+    "sha256": "32d7eba78bed5b469024da3e0099d8d41d7dca798f427841339c26cb68ce4ee7"
+  },
+  "runningPayloadKg": [
+    14.486466,
+    14.486466
+  ],
+  "runningPayloadBasis": "Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg, so the running mass for duty includes everything the inspection ledger excludes",
+  "masses": [
+    {
+      "id": "sds-modules",
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep",
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "kg": [
+        10.886216880000001,
+        11.212803386400001
+      ],
+      "basis": "Catalog 6.0 lb SDS MK4i L2 NEO x 4, wiring included; 3 % item growth (mass-01)"
+    },
+    {
+      "id": "chassis-fabricated",
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ],
+      "kg": [
+        18.696588593445778,
+        19.070520365314692
+      ],
+      "basis": "146 taps-02 solids by measured CAD volume at 2700 kg/m3; 2 % growth (mass-01)"
+    },
+    {
+      "id": "chassis-purchased-hardware",
+      "members": [],
+      "kg": [
+        0.8510901702945991,
+        0.8991094642263336
+      ],
+      "basis": "116 McMaster chassis screws, 4 seated clamp screws and the steel spacer (inside the chassis reserve); 5-20 % growth"
+    },
+    {
+      "id": "pan-package-fabricated",
+      "members": [
+        "Guarded pan",
+        "Pan cassette",
+        "Upper support",
+        "Upper support part 2",
+        "Inlet chute crossmember 1",
+        "Inlet chute crossmember 2",
+        "Inlet guides and frame",
+        "Inlet guides and frame part 2",
+        "Inlet chute panels",
+        "Inlet chute panels part 2",
+        "Inlet chute panels part 3",
+        "Inlet chute panels part 4",
+        "Inlet chute panels part 5"
+      ],
+      "kg": [
+        7.645364000000001,
+        7.798271280000001
+      ],
+      "basis": "r3 moving pan, cassette, upper support and fixed inlet by measured volume; 2 % growth"
+    },
+    {
+      "id": "pan-package-purchased",
+      "members": [],
+      "kg": [
+        1.6286,
+        2.182695
+      ],
+      "basis": "6 sourced REV articles, 11 estimated purchases including the 0.200 kg clutch, pan fasteners, plus 0.15 kg open articles"
+    },
+    {
+      "id": "joining-allowance",
+      "members": [],
+      "kg": [
+        3.4030071985143433,
+        3.4030071985143433
+      ],
+      "basis": "Named allowance: unresolved joints, splices and backing (mass-01, single layer)"
+    },
+    {
+      "id": "electrical-allowance",
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Pan controller (SPARK MAX)",
+        "Chassis battery plug and bracket",
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ],
+      "kg": [
+        5.496355275198802,
+        5.496355275198802
+      ],
+      "basis": "Named allowance: controllers, PDH, roboRIO, radio, breaker, robot-side plug, harness and mounts (mass-01)"
+    },
+    {
+      "id": "battery-tray-retention",
+      "members": [
+        "Battery tray and retention"
+      ],
+      "kg": [
+        0.35,
+        0.35
+      ],
+      "basis": "Named allowance carved from the mass-01 1.5 kg hardware-and-finish allowance so AF7 names it; not yet designed"
+    },
+    {
+      "id": "permanent-bumper-mounts",
+      "members": [],
+      "kg": [
+        0.3,
+        0.3
+      ],
+      "basis": "Named allowance carved from the mass-01 hardware-and-finish allowance (AF7); R103 counts permanent mounts"
+    },
+    {
+      "id": "hardware-finish-remainder",
+      "members": [],
+      "kg": [
+        0.85,
+        0.85
+      ],
+      "basis": "Named allowance: the remaining unspecified installed hardware and finish"
+    },
+    {
+      "id": "bumpers-excluded",
+      "members": [
+        "Bumper ring"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes bumpers; the 7.5 kg one-colour set is carried in the running mass"
+    },
+    {
+      "id": "battery-excluded",
+      "members": [
+        "Dressed battery"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes the battery, battery-side SB50, lugs, insulation and up to 12 in of lead per leg; 6.17 kg carried in the running mass"
+    }
+  ],
+  "electricalCases": {
+    "receive-chute-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-chute-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-over-edge-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-over-edge-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-seat-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "receive-seat-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "loaded-carry-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "pan": [
+          0,
+          7.45
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "loaded-carry-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "pan": [
+          0,
+          7.45
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "tip-to-dump-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "tip-to-dump-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "release-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "reset-to-stow-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "reset-to-stow-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "pan": [
+          0,
+          30
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "park-nominal": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "pan": [
+          0,
+          4.26
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        12.4
+      ],
+      "resistanceOhm": [
+        0.025,
+        0.027
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    },
+    "park-weak": {
+      "loadedKg": [
+        64.59368811745352,
+        66.04922796965417
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          52
+        ],
+        "steer": [
+          0,
+          20
+        ],
+        "pan": [
+          0,
+          4.26
+        ],
+        "controls": [
+          3,
+          6.5
+        ]
+      },
+      "openCircuitV": [
+        11.8,
+        11.8
+      ],
+      "resistanceOhm": [
+        0.032,
+        0.032
+      ],
+      "basis": "Battery-side source ranges. Drive 0-52 A covers the 60.07 A adverse replay bus total less pan and controls (limited-field-four-terminals lowestBus); steer 0-20 A from the 0.225 N m scrub-limited motor torque at 189 rad/s per module (four modules, timed-bus 9.5 A phase peak); pan bounded by its 30 A phase limit (docked) or the 7.45 A loaded-driving peak; controls 3-6.5 A for the 68 W auxiliary budget. Pack: fresh 12.4 V / 25 mOhm and screened 11.8 V / 27 mOhm (nominal), weak 11.8 V / 32 mOhm (experiments/six-wheel/conditioned-match/supply.py)."
+    }
+  }
+}

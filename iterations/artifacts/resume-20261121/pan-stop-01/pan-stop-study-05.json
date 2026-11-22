@@ -1,0 +1,3968 @@
+{
+  "schema": "red2/pan-stop-study@5",
+  "supersedes": "pan-stop-study-04.json replay basis, for the r3 pan package",
+  "worktree": {
+    "path": ".",
+    "branch": "private/red2-native-successor",
+    "commit": "42d90ca4def927c6dfb46d6ff5e046e675754fae",
+    "status": [
+      "?? iterations/002/design/pan/"
+    ],
+    "simInputsUnchangedSince202750f": true
+  },
+  "plugin": {
+    "path": "PLUGIN",
+    "commit": "14190201d6316035339d8315e4ab4313fe6ce7e5",
+    "version": "0.76.0",
+    "loaded": "scripts/hardening.mjs rotary (main, includes PR #130 seated/preloaded stop and recorded duty) via npm run mechanism:review -- rotary"
+  },
+  "packageInputs": {
+    "geometry.json": {
+      "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313",
+      "tracked": false,
+      "readOnly": true
+    },
+    "structure.json": {
+      "sha256": "5186c5a9fc6b5668fb8e97296790fa407d702d8dca10632efc9b882223e0ebab",
+      "tracked": false,
+      "readOnly": true
+    },
+    "operating-intent.json": {
+      "sha256": "5fa46e33227ca71e09506dcfe29db650741d4ab0e2a45528304e019d54dccfb3",
+      "tracked": false,
+      "readOnly": true
+    },
+    "README.md": {
+      "sha256": "1eef026c5b90a20e01d1aa7ca2b5495ebdda89579756c3cae569498a1113c3df",
+      "tracked": false,
+      "readOnly": true
+    }
+  },
+  "batteryInput": {
+    "path": "artifacts/red2-integrated/pan-duty-summary.json",
+    "sha256": "fe048c0ddda7b4968115c5740cc4eb10ee6406a40b89a189184fdbf1a50b98ac"
+  },
+  "appliedChanges": {
+    "panProps": {
+      "massKg": 3.6454990612459555,
+      "firstMomentUKgMm": 309.215137529663,
+      "firstMomentWKgMm": 106.24685443358945,
+      "inertiaKgM2": 0.0948751726857903,
+      "simCentreMm": [
+        289.82107177500677,
+        -0.7467819128632048,
+        609.1446665185196
+      ],
+      "stowGravityArmMm": 1.6234870628057119,
+      "onAxisAddedKg": {
+        "value": 0.0285,
+        "treatment": "no moment about the pivot"
+      }
+    },
+    "stowStop": {
+      "kNmPerRad": [
+        5418.96917696776,
+        6000.0
+      ],
+      "cNmsPerRad": 15.8,
+      "leverMm": 100.0,
+      "contactAtStowMm": [
+        85.21498785396454,
+        149.5,
+        512.0335655494389
+      ]
+    },
+    "spring": {
+      "atStowNm": 1.5,
+      "rateNmPerRad": 1.1936620731892151,
+      "zeroAtDeg": -2.0
+    },
+    "softStop": {
+      "thetaDeg": -5.0,
+      "kNmPerRad": 4050.0,
+      "cNmsPerRad": 12.798,
+      "leverMm": 90,
+      "padMm": 18,
+      "note": "clamped bar; same replay law"
+    },
+    "inhibit": {
+      "thetaDeg": -3.5,
+      "model": "opening-only, non-latching, coast; ideal in the 12-case replay (it never acts there), latency 0/1.5/5 ms in faults"
+    },
+    "jointRangeDeg": [
+      -9.0,
+      70.1
+    ],
+    "pulses": "peer contact/bumper strike as extra chassis acceleration in the route event, applied to pipe and pan inertial loads"
+  },
+  "scripts": {
+    "pan_stop_05.mjs": "abfec54b777d647b29459bdf3976db39bdd717b3f63ed07dfdefed65c1517039",
+    "run_stop_field_04.py": "397904444b629d81f95aa2e497d40c4fe9213e885531342bc1b54075d60e434a",
+    "run_all_05.sh": "9dfc220ce40d5a16edd9ae852a99f58d63ac2b2d99f6daab6d80f8cd0470220e",
+    "run_extra_05.sh": "4c90adb072a8681273e8ae8005035cf77263806ba9759b56718012401007ee0a",
+    "fault_softstop_05.py": "f26bf03525d3e8cdf06b8de1c11cfec50a674ce584e7d72b20e9592d9d4910a8",
+    "rotary_seated_05.py": "04b84dc8f39a283b35eeb328a9a7d41a2dc9a97dc6dce1fefa6ca2762154206a",
+    "build_study_05.py": "f7a1ff590d45a5566c0dead2464eac8ed7be31f5c432584a4b3f3abbcfd716a3"
+  },
+  "outputs": {
+    "B5-r3-nostop-limit.field-bus.json": "c2ed4a85ea18156a22bb7c1b4784e36b9052f97d54a94a3abb2fad35a37046c4",
+    "B5-r3-nostop-limit.field-bus.recovery.java.inc": "14e071d443cf411f320758fd4e9826c727aeeb015f9689bcefb3aeb79a031208",
+    "B5-r3-nostop-limit.field.log": "562bf459d9e99cb27dfea9fb0677c7c74a371b4689481a4b18797e4c3854fb2d",
+    "B5-r3-nostop-limit.hist.json": "e0194084800bab09a8aa856fd7eac1e541f55d4525b00c79b38c9132d2dbbe23",
+    "B5-r3-nostop-limit.lowline.field-bus.json": "afc7a95690b25ca0ff87886f772c3abca1a67f737ad45d84cb6bba246c5692eb",
+    "B5-r3-nostop-limit.lowline.field-bus.recovery.java.inc": "14e071d443cf411f320758fd4e9826c727aeeb015f9689bcefb3aeb79a031208",
+    "B5-r3-nostop-limit.lowline.log": "4fe20fe3b3645e595e15b50b3db100cdb7ae4b020f816c064019add107f246ee",
+    "B5-r3-nostop-limit.pan.json": "6a798828a2fec08095c0050508cb8648b1bf8afa71199bf368be4bdc0cc16b6e",
+    "B5-r3-nostop-limit.pan.json.partial": "f0c05f58182001d96223512f665b9952094645da70f4b585875a7c87d04214e1",
+    "B5-r3-nostop-limit.pan.log": "990a8717d73e7aaa2b2a8b3acf3068f848561193834d7cb3b4433b21b77cbdd8",
+    "fault\\fault-softstop-05.json": "735d34390ed0c003b1f62675384606cccea9371f5f57b6046ed3cd733b6f6c30",
+    "H5-c5g50-nospring-unpowered.field-bus.json": "2b44e2722f6d3a5c81ea9a86413cf987a3dc021883da1058d9459a8200e8599d",
+    "H5-c5g50-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-c5g50-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-c5g50-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-c5g50-nospring-unpowered.lowline.field-bus.json": "34def9cbf563fbf6db1a8cb57a416b5a364c82b46f983176964bb44cf50c3da3",
+    "H5-c5g50-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-c5g50-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-c5g50-nospring-unpowered.pan.json": "fbb34eb89780bddc782beadf90217fcef83c731f26a4882761ff795b365ffe04",
+    "H5-c5g50-nospring-unpowered.pan.json.partial": "60e6b8d9566ddc052205eb8e3ecc8fd0f5d4908325d9e0fc4d696ac8dfdb30ec",
+    "H5-c5g50-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-c5g50-spring-unpowered.field-bus.json": "28f23d1da096b2741e3d043debc0db480d75fe8d38f57b8c33698cf76d52f2c1",
+    "H5-c5g50-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-c5g50-spring-unpowered.field.log": "6071eddbfb707f61abc066a076c456fdaced02b51abb848927aec6fc6b02d70d",
+    "H5-c5g50-spring-unpowered.hist.json": "8c630d812d173de318622bbe4a85c84ea1d456423131e11555e61237b7a9e9f1",
+    "H5-c5g50-spring-unpowered.lowline.field-bus.json": "5857b71222dc5ad36d9a75b507a4948ebda2929cfff92f35a6228b0f0aeced69",
+    "H5-c5g50-spring-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-c5g50-spring-unpowered.lowline.log": "80b979c8f8cbe5bdbcffdd1611fb6c1988f177d2488d81b1e6812d47dca6a0e5",
+    "H5-c5g50-spring-unpowered.pan.json": "8ea826af3a35425823166be3100481e4720579ac65efb84444ba14368a665eea",
+    "H5-c5g50-spring-unpowered.pan.json.partial": "ccfc66f1ef6c00c617df97877f79ae82911dc9a543d67e3a81cf73f064ccaeba",
+    "H5-c5g50-spring-unpowered.pan.log": "d1f3218f8d181ac0e1886e47525e1895c56b59e2aaca9d061b837f195e13d2ca",
+    "H5-cAbuse-nospring-unpowered.field-bus.json": "7eb505cd00e6282d0fb1f4c765eac40d9a8543d5d0c17bb97bc776995f418496",
+    "H5-cAbuse-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-cAbuse-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-cAbuse-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-cAbuse-nospring-unpowered.lowline.field-bus.json": "7269cd300f3d8452cdea08c62d9195626255f37489fd88af87e28e04955c1d11",
+    "H5-cAbuse-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-cAbuse-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-cAbuse-nospring-unpowered.pan.json": "0b3e429cda119fe2e46f65a9268d89948b4582c7c58b98e77652555291d4550b",
+    "H5-cAbuse-nospring-unpowered.pan.json.partial": "48df764a1a0fa47901a047827477f2fe362d99d2ea40a7ee873ea480e85c0b9b",
+    "H5-cAbuse-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-cAbuse-spring-unpowered.field-bus.json": "b82fb0211b3f03e2488f774c0083487bef28878f2db845481b6b094a0c0e183a",
+    "H5-cAbuse-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-cAbuse-spring-unpowered.field.log": "72668ef1a865d5f1eef8738866058f15d0c4fbe341d2274cebf3ad01b2db25c9",
+    "H5-cAbuse-spring-unpowered.hist.json": "59c811b000c9dbf6f9af33c299547d6a5ccd4745d45b125bbde248f681ca0166",
+    "H5-cAbuse-spring-unpowered.lowline.field-bus.json": "fd871cf8b4cbf6d63bae8ba996603ee913ec4add60da5b16f21f92182883a1ba",
+    "H5-cAbuse-spring-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-cAbuse-spring-unpowered.lowline.log": "687e29da97810943b2b296e1ce8e2e6239d9ea2c78284c866eccb2ea720c8a52",
+    "H5-cAbuse-spring-unpowered.pan.json": "97b9e724040b2e68877a7ef32bb66a6d5374abd191268b8bd33d4c4162083e3a",
+    "H5-cAbuse-spring-unpowered.pan.json.partial": "b7cde6c0a5a70ba1b5a68d094ffe35eff13423dc3e6723ddc11361fb21fa8fad",
+    "H5-cAbuse-spring-unpowered.pan.log": "64bf0cf043d314836a96a1d2fe9e15ace9483bb0dbaa7a5c75df0d493541d528",
+    "H5-carryonly-c5g50-nospring-unpowered.field-bus.json": "2ebc4c2a97412313fed2ba69b0b6255cff2071417ab1450784b13bcb264180e0",
+    "H5-carryonly-c5g50-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-carryonly-c5g50-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-carryonly-c5g50-nospring-unpowered.hist.json": "b76f6dfccb07a97377b7230b0aff156b00fc1a77c5886ca445e09178967468c2",
+    "H5-carryonly-c5g50-nospring-unpowered.pan.json": "2a96763364fc18a801c92d341f1c4531f2c2728e7428ecd1c1cc6db0fe213eb8",
+    "H5-carryonly-c5g50-nospring-unpowered.pan.json.partial": "363285df70372113b585f31df6d7938d674acc862d62c8291869f02e8dc8bfcd",
+    "H5-carryonly-c5g50-nospring-unpowered.pan.log": "7d88b925d98047c600b236398819b89ad62d6d0479d12fa312217e96015501e8",
+    "H5-carryonly-nospring-unpowered.field-bus.json": "4f05ea54aa6d5933b037937dc5e0c080ce8ff904b215a29098e8b5da89ca9289",
+    "H5-carryonly-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-carryonly-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-carryonly-nospring-unpowered.hist.json": "b7d85dac1b639b43ec6e5ac8fde14171ef1d7a024551f0f1577eae73f22a45a3",
+    "H5-carryonly-nospring-unpowered.pan.json": "9874dc87864189fcf82dc248500616eb9adc43497cc2a9c52b08e6ebe7b8e272",
+    "H5-carryonly-nospring-unpowered.pan.json.partial": "8907791a9c87264117d8c8918ba6af481908a4eae4c35b7d5568ef0cc35563fc",
+    "H5-carryonly-nospring-unpowered.pan.log": "1d507d171437fd827391bbaade5e883d974f6586d42d4793a651297347bd6989",
+    "H5-carryonly-o2g50-nospring-unpowered.field-bus.json": "93429b5213050adbfaab10553618be4b80fdb31762cb06300e9bce892407dc31",
+    "H5-carryonly-o2g50-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-carryonly-o2g50-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-carryonly-o2g50-nospring-unpowered.hist.json": "fbb5d3cf0a8f0c57d6329b5fe41f25a5907c07cde146c85ef56caea69d0e4880",
+    "H5-carryonly-o2g50-nospring-unpowered.pan.json": "7d45ab396a8ce1191b10da076abb3c38fb897d94a6645afbfcdfa1309aa7f602",
+    "H5-carryonly-o2g50-nospring-unpowered.pan.json.partial": "99e6debde50f4d4c66fd9e032e9ba3c671c3ba9b2237b96caa0d07f6fe956850",
+    "H5-carryonly-o2g50-nospring-unpowered.pan.log": "4c99ec813046abef65c4f0a9aca000dfb1b0ca3ff2a93a122b05ee012f341191",
+    "H5-K5420-nospring-unpowered.field-bus.json": "12c009cc9699d171a9fc5b58bad32d9741033fdc6649bae80342b3ad5f2e0453",
+    "H5-K5420-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-K5420-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-K5420-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-K5420-nospring-unpowered.lowline.field-bus.json": "1988c6213b8201c3a49cbf1626137983474b491690ffb6eec06d81a45eef72ce",
+    "H5-K5420-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-K5420-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-K5420-nospring-unpowered.pan.json": "351fd28264ff7bce0a4f68e09441b7005496741fd87ca770bc3513f4ed6314cb",
+    "H5-K5420-nospring-unpowered.pan.json.partial": "ef672520836d94f2fb252d786670d6ab88a6a82088b72d921dccb308aaa96993",
+    "H5-K5420-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-o2g50-nospring-unpowered.field-bus.json": "32cef88054ab4dc009d760825c2d5b7cec436ae254a757887cd67c546b049f0a",
+    "H5-o2g50-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-o2g50-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o2g50-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-o2g50-nospring-unpowered.lowline.field-bus.json": "5c63a1930d98c60e3835dfa8c04a54c94fd006f29e0ebaa430c50d499b1d0d31",
+    "H5-o2g50-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-o2g50-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o2g50-nospring-unpowered.pan.json": "40da4fd34922ac3a2cf10e12135be147cd3a6539c8313124e9226d9833443d18",
+    "H5-o2g50-nospring-unpowered.pan.json.partial": "2479c93a30d09437a9003fb9cb561efb088ff33369262793e32b0f8662954153",
+    "H5-o2g50-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-o2g50-spring-unpowered.field-bus.json": "7b2f780556124b3e3316c5235d0678b475ebf8262fa7ace6283c661717b78f3a",
+    "H5-o2g50-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o2g50-spring-unpowered.field.log": "9afa002328b02e59f3e2ead3b4006a7ed049dca88c9769b24114a5b47caedd3a",
+    "H5-o2g50-spring-unpowered.hist.json": "3e449a49804a3c9777e0fa5fd602f6eeb1ef61c42e02ed08a4bcdc58fa30f7f8",
+    "H5-o2g50-spring-unpowered.lowline.field-bus.json": "083a9b4e5d3a500530e704ecd7bba78444f72459584b3fae61773372ff4c5ffe",
+    "H5-o2g50-spring-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o2g50-spring-unpowered.lowline.log": "617bbf1404d04b5a504217424e1e49b0e9df1ac2fbfc2c6a82ea2e5778155f47",
+    "H5-o2g50-spring-unpowered.pan.json": "a495cee18927ce7e2e60c9b42a5f6164e90899b4eea1f3e4818520721d8153aa",
+    "H5-o2g50-spring-unpowered.pan.json.partial": "6233c68f81656c4043fcef9b4cf1bf67773fba3cc9067233f16566bcf71273e6",
+    "H5-o2g50-spring-unpowered.pan.log": "f79951686217ff38fada93881f1a199686edf1d400990b57ceffce4b708a6832",
+    "H5-o3g50-spring-unpowered.field-bus.json": "8073ad99c4db371405a5b7c7a14338b69ba0d4f03fef2f897be0166d4be71fc6",
+    "H5-o3g50-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o3g50-spring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o3g50-spring-unpowered.hist.json": "13bb8ee026159477b51da38542689bc5d813654d207e17ba7847237e3d93a1ea",
+    "H5-o3g50-spring-unpowered.pan.json": "9e11dec80463eff0977bbe836693dede1eafca3fdb72b8883dc9c119dba5b7ec",
+    "H5-o3g50-spring-unpowered.pan.json.partial": "3ba50c8d3336e8bf91cd299a968948c6faa35d46684b6623399bb0897399e275",
+    "H5-o3g50-spring-unpowered.pan.log": "1eac0f920ddc73b697414c8c8292f1cf7e39eb4f5a6d6fde21c3d3db8c75aa87",
+    "H5-o4g50-spring-unpowered.field-bus.json": "fee4179a98b8cb7f7ce29989a2cc11f9224cdd74070a540016c90c6ff2eeb31a",
+    "H5-o4g50-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o4g50-spring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o4g50-spring-unpowered.hist.json": "ebb6e06074c9142fc1b53c1b4f91f1f737b26a59ef025cc3a08cc377cdef15e5",
+    "H5-o4g50-spring-unpowered.pan.json": "720d02b0e827a1151b200f579d2a94688b3dc8fe670bbbc3d9066ca4d3a9c669",
+    "H5-o4g50-spring-unpowered.pan.json.partial": "456bd6598caf23b0fb8e16e13fb7b36de04a39c029fdaa51731184807e39540d",
+    "H5-o4g50-spring-unpowered.pan.log": "d3ce9bbe7b865b30e9ead6386f843d735bfe8441847c8537241d38b9b0f7348f",
+    "H5-o5g50-nospring-unpowered.field-bus.json": "b304ef2eb06fdb5bb4de192d89e67d334d63c35ddf655fb41f843e837970169e",
+    "H5-o5g50-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-o5g50-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o5g50-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-o5g50-nospring-unpowered.lowline.field-bus.json": "87dfd0a04325382123c94297912651bbe7280f2bb4337980d00b784ca126ff0a",
+    "H5-o5g50-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-o5g50-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o5g50-nospring-unpowered.pan.json": "6683befe582933b287cc9ee58b4947942ac6de13465d40927990ff6d79b1001d",
+    "H5-o5g50-nospring-unpowered.pan.json.partial": "e72ee0fbca34a776b58b660e2d89a7e86597c4153d00831df6c7b0287cb09515",
+    "H5-o5g50-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-o5g50-spring-unpowered.field-bus.json": "6177cd02372e8e85f4198400a19f33a65ebe4e00a79070313ff64b6833169ed3",
+    "H5-o5g50-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o5g50-spring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o5g50-spring-unpowered.hist.json": "042f017b2d147f7f7faee57a8c1cd601c110b2d70328f99213b4f18402cdc1b2",
+    "H5-o5g50-spring-unpowered.lowline.field-bus.json": "45b456ca513728a4a45ecab8aaa5b50e584d9b35578b5d2a4c48a795c80b51db",
+    "H5-o5g50-spring-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-o5g50-spring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o5g50-spring-unpowered.pan.json": "f67d7907dbf707c7d906a6e2798738c095de138a2b629b7c87ba73dd18b9dc3b",
+    "H5-o5g50-spring-unpowered.pan.json.partial": "1663e6d9df48f5f19ac8928593a5fb8e25f360b045dc1641d20ddd83c6775e09",
+    "H5-o5g50-spring-unpowered.pan.log": "268e876c495f36f3091e1607af08746cb1f808c1c78f340296508c2cea5da5d6",
+    "H5-o5g50-spring3Nm-unpowered.field-bus.json": "923d6650277353ef3a2c1d059dc50d9b014f8ed198db6348a5c1c9ea5925c659",
+    "H5-o5g50-spring3Nm-unpowered.field-bus.recovery.java.inc": "a2d8a9a8087b568390f81d6ec03542f4863906335b3f658fdba1f8bb2c1256f1",
+    "H5-o5g50-spring3Nm-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-o5g50-spring3Nm-unpowered.hist.json": "0d0dcb9ba75a8bf7e94b6e6ed69d2ce06a88d386cf5b09942027169be5ef3342",
+    "H5-o5g50-spring3Nm-unpowered.pan.json": "a334131c105b51cbda52c333da0f6254f162cdcc82793f8b2188b5a4098c49ee",
+    "H5-o5g50-spring3Nm-unpowered.pan.json.partial": "f0c3d6c472c74d408d480153299a064ca962a9d1304fde09ca8be5c457ce7ab8",
+    "H5-o5g50-spring3Nm-unpowered.pan.log": "f3c93d99b95b1ff1fe36e3d7a91a10b21a8f63005a7623263eff5eb132b4a496",
+    "H5-oAbuse-nospring-unpowered.field-bus.json": "d9ecc8015fee0575f6ce402053960626cddaba152bd4e963c4a0aea13afa8580",
+    "H5-oAbuse-nospring-unpowered.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-oAbuse-nospring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-oAbuse-nospring-unpowered.hist.json": "ea34e3a303e48cc24c70a0f27a40dce1c2b242d2e5cbf656e581b90c8a7f0e9b",
+    "H5-oAbuse-nospring-unpowered.lowline.field-bus.json": "4061cad653e3d9218769aded005fb0c3537370f8d47e17cdd74c65de2f2342a2",
+    "H5-oAbuse-nospring-unpowered.lowline.field-bus.recovery.java.inc": "14d5be11305373f63ad7431c20d39cd66e5fa8ba0366c7d41cb233f1675232d2",
+    "H5-oAbuse-nospring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-oAbuse-nospring-unpowered.pan.json": "2989de098b5e2c16995cd07bacfbd73b13c531af1724036b41ee5a69eb1aee23",
+    "H5-oAbuse-nospring-unpowered.pan.json.partial": "2ac096415aeef5aeb2122c6dff182113a7a4c858167b1ee4de115cb28f33e6ae",
+    "H5-oAbuse-nospring-unpowered.pan.log": "fad681299f752f8b0510a3e3737cdaaf41a759af83c0f37c8e5a67064a47f71f",
+    "H5-oAbuse-spring-unpowered.field-bus.json": "50671d4d8d23e8dde0be08e3b06e6276711a5eb09588cf838dc429ce8633c716",
+    "H5-oAbuse-spring-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-oAbuse-spring-unpowered.field.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-oAbuse-spring-unpowered.hist.json": "2f75435cda4ee59fcf7cc5cf9e2a2ef2bff987e38225220c302733bb6a377c5c",
+    "H5-oAbuse-spring-unpowered.lowline.field-bus.json": "c0b7648606db1ba6c324c09cb3404fa6666dc3b18686cee66b18515ba15a9348",
+    "H5-oAbuse-spring-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "H5-oAbuse-spring-unpowered.lowline.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5-oAbuse-spring-unpowered.pan.json": "08c219e88df8af1aadea72265ca3aef0b086ac29178487e0e2b95b6ed1ccbd73",
+    "H5-oAbuse-spring-unpowered.pan.json.partial": "e35d80fe035122a184601ebd9c329d657d657940a4019a14a74852068717b804",
+    "H5-oAbuse-spring-unpowered.pan.log": "3ed4f65b670ff6fd3c263050bf91118200a44f84319ac3caf16ad9d1b6a4305a",
+    "P5-K5420-limit.field-bus.json": "05ec97d3fba4516594654e9e995fd0b5bb8bbb1b7c34738c7941ad4d65b56872",
+    "P5-K5420-limit.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "P5-K5420-limit.field.log": "eadd5067d0b72845926dc3142c28afeb8372c217b4c16cfa726918b06a1c3e39",
+    "P5-K5420-limit.hist.json": "c3c958e0fc97cb7ab12da041e1a3d21a1df87e3c65bdd5091cf107ce2e673a9d",
+    "P5-K5420-limit.lowline.field-bus.json": "3013e63e5cd0c76062d010db23310044cddd53bd573117d47cbf19a86ce4bb9c",
+    "P5-K5420-limit.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "P5-K5420-limit.lowline.log": "788c92ed8e331f646d561b1e7fc41ffab78b612e35ec44ac84d5773748ea5dd4",
+    "P5-K5420-limit.pan.json": "e2d14b830e58327eefcec9e531b2937cee5a2a31275e5e53615182262ba16a87",
+    "P5-K5420-limit.pan.json.partial": "a3066fd6f3a776f5cd3a3048ee64df573c24fbbbf7e2584d8c80d1f9888448bf",
+    "P5-K5420-limit.pan.log": "f493eae7c526c41776a06f818f104f37153ed0581e79fe5a199a298559f25599",
+    "P5-K5420-unpowered.field-bus.json": "8510001d355989e520010b0cf0822453865c3c23855045fdf27a4b49e2cdd611",
+    "P5-K5420-unpowered.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "P5-K5420-unpowered.field.log": "990de1e62c222b3c2f43d543b0854e9003363ae91d274a0f753473b06cd434aa",
+    "P5-K5420-unpowered.hist.json": "b05c079af69902e0c2517d9cecfedfdf2f9f99f6099a187873215c689ac2cc7c",
+    "P5-K5420-unpowered.lowline.field-bus.json": "8424245b4a025403c24c247b7572af784ee3e722be8f812bb2f9bd897fec8ce4",
+    "P5-K5420-unpowered.lowline.field-bus.recovery.java.inc": "0e90a267355241010facab59d9ae23bf26effd1e1c8275a802d12c562137a2e3",
+    "P5-K5420-unpowered.lowline.log": "728baffcff903cc0285854c502d4b1092e68274ad90aff47affd29513da358cd",
+    "P5-K5420-unpowered.pan.json": "fa454dc627b509bdff2185661cdb6da191488aa215dea8b66a21d7a1bb9f262c",
+    "P5-K5420-unpowered.pan.json.partial": "e77556d188820da5c17f3c8d1aad8c6ad312808a4a977a3b7f13a047ed26abe5",
+    "P5-K5420-unpowered.pan.log": "f24464aea8cf0878ca0768955eafc5cd49c47e7cfbe24771f5bb9cfcd3109f99",
+    "P5-K6000-limit.field-bus.json": "259c7d8a97ef3caeaaf672646eee94d71bef39e12fc9b87a5c5b07cbe87d7c96",
+    "P5-K6000-limit.field-bus.recovery.java.inc": "d1ce0157dffa29a5f3e77a23b8d2c66aba00f328cebcfda5fb64825bf11d9b67",
+    "P5-K6000-limit.field.log": "a2f33d6ff96b3c074af09daf0d025763f8f696402cfe0b2524c7c1b7c9004330",
+    "P5-K6000-limit.hist.json": "0534083c3d29301bea0436f4ccbadd658c5c098c9f4fe4560aa11db78888bd2b",
+    "P5-K6000-limit.lowline.field-bus.json": "9cbcd30eb4737f77cf561aadfc89ababff652462239a158ba6836f77aa11195a",
+    "P5-K6000-limit.lowline.field-bus.recovery.java.inc": "d1ce0157dffa29a5f3e77a23b8d2c66aba00f328cebcfda5fb64825bf11d9b67",
+    "P5-K6000-limit.lowline.log": "d8da30fc70e984e9c8ae6d3b270519dc71811b5226868cbca495bfa45ece41c0",
+    "P5-K6000-limit.pan.json": "1f98ea6fd59ac8b5f9ce4b3804fc55003d7096aefd98d0256a91aa62ed45989d",
+    "P5-K6000-limit.pan.json.partial": "82b7ac70a5494593a5b23fb5184d519b09978e0ce40b08be010a7560bc4478f7",
+    "P5-K6000-limit.pan.log": "97f11a20ae269df577cb860db4781d7b0cdf75429310deb437a3905bd54056e3",
+    "P5-K6000-unpowered.field-bus.json": "73f143770f81c5c7e0006059a69d1e9f7674b19eab1d9e1a8d2c7f4546becec4",
+    "P5-K6000-unpowered.field-bus.recovery.java.inc": "d1ce0157dffa29a5f3e77a23b8d2c66aba00f328cebcfda5fb64825bf11d9b67",
+    "P5-K6000-unpowered.field.log": "c4ea0640e4d004ef01f468dc239b19b24f0ee244212c06ec67581c28dca0ee2f",
+    "P5-K6000-unpowered.hist.json": "3832db60922298feda4adc35736460dcf1255a9749629db209e0ad2c6d60bc55",
+    "P5-K6000-unpowered.lowline.field-bus.json": "67753b3446ddfd973dafa0606822e5e06b094e171583d803bd4a26bbb41152ea",
+    "P5-K6000-unpowered.lowline.field-bus.recovery.java.inc": "d1ce0157dffa29a5f3e77a23b8d2c66aba00f328cebcfda5fb64825bf11d9b67",
+    "P5-K6000-unpowered.lowline.log": "9ce4f8ac2569b369053738eda8333d6a1f5c991932f8454e99ad4ff57cb31180",
+    "P5-K6000-unpowered.pan.json": "8f9d8a51be57a64ec28112d341340d1f188fb0587f9f68b2c8c67d079bb4496b",
+    "P5-K6000-unpowered.pan.json.partial": "e3498656ed5028eca62abf625084d308708fdc3e0e199cc52b57110718512282",
+    "P5-K6000-unpowered.pan.log": "8e9ac24c9f6dcfe0f8b474f1369ea2225abc0cd0268e788cf69052ee176c07d2",
+    "rotary\\hist-peer-2g50ms-unpowered.json": "363f4b9ade390b054240d6b81cedbe2fd08058b0cb6b810bb96d0772ec5a185c",
+    "rotary\\hist-station-impact-unpowered.json": "abe7e1bea860278b938a54ff127cf5ff482138f502249c38900e1c6da0948beb",
+    "rotary\\pan-rotary-model-05.json": "4bb70236a6108662e3402534bafe01506cd2fadccfacb9d94430f5ba5c39ba9e",
+    "rotary\\pan-rotary-result-05.json": "92b5a344054f2b8030efb7b72a90e075e7f55cb1dfb9d3c72a83002a7b48b40a",
+    "rotary\\pan-rotary-study-05.json": "ee979896d054a6f5560054d85e0004b957f8168530b8458f6e165e681ce9fb67"
+  },
+  "criteria": {
+    "support": ">= 1.828296 mm baseline",
+    "resets": "all 12 met",
+    "branch": ">= 9 V",
+    "custody": "both pipes kept, released, supported and held, 12/12"
+  },
+  "replay": {
+    "B5-r3-nostop-limit": {
+      "description": "reference: r3 props, soft stop, inhibit; no stow stop or spring; 30 A",
+      "pan": {
+        "file": "B5-r3-nostop-limit.pan.json",
+        "sha256": "6a798828a2fec08095c0050508cb8648b1bf8afa71199bf368be4bdc0cc16b6e",
+        "config": {
+          "drive": "limit",
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.681711599016285,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0.013003705087707873,
+              "maxAtS": 22.339,
+              "min": -0.016602432198891348,
+              "minAtS": 22.059
+            },
+            "minThetaRad": -0.03690524441446491,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.56725331394388,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0.013003705087707873,
+              "maxAtS": 72.74,
+              "min": -0.016602432198891348,
+              "minAtS": 72.46
+            },
+            "minThetaRad": -0.03691451379334822,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 16.683237795732047,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0.016882987991113874,
+              "maxAtS": 22.345,
+              "min": -0.00887011925468939,
+              "minAtS": 22.118
+            },
+            "minThetaRad": -0.08779230516188652,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.13912480530236
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 16.698291626738673,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0.016882987991113874,
+              "maxAtS": 72.746,
+              "min": -0.00887011925468939,
+              "minAtS": 72.519
+            },
+            "minThetaRad": -0.0877924959893818,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.140012290196189
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "B5-r3-nostop-limit.field-bus.json",
+        "sha256": "c2ed4a85ea18156a22bb7c1b4784e36b9052f97d54a94a3abb2fad35a37046c4",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.827376,
+        "supportVsBaseline1828Mm": -0.0009200000000000319,
+        "resetsMet": 12,
+        "minResetMarginMs": 98.32699999999761,
+        "minConservativePanBranchV": 9.743884419078285,
+        "peakPanPhaseA": 19.681711599016285,
+        "maxLoadedDrivingPanA": 6.3586175,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "lowLine": {
+        "file": "B5-r3-nostop-limit.lowline.field-bus.json",
+        "sha256": "afc7a95690b25ca0ff87886f772c3abca1a67f737ad45d84cb6bba246c5692eb",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.827376,
+        "supportVsBaseline1828Mm": -0.0009200000000000319,
+        "resetsMet": 12,
+        "minResetMarginMs": 98.32699999999761,
+        "minConservativePanBranchV": 9.795050326163413,
+        "peakPanPhaseA": 19.681711599016285,
+        "maxLoadedDrivingPanA": 6.3586175,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      }
+    },
+    "P5-K5420-limit": {
+      "description": "proposal, stow stop 5420 N m/rad + 1.5 N m spring, 30 A",
+      "pan": {
+        "file": "P5-K5420-limit.pan.json",
+        "sha256": "e2d14b830e58327eefcec9e531b2937cee5a2a31275e5e53615182262ba16a87",
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.54765278169457,
+            "stowStopPeakNm": 9.377531435586654,
+            "stowStopSustained500msNm": 2.0535261702228875,
+            "stowDeviationRad": {
+              "max": 0.0013631314161401953,
+              "maxAtS": 22.071,
+              "min": -0.007201003940273232,
+              "minAtS": 22.039
+            },
+            "minThetaRad": -0.036161557494038765,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.62635934042015,
+            "stowStopPeakNm": 9.377531435586654,
+            "stowStopSustained500msNm": 2.0535261702228875,
+            "stowDeviationRad": {
+              "max": 0.0013631314161401953,
+              "maxAtS": 72.472,
+              "min": -0.007201003940273232,
+              "minAtS": 72.44
+            },
+            "minThetaRad": -0.03614795191258575,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.003036985962886,
+            "stowStopPeakNm": 8.018276977138273,
+            "stowStopSustained500msNm": 2.0641505721421507,
+            "stowDeviationRad": {
+              "max": 0.0013586355193220268,
+              "maxAtS": 22.308,
+              "min": -0.0007890581505725081,
+              "minAtS": 22.023
+            },
+            "minThetaRad": -0.08777424852765714,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.065854966590641
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.00203500776182,
+            "stowStopPeakNm": 8.018276977138273,
+            "stowStopSustained500msNm": 2.0641505721421507,
+            "stowDeviationRad": {
+              "max": 0.0013586355193220268,
+              "maxAtS": 72.709,
+              "min": -0.0007890581505725081,
+              "minAtS": 72.424
+            },
+            "minThetaRad": -0.08777431380834375,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.066870082198691
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "P5-K5420-limit.field-bus.json",
+        "sha256": "05ec97d3fba4516594654e9e995fd0b5bb8bbb1b7c34738c7941ad4d65b56872",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.8302049999999999,
+        "supportVsBaseline1828Mm": 0.0019089999999999385,
+        "resetsMet": 12,
+        "minResetMarginMs": 69.52700000000078,
+        "minConservativePanBranchV": 9.74912450720226,
+        "peakPanPhaseA": 19.62635934042015,
+        "maxLoadedDrivingPanA": 4.2516312,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "lowLine": {
+        "file": "P5-K5420-limit.lowline.field-bus.json",
+        "sha256": "3013e63e5cd0c76062d010db23310044cddd53bd573117d47cbf19a86ce4bb9c",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.8302049999999999,
+        "supportVsBaseline1828Mm": 0.0019089999999999385,
+        "resetsMet": 12,
+        "minResetMarginMs": 69.52700000000078,
+        "minConservativePanBranchV": 9.800175416910099,
+        "peakPanPhaseA": 19.62635934042015,
+        "maxLoadedDrivingPanA": 4.2516312,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      }
+    },
+    "P5-K5420-unpowered": {
+      "description": "proposal, 5420, unpowered from station feed to tip start - 0.3 s",
+      "pan": {
+        "file": "P5-K5420-unpowered.pan.json",
+        "sha256": "fa454dc627b509bdff2185661cdb6da191488aa215dea8b66a21d7a1bb9f262c",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.581526924945468,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -0.009443427789488146,
+              "minAtS": 22.049
+            },
+            "minThetaRad": -0.03613277843836302,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.61659019127749,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -0.009443427789488146,
+              "minAtS": 72.45
+            },
+            "minThetaRad": -0.03611844941231005,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.002485788016358,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.5130077781588422,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -0.0009147948962318075,
+              "minAtS": 22.025
+            },
+            "minThetaRad": -0.08777438592914578,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0664346635137685
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 16.998285138822613,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.5256761543739836,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -0.0009147948962318075,
+              "minAtS": 72.426
+            },
+            "minThetaRad": -0.08777442793095877,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0673350920022067
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "P5-K5420-unpowered.field-bus.json",
+        "sha256": "8510001d355989e520010b0cf0822453865c3c23855045fdf27a4b49e2cdd611",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.825089,
+        "supportVsBaseline1828Mm": -0.00320699999999996,
+        "resetsMet": 12,
+        "minResetMarginMs": 68.82699999999886,
+        "minConservativePanBranchV": 9.75589650217983,
+        "peakPanPhaseA": 19.61659019127749,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "lowLine": {
+        "file": "P5-K5420-unpowered.lowline.field-bus.json",
+        "sha256": "8424245b4a025403c24c247b7572af784ee3e722be8f812bb2f9bd897fec8ce4",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.825089,
+        "supportVsBaseline1828Mm": -0.00320699999999996,
+        "resetsMet": 12,
+        "minResetMarginMs": 68.82699999999886,
+        "minConservativePanBranchV": 9.806855751650065,
+        "peakPanPhaseA": 19.61659019127749,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      }
+    },
+    "P5-K6000-limit": {
+      "description": "proposal, 6000 N m/rad (design), 30 A",
+      "pan": {
+        "file": "P5-K6000-limit.pan.json",
+        "sha256": "1f98ea6fd59ac8b5f9ce4b3804fc55003d7096aefd98d0256a91aa62ed45989d",
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 6000,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.64592245300179,
+            "stowStopPeakNm": 9.786858378969775,
+            "stowStopSustained500msNm": 2.0566014903412837,
+            "stowDeviationRad": {
+              "max": 0.0013141902051219123,
+              "maxAtS": 22.071,
+              "min": -0.007218254699429716,
+              "minAtS": 22.039
+            },
+            "minThetaRad": -0.03606872058018997,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.596295459796405,
+            "stowStopPeakNm": 9.786858378969775,
+            "stowStopSustained500msNm": 2.0566014903412837,
+            "stowDeviationRad": {
+              "max": 0.0013141902051219123,
+              "maxAtS": 72.472,
+              "min": -0.007218254699429716,
+              "minAtS": 72.44
+            },
+            "minThetaRad": -0.03605747633067209,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.01656598809184,
+            "stowStopPeakNm": 8.178423275846932,
+            "stowStopSustained500msNm": 2.0687490672633673,
+            "stowDeviationRad": {
+              "max": 0.0012633071435317333,
+              "maxAtS": 22.308,
+              "min": -0.0007261433365659542,
+              "minAtS": 22.023
+            },
+            "minThetaRad": -0.08777255845417314,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0591219925214426
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.04061370111999,
+            "stowStopPeakNm": 8.178423275846932,
+            "stowStopSustained500msNm": 2.0687490672633673,
+            "stowDeviationRad": {
+              "max": 0.0012633071435317333,
+              "maxAtS": 72.709,
+              "min": -0.0007261433365659542,
+              "minAtS": 72.424
+            },
+            "minThetaRad": -0.08777262321993706,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.059344358348256
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "P5-K6000-limit.field-bus.json",
+        "sha256": "259c7d8a97ef3caeaaf672646eee94d71bef39e12fc9b87a5c5b07cbe87d7c96",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.835458,
+        "supportVsBaseline1828Mm": 0.007162000000000113,
+        "resetsMet": 12,
+        "minResetMarginMs": 66.92699999999974,
+        "minConservativePanBranchV": 9.74887910735901,
+        "peakPanPhaseA": 19.64592245300179,
+        "maxLoadedDrivingPanA": 4.1981021,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "lowLine": {
+        "file": "P5-K6000-limit.lowline.field-bus.json",
+        "sha256": "9cbcd30eb4737f77cf561aadfc89ababff652462239a158ba6836f77aa11195a",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.835458,
+        "supportVsBaseline1828Mm": 0.007162000000000113,
+        "resetsMet": 12,
+        "minResetMarginMs": 66.92699999999974,
+        "minConservativePanBranchV": 9.79993017005767,
+        "peakPanPhaseA": 19.64592245300179,
+        "maxLoadedDrivingPanA": 4.1981021,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      }
+    },
+    "P5-K6000-unpowered": {
+      "description": "proposal, 6000, unpowered",
+      "pan": {
+        "file": "P5-K6000-unpowered.pan.json",
+        "sha256": "8f9d8a51be57a64ec28112d341340d1f188fb0587f9f68b2c8c67d079bb4496b",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 6000,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.670782480313616,
+            "stowStopPeakNm": 11.201453440266256,
+            "stowStopSustained500msNm": 2.5487838381719494,
+            "stowDeviationRad": {
+              "max": 0.001510743475849896,
+              "maxAtS": 22.091,
+              "min": -0.009466714102329021,
+              "minAtS": 22.049
+            },
+            "minThetaRad": -0.03603501296063615,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.585405624633044,
+            "stowStopPeakNm": 11.201453440266256,
+            "stowStopSustained500msNm": 2.5487838381719494,
+            "stowDeviationRad": {
+              "max": 0.001510743475849896,
+              "maxAtS": 72.492,
+              "min": -0.009466714102329021,
+              "minAtS": 72.45
+            },
+            "minThetaRad": -0.03602492917479666,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.016012591159875,
+            "stowStopPeakNm": 7.959168397073714,
+            "stowStopSustained500msNm": 2.5128194800208945,
+            "stowDeviationRad": {
+              "max": 0.0012289978543951197,
+              "maxAtS": 22.309,
+              "min": -0.0008366025956592082,
+              "minAtS": 22.024
+            },
+            "minThetaRad": -0.08777262031767644,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.05940263194087
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.039734576731174,
+            "stowStopPeakNm": 7.959168397073714,
+            "stowStopSustained500msNm": 2.5254872448317056,
+            "stowDeviationRad": {
+              "max": 0.0012289978543951197,
+              "maxAtS": 72.71,
+              "min": -0.0008366025956592082,
+              "minAtS": 72.425
+            },
+            "minThetaRad": -0.08777267099160509,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.059560972703269
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "P5-K6000-unpowered.field-bus.json",
+        "sha256": "73f143770f81c5c7e0006059a69d1e9f7674b19eab1d9e1a8d2c7f4546becec4",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.8269849999999999,
+        "supportVsBaseline1828Mm": -0.0013110000000000621,
+        "resetsMet": 12,
+        "minResetMarginMs": 65.72700000000253,
+        "minConservativePanBranchV": 9.755482647440676,
+        "peakPanPhaseA": 19.670782480313616,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "lowLine": {
+        "file": "P5-K6000-unpowered.lowline.field-bus.json",
+        "sha256": "67753b3446ddfd973dafa0606822e5e06b094e171583d803bd4a26bbb41152ea",
+        "fieldMassKg": 67.21033684873568,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.8269849999999999,
+        "supportVsBaseline1828Mm": -0.0013110000000000621,
+        "resetsMet": 12,
+        "minResetMarginMs": 65.72700000000253,
+        "minConservativePanBranchV": 9.806444112502675,
+        "peakPanPhaseA": 19.670782480313616,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      }
+    }
+  },
+  "stowArmSignFlip": {
+    "effect": "The empty r3 pan CG sits 1.62 mm ahead of the pivot at stow, so gravity now OPENS the empty pan (0.058 N m) instead of closing it (0.03 N m). The seated article still closes (net -0.476 N m holding with the article).",
+    "plugin": {
+      "emptyWithSpring": {
+        "freeRad": 0,
+        "compressionRad": 0.0014,
+        "direction": 1,
+        "seated": true,
+        "preload": {
+          "law": "linear",
+          "torqueNm": 1.5,
+          "zeroAtRad": -1.2566370614359172,
+          "basis": "structure.json closingSpring: 1.5 N m at stow, zero at -2 deg"
+        },
+        "compliance": {
+          "stiffnessNmPerRad": 5418.96917696776,
+          "dampingNmSPerRad": 15.8,
+          "basis": "structure.json stowStopStiffness fixed-ends series bound; study damping"
+        },
+        "gravityWorkToContactJ": 0,
+        "gravityWorkToEndJ": -7.81140713525822e-05,
+        "preloadAtContactNm": 1.5,
+        "preloadWorkToEndJ": 0.0021011697888318115,
+        "holdingAtContactNm": 0.058039879018097755,
+        "restingReactionNm": 1.4419601209819022,
+        "restingMarginNm": {
+          "registeredGravity": 1.4419601209819022,
+          "reversedGravity": 1.5580398790180978
+        },
+        "unresolvedAwayFromStopNm": 0,
+        "custodyAtRest": "stop",
+        "staticCompressionRad": 0.00026609491102305287,
+        "downhillThroughout": true,
+        "meanResistingMagnitudeNmFromRest": 1.4450397981994496
+      },
+      "emptyNoSpring": {
+        "freeRad": 0,
+        "compressionRad": 0.0014,
+        "direction": 1,
+        "seated": true,
+        "preload": null,
+        "compliance": {
+          "stiffnessNmPerRad": 5418.96917696776,
+          "dampingNmSPerRad": 15.8,
+          "basis": "structure.json stowStopStiffness fixed-ends series bound; study damping"
+        },
+        "gravityWorkToContactJ": 0,
+        "gravityWorkToEndJ": -7.81140713525822e-05,
+        "preloadAtContactNm": 0,
+        "preloadWorkToEndJ": 0,
+        "holdingAtContactNm": 0.058039879018097755,
+        "restingReactionNm": -0.058039879018097755,
+        "restingMarginNm": {
+          "registeredGravity": -0.058039879018097755,
+          "reversedGravity": 0.058039879018097755
+        },
+        "unresolvedAwayFromStopNm": 0.058039879018097755,
+        "custodyAtRest": "unresolved",
+        "staticCompressionRad": null,
+        "downhillThroughout": false,
+        "meanResistingMagnitudeNmFromRest": null
+      },
+      "carryNoSpring": {
+        "freeRad": 0,
+        "compressionRad": 0.0014,
+        "direction": 1,
+        "seated": true,
+        "preload": null,
+        "compliance": {
+          "stiffnessNmPerRad": 5418.96917696776,
+          "dampingNmSPerRad": 15.8,
+          "basis": "structure.json stowStopStiffness fixed-ends series bound; study damping"
+        },
+        "gravityWorkToContactJ": 0,
+        "gravityWorkToEndJ": 0.0006691374519036019,
+        "preloadAtContactNm": 0,
+        "preloadWorkToEndJ": 0,
+        "holdingAtContactNm": -0.4758038631525177,
+        "restingReactionNm": 0.4758038631525177,
+        "restingMarginNm": {
+          "registeredGravity": 0.4758038631525177,
+          "reversedGravity": -0.4758038631525177
+        },
+        "unresolvedAwayFromStopNm": 0,
+        "custodyAtRest": "stop",
+        "staticCompressionRad": 8.780338983562159e-05,
+        "downhillThroughout": true,
+        "meanResistingMagnitudeNmFromRest": 0.47795532278828706
+      },
+      "carrySpringStationImpact": {
+        "freeRad": 0,
+        "compressionRad": 0.0014,
+        "direction": 1,
+        "seated": true,
+        "preload": {
+          "law": "linear",
+          "torqueNm": 1.5,
+          "zeroAtRad": -1.2566370614359172,
+          "basis": "structure.json closingSpring: 1.5 N m at stow, zero at -2 deg"
+        },
+        "compliance": {
+          "stiffnessNmPerRad": 5418.96917696776,
+          "dampingNmSPerRad": 15.8,
+          "basis": "structure.json stowStopStiffness fixed-ends series bound; study damping"
+        },
+        "gravityWorkToContactJ": 0,
+        "gravityWorkToEndJ": 0.0006691374519036019,
+        "preloadAtContactNm": 1.5,
+        "preloadWorkToEndJ": 0.0021011697888318115,
+        "holdingAtContactNm": -0.4758038631525177,
+        "restingReactionNm": 1.9758038631525177,
+        "restingMarginNm": {
+          "registeredGravity": 1.9758038631525177,
+          "reversedGravity": 1.0241961368474823
+        },
+        "unresolvedAwayFromStopNm": 0,
+        "custodyAtRest": "stop",
+        "staticCompressionRad": 0.00036460880263912096,
+        "downhillThroughout": true,
+        "meanResistingMagnitudeNmFromRest": 1.978790886239581,
+        "duty": {
+          "source": {
+            "path": "hist-station-impact-unpowered.json",
+            "sha256": "abe7e1bea860278b938a54ff127cf5ff482138f502249c38900e1c6da0948beb",
+            "pointer": ""
+          },
+          "samples": 4567,
+          "startS": 21.675,
+          "endS": 44.505,
+          "windowsS": [
+            0.01,
+            0.1,
+            0.5
+          ],
+          "stopServes": "negative",
+          "directions": {
+            "positive": {
+              "peakNm": 0,
+              "peakTimeS": 21.675,
+              "sustained": [
+                {
+                  "windowS": 0.01,
+                  "meanNm": 0,
+                  "startS": 21.675
+                },
+                {
+                  "windowS": 0.1,
+                  "meanNm": 0,
+                  "startS": 21.675
+                },
+                {
+                  "windowS": 0.5,
+                  "meanNm": 0,
+                  "startS": 21.675
+                }
+              ]
+            },
+            "negative": {
+              "peakNm": 9.450915247085337,
+              "peakTimeS": 22.09,
+              "sustained": [
+                {
+                  "windowS": 0.01,
+                  "meanNm": 6.933727385005595,
+                  "startS": 22.08392986499315
+                },
+                {
+                  "windowS": 0.1,
+                  "meanNm": 2.5716150755060596,
+                  "startS": 27.706800093278094
+                },
+                {
+                  "windowS": 0.5,
+                  "meanNm": 2.5485692760542733,
+                  "startS": 27.706797943723384
+                }
+              ]
+            }
+          },
+          "unresolvedByStop": false,
+          "contact": {
+            "contactRad": 0,
+            "toleranceRad": 0.0002,
+            "firstContactS": 21.675,
+            "contactDurationS": 22.743722817724304,
+            "separations": 2,
+            "maxReboundRad": 0.009437884180333,
+            "settle": {
+              "targetRad": 0.00036,
+              "toleranceRad": 0.001
+            },
+            "settleS": 22.092011840148757,
+            "returnAfterFirstContactS": 0.41701184014875636
+          }
+        }
+      },
+      "carrySpringPeer2g": {
+        "freeRad": 0,
+        "compressionRad": 0.0014,
+        "direction": 1,
+        "seated": true,
+        "preload": {
+          "law": "linear",
+          "torqueNm": 1.5,
+          "zeroAtRad": -1.2566370614359172,
+          "basis": "structure.json closingSpring: 1.5 N m at stow, zero at -2 deg"
+        },
+        "compliance": {
+          "stiffnessNmPerRad": 5418.96917696776,
+          "dampingNmSPerRad": 15.8,
+          "basis": "structure.json stowStopStiffness fixed-ends series bound; study damping"
+        },
+        "gravityWorkToContactJ": 0,
+        "gravityWorkToEndJ": 0.0006691374519036019,
+        "preloadAtContactNm": 1.5,
+        "preloadWorkToEndJ": 0.0021011697888318115,
+        "holdingAtContactNm": -0.4758038631525177,
+        "restingReactionNm": 1.9758038631525177,
+        "restingMarginNm": {
+          "registeredGravity": 1.9758038631525177,
+          "reversedGravity": 1.0241961368474823
+        },
+        "unresolvedAwayFromStopNm": 0,
+        "custodyAtRest": "stop",
+        "staticCompressionRad": 0.00036460880263912096,
+        "downhillThroughout": true,
+        "meanResistingMagnitudeNmFromRest": 1.978790886239581,
+        "duty": {
+          "source": {
+            "path": "hist-peer-2g50ms-unpowered.json",
+            "sha256": "363f4b9ade390b054240d6b81cedbe2fd08058b0cb6b810bb96d0772ec5a185c",
+            "pointer": ""
+          },
+          "samples": 4567,
+          "startS": 21.675,
+          "endS": 44.505,
+          "windowsS": [
+            0.01,
+            0.1,
+            0.5
+          ],
+          "stopServes": "negative",
+          "directions": {
+            "positive": {
+              "peakNm": 0,
+              "peakTimeS": 21.675,
+              "sustained": [
+                {
+                  "windowS": 0.01,
+                  "meanNm": 0,
+                  "startS": 21.675
+                },
+                {
+                  "windowS": 0.1,
+                  "meanNm": 0,
+                  "startS": 21.675
+                },
+                {
+                  "windowS": 0.5,
+                  "meanNm": 0,
+                  "startS": 21.675
+                }
+              ]
+            },
+            "negative": {
+              "peakNm": 47.47809616154007,
+              "peakTimeS": 29.545,
+              "sustained": [
+                {
+                  "windowS": 0.01,
+                  "meanNm": 31.310031995866616,
+                  "startS": 29.541624834351484
+                },
+                {
+                  "windowS": 0.1,
+                  "meanNm": 3.5167234075183273,
+                  "startS": 29.455
+                },
+                {
+                  "windowS": 0.5,
+                  "meanNm": 2.5485692760542733,
+                  "startS": 27.706797943723384
+                }
+              ]
+            }
+          },
+          "unresolvedByStop": false,
+          "contact": {
+            "contactRad": 0,
+            "toleranceRad": 0.0002,
+            "firstContactS": 21.675,
+            "contactDurationS": 22.1149365145337,
+            "separations": 5,
+            "maxReboundRad": 0.24975931008048446,
+            "settle": {
+              "targetRad": 0.00036,
+              "toleranceRad": 0.001
+            },
+            "settleS": 29.694576219620103,
+            "returnAfterFirstContactS": 8.019576219620102
+          }
+        }
+      }
+    },
+    "springVerdict": "1.5 N m is enough statically (1.44 N m resting on the stop empty, 1.98 N m with the article; reversed-gravity margin 1.56 / 1.02 N m) and holds the unpowered station impact and a 2 g / 50 ms opening peer contact. It is NOT enough for a >= 3 g / 50 ms opening contact or the front bumper strike, and a 3 N m spring still loses at 5 g. Without the spring the unpowered pan is lost in every case, including power lost only after the article is seated (route braking opens it).",
+    "openingHoldThreshold": "between 2 g and 3 g for 50 ms (delta-v 0.98-1.47 m/s) with the 1.5 N m spring; the 2 g case opens 0.25 rad (14.3 deg) and settles back on the stop 0.42 s after the peak"
+  },
+  "hold": {
+    "P5-K5420-unpowered": {
+      "description": "spring, station impact only",
+      "pan": {
+        "file": "P5-K5420-unpowered.pan.json",
+        "sha256": "fa454dc627b509bdff2185661cdb6da191488aa215dea8b66a21d7a1bb9f262c",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.581526924945468,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -0.009443427789488146,
+              "minAtS": 22.049
+            },
+            "minThetaRad": -0.03613277843836302,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.61659019127749,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -0.009443427789488146,
+              "minAtS": 72.45
+            },
+            "minThetaRad": -0.03611844941231005,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.002485788016358,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.5130077781588422,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -0.0009147948962318075,
+              "minAtS": 22.025
+            },
+            "minThetaRad": -0.08777438592914578,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0664346635137685
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 16.998285138822613,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.5256761543739836,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -0.0009147948962318075,
+              "minAtS": 72.426
+            },
+            "minThetaRad": -0.08777442793095877,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0673350920022067
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "P5-K5420-unpowered.field-bus.json",
+        "sha256": "8510001d355989e520010b0cf0822453865c3c23855045fdf27a4b49e2cdd611",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.825089,
+        "supportVsBaseline1828Mm": -0.00320699999999996,
+        "resetsMet": 12,
+        "minResetMarginMs": 68.82699999999886,
+        "minConservativePanBranchV": 9.75589650217983,
+        "peakPanPhaseA": 19.61659019127749,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "custodyKeptAndScored": true
+    },
+    "H5-K5420-nospring-unpowered": {
+      "description": "no spring, station impact only",
+      "pan": {
+        "file": "H5-K5420-nospring-unpowered.pan.json",
+        "sha256": "351fd28264ff7bce0a4f68e09441b7005496741fd87ca770bc3513f4ed6314cb",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-K5420-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-carryonly-nospring-unpowered": {
+      "description": "no spring, power lost at carry start (article seated), route loads only",
+      "pan": {
+        "file": "H5-carryonly-nospring-unpowered.pan.json",
+        "sha256": "9874dc87864189fcf82dc248500616eb9adc43497cc2a9c52b08e6ebe7b8e272",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 5.94,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          }
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 22.299,
+              "min": -1.328622391329377,
+              "minAtS": 27.866
+            },
+            "minThetaRad": -0.10689191493334652,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.05330562810423
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 72.7,
+              "min": -1.3286414958984871,
+              "minAtS": 78.268
+            },
+            "minThetaRad": -0.10691101950245656,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.1514021613003
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 8.392052990516678,
+            "stowStopSustained500msNm": 1.0318512804813458,
+            "stowDeviationRad": {
+              "max": 0.0012287236774413124,
+              "maxAtS": 27.82,
+              "min": -1.3286125308151304,
+              "minAtS": 35.852
+            },
+            "minThetaRad": -0.10688205441909973,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 99.96353775066287
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 9.604503692692173,
+            "stowStopSustained500msNm": 1.0441304033144743,
+            "stowDeviationRad": {
+              "max": 0.0013999339281491885,
+              "maxAtS": 78.232,
+              "min": -1.3286125308173113,
+              "minAtS": 86.254
+            },
+            "minThetaRad": -0.10688205442128079,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 99.96353776183977
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-carryonly-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-o2g50-spring-unpowered": {
+      "description": "spring, 2 g 50 ms opening (front) peer contact at carry + 2 s",
+      "pan": {
+        "file": "H5-o2g50-spring-unpowered.pan.json",
+        "sha256": "a495cee18927ce7e2e60c9b42a5f6164e90899b4eea1f3e4818520721d8153aa",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -19.6133
+            }
+          ]
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.53737425379392,
+            "stowStopPeakNm": 47.89906551108841,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.006854808205869478,
+              "maxAtS": 29.548,
+              "min": -0.2497741249127864,
+              "minAtS": 29.297
+            },
+            "minThetaRad": -0.03476594789874761,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.608954665894323,
+            "stowStopPeakNm": 47.899064323573384,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.00685480804427363,
+              "maxAtS": 79.95,
+              "min": -0.2497741249727169,
+              "minAtS": 79.699
+            },
+            "minThetaRad": -0.03471754425706087,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.312809927516923,
+            "stowStopPeakNm": 46.97161092724491,
+            "stowStopSustained500msNm": 2.5130077781588382,
+            "stowDeviationRad": {
+              "max": 0.006717704551520098,
+              "maxAtS": 29.474,
+              "min": -0.2237520983964012,
+              "minAtS": 29.261
+            },
+            "minThetaRad": -0.08775491686799211,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 1.9878406127120982
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.360327810611945,
+            "stowStopPeakNm": 46.9716104959155,
+            "stowStopSustained500msNm": 2.525676154374002,
+            "stowDeviationRad": {
+              "max": 0.006717704490862841,
+              "maxAtS": 79.876,
+              "min": -0.2237520984164474,
+              "minAtS": 79.663
+            },
+            "minThetaRad": -0.08775450307137611,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 1.9857697299056
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o2g50-spring-unpowered.field-bus.json",
+        "sha256": "7b2f780556124b3e3316c5235d0678b475ebf8262fa7ace6283c661717b78f3a",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.833657,
+        "supportVsBaseline1828Mm": 0.005361000000000171,
+        "resetsMet": 12,
+        "minResetMarginMs": 34.62700000000041,
+        "minConservativePanBranchV": 9.750552787132584,
+        "peakPanPhaseA": 19.608954665894323,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": true,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "custodyKeptAndScored": true
+    },
+    "H5-o3g50-spring-unpowered": {
+      "description": "spring, 3 g 50 ms opening",
+      "pan": {
+        "file": "H5-o3g50-spring-unpowered.pan.json",
+        "sha256": "9e11dec80463eff0977bbe836693dede1eafca3fdb72b8883dc9c119dba5b7ec",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -29.42
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -1.3289185044717309,
+              "minAtS": 29.411
+            },
+            "minThetaRad": -0.10718802807570017,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 101.5190540703795
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -1.3289185045310106,
+              "minAtS": 79.813
+            },
+            "minThetaRad": -0.10718802813497996,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 101.51905437432363
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -1.3283884793427505,
+              "minAtS": 29.425
+            },
+            "minThetaRad": -0.10665800294672,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 98.80124472299477
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -1.3283884793810012,
+              "minAtS": 79.827
+            },
+            "minThetaRad": -0.10665800298497058,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 98.80124492527221
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o3g50-spring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-o4g50-spring-unpowered": {
+      "description": "spring, 4 g 50 ms opening",
+      "pan": {
+        "file": "H5-o4g50-spring-unpowered.pan.json",
+        "sha256": "720d02b0e827a1151b200f579d2a94688b3dc8fe670bbbc3d9066ca4d3a9c669",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -39.2266
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -1.3320853916115336,
+              "minAtS": 29.303
+            },
+            "minThetaRad": -0.11035491521550293,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 117.79545518485233
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -1.3320853916365365,
+              "minAtS": 79.705
+            },
+            "minThetaRad": -0.11035491524050599,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 117.7954553130549
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -1.3318833946564759,
+              "minAtS": 29.307
+            },
+            "minThetaRad": -0.11015291826044535,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 116.7671010551895
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -1.3318833946700155,
+              "minAtS": 79.709
+            },
+            "minThetaRad": -0.11015291827398492,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 116.76710112460736
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o4g50-spring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-o5g50-spring-unpowered": {
+      "description": "spring, 5 g 50 ms opening",
+      "pan": {
+        "file": "H5-o5g50-spring-unpowered.pan.json",
+        "sha256": "f67d7907dbf707c7d906a6e2798738c095de138a2b629b7c87ba73dd18b9dc3b",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -1.336165295952516,
+              "minAtS": 29.248
+            },
+            "minThetaRad": -0.11443481955648552,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 138.76553136317224
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -1.3361652959671872,
+              "minAtS": 79.65
+            },
+            "minThetaRad": -0.11443481957115655,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 138.76553143838942
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -1.335859855455441,
+              "minAtS": 29.25
+            },
+            "minThetaRad": -0.11412937905941041,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 137.20367206902185
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -1.3358598554627592,
+              "minAtS": 79.652
+            },
+            "minThetaRad": -0.1141293790667286,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 137.20367210653984
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o5g50-spring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-o5g50-spring3Nm-unpowered": {
+      "description": "3 N m spring, 5 g 50 ms opening",
+      "pan": {
+        "file": "H5-o5g50-spring3Nm-unpowered.pan.json",
+        "sha256": "a334131c105b51cbda52c333da0f6254f162cdcc82793f8b2188b5a4098c49ee",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 3,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.604561994836105,
+            "stowStopSustained500msNm": 4.051271782670098,
+            "stowDeviationRad": {
+              "max": 0.0016169063857491839,
+              "maxAtS": 22.052,
+              "min": -1.3313612168047122,
+              "minAtS": 29.295
+            },
+            "minThetaRad": -0.1096307404086817,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 114.07466101836629
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.604561994836105,
+            "stowStopSustained500msNm": 4.051271782670098,
+            "stowDeviationRad": {
+              "max": 0.0016169063857491839,
+              "maxAtS": 72.453,
+              "min": -1.331361216830085,
+              "minAtS": 79.697
+            },
+            "minThetaRad": -0.10963074043405431,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 114.07466114847398
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 9.387976467748063,
+            "stowStopSustained500msNm": 3.955897583349118,
+            "stowDeviationRad": {
+              "max": 0.0016126649910861435,
+              "maxAtS": 22.309,
+              "min": -1.3306784622558752,
+              "minAtS": 29.3
+            },
+            "minThetaRad": -0.10894798585984465,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 110.57449376374231
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 9.387976467748063,
+            "stowStopSustained500msNm": 3.955897583349118,
+            "stowDeviationRad": {
+              "max": 0.0016126649910861435,
+              "maxAtS": 72.71,
+              "min": -1.3306784622687384,
+              "minAtS": 79.702
+            },
+            "minThetaRad": -0.10894798587270779,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 110.57449382968741
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o5g50-spring3Nm-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-oAbuse-spring-unpowered": {
+      "description": "spring, 12.34 kN front bumper strike (180 m/s2, 20 ms)",
+      "pan": {
+        "file": "H5-oAbuse-spring-unpowered.pan.json",
+        "sha256": "08c219e88df8af1aadea72265ca3aef0b086ac29178487e0e2b95b6ed1ccbd73",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": -180.01
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 22.091,
+              "min": -1.345871062298203,
+              "minAtS": 29.169
+            },
+            "minThetaRad": -0.12414058590217253,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 188.64817003181065
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 10.786002775951818,
+            "stowStopSustained500msNm": 2.549220736434346,
+            "stowDeviationRad": {
+              "max": 0.0015756911729944978,
+              "maxAtS": 72.492,
+              "min": -1.3458710623033505,
+              "minAtS": 79.571
+            },
+            "minThetaRad": -0.12414058590731984,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 188.6481700581952
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 22.309,
+              "min": -1.3457024108030322,
+              "minAtS": 29.169
+            },
+            "minThetaRad": -0.12397193440700162,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 187.78686039830572
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 7.852972004058749,
+            "stowStopSustained500msNm": 2.4538633830798204,
+            "stowDeviationRad": {
+              "max": 0.0013290937634322653,
+              "maxAtS": 72.71,
+              "min": -1.3457024108053706,
+              "minAtS": 79.571
+            },
+            "minThetaRad": -0.12397193440933986,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 187.7868604102901
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-oAbuse-spring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-c5g50-spring-unpowered": {
+      "description": "spring, 5 g 50 ms closing (rear) peer contact",
+      "pan": {
+        "file": "H5-c5g50-spring-unpowered.pan.json",
+        "sha256": "8ea826af3a35425823166be3100481e4720579ac65efb84444ba14368a665eea",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": 49.0333
+            }
+          ]
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.591129892558595,
+            "stowStopPeakNm": 24.347416194738116,
+            "stowStopSustained500msNm": 3.763017584949188,
+            "stowDeviationRad": {
+              "max": 0.004215978219851646,
+              "maxAtS": 29.046,
+              "min": -0.009443427789488146,
+              "minAtS": 22.049
+            },
+            "minThetaRad": -0.036124361191453014,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.613876363134263,
+            "stowStopPeakNm": 24.347416194628845,
+            "stowStopSustained500msNm": 3.7630175849034737,
+            "stowDeviationRad": {
+              "max": 0.00421597821983144,
+              "maxAtS": 79.448,
+              "min": -0.009443427789488146,
+              "minAtS": 72.45
+            },
+            "minThetaRad": -0.03611038746079914,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.005961567726853,
+            "stowStopPeakNm": 24.771978512212506,
+            "stowStopSustained500msNm": 3.8113066469545918,
+            "stowDeviationRad": {
+              "max": 0.004295646453565949,
+              "maxAtS": 29.046,
+              "min": -0.003967774722803075,
+              "minAtS": 29.114
+            },
+            "minThetaRad": -0.08777410442052286,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0652839149201676
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.004782244050396,
+            "stowStopPeakNm": 24.771978512165507,
+            "stowStopSustained500msNm": 3.8113066469432377,
+            "stowDeviationRad": {
+              "max": 0.004295646453557289,
+              "maxAtS": 79.448,
+              "min": -0.003967774723032669,
+              "minAtS": 79.516
+            },
+            "minThetaRad": -0.08777416190587502,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0662651321758463
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-c5g50-spring-unpowered.field-bus.json",
+        "sha256": "28f23d1da096b2741e3d043debc0db480d75fe8d38f57b8c33698cf76d52f2c1",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.824077,
+        "supportVsBaseline1828Mm": -0.004218999999999973,
+        "resetsMet": 12,
+        "minResetMarginMs": 69.42699999999746,
+        "minConservativePanBranchV": 9.755822062176323,
+        "peakPanPhaseA": 19.613876363134263,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "custodyKeptAndScored": true
+    },
+    "H5-cAbuse-spring-unpowered": {
+      "description": "spring, 12.34 kN rear bumper strike (closing)",
+      "pan": {
+        "file": "H5-cAbuse-spring-unpowered.pan.json",
+        "sha256": "97b9e724040b2e68877a7ef32bb66a6d5374abd191268b8bd33d4c4162083e3a",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": 180.01
+            }
+          ]
+        },
+        "lostTrips": [],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.5637478480063,
+            "stowStopPeakNm": 85.54579660610116,
+            "stowStopSustained500msNm": 4.806070283595908,
+            "stowDeviationRad": {
+              "max": 0.014765688033047786,
+              "maxAtS": 29.046,
+              "min": -0.04025030416424058,
+              "minAtS": 29.136
+            },
+            "minThetaRad": -0.035601774697582175,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 19.6785965969188,
+            "stowStopPeakNm": 85.5457966059896,
+            "stowStopSustained500msNm": 4.806070283559636,
+            "stowDeviationRad": {
+              "max": 0.01476568803302758,
+              "maxAtS": 79.448,
+              "min": -0.04025030416794806,
+              "minAtS": 79.538
+            },
+            "minThetaRad": -0.035592870454158855,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 0
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.266220231939755,
+            "stowStopPeakNm": 86.40631012789882,
+            "stowStopSustained500msNm": 4.88176316970993,
+            "stowDeviationRad": {
+              "max": 0.014943126723321765,
+              "maxAtS": 29.046,
+              "min": -0.0552128578514528,
+              "minAtS": 29.15
+            },
+            "minThetaRad": -0.08775940752398537,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.005683163769383
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakPhaseA": 17.23534569149939,
+            "stowStopPeakNm": 86.40631012785356,
+            "stowStopSustained500msNm": 4.881763169702205,
+            "stowDeviationRad": {
+              "max": 0.014943126723313549,
+              "maxAtS": 79.448,
+              "min": -0.0552128578539115,
+              "minAtS": 79.552
+            },
+            "minThetaRad": -0.08775936226133683,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 2.0061931344243202
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-cAbuse-spring-unpowered.field-bus.json",
+        "sha256": "b82fb0211b3f03e2488f774c0083487bef28878f2db845481b6b094a0c0e183a",
+        "fieldMassKg": 68.5897453150442,
+        "cases": 12,
+        "held": true,
+        "supported": 12,
+        "minSupportMarginMm": 1.827586,
+        "supportVsBaseline1828Mm": -0.0007099999999999884,
+        "resetsMet": 12,
+        "minResetMarginMs": 56.62699999999887,
+        "minConservativePanBranchV": 9.751496170564875,
+        "peakPanPhaseA": 19.6785965969188,
+        "maxLoadedDrivingPanA": 1.4,
+        "returnInhibitActiveS": 0.0,
+        "returnSoftStopPeakNm": 0.0,
+        "criteria": {
+          "supportAtLeastBaseline": false,
+          "allResets": true,
+          "branch9V": true,
+          "custody": true
+        }
+      },
+      "custodyKeptAndScored": true
+    },
+    "H5-o2g50-nospring-unpowered": {
+      "description": "no spring, 2 g opening",
+      "pan": {
+        "file": "H5-o2g50-nospring-unpowered.pan.json",
+        "sha256": "40da4fd34922ac3a2cf10e12135be147cd3a6539c8313124e9226d9833443d18",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -19.6133
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o2g50-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-o5g50-nospring-unpowered": {
+      "description": "no spring, 5 g opening",
+      "pan": {
+        "file": "H5-o5g50-nospring-unpowered.pan.json",
+        "sha256": "6683befe582933b287cc9ee58b4947942ac6de13465d40927990ff6d79b1001d",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-o5g50-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-oAbuse-nospring-unpowered": {
+      "description": "no spring, front abuse",
+      "pan": {
+        "file": "H5-oAbuse-nospring-unpowered.pan.json",
+        "sha256": "2989de098b5e2c16995cd07bacfbd73b13c531af1724036b41ee5a69eb1aee23",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": -180.01
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-oAbuse-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-c5g50-nospring-unpowered": {
+      "description": "no spring, 5 g closing",
+      "pan": {
+        "file": "H5-c5g50-nospring-unpowered.pan.json",
+        "sha256": "fbb34eb89780bddc782beadf90217fcef83c731f26a4882761ff795b365ffe04",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": 49.0333
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-c5g50-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-cAbuse-nospring-unpowered": {
+      "description": "no spring, rear abuse",
+      "pan": {
+        "file": "H5-cAbuse-nospring-unpowered.pan.json",
+        "sha256": "0b3e429cda119fe2e46f65a9268d89948b4582c7c58b98e77652555291d4550b",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 0,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": 180.01
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3294440698299346,
+              "minAtS": 22.498
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3294440698299346,
+              "minAtS": 72.899
+            },
+            "minThetaRad": -0.10771359343390392,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 104.23895903800513
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 21.671,
+              "min": -1.3274149169833829,
+              "minAtS": 22.551
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 0,
+            "stowStopPeakNm": 0,
+            "stowStopSustained500msNm": 0,
+            "stowDeviationRad": {
+              "max": 0,
+              "maxAtS": 72.072,
+              "min": -1.3274149169833829,
+              "minAtS": 72.952
+            },
+            "minThetaRad": -0.10568444058735234,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 93.82079985266489
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-cAbuse-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-carryonly-o2g50-nospring-unpowered": {
+      "description": "no spring, power lost at carry start, 2 g opening",
+      "pan": {
+        "file": "H5-carryonly-o2g50-nospring-unpowered.pan.json",
+        "sha256": "7d45ab396a8ce1191b10da076abb3c38fb897d94a6645afbfcdfa1309aa7f602",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 5.94,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -19.6133
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 22.299,
+              "min": -1.328622391329377,
+              "minAtS": 27.866
+            },
+            "minThetaRad": -0.10689191493334652,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.05330562810423
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 72.7,
+              "min": -1.3286414958984871,
+              "minAtS": 78.268
+            },
+            "minThetaRad": -0.10691101950245656,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.1514021613003
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 8.392052990516678,
+            "stowStopSustained500msNm": 1.0318512804813458,
+            "stowDeviationRad": {
+              "max": 0.0012287236774413124,
+              "maxAtS": 27.82,
+              "min": -1.330938170092272,
+              "minAtS": 29.397
+            },
+            "minThetaRad": -0.10920769369624143,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 111.90558676945598
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 9.604503692692173,
+            "stowStopSustained500msNm": 1.0441304033144743,
+            "stowDeviationRad": {
+              "max": 0.0013999339281491885,
+              "maxAtS": 78.232,
+              "min": -1.3309381701197933,
+              "minAtS": 79.799
+            },
+            "minThetaRad": -0.10920769372376277,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 111.90558691497898
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-carryonly-o2g50-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    },
+    "H5-carryonly-c5g50-nospring-unpowered": {
+      "description": "no spring, power lost at carry start, 5 g closing",
+      "pan": {
+        "file": "H5-carryonly-c5g50-nospring-unpowered.pan.json",
+        "sha256": "2a96763364fc18a801c92d341f1c4531f2c2728e7428ecd1c1cc6db0fe213eb8",
+        "config": {
+          "drive": "unpowered",
+          "unpoweredFromFeedS": 5.94,
+          "unpoweredLeadS": 0.3,
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": 49.0333
+            }
+          ]
+        },
+        "lostTrips": [
+          "nominal/coral-A/30",
+          "nominal/coral-B/30",
+          "adverse/coral-A/30",
+          "adverse/coral-B/30"
+        ],
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 22.299,
+              "min": -1.328622391329377,
+              "minAtS": 27.866
+            },
+            "minThetaRad": -0.10689191493334652,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.05330562810423
+          },
+          "nominal/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 7.753108448143028,
+            "stowStopPeakNm": 7.062874169676883,
+            "stowStopSustained500msNm": 0.6053165661065744,
+            "stowDeviationRad": {
+              "max": 0.0010329051615451945,
+              "maxAtS": 72.7,
+              "min": -1.3286414958984871,
+              "minAtS": 78.268
+            },
+            "minThetaRad": -0.10691101950245656,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.1514021613003
+          },
+          "adverse/coral-A/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 23.21998675525481,
+            "stowStopSustained500msNm": 2.3111887653581027,
+            "stowDeviationRad": {
+              "max": 0.0040093631909845495,
+              "maxAtS": 29.046,
+              "min": -1.328651459379453,
+              "minAtS": 35.785
+            },
+            "minThetaRad": -0.10692098298342236,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.16457339862346
+          },
+          "adverse/coral-B/30": {
+            "lost": true,
+            "released": false,
+            "peakPhaseA": 5.482709407030196,
+            "stowStopPeakNm": 23.219986755207945,
+            "stowStopSustained500msNm": 2.3111887653470093,
+            "stowDeviationRad": {
+              "max": 0.00400936319097589,
+              "maxAtS": 79.448,
+              "min": -1.3286514593800194,
+              "minAtS": 86.187
+            },
+            "minThetaRad": -0.10692098298398882,
+            "inhibitActiveS": 0,
+            "softStopPeakNm": 100.16457340152365
+          }
+        }
+      },
+      "fourTerminal": {
+        "file": "H5-carryonly-c5g50-nospring-unpowered.field-bus.json",
+        "cases": 0
+      },
+      "custodyKeptAndScored": false
+    }
+  },
+  "driveFault": {
+    "source": "fault_softstop_05.py; reproduces the package r3 numbers (25.8 N m ideal, 41.0 N m at 5 ms)",
+    "summary": {
+      "normalDutyCapNm": 15.431291586206896,
+      "failureNm": 40.0,
+      "targetNm": 26.0,
+      "breakawayToleranceFactor": 1.2,
+      "rigidWorstByLatencyNm": {
+        "0ms": 25.823290574435717,
+        "1.5ms": 25.89725037418407,
+        "5ms": 40.99739554156697
+      },
+      "rigidWorstNm": 62.932040889228105,
+      "clutchWorstNm": {
+        "16.5": 16.5,
+        "18.0": 18.0,
+        "21.6": 21.6
+      },
+      "clutchSettingToKeepBelow26Nm": {
+        "minSetNm": 15.431291586206896,
+        "maxSetNm": 21.666666666666668,
+        "basis": "a slip clutch bounds the output-stage torque at its breakaway; setting must exceed the 15.43 N m normal-duty stall cap so it never slips in service, and its breakaway (set x 1.2 tolerance) must stay <= 26 N m: set 15.4-21.7 N m; the package 16.5-18 N m lies inside"
+      }
+    },
+    "rigid": [
+      {
+        "gearboxNm": 14.304815804445953,
+        "stopNm": 57.504570785727836,
+        "thetaMinDeg": -5.668785735360107,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -3.0973414052283563,
+        "contactS": 0.02504300000000439,
+        "crossS": 0.016908999999996257,
+        "label": "F1 rigid, inhibit 0 ms",
+        "startThetaDeg": -2.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 0.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 319.469837698488,
+        "padStrain": 0.058362565362026636,
+        "crossToContactMs": 8.134000000008134
+      },
+      {
+        "gearboxNm": 14.304815804445953,
+        "stopNm": 61.11470789102547,
+        "thetaMinDeg": -5.710252154649556,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -3.0973414052283563,
+        "contactS": 0.024565000000003914,
+        "crossS": 0.016908999999996257,
+        "label": "F1 rigid, inhibit 1.5 ms",
+        "startThetaDeg": -2.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 1.5,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 339.5261549501415,
+        "padStrain": 0.061981193090093506,
+        "crossToContactMs": 7.656000000007657
+      },
+      {
+        "gearboxNm": 14.304815804445953,
+        "stopNm": 69.8145230022855,
+        "thetaMinDeg": -5.810179152895951,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -3.0973414052283563,
+        "contactS": 0.023985000000003334,
+        "crossS": 0.016908999999996257,
+        "label": "F1 rigid, inhibit 5 ms",
+        "startThetaDeg": -2.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 387.85846112380835,
+        "padStrain": 0.07070146874526446,
+        "crossToContactMs": 7.076000000007077
+      },
+      {
+        "gearboxNm": 21.591169411129414,
+        "stopNm": 251.8343468923563,
+        "thetaMinDeg": -7.900873568051879,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -14.897915100536018,
+        "contactS": 0.08312500000006247,
+        "crossS": 0.08137000000006071,
+        "label": "F2 rigid, inhibit 0 ms",
+        "startThetaDeg": 34.0,
+        "startRateRadS": -1.18,
+        "latencyMs": 0.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1399.0797049575351,
+        "padStrain": 0.2531489747329054,
+        "crossToContactMs": 1.7550000000017552
+      },
+      {
+        "gearboxNm": 21.81534710190625,
+        "stopNm": 254.41676642010333,
+        "thetaMinDeg": -7.930535382644805,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -14.897915100536018,
+        "contactS": 0.08311400000006246,
+        "crossS": 0.08137000000006071,
+        "label": "F2 rigid, inhibit 1.5 ms",
+        "startThetaDeg": 34.0,
+        "startRateRadS": -1.18,
+        "latencyMs": 1.5,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1413.4264801116851,
+        "padStrain": 0.2557374563667187,
+        "crossToContactMs": 1.7440000000017442
+      },
+      {
+        "gearboxNm": 37.043729518113096,
+        "stopNm": 262.1060054842739,
+        "thetaMinDeg": -8.018854421794734,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -14.897915100536018,
+        "contactS": 0.08311400000006246,
+        "crossS": 0.08137000000006071,
+        "label": "F2 rigid, inhibit 5 ms",
+        "startThetaDeg": 34.0,
+        "startRateRadS": -1.18,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1456.1444749126329,
+        "padStrain": 0.26344474649353883,
+        "crossToContactMs": 1.7440000000017442
+      },
+      {
+        "gearboxNm": 25.823290574435717,
+        "stopNm": 300.58626798170883,
+        "thetaMinDeg": -8.460840595722052,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -17.819525744958963,
+        "contactS": 0.13561300000011495,
+        "crossS": 0.13414600000011348,
+        "label": "F3 rigid, inhibit 0 ms",
+        "startThetaDeg": 70.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 0.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1669.9237110094934,
+        "padStrain": 0.302015316410159,
+        "crossToContactMs": 1.4670000000014671
+      },
+      {
+        "gearboxNm": 25.89725037418407,
+        "stopNm": 301.43824534645285,
+        "thetaMinDeg": -8.470626457432738,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -17.819525744958963,
+        "contactS": 0.13561100000011495,
+        "crossS": 0.13414600000011348,
+        "label": "F3 rigid, inhibit 1.5 ms",
+        "startThetaDeg": 70.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 1.5,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1674.6569185914047,
+        "padStrain": 0.3028692939451405,
+        "crossToContactMs": 1.4650000000014651
+      },
+      {
+        "gearboxNm": 40.99739554156697,
+        "stopNm": 307.53397792267856,
+        "thetaMinDeg": -8.541968158003153,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -17.819525744958963,
+        "contactS": 0.13561100000011495,
+        "crossS": 0.13414600000011348,
+        "label": "F3 rigid, inhibit 5 ms",
+        "startThetaDeg": 70.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1708.5220995704365,
+        "padStrain": 0.30909503178976877,
+        "crossToContactMs": 1.4650000000014651
+      },
+      {
+        "gearboxNm": 18.07281578297785,
+        "stopNm": 211.30454058638855,
+        "thetaMinDeg": -7.435345706431299,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -12.467751218085548,
+        "contactS": 0.11380900000009316,
+        "crossS": 0.11171500000009106,
+        "label": "B1 rigid, inhibit 0 ms",
+        "startThetaDeg": 70.0,
+        "startRateRadS": -11.328310459396668,
+        "latencyMs": 0.0,
+        "drive": false,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1173.9141143688253,
+        "padStrain": 0.21252400500766708,
+        "crossToContactMs": 2.094000000002094
+      },
+      {
+        "gearboxNm": 12.917121073008,
+        "stopNm": 69.14089226898362,
+        "thetaMinDeg": -5.816010128366028,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -2.9709327991366328,
+        "contactS": 0.02502300000000437,
+        "crossS": 0.017626999999996975,
+        "label": "F1 rigid, inhibit 5 ms, rotor inertia x2",
+        "startThetaDeg": -2.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 6e-06,
+        "clutchNm": null,
+        "padForceEachN": 384.1160681610201,
+        "padStrain": 0.07121031734804385,
+        "crossToContactMs": 7.396000000007397
+      },
+      {
+        "gearboxNm": 13.624832286821082,
+        "stopNm": 68.2679500838998,
+        "thetaMinDeg": -5.79241505705348,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -3.0361716605366493,
+        "contactS": 0.024476000000003825,
+        "crossS": 0.017249999999996598,
+        "label": "F1 rigid, inhibit 5 ms, registered sim motor law 12 V eta 1",
+        "startThetaDeg": -2.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 12.0,
+        "motorModel": "sim",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 379.2663893549989,
+        "padStrain": 0.06915125893980972,
+        "crossToContactMs": 7.226000000007227
+      },
+      {
+        "gearboxNm": 54.777839605221644,
+        "stopNm": 263.5426060635515,
+        "thetaMinDeg": -8.088871822202636,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -14.415733671274884,
+        "contactS": 0.08628900000006563,
+        "crossS": 0.08448800000006383,
+        "label": "F2 rigid, inhibit 5 ms, rotor inertia x2",
+        "startThetaDeg": 34.0,
+        "startRateRadS": -1.18,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 6e-06,
+        "clutchNm": null,
+        "padForceEachN": 1464.1255892419529,
+        "padStrain": 0.2695549173475644,
+        "crossToContactMs": 1.8010000000018012
+      },
+      {
+        "gearboxNm": 36.34169138033876,
+        "stopNm": 261.8549491944746,
+        "thetaMinDeg": -8.015970779872877,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -14.838958421320068,
+        "contactS": 0.08467100000006401,
+        "crossS": 0.08292300000006227,
+        "label": "F2 rigid, inhibit 5 ms, registered sim motor law 12 V eta 1",
+        "startThetaDeg": 34.0,
+        "startRateRadS": -1.18,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 12.0,
+        "motorModel": "sim",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1454.7497177470811,
+        "padStrain": 0.2631931012636141,
+        "crossToContactMs": 1.7480000000017482
+      },
+      {
+        "gearboxNm": 62.932040889228105,
+        "stopNm": 313.4393098930615,
+        "thetaMinDeg": -8.672241168554965,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -17.482140160964178,
+        "contactS": 0.14071500000012005,
+        "crossS": 0.13922100000011856,
+        "label": "F3 rigid, inhibit 5 ms, rotor inertia x2",
+        "startThetaDeg": 70.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 11.0,
+        "motorModel": "package",
+        "rotorInertiaKgM2": 6e-06,
+        "clutchNm": null,
+        "padForceEachN": 1741.3294994058972,
+        "padStrain": 0.320463496592841,
+        "crossToContactMs": 1.4940000000014941
+      },
+      {
+        "gearboxNm": 41.21980827606484,
+        "stopNm": 317.9288857656134,
+        "thetaMinDeg": -8.662442551244604,
+        "slipS": 0.0,
+        "rateAtCrossRadS": -18.400478503855457,
+        "contactS": 0.1375670000001169,
+        "crossS": 0.13614800000011548,
+        "label": "F3 rigid, inhibit 5 ms, registered sim motor law 12 V eta 1",
+        "startThetaDeg": 70.0,
+        "startRateRadS": 0.0,
+        "latencyMs": 5.0,
+        "drive": true,
+        "efficiency": 1.0,
+        "busV": 12.0,
+        "motorModel": "sim",
+        "rotorInertiaKgM2": 3e-06,
+        "clutchNm": null,
+        "padForceEachN": 1766.2715875867414,
+        "padStrain": 0.3196084059217974,
+        "crossToContactMs": 1.4190000000014191
+      }
+    ],
+    "clutchCases": 60,
+    "clutchWorstNm": {
+      "16.5": 16.5,
+      "18.0": 18.0,
+      "21.6": 21.6
+    },
+    "conclusion": "Rigid (no clutch) gearbox peak: 25.8 N m at 0 ms, 25.9 N m at 1.5 ms, 41.0 N m at 5 ms (F3); F2 37.0 N m at 5 ms; F1 14.3 N m at any latency (before the cut); B1 18.1 N m. 5 ms exceeds REV's 40 N m published failure. Rotor inertia x2 at 5 ms gives 62.9 N m. A friction clutch caps the output stage at its slip torque in every case (16.5/18/21.6 N m modeled, rotor 3e-6 and 9e-6). Setting to stay under 26 N m: 15.4-21.7 N m (above the 15.43 N m normal-duty stall cap, breakaway x1.2 <= 26 N m); the package 16.5-18 N m is inside."
+  },
+  "findings": [
+    "All 12 cases pass at 30 A and unpowered for both stiffnesses (custody, resets, >= 9.75 V branch). Support vs 1.828 mm: 6000 N m/rad 30 A +7.2 um, 5420 30 A +1.9 um; unpowered -3.2 um (5420) and -1.3 um (6000). Peak pan current 19.7 A.",
+    "The inhibit never acts in any of the replays (directional; the pan is driven closed whenever it is below -3.5 deg).",
+    "Stow arm sign flip makes the closing spring mandatory for unpowered holding; with it the stow holds station impact and 2 g peer contact but not >= 3 g opening contact."
+  ],
+  "limits": [
+    "Reflected rotor inertia and slip-clutch breakaway tolerance are assumptions.",
+    "Peer contact modeled as a rigid-chassis acceleration pulse; real bumper force histories not measured.",
+    "Static checks are level-chassis; route accelerations are only in the replays."
+  ],
+  "pluginFriction": [
+    "PR #130 resolved the zero-free-travel and preload gaps; the reviewer still cannot take a chassis-acceleration (peer contact) case or a drive-inhibit/clutch fault."
+  ]
+}

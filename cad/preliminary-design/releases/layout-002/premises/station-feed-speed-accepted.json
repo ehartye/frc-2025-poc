@@ -1,0 +1,27 @@
+{
+  "id": "station-feed-speed",
+  "scenarioId": "station-feed-speed",
+  "scenario": "Station feed: largest pipe speed before the check flap, released from rest on the registered chute, dock gap 0-50 mm",
+  "unit": "m/s",
+  "criterion": {
+    "range": [
+      0.0,
+      3.604
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "pocket tray",
+    "check flap",
+    "hood",
+    "lower nip roller",
+    "upper nip roller",
+    "pipe",
+    "field station"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/layout-002/evidence/field-trials.json",
+    "sha256": "e2d1d20cc817a5df258134e2714e7ba504b028cc581383fdf26f76602bb10184"
+  },
+  "basis": "The receive is accepted up to 3.604 m/s, the fastest pushed feed (2.0 m/s down the chute) that still seats: 24/24 and 18/24 at 1.0 and 2.0 m/s pushes"
+}

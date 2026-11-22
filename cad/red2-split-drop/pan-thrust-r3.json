@@ -1,0 +1,1083 @@
+{
+  "schema": "red2/pan-machining-checkpoint@1",
+  "designRole": "Red 2 low CORAL duty with 340 mm single-axis capture and release pan",
+  "state": "private machining checkpoint; guarded placements, purchased drivetrain, loaded assembly and acceptance outstanding",
+  "authority": {
+    "file": "artifacts/fusion-authority/receiver-service-original-vendor-motors-and-plates.f3d",
+    "sha256": "a53b05b14a730ea55b01f1e4780446fa894bdf8cf6121ae2e5cc33015d74932f"
+  },
+  "parent": {
+    "file": "artifacts/red2-integrated/pan-native/integrated-340mm-pan-r2.f3d",
+    "sha256": "4b3f600c352a67c35301ce5409fe9a7ac950879559377be76327542eb60885db"
+  },
+  "native": {
+    "bodies": 297,
+    "retainedFoundationBodies": 148,
+    "rotatingAndFixedPanPurchases": 78,
+    "panShopArticles": 71,
+    "remachined": [
+      "Starboard bearing tower",
+      "Starboard driven hex socket",
+      "Idler headed stub hex shank"
+    ],
+    "added": [
+      "Piloted bilateral bearing support",
+      "Turned 6061-T6 removable cap",
+      "Match-ground 302 stainless thrust shim"
+    ],
+    "stowDeg": 70,
+    "sourceCapKey": "The archived geometry input names the cap hardened. The selected editable article is turned 6061-T6 aluminum."
+  },
+  "shapeComparison": {
+    "primaryPass": 70,
+    "primaryFail": [
+      "Starboard bearing tower"
+    ],
+    "alternate": "The independently dimensioned pierced plate has 46332.87128117509 mm3 common and zero missing/extra against both saved assemblies of the tower. Each source self-check independently passes. Shifting the independent tower +1 mm X loses and adds 997.561435 mm3. The original neutral pair paradoxically returns zero common. Retain every witness and the original failure."
+  },
+  "candidateThrust": {
+    "proposal": "Bilateral 6655K17 exact 11-body source, 2 packs, 6 REV screws and an adjustable 302 shim; 325 total installed solids when mounted.",
+    "catalogDynamicN": 889.64,
+    "observedPipeAxialN": 396.277,
+    "modeledEndFloatMm": 0.1,
+    "inboardAndOutboardStopDisplacementMm": 0.05,
+    "remaining": "Neither dynamic catalog capacity alone nor shop fit certifies static impact, axial preload, retention, screw proof, running duty or actual native race motion."
+  },
+  "support": {
+    "straightSleeve": "Nut and 11 mm sleeve can withdraw through the host. Zero common volume after 0.25 mm across each of eight axes.",
+    "flange": "Integral underside flange of 16 mm OD x 3 mm. All eight modeled seats have 104.293022 mm2 bearing area; direct 0.05/0.25 mm withdrawal creates 5.214651/26.073256 mm3 physical host interference. No other frame obstacles in the 40 modeled tool paths at 70, 34 or -2 degrees.",
+    "stationLoads": {
+      "pipe/port": {
+        "upliftN": {
+          "value": 521.3999725006197,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -243.2486547269023
+          ],
+          "momentAtFourBoltCenterNm": [
+            6.7440689523033654,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            242,
+            480
+          ],
+          "forceN": [
+            25.25323334973757,
+            -69.89044196654898,
+            521.3999725006197
+          ],
+          "shearN": 74.31284998501839,
+          "tensileN": 521.3999725006197,
+          "compressionN": 0,
+          "normalOnSupportN": 521.3999725006197,
+          "footBearingMPa": 2.199776507756154,
+          "singleHostWallSleeveBearingMPa": 3.377856817500836,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "compressionN": {
+          "value": 643.0242998640708,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -243.2486547269023
+          ],
+          "momentAtFourBoltCenterNm": [
+            6.7440689523033654,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            224,
+            205,
+            480
+          ],
+          "forceN": [
+            161.35567296880663,
+            69.89044196654898,
+            -643.0242998640708
+          ],
+          "shearN": 175.84176715870444,
+          "tensileN": 0,
+          "compressionN": 643.0242998640708,
+          "normalOnSupportN": -643.0242998640708,
+          "footBearingMPa": 5.205191141989949,
+          "singleHostWallSleeveBearingMPa": 6.394246078498344,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "torsionInclusiveShearN": {
+          "value": 175.84176715870444,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -243.2486547269023
+          ],
+          "momentAtFourBoltCenterNm": [
+            6.7440689523033654,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            205,
+            480
+          ],
+          "forceN": [
+            161.35567296880663,
+            -69.89044196654898,
+            339.12783865458283
+          ],
+          "shearN": 175.84176715870444,
+          "tensileN": 339.12783865458283,
+          "compressionN": 0,
+          "normalOnSupportN": 339.12783865458283,
+          "footBearingMPa": 5.205191141989949,
+          "singleHostWallSleeveBearingMPa": 6.394246078498344,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "combinedEquivalentN": {
+          "value": 537.0522603456153,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -243.2486547269023
+          ],
+          "momentAtFourBoltCenterNm": [
+            6.7440689523033654,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            242,
+            480
+          ],
+          "forceN": [
+            25.25323334973757,
+            -69.89044196654898,
+            521.3999725006197
+          ],
+          "shearN": 74.31284998501839,
+          "tensileN": 521.3999725006197,
+          "compressionN": 0,
+          "normalOnSupportN": 521.3999725006197,
+          "footBearingMPa": 2.199776507756154,
+          "singleHostWallSleeveBearingMPa": 3.377856817500836,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        }
+      },
+      "pipeAndShopMass/port": {
+        "upliftN": {
+          "value": 523.4369860883418,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -259.5889263248889
+          ],
+          "momentAtFourBoltCenterNm": [
+            7.197102982357545,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            242,
+            480
+          ],
+          "forceN": [
+            25.25323334973757,
+            -69.89044196654898,
+            523.4369860883418
+          ],
+          "shearN": 74.31284998501839,
+          "tensileN": 523.4369860883418,
+          "compressionN": 0,
+          "normalOnSupportN": 523.4369860883418,
+          "footBearingMPa": 2.199776507756154,
+          "singleHostWallSleeveBearingMPa": 3.377856817500836,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "compressionN": {
+          "value": 653.2314492507862,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -259.5889263248889
+          ],
+          "momentAtFourBoltCenterNm": [
+            7.197102982357545,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            224,
+            205,
+            480
+          ],
+          "forceN": [
+            161.35567296880663,
+            69.89044196654898,
+            -653.2314492507862
+          ],
+          "shearN": 175.84176715870444,
+          "tensileN": 0,
+          "compressionN": 653.2314492507862,
+          "normalOnSupportN": -653.2314492507862,
+          "footBearingMPa": 5.205191141989949,
+          "singleHostWallSleeveBearingMPa": 6.394246078498344,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "torsionInclusiveShearN": {
+          "value": 175.84176715870444,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -259.5889263248889
+          ],
+          "momentAtFourBoltCenterNm": [
+            7.197102982357545,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            205,
+            480
+          ],
+          "forceN": [
+            161.35567296880663,
+            -69.89044196654898,
+            328.92068926786754
+          ],
+          "shearN": 175.84176715870444,
+          "tensileN": 328.92068926786754,
+          "compressionN": 0,
+          "normalOnSupportN": 328.92068926786754,
+          "footBearingMPa": 5.205191141989949,
+          "singleHostWallSleeveBearingMPa": 6.394246078498344,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        },
+        "combinedEquivalentN": {
+          "value": 539.0301266385159,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.19989915639263,
+            377.41740818090324,
+            -202.26990507932578
+          ],
+          "pipeMomentNm": [
+            -55.644620091413586,
+            -2.905190261066129,
+            -87.94912428070921
+          ],
+          "portRadialXZ_N": [
+            -373.2178126370884,
+            243.2486547269023
+          ],
+          "starboardRadialXZ_N": [
+            76.0179134806958,
+            -40.97874964757651
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021678,
+          "forceToTowerN": [
+            373.2178126370884,
+            0,
+            -259.5889263248889
+          ],
+          "momentAtFourBoltCenterNm": [
+            7.197102982357545,
+            37.32178126370884,
+            10.347463855363277
+          ],
+          "boltPointMm": [
+            186,
+            242,
+            480
+          ],
+          "forceN": [
+            25.25323334973757,
+            -69.89044196654898,
+            523.4369860883418
+          ],
+          "shearN": 74.31284998501839,
+          "tensileN": 523.4369860883418,
+          "compressionN": 0,
+          "normalOnSupportN": 523.4369860883418,
+          "footBearingMPa": 2.199776507756154,
+          "singleHostWallSleeveBearingMPa": 3.377856817500836,
+          "case": "adverse/coral-A/-1/-1/-0.04/0.0001/17"
+        }
+      },
+      "pipe/starboard": {
+        "upliftN": {
+          "value": 849.15136322337,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -243.24865472690183
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.997671865786955,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            186,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -24.463910078676975,
+            849.15136322337
+          ],
+          "shearN": 163.19968166498958,
+          "tensileN": 849.15136322337,
+          "compressionN": 0,
+          "normalOnSupportN": 849.15136322337,
+          "footBearingMPa": 4.830965652270132,
+          "singleHostWallSleeveBearingMPa": 5.934533878726894,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "compressionN": {
+          "value": 970.7756905868209,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -243.24865472690183
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.997671865786955,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            224,
+            -242,
+            480
+          ],
+          "forceN": [
+            25.253233349737513,
+            -164.24479401177456,
+            -970.7756905868209
+          ],
+          "shearN": 166.17484212294758,
+          "tensileN": 0,
+          "compressionN": 970.7756905868209,
+          "normalOnSupportN": -970.7756905868209,
+          "footBearingMPa": 4.919035051889988,
+          "singleHostWallSleeveBearingMPa": 7.553401914679435,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "torsionInclusiveShearN": {
+          "value": 230.24336159634788,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -243.24865472690183
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.997671865786955,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            224,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -164.24479401177456,
+            -133.00077529528147
+          ],
+          "shearN": 230.24336159634788,
+          "tensileN": 0,
+          "compressionN": 133.00077529528147,
+          "normalOnSupportN": -133.00077529528147,
+          "footBearingMPa": 6.81556336499757,
+          "singleHostWallSleeveBearingMPa": 8.372485876230831,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "combinedEquivalentN": {
+          "value": 894.9639355587294,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -243.24865472690183
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.997671865786955,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            186,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -24.463910078676975,
+            849.15136322337
+          ],
+          "shearN": 163.19968166498958,
+          "tensileN": 849.15136322337,
+          "compressionN": 0,
+          "normalOnSupportN": 849.15136322337,
+          "footBearingMPa": 4.830965652270132,
+          "singleHostWallSleeveBearingMPa": 5.934533878726894,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        }
+      },
+      "pipeAndShopMass/starboard": {
+        "upliftN": {
+          "value": 838.8660455119,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -259.7140632860968
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.541168413483273,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            186,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -24.463910078676975,
+            838.8660455119
+          ],
+          "shearN": 163.19968166498958,
+          "tensileN": 838.8660455119,
+          "compressionN": 0,
+          "normalOnSupportN": 838.8660455119,
+          "footBearingMPa": 4.830965652270132,
+          "singleHostWallSleeveBearingMPa": 5.934533878726894,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "compressionN": {
+          "value": 968.7230771549482,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -259.7140632860968
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.541168413483273,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            224,
+            -242,
+            480
+          ],
+          "forceN": [
+            25.253233349737513,
+            -164.24479401177456,
+            -968.7230771549482
+          ],
+          "shearN": 166.17484212294758,
+          "tensileN": 0,
+          "compressionN": 968.7230771549482,
+          "normalOnSupportN": -968.7230771549482,
+          "footBearingMPa": 4.919035051889988,
+          "singleHostWallSleeveBearingMPa": 7.553401914679435,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "torsionInclusiveShearN": {
+          "value": 230.24336159634788,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -259.7140632860968
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.541168413483273,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            224,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -164.24479401177456,
+            -143.2860930067515
+          ],
+          "shearN": 230.24336159634788,
+          "tensileN": 0,
+          "compressionN": 143.2860930067515,
+          "normalOnSupportN": -143.2860930067515,
+          "footBearingMPa": 6.81556336499757,
+          "singleHostWallSleeveBearingMPa": 8.372485876230831,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        },
+        "combinedEquivalentN": {
+          "value": 885.211076862143,
+          "timeS": 21.993272635313534,
+          "phase": "feed",
+          "shopPhaseDeg": 70,
+          "pipeForceN": [
+            297.1998991563917,
+            -377.41740818090307,
+            -202.26990507932533
+          ],
+          "pipeMomentNm": [
+            55.6446200914135,
+            -2.90519026106616,
+            87.94912428070901
+          ],
+          "portRadialXZ_N": [
+            76.01791348069577,
+            -40.97874964757651
+          ],
+          "starboardRadialXZ_N": [
+            -373.2178126370875,
+            243.24865472690183
+          ],
+          "shopExternalMomentY_Nm": -0.028187882955549103,
+          "shopInertialTorqueY_Nm": 0,
+          "requiredActuatorTorqueY_Nm": 2.933378144021709,
+          "forceToTowerN": [
+            373.2178126370875,
+            -377.41740818090307,
+            -259.7140632860968
+          ],
+          "momentAtFourBoltCenterNm": [
+            30.541168413483273,
+            37.32178126370875,
+            -10.34746385536325
+          ],
+          "boltPointMm": [
+            186,
+            -205,
+            480
+          ],
+          "forceN": [
+            161.35567296880623,
+            -24.463910078676975,
+            838.8660455119
+          ],
+          "shearN": 163.19968166498958,
+          "tensileN": 838.8660455119,
+          "compressionN": 0,
+          "normalOnSupportN": 838.8660455119,
+          "footBearingMPa": 4.830965652270132,
+          "singleHostWallSleeveBearingMPa": 5.934533878726894,
+          "case": "adverse/coral-A/1/1/-0.04/0.0001/17"
+        }
+      }
+    },
+    "contactSamples": 4979154,
+    "resetSamples": 319128,
+    "remaining": "Size the eight attachments, real bolts, welded plate sections and heat affected zones against pretension, support stiffness, withdrawal, fatigue and tolerance. Both nearby modules and the remaining rotating purchased mass enter installed qualification."
+  },
+  "gearbox": "Male carrier and female spindle share a fixed phase of -11.7343741163 degrees in the measured source frame, with zero direct common at 70/34/-2/70 degrees; the incorrectly fixed carrier gave 16.802146/31.295241/58.850486 mm3. Author internal coupling rather than rotating the complete gearbox, and review tolerance and torque before acceptance.",
+  "scope": "The registered master and issued public assembly both retain their previous revisions. The checkpoint excludes installed thrust bearings, cap/cross fasteners and frame braces. No complete native or public qualification.",
+  "inputs": [
+    {
+      "file": "cad/fusion-authority.json",
+      "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+    },
+    {
+      "file": "artifacts/native-master-review/master-issue-03/lineage.json",
+      "sha256": "35ba1da2fbda1ad3219849745cb653d2fe0461692fbc73156045062e5043acda"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/native-r3-machining-job.json",
+      "sha256": "b4e03ae6124b3a760a96fe6cc9074a5c92da67f23e20dd85295be82e15b0fcb9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-plan.json",
+      "sha256": "b3554c5c9bad80b816714b0aafededb6ed1e97d961885fc49c8a2dafc0555df5"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/native/integrated-340mm-pan-r3-machined.f3d",
+      "sha256": "91a7e1ae2d4106018d76e5e73a4f5faee299cb3db3ace5b4f6a307a1d958d462"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/native/integrated-340mm-pan-r3-machined.step",
+      "sha256": "e3fcdca37f39ac27980fe7be1895c452a6b81470236f8367c3ca24b0c34069e9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/native/pan-r3-stock-machining-01.json",
+      "sha256": "845c6329ccd90cbdcb553275a3e21e5c5f00af2fd48fba62aa8902856d35dea9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-station-release.json",
+      "sha256": "4b9fe27dcb2118fc4b40860abf37672f0d63f90d40407b43b3660e970e3eabfa"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-cold-independent-stock.json",
+      "sha256": "fc477f6b37adba77ee353e1f6ef574c3768e6193da3036c48e78b80589bc81e2"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-starboard-tower-registration.json",
+      "sha256": "45bd2d81fa216a10805e91b1313bbc5dcda7af062fc145fd52356f626eea7450"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-counterbrace-straight-withdrawal.json",
+      "sha256": "d5f83e6a392c07d26e4f6aedc9f7c71f2fe1364275a147e02dc2e236be115f8f"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-counterbrace-flanged.json",
+      "sha256": "85591d54adcbb2a6b4a97fe265023a7ae072144b4276c6dc859f3ce1dc82f7c9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-all-clock-station-reactions.json",
+      "sha256": "94c517853410dfc78a6506a96d1e78cc8d97b5ecba7fa29d1d90b335a8987b78"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-retainer-6655k17-service.json",
+      "sha256": "980a9804a5cac8c021edd6cd9cb266039d02922c8ae848608e64bffb2b97ffcc"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-retainer-6655k17-pilots.json",
+      "sha256": "07b7a24343855671817102567ed691fb32817e0dfedcee951e6921db289c801b"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-tower-foot-reactions-radial-center.json",
+      "sha256": "15a2f199ac98cd8265988b625b0ccb05a3e49db7c58b03cebc36a2ff1da951d9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-native/critical-interfaces-r2.json",
+      "sha256": "8b2b3fbbcc9c1ad1a23d0c8d96d0822a4721f06af21d1500382b20a888160663"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-native/r2-coupled-spline-refined.json",
+      "sha256": "7f881bbe8e3850ec75d5143ee33ffb255614d88901c577edd258e7efb3386082"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-native/purchase-boolean-conservation-r1.json",
+      "sha256": "fea0b3353b7e07d67615b78bd166ede195bb2d4a8a16eb157a99d8661797c54f"
+    },
+    {
+      "file": "artifacts/red2-integrated/single-pivot-spatial-rim-installed-reactions-frame-anchors.json",
+      "sha256": "568b78c3f07de82aed81494da05b3cffdbde88c977224e5db5df90800249f915"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/6655k17 assembly.STEP",
+      "sha256": "c9f64a70acb4e308e508259fd6b339b96cca71fde2fd2f0eedc96c92b48b3966"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-00.step",
+      "sha256": "9c461d750a5e3b65b8e68a3a63b050cc06fe544de70dd91aa7cf0f190d9ab563"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-01.step",
+      "sha256": "ff9a242e1cc5ca539fd938a6cbadba1c614eee7d37747a210edc8a02f5d1f13d"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-02.step",
+      "sha256": "842fd01ef87f098e25ffb5fe56ab43e4e8e11334a3599f3fb2c9fd5027847064"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-03.step",
+      "sha256": "a66118ea02f22c8aa0f50bf7492a201632c9393fa7ff93308e953560b505c479"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-04.step",
+      "sha256": "e2b6a64f7fc0f67ed88569ca87b2bab2f77e2177ceb6fe8ccd6df8d950e9e919"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-05.step",
+      "sha256": "b05ddd181326f45239938b9c2575e04000373e1a4d00ef01603dba83540a67b9"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-06.step",
+      "sha256": "c10f50fb2a49b0ccb8bb65d966cd602163475662919f3f42507e760cdb51fd85"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-07.step",
+      "sha256": "bb21de46ebce89b587508a26e35a9def640b26b49b924ec2de689f0cdd6737ed"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-08.step",
+      "sha256": "5c9b9c74d54b6b352bba56c577c933f82d18fb6100e5d847173bbe3db9eda551"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-09.step",
+      "sha256": "fcb3985c0830fc3abeaa6102ee7207ad036b3266d341b544083454df7f13cb08"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/source-6655K17-10.step",
+      "sha256": "31f3b7f77d2ab9ff225befa48b48751a3d07b39028a16f00034cf31dcb679966"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-0.step",
+      "sha256": "6500735d7ab8b5b910e5ec5d3e396d82b0f743c6c3225d342665ee281dfe3a1c"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-1.step",
+      "sha256": "4587c098e782e83e32315a19414a441e7f39b63bcada0528c3f3ca95c72ebb85"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-2.step",
+      "sha256": "7951c45fa9c62d4a86a51f0a1b4090df762bbd037728847f0ef2181c13f4b938"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-3.step",
+      "sha256": "fe12c1d7f9de63a17c0334967f4b2082d9c6281882e4cfe5ed0d5653135e8aa5"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-4.step",
+      "sha256": "d9a674f468c0245788d9f9ba9ecf92adb675ed8cc530204926faf0c5a5644eae"
+    },
+    {
+      "file": "artifacts/red2-integrated/pan-thrust/r3-native-inputs/stock-5.step",
+      "sha256": "dbd18d06f2b5bf48b6174b75fecdb6c8a2365ae7dfc15ec7d74afb9ee5a16f3d"
+    }
+  ]
+}

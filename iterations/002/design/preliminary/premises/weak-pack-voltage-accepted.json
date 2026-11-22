@@ -1,0 +1,23 @@
+{
+  "id": "weak-pack-voltage",
+  "scenario": "Every cycle stage on the weak 11.8 V / 32 mOhm pack at the conservative simultaneous current",
+  "unit": "V",
+  "criterion": {
+    "range": [
+      9.0,
+      13.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "pan",
+    "steer sweeps",
+    "electronics",
+    "battery"
+  ],
+  "source": {
+    "file": "iterations/002/design/strategy/drive-envelope.json",
+    "sha256": "88d816e9143e4dc0f74c92109cb6572f229da7ceffb5968de3cd89191f8908c6"
+  },
+  "basis": "Lumped bus stays at or above the 9 V project branch floor"
+}

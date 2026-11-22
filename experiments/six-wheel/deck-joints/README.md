@@ -1,9 +1,9 @@
 # Six removable ties capture the full-thickness deck
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
 The installed 692 × 516 × 4 mm deck bears on two end tubes and both inner side rails. Previously it could lift away from all four supports. The proposed joint carries uplift from the plate through a steel washer and nut into a one-piece aluminum tie whose foot hooks both walls of each welded end tube. Two flats on an inboard lip stop the foot turning. The existing weld preparations and bumper screws survive. The receiver, battery tray and electronics still need their own attachment proofs. [Shop drawing](shop.svg) · [Named STEP](deck-through-ties.step) · [Native fit](fit.json)

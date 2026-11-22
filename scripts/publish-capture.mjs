@@ -1,6 +1,6 @@
 // Finish the public site after the shared builder has run: the rough-draft showcase model is withdrawn, so
-// publish the detailed design status tree with its archive, and an entry page that features the current
-// preliminary design release. The independent field pages stay as built.
+// drop the files the builder still emits for it, publish the detailed design status tree and an entry page
+// that features the current preliminary design release. The independent field pages stay as built.
 import {createHash} from 'node:crypto';
 import {cp,mkdir,readFile,readdir,rm,writeFile} from 'node:fs/promises';
 import path from 'node:path';
@@ -15,22 +15,18 @@ async function inventory(root){
   return names.sort();
 }
 
-// The approved site policy declares the withdrawal; the committed design tree records it.
-const policy=await json('.github/staged-model-policy.json');
-const detailed=policy.detailedDesigns, entryPoints=policy.preliminaryReleases.primaryEntryPoints;
+// The committed design index records the withdrawal; site-build.json lists what the builder still emits for it.
+const build=await json('docs/robot/site-build.json');
+const entryPoints=build.entryPoints, declared=build.withdrawnBuilderOutput;
 const tree=path.join(project,'docs/detailed-design');
 const index=JSON.parse(await readFile(path.join(tree,'designs.json'),'utf8'));
-const declared=detailed.withdrawn.find(row=>row.design===detailed.legacy.design);
-if(!declared||index.designStatus[declared.design]!=='withdrawn'||index.reason?.[declared.design]!==declared.reason||index.current!==null)
-  throw new Error('The design index must show the declared withdrawal and no current detailed design');
-const archive=declared.files.map(name=>'archive/'+declared.design+'/'+name).sort();
-const kept=await inventory(tree);
-if(JSON.stringify(kept.filter(name=>name.startsWith('archive/')))!==JSON.stringify(archive))
-  throw new Error('The committed archive differs from the declared withdrawn files');
+const reason=index.reason?.[declared.design];
+if(index.designStatus[declared.design]!=='withdrawn'||!reason||index.current!==null)
+  throw new Error('The design index must show '+declared.design+' withdrawn with its reason and no current detailed design');
 
 // Stop publishing every withdrawn file the shared builder still emits. Nothing unexpected may remain.
-for(const name of declared.files)await rm(path.join(output,name),{force:true});
-for(const folder of new Set(declared.files.filter(name=>name.includes('/')).map(name=>name.split('/')[0])))
+for(const name of declared.builderFiles)await rm(path.join(output,name),{force:true});
+for(const folder of new Set(declared.builderFiles.filter(name=>name.includes('/')).map(name=>name.split('/')[0])))
   if(!(await inventory(path.join(output,folder)).catch(()=>[])).length)await rm(path.join(output,folder),{recursive:true,force:true});
 const left=await inventory(output);
 if(JSON.stringify(left)!==JSON.stringify(['field-lab.html']))throw new Error('Unexpected output beside the field lab: '+left.join(', '));
@@ -44,7 +40,7 @@ if(digest(rolePage)!==liveReport.roleHtmlSha256||
   throw new Error('Role lab and selected demand must match the published study');
 await writeFile(path.join(output,'role-lab.html'),rolePage);
 
-await cp(tree,path.join(output,detailed.root),{recursive:true,errorOnExist:true,force:false});
+await cp(tree,path.join(output,build.detailedRoot),{recursive:true,errorOnExist:true,force:false});
 
 // The primary view follows the current preliminary design release and its checked still.
 const releases=await json('docs/preliminary-design/releases.json'), release=releases.current;
@@ -62,13 +58,12 @@ if(record.release!==release||digest(still)!==record.imageSha256||digest(await se
   throw new Error('The preliminary still differs from the current release');
 const [entry,stillPath,selector]=entryPoints;
 if(entryPoints.length!==3||entry!=='index.html'||!stillPath.endsWith('/assembly.png')||selector!==path.posix.dirname(stillPath)+'/index.html')
-  throw new Error('Unexpected primary entry points in the site policy');
+  throw new Error('Unexpected primary entry points in docs/robot/site-build.json');
 const fields={
   heading:escape('Preliminary design · '+words+' · '+release),statusNote:escape(statusNote),alt:escape(record.caption.alt),
   title:escape(record.caption.title),pose:escape(record.caption.pose),scope:escape(record.caption.scope),
-  reason:escape(declared.reason),design:escape(declared.design),still:escape(stillPath),
-  preliminary:escape(policy.preliminaryReleases.root+'/'),detailed:escape(detailed.root+'/'),
-  archived:escape(detailed.root+'/archive/'+declared.design+'/')};
+  reason:escape(reason),design:escape(declared.design),still:escape(stillPath),
+  preliminary:escape(build.preliminaryRoot+'/'),detailed:escape(build.detailedRoot+'/')};
 const fill=async name=>(await readFile(path.join(project,'docs/robot',name),'utf8')).replace(/\{\{(\w+)\}\}/g,(_,key)=>{
   if(!Object.hasOwn(fields,key))throw new Error('Unknown page field: '+key);
   return fields[key];
@@ -77,4 +72,4 @@ await mkdir(path.join(output,path.dirname(stillPath)),{recursive:true});
 await writeFile(path.join(output,stillPath),still);
 await writeFile(path.join(output,selector),await fill('no-detailed-model.html'));
 await writeFile(path.join(output,entry),await fill('entry.html'));
-console.log('Published the '+release+' preliminary design entry page and the withdrawn '+declared.design+' archive');
+console.log('Published the '+release+' preliminary design entry page; '+declared.design+' is withdrawn');

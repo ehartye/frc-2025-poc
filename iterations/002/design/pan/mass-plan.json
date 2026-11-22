@@ -1,0 +1,312 @@
+{
+ "schema": "red2/pan-mass-plan@2",
+ "revision": "002-pan-r3",
+ "inputs": {
+  "iterations/002/design/chassis/inspection-mass-552.json": "e1366a1b3b7644f3ac8bf49febae6902fb7dab8f217dd0b5f8afb1026b0959f5",
+  "iterations/002/design/chassis/inset-connected-mass.json": "920d5cc21d396a1f9692846a3fd9e724a3b0af0da78175532c59ec39b2147009",
+  "iterations/002/design/chassis/inset-upper-named-mass.json": "91aa00bdd88b0d17a9691a91eb51d382aa98fae3572e027619c716f0ca68992a",
+  "iterations/002/design/pan/geometry.json": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313",
+  "iterations/002/design/pan/target-roster.json": "925b7823082491e4294755f997cedb88aa538cebc042ac40b1627c514082af6f",
+  "external/taps-02/four-tapped-holes.step": "166c5567fb38a6c9c446589c10b96ec7046bac9beb19673f2696c2b22eb2efdd",
+  "iterations/002/design/pan/pan_mass_plan.py": "3b785417e99088edebd4afe108f6b35f3acf9beb01e40db9fa53fe0affa2b29f"
+ },
+ "rule": {
+  "id": "R103",
+  "limitKg": 52.163122550000004,
+  "basis": "inspection-mass-552.json ruleBasis (2025 kickoff V0); excludes battery, bumpers and game piece"
+ },
+ "basis": {
+  "issue": "taps-02 (four-tapped-holes.f3d e426e576..., STEP 166c5567...)",
+  "replaces": "r2 used inset-connected-mass heavy bare, which is on the 552-r5 allocation",
+  "measuredChassisKg": 18.696588593445778,
+  "measuredChassisBodies": 146,
+  "moduleSolidsExcluded": 508,
+  "stockGroupsOn552Kg": 18.65946161964073,
+  "taps02Minus552Kg": 0.037126973805047925
+ },
+ "heavyEstimate": {
+  "lines": [
+   {
+    "item": "catalog four SDS L2 modules (inspection-mass-552 currentCohorts)",
+    "kg": 10.886216880000001,
+    "basis": "catalog"
+   },
+   {
+    "item": "taps-02 measured chassis bodies (146 non-module solids at 2700 kg/m3; includes the 0.908 kg pan trusses and the 1.504 kg equipment sheets)",
+    "kg": 18.696588593445778,
+    "basis": "measured, taps-02 STEP"
+   },
+   {
+    "item": "planned chassis screws (116, inset-connected-mass sourceScrewKg)",
+    "kg": 0.7974597872165894,
+    "basis": "measured supplier screw solids"
+   },
+   {
+    "item": "remaining fixed joining allowance (inset-connected-mass)",
+    "kg": 3.4030071985143433,
+    "basis": "allowance"
+   },
+   {
+    "item": "electrical budget remainder after the measured sheets (7 kg budget)",
+    "kg": 5.496355275198802,
+    "basis": "allowance"
+   },
+   {
+    "item": "unspecified installed hardware and finish (inspection-mass-552)",
+    "kg": 1.5,
+    "basis": "allowance"
+   },
+   {
+    "item": "steel axle-spacer correction and 1 g barrel allowance (inset-connected-mass)",
+    "kg": 0.017198480297979473,
+    "basis": "measured + allowance"
+   },
+   {
+    "item": "outstanding chassis item: taps-02 seated purchased-screw phase, 4 x #10-32 (pending in the taps-02 receipt; not in the 116)",
+    "kg": 0.03643190278003029,
+    "basis": "estimated"
+   },
+   {
+    "item": "r3 pan, upper support, inlet truss and drive bottom-up (upperBottomUp)",
+    "kg": 9.273964000000001,
+    "basis": "measured volumes + itemised purchases"
+   },
+   {
+    "item": "previous allowance for unweighed pan articles (inset-connected-mass panRemainingForUnweighedArticlesKg), kept in full",
+    "kg": 0.6930574507589835,
+    "basis": "allowance"
+   },
+   {
+    "item": "high case: additional joints (inspection-mass-552 2 kg high case)",
+    "kg": 1.25,
+    "basis": "allowance"
+   },
+   {
+    "item": "high case: upper (same high case)",
+    "kg": 0.5,
+    "basis": "allowance"
+   },
+   {
+    "item": "high case: loom (same high case)",
+    "kg": 0.25,
+    "basis": "allowance"
+   }
+  ],
+  "fixedRobotKg": 52.80027956821251,
+  "R103MarginKg": -0.6371570182125055,
+  "marginPercentOfLimit": -1.2214702400182624,
+  "withBumpersKg": 60.30027956821251,
+  "R408MarginKg": 0.9346903817874903,
+  "verdict": "NEGATIVE: the heavy estimate is over R103 by 0.637 kg",
+  "conservatism": "The kept 0.693 kg unweighed-article allowance overlaps 0.165 kg of the itemised estimated purchases (pinion, adapter, M3 screws, bearings, thrust stacks, encoder); both are carried"
+ },
+ "highCase": [
+  {
+   "item": "additional joints (inspection-mass-552 2 kg high case)",
+   "kg": 1.25
+  },
+  {
+   "item": "upper (same high case)",
+   "kg": 0.5
+  },
+  {
+   "item": "loom (same high case)",
+   "kg": 0.25
+  }
+ ],
+ "upperBottomUp": {
+  "movingPanKg": 3.6740030000000004,
+  "movingFabricatedKg": 3.464303,
+  "movingJoiningHardwareKg": 0.18120000000000003,
+  "movingOnAxisKg": 0.0285,
+  "upperSupportFabricatedKg": 1.9426919999999999,
+  "fixedInletFabricatedKg": 2.238369,
+  "purchasedKg": 0.7825,
+  "purchased": [
+   {
+    "item": "REV-21-1651 NEO 550 with leads",
+    "kg": 0.142,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-21-1651/"
+   },
+   {
+    "item": "REV-41-1601 3:1 stage",
+    "kg": 0.0355,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-41-1601/"
+   },
+   {
+    "item": "REV-41-1602 4:1 stage",
+    "kg": 0.034,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-41-1602/"
+   },
+   {
+    "item": "REV-41-1603 5:1 stage",
+    "kg": 0.036,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-41-1603/"
+   },
+   {
+    "item": "REV-41-1607 550 input plate",
+    "kg": 0.0335,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-41-1607/"
+   },
+   {
+    "item": "REV-41-1615 V2 output cartridge",
+    "kg": 0.0665,
+    "basis": "sourced",
+    "source": "https://www.revrobotics.com/rev-41-1615/"
+   },
+   {
+    "item": "REV-41-1608 13T pinion",
+    "kg": 0.005,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "REV-41-1620 1/2 in hex output adapter",
+    "kg": 0.025,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "9 x M3x8 drive screws",
+    "kg": 0.009,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "2 x REV-21-1915 flanged 1/2 in hex bearing",
+    "kg": 0.04,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "2 x 6655K17 thrust stack, stationary halves",
+    "kg": 0.026,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "port 1/2 in hex drive shaft",
+    "kg": 0.02,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "2 stow pads + 2 soft-stop pads (r3: 18 mm soft-stop pads)",
+    "kg": 0.026,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "closing spring stationary half + #10 shoulder screw",
+    "kg": 0.012,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "pan position encoder, limit input and dressed lead",
+    "kg": 0.06,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "1/2 in hex friction slip clutch, 16.5-18 N m (required), with gearbox stand-off",
+    "kg": 0.2,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   },
+   {
+    "item": "reverse-limit roller switch, 2 x #4-40 screws and lead",
+    "kg": 0.012,
+    "basis": "estimated",
+    "source": "none: estimate, weigh at procurement"
+   }
+  ],
+  "sourcedCount": 6,
+  "estimatedCount": 11,
+  "fixedFastenersKg": 0.6364,
+  "counts": {
+   "numberTen32Screws": 86,
+   "blindRivetsFixed": 48,
+   "rivetNutsFixed": 50
+  },
+  "versusAllocationKg": 1.073964000000002
+ },
+ "lightening": {
+  "proposals": [
+   {
+    "id": "P1",
+    "area": "fixed inlet",
+    "applied": true,
+    "kgSaved": 0.196,
+    "change": "Inlet guides 3 mm to 2 mm 5052-H32; contact faces kept, spines and post tips moved 1 mm inboard to stay seated",
+    "review": "structure.json inletLightening"
+   },
+   {
+    "id": "P2",
+    "area": "fixed inlet",
+    "applied": true,
+    "kgSaved": 0.144,
+    "change": "Feed panels 2.0 to 1.6 mm 5052-H32; top (contact) faces kept, crossmember tops raised to stay seated",
+    "review": "structure.json inletLightening"
+   },
+   {
+    "id": "P3",
+    "area": "fixed inlet",
+    "applied": false,
+    "kgSaved": 0.25,
+    "change": "Inlet posts to 3/4 x 3/4 x 1/16 in tube",
+    "review": "NOT applied: the post-to-spine attachment is not designed, so the structure cannot be checked"
+   },
+   {
+    "id": "C2",
+    "area": "electrical budget",
+    "applied": false,
+    "kgSaved": 0.45,
+    "change": "Pocket both equipment sheets about 30 %",
+    "review": "NOT applied: chassis package, needs deck stiffness and device-mount checks and a chassis CAD issue"
+   },
+   {
+    "id": "C3",
+    "area": "chassis",
+    "applied": false,
+    "kgSaved": 0.3,
+    "change": "Pocket the six keyed pedestals outside the key, nutbar and screw lands",
+    "review": "NOT applied: chassis package, needs the deck register and brace clamp paths rechecked"
+   },
+   {
+    "id": "C4",
+    "area": "chassis",
+    "applied": false,
+    "kgSaved": 0.0,
+    "change": "Do not lighten the structural perimeter (bumper cases already 149-241 MPa)",
+    "review": "excluded"
+   },
+   {
+    "id": "S1",
+    "area": "upper support",
+    "applied": true,
+    "kgSaved": null,
+    "change": "Lightening windows in both bearing carriers and the gearbox plate",
+    "review": "in the measured support mass"
+   },
+   {
+    "id": "S2",
+    "area": "moving pan",
+    "applied": true,
+    "kgSaved": null,
+    "change": "Lightening window in all three socket-post plates (r3)",
+    "review": "in the measured moving mass"
+   }
+  ],
+  "appliedKg": 0.33999999999999997,
+  "notAppliedKg": 1.0,
+  "marginIfAllRemainingAppliedKg": 0.3628429817874945,
+  "note": "Applied rows are in this package's CAD and checked; the rest need their own design (P3) or a chassis issue (C2, C3) and are not credited"
+ },
+ "scope": "Planning estimate. Measured volumes use commissioned densities; purchased masses marked 'estimated' must be weighed. It is not a scale weight."
+}

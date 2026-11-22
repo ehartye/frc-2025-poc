@@ -1,9 +1,9 @@
 # Four-module swerve for the 2025 robot
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
 [Replay the opening match drive](motion/index.html) or [open the student Fusion design](../../cad/FUSION.md). The same fixed-height receiver approaches the red station using independently steered wheels and the two upper holes in its station panel. Across four simulated combinations of calibration, operating mass and yaw inertia, the robot reaches the 21.10 s feed slot with 0.770–0.905 s to spare.

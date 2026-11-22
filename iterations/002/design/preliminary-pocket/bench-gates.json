@@ -1,0 +1,78 @@
+{
+  "schema": "red2/bench-gates@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "status": "open: no bench article built or tested",
+  "source": {
+    "file": "iterations/002/design/evaluation/evaluation.json",
+    "sha256": "4803ae5a506039a100b666e10ea448edf4ca08f6c1cdab762dc17d2a97cbf57b"
+  },
+  "article": "As the evaluation bench article, but with this package's bite-seated nip (throat at the 0.60 m pocket centre, treads as the front stop), a self-locking worm reducer instead of the 12:1 planetary, no fence, and the deploy-once lip (30 deg ramp, 25 mm land, tip 100 mm beyond the frame line at 0.55 m centre, folding up to stow). Real 4.5 in pipes at 0.82 kg, new and worn; trough mock per target.json.",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "receive",
+      "test": "30 feeds at 2.85 +/- 0.10 m/s (light gates or 240 fps video), nip locked; then 10 more with the controller unpowered",
+      "pass_": "30/30 seated within 0.5 s (physical target; the cycle tolerates up to 1.0 s, evidence/cycle-rehearsal); no rise above 10 mm at the stop; no entry into the nip; no rearward escape; 10/10 unpowered. Record each seat time: the model gives 0.1449-0.689 s across contact stiffness 40-10 N/mm",
+      "kill": "Any climb over the stop (here: any pass through the nip)",
+      "prediction": {
+        "model": "40 N/mm: 16/16 seated, slowest 0.543 s after the flap (5 over 0.5 s), peak rise 0.74 mm, no rearward escape; 10 N/mm: 8/16 seated clear of the throat",
+        "predicted": "fail on timing in the adverse case at 40 N/mm (PD11); fail at 10 N/mm"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G2",
+      "name": "eject into trough",
+      "test": "Stand-offs 0, 25, 50, 75, 100 mm x loaded bus 10.0, 11.0, 12.0 V x 10 ejects = 150 per variant; B'x: record tip departure speed (model 0.58-0.98 m/s) and nip current",
+      "pass_": ">= 147/150 captured and still supported 2 s later; every cell >= 9/10",
+      "kill": "Any cell at 7/10 or below kills the variant",
+      "prediction": {
+        "model": "B'x: 80/80 captured and supported 2 s after withdrawal, worm drive at 9-12 V, 0-100 mm, e 0.2/0.5, mu 0.15/0.35; departure 0.58-0.98 m/s",
+        "predicted": "pass, conditional on the reducer meeting PD6"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G3",
+      "name": "custody sled",
+      "test": "Nip unpowered (worm locked); 1, 3 and 8 g for 50 ms, forward and rearward, 10 at each level",
+      "pass_": "60/60 retained",
+      "kill": "Any loss at 3 g or below",
+      "prediction": {
+        "model": "worm locked: 40 N/mm 24/24, 10 N/mm 24/24 retained over 1/3/8 g both directions; flap removed, gently settled seat at 8 g: 1/2",
+        "predicted": "pass with the flap"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G5",
+      "name": "custody sensing",
+      "test": "Seated-pipe sensor and lip-deployed switch on the G3 sled and in G4: 30 seated, 10 displaced by 10 mm toward the flap, 10 removed; 10 lip stowed and 10 deployed",
+      "pass_": "Every displaced or missing pipe flagged within 50 ms; every lip state correct; no false loss on 30 seated pipes through the 8 g pulses",
+      "kill": "Any missed loss, or any eject command reaching the nip with the lip stowed",
+      "prediction": {
+        "model": "not simulated: sensor articles unselected (RR3)",
+        "predicted": "unknown"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G4",
+      "name": "end to end",
+      "test": "20 consecutive cycles: feed, 5 m carry ending in 1.5 m/s2 braking, eject at a random 0-100 mm stand-off and a random 10-12 V",
+      "pass_": ">= 19/20 credited with no hand recovery",
+      "kill": null,
+      "prediction": {
+        "model": "not simulated end to end (the trials chain receive, carry and eject only through their seats)",
+        "predicted": "unknown"
+      },
+      "status": "open"
+    }
+  ],
+  "measurementsFirst": [
+    "Installed bite stiffness of the 35A wheel stack (PD2: pass 40, fail 10 N/mm per roller)",
+    "Worm back-drive holding torque (>= 4.10 N m at the lower shaft) and the drive current through the squeeze (PD6)",
+    "PVC-on-UHMW and PVC-on-tread mu, restitution"
+  ],
+  "decision": "All of G1-G4 pass: retire r3 and run the numbered cutover to iteration 003 for B'x Fusion work. G1 or G3 fails: keep A. G2 fails for B'x and passes for B: carry B (note PD5). Then run the fair spatial 12-case replay with the pocket before shop release."
+}
