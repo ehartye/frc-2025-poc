@@ -1,6 +1,6 @@
 # Captive swerve and front shallow-cage engineering review
 
-[![Parked receiver-service assembly with the supported USB guide, battery disconnect and front jack](receiver-service/issue/installed.png)](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)
+[![Parked receiver-service assembly with the supported USB guide, battery disconnect and front jack](receiver-service/issue/installed.png)](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/engineering-assembly.html)
 
 Start with the [receiver service issue](receiver-service/verification.md) for the current installed assembly and [six fabrication sheets](receiver-service/issue/assembly-drawings.pdf).
 
@@ -11,7 +11,7 @@ The selected chassis retains four MAXSwerve modules, its fixed-low captive recei
 
 ## What the reopened file contains
 
-[Download the 16.8 MB editable Fusion assembly](issue/Team-1780-engineering-shallow.f3d) or [rotate it in the browser](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html). Its measured 48.046916 kg includes the demonstration CORAL and supplier display solids. On independent reopen, every one of 1,184 body identities, world bounds and BRep volumes matched the frozen drawings; 21 of 26 joints are movable and all 21 moved and returned. The other five are rigid. A steel-substitution trial on one foam core fails the portable checker. The bill carries 98 provisionally estimated installed items, so the checker leaves final inspection margin unresolved. A separate receiving-budget calculation retains 118.527 g of design headroom on this exact variant. The revised battery kit consumes 36.739 g of that headroom, leaving 81.788 g. [Per-body CAD comparison](issue/cold-reopen.json) · [Mass evidence and material differences](issue/mass-review.json)
+[Download the 16.8 MB editable Fusion assembly](issue/Team-1780-engineering-shallow.f3d) or [rotate it in the browser](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/engineering-assembly.html). Its measured 48.046916 kg includes the demonstration CORAL and supplier display solids. On independent reopen, every one of 1,184 body identities, world bounds and BRep volumes matched the frozen drawings; 21 of 26 joints are movable and all 21 moved and returned. The other five are rigid. A steel-substitution trial on one foam core fails the portable checker. The bill carries 98 provisionally estimated installed items, so the checker leaves final inspection margin unresolved. A separate receiving-budget calculation retains 118.527 g of design headroom on this exact variant. The revised battery kit consumes 36.739 g of that headroom, leaving 81.788 g. [Per-body CAD comparison](issue/cold-reopen.json) · [Mass evidence and material differences](issue/mass-review.json)
 
 ## What to build from this issue
 
@@ -19,7 +19,7 @@ The [eight dimensioned sheets](issue/assembly-drawings.pdf) locate the manufactu
 
 ## What the reopened file contains
 
-[Download the 16.8 MB editable Fusion assembly](issue/Team-1780-engineering-shallow.f3d) or [rotate it in the browser](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html). Its measured 48.046916 kg includes the demonstration CORAL and supplier display solids. On independent reopen, every one of 1,184 body identities, world bounds and BRep volumes matched the frozen drawings; 21 of 26 joints are movable and all 21 moved and returned. The other five are rigid. A steel-substitution trial on one foam core fails the portable checker. The bill carries 98 provisionally estimated installed items, so the checker leaves final inspection margin unresolved. A separate receiving-budget calculation retains 118.527 g of design headroom on this exact variant. The revised battery kit consumes 36.739 g of that headroom, leaving 81.788 g. [Per-body CAD comparison](issue/cold-reopen.json) · [Mass evidence and material differences](issue/mass-review.json)
+[Download the 16.8 MB editable Fusion assembly](issue/Team-1780-engineering-shallow.f3d) or [rotate it in the browser](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/engineering-assembly.html). Its measured 48.046916 kg includes the demonstration CORAL and supplier display solids. On independent reopen, every one of 1,184 body identities, world bounds and BRep volumes matched the frozen drawings; 21 of 26 joints are movable and all 21 moved and returned. The other five are rigid. A steel-substitution trial on one foam core fails the portable checker. The bill carries 98 provisionally estimated installed items, so the checker leaves final inspection margin unresolved. A separate receiving-budget calculation retains 118.527 g of design headroom on this exact variant. The revised battery kit consumes 36.739 g of that headroom, leaving 81.788 g. [Per-body CAD comparison](issue/cold-reopen.json) · [Mass evidence and material differences](issue/mass-review.json)
 
 ## What to build from this issue
 

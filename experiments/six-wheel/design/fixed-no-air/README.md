@@ -1,9 +1,9 @@
 # Fixed-height robot without match pneumatics
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 The fixed carriage uses two mast locks for vertical support. Wheel drive, slide motion and both grips are electric. The sole modeled air actuator released the former lift pawl. A dedicated fixed-height match build can omit the compressor, reservoir, two tank saddles, valve and regulator/gauge/dump assembly. The Pneumatic Hub stays on its original CAN and power branches. The ratchet, actuator reserve, ropes, drums, motor, wiring allocations and mechanical locks stay in the robot. The CAD and mass results assume a build with the air circuit absent. Disabling the compressor on a robot that still carries the kit saves no weight. [Fixed carriage](../fixed-height/README.md) · [Published power and isolation study](../../fixed-low-power/README.md)

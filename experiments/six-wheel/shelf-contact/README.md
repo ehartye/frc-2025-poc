@@ -1,9 +1,9 @@
 # What happens when the pipe hits the shelf?
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 The 40 mm guide can seat the incoming pipe under a stated shelf-contact model, including the two opposing wheel calibrations that reached the stop in the earlier rigid-shelf simulation. At the finest geometry and timestep tested, the left and right calibration cases require **0.514 and 0.304 mm** of outward cartridge travel against 1.40 mm available. The result depends on how the **actual pipe and shelf deform and rebound**. A lower-damping case fails the unchanged Java port sequence, and the reference model places a brief 3.4 kN reaction on the shelf. The match scoring decision stays open and the south LEAVE/PARK option remains available. [Previous rigid-contact counterexample](../station-guide/README.md) · [Fine numerical review](fine-review.json) · [Alternative start](../station-approach/README.md)

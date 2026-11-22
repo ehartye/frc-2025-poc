@@ -52,6 +52,30 @@ SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-600-normal.wo
 SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-700-normal.woff2'] = '1fc65bcc7790d534cf67a5e046f3f324aad8cc6dc364ec5ad296a18d42868464'
 SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-001/review-scene.json.gz'] = '75d35b69a1397930e6c24f1c760fd75cb849698b3e17a1b7ee92c584fdbc598d'
 
+# Withdrawn draft-001 showcase archive: byte copies of what the approved site published, kept as the release gate requires.
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/assembly.png'] = '6ce25b430ec46d594b42f348221d4acfc7d5bf97363e3c6119bb8c9881c5ca34'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.png'] = '6ce25b430ec46d594b42f348221d4acfc7d5bf97363e3c6119bb8c9881c5ca34'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.stl.gz'] = 'd3a2bad9c3c084f2b94756cec5da9d08698a8d98b3afce2492e98ff9f5d3cbea'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/climb/Team-1780-shallow-cage-study.f3d'] = '88cc5f0927094bd2bbc60da862a137e5eada4484cc84510a514d760f27117c49'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/climb/climb-kit.stl.gz'] = '5cfdf0358350c50ea3c33ed343dcd8abeda5259c49240ac6777cdd8ace0513c5'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/climb/shallow-climb.png'] = 'e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/climb/shallow-climb.webm'] = '1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/engineering/Team-1780-receiver-service.f3d'] = 'a5d4c627f7266414270b7f9389c9396b25ce50fd1ca429f64646b1469e77a065'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/engineering/assembly-drawings.pdf'] = 'aa1411c3725d1299de75371ed1c3c6ad4a0e139ebdf778080a1e7c915e9098f2'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/engineering/installed.png'] = 'e865b212c46aeba7d2f765d221c6419272f4dca6c412a99032357d20c150138b'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/engineering/installed.stl.gz'] = 'a642bed457a496fb8c1e44984f27a7fb7cd0a2fcc33185bb158367c63ef3cb9f'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4.webm'] = '1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414.webm'] = '24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5.webm'] = '3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec.png'] = '391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c.webm'] = '5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47.png'] = '83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3.png'] = 'b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5.f3d'] = 'baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5'
+SHOWCASE_ASSETS['docs/detailed-design/archive/draft-001/evidence/e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819.png'] = 'e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819'
+# Offscreen render of the layout-001 public review scene (scripts/preliminary-still.py); pinned by the source policy.
+SHOWCASE_ASSETS['docs/robot/preliminary-layout-001.png'] = '558c6379b15c45fdbdb9c9a6e6cc1be0995529ef9ce8b7e092b65227752d3476'
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]

@@ -1,9 +1,9 @@
 # Positively attach both receiver masts to the inner chassis rails
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 Two original machined side splices join the existing low-lock mast tubes directly to the removable 6 mm drive rails. Both foot interfaces can now transmit downward load, rebound and fore/aft pitch in metal bearing. The ribs and cable relief are different on the two sides. The proposed robot is overweight in every issued inspection configuration. Losing an entire side overloads the surviving splice; this is a two-sided prototype, with physical qualification still open. [Shop views](shop.svg) · [Editable geometry](mast.py) · [63-solid shop assembly](mast-joints.step) · [Slotted ribbed-deck alternative](slotted-ribbed-deck.step)

@@ -1,9 +1,9 @@
 # Can the two shelf sensors save an off-center feed?
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 Keep the scoring-route feed on hold. The wheel-error trials briefly give the controller an early warning, but cutting or reversing the belt still lets the incoming pipe reach the cartridge stop. A separate 3 mm delivery shift reaches the stop before either sensor changes. Choose the reserved south start before the match if the team needs the demonstrated alternative. Its 543 mm drive preserves a conditional three-point LEAVE and two-point PARK and gives up two possible L1 placements worth four points. No points are assigned to the station approach. [Reserved south start](../station-approach/README.md)
