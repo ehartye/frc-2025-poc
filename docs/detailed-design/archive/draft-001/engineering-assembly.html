@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receiver service assembly · Team 1780</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0d1d35;color:#f3f6fb;font:17px/1.55 system-ui,sans-serif}main{max-width:66rem;margin:auto;padding:clamp(18px,4vw,55px)}a{color:#a9d8ff}header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}header a{font-weight:650;text-decoration:none}h1{font-size:clamp(2.3rem,6.5vw,4.7rem);line-height:.98;letter-spacing:-.055em;margin:2rem 0 1rem}p{max-width:72ch;color:#d4e1f3}video{display:block;width:100%;aspect-ratio:23/14;border-radius:14px;background:#142f63}nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}button{border:1px solid #5a738e;padding:.6em 1em;border-radius:30px;color:#ecf5ff;background:#1c344e;font:inherit;cursor:pointer}button:hover,button:focus-visible{background:#315678}b{color:white}footer{margin:2rem 0}
+#orbit{display:block;width:100%;height:clamp(320px,58vh,610px);background:radial-gradient(ellipse at 50% 48%,#405f86,#142f63 72%);touch-action:none;border-radius:14px;cursor:grab}#orbit:active{cursor:grabbing}#orbit-status{margin:.45em 0;font-size:.9em}#pose,#rack-travel,#yoke-travel{width:min(100%,30rem);vertical-align:middle;accent-color:#90d3ff}label,output{display:block}h2{margin:2rem 0 .7rem}
+</style>
+<main><header><a href="./">← Robot showcase</a><a href="field-lab.html">Open the field lab</a></header>
+<h1>Inside the receiver service assembly</h1>
+<p>Orbit the 1,268-part shop candidate. Extend the two-stage shelf to inspect the grip plates and end switches, close the capture yokes, or move the front cage jack independently.</p>
+<canvas id="orbit" tabindex="0" data-inspection="true" data-register="engineering/orbit.json" data-base="engineering/installed.stl.gz" aria-label="Rotatable engineering robot with captive receiver, twin screw jack and two sliding cage shoes">Download the Fusion assembly below.</canvas>
+<p id="orbit-status" role="status">Loading the shop assembly…</p><label for="pose">Inspect joint position · <output for="pose" id="pose-label"></output></label>
+<input id="pose" type="range" value="0" min="0" max="100" disabled>
+<nav aria-label="Inspection positions"><button data-pose="0">Stowed</button><button data-pose="80">Carriage extended</button><button data-pose="100">Shoes spread</button><button id="reset-orbit">Reset camera</button></nav>
+<label for="rack-travel">Shelf extension <output id="rack-label" for="rack-travel">0 mm</output></label>
+<input id="rack-travel" type="range" min="0" max="370" value="0" disabled>
+<label for="yoke-travel">Capture yokes <output id="yoke-label" for="yoke-travel">0 mm per side</output></label>
+<input id="yoke-travel" type="range" min="0" max="35" value="0" disabled>
+<h2>Build and inspect</h2>
+<nav><a href="engineering/Team-1780-receiver-service.f3d" download>Download the editable Fusion assembly</a> · <a href="engineering/assembly-drawings.pdf">Six shop sheets (PDF)</a> · <a href="https://github.com/ehartye/frc-2025-poc/blob/main/cad/assembly-engineering/receiver-service/shop.md">Shop sequence</a></nav>
+<p>The modeled inspection upper is 52.13977 kg, leaving 23.36 g if unassigned installation material stays within 3.86715 kg. Preserving a full 5 kg beyond all named parts puts the alternate 1.10949 kg over the limit. Both purchased SB50 housings are included in the 1.65 kg base-harness cap. The source gearbox clears its spur by 1.00 mm. The roof guide clears the moving receiver by at least 3.438 mm on the tested travel.</p>
+<p>Set the switch positions on the actual parts. Inspect cable bend and retention, grip force, loaded slide flexure and field support separately. The season’s five-point leave-and-park fallback retains its independent match evidence.</p>
+<p><strong>Full-stroke hold.</strong> The camera carrier’s power and data leads reach the right jack motor near full extension. The model shows the design travel for inspection. Reroute and verify the carrier before releasing this build.</p>
+<footer><a href="https://github.com/ehartye/frc-2025-poc/tree/main/cad/assembly-engineering/receiver-service">Evidence and supplier inputs</a> · <a href="https://github.com/ehartye/frc-2025-poc/tree/main/cad/assembly-engineering/issue">Earlier shop assembly</a> · <a href="shallow-climb.html">Shallow-cage fixture</a></footer>
+</main><script src="climb/orbit.js"></script>

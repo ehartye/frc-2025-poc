@@ -1,9 +1,9 @@
 # A fixed carriage for the 2025 robot
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 The carriage can stay at **560 mm** for both station intake and L1 placement if the robot receives with the shelf retracted and extends it **370 mm** only at the target. This removes vertical travel from the station cycle. The software trial retains separate gates for sensing, release, withdrawal and inspection. A second configuration locks both axes at **940 mm** for the straight LEAVE/PARK role. Both are project designs that a team can choose before a match. [Two-pipe replay](handoff.json) · [Drive and weight results](review.json)

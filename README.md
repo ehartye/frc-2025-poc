@@ -1,34 +1,27 @@
 # 2025 REEFSCAPE robot design
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
+
+The current design is the preliminary whole-robot layout shown above. No detailed design is current: the earlier rough-draft showcase model is withdrawn, and its pages stay in the [detailed design archive](https://ehartye.github.io/frc-2025-poc/detailed-design/). The [previous README](README.draft-001.md) describes that draft; its links to the withdrawn pages no longer resolve.
 
 **[Open the field lab](https://ehartye.github.io/frc-2025-poc/field-lab.html)** to move a robot on the 2025 field and try both alliances' match plans. From a local checkout, open [the offline lab](kickoff/field-lab.html).
 
-[Compare the two station routes](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) with the other five robots held fixed. Red 1’s opposite-station route recorded 15 field-rehearsal deliveries under congestion. Red 2’s modeled receiver carried its pipe to both signed reef docks, where a grip support obstructed ejection. [Pickup-to-reef study](experiments/swerve-drive/low-placement/study.md) · [Whole-robot trade](experiments/swerve-drive/whole-robot-trade/study.md)
+[Compare the two station routes](https://ehartye.github.io/frc-2025-poc/role-lab.html#roleLab) with the other five robots held fixed. Red 1’s opposite-station route recorded 15 field-rehearsal deliveries under congestion. [Whole-robot trade](experiments/swerve-drive/whole-robot-trade/study.md)
 
-**[Inspect the engineering assembly](https://ehartye.github.io/frc-2025-poc/engineering-assembly.html)** or [follow the receiver, battery and roof-harness assembly sequence](cad/assembly-engineering/receiver-service/shop.md). Move the two-stage shelf, grip yokes and front jack. The [1,268-part build register and inspection estimate](cad/assembly-engineering/receiver-service/verification.md) leave 23.36 g under the modeled limit. Field reaction, loaded stopping and wiring acceptance remain open.
-
-**[Explore the shallow-cage climb](https://ehartye.github.io/frc-2025-poc/shallow-climb.html)** or [download its editable Fusion variant](cad/shallow-cage/Team-1780-shallow-cage-study.f3d). The forward jack clears the modeled carpet. Cage loads and inspection mass keep competition climb credit at zero. [Design and limits](cad/shallow-cage/study.md)
-
-**[Download the full student Fusion robot](cad/swerve-captive/Team-1780-public-captive-swerve.f3d)** to steer four modules, extend the receiver and operate the bore pins. [Joint guide and verification](cad/swerve-captive/study.md)
-
-Start with the [release-day field lab and match opportunities](kickoff/README.md). The [four-module swerve candidate](experiments/swerve-drive/README.md) has an editable Fusion assembly and a [student opening-drive replay](experiments/swerve-drive/motion/index.html). Check the conditional inspection-weight result before carrying it into a match design.
+Start with the [release-day field lab and match opportunities](kickoff/README.md). The [preliminary design review inputs](cad/preliminary-design/README.md) hold the layout, motion cases and budgets behind the picture above.
 
 | To explore | Open |
 | --- | --- |
 | Season design workflow | [Follow the Agent FRC skills, project documents and simulation evidence](docs/workflow.md) |
-| Student robot showcase | [Rotate the swerve CAD, watch the station approach and inspect the first-feed results](https://ehartye.github.io/frc-2025-poc/) |
-| Can the robot score without a station feed? | [Watch the stowed swerve fallback](https://ehartye.github.io/frc-2025-poc/#media) and [check the two complete runs](experiments/swerve-drive/motion/fallback.md). |
-| Can the robot confirm it has the pipe? | [Compare the five camera captures with a hidden edge or delayed images](docs/robot/station-witness.png). The [station study](experiments/swerve-drive/motion/receiver-witness.json) records both simulated camera heads. |
+| Preliminary design review | [Spin the layout, play the mission cases and trace the budgets](https://ehartye.github.io/frc-2025-poc/preliminary-design/) |
 | Rules, field and scoring windows | [Kickoff model](kickoff/rules-v0.json) and [interactive field lab](kickoff/field-lab.html) |
-| Current CAD and student handoff | [Open the full-robot Fusion handoff and editable mounting saddle](cad/FUSION.md) |
-| Offline CAD | [Open the colored 3D model from a local checkout](docs/robot/cad/index.html) |
+| Withdrawn rough-draft showcase | [Archived showcase page](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/index.html), [engineering assembly](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/engineering-assembly.html) and [shallow-cage climb](https://ehartye.github.io/frc-2025-poc/detailed-design/archive/draft-001/shallow-climb.html), kept as published |
+| Earlier CAD and student handoff | [Full-robot Fusion handoff of the withdrawn draft](cad/FUSION.md) and its [four-module swerve study](experiments/swerve-drive/README.md) |
 | Previous robot and replays | [Six-wheel campaign](experiments/six-wheel/README.md), including scoring studies, design iterations and checks |
 | Project conventions and commands | [Project structure](docs/project-layout.md) |
 
 This is a prebuild simulation project. Evidence remains associated with the robot configuration and inputs that produced it.
-

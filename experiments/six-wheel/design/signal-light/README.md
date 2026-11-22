@@ -1,9 +1,9 @@
 # Signal light for the fixed-height robot
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 Select the **AndyMark am-3583 on the right edge of the front electronics deck** for the high parking and low receiving configurations. The old Ø22 × 39 mm cylinder above the left mast reserved too little space. Seating the actual lamp at that mast face puts its dome at Z 1,072.7 mm, **5.9 mm above** the 1,066.8 mm starting height. Its stem also runs into the mast and existing hanger bolts. [AndyMark product, STEP and drawing](https://andymark.com/products/robot-signal-light) · [Competition manual §8 V11, R101–105 and R709](https://firstfrc.blob.core.windows.net/frc2025/Manual/2025GameManual.pdf)

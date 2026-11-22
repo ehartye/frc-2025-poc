@@ -1,9 +1,9 @@
 # Can the receiving shelf absorb the station drop?
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 A lighter shelf and two small adjustable shock absorbers give the incoming pipe somewhere to transfer energy. The original shelf bends and springs back under the modeled arrival. In the coupled model this lifts the pipe out of the powered belt's narrow working height. Both opposing approaches lose it. A stiffer aluminum insert alone also fails both. The two-absorber prototype uses a replaceable shelf and drilled bridge. It keeps the original receiving height and puts a separate plunge stop under each side of the landing line. The cartridge setting, running clearance, joint loads and remaining inspection margin require a fixture and a weighed installation before the team can rely on this configuration for match scoring. [Original contact study](../shelf-contact/README.md) · [Three-part machining STEP](stow-receiver.step) · [Issued dimensions](installed.json)

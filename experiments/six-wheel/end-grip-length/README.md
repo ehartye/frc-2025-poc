@@ -1,9 +1,9 @@
 # Pipe length on the fixed-height end grips
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 **A gauged pair of jaw stops can receive three centered practice cuts. The mechanism still fails the mixed-length, off-axis and scoring requirements.** With the 295.275, 301.625 and 307.975 mm cuts each matched to its own stop set, the actual low-pose Java gate indicates a seat and the sampled finite pipe clears the rigid receiver. All six combinations of a cut with the wrong gauge fail. Both identified mission handoffs recontact the receiver on the historical and shaped releases. Keep the existing low receiver as the issued configuration. [Prior end-grip modification](../station-relief/README.md) · [Centered fixed-height baseline](../design/fixed-height/README.md) · [Body-supported alternative](../cradle-receiver/README.md)

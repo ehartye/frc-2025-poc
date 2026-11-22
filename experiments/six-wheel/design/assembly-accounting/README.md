@@ -1,9 +1,9 @@
 # Count the installed articles and compare mass alternatives
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 Each alliance map represents one 545-body robot in four poses. The baseline contains **520 modeled physical instances** and **36 additional wheel-to-hub fasteners**. Of those 556 instances, 263 are designated for fabrication, 223 are purchased articles or commodity items, and 70 still have an open selection. The count covers the identified items. Unresolved loose hardware, shop stock, spare quantities and the second detachable bumper kit each require a separate purchasing decision. [Installed article crosswalk](../installed-procurement/installed.csv) · [Loose-item register](../installed-procurement/loose-items.csv)

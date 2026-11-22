@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detailed designs</title>
+<style>
+:root{--ink:#16202b;--muted:#566473;--paper:#f6f4ef;--card:#fff;--line:#d5d0c5;--go:#1d6b4f;--work:#8a5a00;--old:#5b6470;--warn:#9c2f1f}
+@media (prefers-color-scheme:dark){:root{--ink:#e9edf2;--muted:#a3afbd;--paper:#11161c;--card:#1a222b;--line:#33404d;--go:#6fd0a8;--work:#f0bd5e;--old:#a3afbd;--warn:#ff9a86}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{max-width:60rem;margin:0 auto;padding:1.5rem 1rem 3rem}
+h1{font-size:1.6rem;margin:0 0 .25rem}
+h2{font-size:1.05rem;margin:2rem 0 .5rem;color:var(--muted);font-weight:600}
+.lead{color:var(--muted);margin:0 0 1.5rem}
+.pair{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:1rem}
+.card h3{margin:.25rem 0;font-size:1.2rem;overflow-wrap:anywhere}
+.status{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.effective .status{color:var(--go)}.in-progress .status{color:var(--work)}.superseded .status,.withdrawn .status{color:var(--old)}
+.primary{border-width:2px;border-color:var(--go)}.primary.in-progress{border-color:var(--work)}
+.note{margin:.5rem 0 0;color:var(--muted);font-size:.92rem}
+.warning{margin:.5rem 0 0;color:var(--warn);font-weight:600;font-size:.92rem}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+a{color:inherit}
+.files{display:block;list-style:disc;padding-left:1.2rem;overflow-wrap:anywhere}
+.files li{margin:.2rem 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Detailed designs</h1>
+<p class="lead">The effective detailed design passed the signed mechanical-readiness review. An in-progress design passed its automated layout and mission checks and is still changing.</p>
+<section id="current" class="pair" aria-live="polite"><p>Loading the design index.</p></section>
+<h2 id="archive-title" hidden>Archive</h2>
+<ul id="archive"></ul>
+<h2 id="files-draft-001">Archived files of draft-001</h2>
+<p class="note">Withdrawn on 22 November 2026. Rough-draft showcase published before the design-status process. Nothing replaced it. These 34 files are kept exactly as they were published, including the three editable Fusion archives (.f3d). Links inside the archived pages may no longer resolve. Their links to the two field pages do not; open the <a href="../field-lab.html">field lab</a> and the <a href="../role-lab.html">role lab</a> here instead.</p>
+<ul class="files">
+<li><a href="archive/draft-001/cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/assembly.png">cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/assembly.png</a> (174 kB)</li>
+<li><a href="archive/draft-001/cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/index.html">cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/index.html</a> (7.6 MB)</li>
+<li><a href="archive/draft-001/cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/receipt.json">cad-4af45674a76849c2c659320f09160edb7493cf75c8f23dd48fe8dbc4ab6e1887/receipt.json</a> (6 kB)</li>
+<li><a href="archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.png">capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.png</a> (174 kB)</li>
+<li><a href="archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.stl.gz">capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/assembly.stl.gz</a> (5.7 MB)</li>
+<li><a href="archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/index.html">capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/index.html</a> (7.6 MB)</li>
+<li><a href="archive/draft-001/capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/receipt.json">capture-352c0b4fded9cce5a51626fc6e6f316deeefa718d3c00387a674f1b14e1ebf10/receipt.json</a> (6 kB)</li>
+<li><a href="archive/draft-001/climb/Team-1780-shallow-cage-study.f3d">climb/Team-1780-shallow-cage-study.f3d</a> (14.7 MB)</li>
+<li><a href="archive/draft-001/climb/climb-kit.stl.gz">climb/climb-kit.stl.gz</a> (34 kB)</li>
+<li><a href="archive/draft-001/climb/orbit.js">climb/orbit.js</a> (8 kB)</li>
+<li><a href="archive/draft-001/climb/orbit.json">climb/orbit.json</a> (10 kB)</li>
+<li><a href="archive/draft-001/climb/shallow-climb.png">climb/shallow-climb.png</a> (278 kB)</li>
+<li><a href="archive/draft-001/climb/shallow-climb.webm">climb/shallow-climb.webm</a> (2.7 MB)</li>
+<li><a href="archive/draft-001/engineering-assembly.html">engineering-assembly.html</a> (4 kB)</li>
+<li><a href="archive/draft-001/engineering/Team-1780-receiver-service.f3d">engineering/Team-1780-receiver-service.f3d</a> (15.6 MB)</li>
+<li><a href="archive/draft-001/engineering/assembly-drawings.pdf">engineering/assembly-drawings.pdf</a> (40 kB)</li>
+<li><a href="archive/draft-001/engineering/installed.png">engineering/installed.png</a> (178 kB)</li>
+<li><a href="archive/draft-001/engineering/installed.stl.gz">engineering/installed.stl.gz</a> (4.4 MB)</li>
+<li><a href="archive/draft-001/engineering/orbit.json">engineering/orbit.json</a> (28 kB)</li>
+<li><a href="archive/draft-001/evidence/1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4.webm">evidence/1752de27f32e99a38903e32b764d9394a21158305f6b92dd4a2b7c69c2811bc4.webm</a> (2.7 MB)</li>
+<li><a href="archive/draft-001/evidence/24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414.webm">evidence/24330bbb69b2edc0cd9c064f04eea9dd11c38609173a53cd97fff153be884414.webm</a> (1.3 MB)</li>
+<li><a href="archive/draft-001/evidence/3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5.webm">evidence/3186a0cdaba2a2d0f8a5798173f9086d3390b71e6a89313f3c2631026e6058f5.webm</a> (2.0 MB)</li>
+<li><a href="archive/draft-001/evidence/391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec.png">evidence/391f2d1fb95fda7c1a1352a9c34ed7ba1f5a9a3f550a942baa02a00ee4d41bec.png</a> (91 kB)</li>
+<li><a href="archive/draft-001/evidence/5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c.webm">evidence/5c78a3df9c463879e6b3507cbb14a009abb4482a8f94e90f71a428c88579d26c.webm</a> (181 kB)</li>
+<li><a href="archive/draft-001/evidence/5d4be5ebc8d23034d16038e88b216c7530db05d3748a74a462d2065268da9310.json">evidence/5d4be5ebc8d23034d16038e88b216c7530db05d3748a74a462d2065268da9310.json</a> (2 kB)</li>
+<li><a href="archive/draft-001/evidence/7250d3a29f9f9cdafdb7ce59c8a46fc57f89187d6a2fa6b8fd97068f3f96904b.json">evidence/7250d3a29f9f9cdafdb7ce59c8a46fc57f89187d6a2fa6b8fd97068f3f96904b.json</a> (3 kB)</li>
+<li><a href="archive/draft-001/evidence/83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47.png">evidence/83ae4d0a7f18fe5684d145f2e61d432abe3dd6e1843bdcda9ff0aa5457d8eb47.png</a> (37 kB)</li>
+<li><a href="archive/draft-001/evidence/aca8eba8c65c4d9665149f9f50460f30de2b122e3df9c19dff2bb0fe88cd74e2.css">evidence/aca8eba8c65c4d9665149f9f50460f30de2b122e3df9c19dff2bb0fe88cd74e2.css</a> (8 kB)</li>
+<li><a href="archive/draft-001/evidence/b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3.png">evidence/b21a798de53c5fbf182df77d14efbbd69a13c6daecbb036b7d9555c6d63bd3b3.png</a> (228 kB)</li>
+<li><a href="archive/draft-001/evidence/baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5.f3d">evidence/baffdfad1d78ab9807ae3cb6f2c3e3f0e37008bf9ef7ed3f70586f9d1d1ac9e5.f3d</a> (14.6 MB)</li>
+<li><a href="archive/draft-001/evidence/d07da65d95ae9db7d129b94816a4f47d2ab3d61710c5d2f60e51d6392906fa44.json">evidence/d07da65d95ae9db7d129b94816a4f47d2ab3d61710c5d2f60e51d6392906fa44.json</a> (2 kB)</li>
+<li><a href="archive/draft-001/evidence/e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819.png">evidence/e3578357e0f47dae130917b93f51b29d9c1c96377f9a9bfe05b666aac0668819.png</a> (278 kB)</li>
+<li><a href="archive/draft-001/index.html">index.html</a> (27 kB)</li>
+<li><a href="archive/draft-001/shallow-climb.html">shallow-climb.html</a> (5 kB)</li>
+</ul>
+<p class="note"><a href="../">Project front page</a></p>
+</main>
+<script>
+const labels={'in-progress':'In-progress detailed design',effective:'Effective detailed design',superseded:'Superseded detailed design',withdrawn:'Withdrawn detailed design'};
+const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+function card(index,id,primary){
+  const status=index.designStatus[id],box=el(primary===undefined?'li':'article','card '+status+(primary?' primary':''));
+  box.append(el('span','status',labels[status]),el('h3','',id));
+  const link=index.preliminary?.[id];
+  if(status==='in-progress'){
+    const a=el('a','','Open the checked motion and mission cases');a.href='designs/'+encodeURIComponent(id)+'/';
+    box.appendChild(el('p','note')).append(a);
+  }
+  if(status==='effective')box.append(el('p','note','Shown on the project entry page, README still and model selector.'));
+  if(link)box.append(el('p','note','Built on preliminary release '+link+'.'));
+  const linked=link&&(status==='in-progress'||status==='effective')&&index.preliminaryStatus?index.preliminaryStatus(link):'effective';
+  if(linked!=='effective')box.append(el('p','warning','Preliminary release '+link+' is now '+linked+'. This design needs re-linking to the effective preliminary release.'));
+  if(index.supersededBy?.[id])box.append(el('p','note','Superseded by '+index.supersededBy[id]+'.'));
+  if(index.reason?.[id])box.append(el('p','note','Withdrawn: '+index.reason[id]+' Its published files are kept under archive/'+id+'/.'));
+  if(index.reason?.[id]){
+    const a=el('a','','Open the archived showcase page');a.href='archive/'+encodeURIComponent(id)+'/index.html';
+    box.appendChild(el('p','note')).append(a);
+  }
+  return box;
+}
+const json=url=>fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json();});
+json('designs.json').then(async index=>{
+  // The re-link warning is read live from the preliminary release index.
+  const releases=await json(String(index.preliminaryIndex||'')).catch(()=>null);
+  if(releases)index.preliminaryStatus=id=>releases.designStatus?.[id]??'in-progress';
+  const current=document.getElementById('current'),archive=document.getElementById('archive');
+  current.replaceChildren();
+  if(index.current)current.append(card(index,index.current,true));
+  if(index.beside)current.append(card(index,index.beside,false));
+  if(!index.current){
+    const box=el('article','card');
+    box.append(el('h3','','No detailed design is published'));
+    const a=el('a','','Open the current preliminary design');
+    a.href=String(index.preliminaryIndex||'').replace(/releases\.json$/,'');
+    box.appendChild(el('p','note')).append(a);
+    current.append(box);
+  }
+  const shown=new Set([index.current,index.beside]);
+  const rest=index.designs.filter(id=>!shown.has(id)).reverse();
+  document.getElementById('archive-title').hidden=!rest.length;
+  archive.replaceChildren(...rest.map(id=>card(index,id)));
+}).catch(()=>{document.getElementById('current').textContent='The design index could not be loaded.';});
+</script>
+</body>
+</html>

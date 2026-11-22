@@ -1,9 +1,9 @@
 # Attach the outer-slide measurement cable
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 The fixed-low receiver uses a TE/Celesco SP1-25 to measure shelf travel independently of the rack motor. The #89 rail kit retained a box for the sensor and a solid tab for the cable end. Placing the eye pin through that tab produces 25.13 mm³ of solid interference. The new kit bolts the supplied L bracket to the bridge and captures the eye in double shear on the moving shelf. The [dimensioned shop drawing](shop-drawing.svg) and [seven-piece STEP](sp1-mount.step) use robot coordinates at zero stroke.

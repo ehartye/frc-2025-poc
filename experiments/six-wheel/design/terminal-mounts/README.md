@@ -1,9 +1,9 @@
 # Lower lift stop mounts
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 **Retain the two-locknut bracket for a captive fixture. The proposed dampers fail two fault cases.** A single MC225EUM would absorb 43.92 J from the upper CB-1 load case, above its 41 J rating. At the normal 0.253 m/s approach, the balanced full-stroke calculation gives 28.40 kg effective mass per damper, above the 25 kg catalog limit. Placement also uses 10.2 mm of the 12.7 mm stroke before a fault starts. The robot still needs an independently qualified midtravel arrest and supported service. [Terminal cases](study.json) · [Earlier failure and service analysis](../lift-arrest/README.md)

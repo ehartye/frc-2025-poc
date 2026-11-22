@@ -1,9 +1,9 @@
 # Does the installed guide still seat the pipe?
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 **The nominal folded guides seat both signed arrivals on the machined shelf with fixed bilateral supports. Changing the carriage support changes the verdict.** On the joined two-stage carriage the original left approach faults at Java 1,020 ms, with the entry ray clear and only the seat ray returning. The recovery controller waits for the returning edge and probes again. At both 31.25 and 15.625 µs, the recovery program seats the left pipe at Java 1,340 ms and the right at 1,360 ms. Both hold through the scheduled 5,460 ms station check. The original and recovered programs produce the same complete right-hand trajectory at both clocks. [Matched mechanical and controller cases](results.json) · [Recovery controller and adverse inputs](../split-guide-acquisition/README.md)

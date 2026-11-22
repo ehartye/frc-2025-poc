@@ -1,9 +1,9 @@
 # The opening station dock using the cameras already aboard
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 **At a 250 µs contact timestep, five of seven wheel-calibration trials brought the first human-fed pipe into the two-port seat window.** Refining the timestep changes which arrivals hit the mechanical stop. The [sensor and contact study](../station-feed-margin/README.md) keeps station-fed scoring on hold. All seven first reached an image-confirmed, stationary dock before the scheduled 21.100 s feed. In two, the actual incoming pipe pushed a cartridge past its stop before the controller saw both ports. A successful chassis approach alone cannot release the loaded drive. The south-lane leave and park remains available as a separate pre-match role. [Feed replay](feed.json) · [South-lane fallback](../station-approach/README.md)

@@ -1,9 +1,9 @@
 # Opening AUTO with wheel calibration error
 
 <!-- cad-still -->
-[![Team 1780 · captive swerve receiver](../../../docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2025-poc/)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Project CAD · Team 1780 · captive swerve receiver.** The public Fusion capture candidate at rest, with 1,001 robot solids and the hollow practice CORAL. Project-drawn representations occupy the supplier interfaces. [Source STEP · 0dad9e862e](../../../cad/swerve-captive/public-robot.step) · [Rotate the model](https://ehartye.github.io/frc-2025-poc/)
+**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 **Select the reserved south-lane leave and park before the match if station alignment is unavailable.** In the desktop trial the red robot travels 543 mm, settles in 2.56 s and holds with its carriage stowed. This preserves a conditional opportunity for three LEAVE points and two PARK points. It gives up both station feeds and both L1 placements, worth four points on the earlier nine-point clock. A partial stop never authorizes a feed, continuation toward the station or automatic scoring. The earlier field replay shows the same lane and endpoints with its original 1.345 s drive. Select “Stop closer to the tape” to inspect the cages and partner positions. [Open the field replay](../leave-park/replay.html)
