@@ -1,5 +1,10 @@
 # Red 2 iteration 002: B'x pocket preliminary package
 
+> **Layout-002 supersedes what this page describes.** This page records the layout-001 package (self-locking worm, issue
+> `red2-002-preliminary-layout-Bx`). The builders in this folder now write release layout-002 to
+> `cad/preliminary-design/releases/layout-002/`: planetary drive with a powered hold, station-fed receive, sprung lip stop,
+> placed sensors and custody proven with the power off. Read `LAYOUT-002-PLAN.md` for the decisions and the one build command.
+
 ![B'x package player at eject-ramp, 50 % stroke: pocket, nip, deployed lip, trough and pipe](package-still.png)
 
 *Still: the generated `package-motion.html` for issue `red2-002-preliminary-layout-Bx`, case `eject-ramp` at 50 % stroke. It shows the whole preliminary blockout, not a Fusion robot. Regenerate the still when `layout.step` changes.*

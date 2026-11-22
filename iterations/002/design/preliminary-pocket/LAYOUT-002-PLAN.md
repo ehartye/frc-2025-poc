@@ -106,9 +106,25 @@ preserved here (`releases/layout-001/`) verified against `custody-layout-001.jso
   weak bus 9.118 V. Layout-001's re-rooted package copied to `cad/preliminary-design/releases/layout-001/` and verified
   against all 33 custody hashes.
 
+- 2026-11-22 (resumed): rebuilt from the committed inputs. The service extractions failed because the station fixture, listed in
+  every case, raises the box an extraction must clear to 1193 mm; lifts now derive from the scene top, and the pit battery case starts
+  the station fixture 1500 mm away. **Power-off custody** (decision 10): new trial family `custody_trial` in `field_trials.py`
+  (schema @4). With the main power off the tread squeeze alone holds the seated pipe: 24/24 required cases (1.5 g stop for 0.5 s,
+  8 g hit for 50 ms; main power off and brake idle mode; 40-160 N/mm). Limits at 40 N/mm with the power off: 6 g kept and 8 g lost
+  sustained; 16 g kept and 24 g lost for a 50 ms hit. Control: rollers decoupled on a 20 N/mm tread lose the pipe at 8 g. Static
+  push-through 71.8 N at 40 N/mm against a 14.2 N stop load. No lock or detent is added; the nip controller is set to brake idle
+  mode. New: case `carry-01..03-power-off-hit` (trial-driven), premise `power-off-custody`, finding PD17, retention finding RR4,
+  bench gate G7 (push-through >= 61 N passes, < 29 N fails). Result: 50 cases pass, heavy mass 49.31 of 52.16 kg, weak bus 9.12 V.
+  The migrated `artifacts/` tree moved to `iterations/artifacts/` (the project layout check rejects a tracked top-level
+  `artifacts/`). The held-back layout-001 inputs and the earlier Red 2 studies were copied from the former private tree
+  (`iterations/MIGRATION/`). `build_release.py --records-only` rewrites the records and receipt without rerunning the trials.
+  The view needs the plugin change that keeps a view in its release folder (plugin PR 182); with it the receipt is
+  `layout-checked` and `effective-readiness` reads 3 of 3 met.
+
 ## Reproduce layout-002
 
-One command: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN_ROOT` (rebuild and check) or
+One command: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN_ROOT --view cad/preliminary-design/releases/layout-002/package-motion.html`
+(rebuild, check and write the review view), `... PLUGIN_ROOT --records-only --view ...` (rewrite the records and receipt from the trials and STEP files already there) or
 `... PLUGIN_ROOT --check-only` (rerun the check on the committed inputs). The steps it runs:
 
 ```text
@@ -117,8 +133,8 @@ PY -I -B $P/field_trials.py $R/evidence/field-trials.json --processes 14
 PY -I -B $P/structure_checks.py $R/evidence/field-trials.json $R/evidence/structure-checks.json
 PY -B $P/build_layout.py . $R PLUGIN/scripts $R/evidence/field-trials.json
 node $P/design-inputs/revise-002.mjs PLUGIN $P/design.json $R/design.json
-PY -B $P/write_package.py . PLUGIN/scripts
-PYTHON=PY node PLUGIN/scripts/design.mjs preliminary-check . $R/layout.json --write-view --require-checked    --previous cad/preliminary-design/releases/layout-001/receipt.json --output $R/receipt.json
+PY -B $P/write_package.py . PLUGIN/scripts $R $R/package-motion.html
+PYTHON=PY node PLUGIN/scripts/design.mjs preliminary-check . $R/layout.json --write-view --previous $R/held-layout-001-receipt.json --output $R/receipt.json
 ```
 
 The builders refuse to overwrite: delete the generated files in `$R` (everything except what an earlier step wrote)

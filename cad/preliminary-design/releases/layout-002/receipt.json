@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "red2-002-preliminary-layout-002",
-  "planSha256": "2545d403fd4e8eae115819f6514cccc5344af8d4fadfef283ad3ae088c61212a",
+  "planSha256": "683a61ae0548ca1a99e2191def1e0c48a497cfc38392a0358de6c2d5d6b83640",
   "design": {
     "file": "cad/preliminary-design/releases/layout-002/design.json",
     "sha256": "a589dedaa02dc2bacc2dee741c5fc2d5c90be6a3910abfa7b1d96e0c914f95a8"
@@ -35,10 +35,8 @@
       1
     ]
   },
-  "status": "provisional",
-  "missingInputs": [
-    "Generate the matching view of these checked trajectories with --write-view"
-  ],
+  "status": "layout-checked",
+  "missingInputs": [],
   "narrativeReview": {
     "source": {
       "file": "kickoff/selected-role.md",
@@ -2141,7 +2139,17 @@
       }
     ]
   },
-  "view": null,
+  "view": {
+    "file": "cad/preliminary-design/releases/layout-002/package-motion.html",
+    "sha256": "2515b0fabf62ddb1ec1849895e91014a92b98c62160b37b75954771f6f29935c",
+    "verified": true,
+    "scene": {
+      "file": "cad/preliminary-design/releases/layout-002/review-scene.json.gz",
+      "sha256": "7d54c81200060c21e014ec72ade05d107e57661e25ef7770b88a58df6e27443e",
+      "contentSha256": "26b734b67286774f527e0bb281273790096b00a90ae33d405d1f9a08473c8e9e",
+      "bytes": 3874389
+    }
+  },
   "groups": {
     "structure": {
       "role": "structure",
@@ -72078,10 +72086,7 @@
     "unresolved": []
   },
   "decision": {
-    "status": "provisional",
-    "firstUnmet": {
-      "kind": "missing",
-      "text": "Generate the matching view of these checked trajectories with --write-view"
-    }
+    "status": "layout-checked",
+    "firstUnmet": null
   }
 }
