@@ -1,9 +1,9 @@
 # Stationary hoist for the permanently locked low receiver
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 14649626c7](../../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
 The shortened common shaft retains both primary drums, both primary lines, the ratchet, inboard bearings and the service-pin assembly. Two nonrotating spacers bear against the fixed bearing arms. Two pinned stops keep the drums captive from outside. The fixed-height match build removes its two secondary hauls, four hanger mounts per side and their dedicated fasteners. The source bill identifies 48 retired CAD occurrences grouped into 36 installed articles. The separately budgeted shaft extension is shortened by 80 mm. [Native exchange](stationary-shaft.step) · [Drum and bearing source](../design/receiver-lift/) · [Permanent low locks](../design/fixed-height/README.md)

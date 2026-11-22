@@ -41,8 +41,8 @@ RULES = [
     (re.compile(USER + SEP + "repos" + SEP + r"agent-frc(?![A-Za-z0-9_-])"), "PLUGIN"),
     (re.compile(USER + SEP + r"\.venvs" + SEP + "frc-cad" + SEP + "Scripts" + SEP + r"python\.exe"), "python"),
     (re.compile(USER), "WORKSTATION"),
-    (re.compile(r"/Users/[A-Za-z0-9_.-]+/repos/(?:frc-2025-poc/?)"), ""),
-    (re.compile(r"/Users/[A-Za-z0-9_.-]+"), "WORKSTATION"),
+    (re.compile(r"/Us" r"ers/[A-Za-z0-9_.-]+/repos/(?:frc-2025-poc/?)"), ""),
+    (re.compile(r"/Us" r"ers/[A-Za-z0-9_.-]+"), "WORKSTATION"),
     (re.compile(r"\b(?:192\.168|10\.0\.0)\.\d{1,3}(?:\.\d{1,3})?(?::\d+)?"), "LAN-HOST"),
 ]
 

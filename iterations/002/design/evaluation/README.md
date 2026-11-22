@@ -1,5 +1,11 @@
 # Red 2 iteration 002: scoring architecture evaluation (r2)
 
+<!-- cad-still -->
+[![Preliminary design · in progress · layout-002](../../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 14649626c7](../../../../docs/preliminary-design/releases/layout-002/receipt.json)
+<!-- /cad-still -->
+
 Revision 2 answers the adversarial review of r1, which is commit `66748a4`. It is an offline preliminary comparison: it did not use Fusion and changed nothing in `preliminary/`, `pan/` or `chassis/`. Every number and input hash is in `evaluation.json`. To reproduce, run `python -I -B evaluate.py`; it takes about 10 s.
 
 **The comparison is asymmetric.** A's custody and delivery come from a spatial 12-case field replay that includes peers, the match clock, the current limit and the finite trough panels. B–D come from planar screens and bottom-up mass estimates. A's evidence is deeper. B's advantages are predictions, and the bench gate below must confirm them.

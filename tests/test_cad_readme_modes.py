@@ -1,4 +1,4 @@
-"""The README checker keeps the legacy still until the committed index shows the declared withdrawal."""
+"""The README checker features the current preliminary design release while no detailed design is current."""
 import hashlib
 import importlib.util
 import json
@@ -12,7 +12,6 @@ cad_readmes = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(cad_readmes)
 
 CONFIG = {"viewerUrl": "https://example.invalid/site/"}
-REASON = "Synthetic withdrawal."
 
 
 def sha(data):
@@ -26,7 +25,6 @@ class ReadmeModes(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.files = {
             "README.md": b"# Synthetic\n",
-            "README.old.md": b"# Synthetic before\n",
             "docs/robot/preliminary-layout-900.png": b"synthetic still",
             "docs/preliminary-design/releases.json": json.dumps(
                 {"releases": ["layout-900"], "designStatus": {"layout-900": "in-progress"}, "current": "layout-900"}).encode(),
@@ -41,14 +39,6 @@ class ReadmeModes(unittest.TestCase):
             "receiptSha256": sha(self.files[release + "receipt.json"]),
             "sceneSha256": sha(self.files[release + "review-scene.json.gz"]),
             "caption": {"title": "Synthetic layout", "alt": "Alt.", "pose": "Parked.", "scope": "Blocks only."}}).encode()
-        self.policy = {
-            "detailedDesigns": {"index": "docs/detailed-design/designs.json",
-                                "withdrawn": [{"design": "draft-900", "reason": REASON, "files": {}}]},
-            "preliminaryReadmeArchive": {
-                "readmeSha256": sha(self.files["README.md"]), "archive": "README.old.md",
-                "archivedSha256": sha(self.files["README.old.md"]),
-                "image": "docs/robot/preliminary-layout-900.png",
-                "imageSha256": sha(self.files["docs/robot/preliminary-layout-900.png"])}}
 
     def index(self, status="withdrawn", current=None, designs=("draft-900",)):
         return json.dumps({"current": current, "designs": list(designs),
@@ -58,28 +48,18 @@ class ReadmeModes(unittest.TestCase):
         for name, data in self.files.items():
             (self.root / name).parent.mkdir(parents=True, exist_ok=True)
             (self.root / name).write_bytes(data)
-        (self.root / ".github").mkdir(exist_ok=True)
-        (self.root / ".github/public-model-policy.json").write_text(json.dumps(self.policy), encoding="utf-8")
         if index is not None:
             (self.root / "docs/detailed-design").mkdir(parents=True, exist_ok=True)
             (self.root / "docs/detailed-design/designs.json").write_bytes(index)
         return cad_readmes.preliminary_feature(self.root, CONFIG, update)
 
-    def test_legacy_mode_without_a_declaration(self):
-        del self.policy["detailedDesigns"]
-        self.assertIsNone(self.feature(self.index()))
-
-    def test_legacy_mode_with_an_empty_declaration(self):
-        self.policy["detailedDesigns"]["withdrawn"] = []
-        self.assertIsNone(self.feature(self.index()))
-
-    def test_legacy_mode_until_the_index_is_committed(self):
+    def test_detailed_still_without_a_design_index(self):
         self.assertIsNone(self.feature())
 
-    def test_legacy_mode_while_the_declared_design_is_not_withdrawn(self):
-        for status in ("effective", "in-progress", "superseded"):
-            self.assertIsNone(self.feature(self.index(status, current="draft-900" if status != "superseded" else None)))
-        self.assertIsNone(self.feature(self.index(designs=("another-900",))))
+    def test_detailed_still_while_a_detailed_design_is_shown(self):
+        for status in ("effective", "in-progress"):
+            self.assertIsNone(self.feature(self.index(status, current="draft-900")))
+            self.assertIsNone(self.feature(self.index(status)))
 
     def test_damaged_index_is_an_error_not_a_mode(self):
         for damaged in (b"", b"{", b"[]", b"null", b'{"designs": ["draft-900"]}',
@@ -88,21 +68,17 @@ class ReadmeModes(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Unreadable detailed design index"):
                 self.feature(damaged)
 
-    def test_withdrawal_features_the_pinned_preliminary_still(self):
-        feature = self.feature(self.index())
-        self.assertEqual(feature["heading"], "Preliminary design · in progress · layout-900")
-        self.assertEqual(feature["image"], self.root / "docs/robot/preliminary-layout-900.png")
-        self.assertEqual(feature["review"], "https://example.invalid/site/preliminary-design/")
-        self.assertEqual(feature["text"], "Synthetic layout. Parked. Blocks only.")
-
-    def test_withdrawal_needs_the_approved_handoff(self):
-        del self.policy["preliminaryReadmeArchive"]
-        with self.assertRaisesRegex(ValueError, "README handoff"):
-            self.feature(self.index())
+    def test_no_current_detailed_design_features_the_preliminary_still(self):
+        for index in (self.index(), self.index("superseded"), self.index(designs=())):
+            feature = self.feature(index)
+            self.assertEqual(feature["heading"], "Preliminary design · in progress · layout-900")
+            self.assertEqual(feature["image"], self.root / "docs/robot/preliminary-layout-900.png")
+            self.assertEqual(feature["review"], "https://example.invalid/site/preliminary-design/")
+            self.assertEqual(feature["text"], "Synthetic layout. Parked. Blocks only.")
 
     def test_a_different_still_is_refused(self):
         self.files["docs/robot/preliminary-layout-900.png"] = b"another still"
-        with self.assertRaisesRegex(ValueError, "Changed CAD evidence"):
+        with self.assertRaisesRegex(ValueError, "differs from the current release"):
             self.feature(self.index())
 
     def test_a_still_of_another_release_state_is_refused(self):
@@ -110,20 +86,10 @@ class ReadmeModes(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "differs from the current release"):
             self.feature(self.index())
 
-    def test_a_different_readme_or_archive_is_refused_when_checking(self):
-        for name in ("README.md", "README.old.md"):
-            saved, self.files[name] = self.files[name], b"# Edited\n"
-            with self.assertRaisesRegex(ValueError, "approved handoff"):
-                self.feature(self.index())
-            self.assertIsNotNone(self.feature(self.index(), update=True))
-            self.files[name] = saved
-
-    def test_a_current_detailed_design_is_not_silently_replaced(self):
-        for index in (self.index(current="draft-900"), json.dumps({
-                "current": None, "designs": ["draft-900", "detail-901"],
-                "designStatus": {"draft-900": "withdrawn", "detail-901": "withdrawn"}}).encode()):
-            with self.assertRaisesRegex(ValueError, "needs its own README still"):
-                self.feature(index)
+    def test_a_release_without_a_still_is_refused(self):
+        del self.files["docs/robot/preliminary-layout-900.json"]
+        with self.assertRaisesRegex(ValueError, "Render the README still"):
+            self.feature(self.index())
 
 
 if __name__ == "__main__":

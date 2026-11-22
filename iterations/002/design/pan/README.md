@@ -1,5 +1,11 @@
 # Guarded pan and upper support: design package r3 (proposal)
 
+<!-- cad-still -->
+[![Preliminary design · in progress · layout-002](../../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 14649626c7](../../../../docs/preliminary-design/releases/layout-002/receipt.json)
+<!-- /cad-still -->
+
 This package installs the selected scoring mechanism on the accepted taps-02 chassis (`four-tapped-holes.f3d`, sha256 `e426e576…`). Revision r3 answers the eight blocking findings of the second independent review, plus its non-blocking items. It keeps OD-1 A, OD-2 A, OD-3 A, OD-4 mechanical joining and OD-5. Nothing here has run in Fusion.
 
 | File | Purpose |

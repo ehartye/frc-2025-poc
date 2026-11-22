@@ -1,23 +1,36 @@
 # Red 2 B′x preliminary design review inputs
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-001](../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Preliminary design · in progress · layout-002](../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-001.** Red 2 B′x fixed pocket, roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 64 representative solids, with the field fixture, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 1cc8a76119](../../docs/preliminary-design/releases/layout-001/receipt.json)
+**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 14649626c7](../../docs/preliminary-design/releases/layout-002/receipt.json)
 <!-- /cad-still -->
 
-This folder follows the Agent FRC 0.100.0 whole-robot review layout template. `releases/layout-001/` holds the public inputs for the B′x fixed pocket, roller nip and exit lip. B′x is selected for preliminary review only; the guarded-pan baseline A remains the fallback pending bench gates G1–G4 (their record is withheld with the private package).
+This folder holds the inputs of each Red 2 B′x preliminary design release and the script that stages a release into the site. The repository is the project root of every layout check, so each pin is a path from the repository root.
 
-**Custody.** The complete package, including `package.step`, lives in the Red 2 private assets repository. It was re-rooted to this release layout and checked there with Agent FRC 0.100.0 `preliminary-check --write-view --require-checked` (status `layout-checked`).
+| Release | Status | What it is |
+| --- | --- | --- |
+| [layout-002](releases/layout-002/) | in progress | Fixed pocket, two-roller nip on a NEO 550 and MAXPlanetary 36:1 with a powered hold, deploy-once exit lip on a sprung stop, four placed sensors. 50 checked cases. |
+| [layout-001](releases/layout-001/) | superseded | The same pocket with a self-locking worm. Its build used scripts that were never committed, so it cannot be rebuilt; its inputs are kept here as issued. |
 
-Only inputs that pass the rights gate are published here. [custody-layout-001.json](custody-layout-001.json) lists each withheld file with its SHA-256 and the reason it is withheld: the layout STEP, private evidence, and records that name private CAD. The same file records the block-level geometry check. Every published solid is a box, a box union, a revolved envelope or a project-drawn block, and none is supplier tessellation.
+## Layout-002
 
-- Stage a release: `python cad/preliminary-design/stage.py layout-001`. Staging needs only the checked view, paths, budgets and limits, and all of them are public.
-- Audit the index: `python cad/preliminary-design/stage.py --check-index`.
+- **Whole cycle.** The receive, carry and eject cases replay three solved free-piece trials: `receive-mission`, `custody-power-off-hit` and `eject-nominal` in [field-trials.json](releases/layout-002/evidence/field-trials.json). The lip deploy and the park drive are prescribed and say so.
+- **Custody with the power off.** The tread squeeze alone holds the seated pipe. With the main power off, the softest accepted tread (40 N/mm) keeps the pipe through 6 g sustained and a 16 g, 50 ms hit; it loses it at 8 g and 24 g. A robot that is not driving sees at most a 1.5 g stop and an 8 g hit. [Retention review](releases/layout-002/retention-review.json)
+- **Open risks.** Each is closed by a design change or carried as a bench test with pass and fail numbers: [bench gates G0 to G7](releases/layout-002/bench-gates.json), [design findings](releases/layout-002/design-findings.json). No bench article exists yet.
+- **Fallback.** The guarded-pan baseline A, if bench gate G1, G3 or G7 fails inside the tread band.
+
+The design is in progress until the owner marks it effective. Print the checklist with `node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/layout-002`.
+
+## Rebuild, check and stage
+
+The builders are in [`iterations/002/design/preliminary-pocket/`](../../iterations/002/design/preliminary-pocket/). `PLUGIN` is an Agent FRC checkout at the revision pinned as `AGENT_FRC_REF` in `.github/workflows/design-publication.yml`. Use the CAD Python (OCP installed) with node on the path.
+
+- Rebuild everything, check it and write the review view: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN --view cad/preliminary-design/releases/layout-002/package-motion.html`. A rebuilt STEP carries a new timestamp, so every pin after it changes.
+- Rewrite the records, receipt and view from the committed trials and STEP files: add `--records-only`.
+- Stage the checked release into the site: `python cad/preliminary-design/stage.py layout-002`.
+- Render the README still and refresh the READMEs: `python scripts/preliminary-still.py . layout-002 --update`, then `python scripts/cad-readmes.py . --template scripts/cad-orbit.html --update`.
+- Check what the repository publishes, as CI does: `node PLUGIN/scripts/design-publication.mjs check .`.
 - Review locally: `python cad/preliminary-design/serve.py`, then open `http://127.0.0.1:8000/`.
 
-The receive, eject and retention trials play in the [field-interaction player](releases/layout-001/field/bx-field-trials.html), which ships inside the release.
-
-The interacting field parts are motion-study fixtures (`field-fixtures.step`, withheld in private custody with the package STEP and registered under each case's `fixtures` with their source, dimensions and placement). They stay in the clearance checks but carry no robot mass, and **Fit field interaction** frames them.
-
-The stable index's "main robot page" link (`../`) is part of the plugin's gated viewer. It resolves on the deployed GitHub Pages site, where `preliminary-design/` sits under the season showcase. A local server rooted at `docs/` has no season index there, so the link returns to this review.
+The field parts in the review (station chute, trough sector and the first scored pipe) are motion-study fixtures in `field-fixtures.step`. They stay in the clearance checks and carry no robot mass. The stable index's link to the main robot page (`../`) resolves on the deployed site, where `preliminary-design/` sits under the season showcase.
