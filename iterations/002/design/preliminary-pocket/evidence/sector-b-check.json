@@ -1,0 +1,47 @@
+{
+  "schema": "red2/sector-b-check@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "step": {
+    "file": "iterations/002/design/preliminary-pocket/layout.step",
+    "sha256": "d7af6a7116016e387f0e095daf80e9d93fbf34f4a48b9e68d6f1bb014233b1de"
+  },
+  "sectorPitchMm": 471.0,
+  "method": "Robot docked at sector B (same robot-frame poses as sector A); the first pipe rests at the sector-A trough rest pose, 471 mm toward -Y. Exact distances from that pipe to every robot reserve (lip deployed, installed) and to the second pipe along its eject path waypoints.",
+  "firstPipeToRobotNearestMm": [
+    [
+      163.0,
+      "Nip coupling belt"
+    ],
+    [
+      165.86,
+      "Deployable exit lip"
+    ]
+  ],
+  "firstPipeToSecondPipePath": [
+    {
+      "pose": "seat",
+      "gapMm": 232.86
+    },
+    {
+      "pose": "throat",
+      "gapMm": 219.62
+    },
+    {
+      "pose": "lip root",
+      "gapMm": 187.37
+    },
+    {
+      "pose": "tip",
+      "gapMm": 169.38
+    },
+    {
+      "pose": "flight",
+      "gapMm": 169.38
+    },
+    {
+      "pose": "rest",
+      "gapMm": 169.38
+    }
+  ],
+  "limits": "Planar trials do not couple the sectors; the sector divider panel and pipe-end contact are not modelled"
+}

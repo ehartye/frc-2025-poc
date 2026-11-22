@@ -1,0 +1,30 @@
+{
+ "schema": "red2/connected-thread-input@1",
+ "purpose": "Cut four modeled 1/4-20 UNC-2B full-length threads in the two receiving nutbars of the accepted seven-stock study for the four selected 91251A542 brace screws.",
+ "lineage": "issue-006/lineage.json",
+ "authority": {
+  "status": "pass",
+  "policy": "registered-offline-archive",
+  "id": "red2-two-sill-robot",
+  "configuration": "Four parked matched SDS L2 modules and editable inset perimeter, electronics decks and pan support trusses",
+  "revision": "002-connected-machining-654-r6",
+  "asOf": "2026-11-21T14:01:40.849439+00:00",
+  "archiveSha256": "e7c7386af0b1e775a7e0daba344f75082a42e6445ec0064b297497abc077834a",
+  "stepSha256": "c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77"
+ },
+ "source": {
+  "file": "iterations/002/design/cad/private/connected-seven.f3d",
+  "sha256": "ef436f6ff3b2a3c63ccb4a100fff39d4c0750ba1adcd7405c14da339016a00ed",
+  "receipt": "iterations/002/design/chassis/connected-seven-stock-receipt.json"
+ },
+ "tapHoles": {
+  "Captive truss landing nutbar 250 -145": [[234, -132], [266, -158]],
+  "Captive truss landing nutbar 250 145": [[234, 132], [266, 158]]
+ },
+ "thread": {"family": "ANSI Unified Screw Threads", "designation": "1/4-20 UNC", "class": "2B", "modeled": true, "fullLength": true, "tapDrillRadiusMm": 2.5527},
+ "basis": {
+  "axes": "underHead X/Y of the four selectedRows in chassis/inset-clamp-hardware-selection.json, each paired with its tappingHost",
+  "screw": "91251A542, 1/4-20 x 1 inch socket head, quantity 4",
+  "handoff": "iterations/002/design/PAUSED.md, First action after an explicit resume"
+ }
+}

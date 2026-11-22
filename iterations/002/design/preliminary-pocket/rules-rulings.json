@@ -1,0 +1,42 @@
+{
+  "schema": "red2/rules-rulings@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "register": {
+    "file": "experiments/six-wheel/kickoff/rule-register-v0.json",
+    "sha256": "7d1cfd49b8a87c402aa5d1cad49cd7ef07afc456859d8db09addf3f064fad24b"
+  },
+  "edition": "Register 'Kickoff V0' (2025-01-04 release-day packet, experiments/six-wheel/kickoff/rule-register-v0.json)",
+  "rulings": [
+    {
+      "rule": "R102 / R105 (register id 'extension': 'The starting projection and the 18-inch extension limit refer to the perimeter.')",
+      "verdict": "complies",
+      "facts": {
+        "deployedProjectionMm": 100.0,
+        "limitMm": 457.2,
+        "marginMm": 357.2,
+        "startProjectionMm": 0.0,
+        "stowedLipMaxXMm": 369.0,
+        "stowedLipInsideFrameMm": 1.0,
+        "deploySwingMaxProjectionMm": 108.989,
+        "startHeightMm": 886.708,
+        "startHeightLimitMm": 1066.8
+      },
+      "basis": "The deployed lip is the only member beyond the frame perimeter: its tip is 100.0 mm out (the swing passes 109.0 mm momentarily while deploying), inside the register's 18 in (457.2 mm) limit, in one direction. In the starting configuration the lip is folded up with its forward-most point 1.0 mm inside the frame face, so no robot reserve projects beyond the front face, and the start height is 886.7 mm against the register's 42 in (R104, modeled).",
+      "open": [
+        "The register marks 'extension' unmodeled (no numeric field); the 18 in figure is its statement text. Confirm the measurement datum against the event's manual revision and measure the as-built deployed tip at inspection."
+      ]
+    },
+    {
+      "rule": "G412 (register id 'launch': 'A launched CORAL requires a bumper partially in its own reef zone.')",
+      "verdict": "open",
+      "basis": "The nip propels the pipe out of the robot, so this package treats the B'x roll-off as a launch whether or not a roll-off counts as one, and requires an eject interlock: nip forward only when a bumper is partially in our reef zone, a pipe is seated and the lip is deployed. The same interlock covers the B fallback's airborne launch. Compliance cannot be claimed yet: the reef-zone footprint is not registered, no sensor or localisation method that establishes zone overlap is specified, and the seated-pipe and lip-deployed sensors are not placed.",
+      "interlock": "reef-zone bumper overlap AND pipe present AND lip deployed",
+      "open": [
+        "Register the reef-zone footprint in the season rules artifact and check the docked poses against it",
+        "Specify how the robot knows it overlaps the zone (pose estimate and its error) before the interlock can be credited",
+        "Place the seated-pipe and lip-deployed sensors (retention RR3)"
+      ]
+    }
+  ],
+  "consequence": "The lip complies with R102/R105, so this package carries B'x, not B. G412 stays open until the interlock is specified."
+}

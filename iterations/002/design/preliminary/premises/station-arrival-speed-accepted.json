@@ -1,0 +1,22 @@
+{
+  "id": "station-arrival-speed",
+  "scenario": "Pipe arrival at the receiver from the station chute, adverse admission",
+  "unit": "m/s",
+  "criterion": {
+    "range": [
+      0.0,
+      2.5
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "inlet",
+    "pan",
+    "pipe"
+  ],
+  "source": {
+    "file": "artifacts/resume-20261121/fixed-path-01/comparison.json",
+    "sha256": "824ba7280b1faebb3d8fbf304631ca18da33a7fa1d5326245a59e4564b42344b"
+  },
+  "basis": "The pan receive replays are accepted for station arrivals up to about 2.5 m/s"
+}

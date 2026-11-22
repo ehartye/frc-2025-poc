@@ -1,0 +1,1469 @@
+{
+ "schema": "agent-frc/occupied-form-closeout@1 (ad hoc)",
+ "created": "2026-11-21T14:26:28-0500",
+ "inputs": {
+  "before": {
+   "path": "iterations/002/design/cad/issue-006/assembly.step",
+   "sha256": "c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77"
+  },
+  "after": {
+   "path": "iterations/002/design/private-inputs/matched-sds/connected-seven.step",
+   "sha256": "927a79d4810f02bb7c5f22311d54421c37af51fa1ee48230fa3f436d0cba4556"
+  },
+  "retainedJoin": {
+   "path": "iterations/002/design/chassis/connected-seven-retained.json",
+   "sha256": "5826a5ef0e4b117973f8db8456e1d3ca88e56c4181861a44397d43230819f988"
+  },
+  "designCommit": "5d572523407f061b7bee148e351ccd8bd00329ad"
+ },
+ "pluginCommit": "a7097c109a4b979006d397f6a1b06d2f65cc87dc",
+ "ocp": "8.0.1.0.0",
+ "numpy": "2.5.3",
+ "python": "3.13.12",
+ "method": {
+  "loading": "showcase_contacts.load_solids on both STEPs (world-placed TopoDS solids, same robot frame)",
+  "serialization": "BRepTools.Write_s VERSION_3 on Located(identity) as in inset_seven_retained.py; line-by-line numeric token diff",
+  "validity": "BRepCheck_Analyzer",
+  "topology": "TopExp.MapShapes counts",
+  "faces": "multiset of (GeomAbs surface type, face area rounded 1e-6 mm2)",
+  "massProperties": "BRepGProp volume/surface: volume, area, centroid, inertia matrix",
+  "deviation": "7x7 UV grid per face kept inside the trimmed face (BRepClass_FaceClassifier) plus 5 points per edge; exact distance to the other solid's trimmed faces via BRepExtrema_DistShapeShape (bbox-pruned, outer-shell fallback so interior points are not reported as 0); both directions",
+  "occupancy": "3000 seeded random points in the before bbox classified by BRepClass3d_SolidClassifier in both solids",
+  "booleans": "none"
+ },
+ "tolerance": {
+  "maxBoundaryDeviationMm": 0.0001,
+  "volumeRelative": 1e-09,
+  "centroidMm": 0.0001,
+  "occupancyDisagreements": 0,
+  "justification": "Serialization differences are last-ulp (~1e-15) real-number changes, so any real geometric change would be orders of magnitude larger. 1e-4 mm is >=10x below the smallest negative control (0.001 mm translation) that the method must resolve, far above BRepExtrema precision (1e-7) and below supplier-model and machining relevance (shop tolerance ~0.05 mm). It matches the precision quoted for the retained-cohort join."
+ },
+ "results": [
+  {
+   "role": "FL/CANcoder Bottom Housing",
+   "before": "CANcoder Bottom Housing [1.1.1.1.1.12.4.1]",
+   "after": "CANcoder Bottom Housing [1.1.1.1.1.12.4.1]",
+   "recordedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "recomputedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 1040.2748760302075,
+    "after": 1040.2748760302075,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 1949.605814971026,
+    "after": 1949.605814971026,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.657243293131034e-14
+   },
+   "deviationAfterToBefore": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.657243293131034e-14
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 5631,
+    "differingLines": 2,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 102,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     },
+     {
+      "section": "Curves",
+      "entry": 141,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 755,
+    "insideB": 755,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 1.9895196601282805e-13,
+   "verdict": "same-occupied-form",
+   "seconds": 5.6
+  },
+  {
+   "role": "FL/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+   "before": "MK4i Master Part V2_NEO Config [1.1.1.1.1.21.13]",
+   "after": "MK4i Master Part V2_NEO Config [1.1.1.1.1.21.13]",
+   "recordedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "recomputedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 40222.05953861704,
+    "after": 40222.05953861704,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 32252.52673205889,
+    "after": 32252.52673205889,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.104787520958936e-15
+   },
+   "deviationAfterToBefore": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.104787520958936e-15
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 34525,
+    "differingLines": 1,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 1714,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 523,
+    "insideB": 523,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 8.526512829121202e-14,
+   "verdict": "same-occupied-form",
+   "seconds": 79.3
+  },
+  {
+   "role": "FR/CANcoder Bottom Housing",
+   "before": "CANcoder Bottom Housing [1.3.1.1.1.12.4.1]",
+   "after": "CANcoder Bottom Housing [1.4.1.1.1.12.4.1]",
+   "recordedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "recomputedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 1040.2748760302081,
+    "after": 1040.2748760302081,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 1949.605814971026,
+    "after": 1949.605814971026,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.6755701272223495e-14
+   },
+   "deviationAfterToBefore": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.6755701272223495e-14
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 5631,
+    "differingLines": 2,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 102,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     },
+     {
+      "section": "Curves",
+      "entry": 141,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 716,
+    "insideB": 716,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 1.9895196601282805e-13,
+   "verdict": "same-occupied-form",
+   "seconds": 5.7
+  },
+  {
+   "role": "FR/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+   "before": "MK4i Master Part V2_NEO Config [1.3.1.1.1.21.13]",
+   "after": "MK4i Master Part V2_NEO Config [1.4.1.1.1.21.13]",
+   "recordedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "recomputedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 40222.05953861692,
+    "after": 40222.05953861692,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 32252.52673205889,
+    "after": 32252.52673205889,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.16911706448071e-15
+   },
+   "deviationAfterToBefore": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.16911706448071e-15
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 34525,
+    "differingLines": 1,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 1714,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 545,
+    "insideB": 545,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 8.526512829121202e-14,
+   "verdict": "same-occupied-form",
+   "seconds": 79.7
+  },
+  {
+   "role": "RR/CANcoder Bottom Housing",
+   "before": "CANcoder Bottom Housing [1.4.1.1.1.12.4.1]",
+   "after": "CANcoder Bottom Housing [1.5.1.1.1.12.4.1]",
+   "recordedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "recomputedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 1040.2748760302075,
+    "after": 1040.2748760302075,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 1949.605814971026,
+    "after": 1949.605814971026,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.657243293131034e-14
+   },
+   "deviationAfterToBefore": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.657243293131034e-14
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 5631,
+    "differingLines": 2,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 102,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     },
+     {
+      "section": "Curves",
+      "entry": 141,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 706,
+    "insideB": 706,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 1.9895196601282805e-13,
+   "verdict": "same-occupied-form",
+   "seconds": 5.8
+  },
+  {
+   "role": "RR/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+   "before": "MK4i Master Part V2_NEO Config [1.4.1.1.1.21.13]",
+   "after": "MK4i Master Part V2_NEO Config [1.5.1.1.1.21.13]",
+   "recordedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "recomputedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 40222.05953861704,
+    "after": 40222.05953861704,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 32252.52673205889,
+    "after": 32252.52673205889,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.104787520958936e-15
+   },
+   "deviationAfterToBefore": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.104787520958936e-15
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 34525,
+    "differingLines": 1,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 1714,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 521,
+    "insideB": 521,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 8.526512829121202e-14,
+   "verdict": "same-occupied-form",
+   "seconds": 79.2
+  },
+  {
+   "role": "RL/CANcoder Bottom Housing",
+   "before": "CANcoder Bottom Housing [1.5.1.1.1.12.4.1]",
+   "after": "CANcoder Bottom Housing [1.6.1.1.1.12.4.1]",
+   "recordedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "recomputedHashes": {
+    "before": "fa468a1b188255605b43bea984594295aeb84a85edf0b7f293bf5733aff7121e",
+    "after": "0353ecb512ed0700ececd9abb43106cf7340fecfe8ec8a439faaf191b920933a"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 104,
+     "wires": 113,
+     "edges": 307,
+     "vertices": 204
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.004661852615148038,
+     "maxVertex": 0.004661852615148038
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 1040.2748760302081,
+    "after": 1040.2748760302081,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 1949.605814971026,
+    "after": 1949.605814971026,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.6755701272223495e-14
+   },
+   "deviationAfterToBefore": {
+    "samples": 6111,
+    "maxMm": 1.9895196601282805e-13,
+    "p95Mm": 8.526512829121202e-14,
+    "meanMm": 1.6755701272223495e-14
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 5631,
+    "differingLines": 2,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 102,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     },
+     {
+      "section": "Curves",
+      "entry": 141,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 744,
+    "insideB": 744,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 1.9895196601282805e-13,
+   "verdict": "same-occupied-form",
+   "seconds": 5.5
+  },
+  {
+   "role": "RL/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+   "before": "MK4i Master Part V2_NEO Config [1.5.1.1.1.21.13]",
+   "after": "MK4i Master Part V2_NEO Config [1.6.1.1.1.21.13]",
+   "recordedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "recomputedHashes": {
+    "before": "a7a9dc0fe5a8658f7ff25b6fc128cc3f8b99774c816cd888241bf19f33712fce",
+    "after": "a103af06042ee9017e39881d822ef7c155dc238cfb42841c087ba86e56d2dff5"
+   },
+   "validity": {
+    "before": true,
+    "after": true
+   },
+   "topology": {
+    "before": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "after": {
+     "solids": 1,
+     "shells": 1,
+     "faces": 722,
+     "wires": 812,
+     "edges": 1693,
+     "vertices": 985
+    },
+    "equal": true
+   },
+   "tolerances": {
+    "before": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    },
+    "after": {
+     "maxFace": 1e-07,
+     "maxEdge": 0.000985833061119719,
+     "maxVertex": 0.000985833061119719
+    }
+   },
+   "faceTypeAreaMultisetEqual": true,
+   "serializationIdentical": false,
+   "volumeMm3": {
+    "before": 40222.05953861692,
+    "after": 40222.05953861692,
+    "delta": 0.0
+   },
+   "areaMm2": {
+    "before": 32252.52673205889,
+    "after": 32252.52673205889,
+    "delta": 0.0
+   },
+   "centroidDeltaMm": 0.0,
+   "inertiaMaxAbsDelta": 0.0,
+   "deviationBeforeToAfter": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.16911706448071e-15
+   },
+   "deviationAfterToBefore": {
+    "samples": 42539,
+    "maxMm": 8.526512829121202e-14,
+    "p95Mm": 4.0194366942304644e-14,
+    "meanMm": 7.16911706448071e-15
+   },
+   "serializationDiff": {
+    "sameLineCount": true,
+    "lines": 34525,
+    "differingLines": 1,
+    "nonNumericLines": 0,
+    "sections": [
+     "Curves"
+    ],
+    "maxAbsTokenDelta": 6.661338147750939e-16,
+    "rows": [
+     {
+      "section": "Curves",
+      "entry": 1714,
+      "maxAbsDelta": 6.661338147750939e-16,
+      "tokenKinds": [
+       "real"
+      ],
+      "geometryType": "Line"
+     }
+    ]
+   },
+   "occupancyClassification": {
+    "points": 3000,
+    "insideA": 504,
+    "insideB": 504,
+    "disagreements": 0
+   },
+   "maxDeviationBothDirectionsMm": 8.526512829121202e-14,
+   "verdict": "same-occupied-form",
+   "seconds": 82.2
+  }
+ ],
+ "controls": {
+  "positive": [
+   {
+    "kind": "identical-retained",
+    "role": "FL/MK4i Master Part V2_NEO Config [1.1.1.21.1]",
+    "before": "MK4i Master Part V2_NEO Config [1.1.1.1.1.21.1]",
+    "after": "MK4i Master Part V2_NEO Config [1.1.1.1.1.21.1]",
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 4,
+      "wires": 6,
+      "edges": 6,
+      "vertices": 4
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 4,
+      "wires": 6,
+      "edges": 6,
+      "vertices": 4
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 1e-07,
+      "maxVertex": 1e-07
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 1e-07,
+      "maxVertex": 1e-07
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": true,
+    "volumeMm3": {
+     "before": 1448.405293380834,
+     "after": 1448.405293380834,
+     "delta": 0.0
+    },
+    "areaMm2": {
+     "before": 1985.6804553662241,
+     "after": 1985.6804553662241,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.0,
+    "inertiaMaxAbsDelta": 0.0,
+    "deviationBeforeToAfter": {
+     "samples": 176,
+     "maxMm": 4.0194366942304644e-14,
+     "p95Mm": 2.842170943040401e-14,
+     "meanMm": 8.058119010297117e-15
+    },
+    "deviationAfterToBefore": {
+     "samples": 176,
+     "maxMm": 4.0194366942304644e-14,
+     "p95Mm": 2.842170943040401e-14,
+     "meanMm": 8.058119010297117e-15
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 1426,
+     "insideB": 1426,
+     "disagreements": 0
+    },
+    "maxDeviationBothDirectionsMm": 4.0194366942304644e-14,
+    "verdict": "same-occupied-form",
+    "seconds": 0.2
+   },
+   {
+    "kind": "identical-retained",
+    "role": "FL/CANcoder PCA [1.1.1.12.2.1]",
+    "before": "CANcoder PCA [1.1.1.1.1.12.2.1]",
+    "after": "CANcoder PCA [1.1.1.1.1.12.2.1]",
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 19,
+      "wires": 33,
+      "edges": 51,
+      "vertices": 34
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 19,
+      "wires": 33,
+      "edges": 51,
+      "vertices": 34
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 1e-07,
+      "maxVertex": 1e-07
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 1e-07,
+      "maxVertex": 1e-07
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": true,
+    "volumeMm3": {
+     "before": 379.9798544672948,
+     "after": 379.9798544672948,
+     "delta": 0.0
+    },
+    "areaMm2": {
+     "before": 721.8219420971209,
+     "after": 721.8219420971209,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.0,
+    "inertiaMaxAbsDelta": 0.0,
+    "deviationBeforeToAfter": {
+     "samples": 1160,
+     "maxMm": 6.355287432313019e-14,
+     "p95Mm": 5.684341886080802e-14,
+     "meanMm": 7.686635623483864e-15
+    },
+    "deviationAfterToBefore": {
+     "samples": 1160,
+     "maxMm": 6.355287432313019e-14,
+     "p95Mm": 5.684341886080802e-14,
+     "meanMm": 7.686635623483864e-15
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 1933,
+     "insideB": 1933,
+     "disagreements": 0
+    },
+    "maxDeviationBothDirectionsMm": 6.355287432313019e-14,
+    "verdict": "same-occupied-form",
+    "seconds": 1.0
+   }
+  ],
+  "negative": [
+   {
+    "kind": "after-translated-x-0.05mm",
+    "role": "FL/CANcoder Bottom Housing",
+    "expectedDeviationMm": 0.05,
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 104,
+      "wires": 113,
+      "edges": 307,
+      "vertices": 204
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 104,
+      "wires": 113,
+      "edges": 307,
+      "vertices": 204
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.004661852615148038,
+      "maxVertex": 0.004661852615148038
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.004661852615148038,
+      "maxVertex": 0.004661852615148038
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": false,
+    "volumeMm3": {
+     "before": 1040.2748760302075,
+     "after": 1040.2748760302077,
+     "delta": 2.2737367544323206e-13
+    },
+    "areaMm2": {
+     "before": 1949.605814971026,
+     "after": 1949.605814971026,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.05000000000001137,
+    "inertiaMaxAbsDelta": 5.820766091346741e-10,
+    "deviationBeforeToAfter": {
+     "samples": 6111,
+     "maxMm": 0.05000000000001137,
+     "p95Mm": 0.049314974664317626,
+     "meanMm": 0.027543291796987435
+    },
+    "deviationAfterToBefore": {
+     "samples": 6111,
+     "maxMm": 0.05000000000001137,
+     "p95Mm": 0.049394887498010985,
+     "meanMm": 0.027325977408896147
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 746,
+     "insideB": 748,
+     "disagreements": 30
+    },
+    "maxDeviationBothDirectionsMm": 0.05000000000001137,
+    "verdict": "differs",
+    "seconds": 7.5
+   },
+   {
+    "kind": "after-translated-x-0.001mm",
+    "role": "FL/CANcoder Bottom Housing",
+    "expectedDeviationMm": 0.001,
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 104,
+      "wires": 113,
+      "edges": 307,
+      "vertices": 204
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 104,
+      "wires": 113,
+      "edges": 307,
+      "vertices": 204
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.004661852615148038,
+      "maxVertex": 0.004661852615148038
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.004661852615148038,
+      "maxVertex": 0.004661852615148038
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": false,
+    "volumeMm3": {
+     "before": 1040.2748760302075,
+     "after": 1040.274876030208,
+     "delta": 4.547473508864641e-13
+    },
+    "areaMm2": {
+     "before": 1949.605814971026,
+     "after": 1949.605814971026,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.0009999999999763531,
+    "inertiaMaxAbsDelta": 4.656612873077393e-10,
+    "deviationBeforeToAfter": {
+     "samples": 6111,
+     "maxMm": 0.0009999999999763531,
+     "p95Mm": 0.0009862250093195706,
+     "meanMm": 0.0005528456550443276
+    },
+    "deviationAfterToBefore": {
+     "samples": 6111,
+     "maxMm": 0.0009999999999763531,
+     "p95Mm": 0.0009883555382671607,
+     "meanMm": 0.0005482430607512907
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 717,
+     "insideB": 717,
+     "disagreements": 0
+    },
+    "maxDeviationBothDirectionsMm": 0.0009999999999763531,
+    "verdict": "differs",
+    "seconds": 5.6
+   },
+   {
+    "kind": "after-translated-x-0.05mm",
+    "role": "FL/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+    "expectedDeviationMm": 0.05,
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 722,
+      "wires": 812,
+      "edges": 1693,
+      "vertices": 985
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 722,
+      "wires": 812,
+      "edges": 1693,
+      "vertices": 985
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.000985833061119719,
+      "maxVertex": 0.000985833061119719
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.000985833061119719,
+      "maxVertex": 0.000985833061119719
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": false,
+    "volumeMm3": {
+     "before": 40222.05953861704,
+     "after": 40222.05953861694,
+     "delta": -1.0186340659856796e-10
+    },
+    "areaMm2": {
+     "before": 32252.52673205889,
+     "after": 32252.52673205889,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.049999999999783995,
+    "inertiaMaxAbsDelta": 1.1444091796875e-05,
+    "deviationBeforeToAfter": {
+     "samples": 42539,
+     "maxMm": 0.05000000000006821,
+     "p95Mm": 0.0492061029155829,
+     "meanMm": 0.024563858819551854
+    },
+    "deviationAfterToBefore": {
+     "samples": 42539,
+     "maxMm": 0.05000000000006821,
+     "p95Mm": 0.04923949203317873,
+     "meanMm": 0.024631693989977787
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 544,
+     "insideB": 544,
+     "disagreements": 6
+    },
+    "maxDeviationBothDirectionsMm": 0.05000000000006821,
+    "verdict": "differs",
+    "seconds": 82.4
+   },
+   {
+    "kind": "after-translated-x-0.001mm",
+    "role": "FL/MK4i Master Part V2_NEO Config [1.1.1.21.13]",
+    "expectedDeviationMm": 0.001,
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 722,
+      "wires": 812,
+      "edges": 1693,
+      "vertices": 985
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 722,
+      "wires": 812,
+      "edges": 1693,
+      "vertices": 985
+     },
+     "equal": true
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.000985833061119719,
+      "maxVertex": 0.000985833061119719
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.000985833061119719,
+      "maxVertex": 0.000985833061119719
+     }
+    },
+    "faceTypeAreaMultisetEqual": true,
+    "serializationIdentical": false,
+    "volumeMm3": {
+     "before": 40222.05953861704,
+     "after": 40222.059538617046,
+     "delta": 7.275957614183426e-12
+    },
+    "areaMm2": {
+     "before": 32252.52673205889,
+     "after": 32252.52673205889,
+     "delta": 0.0
+    },
+    "centroidDeltaMm": 0.00100000000009004,
+    "inertiaMaxAbsDelta": 2.1457672119140625e-06,
+    "deviationBeforeToAfter": {
+     "samples": 42539,
+     "maxMm": 0.0010000000000331966,
+     "p95Mm": 0.0009839817450664709,
+     "meanMm": 0.0004927848078190452
+    },
+    "deviationAfterToBefore": {
+     "samples": 42539,
+     "maxMm": 0.0010000000000331966,
+     "p95Mm": 0.0009845569586116284,
+     "meanMm": 0.0004940508233499952
+    },
+    "occupancyClassification": {
+     "points": 3000,
+     "insideA": 542,
+     "insideB": 541,
+     "disagreements": 1
+    },
+    "maxDeviationBothDirectionsMm": 0.0010000000000331966,
+    "verdict": "differs",
+    "seconds": 82.8
+   },
+   {
+    "kind": "different-supplier-body",
+    "role": "FL/CANcoder Bottom Housing",
+    "against": "CANcoder PCA [1.1.1.1.1.12.2.1]",
+    "validity": {
+     "before": true,
+     "after": true
+    },
+    "topology": {
+     "before": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 104,
+      "wires": 113,
+      "edges": 307,
+      "vertices": 204
+     },
+     "after": {
+      "solids": 1,
+      "shells": 1,
+      "faces": 19,
+      "wires": 33,
+      "edges": 51,
+      "vertices": 34
+     },
+     "equal": false
+    },
+    "tolerances": {
+     "before": {
+      "maxFace": 1e-07,
+      "maxEdge": 0.004661852615148038,
+      "maxVertex": 0.004661852615148038
+     },
+     "after": {
+      "maxFace": 1e-07,
+      "maxEdge": 1e-07,
+      "maxVertex": 1e-07
+     }
+    },
+    "faceTypeAreaMultisetEqual": false,
+    "serializationIdentical": false,
+    "volumeMm3": {
+     "before": 1040.2748760302075,
+     "after": 379.9798544672948,
+     "delta": -660.2950215629127
+    },
+    "areaMm2": {
+     "before": 1949.605814971026,
+     "after": 721.8219420971209,
+     "delta": -1227.783872873905
+    },
+    "centroidDeltaMm": 1.695227524412534,
+    "inertiaMaxAbsDelta": 88845.652428614,
+    "deviationBeforeToAfter": {
+     "samples": 6111,
+     "maxMm": 4.846425046743978,
+     "p95Mm": 2.9971999999999923,
+     "meanMm": 1.2114882278214754
+    },
+    "deviationAfterToBefore": {
+     "samples": 1160,
+     "maxMm": 3.048000000000002,
+     "p95Mm": 2.458221700924272,
+     "meanMm": 1.0143159535897281
+    },
+    "maxDeviationBothDirectionsMm": 4.846425046743978,
+    "verdict": "differs",
+    "seconds": 2.8
+   }
+  ]
+ },
+ "summary": {
+  "same-occupied-form": 8
+ },
+ "rootCause": {
+  "differingLinesPerBody": {
+   "FL/CANcoder Bottom Housing": 2,
+   "FL/MK4i Master Part V2_NEO Config [1.1.1.21.13]": 1,
+   "FR/CANcoder Bottom Housing": 2,
+   "FR/MK4i Master Part V2_NEO Config [1.1.1.21.13]": 1,
+   "RR/CANcoder Bottom Housing": 2,
+   "RR/MK4i Master Part V2_NEO Config [1.1.1.21.13]": 1,
+   "RL/CANcoder Bottom Housing": 2,
+   "RL/MK4i Master Part V2_NEO Config [1.1.1.21.13]": 1
+  },
+  "sections": [
+   "Curves"
+  ],
+  "geometryTypes": [
+   "Line"
+  ],
+  "maxAbsTokenDelta": 6.661338147750939e-16,
+  "explanation": "The only serialization differences are last-ulp real-number changes in the unit direction vector of 3D Line curves (Curves section); topology, tolerances, surfaces, pcurves and all other tokens are byte-identical. This is floating-point renormalization noise from the STEP export/import round trip, not a shape change."
+ },
+ "hashMethodNote": "The local BRep hash is blind to placement (translated controls serialize identically); the retained join covers placement with its separate exact pose-matrix check, which is 0 for all 8 rows.",
+ "limits": [
+  "Deviation is sampled, not a proof of continuous boundary equality; a feature smaller than the sample spacing on one face could escape the boundary sampling, though topology counts, the per-face type/area multiset, volume, inertia and occupancy classification are independent checks.",
+  "Occupancy classification is statistical (seeded random points) and limited to the before solid's bounding box.",
+  "Supplier solids fail OCCT Booleans; this closeout does not explain or repair that Boolean failure.",
+  "Offline OCP only; no native Fusion inspection of these bodies was made."
+ ],
+ "runtimeSeconds": 538.7
+}

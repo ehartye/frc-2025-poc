@@ -1,0 +1,86 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "selectedStepSolids": 552,
+  "railStockDensityKgM3": 2700,
+  "fourActualDrilledRailsKg": {
+    "Port longitudinal socket rail [1.2.1]": 0.5677915231901209,
+    "Front transverse socket rail [1.3.1]": 0.5558157406901206,
+    "Port longitudinal socket rail [1.5.1]": 0.5677915231901209,
+    "Front transverse socket rail [1.7.1]": 0.5558157406901206
+  },
+  "originalRailsAllocationKg": 2.287456797660761,
+  "railDifferenceKg": 0.04024226990027824,
+  "currentCohortsKg": {
+    "catalogFourSDSModules": 10.886216880000001,
+    "measuredFourCartridgeVolumes": 2.888168598857082,
+    "measuredFourDrilledRails": 2.247214527760483,
+    "plannedSixMiteredGrossTubes": 5.954160416753686,
+    "remainingPlannedCrossframeAndInterfaceAllowances": 13.38727662177267,
+    "plannedElectricalAssembly": 7,
+    "plannedUpperAndDrive": 8.2,
+    "unspecifiedInstalledHardwareAndFinish": 1.5,
+    "removableBumpersOneColor": 7.5,
+    "batteryAndBatterySideConnector": 6.17,
+    "admittedGamePiece": 0.816466
+  },
+  "upperReferenceOnly": {
+    "historicMovingShopStockKg": 3.3452483934046366,
+    "historicFixedShopStockKg": 3.151563100614821,
+    "assignedCurrentUpperKg": 8.2
+  },
+  "electricalReferenceOnly": {
+    "eightSparkMaxControllersKg": 0.9064,
+    "oneRevPDHKg": 0.517,
+    "remainderWithinSevenKg": 5.5766,
+    "scope": "Budget remainder includes roboRIO, radio, breaker, main cables, branch extensions, sensing, harness and mounting. Generic component mass or a different controller variant cannot close this remainder."
+  },
+  "ruleBasis": {
+    "edition": "2025 kickoff V0",
+    "pages": [
+      76,
+      86,
+      112
+    ],
+    "rules": [
+      "R103",
+      "R408",
+      "I103"
+    ],
+    "source": "https://manuals.plus/m/e98a748723b248f34e890accab1c49c809276fe44de713321834e30736d1e04a.pdf",
+    "batteryException": "Battery-side connector, lugs, fasteners, insulation and at most 12 inches per leg. Robot-side leads and permanently attached bumper mounts remain in R103."
+  },
+  "cases": {
+    "low-line-budget": {
+      "fieldKg": 66.54950304514392,
+      "carriedPipeKg": 0.816466,
+      "removableOneColorBumperKg": 7.5,
+      "excludedBatteryAndLimitedBatterySideLeadsKg": 6.17,
+      "fixedRobotKg": 52.063037045143915,
+      "R103MarginKg": 0.10008550485608936,
+      "withBumpersKg": 59.563037045143915,
+      "R408MarginKg": 1.6719329048560851,
+      "I103AdditionalMechanismMarginKg": 15.975818454856082
+    },
+    "heavy-offset-control": {
+      "fieldKg": 68.54950304514392,
+      "carriedPipeKg": 0.816466,
+      "removableOneColorBumperKg": 7.5,
+      "excludedBatteryAndLimitedBatterySideLeadsKg": 6.17,
+      "fixedRobotKg": 54.063037045143915,
+      "R103MarginKg": -1.8999144951439106,
+      "withBumpersKg": 61.563037045143915,
+      "R408MarginKg": -0.32806709514391486,
+      "I103AdditionalMechanismMarginKg": 13.975818454856082
+    }
+  },
+  "scope": "Catalog module weight is conditional on ordered components, including tire, wiring and shipped plate. Metal masses use measured CAD volumes and commissioned densities. Planning cases include every outstanding allocation; they are neither scale measurements nor complete issued-robot masses. The 2 kg high case spans 1.25 kg additional joints, 0.5 kg upper and 0.25 kg loom. I103 inventory must include every interchangeable mechanism presented for inspection, as applicable."
+}

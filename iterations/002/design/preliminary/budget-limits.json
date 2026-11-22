@@ -1,0 +1,213 @@
+{
+  "basis": "R103 115 lb (2025 kickoff V0 pp. 76/86/112 per inspection-mass-552 ruleBasis; season rules-v0.json has no R103 entry) and the project 9 V branch floor used by every pan and field replay (pan-stop-study-05 criteria branch >= 9 V)",
+  "inspectionLimitKg": 52.163122550000004,
+  "operatingMinV": 9.0,
+  "massLines": [
+    "sds-modules",
+    "chassis-fabricated",
+    "chassis-purchased-hardware",
+    "pan-package-fabricated",
+    "pan-package-purchased",
+    "joining-allowance",
+    "electrical-allowance",
+    "battery-tray-retention",
+    "permanent-bumper-mounts",
+    "hardware-finish-remainder",
+    "bumpers-excluded",
+    "battery-excluded"
+  ],
+  "electricalCases": {
+    "receive-chute-nominal": {
+      "stage": "receive-chute",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "receive-chute-weak": {
+      "stage": "receive-chute",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "receive-over-edge-nominal": {
+      "stage": "receive-over-edge",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "receive-over-edge-weak": {
+      "stage": "receive-over-edge",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "receive-seat-nominal": {
+      "stage": "receive-seat",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "receive-seat-weak": {
+      "stage": "receive-seat",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "loaded-carry-nominal": {
+      "stage": "loaded-carry",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth",
+      "requiredMotionMinV": 6.0
+    },
+    "loaded-carry-weak": {
+      "stage": "loaded-carry",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth",
+      "requiredMotionMinV": 6.0
+    },
+    "tip-to-dump-nominal": {
+      "stage": "tip-to-dump",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "tip-to-dump-weak": {
+      "stage": "tip-to-dump",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "release-nominal": {
+      "stage": "release",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "release-weak": {
+      "stage": "release",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "reset-to-stow-nominal": {
+      "stage": "reset-to-stow",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "reset-to-stow-weak": {
+      "stage": "reset-to-stow",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Hold or move the pan under its 30 A limit while the chassis is docked",
+      "requiredMotionMinV": 9.0
+    },
+    "park-nominal": {
+      "stage": "park",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth",
+      "requiredMotionMinV": 6.0
+    },
+    "park-weak": {
+      "stage": "park",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "pan",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth",
+      "requiredMotionMinV": 6.0
+    }
+  }
+}

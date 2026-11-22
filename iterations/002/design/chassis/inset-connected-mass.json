@@ -1,0 +1,108 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "inputs": {
+    "inset-structure-clock.json": "b426b323f839c4e42f1d693a3ca75fbf6eb8f0379b3eb6761e10df15603f1c1e",
+    "inset-stock-check.json": "84fd665d60a89a9d1ce44b400f1c2434dd3ea9a1110a564942fbefd9e44ee80f",
+    "inset-chassis-shop.json": "4868fe470964ca81d3fdf8d77f3db648852c11c03ddd1f73809d0fc23e58a6d8",
+    "inset-mount-purchases.json": "0795c3337904602fd1a6d2f743609d1a2d4606904f0b62b8dd447b64fbc70b20",
+    "inset-upper-named-mass.json": "91aa00bdd88b0d17a9691a91eb51d382aa98fae3572e027619c716f0ca68992a",
+    "../private-inputs/matched-sds/cold.json": "4f448ed0623e815b1408fd60dde813445181a9b716f7802ed6d6d268b79015d0"
+  },
+  "actualStockCount": 146,
+  "plannedScrewCount": 116,
+  "sourceScrewKg": {
+    "91251A539": 0.005942645863270124,
+    "91251A351": 0.006369040392123667,
+    "91251A354": 0.009107975695007573
+  },
+  "sourceCorrectionSteelKg": 0.016198480297979472,
+  "allocation": {
+    "primary frame and wheel seats": {
+      "stockGroups": {
+        "perimeter": 6.222684441925802,
+        "socket": 1.229932174846385,
+        "crossmember": 1.0925751094666103,
+        "sill": 1.4813274479379845,
+        "sill seat": 0.6191619802864455,
+        "wheel saddle": 1.1993207274313842,
+        "wheel and sill sleeve": 0.12349678029573515
+      },
+      "screws": {
+        "91251A354": 32,
+        "91251A351": 16
+      },
+      "kg": 12.361858530704568
+    },
+    "electronics sheet stock in 7 kg electrical budget": {
+      "stockGroups": {
+        "panel": 1.5036447248011986
+      },
+      "screws": {},
+      "kg": 1.5036447248011986
+    },
+    "fixed connection and fitment allowance": {
+      "stockGroups": {
+        "cassette": 1.6775676126000028,
+        "panel backer": 0.7594502140939321,
+        "panel pedestal": 1.1779487397138007,
+        "panel retainer": 0.1654751881274793,
+        "truss feet": 0.22583611205159254,
+        "truss backing": 0.2732671308408209
+      },
+      "screws": {
+        "91251A539": 68
+      },
+      "kg": 4.683644916129996
+    },
+    "upper structure in 8.2 kg pan budget": {
+      "stockGroups": {
+        "pan strut": 0.907773235221558
+      },
+      "screws": {},
+      "kg": 0.907773235221558
+    }
+  },
+  "previousPrimaryKg": 14.318951480542959,
+  "previousFixedJoiningAllowanceKg": 8.08665211464434,
+  "remainingFixedJoiningAllowanceKg": 3.4030071985143433,
+  "electricalAllowanceAfterSheetsKg": 5.496355275198802,
+  "retiredIndependentTowerSupportKg": 0.24514218000000002,
+  "panNamedInstalledOrTransferredBudgetKg": 7.506942549241016,
+  "panRemainingForUnweighedArticlesKg": 0.6930574507589835,
+  "previousToCurrentBareKg": -1.939894469540411,
+  "inspectionAndField": {
+    "low-line-budget": {
+      "previousBareKg": 49.99182047518729,
+      "bareKg": 48.05192600564688,
+      "R103MarginKg": 4.111196544353126,
+      "fieldWithLargestBatteryKg": 62.84739200564689
+    },
+    "heavy-offset-control": {
+      "previousBareKg": 51.99182047518729,
+      "bareKg": 50.05192600564688,
+      "R103MarginKg": 2.1111965443531258,
+      "fieldWithLargestBatteryKg": 64.8473920056469
+    }
+  },
+  "panOutstanding": [
+    "REV-41-1608 13-tooth motor pinion",
+    "REV-41-1620 1/2 inch hex adapter",
+    "nine previously registered M3x8 adapter/housing screws and the full-length cartridge stack fasteners",
+    "two REV-21-1915 radial support bearings",
+    "6655K17 opposed thrust bearings, both sets of races, balls and cages",
+    "machined thrust diaphragm, axial shim, end cap, cartridge screws and shaft retention",
+    "new two-sill upper supports and their fasteners, replacing the independent tower feet and knees",
+    "sensor, limits, fixture attachments and dressed motor cable; the ninth SPARK MAX is separately budgeted to electronics",
+    "mouth/guide wear surfaces, article containment and any production adjustment required by the registered 30 A duty"
+  ],
+  "scope": "Nominal geometry/density. Keep the full remaining fixed, electrical and pan allowances as mass in both cases, the 2 kg high case, and 1 g for the slightly extended axle spacer. The 116 screws are positioned in the shop plan, pending native installation/fit. The stock profile, seams, electrical harness, service travel and upper center of gravity require installed verification. Measured mass and route replay remain separate."
+}

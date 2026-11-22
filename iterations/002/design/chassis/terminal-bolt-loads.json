@@ -1,0 +1,2782 @@
+{
+  "assumptions": {
+    "frameReactionPlaneToJointMm": 12.7,
+    "boltPatternMm": [
+      18,
+      50.8
+    ],
+    "operatingPreloadRangeN": [
+      6000.0,
+      9000.0
+    ],
+    "boltStiffnessFraction": [
+      0.15,
+      0.35
+    ],
+    "pilotODmm": 12.65,
+    "minSecondWallEngagementMm": 2.1999999999999997,
+    "minTangentEndLigamentMm": 11.2,
+    "assumedMinProofMPa": 965.26602104352,
+    "shaftTensileAreaMm2": 20.529583496213196,
+    "maxThreadFriction": 0.18,
+    "factoredExternalTension": 2,
+    "terminalWidthMm": 254
+  },
+  "cases": {
+    "intact/cruise": {
+      "maxServiceAxialN": {
+        "value": 4458.974931591016,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8733.679502250643,
+          "T": -261.1705902964582,
+          "boltAxialServiceN": 4458.974931591016,
+          "boltTangentN": -123.30218336363166,
+          "boltVerticalN": -20.554559925419444
+        }
+      },
+      "maxServiceShearN": {
+        "value": 1977.9658249193335,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 198.98987836867514,
+          "T": -4132.570572960718,
+          "boltAxialServiceN": -1358.3841240545826,
+          "boltTangentN": -1951.042703437428,
+          "boltVerticalN": 325.2401788100487
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.8744324593682937,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8733.679502250643,
+          "T": -261.1705902964582,
+          "boltAxialServiceN": 4458.974931591016,
+          "boltTangentN": -123.30218336363166,
+          "boltVerticalN": -20.554559925419444
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.7988618800894778,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8733.679502250643,
+          "T": -261.1705902964582,
+          "boltAxialServiceN": 4458.974931591016,
+          "boltTangentN": -123.30218336363166,
+          "boltVerticalN": -20.554559925419444
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.5922762680917875,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 198.98987836867514,
+          "T": -4132.570572960718,
+          "boltAxialServiceN": -1358.3841240545826,
+          "boltTangentN": -1951.042703437428,
+          "boltVerticalN": 325.2401788100487
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.5714463423447921,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 198.98987836867514,
+          "T": -4132.570572960718,
+          "boltAxialServiceN": -1358.3841240545826,
+          "boltTangentN": -1951.042703437428,
+          "boltVerticalN": 325.2401788100487
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 903.8546084454813,
+          "T": -115.87742395240952,
+          "boltAxialServiceN": 411.0483241061961,
+          "boltTangentN": -54.70730590173591,
+          "boltVerticalN": 9.119746032389832
+        }
+      }
+    },
+    "intact/approach": {
+      "maxServiceAxialN": {
+        "value": 384.8818368318789,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 753.8581536559025,
+          "T": -22.543256704047057,
+          "boltAxialServiceN": 384.8818368318789,
+          "boltTangentN": -10.642977712692039,
+          "boltVerticalN": -1.7741918043355307
+        }
+      },
+      "maxServiceShearN": {
+        "value": 170.73052250015695,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.176053032924425,
+          "T": -356.7078481849557,
+          "boltAxialServiceN": -117.25057548211937,
+          "boltTangentN": -168.40662057018886,
+          "boltVerticalN": 28.073501051793286
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7805679165389042,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 753.8581536559025,
+          "T": -22.543256704047057,
+          "boltAxialServiceN": 384.8818368318789,
+          "boltTangentN": -10.642977712692039,
+          "boltVerticalN": -1.7741918043355307
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6109076452519001,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 753.8581536559025,
+          "T": -22.543256704047057,
+          "boltAxialServiceN": 384.8818368318789,
+          "boltTangentN": -10.642977712692039,
+          "boltVerticalN": -1.7741918043355307
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.051123045424648746,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.176053032924425,
+          "T": -356.7078481849557,
+          "boltAxialServiceN": -117.25057548211937,
+          "boltTangentN": -168.40662057018886,
+          "boltVerticalN": 28.073501051793286
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.049325085084980576,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.176053032924425,
+          "T": -356.7078481849557,
+          "boltAxialServiceN": -117.25057548211937,
+          "boltTangentN": -168.40662057018886,
+          "boltVerticalN": 28.073501051793286
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 78.01730829720739,
+          "T": -10.002100586431473,
+          "boltAxialServiceN": 35.48013533061258,
+          "boltTangentN": -4.722127553220091,
+          "boltVerticalN": 0.787181955098819
+        }
+      }
+    },
+    "intact/low-line-budget-approach": {
+      "maxServiceAxialN": {
+        "value": 380.0227452579303,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 744.3407759782909,
+          "T": -22.258650525689397,
+          "boltAxialServiceN": 380.0227452579303,
+          "boltTangentN": -10.508611269860769,
+          "boltVerticalN": -1.7517928246435341
+        }
+      },
+      "maxServiceShearN": {
+        "value": 168.57506811414305,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 16.959207220575962,
+          "T": -352.2044501713103,
+          "boltAxialServiceN": -115.77029964459093,
+          "boltTangentN": -166.28050519476466,
+          "boltVerticalN": 27.719076136513138
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7804650700499411,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 744.3407759782909,
+          "T": -22.258650525689397,
+          "boltAxialServiceN": 380.0227452579303,
+          "boltTangentN": -10.508611269860769,
+          "boltVerticalN": -1.7517928246435341
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6106834758925984,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 744.3407759782909,
+          "T": -22.258650525689397,
+          "boltAxialServiceN": 380.0227452579303,
+          "boltTangentN": -10.508611269860769,
+          "boltVerticalN": -1.7517928246435341
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.05047762250393552,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 16.959207220575962,
+          "T": -352.2044501713103,
+          "boltAxialServiceN": -115.77029964459093,
+          "boltTangentN": -166.28050519476466,
+          "boltVerticalN": 27.719076136513138
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.0487023612191479,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 16.959207220575962,
+          "T": -352.2044501713103,
+          "boltAxialServiceN": -115.77029964459093,
+          "boltTangentN": -166.28050519476466,
+          "boltVerticalN": 27.719076136513138
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 77.03234821571957,
+          "T": -9.875825148023228,
+          "boltAxialServiceN": 35.032202458418254,
+          "boltTangentN": -4.662511203449381,
+          "boltVerticalN": 0.7772438680311877
+        }
+      }
+    },
+    "intact/low-line-budget-upper": {
+      "maxServiceAxialN": {
+        "value": 4473.403958294127,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8761.9412657025,
+          "T": -262.01572566484884,
+          "boltAxialServiceN": 4473.403958294127,
+          "boltTangentN": -123.70118325118446,
+          "boltVerticalN": -20.621073484832692
+        }
+      },
+      "maxServiceShearN": {
+        "value": 1984.366426435032,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 199.63379996784994,
+          "T": -4145.943370983708,
+          "boltAxialServiceN": -1362.7797892242163,
+          "boltTangentN": -1957.3561830372705,
+          "boltVerticalN": 326.2926402607123
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.8747890709311275,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8761.9412657025,
+          "T": -262.01572566484884,
+          "boltAxialServiceN": 4473.403958294127,
+          "boltTangentN": -123.70118325118446,
+          "boltVerticalN": -20.621073484832692
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.7995275488924127,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 8761.9412657025,
+          "T": -262.01572566484884,
+          "boltAxialServiceN": 4473.403958294127,
+          "boltTangentN": -123.70118325118446,
+          "boltVerticalN": -20.621073484832692
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.594192845381193,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 199.63379996784994,
+          "T": -4145.943370983708,
+          "boltAxialServiceN": -1362.7797892242163,
+          "boltTangentN": -1957.3561830372705,
+          "boltVerticalN": 326.2926402607123
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.5732955150043357,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 199.63379996784994,
+          "T": -4145.943370983708,
+          "boltAxialServiceN": -1362.7797892242163,
+          "boltTangentN": -1957.3561830372705,
+          "boltVerticalN": 326.2926402607123
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 906.779438138645,
+          "T": -116.25239767846732,
+          "boltAxialServiceN": 412.3784565549742,
+          "boltTangentN": -54.88433609136959,
+          "boltVerticalN": 9.149257088416334
+        }
+      }
+    },
+    "intact/heavy-offset-control-approach": {
+      "maxServiceAxialN": {
+        "value": 385.44889705959775,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 754.9688399376939,
+          "T": -22.57647049346707,
+          "boltAxialServiceN": 385.44889705959775,
+          "boltTangentN": -10.658658393846142,
+          "boltVerticalN": -1.7768057848155263
+        }
+      },
+      "maxServiceShearN": {
+        "value": 170.98206590829602,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.20135912848959,
+          "T": -357.2333986637361,
+          "boltAxialServiceN": -117.42332496435102,
+          "boltTangentN": -168.65474009018487,
+          "boltVerticalN": 28.114862748750294
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7805799203902908,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 754.9688399376939,
+          "T": -22.57647049346707,
+          "boltAxialServiceN": 385.44889705959775,
+          "boltTangentN": -10.658658393846142,
+          "boltVerticalN": -1.7768057848155263
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6109338060117867,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 754.9688399376939,
+          "T": -22.57647049346707,
+          "boltAxialServiceN": 385.44889705959775,
+          "boltTangentN": -10.658658393846142,
+          "boltVerticalN": -1.7768057848155263
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.0511983668428243,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.20135912848959,
+          "T": -357.2333986637361,
+          "boltAxialServiceN": -117.42332496435102,
+          "boltTangentN": -168.65474009018487,
+          "boltVerticalN": 28.114862748750294
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.049397757503639714,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 17.20135912848959,
+          "T": -357.2333986637361,
+          "boltAxialServiceN": -117.42332496435102,
+          "boltTangentN": -168.65474009018487,
+          "boltVerticalN": 28.114862748750294
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 78.13225399839504,
+          "T": -10.016837040307541,
+          "boltAxialServiceN": 35.532409487755686,
+          "boltTangentN": -4.729084833271777,
+          "boltVerticalN": 0.7883417385336231
+        }
+      }
+    },
+    "intact/heavy-offset-control-upper": {
+      "maxServiceAxialN": {
+        "value": 4610.603186958466,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 9030.669865771752,
+          "T": -270.05174382781684,
+          "boltAxialServiceN": 4610.603186958466,
+          "boltTangentN": -127.49509658545009,
+          "boltVerticalN": -21.25352148253791
+        }
+      },
+      "maxServiceShearN": {
+        "value": 2045.2269133556265,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 205.75656545611687,
+          "T": -4273.099388613268,
+          "boltAxialServiceN": -1404.5762238105112,
+          "boltTangentN": -2017.3882662199603,
+          "boltVerticalN": 336.3000303779445
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.8781874769830751,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 9030.669865771752,
+          "T": -270.05174382781684,
+          "boltAxialServiceN": 4610.603186958466,
+          "boltTangentN": -127.49509658545009,
+          "boltVerticalN": -21.25352148253791
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.805857098915971,
+        "stationMm": [
+          100.0,
+          -352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            141.8860465116279,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 9030.669865771752,
+          "T": -270.05174382781684,
+          "boltAxialServiceN": 4610.603186958466,
+          "boltTangentN": -127.49509658545009,
+          "boltVerticalN": -21.25352148253791
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.6124167305532479,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 205.75656545611687,
+          "T": -4273.099388613268,
+          "boltAxialServiceN": -1404.5762238105112,
+          "boltTangentN": -2017.3882662199603,
+          "boltVerticalN": 336.3000303779445
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.5908784793841754,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 205.75656545611687,
+          "T": -4273.099388613268,
+          "boltAxialServiceN": -1404.5762238105112,
+          "boltTangentN": -2017.3882662199603,
+          "boltVerticalN": 336.3000303779445
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          100.0,
+          352.3
+        ],
+        "missingMm": null,
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 934.5903491677368,
+          "T": -119.81785687700301,
+          "boltAxialServiceN": 425.02609729670337,
+          "boltTangentN": -56.56763781142301,
+          "boltVerticalN": 9.429864658643716
+        }
+      }
+    },
+    "damaged/cruise": {
+      "maxServiceAxialN": {
+        "value": 5322.272062855204,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10231.773282721277,
+          "T": -585.0295412444409,
+          "boltAxialServiceN": 5322.272062855204,
+          "boltTangentN": -276.2003933359475,
+          "boltVerticalN": -46.04279811903684
+        }
+      },
+      "maxServiceShearN": {
+        "value": 2826.008797562557,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 260.99454012856086,
+          "T": -5904.389574684088,
+          "boltAxialServiceN": -1952.4401632270503,
+          "boltTangentN": -2787.542522156199,
+          "boltVerticalN": 464.6852817467164
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.896029250265433,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10231.773282721277,
+          "T": -585.0295412444409,
+          "boltAxialServiceN": 5322.272062855204,
+          "boltTangentN": -276.2003933359475,
+          "boltVerticalN": -46.04279811903684
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.83868923502964,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10231.773282721277,
+          "T": -585.0295412444409,
+          "boltAxialServiceN": 5322.272062855204,
+          "boltTangentN": -276.2003933359475,
+          "boltVerticalN": -46.04279811903684
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.8462117611577905,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 260.99454012856086,
+          "T": -5904.389574684088,
+          "boltAxialServiceN": -1952.4401632270503,
+          "boltTangentN": -2787.542522156199,
+          "boltVerticalN": 464.6852817467164
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.8164511087380326,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 260.99454012856086,
+          "T": -5904.389574684088,
+          "boltAxialServiceN": -1952.4401632270503,
+          "boltTangentN": -2787.542522156199,
+          "boltVerticalN": 464.6852817467164
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 601.2778853530501,
+          "T": -123.87437231724087,
+          "boltAxialServiceN": 256.9388168868317,
+          "boltTangentN": -58.48277385358555,
+          "boltVerticalN": 9.749119171987322
+        }
+      }
+    },
+    "damaged/approach": {
+      "maxServiceAxialN": {
+        "value": 459.3983772274302,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 883.167937814796,
+          "T": -50.497535395367095,
+          "boltAxialServiceN": 459.3983772274302,
+          "boltTangentN": -23.840572407725155,
+          "boltVerticalN": -3.9742400405492293
+        }
+      },
+      "maxServiceShearN": {
+        "value": 243.9303816675258,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.5280607199847,
+          "T": -509.6445572670119,
+          "boltAxialServiceN": -168.5272440092035,
+          "boltTangentN": -240.61011838692528,
+          "boltVerticalN": 40.1098744736831
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7821481417830982,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 883.167937814796,
+          "T": -50.497535395367095,
+          "boltAxialServiceN": 459.3983772274302,
+          "boltTangentN": -23.840572407725155,
+          "boltVerticalN": -3.9742400405492293
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6143453917655489,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 883.167937814796,
+          "T": -50.497535395367095,
+          "boltAxialServiceN": 459.3983772274302,
+          "boltTangentN": -23.840572407725155,
+          "boltVerticalN": -3.9742400405492293
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.07304179592392078,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.5280607199847,
+          "T": -509.6445572670119,
+          "boltAxialServiceN": -168.5272440092035,
+          "boltTangentN": -240.61011838692528,
+          "boltVerticalN": 40.1098744736831
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.07047296906475195,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.5280607199847,
+          "T": -509.6445572670119,
+          "boltAxialServiceN": -168.5272440092035,
+          "boltTangentN": -240.61011838692528,
+          "boltVerticalN": 40.1098744736831
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 51.90003095139538,
+          "T": -10.692366897170242,
+          "boltAxialServiceN": 22.17798604252929,
+          "boltTangentN": -5.048011654947771,
+          "boltVerticalN": 0.8415070620431848
+        }
+      }
+    },
+    "damaged/low-line-budget-approach": {
+      "maxServiceAxialN": {
+        "value": 453.5985223882252,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 872.0180380940357,
+          "T": -49.86000947113912,
+          "boltAxialServiceN": 453.5985223882252,
+          "boltTangentN": -23.5395877588832,
+          "boltVerticalN": -3.9240656897592823
+        }
+      },
+      "maxServiceShearN": {
+        "value": 240.85078697439278,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.243646389282738,
+          "T": -503.21034983776747,
+          "boltAxialServiceN": -166.39960577590435,
+          "boltTangentN": -237.57244165870026,
+          "boltVerticalN": 39.60349164540652
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7820249445572055,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 872.0180380940357,
+          "T": -49.86000947113912,
+          "boltAxialServiceN": 453.5985223882252,
+          "boltTangentN": -23.5395877588832,
+          "boltVerticalN": -3.9240656897592823
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6140778212282251,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 872.0180380940357,
+          "T": -49.86000947113912,
+          "boltAxialServiceN": 453.5985223882252,
+          "boltTangentN": -23.5395877588832,
+          "boltVerticalN": -3.9240656897592823
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.0721196511481593,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.243646389282738,
+          "T": -503.21034983776747,
+          "boltAxialServiceN": -166.39960577590435,
+          "boltTangentN": -237.57244165870026,
+          "boltVerticalN": 39.60349164540652
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.06958325545032835,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.243646389282738,
+          "T": -503.21034983776747,
+          "boltAxialServiceN": -166.39960577590435,
+          "boltTangentN": -237.57244165870026,
+          "boltVerticalN": 39.60349164540652
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 51.24479867241996,
+          "T": -10.557376921225229,
+          "boltAxialServiceN": 21.897991366777738,
+          "boltTangentN": -4.984281053629564,
+          "boltVerticalN": 0.8308831263743826
+        }
+      }
+    },
+    "damaged/low-line-budget-upper": {
+      "maxServiceAxialN": {
+        "value": 5339.494677221587,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10264.882805017669,
+          "T": -586.9226684770967,
+          "boltAxialServiceN": 5339.494677221587,
+          "boltTangentN": -277.0941644183142,
+          "boltVerticalN": -46.191790381549616
+        }
+      },
+      "maxServiceShearN": {
+        "value": 2835.1536250237664,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 261.83910580714326,
+          "T": -5923.495893097116,
+          "boltAxialServiceN": -1958.7581649390224,
+          "boltTangentN": -2796.5628746150765,
+          "boltVerticalN": 466.1889807900464
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.8964653627822741,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10264.882805017669,
+          "T": -586.9226684770967,
+          "boltAxialServiceN": 5339.494677221587,
+          "boltTangentN": -277.0941644183142,
+          "boltVerticalN": -46.191790381549616
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.8394837832222918,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10264.882805017669,
+          "T": -586.9226684770967,
+          "boltAxialServiceN": 5339.494677221587,
+          "boltTangentN": -277.0941644183142,
+          "boltVerticalN": -46.191790381549616
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.8489500613917135,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 261.83910580714326,
+          "T": -5923.495893097116,
+          "boltAxialServiceN": -1958.7581649390224,
+          "boltTangentN": -2796.5628746150765,
+          "boltVerticalN": 466.1889807900464
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.8190931049435511,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 261.83910580714326,
+          "T": -5923.495893097116,
+          "boltAxialServiceN": -1958.7581649390224,
+          "boltTangentN": -2796.5628746150765,
+          "boltVerticalN": 466.1889807900464
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 603.2235914395056,
+          "T": -124.2752237805073,
+          "boltAxialServiceN": 257.7702584416294,
+          "boltTangentN": -58.672021274472996,
+          "boltVerticalN": 9.780666848980927
+        }
+      }
+    },
+    "damaged/heavy-offset-control-approach": {
+      "maxServiceAxialN": {
+        "value": 460.07522534930735,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 884.4691408438962,
+          "T": -50.57193522716027,
+          "boltAxialServiceN": 460.07522534930735,
+          "boltTangentN": -23.875697578945896,
+          "boltVerticalN": -3.980095431078837
+        }
+      },
+      "maxServiceShearN": {
+        "value": 244.2897730560999,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.56125212061585,
+          "T": -510.39543488981275,
+          "boltAxialServiceN": -168.77554124804269,
+          "boltTangentN": -240.9646179124084,
+          "boltVerticalN": 40.168969791716414
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.7821625212391959,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 884.4691408438962,
+          "T": -50.57193522716027,
+          "boltAxialServiceN": 460.07522534930735,
+          "boltTangentN": -23.875697578945896,
+          "boltVerticalN": -3.980095431078837
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.6143766174807914,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 884.4691408438962,
+          "T": -50.57193522716027,
+          "boltAxialServiceN": 460.07522534930735,
+          "boltTangentN": -23.875697578945896,
+          "boltVerticalN": -3.980095431078837
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.07314941102410466,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.56125212061585,
+          "T": -510.39543488981275,
+          "boltAxialServiceN": -168.77554124804269,
+          "boltTangentN": -240.9646179124084,
+          "boltVerticalN": 40.168969791716414
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.07057679942010162,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 22.56125212061585,
+          "T": -510.39543488981275,
+          "boltAxialServiceN": -168.77554124804269,
+          "boltTangentN": -240.9646179124084,
+          "boltVerticalN": 40.168969791716414
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 51.97649713024178,
+          "T": -10.708120345182941,
+          "boltAxialServiceN": 22.210661665570235,
+          "boltTangentN": -5.055449071745989,
+          "boltVerticalN": 0.8427468846083577
+        }
+      }
+    },
+    "damaged/heavy-offset-control-upper": {
+      "maxServiceAxialN": {
+        "value": 5503.25689454021,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10579.70659833217,
+          "T": -604.9235774384642,
+          "boltAxialServiceN": 5503.25689454021,
+          "boltTangentN": -285.5926380594203,
+          "boltVerticalN": -47.60849186213537
+        }
+      },
+      "maxServiceShearN": {
+        "value": 2922.107741871845,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 269.86970704186825,
+          "T": -6105.169418472012,
+          "boltAxialServiceN": -2018.8332468844696,
+          "boltTangentN": -2882.3334137583442,
+          "boltVerticalN": 480.48698945917613
+        }
+      },
+      "maxBoltProofFraction": {
+        "value": 0.900622144720833,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10579.70659833217,
+          "T": -604.9235774384642,
+          "boltAxialServiceN": 5503.25689454021,
+          "boltTangentN": -285.5926380594203,
+          "boltVerticalN": -47.60849186213537
+        }
+      },
+      "maxReceiverThreadShearFraction": {
+        "value": 0.8470387903209321,
+        "stationMm": [
+          0.0,
+          -352.3
+        ],
+        "missingMm": [
+          100.0,
+          -352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 4,
+          "atMm": [
+            76.47058823529409,
+            -352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 10579.70659833217,
+          "T": -604.9235774384642,
+          "boltAxialServiceN": 5503.25689454021,
+          "boltTangentN": -285.5926380594203,
+          "boltVerticalN": -47.60849186213537
+        }
+      },
+      "maxPilotTubeBearingFraction": {
+        "value": 0.8749873463504148,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 269.86970704186825,
+          "T": -6105.169418472012,
+          "boltAxialServiceN": -2018.8332468844696,
+          "boltTangentN": -2882.3334137583442,
+          "boltVerticalN": 480.48698945917613
+        }
+      },
+      "maxTerminalEndTearoutFraction": {
+        "value": 0.844214677520106,
+        "stationMm": [
+          357.3,
+          100.0
+        ],
+        "missingMm": [
+          357.3,
+          0.0
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 30000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 269.86970704186825,
+          "T": -6105.169418472012,
+          "boltAxialServiceN": -2018.8332468844696,
+          "boltTangentN": -2882.3334137583442,
+          "boltVerticalN": 480.48698945917613
+        }
+      },
+      "maxExcessDemandOverMinimumServiceClampN": {
+        "value": 0.0,
+        "stationMm": [
+          0.0,
+          352.3
+        ],
+        "missingMm": [
+          100.0,
+          352.3
+        ],
+        "heightMm": 114.3,
+        "direction": -1,
+        "boltLocalXZmm": [
+          -9.0,
+          -25.4
+        ],
+        "stiffnessNPerMm": 3000.0,
+        "patch": {
+          "face": 0,
+          "atMm": [
+            357.3,
+            352.3
+          ],
+          "widthMm": 0,
+          "profile": "point"
+        },
+        "simultaneous": {
+          "N": 621.7244494503688,
+          "T": -128.0867429287301,
+          "boltAxialServiceN": 265.6760681919934,
+          "boltTangentN": -60.47149123919871,
+          "boltVerticalN": 10.080639746580538
+        }
+      }
+    }
+  },
+  "scope": "The 488-based bumper proposal uses four 91251A542 screws at each station and shop-made H1150 tapped nut blocks and shouldered washers. Through-wall pilot takes all modeled tangential shear. Torque, material certificates, preload scatter, actual thread/under-head CAD, full ring net section at holes, wall bending, closed terminal/miter/deck stiffness and loss-induced contact opening remain to be resolved. Current ring reaction model has ideal miters and 3\u201330 kN/mm independent springs, not a proof of assembled joint stiffness. Small excesses are recorded as failures. Cover/backing detaches for socket entry."
+}

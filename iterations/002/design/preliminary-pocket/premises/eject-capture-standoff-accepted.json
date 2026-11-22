@@ -1,0 +1,24 @@
+{
+  "id": "eject-capture-standoff",
+  "scenario": "Sector A and B docks: bumper face to trough lip 0-100 mm (evaluation dock scatter); eject captured and supported 2 s at every stand-off",
+  "unit": "mm",
+  "criterion": {
+    "range": [
+      100.0,
+      1000.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "exit lip",
+    "lower nip roller",
+    "upper nip roller",
+    "pipe",
+    "field trough"
+  ],
+  "source": {
+    "file": "iterations/002/design/evaluation/evaluation.json",
+    "sha256": "4803ae5a506039a100b666e10ea448edf4ca08f6c1cdab762dc17d2a97cbf57b"
+  },
+  "basis": "The evaluation and G2 use 0-100 mm stand-off; the physical dock must stay inside it"
+}

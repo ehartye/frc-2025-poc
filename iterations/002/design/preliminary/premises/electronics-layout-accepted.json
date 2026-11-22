@@ -1,0 +1,23 @@
+{
+  "id": "electronics-layout",
+  "scenario": "552-r5 electronics placements, battery gauge and wiring reserves inside the r3 upper support",
+  "unit": "mm",
+  "criterion": {
+    "range": [
+      2.0,
+      1000.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "electronics",
+    "wiring",
+    "battery",
+    "battery retention"
+  ],
+  "source": {
+    "file": "iterations/002/design/chassis/inset-electrical-package.json",
+    "sha256": "383e593a04e8c3d30571fa69da1ddb96e46d743b2fbfbac097f35edb484d8eb9"
+  },
+  "basis": "Every electrical reserve keeps the 2 mm package reserve"
+}

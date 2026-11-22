@@ -1,0 +1,1405 @@
+{
+ "schema": "red2/seat-screws-input@1",
+ "purpose": "Install four genuine McMaster 91251A542 1/4-20 x 1 in SHCS into the modeled taps of the two 250 +/-145 captive truss landing nutbars, one checked placement per screw.",
+ "authority": {
+  "lineage": "issue-006/lineage.json",
+  "threadInput": "iterations/002/design/chassis/connected-thread-input.json",
+  "threadInputSha256": "9e624462970edc0823ffa758cd5a3abbf57ecccaf114e81dd4ca2352a5464a69"
+ },
+ "accepted": {
+  "archive": {
+   "file": "artifacts/seat-screws/taps-02/four-tapped-holes.f3d",
+   "sha256": "e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471"
+  },
+  "receipt": {
+   "file": "artifacts/seat-screws/taps-02/native-receipt.json",
+   "sha256": "69ad4908e45caa26d87e2e9c710f81c19c841ffbf6a5fbbe17788695b728fa91"
+  },
+  "status": "four modeled holes; seated purchased screw phase pending",
+  "stepSha256": "166c5567fb38a6c9c446589c10b96ec7046bac9beb19673f2696c2b22eb2efdd",
+  "bodyCount": 654
+ },
+ "study": {
+  "file": "artifacts/seat-screws/screws-02/seated-screw-study.json",
+  "sha256": "37cdc46547ebd541b4d6a133395b8cc223a886f0edf53f9a68ef2aff6eaeb480",
+  "schema": "red2/seated-screw-study@1"
+ },
+ "source": {
+  "occurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+  "body": "Body1",
+  "component": "Screw, .25-20 X 1 Socket, 91251A542_91251A542",
+  "seatCm": [
+   23.337897551572347,
+   25.71157951031443,
+   7.558336287672978
+  ],
+  "worldCm": [
+   0.8276944549050214,
+   0.5611790171767649,
+   -8.417150268394152e-16,
+   23.337897551572343,
+   -0.5611790171767649,
+   0.8276944549050214,
+   -7.035918368645647e-16,
+   25.71157951031443,
+   3.0184188481996404e-16,
+   1.054711873393896e-15,
+   1.0,
+   10.098336287672977,
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "basis": "Census issue-006: the only body in Matched SDS L2 module:1 whose bounds contain the study source seat (233.379, 257.116, 75.583) mm; equals the study occurrencePath."
+ },
+ "expected": {
+  "finalBodyCount": 658,
+  "outputs": [
+   "screws-step-1.f3d",
+   "screws-step-2.f3d",
+   "screws-step-3.f3d",
+   "screws-step-4.f3d"
+  ],
+  "step": "four-seated-screws.step"
+ },
+ "rows": [
+  {
+   "label": "234,-132",
+   "status": "settled",
+   "host": "Captive truss landing nutbar 250 -145",
+   "seatBody": "Truss landing 250 -145",
+   "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+   "sourceBody": "Body1",
+   "underHeadCm": [
+    23.4,
+    -13.2,
+    19.3675
+   ],
+   "transform": {
+    "composition": "worldDeltaFromSourceCm = T(underHead) * R(-z, +57 deg right-handed) * T(-underHead) * studyDeltaWorldCm; studyDeltaWorldCm = T(underHead) * Rx(180 deg) * T(-sourceSeat). Target world = worldDeltaFromSourceCm * measured source world (row-major, translation in cm).",
+    "studyDeltaWorldCm": [
+     1.0,
+     0.0,
+     0.0,
+     0.06210244842765178,
+     0.0,
+     -1.0,
+     0.0,
+     12.51157951031443,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "phaseDeg": 57.0,
+    "phaseAxis": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "phaseThroughCm": [
+     23.4,
+     -13.2,
+     19.3675
+    ],
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     32.25281498892141,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     20.376337647439097,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "interfaces": [
+    {
+     "role": "head seat",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     "study": {
+      "gapMm": 0.0,
+      "planarContactAreaMm2": 21.920148581156987,
+      "commonMm3": 0.0
+     }
+    },
+    {
+     "role": "thread pair",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     "projectGate": {
+      "maxCommonMm3": 0.05,
+      "method": "independent exact ray/face quadrature (screws-02 study)",
+      "guardKind": "bearing",
+      "guardSemantics": "bearing requires interferenceMm3 == temporaryCommonMm3 == 0 and gap <= maxGapMm; fit needs a positive minCommonMm3 which has no engineering basis for a correctly phased basic-profile pair",
+      "vetoMeaning": "A native veto on this interface means Fusion measured a positive common trace; record both kernel volumes and compare them to the 0.05 mm3 project gate before any re-disposition."
+     },
+     "study": {
+      "zeroCommonWindowDeg": [
+       53,
+       61
+      ],
+      "recommendedInstallPhaseDeg": 57.0,
+      "measuredAtPhaseMm3": {
+       "direct": 0.002704078788040132,
+       "phaseDeg": 58.5,
+       "helixRefined": 0.014714721977146409,
+       "interiorWitnessBalls": 0
+      },
+      "interiorWitnessAtInstall": {
+       "probes": 3,
+       "balls": 0,
+       "interiorWitnessMm3": 0,
+       "largestRadiusMm": 0.0,
+       "largest": []
+      },
+      "misPhase5DegCommonMm3": 1.1916616669833713,
+      "nominalPhase0CommonMm3": 15.882032438204776,
+      "engagement": {
+       "maleFullMajorZmm": [
+        169.2274999,
+        193.675
+       ],
+       "femaleThreadZmm": [
+        174.1499999,
+        184.1500001
+       ],
+       "engagedFullThreadMm": 10.000000199999988,
+       "engagedPitches": 7.8740159055118015,
+       "tipBelowNutbarMm": 5.8749998999999775
+      }
+     }
+    },
+    {
+     "role": "crossmember roof hole",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 0.39997752570357653,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.1,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 5:1",
+        "Pan truss -1 member 5"
+       ]
+      ],
+      "basis": "Study measured 2.2143 mm from the installed screw to Pan truss -1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 2.2142606834829524,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.7,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 2:1",
+        "Pan truss -1 member 2"
+       ]
+      ],
+      "basis": "Study measured 3.4758 mm from the installed screw to Pan truss -1 member 2 with zero common. Required minimum 1.7 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.475841781437598,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet -1:1",
+        "Equipment sheet -1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet -1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.8755814079953796,
+      "studiedPhaseDeg": 58.5
+     }
+    }
+   ],
+   "evidence": {
+    "studyRow": "234,-132",
+    "mirroredFrom": null,
+    "studiedPhaseDeg": 58.5,
+    "seat": {
+     "bearingBody": "Truss landing 250 -145",
+     "underHeadFaceToBearingGapMm": 0.0,
+     "distanceMethod": "shape",
+     "landingTopPlaneZmm": 193.675,
+     "planarContactAreaMm2": 21.920148581156987,
+     "headToLandingCommonMm3": 0.0
+    },
+    "tip": {
+     "tipZmm": 168.27500000000003,
+     "beamFloorTopZmm": 165.1,
+     "floorRaysMissing": 0,
+     "tipToFloorMm": 3.17500000000004,
+     "floorBody": "Pan crossmember 250"
+    },
+    "engagement": {
+     "maleFullMajorZmm": [
+      169.2274999,
+      193.675
+     ],
+     "femaleThreadZmm": [
+      174.1499999,
+      184.1500001
+     ],
+     "engagedFullThreadMm": 10.000000199999988,
+     "engagedPitches": 7.8740159055118015,
+     "tipBelowNutbarMm": 5.8749998999999775
+    },
+    "neighbors": [
+     {
+      "part": "Truss landing 250 -145",
+      "gapMm": 0.0,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan crossmember 250",
+      "gapMm": 0.39997752570357653,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss -1 member 5",
+      "gapMm": 2.2142606834829524,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss -1 member 2",
+      "gapMm": 3.475841781437598,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Equipment sheet -1",
+      "gapMm": 3.8755814079953796,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "phase": {
+     "nominalMm3": 15.882032438204776,
+     "coarseMinAtDeg": 60.0,
+     "maxMm3": 36.55925543539642,
+     "maxAtDeg": 237.0,
+     "installPhaseHelixMm3": 0.014714721977146409,
+     "installPhaseDirectMm3": 0.002704078788040132
+    }
+   }
+  },
+  {
+   "label": "234,132",
+   "status": "settled",
+   "host": "Captive truss landing nutbar 250 145",
+   "seatBody": "Truss landing 250 145",
+   "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+   "sourceBody": "Body1",
+   "underHeadCm": [
+    23.4,
+    13.2,
+    19.3675
+   ],
+   "transform": {
+    "composition": "worldDeltaFromSourceCm = T(underHead) * R(-z, +57 deg right-handed) * T(-underHead) * studyDeltaWorldCm; studyDeltaWorldCm = T(underHead) * Rx(180 deg) * T(-sourceSeat). Target world = worldDeltaFromSourceCm * measured source world (row-major, translation in cm).",
+    "studyDeltaWorldCm": [
+     1.0,
+     0.0,
+     0.0,
+     0.06210244842765178,
+     0.0,
+     -1.0,
+     0.0,
+     38.911579510314425,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "phaseDeg": 57.0,
+    "phaseAxis": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "phaseThroughCm": [
+     23.4,
+     13.2,
+     19.3675
+    ],
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     32.25281498892139,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     46.77633764743909,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "interfaces": [
+    {
+     "role": "head seat",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     "study": {
+      "gapMm": 0.0,
+      "planarContactAreaMm2": 21.920148581156973,
+      "commonMm3": 0.0
+     }
+    },
+    {
+     "role": "thread pair",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     "projectGate": {
+      "maxCommonMm3": 0.05,
+      "method": "independent exact ray/face quadrature (screws-02 study)",
+      "guardKind": "bearing",
+      "guardSemantics": "bearing requires interferenceMm3 == temporaryCommonMm3 == 0 and gap <= maxGapMm; fit needs a positive minCommonMm3 which has no engineering basis for a correctly phased basic-profile pair",
+      "vetoMeaning": "A native veto on this interface means Fusion measured a positive common trace; record both kernel volumes and compare them to the 0.05 mm3 project gate before any re-disposition."
+     },
+     "study": {
+      "zeroCommonWindowDeg": [
+       53,
+       61
+      ],
+      "recommendedInstallPhaseDeg": 57.0,
+      "measuredAtPhaseMm3": {
+       "direct": 0.002704078788040132,
+       "phaseDeg": 58.5,
+       "helixRefined": 0.014714722104615266,
+       "interiorWitnessBalls": 0
+      },
+      "interiorWitnessAtInstall": {
+       "probes": 3,
+       "balls": 0,
+       "interiorWitnessMm3": 0,
+       "largestRadiusMm": 0.0,
+       "largest": []
+      },
+      "misPhase5DegCommonMm3": 1.1916393812631405,
+      "nominalPhase0CommonMm3": 15.88179451057624,
+      "engagement": {
+       "maleFullMajorZmm": [
+        169.2274999,
+        193.675
+       ],
+       "femaleThreadZmm": [
+        174.1499999,
+        184.1500001
+       ],
+       "engagedFullThreadMm": 10.000000199999988,
+       "engagedPitches": 7.8740159055118015,
+       "tipBelowNutbarMm": 5.8749998999999775
+      }
+     }
+    },
+    {
+     "role": "crossmember roof hole",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 0.39997752567784645,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.1,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 5:1",
+        "Pan truss 1 member 5"
+       ]
+      ],
+      "basis": "Study measured 2.2143 mm from the installed screw to Pan truss 1 member 5 with zero common. Required minimum 1.1 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 2.2142606834829692,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.7,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 2:1",
+        "Pan truss 1 member 2"
+       ]
+      ],
+      "basis": "Study measured 3.4758 mm from the installed screw to Pan truss 1 member 2 with zero common. Required minimum 1.7 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.475841781437576,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet 1:1",
+        "Equipment sheet 1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet 1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.875581407995476,
+      "studiedPhaseDeg": 58.5
+     }
+    }
+   ],
+   "evidence": {
+    "studyRow": "234,132",
+    "mirroredFrom": null,
+    "studiedPhaseDeg": 58.5,
+    "seat": {
+     "bearingBody": "Truss landing 250 145",
+     "underHeadFaceToBearingGapMm": 0.0,
+     "distanceMethod": "shape",
+     "landingTopPlaneZmm": 193.675,
+     "planarContactAreaMm2": 21.920148581156973,
+     "headToLandingCommonMm3": 0.0
+    },
+    "tip": {
+     "tipZmm": 168.27500000000003,
+     "beamFloorTopZmm": 165.1,
+     "floorRaysMissing": 0,
+     "tipToFloorMm": 3.17500000000004,
+     "floorBody": "Pan crossmember 250"
+    },
+    "engagement": {
+     "maleFullMajorZmm": [
+      169.2274999,
+      193.675
+     ],
+     "femaleThreadZmm": [
+      174.1499999,
+      184.1500001
+     ],
+     "engagedFullThreadMm": 10.000000199999988,
+     "engagedPitches": 7.8740159055118015,
+     "tipBelowNutbarMm": 5.8749998999999775
+    },
+    "neighbors": [
+     {
+      "part": "Truss landing 250 145",
+      "gapMm": 0.0,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan crossmember 250",
+      "gapMm": 0.39997752567784645,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss 1 member 5",
+      "gapMm": 2.2142606834829692,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss 1 member 2",
+      "gapMm": 3.475841781437576,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Equipment sheet 1",
+      "gapMm": 3.875581407995476,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "phase": {
+     "nominalMm3": 15.88179451057624,
+     "coarseMinAtDeg": 60.0,
+     "maxMm3": 36.55851273919446,
+     "maxAtDeg": 237.0,
+     "installPhaseHelixMm3": 0.014714722104615266,
+     "installPhaseDirectMm3": 0.002704078788040132
+    }
+   }
+  },
+  {
+   "label": "266,158",
+   "status": "settled",
+   "host": "Captive truss landing nutbar 250 145",
+   "seatBody": "Truss landing 250 145",
+   "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+   "sourceBody": "Body1",
+   "underHeadCm": [
+    26.6,
+    15.8,
+    19.3675
+   ],
+   "transform": {
+    "composition": "worldDeltaFromSourceCm = T(underHead) * R(-z, +57 deg right-handed) * T(-underHead) * studyDeltaWorldCm; studyDeltaWorldCm = T(underHead) * Rx(180 deg) * T(-sourceSeat). Target world = worldDeltaFromSourceCm * measured source world (row-major, translation in cm).",
+    "studyDeltaWorldCm": [
+     1.0,
+     0.0,
+     0.0,
+     3.2621024484276546,
+     0.0,
+     -1.0,
+     0.0,
+     41.511579510314434,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "phaseDeg": 57.0,
+    "phaseAxis": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "phaseThroughCm": [
+     26.6,
+     15.8,
+     19.3675
+    ],
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     35.4528149889214,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     49.3763376474391,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "interfaces": [
+    {
+     "role": "head seat",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 145:1",
+        "Truss landing 250 145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     "study": {
+      "gapMm": 0.0,
+      "planarContactAreaMm2": 21.920148581156987,
+      "commonMm3": 0.0
+     }
+    },
+    {
+     "role": "thread pair",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 145:1",
+        "Captive truss landing nutbar 250 145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     "projectGate": {
+      "maxCommonMm3": 0.05,
+      "method": "independent exact ray/face quadrature (screws-02 study)",
+      "guardKind": "bearing",
+      "guardSemantics": "bearing requires interferenceMm3 == temporaryCommonMm3 == 0 and gap <= maxGapMm; fit needs a positive minCommonMm3 which has no engineering basis for a correctly phased basic-profile pair",
+      "vetoMeaning": "A native veto on this interface means Fusion measured a positive common trace; record both kernel volumes and compare them to the 0.05 mm3 project gate before any re-disposition."
+     },
+     "study": {
+      "zeroCommonWindowDeg": [
+       53,
+       61
+      ],
+      "recommendedInstallPhaseDeg": 57.0,
+      "measuredAtPhaseMm3": {
+       "direct": 0.002704078788040132,
+       "phaseDeg": 58.5,
+       "helixRefined": 0.014714407637680569,
+       "interiorWitnessBalls": 0
+      },
+      "interiorWitnessAtInstall": {
+       "probes": 3,
+       "balls": 0,
+       "interiorWitnessMm3": 0,
+       "largestRadiusMm": 0.0,
+       "largest": []
+      },
+      "misPhase5DegCommonMm3": 1.1905572655192347,
+      "nominalPhase0CommonMm3": 15.880978142725732,
+      "engagement": {
+       "maleFullMajorZmm": [
+        169.2274999,
+        193.675
+       ],
+       "femaleThreadZmm": [
+        174.1499999,
+        184.1500001
+       ],
+       "engagedFullThreadMm": 10.000000199999988,
+       "engagedPitches": 7.8740159055118015,
+       "tipBelowNutbarMm": 5.8749998999999775
+      }
+     }
+    },
+    {
+     "role": "crossmember roof hole",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 0.3999775257225516,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.85,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss 1 member 2:1",
+        "Pan truss 1 member 2"
+       ]
+      ],
+      "basis": "Study measured 1.7125 mm from the installed screw to Pan truss 1 member 2 with zero common. Required minimum 0.85 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 1.7124999999999773,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet 1:1",
+        "Equipment sheet 1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet 1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.8755814079951305,
+      "studiedPhaseDeg": 58.5
+     }
+    }
+   ],
+   "evidence": {
+    "studyRow": "266,158",
+    "mirroredFrom": null,
+    "studiedPhaseDeg": 58.5,
+    "seat": {
+     "bearingBody": "Truss landing 250 145",
+     "underHeadFaceToBearingGapMm": 0.0,
+     "distanceMethod": "shape",
+     "landingTopPlaneZmm": 193.675,
+     "planarContactAreaMm2": 21.920148581156987,
+     "headToLandingCommonMm3": 0.0
+    },
+    "tip": {
+     "tipZmm": 168.27500000000003,
+     "beamFloorTopZmm": 165.1,
+     "floorRaysMissing": 0,
+     "tipToFloorMm": 3.17500000000004,
+     "floorBody": "Pan crossmember 250"
+    },
+    "engagement": {
+     "maleFullMajorZmm": [
+      169.2274999,
+      193.675
+     ],
+     "femaleThreadZmm": [
+      174.1499999,
+      184.1500001
+     ],
+     "engagedFullThreadMm": 10.000000199999988,
+     "engagedPitches": 7.8740159055118015,
+     "tipBelowNutbarMm": 5.8749998999999775
+    },
+    "neighbors": [
+     {
+      "part": "Truss landing 250 145",
+      "gapMm": 0.0,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan crossmember 250",
+      "gapMm": 0.3999775257225516,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss 1 member 2",
+      "gapMm": 1.7124999999999773,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Equipment sheet 1",
+      "gapMm": 3.8755814079951305,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss 1 member 5",
+      "gapMm": 15.017130063990232,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "phase": {
+     "nominalMm3": 15.880978142725732,
+     "coarseMinAtDeg": 60.0,
+     "maxMm3": 36.55856798490282,
+     "maxAtDeg": 237.0,
+     "installPhaseHelixMm3": 0.014714407637680569,
+     "installPhaseDirectMm3": 0.002704078788040132
+    }
+   }
+  },
+  {
+   "label": "266,-158",
+   "status": "settled",
+   "host": "Captive truss landing nutbar 250 -145",
+   "seatBody": "Truss landing 250 -145",
+   "sourceOccurrence": "Matched SDS L2 module:1+corner:1+Original SDS MK4i L2 source:1+SDS MK4i Swerve Module, 10-32, NEOs:1+MK4 Turret Assembly_Billet Wheel:1+Screw, .25-20 X 1 Socket, 91251A542_91251A542:1",
+   "sourceBody": "Body1",
+   "underHeadCm": [
+    26.6,
+    -15.8,
+    19.3675
+   ],
+   "transform": {
+    "composition": "worldDeltaFromSourceCm = T(underHead) * R(-z, +57 deg right-handed) * T(-underHead) * studyDeltaWorldCm; studyDeltaWorldCm = T(underHead) * Rx(180 deg) * T(-sourceSeat). Target world = worldDeltaFromSourceCm * measured source world (row-major, translation in cm).",
+    "studyDeltaWorldCm": [
+     1.0,
+     0.0,
+     0.0,
+     3.2621024484276546,
+     0.0,
+     -1.0,
+     0.0,
+     9.911579510314429,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "phaseDeg": 57.0,
+    "phaseAxis": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "phaseThroughCm": [
+     26.6,
+     -15.8,
+     19.3675
+    ],
+    "worldDeltaFromSourceCm": [
+     0.5446390350150271,
+     -0.838670567945424,
+     0.0,
+     35.4528149889214,
+     -0.838670567945424,
+     -0.5446390350150271,
+     0.0,
+     17.776337647439096,
+     0.0,
+     0.0,
+     -1.0,
+     26.92583628767298,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "interfaces": [
+    {
+     "role": "head seat",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Truss landing 250 -145:1",
+        "Truss landing 250 -145"
+       ]
+      ],
+      "basis": "Under-head face of 91251A542 bears on Truss landing 250 -145: study gap 0.0 mm, planar contact 21.920 mm2, zero common. 0.01 mm admits native transform rounding and rejects the 0.5 mm lift control. Bearing area and load are qualified separately."
+     },
+     "study": {
+      "gapMm": 0.0,
+      "planarContactAreaMm2": 21.920148581156987,
+      "commonMm3": 0.0
+     }
+    },
+    {
+     "role": "thread pair",
+     "request": {
+      "kind": "bearing",
+      "maxGapMm": 0.01,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Captive truss landing nutbar 250 -145:1",
+        "Captive truss landing nutbar 250 -145"
+       ]
+      ],
+      "basis": "Modeled 1/4-20 male thread of 91251A542 in the modeled 1/4-20 UNC-2B tap of Captive truss landing nutbar 250 -145, installed at 57.0 deg inside the [53, 61] deg zero-common window. Project gate: thread common <= 0.05 mm3 by independent quadrature; the guard bearing kind admits zero positive overlap, so a native veto here means Fusion measured a trace common."
+     },
+     "projectGate": {
+      "maxCommonMm3": 0.05,
+      "method": "independent exact ray/face quadrature (screws-02 study)",
+      "guardKind": "bearing",
+      "guardSemantics": "bearing requires interferenceMm3 == temporaryCommonMm3 == 0 and gap <= maxGapMm; fit needs a positive minCommonMm3 which has no engineering basis for a correctly phased basic-profile pair",
+      "vetoMeaning": "A native veto on this interface means Fusion measured a positive common trace; record both kernel volumes and compare them to the 0.05 mm3 project gate before any re-disposition."
+     },
+     "study": {
+      "zeroCommonWindowDeg": [
+       53,
+       61
+      ],
+      "recommendedInstallPhaseDeg": 57.0,
+      "measuredAtPhaseMm3": {
+       "direct": 0.002704078788040132,
+       "phaseDeg": 58.5,
+       "helixRefined": 0.014714407511628096,
+       "interiorWitnessBalls": 0
+      },
+      "interiorWitnessAtInstall": {
+       "probes": 3,
+       "balls": 0,
+       "interiorWitnessMm3": 0,
+       "largestRadiusMm": 0.0,
+       "largest": []
+      },
+      "misPhase5DegCommonMm3": 1.1905624190822552,
+      "nominalPhase0CommonMm3": 15.880983061614497,
+      "engagement": {
+       "maleFullMajorZmm": [
+        169.2274999,
+        193.675
+       ],
+       "femaleThreadZmm": [
+        174.1499999,
+        184.1500001
+       ],
+       "engagedFullThreadMm": 10.000000199999988,
+       "engagedPitches": 7.8740159055118015,
+       "tipBelowNutbarMm": 5.8749998999999775
+      }
+     }
+    },
+    {
+     "role": "crossmember roof hole",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.2,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Pan crossmember 250:1",
+        "Pan crossmember 250"
+       ]
+      ],
+      "basis": "Study measured 0.4000 mm from the installed screw to Pan crossmember 250 with zero common. Required minimum 0.2 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 0.39997752568644324,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 0.85,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Red 2 inset structural machining:1+Pan truss -1 member 2:1",
+        "Pan truss -1 member 2"
+       ]
+      ],
+      "basis": "Study measured 1.7125 mm from the installed screw to Pan truss -1 member 2 with zero common. Required minimum 0.85 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 1.712500000000091,
+      "studiedPhaseDeg": 58.5
+     }
+    },
+    {
+     "role": "neighbor",
+     "request": {
+      "kind": "clearance",
+      "minGapMm": 1.9,
+      "bodies": [
+       [
+        "@screw",
+        "Body1"
+       ],
+       [
+        "Serviceable brace revision:1+Equipment sheet -1:1",
+        "Equipment sheet -1"
+       ]
+      ],
+      "basis": "Study measured 3.8756 mm from the installed screw to Equipment sheet -1 with zero common. Required minimum 1.9 mm is about half the measured gap, covering the 1.5 deg phase difference from the studied 58.5 deg and native/OCP distance differences."
+     },
+     "study": {
+      "gapMm": 3.8755814079951008,
+      "studiedPhaseDeg": 58.5
+     }
+    }
+   ],
+   "evidence": {
+    "studyRow": "266,-158",
+    "mirroredFrom": null,
+    "studiedPhaseDeg": 58.5,
+    "seat": {
+     "bearingBody": "Truss landing 250 -145",
+     "underHeadFaceToBearingGapMm": 0.0,
+     "distanceMethod": "shape",
+     "landingTopPlaneZmm": 193.675,
+     "planarContactAreaMm2": 21.920148581156987,
+     "headToLandingCommonMm3": 0.0
+    },
+    "tip": {
+     "tipZmm": 168.27500000000003,
+     "beamFloorTopZmm": 165.1,
+     "floorRaysMissing": 0,
+     "tipToFloorMm": 3.17500000000004,
+     "floorBody": "Pan crossmember 250"
+    },
+    "engagement": {
+     "maleFullMajorZmm": [
+      169.2274999,
+      193.675
+     ],
+     "femaleThreadZmm": [
+      174.1499999,
+      184.1500001
+     ],
+     "engagedFullThreadMm": 10.000000199999988,
+     "engagedPitches": 7.8740159055118015,
+     "tipBelowNutbarMm": 5.8749998999999775
+    },
+    "neighbors": [
+     {
+      "part": "Truss landing 250 -145",
+      "gapMm": 0.0,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan crossmember 250",
+      "gapMm": 0.39997752568644324,
+      "distanceMethod": "facewise-after-invalid-shape-witness",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss -1 member 2",
+      "gapMm": 1.712500000000091,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Equipment sheet -1",
+      "gapMm": 3.8755814079951008,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "part": "Pan truss -1 member 5",
+      "gapMm": 15.017130063990347,
+      "distanceMethod": "shape",
+      "commonMm3": [
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "phase": {
+     "nominalMm3": 15.880983061614497,
+     "coarseMinAtDeg": 60.0,
+     "maxMm3": 36.55856785221024,
+     "maxAtDeg": 237.0,
+     "installPhaseHelixMm3": 0.014714407511628096,
+     "installPhaseDirectMm3": 0.002704078788040132
+    }
+   }
+  }
+ ],
+ "staging": {
+  "note": "native_job rejects absolute and '..' paths. Copy the external taps-02 archive, its receipt and the screws-02 study into the worktree's git-ignored artifacts/seat-screws/ (byte copies, verify SHA-256 after copy), then register every path below with its hash.",
+  "copies": [
+   {
+    "source": "<operator Documents>/FRC Native/2025/resume-20261121-2025/taps-02/four-tapped-holes.f3d",
+    "path": "artifacts/seat-screws/taps-02/four-tapped-holes.f3d",
+    "sha256": "e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471"
+   },
+   {
+    "source": "<operator Documents>/FRC Native/2025/resume-20261121-2025/taps-02/native-receipt.json",
+    "path": "artifacts/seat-screws/taps-02/native-receipt.json",
+    "sha256": "69ad4908e45caa26d87e2e9c710f81c19c841ffbf6a5fbbe17788695b728fa91"
+   },
+   {
+    "source": "<operator Documents>/FRC Native/2025/resume-20261121-2025/screws-02/seated-screw-study.json",
+    "path": "artifacts/seat-screws/screws-02/seated-screw-study.json",
+    "sha256": "37cdc46547ebd541b4d6a133395b8cc223a886f0edf53f9a68ef2aff6eaeb480"
+   }
+  ],
+  "jobInputs": [
+   {
+    "path": "iterations/active.json",
+    "sha256": "bfd15c5a11d3929c962c7266d4f744c41d46c30c061b9e294cf807eb59056340"
+   },
+   {
+    "path": "iterations/001/iteration.json",
+    "sha256": "a6eac78bf962528d5552df2b37c6d7a02550e578633e42bee4dcfd91036f8cc1"
+   },
+   {
+    "path": "iterations/001/retrospective.json",
+    "sha256": "081ce22c7cbde1ce6f85ef7073a25b75657b183644b4a21a797075d65ff81d84"
+   },
+   {
+    "path": "iterations/002/iteration.json",
+    "sha256": "0d87c833884e5ad08dd1a28ea2b0dcaa3455ab20acdc3d59cd2b66e46f1267d8"
+   },
+   {
+    "path": "iterations/002/design/cad/fusion-authority.json",
+    "sha256": "6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02"
+   },
+   {
+    "path": "iterations/002/design/cad/issue-006/lineage.json",
+    "sha256": "a1d02df1e031dddaa600035a60f7ab428a08e3f4db6074d07c8f8d2f455b9ac2"
+   },
+   {
+    "path": "iterations/002/design/cad/private/connected-654-precursor.f3d",
+    "sha256": "e7c7386af0b1e775a7e0daba344f75082a42e6445ec0064b297497abc077834a"
+   },
+   {
+    "path": "iterations/002/design/cad/issue-006/assembly.step",
+    "sha256": "c430890bce46ceac46a57826cbc516d828073a147b5cf934a821621321d3fa77"
+   },
+   {
+    "path": "iterations/002/design/chassis/connected-thread-input.json",
+    "sha256": "9e624462970edc0823ffa758cd5a3abbf57ecccaf114e81dd4ca2352a5464a69"
+   },
+   {
+    "path": "iterations/002/design/chassis/native_job_telemetry.py",
+    "sha256": "57824e75d536ed5c797a44ebf856b950cae149351800a8f5884d66c6ee9f528e"
+   },
+   {
+    "path": "iterations/002/design/chassis/native_seat_screws.py",
+    "sha256": null,
+    "note": "hash at registration"
+   },
+   {
+    "path": "iterations/002/design/chassis/seat-screws-input.json",
+    "sha256": null,
+    "note": "hash at registration"
+   },
+   {
+    "path": "artifacts/seat-screws/taps-02/four-tapped-holes.f3d",
+    "sha256": "e426e5768a25ab6038f69f5b43b6ab5ed80ad9aca997610c3217117731fa5471"
+   },
+   {
+    "path": "artifacts/seat-screws/taps-02/native-receipt.json",
+    "sha256": "69ad4908e45caa26d87e2e9c710f81c19c841ffbf6a5fbbe17788695b728fa91"
+   },
+   {
+    "path": "artifacts/seat-screws/screws-02/seated-screw-study.json",
+    "sha256": "37cdc46547ebd541b4d6a133395b8cc223a886f0edf53f9a68ef2aff6eaeb480"
+   }
+  ],
+  "recipe": "inputs/iterations/002/design/chassis/native_seat_screws.py"
+ }
+}

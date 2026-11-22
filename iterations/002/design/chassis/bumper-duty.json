@@ -1,0 +1,150 @@
+{
+  "csvSha256": "ec006869267bd0347dfdf22d675ef8917e544b412c1ebfba6bef86b248dab796",
+  "routine": {
+    "case": "adverse/coral-B/-1/1/0.04/0.0001/17",
+    "schedule": "extended-cruise",
+    "obstructionMmBeforeDock": 100,
+    "actualBracket": [
+      {
+        "case": "adverse/coral-B/-1/1/0.04/0.0001/17",
+        "designSchedule": "extended-cruise",
+        "wallS": "93.89",
+        "chassisPhase": "drive",
+        "panPhase": "carry",
+        "wheelMps": "0.576749",
+        "wheelN": "35.0308885",
+        "drivePhaseA": "16.0043437",
+        "steerPhaseA": "0.0",
+        "panTorqueNm": "0.7244737",
+        "panRateRadS": "0",
+        "panPhaseA": "4.4268941",
+        "busV": "10.8141919",
+        "busA": "30.8065046",
+        "minimumMotorHeadroomV": "7.1422126"
+      },
+      {
+        "case": "adverse/coral-B/-1/1/0.04/0.0001/17",
+        "designSchedule": "extended-cruise",
+        "wallS": "93.91",
+        "chassisPhase": "drive",
+        "panPhase": "carry",
+        "wheelMps": "0.546749",
+        "wheelN": "35.0308885",
+        "drivePhaseA": "16.0043437",
+        "steerPhaseA": "0.0",
+        "panTorqueNm": "0.7244737",
+        "panRateRadS": "0",
+        "panPhaseA": "4.4268941",
+        "busV": "10.8329581",
+        "busA": "30.2200578",
+        "minimumMotorHeadroomV": "7.2431872"
+      }
+    ],
+    "impactTimeS": 93.90932324247609,
+    "freeApproachMps": 0.5477641362858607,
+    "massKg": 67,
+    "energyJ": 10.051525891533332,
+    "foamFaceMm": [
+      100,
+      138
+    ],
+    "foamDepthMm": 69.5,
+    "quasistaticInterpolatedStopMm": 19.744121332939013,
+    "quasistaticInterpolatedPeakN": 1009.8997101394822,
+    "complete50PctWorkJ": 30.571312500000005,
+    "sourceTableURL": "https://dam.sealedair.com/asset/8abcf0fc-1b7a-47e1-bc2f-4a190360bfb4/PROT_Foam_Ethafoam_Brochure_EN_0924-pdf.pdf"
+  },
+  "upper": {
+    "case": {
+      "case": "nominal/coral-B/1/1/-0.04/0.0001/17",
+      "designSchedule": "baseline",
+      "wallS": "82.33",
+      "chassisPhase": "drive",
+      "panPhase": "carry",
+      "wheelMps": "1.8",
+      "wheelN": "4.9693239",
+      "drivePhaseA": "3.6207507",
+      "steerPhaseA": "0.0",
+      "panTorqueNm": "0.5622449",
+      "panRateRadS": "0",
+      "panPhaseA": "3.1618194",
+      "busV": "12.0675074",
+      "busA": "13.2997034",
+      "minimumMotorHeadroomV": "6.8276606"
+    },
+    "massKg": 65,
+    "wall": "immovable",
+    "effectiveStrokeMm": 18,
+    "peakN": 11700.000000000002,
+    "energyJ": 105.30000000000001,
+    "limit": "Independent triangular impact-force stress case using full scheduled cruise. Peak is conditional on 18 mm runout and that force-displacement curve. Foam measurements end at 50% and do not establish a dynamic peak. Contact from another moving machine and hard bottoming can exceed it."
+  },
+  "candidateGeometry": {
+    "greatestStraightInternalSpanMm": 200,
+    "lastAnchorToCornerCrossTieMm": 181,
+    "cornerCantileverMm": 34.025,
+    "beamBending": {
+      "25.4": {
+        "tubeMm": [
+          25.4,
+          25.4,
+          3.175
+        ],
+        "minimumWallMm": 3.0,
+        "sectionModulusMm3": 1801.7360629921263,
+        "ratioStressYieldAt2xDesignLoadingStraight": 2.4486799651849345,
+        "ratioStressYieldAt2xDesignLoading35mmOffset": 1.8412449903959631,
+        "maxSpanMmAtUpper": 73.9173769432667,
+        "maxSpanMmAtRoutine": 856.3556376472019,
+        "ratioStressYieldAt2xDesignLoading200mmMiddle": 2.705723718436392,
+        "massFullOutlineNominalKg": 2.2030603761285006
+      },
+      "50.8": {
+        "tubeMm": [
+          25.4,
+          50.8,
+          3.175
+        ],
+        "minimumWallMm": 3.0,
+        "sectionModulusMm3": 3316.0160629921265,
+        "ratioStressYieldAt2xDesignLoadingStraight": 1.3304745562719178,
+        "ratioStressYieldAt2xDesignLoading35mmOffset": 1.000428658058607,
+        "maxSpanMmAtUpper": 136.0416846355744,
+        "maxSpanMmAtRoutine": 1576.0849263105392,
+        "ratioStressYieldAt2xDesignLoading200mmMiddle": 1.470137631239688,
+        "massFullOutlineNominalKg": 3.4619520196305014
+      },
+      "76.2": {
+        "tubeMm": [
+          25.4,
+          76.2,
+          3.175
+        ],
+        "minimumWallMm": 3.0,
+        "sectionModulusMm3": 4830.296062992126,
+        "ratioStressYieldAt2xDesignLoadingStraight": 0.9133756901159937,
+        "ratioStressYieldAt2xDesignLoading35mmOffset": 0.6867979636728544,
+        "maxSpanMmAtUpper": 198.16599232788207,
+        "maxSpanMmAtRoutine": 2295.8142149738765,
+        "ratioStressYieldAt2xDesignLoading200mmMiddle": 1.009254906205518,
+        "massFullOutlineNominalKg": 4.720843663132501
+      },
+      "101.6": {
+        "tubeMm": [
+          25.4,
+          101.6,
+          3.175
+        ],
+        "minimumWallMm": 3.0,
+        "sectionModulusMm3": 6344.576062992127,
+        "ratioStressYieldAt2xDesignLoadingStraight": 0.695377430453461,
+        "ratioStressYieldAt2xDesignLoading35mmOffset": 0.5228777253299225,
+        "maxSpanMmAtUpper": 260.29030002018976,
+        "maxSpanMmAtRoutine": 3015.543503637214,
+        "ratioStressYieldAt2xDesignLoading200mmMiddle": 0.7683728513297912,
+        "massFullOutlineNominalKg": 5.979735306634502
+      }
+    }
+  },
+  "open": "A positive supported path from both mitered outer members into both continuous rail webs must exist at the upper design load. Beam screens do not implicitly install the second rail, backing, bolted splice or tools, and require adequate reverse-direction retention and metal frame/truss joints."
+}

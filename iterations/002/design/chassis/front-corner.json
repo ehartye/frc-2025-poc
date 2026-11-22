@@ -1,0 +1,139 @@
+{
+  "schema": "red2-002-front-corner/1",
+  "id": "red2-two-sill-robot",
+  "status": "Fresh lower-frame first article. One FL corner assembled. Remaining corners, upper structure, bumpers, electronics and pan are pending.",
+  "source": "private-inputs/SDS-MK4i-10-32-NEO.step",
+  "sourceSha256": "ee5e74af75e1b89fde94e37dbfbafc0b1e131a018c08cb906877d75cc1a34720",
+  "option": "private-inputs/configuration-20261121.json",
+  "optionSha256": "7fb6a4b961769925601fb4628c8831dcb3bfa2eb39ea7200e005f5dbd16a554f",
+  "selected": {
+    "selected": [
+      "Double Gear, 20DP, 27T, 50T",
+      "Gear, 17T, 20DP, .375Hex"
+    ],
+    "motorPinionTeeth": 14,
+    "bevelPair": [
+      15,
+      45
+    ],
+    "driveReduction": 6.746031746031747,
+    "orderConfiguration": {
+      "title": "NEO / L2 / Billet",
+      "shopifyVariantId": 46872600117549,
+      "supplierSku": null
+    },
+    "excluded": [
+      "Double Gear, 20DP, 25T, 50T",
+      "Double Gear, 20DP, 28T, 50T",
+      "Gear, 19T, 20DP, .375Hex",
+      "Gear, 20DP, 16T, .375Hex, 217-5451"
+    ]
+  },
+  "worldMatrixMm": [
+    [
+      0,
+      0,
+      1,
+      348.675
+    ],
+    [
+      1,
+      0,
+      0,
+      343.675
+    ],
+    [
+      0,
+      1,
+      0,
+      -0.6166371232702161
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "kingpinXYmm": [
+    282.0,
+    277.0
+  ],
+  "floorMm": 0,
+  "sourceWheelLowestYmm": 0.6166371232702161,
+  "radialSocketClearanceLowerBoundMm": 5.239291010991359,
+  "rails": [
+    {
+      "name": "Port longitudinal socket rail",
+      "lengthAxis": 0,
+      "minimumMm": [
+        -240,
+        318.275,
+        43.83336287672979
+      ],
+      "maximumMm": [
+        240,
+        343.675,
+        94.63336287672979
+      ],
+      "wallMm": 3.175,
+      "throughDiameterMm": 5.3,
+      "boltCentersMm": [
+        [
+          234.375,
+          330.975
+        ],
+        [
+          208.975,
+          330.975
+        ],
+        [
+          183.575,
+          330.975
+        ]
+      ],
+      "grade": "6061-T6"
+    },
+    {
+      "name": "Front transverse socket rail",
+      "lengthAxis": 1,
+      "minimumMm": [
+        323.275,
+        -235,
+        43.83336287672979
+      ],
+      "maximumMm": [
+        348.675,
+        235,
+        94.63336287672979
+      ],
+      "wallMm": 3.175,
+      "throughDiameterMm": 5.3,
+      "boltCentersMm": [
+        [
+          335.975,
+          229.375
+        ],
+        [
+          335.975,
+          203.975
+        ],
+        [
+          335.975,
+          178.575
+        ]
+      ],
+      "grade": "6061-T6"
+    }
+  ],
+  "assemblyOrder": [
+    "Machine open rectangular hollow stock to the stated end planes and three through bores per rail. Deburr; retain real wall reserve at the short end.",
+    "Fit both 50.8 mm tall rails between the genuine lower and upper plates. Locate with their three aligned hole groups, then use all six original supplier 10-32 by 2.5 in screws. Verify bearing on both plate faces and free shank passage.",
+    "Support the module and chassis during reversal. The physical service sequence must clear bumper supports, wires, motor space, wheel and fasteners after their addition."
+  ],
+  "designLimits": [
+    "Socket tip extends 5.625 mm beyond the innermost screw. Check tube tear-out, bearing, ovalization, screw preload, crush and shop cut/hole tolerances before freezing this edge.",
+    "Complete the rest of the lower frame with two rear plan chamfers and individually seated bumper braces, backing, foam and cover. The first two rails have stock reserved at the other ends. Rear faces and bolt holes are not yet issued.",
+    "Two-sill upper mounting span and crossbeams require fresh triangulation down to actual lower rails and positive fasteners. The incomplete corner is not a ready robot."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "red2/contact-transport-trial@1",
+  "issue": "red2-002-preliminary-layout-Bx",
+  "transport": {
+    "case": "receive-pocket",
+    "payload": "pipe",
+    "mechanisms": [
+      "pocket tray"
+    ],
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            185.19660175488568,
+            0.0,
+            -52.19595139939236
+          ]
+        }
+      ]
+    },
+    "initialPose": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            -699.2538165157463,
+            0.0,
+            348.7504155882508
+          ]
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            152.10727143640284,
+            0.0,
+            -196.87481792080075
+          ]
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            334.1799433244578,
+            0.0,
+            -94.18552994563743
+          ]
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "iterations/002/design/preliminary-pocket/evidence/field-trials.json",
+    "sha256": "fd5a7e6e0090b76275f27ec9f07f6f4bdc714b99aa785382f52cfda2bce6c241"
+  },
+  "trials": {
+    "labels": [
+      "G1 worm locked"
+    ],
+    "runs": 32,
+    "outcomes": {
+      "passed through the nip (lost forward)": 4,
+      "seated": 24,
+      "seated in the nip throat": 4
+    },
+    "playback": [
+      "receive-nominal",
+      "receive-adverse",
+      "receive-soft-tread",
+      "receive-isolation-free-rollers",
+      "receive-B-unpowered"
+    ]
+  },
+  "basis": "The pipe rolls under the open flap along the fixed floor. The prescribed path is a straight or circular stroke between poses of the solved trace; the solved free-piece motion is in field-trials.json (receive trials, worm locked)."
+}

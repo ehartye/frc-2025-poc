@@ -1,0 +1,20 @@
+{
+  "id": "pan-package-geometry",
+  "scenario": "Guarded pan r3 proposal geometry (pivot, stow 70 deg, dump -2 deg, stops, inlet) as a revisable premise",
+  "unit": "revision",
+  "criterion": {
+    "equals": "002-pan-r3"
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "pan",
+    "pan cassette",
+    "inlet",
+    "upper support"
+  ],
+  "source": {
+    "file": "iterations/002/design/pan/geometry.json",
+    "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313"
+  },
+  "basis": "Retained on the twelve-case r3 replays and the failed fixed-path comparison. Replace the stow and receive geometry if the retention review (R1 open face, R2 power-off loss at 3 g) needs a retainer, latch or deeper pocket, if the physical dock test reopens the 1.828 mm support margin, or if mass needs the P3 inlet reduction."
+}

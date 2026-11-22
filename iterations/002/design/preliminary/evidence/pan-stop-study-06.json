@@ -1,0 +1,2912 @@
+{
+  "schema": "red2/pan-stop-study@6",
+  "appendsTo": "pan-stop-study-05.json (r3 pan); this file covers the POWERED holding condition",
+  "worktree": {
+    "path": ".",
+    "branch": "private/red2-native-successor",
+    "commit": "c3146d44eabcc8985f0fad58bf5afb012fa15457",
+    "status": [
+      "?? iterations/002/design/pan/"
+    ]
+  },
+  "plugin": {
+    "path": "PLUGIN",
+    "commit": "14190201d6316035339d8315e4ab4313fe6ce7e5",
+    "version": "0.76.0",
+    "loaded": "none in study 06 (project harness only)"
+  },
+  "model": {
+    "base": "study 05 r3 configuration: props, 5420 N m/rad stow stop + 1.5 N m spring, 4050 N m/rad soft stop, -3.5 deg opening-only inhibit",
+    "drive": "30 A limit, registered controller (65/2.5/15 at 50 Hz), 9 V branch bound, holding stow",
+    "clutch": "pan_stop_06.mjs: Coulomb slip clutch between the reflected rotor (3e-6 or 9e-6 kg m2 x ratio^2) and the pan; gearbox output torque = clutch torque",
+    "events": "extra chassis acceleration at carry start + 2.0 s on both pipe and pan (pan_stop_05 pulse law)",
+    "supportMonitor": "pan_stop_06s.mjs: the solver carry-support test (pan load >= 0.5 M g and both side loads >= 0.03 N) applied over the whole carry, not only its first 1.6 s"
+  },
+  "scripts": {
+    "pan_stop_06.mjs": "3459f29cc771e5200f8627ec48b5bf3b0b7576654dad3777289a585760d36868",
+    "pan_stop_06s.mjs": "0eafa5d848ab2dd47851bff1903c5784a15f170bb575b8562785d29521ae649b",
+    "run_all_06.sh": "cacccbeab43f1bd9d253eede8bbf0aa2dcc474d98d32d25fbf3b5ac1910ef722",
+    "run_support_06.sh": "9e451f25e73444c890ff3e524c67a756fae5f00493f528a4fe61a7ce6d0e5889",
+    "run_latched_06.sh": "c69e5f083d7a6a0a9bf6f668eb9f09c9c11f92ef6354df887d73abc018e74a5a",
+    "run_stop_field_04.py": "397904444b629d81f95aa2e497d40c4fe9213e885531342bc1b54075d60e434a",
+    "build_study_06.py": "73b7f714320e0d4eda3ab32177a0b6e02d28b156d7fc9ae415b7f860a1c38e95"
+  },
+  "results": {
+    "noevent": {
+      "description": "no event (clutch fitted, normal 12 cases)",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-noevent-c16.5.pan.json",
+          "sha256": "0f225120a7311a0dfd32f8c23fa555ca8810328c253712d8af67f18c06fdbda0"
+        },
+        "field": {
+          "file": "W6-noevent-c16.5.field-bus.json",
+          "sha256": "a30cec9af6385e38d6ab462d5415ae4597e52972929200ce4910c0bbec117611"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          }
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 0.3818881634595943,
+            "peakClosingOverTravelRad": 0.001350810360466248,
+            "peakPhaseA": 19.535496974020763,
+            "peakClutchNm": 5.7883914288045855,
+            "peakGearboxOutputNm": 5.7883914288045855,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.010000000000001563,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 9.050630877018747,
+            "maxPanWatts": 59.22830752355423
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 0.3818881634595943,
+            "peakClosingOverTravelRad": 0.001350810360466248,
+            "peakPhaseA": 19.65103999621212,
+            "peakClutchNm": 5.823656204862978,
+            "peakGearboxOutputNm": 5.823656204862978,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.00899999999998613,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 9.050630877018747,
+            "maxPanWatts": 59.642827362177265
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 0.045232553113826075,
+            "peakClosingOverTravelRad": 0.0013586926352269213,
+            "peakPhaseA": 17.018696717803238,
+            "peakClutchNm": 3.737283325962348,
+            "peakGearboxOutputNm": 3.737283325962348,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 7.997795440270941,
+            "maxPanWatts": 44.59218690907349
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 0.045232553113826075,
+            "peakClosingOverTravelRad": 0.0013586926352269213,
+            "peakPhaseA": 16.985511636163224,
+            "peakClutchNm": 3.7380590725164193,
+            "peakGearboxOutputNm": 3.7380590725164193,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 7.997795440270941,
+            "maxPanWatts": 44.39443929506286
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 3.4988077,
+            "chassisPhase": "drive",
+            "busV": 11.9394215,
+            "simultaneousBranchV": 11.778509300295218,
+            "conservativeBranchV": 11.024760437662717,
+            "lowestBusV": 11.196674
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 3.5207457,
+            "chassisPhase": "drive",
+            "busV": 11.9569879,
+            "simultaneousBranchV": 11.795178524102067,
+            "conservativeBranchV": 11.023182691876748,
+            "lowestBusV": 11.1963242
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 4.1963403,
+            "chassisPhase": "drive",
+            "busV": 10.3215441,
+            "simultaneousBranchV": 10.181391351537496,
+            "conservativeBranchV": 9.749041973775434,
+            "lowestBusV": 9.8954102
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 4.2514443,
+            "chassisPhase": "drive",
+            "busV": 10.3136013,
+            "simultaneousBranchV": 10.173968265936148,
+            "conservativeBranchV": 9.75229983441102,
+            "lowestBusV": 9.8979703
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 73.92699999999763,
+        "minSupportMarginMm": 1.836045,
+        "supportVsBaseline1828Mm": 0.007749000000000006,
+        "minConservativePanBranchV": 9.749041973775434,
+        "minSimultaneousBranchV": 10.173968265936148,
+        "summary": {
+          "peakOpeningDeg": 0.3818881634595943,
+          "peakGearboxNm": 5.823656204862978,
+          "clutchSlipped": false,
+          "worstSettleS": 0.010000000000001563,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    },
+    "frontAbuse": {
+      "description": "12.34 kN front bumper strike: 180 m/s2 for 20 ms (opening)",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-frontAbuse-c16.5.pan.json",
+          "sha256": "31eeda7b68f9f2b541a319dcd6f08910dbfd74d082f53b33143f4c096a877751"
+        },
+        "field": {
+          "file": "W6-frontAbuse-c16.5.field-bus.json",
+          "sha256": "d25c048d80d1a122eff39fb45b5a37e26f3d59caa7dd0571ad8f4a048931d38d"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": -180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 38.00048732591893,
+            "peakClosingOverTravelRad": 0.018004511860131744,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 11.699381935451145,
+            "peakGearboxOutputNm": 11.699381935451145,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.31400000000000006,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 127.05721607185598,
+            "maxPanWatts": 300.69399694942115
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 37.35000225044302,
+            "peakClosingOverTravelRad": 0.017772335581719423,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 12.293427381191677,
+            "peakGearboxOutputNm": 12.293427381191677,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.31399999999999295,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 125.70940732123957,
+            "maxPanWatts": 300.6625483369853
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 51.459496858929604,
+            "peakClosingOverTravelRad": 0.02015265001378297,
+            "peakPhaseA": 30,
+            "peakClutchNm": 9.877267835400776,
+            "peakGearboxOutputNm": 9.877267835400776,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.39299999999999713,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 141.43559044165346,
+            "maxPanWatts": 300.6122316425515
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 50.68273715364703,
+            "peakClosingOverTravelRad": 0.020288159603780276,
+            "peakPhaseA": 30,
+            "peakClutchNm": 10.321610713456227,
+            "peakGearboxOutputNm": 10.321610713456227,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3990000000000009,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 141.94728931854883,
+            "maxPanWatts": 300.6301939309656
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.2906852,
+            "simultaneousBranchV": 10.362087788050047,
+            "conservativeBranchV": 10.25725994504539,
+            "lowestBusV": 11.1953475
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.359115,
+            "simultaneousBranchV": 10.437306111373104,
+            "conservativeBranchV": 10.257159798454019,
+            "lowestBusV": 11.1951584
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.2065422,
+            "simultaneousBranchV": 9.155897965075733,
+            "conservativeBranchV": 8.804881449330153,
+            "lowestBusV": 9.8974108
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.144153,
+            "simultaneousBranchV": 9.08527893895836,
+            "conservativeBranchV": 8.808946461250112,
+            "lowestBusV": 9.9010369
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 40.4270000000011,
+        "minSupportMarginMm": 1.836695,
+        "supportVsBaseline1828Mm": 0.008399000000000045,
+        "minConservativePanBranchV": 8.804881449330153,
+        "minSimultaneousBranchV": 9.08527893895836,
+        "summary": {
+          "peakOpeningDeg": 51.459496858929604,
+          "peakGearboxNm": 12.293427381191677,
+          "clutchSlipped": false,
+          "worstSettleS": 0.3990000000000009,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch18": {
+        "panSim": {
+          "file": "W6-frontAbuse-c18.pan.json",
+          "sha256": "d21dbee827f47c8fec2deae3664a2cc37fcf06ce3049cf8deb63dc24c7d43545"
+        },
+        "field": {
+          "file": "W6-frontAbuse-c18.field-bus.json",
+          "sha256": "04df813135f3e985de082f1cdc0fe44d7044d20f1d3220e3b2e09951ba01d038"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 18,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": -180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 38.00048732591893,
+            "peakClosingOverTravelRad": 0.018004511860131744,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 11.699381935451145,
+            "peakGearboxOutputNm": 11.699381935451145,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.31400000000000006,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 127.05721607185598,
+            "maxPanWatts": 300.69399694942115
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 37.35000225044302,
+            "peakClosingOverTravelRad": 0.017772335581719423,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 12.293427381191677,
+            "peakGearboxOutputNm": 12.293427381191677,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.31399999999999295,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 125.70940732123957,
+            "maxPanWatts": 300.6625483369853
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 51.459496858929604,
+            "peakClosingOverTravelRad": 0.02015265001378297,
+            "peakPhaseA": 30,
+            "peakClutchNm": 9.877267835400776,
+            "peakGearboxOutputNm": 9.877267835400776,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.39299999999999713,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 141.43559044165346,
+            "maxPanWatts": 300.6122316425515
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 50.68273715364703,
+            "peakClosingOverTravelRad": 0.020288159603780276,
+            "peakPhaseA": 30,
+            "peakClutchNm": 10.321610713456227,
+            "peakGearboxOutputNm": 10.321610713456227,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3990000000000009,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 141.94728931854883,
+            "maxPanWatts": 300.6301939309656
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.2906852,
+            "simultaneousBranchV": 10.362087788050047,
+            "conservativeBranchV": 10.25725994504539,
+            "lowestBusV": 11.1953475
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.359115,
+            "simultaneousBranchV": 10.437306111373104,
+            "conservativeBranchV": 10.257159798454019,
+            "lowestBusV": 11.1951584
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.2065422,
+            "simultaneousBranchV": 9.155897965075733,
+            "conservativeBranchV": 8.804881449330153,
+            "lowestBusV": 9.8974108
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.144153,
+            "simultaneousBranchV": 9.08527893895836,
+            "conservativeBranchV": 8.808946461250112,
+            "lowestBusV": 9.9010369
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 40.4270000000011,
+        "minSupportMarginMm": 1.836695,
+        "supportVsBaseline1828Mm": 0.008399000000000045,
+        "minConservativePanBranchV": 8.804881449330153,
+        "minSimultaneousBranchV": 9.08527893895836,
+        "summary": {
+          "peakOpeningDeg": 51.459496858929604,
+          "peakGearboxNm": 12.293427381191677,
+          "clutchSlipped": false,
+          "worstSettleS": 0.3990000000000009,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch16_5_rotor9e6": {
+        "panSim": {
+          "file": "W6-frontAbuse-c16.5-rotor9e-6.pan.json",
+          "sha256": "1c461778e0d417165f53b7aaf4460b5ade5207c30c319eabedd4d08b8106fb9a"
+        },
+        "field": {
+          "file": "W6-frontAbuse-c16.5-rotor9e-6.field-bus.json",
+          "sha256": "4f4d9a6a9608cb02691fddf08d8f6f8904179fd7c5bebb59f5e488964bf67f0e"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 9e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": -180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 31.40132039632899,
+            "peakClosingOverTravelRad": 0.017312579986531462,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 2,
+            "slipS": 0.0067000000000000046,
+            "settleS": 0.37900000000000134,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 117.16341222998363,
+            "maxPanWatts": 295.7428072434487
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 30.902434303106492,
+            "peakClosingOverTravelRad": 0.017000099638584176,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 2,
+            "slipS": 0.007500000000000007,
+            "settleS": 0.375,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 115.1227647476693,
+            "maxPanWatts": 294.77824198265927
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 41.51716717619293,
+            "peakClosingOverTravelRad": 0.019095044910269365,
+            "peakPhaseA": 30,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 2,
+            "slipS": 0.01079999999999999,
+            "settleS": 0.42900000000000205,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 129.62736684919747,
+            "maxPanWatts": 296.0575845524479
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 40.93699214062168,
+            "peakClosingOverTravelRad": 0.019053828029314435,
+            "peakPhaseA": 30,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 2,
+            "slipS": 0.011899999999999984,
+            "settleS": 0.4089999999999918,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 129.33620857536667,
+            "maxPanWatts": 295.0826299329416
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.3122726,
+            "simultaneousBranchV": 10.402514710155192,
+            "conservativeBranchV": 10.27402031403529,
+            "lowestBusV": 11.1951563
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.3158072,
+            "simultaneousBranchV": 10.409636905168533,
+            "conservativeBranchV": 10.27692730761407,
+            "lowestBusV": 11.1947993
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.1783334,
+            "simultaneousBranchV": 9.142039137507817,
+            "conservativeBranchV": 8.824907949577565,
+            "lowestBusV": 9.8984424
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.1843652,
+            "simultaneousBranchV": 9.152684967181756,
+            "conservativeBranchV": 8.831413083794544,
+            "lowestBusV": 9.9006241
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 46.32699999999801,
+        "minSupportMarginMm": 1.83318,
+        "supportVsBaseline1828Mm": 0.0048840000000001105,
+        "minConservativePanBranchV": 8.824907949577565,
+        "minSimultaneousBranchV": 9.142039137507817,
+        "summary": {
+          "peakOpeningDeg": 41.51716717619293,
+          "peakGearboxNm": 16.5,
+          "clutchSlipped": true,
+          "worstSettleS": 0.42900000000000205,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    },
+    "o3g50": {
+      "description": "3 g for 50 ms opening contact",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-o3g50-c16.5.pan.json",
+          "sha256": "a70d96b86fa654dc2a460be7e040ed8208407c6b4ae825facfe1a5d19a85803c"
+        },
+        "field": {
+          "file": "W6-o3g50-c16.5.field-bus.json",
+          "sha256": "8d0659123175038724bc8b15af830bd5b7ee71272d07a4480dbd4a167f0595aa"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -29.42
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.731104996258346,
+            "peakClosingOverTravelRad": 0.0035861577039120185,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.987592590621912,
+            "peakGearboxOutputNm": 8.987592590621912,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.125,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 24.887010000970072,
+            "maxPanWatts": 161.21479414285068
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.542361717932873,
+            "peakClosingOverTravelRad": 0.0035066010237814194,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.986891239495165,
+            "peakGearboxOutputNm": 8.986891239495165,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.11299999999999955,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 24.320517753092087,
+            "maxPanWatts": 159.94161213673385
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.8926433905096287,
+            "peakClosingOverTravelRad": 0.004383709535566327,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.899112665283303,
+            "peakGearboxOutputNm": 6.899112665283303,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.16199999999999903,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 30.74839912153024,
+            "maxPanWatts": 163.97820547495067
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.717599608779496,
+            "peakClosingOverTravelRad": 0.004262225785693907,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.898558932528179,
+            "peakGearboxOutputNm": 6.898558932528179,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.16200000000000614,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 29.881538851062345,
+            "maxPanWatts": 162.77222590256116
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6755614,
+            "simultaneousBranchV": 11.215587882181346,
+            "conservativeBranchV": 10.714988739711973,
+            "lowestBusV": 11.196452
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6793586,
+            "simultaneousBranchV": 11.22333258921477,
+            "conservativeBranchV": 10.718610352965973,
+            "lowestBusV": 11.1961099
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.739972,
+            "simultaneousBranchV": 10.226882855503273,
+            "conservativeBranchV": 9.334258109950238,
+            "lowestBusV": 9.8964134
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7461052,
+            "simultaneousBranchV": 10.237308248450727,
+            "conservativeBranchV": 9.3413321687574,
+            "lowestBusV": 9.8989305
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 68.32700000000358,
+        "minSupportMarginMm": 1.8262580000000002,
+        "supportVsBaseline1828Mm": -0.0020379999999997622,
+        "minConservativePanBranchV": 9.334258109950238,
+        "minSimultaneousBranchV": 10.226882855503273,
+        "summary": {
+          "peakOpeningDeg": 3.8926433905096287,
+          "peakGearboxNm": 8.987592590621912,
+          "clutchSlipped": false,
+          "worstSettleS": 0.16200000000000614,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": false,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch18": {
+        "panSim": {
+          "file": "W6-o3g50-c18.pan.json",
+          "sha256": "9089ec2d6264826eacd24b471297f0148b61be681bcc2aad0045bb68fe48e0f4"
+        },
+        "field": {
+          "file": "W6-o3g50-c18.field-bus.json",
+          "sha256": "eed7ae6939b143f1738ee1dd2f5469ab5159782dcbd3a004b9abd0b1e65869e6"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 18,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -29.42
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.731104996258346,
+            "peakClosingOverTravelRad": 0.0035861577039120185,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.987592590621912,
+            "peakGearboxOutputNm": 8.987592590621912,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.125,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 24.887010000970072,
+            "maxPanWatts": 161.21479414285068
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.542361717932873,
+            "peakClosingOverTravelRad": 0.0035066010237814194,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.986891239495165,
+            "peakGearboxOutputNm": 8.986891239495165,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.11299999999999955,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 24.320517753092087,
+            "maxPanWatts": 159.94161213673385
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.8926433905096287,
+            "peakClosingOverTravelRad": 0.004383709535566327,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.899112665283303,
+            "peakGearboxOutputNm": 6.899112665283303,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.16199999999999903,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 30.74839912153024,
+            "maxPanWatts": 163.97820547495067
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.717599608779496,
+            "peakClosingOverTravelRad": 0.004262225785693907,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.898558932528179,
+            "peakGearboxOutputNm": 6.898558932528179,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.16200000000000614,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 29.881538851062345,
+            "maxPanWatts": 162.77222590256116
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6755614,
+            "simultaneousBranchV": 11.215587882181346,
+            "conservativeBranchV": 10.714988739711973,
+            "lowestBusV": 11.196452
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6793586,
+            "simultaneousBranchV": 11.22333258921477,
+            "conservativeBranchV": 10.718610352965973,
+            "lowestBusV": 11.1961099
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.739972,
+            "simultaneousBranchV": 10.226882855503273,
+            "conservativeBranchV": 9.334258109950238,
+            "lowestBusV": 9.8964134
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7461052,
+            "simultaneousBranchV": 10.237308248450727,
+            "conservativeBranchV": 9.3413321687574,
+            "lowestBusV": 9.8989305
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 68.32700000000358,
+        "minSupportMarginMm": 1.8262580000000002,
+        "supportVsBaseline1828Mm": -0.0020379999999997622,
+        "minConservativePanBranchV": 9.334258109950238,
+        "minSimultaneousBranchV": 10.226882855503273,
+        "summary": {
+          "peakOpeningDeg": 3.8926433905096287,
+          "peakGearboxNm": 8.987592590621912,
+          "clutchSlipped": false,
+          "worstSettleS": 0.16200000000000614,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": false,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch16_5_rotor9e6": {
+        "panSim": {
+          "file": "W6-o3g50-c16.5-rotor9e-6.pan.json",
+          "sha256": "f668a12627a8571797e3672295dfefd0f527336ca0d60d78a8e5d842e5c1b00a"
+        },
+        "field": {
+          "file": "W6-o3g50-c16.5-rotor9e-6.field-bus.json",
+          "sha256": "6095592fde246268397153fab2bfbb8581cdc4a1394166b54c424cadf62c9cc9"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 9e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -29.42
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.3452747520859276,
+            "peakClosingOverTravelRad": 0.0035133354126859473,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.764225671488619,
+            "peakGearboxOutputNm": 8.764225671488619,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.14000000000000057,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 23.31509605256066,
+            "maxPanWatts": 157.75186083828672
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 2.1830687410482983,
+            "peakClosingOverTravelRad": 0.0034003992862314814,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 8.762756524839707,
+            "peakGearboxOutputNm": 8.762756524839707,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.13700000000000045,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 22.566701911322333,
+            "maxPanWatts": 156.6574278262619
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.361831889249587,
+            "peakClosingOverTravelRad": 0.004317885283932288,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.9763069421148,
+            "peakGearboxOutputNm": 6.9763069421148,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.1490000000000009,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 28.83912496907878,
+            "maxPanWatts": 160.07165670592525
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.2124819072912163,
+            "peakClosingOverTravelRad": 0.004195179521102599,
+            "peakPhaseA": 30,
+            "peakClutchNm": 6.975152701601587,
+            "peakGearboxOutputNm": 6.975152701601587,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.14699999999999136,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 28.00783401074964,
+            "maxPanWatts": 159.03409300638378
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.684155,
+            "simultaneousBranchV": 11.234832822576863,
+            "conservativeBranchV": 10.725861774297524,
+            "lowestBusV": 11.1965055
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6874972,
+            "simultaneousBranchV": 11.241559268184051,
+            "conservativeBranchV": 10.728922067057873,
+            "lowestBusV": 11.1961673
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7528128,
+            "simultaneousBranchV": 10.253234545769681,
+            "conservativeBranchV": 9.348371649338034,
+            "lowestBusV": 9.8963059
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7582165,
+            "simultaneousBranchV": 10.262315657945496,
+            "conservativeBranchV": 9.354820568264689,
+            "lowestBusV": 9.8988279
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 78.02699999999874,
+        "minSupportMarginMm": 1.828159,
+        "supportVsBaseline1828Mm": -0.0001369999999998317,
+        "minConservativePanBranchV": 9.348371649338034,
+        "minSimultaneousBranchV": 10.253234545769681,
+        "summary": {
+          "peakOpeningDeg": 3.361831889249587,
+          "peakGearboxNm": 8.764225671488619,
+          "clutchSlipped": false,
+          "worstSettleS": 0.1490000000000009,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": false,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    },
+    "o5g50": {
+      "description": "5 g for 50 ms opening contact",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-o5g50-c16.5.pan.json",
+          "sha256": "1a60a4a6f611fa344732c625b7605a1789a2343d4405fb687f01f36f8124b5a4"
+        },
+        "field": {
+          "file": "W6-o5g50-c16.5.field-bus.json",
+          "sha256": "d6aa90f6f0309425091ed49d62654bbecc9e4b98b7b1c3b25cad590733122b0e"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 10.536421439512546,
+            "peakClosingOverTravelRad": 0.008170487958857553,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.51528432222596,
+            "peakGearboxOutputNm": 9.51528432222596,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.23799999999999955,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 58.35479748428393,
+            "maxPanWatts": 205.0759073327553
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 10.189425149955818,
+            "peakClosingOverTravelRad": 0.008119651313202025,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.515080877066996,
+            "peakGearboxOutputNm": 9.515080877066996,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.2459999999999951,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 57.90607554649749,
+            "maxPanWatts": 203.4530484415945
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 14.345632449970937,
+            "peakClosingOverTravelRad": 0.009700602834978644,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.424869709235114,
+            "peakGearboxOutputNm": 7.424869709235114,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3030000000000008,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 68.48288683805018,
+            "maxPanWatts": 217.1752038219476
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 14.007465339794905,
+            "peakClosingOverTravelRad": 0.009482642397831365,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.424674203967056,
+            "peakGearboxOutputNm": 7.424674203967056,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3160000000000025,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 66.9711316254232,
+            "maxPanWatts": 215.96015182963762
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6083653,
+            "simultaneousBranchV": 11.012455607508358,
+            "conservativeBranchV": 10.575460878833404,
+            "lowestBusV": 11.1959945
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6169885,
+            "simultaneousBranchV": 11.026550200462015,
+            "conservativeBranchV": 10.5802842983656,
+            "lowestBusV": 11.1956267
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6293644,
+            "simultaneousBranchV": 9.929467174914272,
+            "conservativeBranchV": 9.136551598365333,
+            "lowestBusV": 9.8971894
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6440155,
+            "simultaneousBranchV": 9.949430535148517,
+            "conservativeBranchV": 9.143954040728266,
+            "lowestBusV": 9.8997239
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 58.12699999999893,
+        "minSupportMarginMm": 1.82861,
+        "supportVsBaseline1828Mm": 0.0003140000000001475,
+        "minConservativePanBranchV": 9.136551598365333,
+        "minSimultaneousBranchV": 9.929467174914272,
+        "summary": {
+          "peakOpeningDeg": 14.345632449970937,
+          "peakGearboxNm": 9.51528432222596,
+          "clutchSlipped": false,
+          "worstSettleS": 0.3160000000000025,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch18": {
+        "panSim": {
+          "file": "W6-o5g50-c18.pan.json",
+          "sha256": "1822da2fc8d06287e5e2539b8c05842bff1e091a3890529f7ae2d5e28c37ffa8"
+        },
+        "field": {
+          "file": "W6-o5g50-c18.field-bus.json",
+          "sha256": "2807a4fe5ef1b952d552ea5ddb4af6d961681964ecd58aecbb20adf12bcb8e23"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 18,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 10.536421439512546,
+            "peakClosingOverTravelRad": 0.008170487958857553,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.51528432222596,
+            "peakGearboxOutputNm": 9.51528432222596,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.23799999999999955,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 58.35479748428393,
+            "maxPanWatts": 205.0759073327553
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 10.189425149955818,
+            "peakClosingOverTravelRad": 0.008119651313202025,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.515080877066996,
+            "peakGearboxOutputNm": 9.515080877066996,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.2459999999999951,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 57.90607554649749,
+            "maxPanWatts": 203.4530484415945
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 14.345632449970937,
+            "peakClosingOverTravelRad": 0.009700602834978644,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.424869709235114,
+            "peakGearboxOutputNm": 7.424869709235114,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3030000000000008,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 68.48288683805018,
+            "maxPanWatts": 217.1752038219476
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 14.007465339794905,
+            "peakClosingOverTravelRad": 0.009482642397831365,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.424674203967056,
+            "peakGearboxOutputNm": 7.424674203967056,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3160000000000025,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 66.9711316254232,
+            "maxPanWatts": 215.96015182963762
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6083653,
+            "simultaneousBranchV": 11.012455607508358,
+            "conservativeBranchV": 10.575460878833404,
+            "lowestBusV": 11.1959945
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6169885,
+            "simultaneousBranchV": 11.026550200462015,
+            "conservativeBranchV": 10.5802842983656,
+            "lowestBusV": 11.1956267
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6293644,
+            "simultaneousBranchV": 9.929467174914272,
+            "conservativeBranchV": 9.136551598365333,
+            "lowestBusV": 9.8971894
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6440155,
+            "simultaneousBranchV": 9.949430535148517,
+            "conservativeBranchV": 9.143954040728266,
+            "lowestBusV": 9.8997239
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 58.12699999999893,
+        "minSupportMarginMm": 1.82861,
+        "supportVsBaseline1828Mm": 0.0003140000000001475,
+        "minConservativePanBranchV": 9.136551598365333,
+        "minSimultaneousBranchV": 9.929467174914272,
+        "summary": {
+          "peakOpeningDeg": 14.345632449970937,
+          "peakGearboxNm": 9.51528432222596,
+          "clutchSlipped": false,
+          "worstSettleS": 0.3160000000000025,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch16_5_rotor9e6": {
+        "panSim": {
+          "file": "W6-o5g50-c16.5-rotor9e-6.pan.json",
+          "sha256": "ef7f96b200849d586a70320d1bc5f8bcdc2d4ec3675cad6bd35018a05f87e89e"
+        },
+        "field": {
+          "file": "W6-o5g50-c16.5-rotor9e-6.field-bus.json",
+          "sha256": "2b68856208ca057c69c71ae3cdf533b8f230ce4acb125ce02168a5edf6d2c77a"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 9e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -49.0333
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 8.984031699758237,
+            "peakClosingOverTravelRad": 0.007919525793422366,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.112755166170947,
+            "peakGearboxOutputNm": 10.112755166170947,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.25900000000000034,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 53.746158416227225,
+            "maxPanWatts": 195.10594227517126
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 8.68893263848664,
+            "peakClosingOverTravelRad": 0.007766805228081042,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.11229936995538,
+            "peakGearboxOutputNm": 10.11229936995538,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.25900000000000034,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 52.770795527917656,
+            "maxPanWatts": 193.71582013267852
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 12.19789090057035,
+            "peakClosingOverTravelRad": 0.009722616410963836,
+            "peakPhaseA": 30,
+            "peakClutchNm": 9.876285612548882,
+            "peakGearboxOutputNm": 9.876285612548882,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3019999999999996,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 65.62944231148398,
+            "maxPanWatts": 205.4723523071624
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 11.911781520547152,
+            "peakClosingOverTravelRad": 0.009624472419508923,
+            "peakPhaseA": 30,
+            "peakClutchNm": 10.356476678467732,
+            "peakGearboxOutputNm": 10.356476678467732,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3059999999999974,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 64.61636576795246,
+            "maxPanWatts": 204.42550361861188
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6270822,
+            "simultaneousBranchV": 11.06271912789958,
+            "conservativeBranchV": 10.607150696358346,
+            "lowestBusV": 11.1957527
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.63448,
+            "simultaneousBranchV": 11.07474653574052,
+            "conservativeBranchV": 10.611216695591128,
+            "lowestBusV": 11.195401
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6591527,
+            "simultaneousBranchV": 10.00175665438147,
+            "conservativeBranchV": 9.180817265248319,
+            "lowestBusV": 9.896997
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6716933,
+            "simultaneousBranchV": 10.018756360481362,
+            "conservativeBranchV": 9.187441205025479,
+            "lowestBusV": 9.8994584
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 60.22699999999759,
+        "minSupportMarginMm": 1.828462,
+        "supportVsBaseline1828Mm": 0.0001660000000001105,
+        "minConservativePanBranchV": 9.180817265248319,
+        "minSimultaneousBranchV": 10.00175665438147,
+        "summary": {
+          "peakOpeningDeg": 12.19789090057035,
+          "peakGearboxNm": 10.356476678467732,
+          "clutchSlipped": false,
+          "worstSettleS": 0.3059999999999974,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    },
+    "o8g50": {
+      "description": "8 g for 50 ms opening contact",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-o8g50-c16.5.pan.json",
+          "sha256": "e7438b843ce323877bceaa5ccf191b2777477e50283ae94fc91e05572891ed51"
+        },
+        "field": {
+          "file": "W6-o8g50-c16.5.field-bus.json",
+          "sha256": "2fc12679df43611709cca06bf1c1193b2250275eacd94563bb45c03efb8a2da2"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -78.4532
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 33.58062083830817,
+            "peakClosingOverTravelRad": 0.017190311316229945,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.293028516953457,
+            "peakGearboxOutputNm": 10.293028516953457,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3460000000000001,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 120.93753430548782,
+            "maxPanWatts": 284.6248296252987
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 32.90516969992292,
+            "peakClosingOverTravelRad": 0.017205855810761506,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.293837373422907,
+            "peakGearboxOutputNm": 10.293837373422907,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.27199999999999136,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 121.07103828590525,
+            "maxPanWatts": 283.02038165869664
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 48.09336010537434,
+            "peakClosingOverTravelRad": 0.019532957569231346,
+            "peakPhaseA": 30,
+            "peakClutchNm": 8.200350307222706,
+            "peakGearboxOutputNm": 8.200350307222706,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.35999999999999943,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 137.23258445992317,
+            "maxPanWatts": 297.15188029207945
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 47.30697234562008,
+            "peakClosingOverTravelRad": 0.019465450942840024,
+            "peakPhaseA": 30,
+            "peakClutchNm": 8.200933949390672,
+            "peakGearboxOutputNm": 8.200933949390672,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.4060000000000059,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 136.60437559295497,
+            "maxPanWatts": 295.55178731504986
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.4926829,
+            "simultaneousBranchV": 10.63637677829555,
+            "conservativeBranchV": 10.31244206706581,
+            "lowestBusV": 11.1956465
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.510342,
+            "simultaneousBranchV": 10.660814793240874,
+            "conservativeBranchV": 10.317624575569806,
+            "lowestBusV": 11.1954092
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.4520188,
+            "simultaneousBranchV": 9.445288257760152,
+            "conservativeBranchV": 8.820946410975445,
+            "lowestBusV": 9.8989328
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.4811901,
+            "simultaneousBranchV": 9.483963910233918,
+            "conservativeBranchV": 8.830039769042624,
+            "lowestBusV": 9.9011173
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 38.42699999999866,
+        "minSupportMarginMm": 1.834727,
+        "supportVsBaseline1828Mm": 0.0064310000000000755,
+        "minConservativePanBranchV": 8.820946410975445,
+        "minSimultaneousBranchV": 9.445288257760152,
+        "summary": {
+          "peakOpeningDeg": 48.09336010537434,
+          "peakGearboxNm": 10.293837373422907,
+          "clutchSlipped": false,
+          "worstSettleS": 0.4060000000000059,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch18": {
+        "panSim": {
+          "file": "W6-o8g50-c18.pan.json",
+          "sha256": "15806cf1152669e67841ab054dbc4cf7db827225a2425ed07f144e182b45821d"
+        },
+        "field": {
+          "file": "W6-o8g50-c18.field-bus.json",
+          "sha256": "43b5c0c4a91a31d7f59f542ee4f2aec7138081d24d5644fdc11257002aee27a1"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 18,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -78.4532
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 33.58062083830817,
+            "peakClosingOverTravelRad": 0.017190311316229945,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.293028516953457,
+            "peakGearboxOutputNm": 10.293028516953457,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.3460000000000001,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 120.93753430548782,
+            "maxPanWatts": 284.6248296252987
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 32.90516969992292,
+            "peakClosingOverTravelRad": 0.017205855810761506,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 10.293837373422907,
+            "peakGearboxOutputNm": 10.293837373422907,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.27199999999999136,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 121.07103828590525,
+            "maxPanWatts": 283.02038165869664
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 48.09336010537434,
+            "peakClosingOverTravelRad": 0.019532957569231346,
+            "peakPhaseA": 30,
+            "peakClutchNm": 8.200350307222706,
+            "peakGearboxOutputNm": 8.200350307222706,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.35999999999999943,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 137.23258445992317,
+            "maxPanWatts": 297.15188029207945
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 47.30697234562008,
+            "peakClosingOverTravelRad": 0.019465450942840024,
+            "peakPhaseA": 30,
+            "peakClutchNm": 8.200933949390672,
+            "peakGearboxOutputNm": 8.200933949390672,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.4060000000000059,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 136.60437559295497,
+            "maxPanWatts": 295.55178731504986
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.4926829,
+            "simultaneousBranchV": 10.63637677829555,
+            "conservativeBranchV": 10.31244206706581,
+            "lowestBusV": 11.1956465
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.510342,
+            "simultaneousBranchV": 10.660814793240874,
+            "conservativeBranchV": 10.317624575569806,
+            "lowestBusV": 11.1954092
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.4520188,
+            "simultaneousBranchV": 9.445288257760152,
+            "conservativeBranchV": 8.820946410975445,
+            "lowestBusV": 9.8989328
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.4811901,
+            "simultaneousBranchV": 9.483963910233918,
+            "conservativeBranchV": 8.830039769042624,
+            "lowestBusV": 9.9011173
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 38.42699999999866,
+        "minSupportMarginMm": 1.834727,
+        "supportVsBaseline1828Mm": 0.0064310000000000755,
+        "minConservativePanBranchV": 8.820946410975445,
+        "minSimultaneousBranchV": 9.445288257760152,
+        "summary": {
+          "peakOpeningDeg": 48.09336010537434,
+          "peakGearboxNm": 10.293837373422907,
+          "clutchSlipped": false,
+          "worstSettleS": 0.4060000000000059,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch16_5_rotor9e6": {
+        "panSim": {
+          "file": "W6-o8g50-c16.5-rotor9e-6.pan.json",
+          "sha256": "1ba50ba123fdc9f0bb8cd91302e3df8dcac714cccdcc01c8409f0ac37d5b0cc5"
+        },
+        "field": {
+          "file": "W6-o8g50-c16.5-rotor9e-6.field-bus.json",
+          "sha256": "57f51b272f99f8e65ac1a20d167437ea8442077552ac20514fa4092d53ccc756"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 9e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.05,
+              "ax": -78.4532
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 28.241694124926227,
+            "peakClosingOverTravelRad": 0.016757809061356932,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 1,
+            "slipS": 0.0048,
+            "settleS": 0.352999999999998,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 113.32114217520267,
+            "maxPanWatts": 263.1213620959379
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 27.684745361440218,
+            "peakClosingOverTravelRad": 0.016321606091969754,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 1,
+            "slipS": 0.0036999999999999976,
+            "settleS": 0.35299999999999443,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 110.23634469718324,
+            "maxPanWatts": 261.74653176510776
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 39.68602701708991,
+            "peakClosingOverTravelRad": 0.018570796906769438,
+            "peakPhaseA": 30,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 1,
+            "slipS": 0.009699999999999997,
+            "settleS": 0.3949999999999996,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 125.9776948936957,
+            "maxPanWatts": 273.50213177877674
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 39.07203386475926,
+            "peakClosingOverTravelRad": 0.01849762224043605,
+            "peakPhaseA": 30,
+            "peakClutchNm": 16.5,
+            "peakGearboxOutputNm": 16.5,
+            "clutchSlipped": true,
+            "slipEvents": 1,
+            "slipS": 0.009599999999999997,
+            "settleS": 0.4410000000000025,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 125.45278247402157,
+            "maxPanWatts": 272.4655722233347
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.5296074,
+            "simultaneousBranchV": 10.746076440220483,
+            "conservativeBranchV": 10.384352141461289,
+            "lowestBusV": 11.1951763
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.544519,
+            "simultaneousBranchV": 10.766565329527943,
+            "conservativeBranchV": 10.388552594444562,
+            "lowestBusV": 11.194814
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.5110067,
+            "simultaneousBranchV": 9.599262924946611,
+            "conservativeBranchV": 8.91720960146337,
+            "lowestBusV": 9.8986902
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.535401,
+            "simultaneousBranchV": 9.6300129884118,
+            "conservativeBranchV": 8.924197139237322,
+            "lowestBusV": 9.9011924
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 37.02700000000192,
+        "minSupportMarginMm": 1.829577,
+        "supportVsBaseline1828Mm": 0.0012810000000000876,
+        "minConservativePanBranchV": 8.91720960146337,
+        "minSimultaneousBranchV": 9.599262924946611,
+        "summary": {
+          "peakOpeningDeg": 39.68602701708991,
+          "peakGearboxNm": 16.5,
+          "clutchSlipped": true,
+          "worstSettleS": 0.4410000000000025,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": false,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    },
+    "rearAbuse": {
+      "description": "12.34 kN rear strike: 180 m/s2 for 20 ms (closing, into the stow pads)",
+      "clutch16_5": {
+        "panSim": {
+          "file": "W6-rearAbuse-c16.5.pan.json",
+          "sha256": "171c061540393b8d7ea964d1da7ae0755ccc7175463fbc666b43ff4bee4534e2"
+        },
+        "field": {
+          "file": "W6-rearAbuse-c16.5.field-bus.json",
+          "sha256": "ba0ded0e76595e92448bcd445a5dd308365d204aa22e62be4537eea43d24168e"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": 180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.35694286363207,
+            "peakClosingOverTravelRad": 0.014995372505043125,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.463628882530617,
+            "peakGearboxOutputNm": 9.463628882530617,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.13599999999999923,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 86.52002036534537,
+            "maxPanWatts": 182.4501902008172
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.167526562990259,
+            "peakClosingOverTravelRad": 0.014995291560051749,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.475719998905785,
+            "peakGearboxOutputNm": 9.475719998905785,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.15399999999999636,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 86.51957083876647,
+            "maxPanWatts": 180.86110950878825
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.2577571425051337,
+            "peakClosingOverTravelRad": 0.015177210411670972,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.164334020024745,
+            "peakGearboxOutputNm": 7.164334020024745,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.18400000000000105,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 87.37383458278484,
+            "maxPanWatts": 180.6044469324289
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.043601887215834,
+            "peakClosingOverTravelRad": 0.015177176983360186,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.175581867908069,
+            "peakGearboxOutputNm": 7.175581867908069,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.1839999999999975,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 87.37364971103835,
+            "maxPanWatts": 179.48059335213972
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6489034,
+            "simultaneousBranchV": 11.124058432504473,
+            "conservativeBranchV": 10.647932089690741,
+            "lowestBusV": 11.1962457
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6496863,
+            "simultaneousBranchV": 11.12967511885827,
+            "conservativeBranchV": 10.652606633157117,
+            "lowestBusV": 11.1959061
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.699536,
+            "simultaneousBranchV": 10.128959914119612,
+            "conservativeBranchV": 9.27301975323206,
+            "lowestBusV": 9.8962625
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7009506,
+            "simultaneousBranchV": 10.134219330426546,
+            "conservativeBranchV": 9.279858677026901,
+            "lowestBusV": 9.8987667
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 66.32700000000114,
+        "minSupportMarginMm": 1.832898,
+        "supportVsBaseline1828Mm": 0.004601999999999995,
+        "minConservativePanBranchV": 9.27301975323206,
+        "minSimultaneousBranchV": 10.128959914119612,
+        "summary": {
+          "peakOpeningDeg": 3.35694286363207,
+          "peakGearboxNm": 9.475719998905785,
+          "clutchSlipped": false,
+          "worstSettleS": 0.18400000000000105,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch18": {
+        "panSim": {
+          "file": "W6-rearAbuse-c18.pan.json",
+          "sha256": "7df59ce12567c9946f2d0bf1d9cd41f469da2ab6f01c24e9838277307655d7be"
+        },
+        "field": {
+          "file": "W6-rearAbuse-c18.field-bus.json",
+          "sha256": "2ae0e3262e9a4b6374760a36f8af8703100a755872a3106b6c4a27476fcdbde8"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 18,
+            "rotorInertiaKgM2": 3e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": 180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.35694286363207,
+            "peakClosingOverTravelRad": 0.014995372505043125,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.463628882530617,
+            "peakGearboxOutputNm": 9.463628882530617,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.13599999999999923,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 86.52002036534537,
+            "maxPanWatts": 182.4501902008172
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.167526562990259,
+            "peakClosingOverTravelRad": 0.014995291560051749,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 9.475719998905785,
+            "peakGearboxOutputNm": 9.475719998905785,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.15399999999999636,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 86.51957083876647,
+            "maxPanWatts": 180.86110950878825
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.2577571425051337,
+            "peakClosingOverTravelRad": 0.015177210411670972,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.164334020024745,
+            "peakGearboxOutputNm": 7.164334020024745,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.18400000000000105,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 87.37383458278484,
+            "maxPanWatts": 180.6044469324289
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.043601887215834,
+            "peakClosingOverTravelRad": 0.015177176983360186,
+            "peakPhaseA": 30,
+            "peakClutchNm": 7.175581867908069,
+            "peakGearboxOutputNm": 7.175581867908069,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.1839999999999975,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 87.37364971103835,
+            "maxPanWatts": 179.48059335213972
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6489034,
+            "simultaneousBranchV": 11.124058432504473,
+            "conservativeBranchV": 10.647932089690741,
+            "lowestBusV": 11.1962457
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6496863,
+            "simultaneousBranchV": 11.12967511885827,
+            "conservativeBranchV": 10.652606633157117,
+            "lowestBusV": 11.1959061
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.699536,
+            "simultaneousBranchV": 10.128959914119612,
+            "conservativeBranchV": 9.27301975323206,
+            "lowestBusV": 9.8962625
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.7009506,
+            "simultaneousBranchV": 10.134219330426546,
+            "conservativeBranchV": 9.279858677026901,
+            "lowestBusV": 9.8987667
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 66.32700000000114,
+        "minSupportMarginMm": 1.832898,
+        "supportVsBaseline1828Mm": 0.004601999999999995,
+        "minConservativePanBranchV": 9.27301975323206,
+        "minSimultaneousBranchV": 10.128959914119612,
+        "summary": {
+          "peakOpeningDeg": 3.35694286363207,
+          "peakGearboxNm": 9.475719998905785,
+          "clutchSlipped": false,
+          "worstSettleS": 0.18400000000000105,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      },
+      "clutch16_5_rotor9e6": {
+        "panSim": {
+          "file": "W6-rearAbuse-c16.5-rotor9e-6.pan.json",
+          "sha256": "94a0dcbbafca619d8b594b599bd4a568fc30b63e40dbd5f00b78931eebc0c207"
+        },
+        "field": {
+          "file": "W6-rearAbuse-c16.5-rotor9e-6.field-bus.json",
+          "sha256": "142e089aaf2d92854cf7a03a39e6b7073b57ac802134fd0e98057ad605e730fe"
+        },
+        "config": {
+          "drive": "limit",
+          "stop": {
+            "gapRad": 0,
+            "kNmPerRad": 5418.96917696776,
+            "cNmsPerRad": 15.8
+          },
+          "preload": {
+            "tpNm": 1.5,
+            "rangeRad": 1.2566370614359172
+          },
+          "panProps": {
+            "movingShopStockKg": 3.6454990612459555,
+            "movingShopCentreMm": [
+              289.82107177500677,
+              -0.7467819128632048,
+              609.1446665185196
+            ],
+            "movingStockInertiaKgM2": 0.0948751726857903
+          },
+          "driveCut": {
+            "thetaRad": -0.061086523819801536
+          },
+          "softStop": {
+            "thetaRad": -0.08726646259971647,
+            "kNmPerRad": 4050,
+            "cNmsPerRad": 12.798
+          },
+          "clutch": {
+            "slipNm": 16.5,
+            "rotorInertiaKgM2": 9e-06
+          },
+          "pulses": [
+            {
+              "fromCarryS": 2,
+              "durS": 0.02,
+              "ax": 180.01
+            }
+          ]
+        },
+        "trips": {
+          "nominal/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.6324386536221667,
+            "peakClosingOverTravelRad": 0.015377897008743924,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 13.003988731023085,
+            "peakGearboxOutputNm": 13.003988731023085,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.21899999999999764,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 88.14738416751652,
+            "maxPanWatts": 181.86282736900145
+          },
+          "nominal/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.4550563357226927,
+            "peakClosingOverTravelRad": 0.015377818301336443,
+            "peakPhaseA": 30.000000000000004,
+            "peakClutchNm": 13.004175481421752,
+            "peakGearboxOutputNm": 13.004175481421752,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.2149999999999892,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 88.14694523203278,
+            "maxPanWatts": 180.53689069562955
+          },
+          "adverse/coral-A/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.5108928448920755,
+            "peakClosingOverTravelRad": 0.015594557442417,
+            "peakPhaseA": 30,
+            "peakClutchNm": 13.056053703629834,
+            "peakGearboxOutputNm": 13.056053703629834,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.20399999999999707,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 89.09029253235612,
+            "maxPanWatts": 180.23027825464325
+          },
+          "adverse/coral-B/30": {
+            "lost": false,
+            "released": true,
+            "peakOpeningDeg": 3.305122448724941,
+            "peakClosingOverTravelRad": 0.015594524214532557,
+            "peakPhaseA": 30,
+            "peakClutchNm": 13.056125287538327,
+            "peakGearboxOutputNm": 13.056125287538327,
+            "clutchSlipped": false,
+            "slipEvents": 0,
+            "slipS": 0,
+            "settleS": 0.2079999999999984,
+            "settledBeforeTipStart": true,
+            "stowStopPeakNm": 89.09011195308176,
+            "maxPanWatts": 179.28251862290398
+          }
+        },
+        "voltage": {
+          "nominal/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.64709,
+            "simultaneousBranchV": 11.123928560763972,
+            "conservativeBranchV": 10.649712447324351,
+            "lowestBusV": 11.1961695
+          },
+          "nominal/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 11.6478438,
+            "simultaneousBranchV": 11.128720274588751,
+            "conservativeBranchV": 10.653559373148177,
+            "lowestBusV": 11.1958364
+          },
+          "adverse/coral-A/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6971122,
+            "simultaneousBranchV": 10.12764424008474,
+            "conservativeBranchV": 9.274638943147224,
+            "lowestBusV": 9.8964819
+          },
+          "adverse/coral-B/30": {
+            "panPhaseA": 30.0,
+            "chassisPhase": "turn",
+            "busV": 10.6984873,
+            "simultaneousBranchV": 10.1322727144248,
+            "conservativeBranchV": 9.280803544480015,
+            "lowestBusV": 9.8989656
+          }
+        },
+        "fieldCases": 12,
+        "held": true,
+        "resetsMet": 12,
+        "minResetMarginMs": 63.12700000000149,
+        "minSupportMarginMm": 1.8339429999999999,
+        "supportVsBaseline1828Mm": 0.005646999999999958,
+        "minConservativePanBranchV": 9.274638943147224,
+        "minSimultaneousBranchV": 10.12764424008474,
+        "summary": {
+          "peakOpeningDeg": 3.6324386536221667,
+          "peakGearboxNm": 13.056125287538327,
+          "clutchSlipped": false,
+          "worstSettleS": 0.21899999999999764,
+          "rollOutCustodyAndScore": true,
+          "criteria": {
+            "supportAtLeastBaseline": true,
+            "allResets": true,
+            "conservativeBranch9V": true,
+            "simultaneousBranch9V": true
+          }
+        }
+      }
+    }
+  },
+  "carrySupportMonitor": {
+    "powered30A": {
+      "noevent": {
+        "file": "support/S6-noevent.pan.json",
+        "sha256": "099b48298fa7741cd8270cfe06bae9f3b39307654ef26c42a0786bfd00ac5636",
+        "longestInterruptionS": 0,
+        "totalInterruptedS": 0,
+        "minPanLoadN": 7.533010385172338,
+        "lostOrNotReleased": []
+      },
+      "frontAbuse": {
+        "file": "support/S6-frontAbuse.pan.json",
+        "sha256": "932b978c759a21b7b747ba628c71f926ed4ebfa3ebc0f4c2d55560f96cd40204",
+        "longestInterruptionS": 0.09480000000000169,
+        "totalInterruptedS": 0.3262999999999804,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o3g50": {
+        "file": "support/S6-o3g50.pan.json",
+        "sha256": "93a56727e94086af3b8c7826d06cfd3601e5553628ba2239dc7105c20e6f8ab4",
+        "longestInterruptionS": 0.03690000000000003,
+        "totalInterruptedS": 0.04220000000000018,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o5g50": {
+        "file": "support/S6-o5g50.pan.json",
+        "sha256": "2ae93e1fc09d89b16debf5ff641cd2edde0ffcd7c853f4a84462c45509606d48",
+        "longestInterruptionS": 0.0849000000000014,
+        "totalInterruptedS": 0.1092000000000021,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o8g50": {
+        "file": "support/S6-o8g50.pan.json",
+        "sha256": "b5f2780347c1533180741f05121c1e49b9f1e658037dfa5f01d791bbee3f2693",
+        "longestInterruptionS": 0.11430000000000225,
+        "totalInterruptedS": 0.3177999999999813,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "rearAbuse": {
+        "file": "support/S6-rearAbuse.pan.json",
+        "sha256": "763fc791097c880c2782e450312114240ae2e790191a108ad4e74575a25bdfc1",
+        "longestInterruptionS": 0.07290000000000106,
+        "totalInterruptedS": 0.16929999999999767,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      }
+    },
+    "latchedPanControl": {
+      "noevent": {
+        "file": "support-latched/L6-noevent.pan.json",
+        "sha256": "d98010c5cb75b3cab425ca06bd6d3b61aed150cd2e9d5266a9c6ed9e591f04e4",
+        "longestInterruptionS": 0,
+        "totalInterruptedS": 0,
+        "minPanLoadN": 7.692399636310295,
+        "lostOrNotReleased": []
+      },
+      "frontAbuse": {
+        "file": "support-latched/L6-frontAbuse.pan.json",
+        "sha256": "75cf37caed61f159ec8f031fec00b9bf49a75fc58ba9f8a408c0a6faa693861d",
+        "longestInterruptionS": 0.13600000000000134,
+        "totalInterruptedS": 0.19429999999999492,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o3g50": {
+        "file": "support-latched/L6-o3g50.pan.json",
+        "sha256": "6fc0cd15b172a7cf4ff6184b4d5b283e1fd5d5a0167387f392cfd91d84cc9fe3",
+        "longestInterruptionS": 0.025399999999999902,
+        "totalInterruptedS": 0.028099999999999885,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o5g50": {
+        "file": "support-latched/L6-o5g50.pan.json",
+        "sha256": "780d903df3ba66f6b40595aa6fe6ce4ea2ad477cfb101ba4340f20069a58fd6f",
+        "longestInterruptionS": 0.06630000000000087,
+        "totalInterruptedS": 0.08540000000000142,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "o8g50": {
+        "file": "support-latched/L6-o8g50.pan.json",
+        "sha256": "ce8b3a9dbfc7eedd778e0b8459cae6ca41bffce14ea92afa5fb531b2326e84a6",
+        "longestInterruptionS": 0.0814000000000013,
+        "totalInterruptedS": 0.16419999999999824,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      },
+      "rearAbuse": {
+        "file": "support-latched/L6-rearAbuse.pan.json",
+        "sha256": "0aa19a346aceb7df6d1f543e8e30f31b4dbead87e2643eba1baf3ebb15a2772d",
+        "longestInterruptionS": 0.07560000000000114,
+        "totalInterruptedS": 0.12160000000000246,
+        "minPanLoadN": 0,
+        "lostOrNotReleased": []
+      }
+    },
+    "unpoweredSpring2gReference": {
+      "longestInterruptionS": 0.01409999999999997
+    }
+  },
+  "findings": [
+    "Powered at 30 A, every event keeps both pipes in the pan, releases them and scores 12/12 with all resets met, including the front bumper strike and 8 g / 50 ms. Peak opening: 3 g 3.9 deg, 5 g 14.3 deg, 8 g 48.1 deg, front strike 51.5 deg, rear strike 3.4 deg (adverse trips govern).",
+    "Clutch: with the 3e-6 kg m2 rotor the clutch never slips (peak 12.3 N m in the front strike), so gearbox torque = clutch torque <= 12.3 N m; 16.5 and 18 N m settings give identical results. With a 9e-6 rotor it slips for 4-12 ms in the front strike and 8 g events and caps the gearbox at 16.5 N m.",
+    "Settling back to stow: 0.11-0.16 s (3 g), 0.24-0.32 s (5 g), 0.27-0.41 s (8 g), 0.31-0.40 s (front), 0.14-0.18 s (rear).",
+    "Support criterion: the solver carry-support test is interrupted by EVERY event (3 g 24-37 ms, 5 g 41-85 ms, 8 g 74-114 ms, front 82-95 ms, rear 67-73 ms); the article hops and re-seats. A perfectly latched pan shows the same hop (3 g 24-25 ms, front 134-136 ms), so no latch, holding current, stiffer stop or stow angle removes it. It is an article-retention (lid/guide) question, not a pan-hold failure. Roll-out custody is kept in all cases.",
+    "Voltage: the conservative branch bound (lowest bus paired with peak pan power) falls below 9 V for the 8 g (8.82 V) and front-strike (8.81 V) adverse trips and is 9.14 V at 5 g. The simultaneous bus at the 30 A pan instant is >= 10.14 V, giving a simultaneous branch of >= 9.09 V (front strike; 9.45 V at 8 g); the shortfall is in the conservative pairing, not a simultaneous sag.",
+    "Support margin after these events is >= 1.8263 mm (3 g, -2.0 um vs baseline) and >= 1.8286 mm for 5 g and stronger; reset margins fall to 38-40 ms for 8 g and the front strike."
+  ],
+  "smallestFix": {
+    "needed": "No pan-hold fix is needed for powered custody. The two open items are (1) the article hop under the continuous-support test and (2) the conservative 9 V bound for >= 8 g or bumper strikes.",
+    "holdOptionsAssessed": {
+      "latch": "latched-pan control: hop persists (front strike 136 ms); a latch would also add mechanism and does not help the voltage bound beyond removing the recovery current",
+      "higherHoldingCurrent": "raises pan power during the event and worsens the conservative branch bound; custody already kept at 30 A",
+      "stifferStop": "only acts in closing; the events that matter open the pan",
+      "stowAngle": "not evaluated quantitatively; would change every feed/release clock and needs the full 12-case basis again"
+    },
+    "recommendation": "Accept powered holding; decide whether the continuous-support test applies to abuse/peer events (if yes, add an article retainer and retest), and either accept the conservative bound for >= 8 g events or limit pan current during carry recovery (e.g. 20 A carry-phase limit) and re-run."
+  },
+  "limits": [
+    "Peer contact modeled as rigid chassis acceleration pulses; no bumper force history.",
+    "Clutch is ideal Coulomb with a fixed set torque; breakaway scatter and stick-slip not modeled.",
+    "Rotor inertia 3e-6 kg m2 assumed (sensitivity 9e-6).",
+    "Branch voltage uses the existing clocked-bus envelope; event current is not added to the chassis drive load beyond the replayed pan current."
+  ]
+}

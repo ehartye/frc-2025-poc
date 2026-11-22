@@ -1,0 +1,168 @@
+{
+ "schema": "frc-fabrication-plan/v1",
+ "id": "red2-pan-r3-special-routes",
+ "revision": 3,
+ "assumption": "all-required-tools-assumed-for-design-only",
+ "evidence": [
+  {
+   "id": "geometry-r3",
+   "kind": "design-record",
+   "description": "Pan r3 offline geometry (sections, stock and bounds per part)",
+   "locator": "iterations/002/design/pan/geometry.json",
+   "revision": "002-pan-r3",
+   "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313",
+   "recordedOn": "2026-11-21",
+   "reviewDue": "2026-12-21"
+  }
+ ],
+ "parts": [
+  {
+   "id": "lip-root-clip",
+   "description": "Port and starboard lip root clips: 1/16 in 5052-H32 strip, 65 mm long, one 95.2 deg bend (geometry.json 'Port/Starboard lip root clip')",
+   "designRef": {
+    "id": "red2-pan-geometry-002-pan-r3",
+    "revision": 3,
+    "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313"
+   },
+   "routeCoverage": "partial",
+   "routes": [
+    {
+     "id": "shear-and-hand-brake",
+     "description": "Shear the strip, bend 95.2 deg on a hand bending (finger) brake, drill and dimple for the rivets",
+     "operations": [
+      {
+       "id": "shear-blank",
+       "processId": "sheet-shearing",
+       "machineClass": "sheet-shear",
+       "materialId": "5052-H32-sheet-1.5875mm",
+       "setupEnvelopeMm": [
+        120.0,
+        40.0,
+        10.0
+       ],
+       "envelopeBasis": "stock-and-fixture-XYZ-no-rotation",
+       "allowedDeviationMm": 0.25,
+       "fixtureIds": null,
+       "operatorCapabilityId": null,
+       "basis": "drawing-requirement",
+       "evidenceRefs": [
+        "geometry-r3"
+       ],
+       "unresolvedInputs": []
+      },
+      {
+       "id": "bend-95.2",
+       "processId": "press-brake-bending",
+       "machineClass": "hand-bending-brake",
+       "materialId": "5052-H32-sheet-1.5875mm",
+       "setupEnvelopeMm": [
+        120.0,
+        40.0,
+        30.0
+       ],
+       "envelopeBasis": "stock-and-fixture-XYZ-no-rotation",
+       "allowedDeviationMm": 0.22,
+       "fixtureIds": null,
+       "operatorCapabilityId": null,
+       "basis": "drawing-requirement",
+       "evidenceRefs": [
+        "geometry-r3"
+       ],
+       "unresolvedInputs": [
+        "bend radius and springback allowance for 5052-H32 at 1/16 in; check the 95.2 deg with a protractor gauge (0.22 mm = 1 deg over the 12.7 mm leg)"
+       ]
+      },
+      {
+       "id": "drill-and-dimple",
+       "processId": "drilling",
+       "machineClass": "drill-press",
+       "materialId": "5052-H32-sheet-1.5875mm",
+       "setupEnvelopeMm": [
+        120.0,
+        40.0,
+        30.0
+       ],
+       "envelopeBasis": "stock-and-fixture-XYZ-no-rotation",
+       "allowedDeviationMm": 0.2,
+       "fixtureIds": null,
+       "operatorCapabilityId": null,
+       "basis": "drawing-requirement",
+       "evidenceRefs": [
+        "geometry-r3"
+       ],
+       "unresolvedInputs": [
+        "dimple die for the 100 deg rivet heads"
+       ]
+      }
+     ]
+    }
+   ],
+   "unresolvedInputs": [
+    "school hand-brake capacity for 65 mm of 1/16 in 5052-H32 is not registered"
+   ]
+  },
+  {
+   "id": "waterjet-hex-plates",
+   "description": "Socket-post plates (3/8, 3/8, 3/16 in) and the limit cam (1/8 in) with the 1/2 in hex cut in the same 2D waterjet profile; replaces the r2 broached bar",
+   "designRef": {
+    "id": "red2-pan-geometry-002-pan-r3",
+    "revision": 3,
+    "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313"
+   },
+   "routeCoverage": "partial",
+   "routes": [
+    {
+     "id": "waterjet-and-gauge",
+     "description": "Abrasive waterjet profile including the 12.72 mm hex, deburr, hand-fit the hex to a 1/2 in hex go gauge, drill and tap the screw holes",
+     "operations": [
+      {
+       "id": "waterjet-profile",
+       "processId": "abrasive-waterjet-cutting",
+       "machineClass": "abrasive-waterjet",
+       "materialId": "6061-T6-plate-9.525mm",
+       "setupEnvelopeMm": [
+        60.0,
+        190.0,
+        9.525
+       ],
+       "envelopeBasis": "stock-and-fixture-XYZ-no-rotation",
+       "allowedDeviationMm": 0.1,
+       "fixtureIds": null,
+       "operatorCapabilityId": null,
+       "basis": "drawing-requirement",
+       "evidenceRefs": [
+        "geometry-r3"
+       ],
+       "unresolvedInputs": [
+        "waterjet taper on 3/8 in plate; cut the hex undersize and file to the gauge if the taper exceeds 0.1 mm"
+       ]
+      },
+      {
+       "id": "tap-holes",
+       "processId": "tapping",
+       "machineClass": "drill-press",
+       "materialId": "6061-T6-plate-9.525mm",
+       "setupEnvelopeMm": [
+        60.0,
+        190.0,
+        30.0
+       ],
+       "envelopeBasis": "stock-and-fixture-XYZ-no-rotation",
+       "allowedDeviationMm": 0.1,
+       "fixtureIds": null,
+       "operatorCapabilityId": null,
+       "basis": "drawing-requirement",
+       "evidenceRefs": [
+        "geometry-r3"
+       ],
+       "unresolvedInputs": []
+      }
+     ]
+    }
+   ],
+   "unresolvedInputs": [
+    "school waterjet access is not registered; the same hex can be cut by a qualified outside waterjet service"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,314 @@
+{
+  "fusionSource": {
+    "id": "2025-red2-engineering-robot",
+    "authoritySha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+  },
+  "schema": "agent-frc/retrospective@1",
+  "number": 1,
+  "id": "red2-pan-r3",
+  "decision": "Retire the separate overturning tower feet and REV-specific chassis saddle architecture. Build a new two-sill chassis around an actual configured module and test the single-axis pan on the same two Red 2 L1 delivery clocks.",
+  "preservation": "Private branch at ac61294 captured the outgoing source, algorithms and results. External private content-addressed custody preserves the exact source master, separately identified experimental 301 native, STEP, scored-role studies, measurement records, two rendered views and three wider immutable backup packages. The issued public exhibit is preserved. Private OEM format-specific publication permissions remain unresolved.",
+  "evidence": {
+    "original-master": {
+      "kind": "design",
+      "source": "artifacts/fusion-authority/receiver-service-original-vendor-motors-and-plates.f3d | receiver-service-original-vendor-motors-and-plates-r1",
+      "sha256": "a53b05b14a730ea55b01f1e4780446fa894bdf8cf6121ae2e5cc33015d74932f"
+    },
+    "original-register": {
+      "kind": "notes",
+      "source": "cad/fusion-authority.json | Last registered private master of the outgoing lineage",
+      "sha256": "70075dfc2a95873511cd0ebb8647b96203fd8572373012831b392e53a0299693"
+    },
+    "pan-301": {
+      "kind": "design",
+      "source": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/checked-301.f3d | Cold-reopened experimental 301-body native construction checkpoint in stow. Four intended complete swerve modules were absent.",
+      "sha256": "51d0d68d9be9b47eddb01155e4e40b5171946798062b846dd1cbfedd0bc482ee"
+    },
+    "pan-301-step": {
+      "kind": "design",
+      "source": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/checked-301.step | Derived full 301-body assembly at -70 degrees",
+      "sha256": "8b910727e915f035a42e481fa30d7d2cf53cf1e090af2a245b0811316abff175"
+    },
+    "guarded-pan-floor": {
+      "kind": "element",
+      "source": "artifacts/red2-integrated/pan-native/independent-stock/1.step | Independent single floor stock in robot-space machining datums",
+      "sha256": "add27cf4693e11eb1b0025a7c2cbf6cb8a1bfb6de2266a24c341941ffed54356"
+    },
+    "overview": {
+      "kind": "image",
+      "source": "artifacts/iteration-preparation/red2-301/outgoing-301-stowed.png | 301 body three-quarter at -70 degrees stow in original world frame, 1600 by 1100",
+      "sha256": "31565c1de54853d7046ef3c268998db4e26f51717552a3ba7db2915b0454a18f"
+    },
+    "shaft-detail": {
+      "kind": "image",
+      "source": "artifacts/iteration-preparation/red2-301/outgoing-301-shaft-stack.png | 10 original source solids isolated at the same world transform and stow angle",
+      "sha256": "f4703a1987b99fd3f9fb6c2f49bfbba734c98cb1ddd3ee7cd6c8d35ee03eb8a2"
+    },
+    "image-origins": {
+      "kind": "notes",
+      "source": "artifacts/iteration-preparation/red2-301/images.json | Cameras, pose, original archive hash, derivative hash, roster and size",
+      "sha256": "d94e842545b2531ab290e6341057270a9e4c5c6c1111b4d9c1d0b8757cea0ff0"
+    },
+    "stock-and-seats": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/four-seats-and-shapes.json | four-seats-and-shapes.json",
+      "sha256": "3eebb00f4d1029d65692bbb91cf0d2ea806c8ce6d597b4b04aa2d64d67ec728b"
+    },
+    "native-motion": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/moving-stack-issued/r3-moving-proxy-short-01.json | r3-moving-proxy-short-01.json",
+      "sha256": "48f5b298745cf53dea430a319cb4dd718d9869142ed7572ed9223785b64b19e6"
+    },
+    "match-requirement": {
+      "kind": "result",
+      "source": "experiments/red2-successor/study.json | study.json",
+      "sha256": "7112fd6731aabb3bbfcd187a4710d288004ba32693e10ac6b7b1b2e5fe827179"
+    },
+    "comparison": {
+      "kind": "result",
+      "source": "experiments/red2-successor/comparison.json | comparison.json",
+      "sha256": "d29bcf345f4b6ddb37963f2cc83b4ed22366320c5980faed0e2b7f93c1445eef"
+    },
+    "release-negative": {
+      "kind": "result",
+      "source": "experiments/red2-successor/straight-gate-field-control.json | straight-gate-field-control.json",
+      "sha256": "69e65356ee498b289d377e6737edb7d7d7c628644356e04228e97d07af1703f2"
+    },
+    "selection": {
+      "kind": "result",
+      "source": "cad/red2-split-drop/pan-downselect.json | pan-downselect.json",
+      "sha256": "cb20105ba7a898a4d8a06229672659b9ff3ac692b33233072f6abcbe6e462fc1"
+    },
+    "foundation": {
+      "kind": "result",
+      "source": "cad/red2-split-drop/chassis-foundation-r2.json | chassis-foundation-r2.json",
+      "sha256": "74e7565af7d34db21cf96fd42166a62a4107db086bd57e19f13d812a28bbbbb3"
+    },
+    "transfer-clock": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/single-pivot-rim-field/summary.json | single-pivot-rim-field/summary.json",
+      "sha256": "66766b6342971e738e24baa22add55f162979ae35d08647952a759c7b1ab9560"
+    },
+    "reset-history": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/single-pivot-rim-field/post-impact-reset.csv | single-pivot-rim-field/post-impact-reset.csv",
+      "sha256": "e65d80b57f40b921bd4e1b15f5d981eead1bec52f84d00362f74c0608a106797"
+    },
+    "stock-r2": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-native/first-party-stock-r2.json | pan-native/first-party-stock-r2.json",
+      "sha256": "84c991d0632ad623974a227524c7a315725934e572825b5d7c880b0df78c8fe9"
+    },
+    "unilateral-foot": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/r3-tower-foot-reactions-radial-center.json | r3-tower-foot-reactions-radial-center.json",
+      "sha256": "15a2f199ac98cd8265988b625b0ccb05a3e49db7c58b03cebc36a2ff1da951d9"
+    },
+    "straight-sleeve": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/r3-counterbrace-straight-withdrawal.json | r3-counterbrace-straight-withdrawal.json",
+      "sha256": "d5f83e6a392c07d26e4f6aedc9f7c71f2fe1364275a147e02dc2e236be115f8f"
+    },
+    "side-foot": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/sidewall-foot-strength.json | sidewall-foot-strength.json",
+      "sha256": "cd09bad8fe4d077a156bc2d71210313dd639f55cebb4c4a4fe4d8ca4baa5e73b"
+    },
+    "welded-spool": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/welded-spool-feasibility.json | welded-spool-feasibility.json",
+      "sha256": "7ad2f9ee9b8fb1bc83ef0cdf8970c5bbdde687d9fc0d483035b13c15daec038e"
+    },
+    "joined-frame-load": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/two-sill-cartridge-selected-duty.json | two-sill-cartridge-selected-duty.json",
+      "sha256": "12f1611420a508606a59d9fc96e587bc2ccefa30e3d7fbf00a6345cd30f33457"
+    },
+    "joined-frame-fit": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/two-sill-cartridge-fit.json | two-sill-cartridge-fit.json",
+      "sha256": "1cf078cd9a7b0afdbee7893c6e1afbace361703db26877c4ac6be8638743e3ac"
+    },
+    "support-clocks": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/pan-thrust/r3-all-clock-station-reactions.json | r3-all-clock-station-reactions.json",
+      "sha256": "94c517853410dfc78a6506a96d1e78cc8d97b5ecba7fa29d1d90b335a8987b78"
+    },
+    "bearings-closed": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/plugin-qa/current-upper-review-20261121/r3-installed-cages.json | r3-installed-cages.json",
+      "sha256": "709858bcfe4ef1721df0c3aa9e4b0e946005df279aa15641366ce8ef49b24c1f"
+    },
+    "bearings-before-closure": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/plugin-qa/current-upper-review-20261121/r3-shank-clearance.json | r3-shank-clearance.json",
+      "sha256": "0b91c10f6fd8a9b1c9b85a633c9b31820318686e1c1a4c7b5cd2744d9edaf5c9"
+    },
+    "loaded-seats": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/plugin-qa/current-upper-review-20261121/r3-bearing-takeup.json | r3-bearing-takeup.json",
+      "sha256": "ccb4d3961780ba50da3ea7c205fdabe11206af41b97c316c7e7ba101e848a328"
+    },
+    "drop-in-negative": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/module-option/sds-2023-fl-fit.json | sds-2023-fl-fit.json",
+      "sha256": "c0797d2feeb8748a84591a0843f5536b03b79d65d38149ea4a020d4603d7ceac"
+    },
+    "six-seats": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/module-option/sds-six-installed-datums.json | sds-six-installed-datums.json",
+      "sha256": "da5c21ca215540aacae08006a2b1b1742e8ff7602f647c89305e3aebae061ece"
+    },
+    "trimmed-corner": {
+      "kind": "result",
+      "source": "artifacts/red2-integrated/module-option/sds-l2-fl-cartridge.json | sds-l2-fl-cartridge.json",
+      "sha256": "8466c240a9dfe8692d7becfbd8bf6e6807b01dc8bc882b9131a150eabefa5426"
+    },
+    "module-options": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/supplier-sources/sds-mk4i-neo/configuration-20261121.json | configuration-20261121.json",
+      "sha256": "7fb6a4b961769925601fb4628c8831dcb3bfa2eb39ea7200e005f5dbd16a554f"
+    },
+    "archive-301": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/2025/pan-301-51d0d68d-register.zip | pan-301-51d0d68d-register.zip",
+      "sha256": "5883873858e4fc55eff8d31fb9e3cfac00de57a785dfecb4630c0b79634c5945"
+    },
+    "archive-298": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/2025/pan-r3-298-76f9f778-attachments.zip | pan-r3-298-76f9f778-attachments.zip",
+      "sha256": "e322fca3928cdcad253d5ae3ededb0bc42e55d21f8fbb68c507ac7d4308e2c5b"
+    },
+    "archive-r5": {
+      "kind": "result",
+      "source": "WORKSTATION/Documents/FRC Native/2025/r5-evidence-a1370ca.zip | r5-evidence-a1370ca.zip",
+      "sha256": "43bae4f69c4db159a009d850973f4240d1eab6ade2c39af5f14ca38fa4d83983"
+    }
+  },
+  "highlights": [
+    {
+      "finding": "The 301-body checkpoint cold-reopened with the moving washer, shim, cap and second washer on the shaft. Independent stock shape, seat area and world-point checks identify the seven fixed or moving articles. The full overview and ten-body detail use the same saved stow.",
+      "evidence": [
+        "overview",
+        "shaft-detail",
+        "image-origins",
+        "pan-301",
+        "pan-301-step",
+        "native-motion",
+        "stock-and-seats"
+      ]
+    },
+    {
+      "finding": "The 340 mm guarded pan retained all 40 measured carry starts. The matched variant without its guides lost 16. All 120 conditional delivery cases stayed supported through reset in their modeled receiver. Full-robot recognized scores were zero.",
+      "evidence": [
+        "selection",
+        "transfer-clock",
+        "reset-history"
+      ]
+    },
+    {
+      "finding": "Across the matched field inputs, the two-sill span at x110/250 cleared the tool probes and retained 443.52 N minimum clamp margin under the stated 3 kN +/-35% preload and 20% loss assumptions.",
+      "evidence": [
+        "joined-frame-load",
+        "joined-frame-fit",
+        "support-clocks"
+      ]
+    },
+    {
+      "finding": "The 121-body SDS L2 source passed parked fit and the 180 mm withdrawal screen after a local corner change. The six authentic mounting axes and both seat faces were measured on the period source.",
+      "evidence": [
+        "module-options",
+        "six-seats",
+        "trimmed-corner"
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "finding": "The R5 split-drop upper weighed 11.701104 kg before motors and attachments against an 8.2 kg allocation. The earlier tipping layout struck the field on the original motion. The two-roller concept failed matched adverse carry.",
+      "evidence": [
+        "selection",
+        "comparison",
+        "release-negative",
+        "archive-r5"
+      ]
+    },
+    {
+      "finding": "The original unilateral tower foot failed equilibrium in all 200 applied peak rows. Sixty-eight required positive hold-down. Straight sleeves pull through, and the offset side-foot station lost clamp under combined torque and force. The weld-in alternative exceeded its chosen heat-affected-zone allowable.",
+      "evidence": [
+        "unilateral-foot",
+        "straight-sleeve",
+        "side-foot",
+        "welded-spool"
+      ]
+    },
+    {
+      "finding": "Both original cage packages and 16 balls can occupy their final seated positions but the closed 301 cartridge obstructs axial insertion. The six cap screws and rolling packs remained outside the native issue.",
+      "evidence": [
+        "bearings-closed",
+        "bearings-before-closure",
+        "loaded-seats",
+        "pan-301"
+      ]
+    },
+    {
+      "finding": "Dropping the 2023 SDS module into the old corner caused 22 installed overlap pairs in the inward clock. The revision-specific REV arrangement also lacked validated parts. The trimmed L2 corner covered 2 of 43 steering bodies before the outgoing work stopped. Permanent frame joints, steering and loaded robot duty remain open.",
+      "evidence": [
+        "drop-in-negative",
+        "trimmed-corner",
+        "module-options",
+        "foundation"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "observation": "A metered endpoint or visually seated assembly cannot establish a sensed match delivery.",
+      "nextChange": "Run the original two CORAL identities from acquisition through sensed delivery and occupied reset on the same field clock. Use the simple fixed-path comparison if the integrated pan fails.",
+      "evidence": [
+        "match-requirement",
+        "transfer-clock",
+        "reset-history"
+      ]
+    },
+    {
+      "observation": "The torque path and simultaneous shear exceed the old independent feet.",
+      "nextChange": "Start the two-sill crossframe as original stock in the new design. Size positive attachment, tool access and combined forces through the new frame.",
+      "evidence": [
+        "unilateral-foot",
+        "side-foot",
+        "joined-frame-load",
+        "joined-frame-fit"
+      ]
+    },
+    {
+      "observation": "Final bearing contacts and cold article transforms did not establish a buildable closed-stack insertion sequence.",
+      "nextChange": "Design real preclosure access, reversible pack retention and a documented shaft/clearance tolerance in the new assembly.",
+      "evidence": [
+        "shaft-detail",
+        "bearings-closed",
+        "bearings-before-closure",
+        "loaded-seats"
+      ]
+    },
+    {
+      "observation": "Only a specific installed supplier configuration supports corner measurements.",
+      "nextChange": "Use a newly registered exact 121-body L2 configuration, test the issued wheel tread variant and fasteners, motor and sensing chain, full steer travel, bumper proximity, landing and module withdrawal in the new chassis.",
+      "evidence": [
+        "six-seats",
+        "trimmed-corner",
+        "module-options"
+      ]
+    },
+    {
+      "observation": "A guarded inlet improved matched adverse acquisition with a single pivot.",
+      "nextChange": "Transfer only the 430 by 322 mm floor reference into the fresh design. Reauthor its editable shop definition and requalify adjoining guides, shaft height, drive, service and payload support.",
+      "evidence": [
+        "guarded-pan-floor",
+        "selection",
+        "stock-r2"
+      ]
+    }
+  ],
+  "files": {}
+}

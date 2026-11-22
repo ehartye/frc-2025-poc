@@ -1,0 +1,92 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "sourceSweepSha256": "ee5b65dc12ef0f5db5456a6c6e845c7b0fa1e4557f2b2adfa5c5a3447c0eac6e",
+  "cases": [
+    {
+      "name": "Fixed wall, stopped ride",
+      "ownKg": 68.54950304514392,
+      "otherKg": null,
+      "incomingNormalMs": [
+        1.8,
+        0
+      ],
+      "closingMs": 1.8,
+      "effectiveKg": 68.54950304514392,
+      "compressionEnergyJ": 111.05019493313316,
+      "strokeMm": 18.0,
+      "relativeStiffnessNPerMm": 685.4950304514393,
+      "ownPeakNormalN": -12338.910548125907,
+      "otherPeakNormalN": 12338.910548125907,
+      "ownImpulseToMaximumCompressionNs": -123.38910548125907
+    },
+    {
+      "name": "Equal physical peer stationary, two equal compliant bumpers in series",
+      "ownKg": 68.54950304514392,
+      "otherKg": 68.54950304514392,
+      "incomingNormalMs": [
+        1.8,
+        0
+      ],
+      "closingMs": 1.8,
+      "effectiveKg": 34.27475152257196,
+      "compressionEnergyJ": 55.52509746656658,
+      "strokeMm": 18.0,
+      "relativeStiffnessNPerMm": 342.74751522571967,
+      "ownPeakNormalN": -6169.455274062953,
+      "otherPeakNormalN": 6169.455274062953,
+      "ownImpulseToMaximumCompressionNs": -61.69455274062953
+    },
+    {
+      "name": "Equal physical peer approaching at the same speed, two equal bumpers",
+      "ownKg": 68.54950304514392,
+      "otherKg": 68.54950304514392,
+      "incomingNormalMs": [
+        1.8,
+        -1.8
+      ],
+      "closingMs": 3.6,
+      "effectiveKg": 34.27475152257196,
+      "compressionEnergyJ": 222.1003898662663,
+      "strokeMm": 36.0,
+      "relativeStiffnessNPerMm": 342.74751522571967,
+      "ownPeakNormalN": -12338.910548125907,
+      "otherPeakNormalN": 12338.910548125907,
+      "ownImpulseToMaximumCompressionNs": -123.38910548125907
+    },
+    {
+      "name": "Equal physical peer approaching at the same speed, total stroke capped at 18 mm",
+      "ownKg": 68.54950304514392,
+      "otherKg": 68.54950304514392,
+      "incomingNormalMs": [
+        1.8,
+        -1.8
+      ],
+      "closingMs": 3.6,
+      "effectiveKg": 34.27475152257196,
+      "compressionEnergyJ": 222.1003898662663,
+      "strokeMm": 18.0,
+      "relativeStiffnessNPerMm": 1370.9900609028787,
+      "ownPeakNormalN": -24677.821096251813,
+      "otherPeakNormalN": 24677.821096251813,
+      "ownImpulseToMaximumCompressionNs": -123.38910548125907
+    }
+  ],
+  "workingLimit": {
+    "material": "Unwelded 6061-T6 eligible extruded stock",
+    "yieldLowerBoundMPa": 240,
+    "factor": 2,
+    "workingMPa": 120,
+    "source": "Hydro Alloy 6061, 2019 data sheet p.2 and Coast 112418T61; see 2025-bumper-kit and coast-112418t61-rectangular-tube in the FRC research wiki.",
+    "limits": "A net-section beam screen. Fastener bearing, threads, local concentration, fatigue, HAZ and material condition require their own limits."
+  },
+  "scope": "The controlled rare case for these two free approach trips is a one-robot 1.8 m/s centered normal stop against a fixed wall, dissipating its full normal kinetic energy through 18 mm of combined stroke with a linearly increasing force. Event probability and physical foam dynamics are unmeasured. Off-center inertia-relief variants lower contact energy. The independent opposed pinch needs an imposed second external load. A moving opponent changes the relative speed, effective mass and compliance; the cap at 18 mm for two bodies is an adverse control, not a qualified league-wide survival envelope. No synchronized six-body peer run proving a strike or its likelihood is claimed. Routine 10.05 J docking is separate."
+}

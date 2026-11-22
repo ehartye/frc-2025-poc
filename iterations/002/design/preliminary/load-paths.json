@@ -1,0 +1,189 @@
+{
+  "schema": "red2/preliminary-load-paths@1",
+  "issue": "red2-002-preliminary-layout-A",
+  "step": {
+    "file": "iterations/002/design/preliminary/layout.step",
+    "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+  },
+  "paths": [
+    {
+      "load": "Guarded pan with seated pipe",
+      "kind": "support",
+      "chain": [
+        "Guarded pan socket post stacks (Y +/-164..188)",
+        "1/2 in hex drive shaft (port) and headed idler stub (starboard)",
+        "REV-21-1915 flanged hex bearings in both carriers (Y +/-195)",
+        "bearing carriers and gearbox plate",
+        "carrier landing clips 110 and 250",
+        "upper cradles X110 and X250",
+        "four 3/4 in angle cradle end clips",
+        "upper pan stringers +/-1",
+        "pan truss members 0-5 (plugged butt nodes M9)",
+        "truss landings and captive nutbars",
+        "pan crossmembers 110/250",
+        "inboard sills and structural perimeter"
+      ],
+      "reserves": [
+        "Guarded pan",
+        "Pan cassette",
+        "Chassis pan trusses and stringers",
+        "Chassis sills, decks and crossmembers",
+        "Chassis perimeter"
+      ],
+      "absent": [
+        "Shaft and stub sections inside the 2.1 mm journal partitions are not separate solids",
+        "Plugged butt node capacity (M9) and the rivet-nut pull-out rating (1.5 kN, unsourced)"
+      ]
+    },
+    {
+      "load": "Guarded pan",
+      "kind": "drive",
+      "chain": [
+        "NEO 550 case on the UltraPlanetary motor plate",
+        "UltraPlanetary 54.83:1 stages",
+        "required slip clutch (16.5-18 N m)",
+        "UltraPlanetary output face on the port gearbox plate (Y 216)",
+        "1/2 in hex through the port bearing",
+        "port socket post hex cut",
+        "pan cheek"
+      ],
+      "reserves": [
+        "Pan cassette",
+        "Guarded pan"
+      ],
+      "provisional": [
+        "Slip clutch: required but not designed or placed; reserved only inside the gearbox envelope",
+        "Absolute encoder for the -2 deg soft limit: not designed or placed",
+        "Reverse-limit cam and roller-lever switch: r3 sizing only; cam-to-carrier 1.85 mm, bearing flange unmodelled",
+        "UltraPlanetary stage stack and NEO 550 lengths unsourced (envelope ends at Y 350)"
+      ]
+    },
+    {
+      "load": "Guarded pan",
+      "kind": "stops",
+      "chain": [
+        "cheek stop lug stacks -> 6 mm stow pads and shims -> stow stop brackets on the X110 cradle",
+        "lower-flange strike blocks -> 18 mm soft-stop pads -> caps, posts and beams -> keeper plates under the X250 cradle",
+        "closing torsion spring: driver collar on the idler stub, fixed leg on the starboard carrier shoulder screw"
+      ],
+      "reserves": [
+        "Pan cassette"
+      ],
+      "absent": [
+        "Bench pad stiffness and loss (pan README open item 4)"
+      ]
+    },
+    {
+      "load": "CORAL pipe",
+      "kind": "support",
+      "chain": [
+        "pipe on the floor and slotted rear lip (partitioned 2.1 mm)",
+        "the Guarded pan support path"
+      ],
+      "reserves": [
+        "CORAL pipe",
+        "Guarded pan"
+      ],
+      "absent": [
+        "No retainer for the carry hop under peer events (study-06)"
+      ]
+    },
+    {
+      "load": "Each SDS module wheel",
+      "kind": "support",
+      "chain": [
+        "wheel and nitrile tread",
+        "wheel mounts A/B and shoulder axle",
+        "A035XPO turret bearing",
+        "module plates",
+        "six 10-32 x 2.5 in frame screws through the 50.8 mm socket rail",
+        "socket rails and cassettes",
+        "frame supports and sleeves",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Module steer sweeps",
+        "Module housings",
+        "Chassis cassettes and socket rails",
+        "Chassis perimeter"
+      ]
+    },
+    {
+      "load": "Each SDS module wheel",
+      "kind": "drive",
+      "chain": [
+        "drive NEO -> 14T/50T stage -> intermediate shaft -> bevel 1545 -> wheel (supplier L2 6.746:1)",
+        "steer NEO -> 14T/50T -> steering belt 320-5M-15 -> base pulley -> turret"
+      ],
+      "reserves": [
+        "Module housings",
+        "Module steer sweeps"
+      ],
+      "absent": [
+        "Gear mesh and belt wrap are supplier interfaces inside the housing partition"
+      ]
+    },
+    {
+      "load": "Dressed battery",
+      "kind": "support",
+      "chain": [
+        "battery case on the tray",
+        "end keepers",
+        "four hangers",
+        "inboard sill undersides"
+      ],
+      "reserves": [
+        "Dressed battery",
+        "Battery tray and retention",
+        "Chassis sills, decks and crossmembers"
+      ],
+      "absent": [
+        "Tray, hangers, keepers and top hold-down are undesigned (planning reserve)"
+      ]
+    },
+    {
+      "load": "Electronics",
+      "kind": "support",
+      "chain": [
+        "devices on standoffs",
+        "equipment sheets",
+        "deck keys, pedestals and tabs"
+      ],
+      "reserves": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Pan controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ],
+      "absent": [
+        "Device brackets and standoffs"
+      ]
+    },
+    {
+      "load": "Bumper ring",
+      "kind": "support",
+      "chain": [
+        "bumper backer",
+        "permanent bumper mounts",
+        "structural perimeter"
+      ],
+      "reserves": [
+        "Bumper ring",
+        "Chassis perimeter"
+      ],
+      "absent": [
+        "The 002 bumper mounts are not designed (R103 counts them)"
+      ]
+    }
+  ]
+}

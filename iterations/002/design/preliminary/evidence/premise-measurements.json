@@ -1,0 +1,106 @@
+{
+  "schema": "red2/premise-measurements@1",
+  "issue": "red2-002-preliminary-layout-A",
+  "designSha256": "82b445bb6111b839bd366df9bb3c423a31d6600a5f59d2e4971c195fea41a394",
+  "stepSha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860",
+  "receiveFace": "front",
+  "receiveReadyAfterFeedS": 1.4845452706139461,
+  "dockSupportMarginMm": 1.8302049999999999,
+  "stationArrivalMps": 2.465696950433656,
+  "inspectionHeavyKg": 51.562761969654176,
+  "weakPackMinBusV": 9.049600000000002,
+  "electronicsMinClearanceMm": 2.089062399999989,
+  "selectedArchitecture": "guarded pan",
+  "chassisInterface": "002-connected-machining-654-r6",
+  "panPackageRevision": "002-pan-r3",
+  "seatedClampScrews": "four 91251A542 seated in UNC-2B taps",
+  "provenance": {
+    "receiveFace": "This issue places the inlet mouth on the robot -X face, the face that docks to the station; the directional Field Lab names that pickup line the front edge (kickoff/selected-role.md cycle, commissioning.md).",
+    "receiveReadyAfterFeedS": {
+      "source": {
+        "file": "iterations/002/design/preliminary/evidence/P5-K5420-limit.field-bus.json",
+        "sha256": "05ec97d3fba4516594654e9e995fd0b5bb8bbb1b7c34738c7941ad4d65b56872"
+      },
+      "field": "runs[*/coral-A/30].readyBeforeCarryS",
+      "note": "ready = carry start 27.032 s - readyBeforeCarryS; feed at 21.1 s; r3 P5-K5420 30 A replay, worst case"
+    },
+    "dockSupportMarginMm": {
+      "source": {
+        "file": "artifacts/resume-20261121/pan-stop-01/pan-stop-study-05.json",
+        "sha256": "4fffe7cae5b1e58225d590b783e04758338e168bd9bfe6895d0e7f4676f43cfb"
+      },
+      "field": "replay.P5-K5420-limit.fourTerminal.minSupportMarginMm",
+      "note": "selected r3 proposal, powered at 30 A, 12 cases at the 12 mm dock stand-off"
+    },
+    "stationArrivalMps": {
+      "source": {
+        "file": "artifacts/resume-20261121/fixed-path-01/comparison.json",
+        "sha256": "824ba7280b1faebb3d8fbf304631ca18da33a7fa1d5326245a59e4564b42344b"
+      },
+      "field": "receiveScreen.arrivals.adverse.speedMps",
+      "note": "energy estimate, adverse admission"
+    },
+    "inspectionHeavyKg": {
+      "source": {
+        "file": "iterations/002/design/preliminary/budgets.json",
+        "sha256": "1f7482bd5903d0f6b8f059c03faeed2e6146a88dd46ffd355f998d3b279335ad"
+      },
+      "field": "sum of masses[].kg upper",
+      "note": "equals the budget receipt upper estimate"
+    },
+    "weakPackMinBusV": {
+      "source": {
+        "file": "iterations/002/design/preliminary/budgets.json",
+        "sha256": "1f7482bd5903d0f6b8f059c03faeed2e6146a88dd46ffd355f998d3b279335ad"
+      },
+      "field": "min over weak cases of Voc_low - sum(upper source A) x R_high"
+    },
+    "electronicsMinClearanceMm": {
+      "source": {
+        "file": "iterations/002/design/preliminary/layout.step",
+        "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+      },
+      "pair": [
+        "Chassis battery plug and bracket",
+        "Main power loom"
+      ],
+      "note": "installed scene, every electronics, wiring, battery and retention reserve against every other reserve"
+    },
+    "chassisInterface": {
+      "source": {
+        "file": "iterations/002/design/cad/fusion-authority.json",
+        "sha256": "6f7b5ce8cfe60ff928dd9e056968e6c25c44a8e3d98a4c4062e15f4225d70a02"
+      },
+      "field": "registered revision",
+      "note": "the 658-solid STEP of this issue is that revision plus the four seated screws"
+    },
+    "panPackageRevision": {
+      "source": {
+        "file": "iterations/002/design/pan/geometry.json",
+        "sha256": "e807b5adde1b11661d9421c1b193b61059a53639349065276a9a338f54057313"
+      },
+      "field": "revision"
+    },
+    "seatedClampScrews": {
+      "source": {
+        "file": "artifacts/resume-20261121/screws-place-01/native-receipt.json",
+        "sha256": "5dc040a1a86298f1244723f63af01f5308ad0363490f2dea9752ea7716e61136"
+      },
+      "field": "status",
+      "note": "four seated purchased screws placed; mechanical review pending"
+    },
+    "selectedArchitecture": {
+      "source": {
+        "file": "artifacts/resume-20261121/fixed-path-01/comparison-02.json",
+        "sha256": "b2a359480cd5d1fec88590ebf1e6a926527d762d993a8a97e9134be553253700"
+      },
+      "field": "verdict",
+      "value": {
+        "battery": "open",
+        "result": "FAIL",
+        "selected": "guarded pan (detail the pan; measure the stow stop first)",
+        "reason": "Every fixed-path variant, undamped and damped, loses at least one pipe in the adverse cases before scoring, which meets the FAIL condition irrespective of the open battery step."
+      }
+    }
+  }
+}

@@ -1,0 +1,2277 @@
+{
+ "authority": {
+  "status": "pass",
+  "policy": "registered-offline-archive",
+  "id": "red2-two-sill-robot",
+  "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+  "revision": "002-four-terminals-552-r5",
+  "asOf": "2026-11-21T09:34:16.402717+00:00",
+  "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+  "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+ },
+ "inputs": {
+  "inset-truss-key-contact.json": "2a8917aa64e704d871415d1b6d7dca954446ba567f6d775d598a47133a425ebb",
+  "inset-controller-truss.json": "9e08380af5fb2913d3014e37896c8f167d8f33614d845fbd734af6a19dc7e3ce",
+  "inset-pan-truss.json": "9f7e367d3006fa62f97f00f3697c3a1250e2bd58a9866abe4756c8a9a0b6ae3a"
+ },
+ "trials": [
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "governing rare wall",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 5.225995838108709
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.01088603616335549,
+     "localRotationRad": 0.02218748067196749,
+     "shiftAtCentroidMm": [
+      4.984897966718236,
+      -2.475726623008086
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.011504224118614233,
+     "localRotationRad": 0.02221734422418166,
+     "shiftAtCentroidMm": [
+      3.091916266118929,
+      -2.474789685245838
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.010457012201279323,
+     "localRotationRad": 0.02226010631968708,
+     "shiftAtCentroidMm": [
+      4.986293807763218,
+      0.7095282713596163
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.011395831112409823,
+     "localRotationRad": 0.022238449629000668,
+     "shiftAtCentroidMm": [
+      3.0907162310300293,
+      0.7114546111030506
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.011566963776274216,
+     "localRotationRad": 0.022221392150519544,
+     "shiftAtCentroidMm": [
+      1.4997125577255588,
+      -2.4737997689786653
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.010127706729926305,
+     "localRotationRad": 0.021807508053529767,
+     "shiftAtCentroidMm": [
+      11.848004406464561,
+      -1.6252899026816152
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.011000640408799488,
+     "localRotationRad": 0.021888978066042182,
+     "shiftAtCentroidMm": [
+      13.703588775211848,
+      -1.6228393540727097
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.009722929035969644,
+     "localRotationRad": 0.02186670013082882,
+     "shiftAtCentroidMm": [
+      11.801567353766075,
+      1.5489821602528195
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.008693417969966422,
+     "localRotationRad": 0.02191249279908561,
+     "shiftAtCentroidMm": [
+      13.706885725319182,
+      1.5063949818473077
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "routine dock force at same site, coasting",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.488450024224864
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.687389116774383e-05,
+     "localRotationRad": 0.0018034926249671864,
+     "shiftAtCentroidMm": [
+      0.4189692622961445,
+      -0.24592412568003397
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 6.951703552500608e-05,
+     "localRotationRad": 0.0018034926249779776,
+     "shiftAtCentroidMm": [
+      0.26534431486335563,
+      -0.2459241256799487
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.6590077405963e-05,
+     "localRotationRad": 0.0018034926249852548,
+     "shiftAtCentroidMm": [
+      0.4189692622965424,
+      0.012707897378021471
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 6.924405645040802e-05,
+     "localRotationRad": 0.0018034926249871786,
+     "shiftAtCentroidMm": [
+      0.26534431486297194,
+      0.012707897378589905
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.202362965127799e-05,
+     "localRotationRad": 0.0018034926249808827,
+     "shiftAtCentroidMm": [
+      0.13623049831713985,
+      -0.24592412567972133
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 6.84192687708151e-05,
+     "localRotationRad": 0.0016800968739400727,
+     "shiftAtCentroidMm": [
+      1.014742238163933,
+      -0.15681398760362697
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 7.433285554983838e-05,
+     "localRotationRad": 0.00168272816206382,
+     "shiftAtCentroidMm": [
+      1.1573805508097053,
+      -0.15670457227537327
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 6.132468501826708e-05,
+     "localRotationRad": 0.0016851038786832916,
+     "shiftAtCentroidMm": [
+      1.011212949307719,
+      0.08804721415742733
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 6.520521451013148e-05,
+     "localRotationRad": 0.001682564004227795,
+     "shiftAtCentroidMm": [
+      1.1576409173566446,
+      0.08451408085579715
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "single-wheel traction without impact",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.5503555128653055
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.1755499956940294e-05,
+     "localRotationRad": 0.000756148110290152,
+     "shiftAtCentroidMm": [
+      0.19948488995081703,
+      -0.1301870739358435
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.222012789875751e-05,
+     "localRotationRad": 0.0007561481103060602,
+     "shiftAtCentroidMm": [
+      0.13507480682439166,
+      -0.13018707393555928
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.170560978625887e-05,
+     "localRotationRad": 0.0007561481103187837,
+     "shiftAtCentroidMm": [
+      0.1994848899511794,
+      -0.021750844127282676
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.2172142619370064e-05,
+     "localRotationRad": 0.0007561481103159687,
+     "shiftAtCentroidMm": [
+      0.13507480682363848,
+      -0.02175084412635897
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.2660752070925238e-05,
+     "localRotationRad": 0.0007561481103080936,
+     "shiftAtCentroidMm": [
+      0.08094146588234707,
+      -0.13018707393513296
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.73034976127376e-06,
+     "localRotationRad": 0.0006471581628391701,
+     "shiftAtCentroidMm": [
+      0.5628295642106025,
+      -0.10664515126246954
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.273964357224637e-06,
+     "localRotationRad": 0.0006471581634779934,
+     "shiftAtCentroidMm": [
+      0.6177203506454134,
+      -0.106645151241338
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.036315931389634e-06,
+     "localRotationRad": 0.0006471581639749175,
+     "shiftAtCentroidMm": [
+      0.5614420961423434,
+      -0.012438741310901946
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.240052050369279e-06,
+     "localRotationRad": 0.0006471581634390053,
+     "shiftAtCentroidMm": [
+      0.617720350672414,
+      -0.01383874630334958
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "reversed governing rare wall",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 5.33920159513395
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.010520522798493524,
+     "localRotationRad": -0.02218783054382674,
+     "shiftAtCentroidMm": [
+      -4.98489796671824,
+      2.475726623008086
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.010837092397336922,
+     "localRotationRad": -0.0222176095790694,
+     "shiftAtCentroidMm": [
+      -3.091916266118936,
+      2.474789685245838
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.009843554294914656,
+     "localRotationRad": -0.02226070435969407,
+     "shiftAtCentroidMm": [
+      -4.986293807763303,
+      -0.7095282713596163
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.009764198917476962,
+     "localRotationRad": -0.0222393272207028,
+     "shiftAtCentroidMm": [
+      -3.090716231030086,
+      -0.7114546111030791
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.011779763375757698,
+     "localRotationRad": -0.02222144033901728,
+     "shiftAtCentroidMm": [
+      -1.4997125577255588,
+      2.4737997689786653
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.011287457810553984,
+     "localRotationRad": -0.021807154497332008,
+     "shiftAtCentroidMm": [
+      -11.848004406464561,
+      1.6252899026816294
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.013579436902335049,
+     "localRotationRad": -0.021887301767807888,
+     "shiftAtCentroidMm": [
+      -13.703588775211845,
+      1.6228393540726813
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.011677820837502023,
+     "localRotationRad": -0.02186598499642051,
+     "shiftAtCentroidMm": [
+      -11.801567353765961,
+      -1.5489821602528195
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.013681921608165558,
+     "localRotationRad": -0.021909885904388752,
+     "shiftAtCentroidMm": [
+      -13.706885725319125,
+      -1.5063949818473361
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "reversed routine dock force at same site, coasting",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.50018488723407
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.687389168536192e-05,
+     "localRotationRad": -0.0018034926249670638,
+     "shiftAtCentroidMm": [
+      -0.4189692622961445,
+      0.24592412568001976
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 6.951703614168011e-05,
+     "localRotationRad": -0.0018034926249779859,
+     "shiftAtCentroidMm": [
+      -0.26534431486334853,
+      0.24592412567992028
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.659007708532377e-05,
+     "localRotationRad": -0.001803492624985291,
+     "shiftAtCentroidMm": [
+      -0.4189692622966277,
+      -0.012707897378035682
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 6.924405573849421e-05,
+     "localRotationRad": -0.0018034926249870502,
+     "shiftAtCentroidMm": [
+      -0.26534431486300036,
+      -0.012707897378618327
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.20236304962946e-05,
+     "localRotationRad": -0.0018034926249808664,
+     "shiftAtCentroidMm": [
+      -0.13623049831713274,
+      0.24592412567977817
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.907085898626811e-05,
+     "localRotationRad": -0.00168009585317306,
+     "shiftAtCentroidMm": [
+      -1.0147422381639188,
+      0.15681398760364118
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00015532648488398177,
+     "localRotationRad": -0.0016827230241507958,
+     "shiftAtCentroidMm": [
+      -1.1573805508096981,
+      0.15670457227534484
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 8.962455317757576e-05,
+     "localRotationRad": -0.001685102585333459,
+     "shiftAtCentroidMm": [
+      -1.0112129493076338,
+      -0.08804721415742733
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.0001383369461040522,
+     "localRotationRad": -0.0016825592540970437,
+     "shiftAtCentroidMm": [
+      -1.1576409173565025,
+      -0.08451408085582557
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 500 18",
+   "case": "reversed single-wheel traction without impact",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.560519415281725
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.175550036555209e-05,
+     "localRotationRad": -0.0007561481102901759,
+     "shiftAtCentroidMm": [
+      -0.19948488995081703,
+      0.1301870739358293
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.2220128459362357e-05,
+     "localRotationRad": -0.0007561481103062079,
+     "shiftAtCentroidMm": [
+      -0.13507480682438455,
+      0.13018707393553086
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.1705609372669824e-05,
+     "localRotationRad": -0.000756148110318749,
+     "shiftAtCentroidMm": [
+      -0.1994848899512931,
+      0.021750844127268465
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.2172141674585037e-05,
+     "localRotationRad": -0.0007561481103158494,
+     "shiftAtCentroidMm": [
+      -0.13507480682372375,
+      0.02175084412633055
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.2660753118615333e-05,
+     "localRotationRad": -0.0007561481103080145,
+     "shiftAtCentroidMm": [
+      -0.08094146588234707,
+      0.13018707393513296
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.730380336247124e-06,
+     "localRotationRad": -0.0006471581628390435,
+     "shiftAtCentroidMm": [
+      -0.5628295642105954,
+      0.10664515126248375
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.274015494798817e-06,
+     "localRotationRad": -0.0006471581634776913,
+     "shiftAtCentroidMm": [
+      -0.6177203506454134,
+      0.10664515124130958
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.036325512127833e-06,
+     "localRotationRad": -0.0006471581639748095,
+     "shiftAtCentroidMm": [
+      -0.5614420961422297,
+      0.012438741310887735
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.240084039752069e-06,
+     "localRotationRad": -0.0006471581634385988,
+     "shiftAtCentroidMm": [
+      -0.6177203506723572,
+      0.013838746303321159
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "governing rare wall",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 5.350624496032104
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.010830889127099279,
+     "localRotationRad": 0.021810620839140073,
+     "shiftAtCentroidMm": [
+      4.778839563467365,
+      -2.186699078605926
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.011169320677589937,
+     "localRotationRad": 0.02183930133218207,
+     "shiftAtCentroidMm": [
+      2.917905186861539,
+      -2.1857568035625263
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.010159076751224683,
+     "localRotationRad": 0.021908685929295263,
+     "shiftAtCentroidMm": [
+      4.780725796860111,
+      0.9468754143979083
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.011392671056153299,
+     "localRotationRad": 0.021864141489214506,
+     "shiftAtCentroidMm": [
+      2.9169439901874625,
+      0.9487338674089472
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.01126594871409296,
+     "localRotationRad": 0.02184804224743446,
+     "shiftAtCentroidMm": [
+      1.35246623473315,
+      -2.184911366414269
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.009863568017053162,
+     "localRotationRad": 0.02096865530030847,
+     "shiftAtCentroidMm": [
+      10.62489010728482,
+      -1.4362384135829132
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.012673926902626594,
+     "localRotationRad": 0.021199807246422148,
+     "shiftAtCentroidMm": [
+      12.418638384704266,
+      -1.4288956515935354
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.007986197196751518,
+     "localRotationRad": 0.021163514646024745,
+     "shiftAtCentroidMm": [
+      10.582054965947407,
+      1.618022797662661
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.007760879105189843,
+     "localRotationRad": 0.02125862295730927,
+     "shiftAtCentroidMm": [
+      12.430744647740823,
+      1.5852700762181655
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "routine dock force at same site, coasting",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.484184398816975
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.882626614032967e-05,
+     "localRotationRad": 0.0018296295729218809,
+     "shiftAtCentroidMm": [
+      0.41236140188522796,
+      -0.22416907637754946
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 7.154657683321319e-05,
+     "localRotationRad": 0.0018296295729720675,
+     "shiftAtCentroidMm": [
+      0.2565100543533916,
+      -0.22416907637631311
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.85341673689154e-05,
+     "localRotationRad": 0.0018296295730106926,
+     "shiftAtCentroidMm": [
+      0.4123614018857893,
+      0.03821115535795627
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 7.126562943626071e-05,
+     "localRotationRad": 0.0018296295729953796,
+     "shiftAtCentroidMm": [
+      0.2565100543508265,
+      0.038211155360158955
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.412634982131475e-05,
+     "localRotationRad": 0.0018296295729718017,
+     "shiftAtCentroidMm": [
+      0.12552506376300698,
+      -0.22416907637494887
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.000133448499424544,
+     "localRotationRad": 0.0016246650681457564,
+     "shiftAtCentroidMm": [
+      0.9885948093912162,
+      -0.15008442346541528
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00031052587900904635,
+     "localRotationRad": 0.0016332245053324171,
+     "shiftAtCentroidMm": [
+      1.1268299756329725,
+      -0.1497279655901309
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.00010619453152342093,
+     "localRotationRad": 0.0016412053574970218,
+     "shiftAtCentroidMm": [
+      0.9853400643032444,
+      0.08741492370047865
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.0002914432327888874,
+     "localRotationRad": 0.0016326869569512536,
+     "shiftAtCentroidMm": [
+      1.127682084281787,
+      0.08423658288549518
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "single-wheel traction without impact",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.5416997154427285
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.2646553712567393e-05,
+     "localRotationRad": 0.0007842823063137477,
+     "shiftAtCentroidMm": [
+      0.19818422510883948,
+      -0.1227219168947471
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.3146400158353868e-05,
+     "localRotationRad": 0.000784282306354988,
+     "shiftAtCentroidMm": [
+      0.13137761858809682,
+      -0.12272191689359602
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.259288237895455e-05,
+     "localRotationRad": 0.0007842823064064787,
+     "shiftAtCentroidMm": [
+      0.19818422510945766,
+      -0.010251070937542295
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.3094778014927858e-05,
+     "localRotationRad": 0.0007842823063729913,
+     "shiftAtCentroidMm": [
+      0.1313776185858444,
+      -0.010251070935339612
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.3620422812794047e-05,
+     "localRotationRad": 0.0007842823063647952,
+     "shiftAtCentroidMm": [
+      0.07523012377819072,
+      -0.12272191689237388
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.730302678449974e-06,
+     "localRotationRad": 0.0006471564259592625,
+     "shiftAtCentroidMm": [
+      0.5725592484263373,
+      -0.10664499378269454
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.273915239955515e-06,
+     "localRotationRad": 0.0006471564265894026,
+     "shiftAtCentroidMm": [
+      0.6274498875425607,
+      -0.10664499376241565
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.036267270865394e-06,
+     "localRotationRad": 0.0006471564270614521,
+     "shiftAtCentroidMm": [
+      0.5711717840798372,
+      -0.012438836671023523
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.240003634548574e-06,
+     "localRotationRad": 0.0006471564265632867,
+     "shiftAtCentroidMm": [
+      0.6274498875666268,
+      -0.013838837906916979
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "reversed governing rare wall",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 5.4452678853699545
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.01027638523300279,
+     "localRotationRad": -0.02181101229407736,
+     "shiftAtCentroidMm": [
+      -4.778839563467365,
+      2.186699078605912
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.010556608589492453,
+     "localRotationRad": -0.021839554901508455,
+     "shiftAtCentroidMm": [
+      -2.9179051868615318,
+      2.1857568035625263
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.009768008676454791,
+     "localRotationRad": -0.0219092497455352,
+     "shiftAtCentroidMm": [
+      -4.780725796860224,
+      -0.9468754143979226
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.009870207644963292,
+     "localRotationRad": -0.021864902735294605,
+     "shiftAtCentroidMm": [
+      -2.916943990187491,
+      -0.948733867409004
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.011491573831316096,
+     "localRotationRad": -0.021848035708647063,
+     "shiftAtCentroidMm": [
+      -1.35246623473315,
+      2.184911366414326
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.012831388765087782,
+     "localRotationRad": -0.02096771549203307,
+     "shiftAtCentroidMm": [
+      -10.62489010728482,
+      1.4362384135829274
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.01868183677190767,
+     "localRotationRad": -0.02119503928521988,
+     "shiftAtCentroidMm": [
+      -12.418638384704277,
+      1.428895651593507
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.013450385894738416,
+     "localRotationRad": -0.02116163135671065,
+     "shiftAtCentroidMm": [
+      -10.582054965947293,
+      -1.618022797662661
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.01884403167935393,
+     "localRotationRad": -0.02125167720603219,
+     "shiftAtCentroidMm": [
+      -12.430744647740738,
+      -1.585270076218194
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "reversed routine dock force at same site, coasting",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.497260990398015
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.882626761545423e-05,
+     "localRotationRad": -0.001829629572921987,
+     "shiftAtCentroidMm": [
+      -0.41236140188522086,
+      0.22416907637753525
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 7.15465783602134e-05,
+     "localRotationRad": -0.001829629572972184,
+     "shiftAtCentroidMm": [
+      -0.2565100543533845,
+      0.2241690763762847
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.853416621579997e-05,
+     "localRotationRad": -0.0018296295730107488,
+     "shiftAtCentroidMm": [
+      -0.412361401885903,
+      -0.03821115535797048
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 7.126562705520976e-05,
+     "localRotationRad": -0.0018296295729955175,
+     "shiftAtCentroidMm": [
+      -0.25651005435085494,
+      -0.03821115536018738
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.41263533064906e-05,
+     "localRotationRad": -0.0018296295729717967,
+     "shiftAtCentroidMm": [
+      -0.12552506376300698,
+      0.22416907637500572
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00018664332230674654,
+     "localRotationRad": -0.0016246616079383643,
+     "shiftAtCentroidMm": [
+      -0.9885948093912162,
+      0.1500844234654295
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00038704674356809706,
+     "localRotationRad": -0.0016332085683760504,
+     "shiftAtCentroidMm": [
+      -1.1268299756329654,
+      0.14972796559010249
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.0001727951368529683,
+     "localRotationRad": -0.0016412012178666179,
+     "shiftAtCentroidMm": [
+      -0.9853400643031591,
+      -0.08741492370049286
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.00036512055420679615,
+     "localRotationRad": -0.0016326715905666197,
+     "shiftAtCentroidMm": [
+      -1.1276820842817017,
+      -0.0842365828855236
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 18",
+   "case": "reversed single-wheel traction without impact",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.555806315894703
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.2646554775185896e-05,
+     "localRotationRad": -0.0007842823063138002,
+     "shiftAtCentroidMm": [
+      -0.19818422510883948,
+      0.12272191689473289
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.3146400992357538e-05,
+     "localRotationRad": -0.0007842823063548927,
+     "shiftAtCentroidMm": [
+      -0.13137761858808972,
+      0.1227219168935676
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.2592881652712299e-05,
+     "localRotationRad": -0.0007842823064064646,
+     "shiftAtCentroidMm": [
+      -0.19818422510948608,
+      0.010251070937528084
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.309477645561215e-05,
+     "localRotationRad": -0.0007842823063731606,
+     "shiftAtCentroidMm": [
+      -0.13137761858590125,
+      0.01025107093531119
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.3620424885585667e-05,
+     "localRotationRad": -0.0007842823063647567,
+     "shiftAtCentroidMm": [
+      -0.07523012377819782,
+      0.12272191689237388
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.730333705880682e-06,
+     "localRotationRad": -0.0006471564259592884,
+     "shiftAtCentroidMm": [
+      -0.5725592484263302,
+      0.10664499378270875
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.273965038114525e-06,
+     "localRotationRad": -0.0006471564265889855,
+     "shiftAtCentroidMm": [
+      -0.6274498875425678,
+      0.10664499376238723
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.03627667875256e-06,
+     "localRotationRad": -0.0006471564270613182,
+     "shiftAtCentroidMm": [
+      -0.5711717840797519,
+      0.012438836671009312
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.240033259333665e-06,
+     "localRotationRad": -0.0006471564265628921,
+     "shiftAtCentroidMm": [
+      -0.6274498875664847,
+      0.013838837906888557
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "governing rare wall",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 5.393665784043016
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.009864749449261408,
+     "localRotationRad": 0.022013921528030084,
+     "shiftAtCentroidMm": [
+      4.753097497200237,
+      -2.0563861805655534
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.010224501211065268,
+     "localRotationRad": 0.02201052440135189,
+     "shiftAtCentroidMm": [
+      2.877630575737115,
+      -2.0565467133947664
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.00991168816275766,
+     "localRotationRad": 0.022010408152574035,
+     "shiftAtCentroidMm": [
+      4.753163684194675,
+      1.1004449167610062
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.010299394301214538,
+     "localRotationRad": 0.022011125319850274,
+     "shiftAtCentroidMm": [
+      2.87794078434942,
+      1.100400413298047
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.010871364398855672,
+     "localRotationRad": 0.02200773575678376,
+     "shiftAtCentroidMm": [
+      1.3018234910785793,
+      -2.056734900682102
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.009899135453474194,
+     "localRotationRad": 0.02072727101208422,
+     "shiftAtCentroidMm": [
+      10.27590226234107,
+      -1.4652060041205033
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.014105308712377706,
+     "localRotationRad": 0.021085871021725485,
+     "shiftAtCentroidMm": [
+      12.056681154436205,
+      -1.4532758979688367
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.0072745882730601615,
+     "localRotationRad": 0.02113272205911976,
+     "shiftAtCentroidMm": [
+      10.234436098916433,
+      1.5631299001958894
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.008808416057547926,
+     "localRotationRad": 0.021165009712205893,
+     "shiftAtCentroidMm": [
+      12.078860969005575,
+      1.5353088103771881
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "routine dock force at same site, coasting",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.479494837368453
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.900797109186672e-05,
+     "localRotationRad": 0.001832043142980597,
+     "shiftAtCentroidMm": [
+      0.4067677194085917,
+      -0.20726742295362044
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 7.173546310838579e-05,
+     "localRotationRad": 0.0018320431430524852,
+     "shiftAtCentroidMm": [
+      0.25071077889924,
+      -0.20726742295244094
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.871510192820383e-05,
+     "localRotationRad": 0.001832043143089081,
+     "shiftAtCentroidMm": [
+      0.40676771940960066,
+      0.055458930473577084
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 7.145377560848158e-05,
+     "localRotationRad": 0.001832043143097218,
+     "shiftAtCentroidMm": [
+      0.2507107788954954,
+      0.05545893047602135
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.432204622184075e-05,
+     "localRotationRad": 0.0018320431430419442,
+     "shiftAtCentroidMm": [
+      0.1195529980521286,
+      -0.20726742295079248
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00020211892819030437,
+     "localRotationRad": 0.0016057349651765055,
+     "shiftAtCentroidMm": [
+      0.9708942441213537,
+      -0.14588397278001253
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00047665755399792063,
+     "localRotationRad": 0.00161869833364773,
+     "shiftAtCentroidMm": [
+      1.1077368391357396,
+      -0.14534329483655029
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.0001776452367056872,
+     "localRotationRad": 0.0016311754273954236,
+     "shiftAtCentroidMm": [
+      0.9677849812752015,
+      0.08945517086360155
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.00047499753734802605,
+     "localRotationRad": 0.0016178787095994065,
+     "shiftAtCentroidMm": [
+      1.109035300630694,
+      0.08650058965835683
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "single-wheel traction without impact",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.53444128657592
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.3152529576285202e-05,
+     "localRotationRad": 0.0007998176431336753,
+     "shiftAtCentroidMm": [
+      0.19666293414621805,
+      -0.11795793295995338
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.3672374544477055e-05,
+     "localRotationRad": 0.0007998176433769125,
+     "shiftAtCentroidMm": [
+      0.1285329985438466,
+      -0.11795793295223689
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.309671353170906e-05,
+     "localRotationRad": 0.0007998176436372092,
+     "shiftAtCentroidMm": [
+      0.1966629341443138,
+      -0.0032592243911011565
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.3618691075299123e-05,
+     "localRotationRad": 0.0007998176434323563,
+     "shiftAtCentroidMm": [
+      0.12853299852716304,
+      -0.0032592243791498277
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.4165359153313605e-05,
+     "localRotationRad": 0.0007998176434123637,
+     "shiftAtCentroidMm": [
+      0.07127331412849713,
+      -0.11795793294442092
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.730008644101466e-06,
+     "localRotationRad": 0.0006471455336463428,
+     "shiftAtCentroidMm": [
+      0.580714613816383,
+      -0.10664387949729814
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.273602958099213e-06,
+     "localRotationRad": 0.0006471455342855514,
+     "shiftAtCentroidMm": [
+      0.6356043290667373,
+      -0.10664387947659293
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.03596301707394e-06,
+     "localRotationRad": 0.0006471455347882676,
+     "shiftAtCentroidMm": [
+      0.5793271728213654,
+      -0.012439307969202673
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.23969241268339e-06,
+     "localRotationRad": 0.0006471455342608864,
+     "shiftAtCentroidMm": [
+      0.6356043290908246,
+      -0.013839285641694232
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "reversed governing rare wall",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 5.423542806435027
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.010069083001087812,
+     "localRotationRad": -0.0220138911747274,
+     "shiftAtCentroidMm": [
+      -4.75309749720023,
+      2.0563861805655534
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.010488145827069388,
+     "localRotationRad": -0.022010481140689233,
+     "shiftAtCentroidMm": [
+      -2.877630575737122,
+      2.056546713394823
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.009929008526561754,
+     "localRotationRad": -0.02201039528757417,
+     "shiftAtCentroidMm": [
+      -4.75316368419476,
+      -1.1004449167610204
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.010333253045741468,
+     "localRotationRad": -0.02201110513078896,
+     "shiftAtCentroidMm": [
+      -2.877940784349505,
+      -1.1004004132980754
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.010603504123424312,
+     "localRotationRad": -0.02200773868646777,
+     "shiftAtCentroidMm": [
+      -1.3018234910785722,
+      2.0567349006821587
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.014572730201495254,
+     "localRotationRad": -0.020725617983265346,
+     "shiftAtCentroidMm": [
+      -10.275902262341067,
+      1.4652060041205175
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.024158279281192522,
+     "localRotationRad": -0.021078385677748175,
+     "shiftAtCentroidMm": [
+      -12.056681154436202,
+      1.4532758979688083
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.014645140902665119,
+     "localRotationRad": -0.02113004274849003,
+     "shiftAtCentroidMm": [
+      -10.23443609891632,
+      -1.5631299001959036
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.02219849129471673,
+     "localRotationRad": -0.021155538495209205,
+     "shiftAtCentroidMm": [
+      -12.07886096900549,
+      -1.5353088103772166
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "reversed routine dock force at same site, coasting",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.4958808279160465
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.900797352915116e-05,
+     "localRotationRad": -0.001832043142980611,
+     "shiftAtCentroidMm": [
+      -0.4067677194085917,
+      0.20726742295360623
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 7.173546647638705e-05,
+     "localRotationRad": -0.0018320431430522944,
+     "shiftAtCentroidMm": [
+      -0.2507107788992329,
+      0.20726742295241252
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.871510017856386e-05,
+     "localRotationRad": -0.00183204314308916,
+     "shiftAtCentroidMm": [
+      -0.4067677194096859,
+      -0.055458930473591295
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 7.145377189662563e-05,
+     "localRotationRad": -0.0018320431430975826,
+     "shiftAtCentroidMm": [
+      -0.2507107788955807,
+      -0.05545893047602135
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 7.432205280174676e-05,
+     "localRotationRad": -0.001832043143041972,
+     "shiftAtCentroidMm": [
+      -0.1195529980521286,
+      0.20726742295084932
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00025563839136223747,
+     "localRotationRad": -0.001605729405297442,
+     "shiftAtCentroidMm": [
+      -0.9708942441213466,
+      0.14588397278002674
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.0005513622424311817,
+     "localRotationRad": -0.0016186748478261182,
+     "shiftAtCentroidMm": [
+      -1.1077368391357254,
+      0.14534329483652186
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.00024429757619900234,
+     "localRotationRad": -0.0016311691317696998,
+     "shiftAtCentroidMm": [
+      -0.9677849812750878,
+      -0.08945517086361576
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.0005473704442224844,
+     "localRotationRad": -0.0016178550783494214,
+     "shiftAtCentroidMm": [
+      -1.1090353006306088,
+      -0.08650058965838525
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 10000 18",
+   "case": "reversed single-wheel traction without impact",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.552444660654629
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.3152532847855984e-05,
+     "localRotationRad": -0.0007998176431337687,
+     "shiftAtCentroidMm": [
+      -0.19666293414621805,
+      0.11795793295993917
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.3672377341884338e-05,
+     "localRotationRad": -0.0007998176433767303,
+     "shiftAtCentroidMm": [
+      -0.1285329985438466,
+      0.11795793295223689
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.3096709750085851e-05,
+     "localRotationRad": -0.0007998176436372974,
+     "shiftAtCentroidMm": [
+      -0.19666293414439906,
+      0.0032592243911011565
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.3618683342105338e-05,
+     "localRotationRad": -0.0007998176434325801,
+     "shiftAtCentroidMm": [
+      -0.12853299852719147,
+      0.0032592243791498277
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.4165369737398447e-05,
+     "localRotationRad": -0.0007998176434123977,
+     "shiftAtCentroidMm": [
+      -0.07127331412849713,
+      0.11795793294442092
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.730039992501252e-06,
+     "localRotationRad": -0.0006471455336462049,
+     "shiftAtCentroidMm": [
+      -0.580714613816383,
+      0.10664387949731235
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 9.273652925764701e-06,
+     "localRotationRad": -0.0006471455342851292,
+     "shiftAtCentroidMm": [
+      -0.6356043290667373,
+      0.10664387947656451
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 9.03597284077532e-06,
+     "localRotationRad": -0.0006471455347882069,
+     "shiftAtCentroidMm": [
+      -0.5793271728212517,
+      0.012439307969202673
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 9.239722409873159e-06,
+     "localRotationRad": -0.0006471455342605999,
+     "shiftAtCentroidMm": [
+      -0.6356043290907394,
+      0.01383928564166581
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "governing rare wall",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 5.357833609783146
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.009431513000005096,
+     "localRotationRad": 0.021809371471537532,
+     "shiftAtCentroidMm": [
+      4.726012724274703,
+      -2.1279854141362904
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.01111102617022052,
+     "localRotationRad": 0.021844774932150268,
+     "shiftAtCentroidMm": [
+      3.049926475772324,
+      -2.12709251280981
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.009583515901440848,
+     "localRotationRad": 0.021910190067219244,
+     "shiftAtCentroidMm": [
+      4.727355326099342,
+      0.9176129094261682
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.011323467012946797,
+     "localRotationRad": 0.02186673715610731,
+     "shiftAtCentroidMm": [
+      3.048680281426897,
+      0.9190961814385901
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.010480777584760443,
+     "localRotationRad": 0.021851807377043002,
+     "shiftAtCentroidMm": [
+      1.3582350348787244,
+      -2.1261517153176896
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00876173687852921,
+     "localRotationRad": 0.02094029401580952,
+     "shiftAtCentroidMm": [
+      10.619689506834035,
+      -1.3741733962586125
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.009751299879624423,
+     "localRotationRad": 0.021171992332115423,
+     "shiftAtCentroidMm": [
+      12.224934849121198,
+      -1.3683933918335356
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.005973176672993205,
+     "localRotationRad": 0.021172891706934736,
+     "shiftAtCentroidMm": [
+      10.621524869247281,
+      1.5462568332593065
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.005584156952761015,
+     "localRotationRad": 0.02123831800013767,
+     "shiftAtCentroidMm": [
+      12.236024289730437,
+      1.555367279136135
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "routine dock force at same site, coasting",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.4845653799267
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.381743674129412e-05,
+     "localRotationRad": 0.0018292940513564273,
+     "shiftAtCentroidMm": [
+      0.4079540465603202,
+      -0.21921981408031854
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 6.917512669409882e-05,
+     "localRotationRad": 0.0018292940513972547,
+     "shiftAtCentroidMm": [
+      0.2676117341091029,
+      -0.21921981407945168
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.373180232528052e-05,
+     "localRotationRad": 0.0018292940514175247,
+     "shiftAtCentroidMm": [
+      0.40795404656051915,
+      0.03573145391320054
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 6.909613223269894e-05,
+     "localRotationRad": 0.0018292940514129897,
+     "shiftAtCentroidMm": [
+      0.2676117341074189,
+      0.035731453914479516
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 6.917512601140814e-05,
+     "localRotationRad": 0.0018292940513969173,
+     "shiftAtCentroidMm": [
+      0.12608198384233305,
+      -0.21921981407854219
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00015685680591465644,
+     "localRotationRad": 0.0016234643556871226,
+     "shiftAtCentroidMm": [
+      0.9881360303432913,
+      -0.1455895201174684
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00028751827274172103,
+     "localRotationRad": 0.0016314062128663619,
+     "shiftAtCentroidMm": [
+      1.1120110661948956,
+      -0.145300226161595
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.00012082853556486004,
+     "localRotationRad": 0.0016407698916685166,
+     "shiftAtCentroidMm": [
+      0.9883096669554732,
+      0.08162654282746473
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.00025744262551584456,
+     "localRotationRad": 0.0016327267640409537,
+     "shiftAtCentroidMm": [
+      1.1127902979827695,
+      0.08192873135197942
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "single-wheel traction without impact",
+   "worst": {
+    "name": "starboard controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 5,
+    "gapBoundMm": 6.542076916608014
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.1730104973580629e-05,
+     "localRotationRad": 0.0007842689700991693,
+     "shiftAtCentroidMm": [
+      0.19632010769764463,
+      -0.1206293037967896
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.271488798733578e-05,
+     "localRotationRad": 0.0007842689701535319,
+     "shiftAtCentroidMm": [
+      0.1361515303358587,
+      -0.12062930379562431
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.1714364861821344e-05,
+     "localRotationRad": 0.0007842689701995811,
+     "shiftAtCentroidMm": [
+      0.1963201076979999,
+      -0.011324741091257806
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.270036802824894e-05,
+     "localRotationRad": 0.000784268970176202,
+     "shiftAtCentroidMm": [
+      0.1361515303333931,
+      -0.01132474108933934
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.271488714673034e-05,
+     "localRotationRad": 0.0007842689701621957,
+     "shiftAtCentroidMm": [
+      0.07547386599203776,
+      -0.12062930379431691
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.389270476591203e-06,
+     "localRotationRad": 0.0006471563651596445,
+     "shiftAtCentroidMm": [
+      0.572017567961332,
+      -0.10491532064285991
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 8.6576636318613e-06,
+     "localRotationRad": 0.0006471563658695302,
+     "shiftAtCentroidMm": [
+      0.6212468731104366,
+      -0.10491532062522424
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 8.379061496203524e-06,
+     "localRotationRad": 0.0006471563663844999,
+     "shiftAtCentroidMm": [
+      0.5720175679642523,
+      -0.014720321750345988
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 8.647766216738375e-06,
+     "localRotationRad": 0.0006471563658418987,
+     "shiftAtCentroidMm": [
+      0.6212468731420984,
+      -0.014720321731175545
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "reversed governing rare wall",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 5.445949074858575
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 0.009339420492195202,
+     "localRotationRad": -0.021809646875690092,
+     "shiftAtCentroidMm": [
+      -4.726012724274696,
+      2.1279854141363046
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 0.009724655088387308,
+     "localRotationRad": -0.02184533117132051,
+     "shiftAtCentroidMm": [
+      -3.0499264757723097,
+      2.1270925128097815
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 0.009093996275738054,
+     "localRotationRad": -0.021910561429991218,
+     "shiftAtCentroidMm": [
+      -4.727355326099314,
+      -0.9176129094261682
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 0.00927759046901472,
+     "localRotationRad": -0.02186761973236625,
+     "shiftAtCentroidMm": [
+      -3.0486802814269254,
+      -0.9190961814386185
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 0.00975860056769997,
+     "localRotationRad": -0.021852012006830682,
+     "shiftAtCentroidMm": [
+      -1.3582350348787102,
+      2.1261517153177465
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.011970512847443342,
+     "localRotationRad": -0.020939142718701995,
+     "shiftAtCentroidMm": [
+      -10.619689506834018,
+      1.3741733962586125
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.01680281998707248,
+     "localRotationRad": -0.021167851852426166,
+     "shiftAtCentroidMm": [
+      -12.224934849121176,
+      1.3683933918335356
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.01244099695173881,
+     "localRotationRad": -0.02117050762152573,
+     "shiftAtCentroidMm": [
+      -10.621524869247253,
+      -1.5462568332593207
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.018841680142913455,
+     "localRotationRad": -0.021232034235584195,
+     "shiftAtCentroidMm": [
+      -12.236024289730409,
+      -1.555367279136135
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "reversed routine dock force at same site, coasting",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.497273424383955
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 6.381743668219491e-05,
+     "localRotationRad": -0.0018292940513564458,
+     "shiftAtCentroidMm": [
+      -0.407954046560306,
+      0.21921981408033275
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 6.917512541495844e-05,
+     "localRotationRad": -0.0018292940513972829,
+     "shiftAtCentroidMm": [
+      -0.2676117341090958,
+      0.21921981407950852
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 6.373180176910764e-05,
+     "localRotationRad": -0.0018292940514175353,
+     "shiftAtCentroidMm": [
+      -0.40795404656051915,
+      -0.035731453913143696
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 6.909613051031254e-05,
+     "localRotationRad": -0.0018292940514130645,
+     "shiftAtCentroidMm": [
+      -0.2676117341074473,
+      -0.035731453914479516
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 6.917512527633529e-05,
+     "localRotationRad": -0.0018292940513969182,
+     "shiftAtCentroidMm": [
+      -0.12608198384231883,
+      0.21921981407854219
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 0.00020564137551702988,
+     "localRotationRad": -0.0016234594835122457,
+     "shiftAtCentroidMm": [
+      -0.9881360303432771,
+      0.1455895201174826
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 0.00035301707893680155,
+     "localRotationRad": -0.0016313914561339373,
+     "shiftAtCentroidMm": [
+      -1.1120110661948956,
+      0.14530022616165184
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 0.0001850964110192588,
+     "localRotationRad": -0.001640763282634521,
+     "shiftAtCentroidMm": [
+      -0.9883096669555016,
+      -0.08162654282747894
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 0.0003224474588154337,
+     "localRotationRad": -0.0016327116322089907,
+     "shiftAtCentroidMm": [
+      -1.112790297982798,
+      -0.081928731351951
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "single-face deck keyed 3000 13",
+   "case": "reversed single-wheel traction without impact",
+   "worst": {
+    "name": "port controller 4",
+    "role": "bracket",
+    "body": "REV-21-2151",
+    "bar": 11,
+    "gapBoundMm": 6.5558290440147715
+   },
+   "devices": [
+    {
+     "name": "port controller 1",
+     "maxRigidResidualMm": 1.1730104785732647e-05,
+     "localRotationRad": -0.0007842689700991901,
+     "shiftAtCentroidMm": [
+      -0.19632010769763042,
+      0.1206293037967896
+     ]
+    },
+    {
+     "name": "port controller 2",
+     "maxRigidResidualMm": 1.2714886191134095e-05,
+     "localRotationRad": -0.0007842689701535499,
+     "shiftAtCentroidMm": [
+      -0.13615153033583738,
+      0.12062930379562431
+     ]
+    },
+    {
+     "name": "port controller 3",
+     "maxRigidResidualMm": 1.171436397852611e-05,
+     "localRotationRad": -0.0007842689701996004,
+     "shiftAtCentroidMm": [
+      -0.19632010769802832,
+      0.011324741091272017
+     ]
+    },
+    {
+     "name": "port controller 4",
+     "maxRigidResidualMm": 1.2700365490253827e-05,
+     "localRotationRad": -0.0007842689701762431,
+     "shiftAtCentroidMm": [
+      -0.13615153033342153,
+      0.011324741089367762
+     ]
+    },
+    {
+     "name": "Pan controller",
+     "maxRigidResidualMm": 1.2714886168660983e-05,
+     "localRotationRad": -0.0007842689701622149,
+     "shiftAtCentroidMm": [
+      -0.07547386599202355,
+      0.12062930379431691
+     ]
+    },
+    {
+     "name": "starboard controller 1",
+     "maxRigidResidualMm": 8.389283417736143e-06,
+     "localRotationRad": -0.0006471563651594687,
+     "shiftAtCentroidMm": [
+      -0.5720175679613178,
+      0.1049153206428457
+     ]
+    },
+    {
+     "name": "starboard controller 2",
+     "maxRigidResidualMm": 8.657690138750737e-06,
+     "localRotationRad": -0.0006471563658691837,
+     "shiftAtCentroidMm": [
+      -0.6212468731104224,
+      0.1049153206253095
+     ]
+    },
+    {
+     "name": "starboard controller 3",
+     "maxRigidResidualMm": 8.37907714105618e-06,
+     "localRotationRad": -0.0006471563663843296,
+     "shiftAtCentroidMm": [
+      -0.5720175679642239,
+      0.014720321750360199
+     ]
+    },
+    {
+     "name": "starboard controller 4",
+     "maxRigidResidualMm": 8.647795281282596e-06,
+     "localRotationRad": -0.0006471563658415138,
+     "shiftAtCentroidMm": [
+      -0.6212468731421268,
+      0.01472032173126081
+     ]
+    }
+   ]
+  }
+ ],
+ "minimum": 5.225995838108709,
+ "scope": "Same 24 signed planar frame and sheet equilibria, including key slip and all nine controller+carrier source envelopes. Brackets follow a rigid fit to nearby sheet material around three holes. Residual is included on each envelope. Tube centerlines recover the rigid truss response to in-plane foot movements; a conservative envelope adds independent member strains up to 120 MPa to both upper joints. Does not cover out-of-plane floor roll, pan impact beyond this working limit, local hole-edge/contact pressure, unqualified wiring, tool use or service during impact. A nonpositive lower bound requires closer analysis."
+}

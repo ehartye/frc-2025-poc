@@ -1,0 +1,624 @@
+{
+  "schema": "agent-frc/mechanical-motion@1",
+  "step": {
+    "file": "iterations/002/design/preliminary/layout.step",
+    "sha256": "5c40bc4fce5880c697892508a6a03bc81baa6200221439f1b6a893d469f8b860"
+  },
+  "layoutDesignSha256": "82b445bb6111b839bd366df9bb3c423a31d6600a5f59d2e4971c195fea41a394",
+  "layoutDatum": {
+    "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the dump (reef) face, +Y port, +Z up, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "id": "receive-chute",
+      "maxDepth": 11,
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Station-issued pipe drops from the station chute exit and slides down feed panels 2 and 3 to the panel 3 edge; the rolling chute contact is partitioned 3.5 mm above the panel surface",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -346.81673370116715,
+              0.0,
+              162.39889432686914
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              285.0,
+              0.0,
+              -80.31818181818176
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "receive-over-edge",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe clears the panel 3 front edge into the open top of the stowed pan pocket",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -61.81673370116715,
+              0.0,
+              82.08071250868738
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              78.71673370116716,
+              0.0,
+              -0.48071250868736115
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "receive-seat",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe settles down the stowed floor onto the slotted rear lip; seated contact partitioned at 3.0 mm",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              16.900000000000006,
+              0.0,
+              81.60000000000002
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -16.900000000000006,
+              0.0,
+              -81.60000000000002
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "loaded-carry",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Loaded carry: the pan holds stow within its +/-0.05 deg placement band (operating-intent stopPlacement) and here opens to the band edge with the seated pipe. Steering needs no motion: each steer sweep is a static revolved envelope that already contains every azimuth. Peer-event openings (3.9-51.5 deg, study-06) lie inside the tip sweep and are reviewed in retention-review.json",
+      "moves": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          }
+        ],
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          }
+        ]
+      }
+    },
+    {
+      "id": "tip-to-dump",
+      "maxDepth": 11,
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Docked at the L1 trough, the pan tips from the stow band edge to the commanded dump (-2 deg, 72 deg in all) with the seated pipe",
+      "initialPose": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          }
+        ],
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          }
+        ]
+      },
+      "moves": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          }
+        ],
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          }
+        ]
+      }
+    },
+    {
+      "id": "release",
+      "maxDepth": 11,
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "At dump the pipe slides off the floor past the front edge and leaves the robot",
+      "initialPose": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          }
+        ],
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              429.7380556182112,
+              0.0,
+              -15.006783582075418
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "reset-to-stow",
+      "maxDepth": 11,
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Empty pan returns 72 deg to stow while the robot is parked at the trough; the released pipe stays ahead",
+      "initialPose": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          }
+        ],
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              429.7380556182112,
+              0.0,
+              -15.006783582075418
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Guarded pan": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": -72.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "park",
+      "stage": "park",
+      "minGapMm": 2.0,
+      "basis": "The robot withdraws 300 mm from the trough and parks with the pan stowed; in the robot frame the scored pipe recedes ahead. Modules re-azimuth inside their static revolved envelopes",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 0.05
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              205.0,
+              0.0,
+              580.0
+            ],
+            "axis": [
+              0,
+              1,
+              0
+            ],
+            "travelDeg": 71.95
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              429.7380556182112,
+              0.0,
+              -15.006783582075418
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "service-unload-pipe",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Lift an unscored pipe straight out of the stowed pan pocket by hand before service",
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              440.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "CORAL pipe"
+      ]
+    },
+    {
+      "id": "service-pan-cassette-lift",
+      "maxDepth": 11,
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Unbolt the four cradle end clips and the knee-strut feet and lift the cassette with the stowed pan vertically clear",
+      "removed": {
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Pan cassette": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              470.0
+            ]
+          }
+        ],
+        "Guarded pan": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              470.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "Pan cassette",
+        "Guarded pan"
+      ]
+    },
+    {
+      "id": "service-battery-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "After unplugging, lift the dressed battery 250 mm through the centre gap between the equipment sheets",
+      "removed": {
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "service-battery-rear-carry",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Continue from the 250 mm lift rearward under feed panel 1 and over the rear bumper until clear of the robot",
+      "removed": {
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "initialPose": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "service-plug-disconnect",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches down to grip the SB50 pair from above",
+      "removed": {
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -255.9
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "service-breaker-reset",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches the CB185 reset button outboard of the port stringer extension",
+      "removed": {
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Breaker reset hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -342.8
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

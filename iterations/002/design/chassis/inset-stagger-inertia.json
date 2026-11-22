@@ -1,0 +1,3059 @@
+{
+  "authority": {
+    "status": "pass",
+    "policy": "registered-offline-archive",
+    "id": "red2-two-sill-robot",
+    "configuration": "Four parked SDS L2 modules and four locally bolted 16-article terminal cartridges",
+    "revision": "002-four-terminals-552-r5",
+    "asOf": "2026-11-21T09:34:16.402717+00:00",
+    "archiveSha256": "8420be281e5c4ecfde83e199f7326a301b3a78a09dc0ce7218454c8511d98118",
+    "stepSha256": "210e5a015496fed823e9dbb86824e609a0bb610edfbfd2dd45f3b67edd6b4845"
+  },
+  "massKg": 68.54950304514392,
+  "cgMm": [
+    42.73214469904619,
+    15.599534969742127
+  ],
+  "yawAboutCGKgM2": 7.779145537020687,
+  "unconstrainedEffectiveMassKg": 65.99566329309452,
+  "upperPeakN": 12338.910548125907,
+  "contactXYmm": [
+    109.0,
+    345.95
+  ],
+  "opposedXYmm": [
+    109.0,
+    -345.95
+  ],
+  "workingStressMPa": 120,
+  "reserveClosure": {
+    "kg": 11.673007803720406,
+    "xyMm": [
+      1.8708703807498022,
+      1.7896304245174133
+    ],
+    "radiusOfGyrationMm": 362.12306558624977
+  },
+  "assumptions": "Planar peak equivalent-static comparison. Rigid-body acceleration is solved independently for each actual external wrench. Both released translation and yaw and all finite mounted body offsets are included. Original 18 mm full-speed peak is held fixed even for the off-centre hit; angular energy absorption may lower it. Friction extremes are parallel and antiparallel to the collision direction. Independently applying the same external load at an opposite bumper models an aligned two-sided pinch; that scenario has not been established as routine field duty. The free-body jig is a gauge; its zero reactions are checked. Local finite elastic waves, backing contact dynamics, sprung mass pitch/roll, true partially assembled deck support and traction distribution need validation.",
+  "loadCount": 24,
+  "parts": [
+    {
+      "name": "SDS module 0",
+      "kg": 2.7215542200000002,
+      "xyMm": [
+        269.3,
+        264.3
+      ],
+      "cgYawKgM2": 0.009,
+      "candidateAttachmentDOFs": [
+        [
+          1506
+        ],
+        [
+          1506
+        ]
+      ]
+    },
+    {
+      "name": "SDS module 1",
+      "kg": 2.7215542200000002,
+      "xyMm": [
+        -269.3,
+        264.3
+      ],
+      "cgYawKgM2": 0.009,
+      "candidateAttachmentDOFs": [
+        [
+          1509
+        ],
+        [
+          1509
+        ]
+      ]
+    },
+    {
+      "name": "SDS module 2",
+      "kg": 2.7215542200000002,
+      "xyMm": [
+        -269.3,
+        -264.3
+      ],
+      "cgYawKgM2": 0.009,
+      "candidateAttachmentDOFs": [
+        [
+          1512
+        ],
+        [
+          1512
+        ]
+      ]
+    },
+    {
+      "name": "SDS module 3",
+      "kg": 2.7215542200000002,
+      "xyMm": [
+        269.3,
+        -264.3
+      ],
+      "cgYawKgM2": 0.009,
+      "candidateAttachmentDOFs": [
+        [
+          1515
+        ],
+        [
+          1515
+        ]
+      ]
+    },
+    {
+      "name": "Lower rail 0",
+      "kg": 0.5558157406901206,
+      "xyMm": [
+        323.27500000000003,
+        -2.842170943040401e-15
+      ],
+      "cgYawKgM2": 0.010231641426537307,
+      "candidateAttachmentDOFs": [
+        [
+          1320,
+          1323,
+          1326,
+          1329,
+          1332,
+          1335,
+          1338,
+          1341,
+          1344,
+          1347
+        ],
+        [
+          1320,
+          1323,
+          1326,
+          1329,
+          1332,
+          1335,
+          1338,
+          1341,
+          1344,
+          1347
+        ]
+      ]
+    },
+    {
+      "name": "Cartridge 0",
+      "kg": 0.7220421497142705,
+      "xyMm": [
+        350.95,
+        0.0
+      ],
+      "cgYawKgM2": 0.0038819392775804895,
+      "candidateAttachmentDOFs": [
+        [
+          1155
+        ],
+        [
+          1155
+        ]
+      ]
+    },
+    {
+      "name": "Lower rail 1",
+      "kg": 0.5677915231901209,
+      "xyMm": [
+        -2.842170943040401e-15,
+        318.27500000000003
+      ],
+      "cgYawKgM2": 0.01090159724525032,
+      "candidateAttachmentDOFs": [
+        [
+          1350,
+          1353,
+          1356,
+          1359,
+          1362,
+          1365,
+          1368,
+          1371,
+          1374,
+          1377
+        ],
+        [
+          1350,
+          1353,
+          1356,
+          1359,
+          1362,
+          1365,
+          1368,
+          1371,
+          1374,
+          1377
+        ]
+      ]
+    },
+    {
+      "name": "Cartridge 1",
+      "kg": 0.7220421497142705,
+      "xyMm": [
+        0.0,
+        345.95
+      ],
+      "cgYawKgM2": 0.0038819392775804895,
+      "candidateAttachmentDOFs": [
+        [
+          165
+        ],
+        [
+          165
+        ]
+      ]
+    },
+    {
+      "name": "Lower rail 2",
+      "kg": 0.5558157406901206,
+      "xyMm": [
+        -323.27500000000003,
+        -2.842170943040401e-15
+      ],
+      "cgYawKgM2": 0.010231641426537307,
+      "candidateAttachmentDOFs": [
+        [
+          1380,
+          1383,
+          1386,
+          1389,
+          1392,
+          1395,
+          1398,
+          1401,
+          1404,
+          1407
+        ],
+        [
+          1380,
+          1383,
+          1386,
+          1389,
+          1392,
+          1395,
+          1398,
+          1401,
+          1404,
+          1407
+        ]
+      ]
+    },
+    {
+      "name": "Cartridge 2",
+      "kg": 0.7220421497142705,
+      "xyMm": [
+        -350.95,
+        0.0
+      ],
+      "cgYawKgM2": 0.0038819392775804895,
+      "candidateAttachmentDOFs": [
+        [
+          495
+        ],
+        [
+          495
+        ]
+      ]
+    },
+    {
+      "name": "Lower rail 3",
+      "kg": 0.5677915231901209,
+      "xyMm": [
+        -2.842170943040401e-15,
+        -318.27500000000003
+      ],
+      "cgYawKgM2": 0.01090159724525032,
+      "candidateAttachmentDOFs": [
+        [
+          1410,
+          1413,
+          1416,
+          1419,
+          1422,
+          1425,
+          1428,
+          1431,
+          1434,
+          1437
+        ],
+        [
+          1410,
+          1413,
+          1416,
+          1419,
+          1422,
+          1425,
+          1428,
+          1431,
+          1434,
+          1437
+        ]
+      ]
+    },
+    {
+      "name": "Cartridge 3",
+      "kg": 0.7220421497142705,
+      "xyMm": [
+        0.0,
+        -345.95
+      ],
+      "cgYawKgM2": 0.0038819392775804895,
+      "candidateAttachmentDOFs": [
+        [
+          825
+        ],
+        [
+          825
+        ]
+      ]
+    },
+    {
+      "name": "Diagonal [0, 1]",
+      "kg": 0.4285672045130664,
+      "xyMm": [
+        192.1,
+        189.6
+      ],
+      "cgYawKgM2": 0.004525608251692,
+      "candidateAttachmentDOFs": [
+        [
+          1155,
+          165
+        ],
+        [
+          1155,
+          165
+        ]
+      ]
+    },
+    {
+      "name": "Diagonal [2, 1]",
+      "kg": 0.4285672045130664,
+      "xyMm": [
+        -192.1,
+        189.6
+      ],
+      "cgYawKgM2": 0.004525608251692,
+      "candidateAttachmentDOFs": [
+        [
+          495,
+          165
+        ],
+        [
+          495,
+          165
+        ]
+      ]
+    },
+    {
+      "name": "Diagonal [2, 3]",
+      "kg": 0.4285672045130664,
+      "xyMm": [
+        -192.1,
+        -189.6
+      ],
+      "cgYawKgM2": 0.004525608251692,
+      "candidateAttachmentDOFs": [
+        [
+          495,
+          825
+        ],
+        [
+          495,
+          825
+        ]
+      ]
+    },
+    {
+      "name": "Diagonal [0, 3]",
+      "kg": 0.4285672045130664,
+      "xyMm": [
+        192.1,
+        -189.6
+      ],
+      "cgYawKgM2": 0.004525608251692,
+      "candidateAttachmentDOFs": [
+        [
+          1155,
+          825
+        ],
+        [
+          1155,
+          825
+        ]
+      ]
+    },
+    {
+      "name": "Battery",
+      "kg": 6.17,
+      "xyMm": [
+        -100.0,
+        35.0
+      ],
+      "cgYawKgM2": 0.02185,
+      "candidateAttachmentDOFs": [
+        [
+          1467,
+          1482,
+          1470,
+          1485
+        ],
+        [
+          1467,
+          1482,
+          1470,
+          1485
+        ]
+      ]
+    },
+    {
+      "name": "Panel and electronics",
+      "kg": 7,
+      "xyMm": [
+        35.0,
+        45.0
+      ],
+      "cgYawKgM2": 0.12396,
+      "candidateAttachmentDOFs": [
+        [
+          1467,
+          1482,
+          1473,
+          1488
+        ],
+        [
+          1467,
+          1482,
+          1470,
+          1485
+        ]
+      ]
+    },
+    {
+      "name": "Pan drive and upper",
+      "kg": 8.2,
+      "xyMm": [
+        300.0,
+        25.0
+      ],
+      "cgYawKgM2": 0.27991,
+      "candidateAttachmentDOFs": [
+        [
+          1494,
+          1497,
+          1500,
+          1503
+        ],
+        [
+          1470,
+          1485,
+          1473,
+          1488
+        ]
+      ]
+    },
+    {
+      "name": "Held CORAL",
+      "kg": 0.816466,
+      "xyMm": [
+        240.0,
+        0.0
+      ],
+      "cgYawKgM2": 0.00708,
+      "candidateAttachmentDOFs": [
+        [
+          1494,
+          1497,
+          1500,
+          1503
+        ],
+        [
+          1470,
+          1485,
+          1473,
+          1488
+        ]
+      ]
+    },
+    {
+      "name": "General hardware",
+      "kg": 1.5,
+      "xyMm": [
+        0.0,
+        0.0
+      ],
+      "cgYawKgM2": 0.04,
+      "candidateAttachmentDOFs": [
+        [
+          1467,
+          1482,
+          1473,
+          1488
+        ],
+        [
+          1470,
+          1485,
+          1473,
+          1488
+        ]
+      ]
+    },
+    {
+      "name": "Joint contingency",
+      "kg": 1.25,
+      "xyMm": [
+        285.0,
+        170.0
+      ],
+      "cgYawKgM2": 0.0,
+      "candidateAttachmentDOFs": [
+        [
+          1440,
+          1443,
+          1446,
+          1449,
+          1452,
+          1455,
+          1458,
+          1461
+        ],
+        [
+          1494,
+          1497,
+          1500,
+          1503
+        ]
+      ]
+    },
+    {
+      "name": "Upper contingency",
+      "kg": 0.5,
+      "xyMm": [
+        300.0,
+        100.0
+      ],
+      "cgYawKgM2": 0.0,
+      "candidateAttachmentDOFs": [
+        [
+          1494,
+          1497,
+          1500,
+          1503
+        ],
+        [
+          1470,
+          1485,
+          1473,
+          1488
+        ]
+      ]
+    },
+    {
+      "name": "Harness contingency",
+      "kg": 0.25,
+      "xyMm": [
+        200.0,
+        200.0
+      ],
+      "cgYawKgM2": 0.0,
+      "candidateAttachmentDOFs": [
+        [
+          1467,
+          1482,
+          1473,
+          1488
+        ],
+        [
+          1467,
+          1482,
+          1470,
+          1485
+        ]
+      ]
+    },
+    {
+      "name": "Unissued frame interfaces and reserve",
+      "kg": 11.673007803720406,
+      "xyMm": [
+        1.8708703807498022,
+        1.7896304245174133
+      ],
+      "cgYawKgM2": 1.5307178703972895,
+      "candidateAttachmentDOFs": [
+        [
+          1440,
+          1443,
+          1446,
+          1449,
+          1452,
+          1455,
+          1458,
+          1461
+        ],
+        [
+          1467,
+          1482,
+          1473,
+          1488
+        ]
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "inspection-mass-552.json": "e1366a1b3b7644f3ac8bf49febae6902fb7dab8f217dd0b5f8afb1026b0959f5",
+    "terminal-mass-clock.json": "b4b65e9e2e571949f278271e884ae4cf7cfc8b34d7ed1e882c1adf0bee8d138c",
+    "corner-tie-trial.json": "419c77f587d948d75abc0fa1370959a2227688025192c4d1675b9d95ee11fc3d",
+    "socket-holes.json": "fe445a83997d4cbd63cba501df2f88fbb8735aeffde6e7a7441d56c0d3556769",
+    "diagonal_lower_elastic.py": "1fa8869cb7bb951adcefcb3287c061aae3448f5a21834fe455f243a289cfabde"
+  },
+  "states": [
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        3000.0,
+        3000.0,
+        3000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 100.25214843119565,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 47.30697269608374,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 2388.2488153480385,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1842.462601099877,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 98.69700630704067,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 45.89426901755631,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 2338.990768806841,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1763.4371180430487,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 113.9317647997952,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 31.03392279648799,
+            "physicalSite": [
+              "Starboard longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 719.0297955420457,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1077.1744282989978,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.0004895824659882919,
+      "maxGaugeMomentNmm": 0.2429220770916345
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        3000.0,
+        3000.0,
+        30000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 90.11871710648998,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 57.15681122998286,
+            "physicalSite": [
+              "Front transverse",
+              [
+                140.3,
+                165.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1959.1877943978532,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 4644.072534971113,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 89.18163916595906,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 55.29574727894126,
+            "physicalSite": [
+              "Front transverse",
+              [
+                140.3,
+                165.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1905.667385164772,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 4482.358377354333,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 104.61044251567037,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 43.658222262085616,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1146.6087186388393,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 2647.155069282323,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.0002613867018084193,
+      "maxGaugeMomentNmm": 0.1144298705539768
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        3000.0,
+        30000.0,
+        3000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 100.50988252088365,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 41.36663308324507,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 4108.196167118363,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1612.5325885307127,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 98.91356672259536,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 39.73103953875246,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 4049.6323835978596,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1538.356098359585,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 111.55819691994638,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 33.50151589800933,
+            "physicalSite": [
+              "Starboard longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1180.6268295827322,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1244.789092349006,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.0004015438577482655,
+      "maxGaugeMomentNmm": 0.20262624050656086
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        3000.0,
+        30000.0,
+        30000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 86.81152269393093,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 54.64279802788393,
+            "physicalSite": [
+              "Front transverse",
+              [
+                140.3,
+                165.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 3557.867138985067,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 4643.69891545565,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 85.90568718474861,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 52.81912374420006,
+            "physicalSite": [
+              "Front transverse",
+              [
+                140.3,
+                165.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 3505.697270702633,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 4478.0971951185265,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 97.93037467157791,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 49.25565937662461,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1923.6181048370818,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 3406.334327647108,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.00023266095817714438,
+      "maxGaugeMomentNmm": 0.10609525101040163
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        30000.0,
+        3000.0,
+        3000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 94.64618874421663,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 38.96882858938146,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1162.5391799781128,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1349.7208446385569,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 93.12828570063459,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 37.10590535996218,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1067.76969982867,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1281.6215918860705,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 101.41023714074045,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 31.396874375633566,
+            "physicalSite": [
+              "Starboard longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 792.6508085005128,
+            "physicalSite": 14,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1051.7321433263444,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.00016618191443740216,
+      "maxGaugeMomentNmm": 0.09411497080577647
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        30000.0,
+        3000.0,
+        30000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 83.80402912608326,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 43.82982351641904,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -126.68252199265855,
+              "freeWrenchResidual": [
+                1.4210854715202004e-13,
+                -1.0118128557223827e-11,
+                1.6232206689892337e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1710.3541713263683,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 3984.693124866688,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 82.84620484696597,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 43.16409911759543,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1650.5334584842192,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 3825.992017991974,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 90.25188103887395,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 42.99633350167814,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1371.9754674415415,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 2884.4615107956924,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.0001062763771955133,
+      "maxGaugeMomentNmm": 0.05821498350989303
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        3000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 91.31036781409857,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 42.578218834048435,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                140.3,
+                170.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 2885.5916126129764,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1550.3867607014458,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -1.4210854715202004e-13,
+                -2.0463630789890885e-12,
+                -1.0541043593548238e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 89.70008978684926,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 40.655895314695776,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                140.3,
+                170.875
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 2836.443205848774,
+            "physicalSite": 2,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1485.9819163526072,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 97.47710524858465,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 35.035956278309776,
+            "physicalSite": [
+              "Starboard longitudinal",
+              [
+                140.3,
+                170.875
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 1733.630209899659,
+            "physicalSite": 15,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 1298.006314519995,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 0.00015696726337921518,
+      "maxGaugeMomentNmm": 0.09005636254573801
+    },
+    {
+      "ringPilotModuleStiffnessNPerMm": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "peak": {
+        "free strike": {
+          "ringNetMPa": {
+            "value": 71.66702432691743,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -120.77415092731336,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                -2.0463630789890885e-12,
+                -9.958966984413564e-10
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 55.1125649463325,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": 537.7927872301285,
+              "distribution": 0,
+              "linearAccelerationMps2": [
+                0.0,
+                -172.15468
+              ],
+              "yawAccelerationRadS2": -89.44768767522768,
+              "freeWrenchResidual": [
+                -8.526512829121202e-14,
+                -5.9117155615240335e-12,
+                1.4895249478286132e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 3899.2828599116924,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 5315.407122224729,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0.8,
+              "floorYN": -537.7927872301285,
+              "distribution": 1,
+              "linearAccelerationMps2": [
+                0.0,
+                -187.84532000000002
+              ],
+              "yawAccelerationRadS2": -83.53931660988249,
+              "freeWrenchResidual": [
+                -2.2737367544323206e-13,
+                2.808064891723916e-11,
+                -2.5281678972532973e-09
+              ]
+            }
+          }
+        },
+        "free strike without floor traction": {
+          "ringNetMPa": {
+            "value": 70.6689494804064,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -1.7053025658242404e-13,
+                1.5575096767861396e-11,
+                -3.332957021484617e-09
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 54.8698638473869,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 3796.339666070621,
+            "physicalSite": 7,
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 5129.373709663403,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "free strike",
+              "payloadSupport": "nearest three terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                -180.0
+              ],
+              "yawAccelerationRadS2": -105.11091930127053,
+              "freeWrenchResidual": [
+                -3.410605131648481e-13,
+                1.602984411874786e-11,
+                -3.449372343311552e-09
+              ]
+            }
+          }
+        },
+        "opposed aligned same-strength pinch": {
+          "ringNetMPa": {
+            "value": 76.57164042807139,
+            "physicalSite": [
+              114.30000000000001,
+              345.95
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "lowerGrossMPa": {
+            "value": 53.91152229155528,
+            "physicalSite": [
+              "Port longitudinal",
+              [
+                114.3,
+                140.3
+              ]
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pilotN": {
+            "value": 3307.23275719503,
+            "physicalSite": 7,
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "moduleScrewN": {
+            "value": 4388.218263427731,
+            "physicalSite": [
+              323.27500000000003,
+              165.875
+            ],
+            "case": {
+              "condition": "opposed aligned same-strength pinch",
+              "payloadSupport": "four terminals",
+              "frictionCoefficient": 0,
+              "floorYN": 0.0,
+              "distribution": "none",
+              "linearAccelerationMps2": [
+                0.0,
+                0.0
+              ],
+              "yawAccelerationRadS2": 0.0,
+              "freeWrenchResidual": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "maxGaugeReactionN": 9.806967347003592e-05,
+      "maxGaugeMomentNmm": 0.052486977372268484
+    }
+  ],
+  "moduleInsetPerAxisMm": 12.7,
+  "designScope": "Eight separate straddling saddles directly attach the perimeter to 24 original motor-module mounting screw stations via the four lower socket rails. Two inboard longitudinal sills and two transverse bars carry the pan and battery. The same registered heavy mass envelope is retained for like impact. The 'pilotN' metric refers to lower saddle transfer stations. Spring magnitudes are sensitivity tests; resistance to out-of-plane prying and sleeve/bolt strength require the actual joint."
+}

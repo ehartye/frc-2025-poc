@@ -1,0 +1,22 @@
+{
+  "id": "station-receive-time",
+  "scenario": "Station feed at 21.1 s to scheduled carry start at 27.032 s (coral-A), adverse mass and battery",
+  "unit": "s",
+  "criterion": {
+    "range": [
+      0.0,
+      5.932
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "inlet",
+    "pan",
+    "pipe"
+  ],
+  "source": {
+    "file": "iterations/002/design/strategy/pan-route-12mm.json",
+    "sha256": "fc071b376f66bcd2b99625bb540197499807cb9321ff210eca4cfea838609119"
+  },
+  "basis": "Receive must finish (pan ready) before the scheduled carry start"
+}

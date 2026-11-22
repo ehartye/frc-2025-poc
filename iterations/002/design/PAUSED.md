@@ -1,0 +1,26 @@
+# 2025 Red 2 engineering pause
+
+## Resume on the second workstation
+
+Check out `private/red2-native-successor` and work from this active iteration. Open [the registered 654-body Fusion assembly](cad/private/connected-654-precursor.f3d). Its [placed STEP](cad/issue-006/assembly.step) and [export lineage](cad/issue-006/lineage.json) belong to the same parked revision. The Fusion archive is self-contained and the lineage records zero external references.
+
+The next comparison uses [the seven-stock Fusion study](cad/private/connected-seven.f3d), [its unthreaded STEP](private-inputs/matched-sds/connected-seven.step), and the [647-body intermediate](cad/private/diagnostic-647.f3d). Keep the registered assembly as the source of truth while reviewing those changes. The dated pause record below preserves the original checkpoint. The owner resumed 2025 on the second workstation.
+
+The owner paused iteration 002 on November 21, 2026. The private engineering branch is `private/red2-native-successor`. The public showcase retains its issued historical model. The custody archive contains the saved native checkpoints, STEP exports and existing previews. Each of its 32 member files was independently read back and hashed. [Custody and branch inventory](pause-20261121.json)
+
+## What is installed
+
+The sole registered engineering master is `cad/private/connected-654-precursor.f3d`, revision `002-connected-machining-654-r6`. It contains 508 purchased-module solids and 146 fixed chassis and support solids. Its canonical STEP and lineage are in `cad/issue-006/`. The earlier cold diagnostic export has identical STEP DATA and different file headers. The pan, clamp screws, electronics and battery are outstanding installed articles. [Fusion authority](cad/fusion-authority.json) · [Export lineage](cad/issue-006/lineage.json) · [Exchange comparison](chassis/connected-654-exchange.json)
+
+A separately saved 654-body machining study retains 647 bodies and replaces the X250 crossmember, both equipment sheets, both X250 truss feet and both nutbars. Each new body passed cold placement, material and volume checks. The native comparator measured retained names, bounds, physical material and volume. The whole-body occupied-shape replay for those 647 and the local two-way neighbor comparisons have no completed receipt. The 647-body intermediate, seven-body replacement study and unthreaded neutral export are in private custody. Its existing full-scene PNG is embedded preview geometry from that saved study. The attempted close-up produced no saved image. The seven-stock study has no canonical status. [Cold machining receipt](chassis/connected-seven-stock-receipt.json)
+
+## Controls, results and risks
+
+- At the original two screw axes the diagonals interfered by about 70.425 mm³ each. With the former 6.6 mm clearance hole, diagonal key take-up still produced 0.017664 mm³ of interference. The revised 7.15 mm specification leaves 0.08787 mm minimum radial clearance under the modeled tolerances. Four 1-inch 91251A542 screws were selected for fit trials. The two receiving nutbars are still untapped and none of these screws is installed. The saved nominal under-head bearing estimate is 21.92 mm² and the conditional minimum is 20.11 mm². Phase, preload, real installed service travel and thread fit remain open. [Comparison](chassis/inset-clamp-length-comparison.json) · [Selection](chassis/inset-clamp-hardware-selection.json)
+- The stock and four planned screws add approximately 44.9 g relative to the compared hardware. Whole-robot mass, electronics and battery retention, service, concurrent weak-pack loads and both complete scored trips remain to be established on an integrated assembly.
+- Retain the parked commercial donor and steering-key/motor interference control. The separate motor revision and shorter supplied key have provisional registration, sampled withdrawal and lead routing. Full mating, torque retention, continuous installed extraction and constituent material reconciliation remain open.
+- Last 2025 native operation `ced08759` closed its temporary document and restored its empty starting document roster. No new native work is queued. The preparation scripts for the taps and for the unfinished occupied-shape replay remain available on the private branch.
+
+## First action after an explicit resume
+
+Verify the registered canonical F3D and its first-party lineage. Use the saved seven-stock study and its existing unthreaded STEP to finish the occupied-shape comparison, including both directions for exposed neighbors. Retain the original canonical and 647-body checkpoint. If those checks support continuation, request a coordinated native slot, model the four 1/4-20 UNC-2B openings in the two receiving nutbars, export the fresh derivative and fit the four true purchased screws with seated phase and adverse controls. Recheck service and support loads before advancing the assembly register. No reauthoring of the 146 fixed bodies is needed for this checkpoint.
