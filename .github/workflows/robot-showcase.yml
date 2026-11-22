@@ -92,7 +92,7 @@ jobs:
       - name: Check out the approved public presentation
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          ref: 324af771eb0f642f70ace58ade164c228bb171fb
+          ref: 472144f37a7c51f120bb3c099f3699fb55c29335
           path: approved
           # The highlights manifest verifies historical source 6667eb09 via git ls-tree.
           fetch-depth: 0
@@ -136,7 +136,7 @@ jobs:
           REVIEW_PUBLIC_KEY: ${{ vars.MECHANICAL_REVIEW_PUBLIC_KEY }}
         run: |
           set -euo pipefail
-          printf '%s  %s\n' 'b41430d391f1794199a6226bcae9fc9a73960d4ca7c85737153cce8e4e8126c2' project/.github/showcase-station.json | sha256sum --check --status
+          printf '%s  %s\n' 'c097a273bba59e539b1f38876b90c09a94244cd31b970259257cf670186edd7c' project/.github/showcase-station.json | sha256sum --check --status
           cp project/.github/showcase-station.json "$RUNNER_TEMP/station.json"
           if [[ -n "$REVIEW_PUBLIC_KEY" ]]; then
             printf '%s\n' "$REVIEW_PUBLIC_KEY" > "$RUNNER_TEMP/mechanical-review-public.pem"
