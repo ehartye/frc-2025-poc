@@ -12,7 +12,7 @@
     },
     {
       "id": "nominal-seat",
-      "text": "The pipe starts at rest on the design's carry seat, the nominal receive's end state, whatever the tread stiffness; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
+      "text": "The pipe starts at rest where the nominal trial before it left it, whatever the tread stiffness of this run; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
     },
     {"id": "pulse-as-load", "text": "The robot's acceleration is a load on the pipe in the robot frame; the robot does not pitch."}
   ],
@@ -20,9 +20,9 @@
   "stepS": 4e-05,
   "durationS": 1.65,
   "traceS": 0.002,
-  "fitToleranceMm": 10,
+  "fitToleranceMm": 0.5,
   "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
-  "piece": {"use": "pipe", "start": {"atMm": ["=seat_x", "=seat_z"]}},
+  "piece": {"use": "pipe", "start": {"after": "receive and go", "atRest": true}},
   "surfaces": [
     {"name": "inlet", "material": "panel", "segmentsMm": [["=entry_x", "=entry_z"], ["=kink_x", "=kink_z"], ["=floor_end_x", "=floor_end_z"]]},
     {"name": "hood", "material": "panel", "segmentsMm": [["=hood0_x", "=hood0_z"], ["=hood1_x", "=hood1_z"]]},

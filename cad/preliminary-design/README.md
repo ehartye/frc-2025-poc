@@ -22,7 +22,7 @@ One design has one version folder. An edit to an in-progress design is the next 
 | Judgement | `judgement.json`: the stage of each motion with its allowance and basis, the cycle, the displaced control, premises, the narrative list and the review text. `budgets.json`, `package-limits.json`, `missions.json`, `premises/` | The designer or the agent, by hand. This is where reasons, allowances and budgets change |
 | Generated | `generated/design.step`, `generated/fixtures.step`, `generated/manifest.json` from `build`; `generated/trials.json` from `try` | The design library, from `design.json`. Never edited |
 | Checked | `receipt.json`, `package-motion.html` and its scene | The agent's layout check |
-| Recorded | `evidence/field-trials.json`, `evidence/transport/`, `trial-replays.json`, `layout-blocks.json`, `evidence/interfaces/` | Draft 4's own trial solver and builder, now removed (Git keeps them at commit `6af96de`). The checked receive and eject motions still follow these traces; the trials as data in `generated/trials.json` repeat them |
+| Recorded | `evidence/field-trials.json`, `evidence/transport/`, `trial-replays.json`, `layout-blocks.json`, `evidence/interfaces/` | Draft 4's own trial solver and builder in [`iterations/002/design/preliminary-pocket/`](../../iterations/002/design/preliminary-pocket/), which no longer runs and is due to be removed. The checked receive and eject motions still follow these traces; the trials as data in `generated/trials.json` repeat them |
 
 A finding from a trial or a later stage is fixed in `design.json`, never in a generated file. No program in this repository draws the robot or solves a trial.
 

@@ -1,0 +1,356 @@
+{
+ "schema": "frc-design-kernel/screen@1",
+ "generator": {
+  "library": "frc-design-kernel",
+  "version": "0.1.0",
+  "commit": "9c69c7d201b7affc0173be277903a64075c29fe5"
+ },
+ "design": {
+  "name": "Fixed pocket 1.0",
+  "source": "design.json"
+ },
+ "interactions": {
+  "receive": {
+   "interaction": "receive",
+   "plane": {
+    "normal": "y",
+    "atMm": 20
+   },
+   "pose": null,
+   "piece": {
+    "name": "pipe",
+    "class": "body of revolution",
+    "axis": [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    "widthAcrossPlaneMm": 301.625,
+    "thicknessInPlaneMm": 114.3
+   },
+   "sections": {
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": [
+      "a round face lying across the plane"
+     ]
+    },
+    "Station upper guard (GE-25017)": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": [
+      "a round face lying across the plane"
+     ]
+    },
+    "Pocket tray": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [
+      170.8125
+     ],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Check flap": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [
+      170.8125
+     ],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Hood (removable)": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [
+      170.8125
+     ],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Lower nip roller": {
+     "largestDifferenceMm": 9.4,
+     "atLevelMm": 170.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Upper nip roller": {
+     "largestDifferenceMm": 9.4,
+     "atLevelMm": 170.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    }
+   },
+   "sidewaysHold": [
+    {
+     "pieceAtMm": [
+      304.13,
+      0,
+      599.97
+     ],
+     "plus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     },
+     "minus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     }
+    },
+    {
+     "pieceAtMm": [
+      -268.22,
+      0,
+      796.13
+     ],
+     "plus": {
+      "solid": "Pocket tray",
+      "gapMm": 0.0
+     },
+     "minus": {
+      "solid": "Pocket tray",
+      "gapMm": 0.0
+     }
+    }
+   ],
+   "mechanismOutOfPlane": [],
+   "piecesAtOnce": 1,
+   "squeeze": {
+    "ratio": null,
+    "why": "no drawn piece solid and motion are named for this interaction"
+   },
+   "notRigid": [],
+   "approach": {
+    "angleDeg": [
+     -5,
+     5
+    ],
+    "offsetMm": [
+     -20,
+     20
+    ]
+   },
+   "targetOffPlane": false
+  },
+  "eject": {
+   "interaction": "eject",
+   "plane": {
+    "normal": "y",
+    "atMm": 20
+   },
+   "pose": null,
+   "piece": {
+    "name": "pipe",
+    "class": "body of revolution",
+    "axis": [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    "widthAcrossPlaneMm": 301.625,
+    "thicknessInPlaneMm": 114.3
+   },
+   "sections": {
+    "Lower nip roller": {
+     "largestDifferenceMm": 9.4,
+     "atLevelMm": 170.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Upper nip roller": {
+     "largestDifferenceMm": 9.4,
+     "atLevelMm": 170.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Deployable exit lip": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [
+      170.8125
+     ],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Reef trough lip and base plates (GE-25302, GE-25311)": {
+     "largestDifferenceMm": 87.044523,
+     "atLevelMm": -130.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": [
+      "a cone or taper",
+      "a face sloped across the plane (a funnel or chamfer)",
+      "a round face lying across the plane"
+     ]
+    },
+    "Reef trough floor, docked sector (GE-25313)": {
+     "largestDifferenceMm": 125.987792,
+     "atLevelMm": 170.8125,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": [
+      "a face sloped across the plane (a funnel or chamfer)",
+      "a round face lying across the plane"
+     ]
+    },
+    "Reef trough riser, docked sector (GE-25315)": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [
+      95.40625,
+      170.8125
+     ],
+     "cutAtCentre": true,
+     "curvedAcross": [
+      "a round face lying across the plane"
+     ]
+    }
+   },
+   "sidewaysHold": [
+    {
+     "pieceAtMm": [
+      304.13,
+      0,
+      599.97
+     ],
+     "plus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     },
+     "minus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     }
+    },
+    {
+     "pieceAtMm": [
+      560.0,
+      0,
+      481.32
+     ],
+     "plus": null,
+     "minus": null
+    }
+   ],
+   "mechanismOutOfPlane": [],
+   "piecesAtOnce": 2,
+   "squeeze": {
+    "ratio": null,
+    "why": "no drawn piece solid and motion are named for this interaction"
+   },
+   "notRigid": [],
+   "approach": {
+    "angleDeg": [
+     -5,
+     5
+    ],
+    "offsetMm": [
+     -70,
+     70
+    ]
+   },
+   "targetOffPlane": false
+  },
+  "carry": {
+   "interaction": "carry",
+   "plane": {
+    "normal": "y",
+    "atMm": 0
+   },
+   "pose": null,
+   "piece": {
+    "name": "pipe",
+    "class": "body of revolution",
+    "axis": [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    "widthAcrossPlaneMm": 301.625,
+    "thicknessInPlaneMm": 114.3
+   },
+   "sections": {
+    "Pocket tray": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Check flap": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Hood (removable)": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Lower nip roller": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    },
+    "Upper nip roller": {
+     "largestDifferenceMm": 0.0,
+     "atLevelMm": null,
+     "notCutAtLevelsMm": [],
+     "cutAtCentre": true,
+     "curvedAcross": []
+    }
+   },
+   "sidewaysHold": [
+    {
+     "pieceAtMm": [
+      304.13,
+      0,
+      599.97
+     ],
+     "plus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     },
+     "minus": {
+      "solid": "Pocket tray",
+      "gapMm": 10.187499999999972
+     }
+    }
+   ],
+   "mechanismOutOfPlane": [],
+   "piecesAtOnce": 1,
+   "squeeze": {
+    "ratio": null,
+    "why": "no drawn piece solid and motion are named for this interaction"
+   },
+   "notRigid": [],
+   "approach": {
+    "angleDeg": [
+     0,
+     0
+    ],
+    "offsetMm": [
+     0,
+     0
+    ]
+   },
+   "targetOffPlane": false
+  }
+ }
+}

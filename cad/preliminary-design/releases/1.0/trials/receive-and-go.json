@@ -20,7 +20,7 @@
   "stepS": 4e-05,
   "durationS": 4.5,
   "traceS": 0.002,
-  "fitToleranceMm": 10,
+  "fitToleranceMm": 0.5,
   "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
   "piece": {"use": "pipe", "start": {"atMm": ["=receive_start_x", "=receive_start_z"]}},
   "surfaces": [
@@ -90,7 +90,8 @@
     {"name": "through", "when": {"signal": "xMm", "above": "=throat_x + 25"}, "outcome": "passed through the nip (lost forward)"},
     {"name": "lost", "when": {"any": [{"signal": "zMm", "below": 300}, {"signal": "xMm", "below": "=station_sill_x - 600"}]}, "outcome": "lost"},
     {"name": "late", "when": {"all": [{"signal": "tS", "above": 2.5}, {"notYet": "passed flap"}]}, "outcome": "did not reach the pocket"},
-    {"name": "seated", "when": {"all": [{"after": "passed flap"}, {"after": "flap closed", "delayS": 1.55}, {"restFor": 0.15}]}, "outcome": "seated"},
+    {"name": "stopped", "when": {"after": "flap closed", "delayS": 1.55}},
+    {"name": "seated", "when": {"all": [{"after": "passed flap"}, {"after": "stopped", "delayS": 0.15}, {"restFor": 0.15}]}, "outcome": "seated"},
     {"name": "not seated", "when": {"after": "flap closed", "delayS": 3.05}, "outcome": "not seated 1.5 s after the stop"}
   ],
   "measures": {
@@ -103,7 +104,8 @@
     "maxFlapDeg": {"peak": "hinge.flap.angleDeg"},
     "maxBiteN": {"peak": "contact.nip.forceN"},
     "maxCurrentA": {"peak": "drive.nip.currentA"},
-    "mostBackMm": {"lowest": "xMm"}
+    "stoppedS": {"timeOf": "stopped"},
+    "seatedS": {"timeOf": "seated"}
   },
   "pass": {"outcomes": ["seated"]},
   "control": {

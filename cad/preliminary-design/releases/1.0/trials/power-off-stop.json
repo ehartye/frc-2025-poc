@@ -12,7 +12,7 @@
     },
     {
       "id": "nominal-seat",
-      "text": "The pipe starts at rest on the design's carry seat, the nominal receive's end state, whatever the tread stiffness; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
+      "text": "The pipe starts at rest where the nominal trial before it left it, whatever the tread stiffness of this run; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
     },
     {"id": "pulse-as-load", "text": "The robot's acceleration is a load on the pipe in the robot frame; the robot does not pitch."}
   ],
@@ -72,8 +72,8 @@
   "measures": {"mostForwardXMm": {"peak": "xMm"}, "mostRearwardXMm": {"lowest": "xMm"}, "endXMm": {"final": "xMm"}, "maxBiteN": {"peak": "contact.nip.forceN"}},
   "pass": {"outcomes": ["retained"]},
   "control": {
-    "change": {"materials.tread.friction": 0.0, "materials.tread.stiffnessNPerM": 20000.0},
-    "note": "The rollers decoupled from the drive (no tread grip) and a tread below the band, 20 N/mm: the pipe must be pushed through."
+    "change": {"materials.tread.friction": 0.0, "materials.tread.stiffnessNPerM": 20000.0, "loads.stop.accelerationMps2": 58.8399},
+    "note": "The rollers decoupled (no tread grip) on a 20 N/mm tread, stopping at 6 g: the squeeze alone must not hold the pipe"
   },
   "brackets": [
     {

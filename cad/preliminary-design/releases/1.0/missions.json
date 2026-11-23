@@ -1,77 +1,34 @@
 {
   "missionCases": [
     {
-      "case": "eject-07-trough",
+      "case": "eject-trough",
       "kind": "operating-case",
       "accomplishes": "delivered",
       "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal"
     },
     {
-      "case": "eject-02-lip",
+      "case": "eject-nip",
       "kind": "operating-case",
       "accomplishes": "delivered",
       "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal"
     },
     {
-      "case": "receive-16-seat",
+      "case": "seat-pipe",
       "kind": "operating-case",
       "accomplishes": "acquired",
       "objective": "TELEOP: take one station-issued CORAL from the red station"
     }
   ],
   "cycle": {
-    "acquire": {
-      "cases": [
-        "receive-01-station-chute",
-        "receive-02-drop",
-        "receive-03-drop",
-        "receive-04-inlet",
-        "receive-05-inlet",
-        "receive-06-inlet",
-        "receive-07-pocket",
-        "receive-08-pocket",
-        "receive-09-pocket",
-        "receive-10-captive"
-      ]
-    },
-    "retain": {
-      "cases": [
-        "receive-11-drive-away",
-        "receive-12-drive-away",
-        "receive-13-drive-away",
-        "receive-14-brake",
-        "receive-15-seat",
-        "receive-16-seat",
-        "carry-01-power-off-hit",
-        "carry-02-power-off-hit"
-      ]
-    },
-    "transfer": {
-      "cases": [
-        "eject-01-nip",
-        "eject-02-lip"
-      ]
-    },
-    "deliver": {
-      "cases": [
-        "eject-03-flight",
-        "eject-04-flight",
-        "eject-05-trough",
-        "eject-06-trough",
-        "eject-07-trough"
-      ]
-    },
+    "acquire": {"cases": ["receive-chute", "receive-inlet", "receive-flap-open", "receive-flap-close"]},
+    "retain": {"cases": ["leave-station", "seat-pipe", "carry-power-off-hit"]},
+    "transfer": {"cases": ["eject-nip"]},
+    "deliver": {"cases": ["eject-trough"]},
     "reset": {
       "notApplicable": "The pocket is fixed and the lip stays deployed: after the eject the robot is ready for the next station receive with no reset motion"
     },
-    "endgame": {
-      "notApplicable": "The selected role parks; it does not climb"
-    },
-    "park": {
-      "cases": [
-        "withdraw-park"
-      ]
-    },
+    "endgame": {"notApplicable": "The selected role parks; it does not climb"},
+    "park": {"cases": ["withdraw-park"]},
     "service": {
       "cases": [
         "service-hood-withdrawal",
@@ -91,12 +48,7 @@
     {
       "id": "bench-G0",
       "risk": "Installed tread stiffness is unmeasured; receive fails at 10 N/mm and is marginal at 20, and the drive stalls at 240 N/mm",
-      "benchTest": {
-        "measure": "Force to press a pipe 6 mm into each installed roller",
-        "pass": "240 to 720",
-        "fail": "below 120 or above 1440",
-        "unit": "N"
-      }
+      "benchTest": {"measure": "Force to press a pipe 6 mm into each installed roller", "pass": "240 to 720", "fail": "below 120 or above 1440", "unit": "N"}
     },
     {
       "id": "bench-G1",
@@ -178,12 +130,7 @@
     {
       "id": "mass-headroom",
       "risk": "Heavy inspection estimate 49.78 kg leaves 2.39 kg under the 52.16 kg limit, with 3.4 kg of joints and 5.5 kg of electrical parts carried as allowances",
-      "benchTest": {
-        "measure": "Inspection weight of the finished robot without bumpers and battery",
-        "pass": "<= 52.16",
-        "fail": "> 52.16",
-        "unit": "kg"
-      }
+      "benchTest": {"measure": "Inspection weight of the finished robot without bumpers and battery", "pass": "<= 52.16", "fail": "> 52.16", "unit": "kg"}
     },
     {
       "id": "PD17-power-off-custody",
