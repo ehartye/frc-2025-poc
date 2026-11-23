@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "fixed-pocket-1.0",
-  "planSha256": "a9336e66cca26866554d59393c866a342459adb8ed69c022d5fb663950f4252a",
+  "planSha256": "ee1e57a232430b06f2509efa75f7d764badabecd7110b20115be6f174c769d70",
   "design": {
     "file": "cad/preliminary-design/releases/1.0/design.json",
     "sha256": "76e71a21547bba7e915b1f852b08fc2e6383bf9d103d6afcb4acc729988f6650"
@@ -669,7 +669,7 @@
     },
     "finestPathToleranceMm": 10.0,
     "finestPathToleranceCase": "carry-01-power-off-hit",
-    "undeclaredPathTolerance": 12,
+    "undeclaredPathTolerance": 0,
     "passed": []
   },
   "cycle": [
@@ -1702,13 +1702,13 @@
   },
   "view": {
     "file": "cad/preliminary-design/releases/1.0/package-motion.html",
-    "sha256": "0f6f45df6065bbe6db9c0ca550b8feb4196af2afad36b3c0c82ba8d75cad3fa6",
+    "sha256": "5eb05e38f4459f2edc76d9fb03adf3e97e7b54b52c0c365b0824777d8c446ff9",
     "verified": true,
     "scene": {
       "file": "cad/preliminary-design/releases/1.0/review-scene.json.gz",
-      "sha256": "f3abee125e9ae692668d513ccc05447da14c34b7e0877f5ef7cc5d3bfb94f6a6",
-      "contentSha256": "81038ad52638a46f2eeb2ec8b0c06e6e92a796c759584e8043ade78ff97c933d",
-      "bytes": 7985336
+      "sha256": "209a6dd18267955d960c6bbea1561abec9c0230f4224b4e18f8403ac73756e18",
+      "contentSha256": "1424d195bcf5c3bc466c1fa1290a134656564bc426816fa6cd6ce9ba3814d362",
+      "bytes": 7987503
     }
   },
   "groups": {
@@ -2564,14 +2564,17 @@
   "stages": {
     "lip-deploy": {
       "purpose": "operating",
+      "phase": "deploy-lip",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. The roller treads are reserved by their rigid core. Each contact the trial solves in a case (pipe on the tray, flap, lip, station chute or trough) is declared as that case's intended interface and bound to evidence/interfaces; every other pair keeps the reserve along the trial path"
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. The roller treads are reserved by their rigid core. Each contact the trial solves in a case (pipe on the tray, flap, lip, station chute or trough) is declared as that case's intended interface and bound to evidence/interfaces; every other pair keeps the reserve along the trial path",
+      "pathToleranceMm": 10.0
     },
     "receive-01-station-chute": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2590,6 +2593,7 @@
     },
     "receive-02-drop": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2608,6 +2612,7 @@
     },
     "receive-03-drop": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2626,6 +2631,7 @@
     },
     "receive-04-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2650,6 +2656,7 @@
     },
     "receive-05-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2674,6 +2681,7 @@
     },
     "receive-06-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2698,6 +2706,7 @@
     },
     "receive-07-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -2729,6 +2738,7 @@
     },
     "receive-08-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -2760,6 +2770,7 @@
     },
     "receive-09-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -2791,6 +2802,7 @@
     },
     "receive-10-captive": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -2821,6 +2833,7 @@
     },
     "receive-11-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -2851,6 +2864,7 @@
     },
     "receive-12-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -2881,6 +2895,7 @@
     },
     "receive-13-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -2911,6 +2926,7 @@
     },
     "receive-14-brake": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -2941,6 +2957,7 @@
     },
     "receive-15-seat": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -2971,6 +2988,7 @@
     },
     "receive-16-seat": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -3001,6 +3019,7 @@
     },
     "carry-01-power-off-hit": {
       "purpose": "operating",
+      "phase": "carry-hit",
       "movingGroups": [
         "pipe"
       ],
@@ -3029,6 +3048,7 @@
     },
     "carry-02-power-off-hit": {
       "purpose": "operating",
+      "phase": "carry-hit",
       "movingGroups": [
         "pipe"
       ],
@@ -3057,6 +3077,7 @@
     },
     "eject-01-nip": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3083,6 +3104,7 @@
     },
     "eject-02-lip": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3109,6 +3131,7 @@
     },
     "eject-03-flight": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3127,6 +3150,7 @@
     },
     "eject-04-flight": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3145,6 +3169,7 @@
     },
     "eject-05-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3163,6 +3188,7 @@
     },
     "eject-06-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3181,6 +3207,7 @@
     },
     "eject-07-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -3199,44 +3226,53 @@
     },
     "withdraw-park": {
       "purpose": "park",
+      "phase": "park",
       "movingGroups": [
         "field first pipe",
         "field reef",
         "pipe"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation"
+      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation",
+      "pathToleranceMm": 10.0
     },
     "service-hood-withdrawal": {
       "purpose": "service",
+      "phase": "service-hood-withdrawal",
       "movingGroups": [
         "check flap",
         "flap sensor",
         "hood"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-hood-lift": {
       "purpose": "service",
+      "phase": "service-hood-lift",
       "movingGroups": [
         "check flap",
         "flap sensor",
         "hood"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-unload-pipe": {
       "purpose": "service",
+      "phase": "service-unload-pipe",
       "movingGroups": [
         "pipe"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-nip-cassette-lift": {
       "purpose": "service",
+      "phase": "service-nip-cassette-lift",
       "movingGroups": [
         "exit lip",
         "lip latch",
@@ -3250,57 +3286,70 @@
         "upper nip roller"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-lip-restow": {
       "purpose": "service",
+      "phase": "service-lip-restow",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-lip-over-travel": {
       "purpose": "service",
+      "phase": "service-lip-over-travel",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-battery-lift": {
       "purpose": "service",
+      "phase": "service-battery-lift",
       "movingGroups": [
         "battery",
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-battery-rear-carry": {
       "purpose": "service",
+      "phase": "service-battery-rear-carry",
       "movingGroups": [
         "battery",
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-plug-disconnect": {
       "purpose": "service",
+      "phase": "service-plug-disconnect",
       "movingGroups": [
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-breaker-reset": {
       "purpose": "service",
+      "phase": "service-breaker-reset",
       "movingGroups": [
         "breaker service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     }
   },
   "cases": [

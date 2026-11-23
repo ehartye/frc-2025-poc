@@ -746,14 +746,17 @@
   "stages": {
     "lip-deploy": {
       "purpose": "operating",
+      "phase": "deploy-lip",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. The roller treads are reserved by their rigid core. Each contact the trial solves in a case (pipe on the tray, flap, lip, station chute or trough) is declared as that case's intended interface and bound to evidence/interfaces; every other pair keeps the reserve along the trial path"
+      "allowanceBasis": "2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and 1/4 in plate; every mated face is partitioned at 2.1 mm. The roller treads are reserved by their rigid core. Each contact the trial solves in a case (pipe on the tray, flap, lip, station chute or trough) is declared as that case's intended interface and bound to evidence/interfaces; every other pair keeps the reserve along the trial path",
+      "pathToleranceMm": 10.0
     },
     "receive-01-station-chute": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -771,6 +774,7 @@
     },
     "receive-02-drop": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -788,6 +792,7 @@
     },
     "receive-03-drop": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -805,6 +810,7 @@
     },
     "receive-04-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -828,6 +834,7 @@
     },
     "receive-05-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -851,6 +858,7 @@
     },
     "receive-06-inlet": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -874,6 +882,7 @@
     },
     "receive-07-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -904,6 +913,7 @@
     },
     "receive-08-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -934,6 +944,7 @@
     },
     "receive-09-pocket": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "check flap",
         "pipe"
@@ -964,6 +975,7 @@
     },
     "receive-10-captive": {
       "purpose": "operating",
+      "phase": "receive",
       "movingGroups": [
         "pipe"
       ],
@@ -993,6 +1005,7 @@
     },
     "receive-11-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1022,6 +1035,7 @@
     },
     "receive-12-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1051,6 +1065,7 @@
     },
     "receive-13-drive-away": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1080,6 +1095,7 @@
     },
     "receive-14-brake": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1109,6 +1125,7 @@
     },
     "receive-15-seat": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1138,6 +1155,7 @@
     },
     "receive-16-seat": {
       "purpose": "operating",
+      "phase": "leave-station",
       "movingGroups": [
         "pipe"
       ],
@@ -1167,6 +1185,7 @@
     },
     "carry-01-power-off-hit": {
       "purpose": "operating",
+      "phase": "carry-hit",
       "movingGroups": [
         "pipe"
       ],
@@ -1194,6 +1213,7 @@
     },
     "carry-02-power-off-hit": {
       "purpose": "operating",
+      "phase": "carry-hit",
       "movingGroups": [
         "pipe"
       ],
@@ -1221,6 +1241,7 @@
     },
     "eject-01-nip": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1246,6 +1267,7 @@
     },
     "eject-02-lip": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1271,6 +1293,7 @@
     },
     "eject-03-flight": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1288,6 +1311,7 @@
     },
     "eject-04-flight": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1305,6 +1329,7 @@
     },
     "eject-05-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1322,6 +1347,7 @@
     },
     "eject-06-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1339,6 +1365,7 @@
     },
     "eject-07-trough": {
       "purpose": "operating",
+      "phase": "eject",
       "movingGroups": [
         "pipe"
       ],
@@ -1356,44 +1383,53 @@
     },
     "withdraw-park": {
       "purpose": "park",
+      "phase": "park",
       "movingGroups": [
         "field first pipe",
         "field reef",
         "pipe"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation"
+      "allowanceBasis": "2.0 mm packaging reserve between parked reserves, the same partition as operation",
+      "pathToleranceMm": 10.0
     },
     "service-hood-withdrawal": {
       "purpose": "service",
+      "phase": "service-hood-withdrawal",
       "movingGroups": [
         "check flap",
         "flap sensor",
         "hood"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-hood-lift": {
       "purpose": "service",
+      "phase": "service-hood-lift",
       "movingGroups": [
         "check flap",
         "flap sensor",
         "hood"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-unload-pipe": {
       "purpose": "service",
+      "phase": "service-unload-pipe",
       "movingGroups": [
         "pipe"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-nip-cassette-lift": {
       "purpose": "service",
+      "phase": "service-nip-cassette-lift",
       "movingGroups": [
         "exit lip",
         "lip latch",
@@ -1407,57 +1443,70 @@
         "upper nip roller"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-lip-restow": {
       "purpose": "service",
+      "phase": "service-lip-restow",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-lip-over-travel": {
       "purpose": "service",
+      "phase": "service-lip-over-travel",
       "movingGroups": [
         "exit lip"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-battery-lift": {
       "purpose": "service",
+      "phase": "service-battery-lift",
       "movingGroups": [
         "battery",
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-battery-rear-carry": {
       "purpose": "service",
+      "phase": "service-battery-rear-carry",
       "movingGroups": [
         "battery",
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-plug-disconnect": {
       "purpose": "service",
+      "phase": "service-plug-disconnect",
       "movingGroups": [
         "plug service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     },
     "service-breaker-reset": {
       "purpose": "service",
+      "phase": "service-breaker-reset",
       "movingGroups": [
         "breaker service hand"
       ],
       "carriedWith": {},
-      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
+      "allowanceBasis": "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm",
+      "pathToleranceMm": 10.0
     }
   },
   "missingInputs": [],
@@ -1661,6 +1710,72 @@
       }
     ],
     "alliance": "red",
+    "phases": {
+      "deploy-lip": {
+        "title": "Deploy the exit lip at match start",
+        "headline": true
+      },
+      "receive": {
+        "title": "Receive a CORAL from the station",
+        "headline": true
+      },
+      "leave-station": {
+        "title": "Leave the station and seat the CORAL",
+        "headline": true
+      },
+      "carry-hit": {
+        "title": "Carry through a hit with the main power off",
+        "headline": true
+      },
+      "eject": {
+        "title": "Eject into the L1 trough",
+        "headline": true
+      },
+      "park": {
+        "title": "Back away and park",
+        "headline": false
+      },
+      "service-hood-withdrawal": {
+        "title": "Service: withdraw the hood from the scene",
+        "headline": false
+      },
+      "service-hood-lift": {
+        "title": "Service: lift the hood off",
+        "headline": false
+      },
+      "service-unload-pipe": {
+        "title": "Service: unload an unscored CORAL",
+        "headline": false
+      },
+      "service-nip-cassette-lift": {
+        "title": "Service: lift out the nip cassette",
+        "headline": false
+      },
+      "service-lip-restow": {
+        "title": "Service: fold the lip back for the next match",
+        "headline": false
+      },
+      "service-lip-over-travel": {
+        "title": "Lip pushed past its sprung stop by a frontal hit",
+        "headline": false
+      },
+      "service-battery-lift": {
+        "title": "Service: lift the battery",
+        "headline": false
+      },
+      "service-battery-rear-carry": {
+        "title": "Service: carry the battery out to the rear",
+        "headline": false
+      },
+      "service-plug-disconnect": {
+        "title": "Service: reach the battery plug",
+        "headline": false
+      },
+      "service-breaker-reset": {
+        "title": "Service: reach the main breaker",
+        "headline": false
+      }
+    },
     "title": "Fixed pocket, held roller nip and exit lip",
     "context": "Red 2 \u00b7 Iteration 002 \u00b7 B\u2032x preliminary design",
     "architecture": "Red 2 B\u2032x \u00b7 fixed pocket, two-roller nip on a powered-hold planetary drive and deploy-once exit lip on four-module swerve",
@@ -1681,546 +1796,728 @@
       "Chassis perimeter": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Closes the frame perimeter that carries the bumpers and reacts strikes into the wheel stations.",
         "rationale": "The bumper ring and the perimeter rules bound the robot; strike loads must reach the module stations. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis cassettes and socket rails": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails.",
         "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis cassettes and socket rails part 2": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
         "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis cassettes and socket rails part 3": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
         "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis cassettes and socket rails part 4": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Holds the four module cassettes; the module plates clamp the 50.8 mm socket rails. (separated piece after partition)",
         "rationale": "Four-module swerve needs a rigid, serviceable seat at each corner. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis pan trusses and stringers": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Raises the upper stringers to Z 470-490; the nip side plates and floor posts land on them.",
         "rationale": "The pocket needs landings near Z 490 on both sides of the pipe path; the existing stringers already sit there. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis pan trusses and stringers part 2": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Raises the upper stringers to Z 470-490; the nip side plates and floor posts land on them. (separated piece after partition)",
         "rationale": "The pocket needs landings near Z 490 on both sides of the pipe path; the existing stringers already sit there. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers.",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 2": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 3": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 4": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 5": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 6": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 7": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 8": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis sills, decks and crossmembers part 9": {
         "category": "frame",
         "material": "6061-T6 aluminium tube and plate (taps-02 bodies)",
+        "subsystem": "Chassis",
+        "volumeType": "envelope",
         "purpose": "Ties front to rear through the sills and carries the two equipment sheets and the battery hangers. (separated piece after partition)",
         "rationale": "The two-sill architecture hangs the battery low and central and leaves the battery lift gap between the decks. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 1 steer sweep": {
         "category": "wheel",
         "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Occupies the module 1 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
         "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 1 housing": {
         "category": "drive",
         "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Holds the module 1 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
         "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 2 steer sweep": {
         "category": "wheel",
         "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Occupies the module 2 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
         "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 2 housing": {
         "category": "drive",
         "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Holds the module 2 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
         "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 3 steer sweep": {
         "category": "wheel",
         "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Occupies the module 3 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
         "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 3 housing": {
         "category": "drive",
         "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Holds the module 3 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
         "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 4 steer sweep": {
         "category": "wheel",
         "material": "SDS MK4i turret: billet wheel, nitrile tread, aluminium mounts (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Occupies the module 4 wheel and turret through any steering angle and puts the tread on the floor at Z = 0.",
         "rationale": "Four-module swerve is the project drivetrain; the full steer sweep must stay clear of the frame, bumpers, leads and battery. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 4 housing": {
         "category": "drive",
         "material": "SDS MK4i housing with two NEOs and CANcoder (supplier)",
+        "subsystem": "Drivetrain",
+        "volumeType": "envelope",
         "purpose": "Holds the module 4 drive and steer NEOs, gears, belt, CANcoder and plates on the socket rail.",
         "rationale": "The SDS MK4i L2 corner is the selected purchased module. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Bumper ring": {
         "category": "bumper",
         "material": "4 mm backer, 69.5 mm PE foam, 0.5 mm cover (project rear-facet record)",
+        "subsystem": "Bumpers",
+        "volumeType": "envelope",
         "purpose": "Protects the frame perimeter in contact with field elements and robots.",
         "rationale": "Required bumpers; the ring follows the actual frame plan hull. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Power distribution hub": {
         "category": "power",
         "material": "REV PDH (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Distributes battery power to the controllers and the control system.",
         "rationale": "Every load in the voltage budget draws through it. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "roboRIO 2": {
         "category": "compute",
         "material": "NI roboRIO 2 (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Runs the robot program, the eject interlock and the drive control.",
         "rationale": "A control computer is required. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "VH-109 radio": {
         "category": "compute",
         "material": "VH-109 radio (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Links the robot to the driver station and field.",
         "rationale": "Required communications. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Main 120 A breaker": {
         "category": "power",
         "material": "Eaton CB185 120 A breaker (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Disconnects and protects the main battery circuit.",
         "rationale": "Required main disconnect; reset path checked in service-breaker-reset. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Starboard controller 1 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module drive NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Starboard controller 2 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module steer NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Starboard controller 3 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module drive NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Starboard controller 4 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module steer NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Port controller 1 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module drive NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Port controller 2 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module steer NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Port controller 3 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module drive NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Port controller 4 (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands one module steer NEO.",
         "rationale": "Eight SPARK MAX controllers run the four drive and four steer motors. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Nip controller (SPARK MAX)": {
         "category": "electrical",
         "material": "REV SPARK MAX (supplier)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Commands the nip NEO 550 under its 30 A limit, gated by the eject interlock.",
         "rationale": "Uses the pan controller's placement on the equipment sheet. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Chassis battery plug and bracket": {
         "category": "power",
         "material": "Anderson SB50 and bracket reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Mates the battery SB50 to the robot-side main leads.",
         "rationale": "The battery disconnects at a plug the plug-grip hand can reach. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Main power loom": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the main lead route from the SB50 to the breaker and PDH.",
         "rationale": "The main leads must avoid the battery lift and the plug grip. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Branch and CAN trunk": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the branch power and CAN route to the controllers.",
         "rationale": "Branch and CAN wiring cross the centre gap above the crossmembers. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 1 lead reserve": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the module 1 motor and CANcoder leads under the equipment sheet.",
         "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 2 lead reserve": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the module 2 motor and CANcoder leads under the equipment sheet.",
         "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 3 lead reserve": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the module 3 motor and CANcoder leads under the equipment sheet.",
         "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Module 4 lead reserve": {
         "category": "electrical",
         "material": "Copper conductor and insulation reserve",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Reserves the module 4 motor and CANcoder leads under the equipment sheet.",
         "rationale": "Module leads must leave the housing clear of the steer sweep. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Battery tray and retention": {
         "category": "plate",
         "material": "Aluminium tray and hangers (planning reserve)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Supports and retains the battery case below the sills.",
         "rationale": "The battery sits low and central and lifts out through the centre gap. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Dressed battery": {
         "category": "battery",
         "material": "Sealed lead-acid FRC battery with leads (excluded by R103)",
+        "subsystem": "Electrical",
+        "volumeType": "envelope",
         "purpose": "Supplies the robot; its case, leads and battery-side SB50 move together in service.",
         "rationale": "The pack is the voltage source of the budget. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Breaker reset hand": {
         "category": "reserved-space",
         "material": "Clearance gauge: no robot material",
+        "subsystem": "Service access",
+        "volumeType": "gauge",
         "purpose": "Clearance gauge for a hand reaching the main breaker reset from above.",
         "rationale": "Resetting the breaker must not need the pocket removed. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Plug grip hand": {
         "category": "reserved-space",
         "material": "Clearance gauge: no robot material",
+        "subsystem": "Service access",
+        "volumeType": "gauge",
         "purpose": "Clearance gauge for a hand gripping the SB50 pair.",
         "rationale": "The battery swap starts with this disconnect. Carried forward from the iteration 002 baseline as a revisable premise."
       },
       "Pocket tray": {
         "category": "receiver",
         "material": "1/8 in polycarbonate with a UHMW contact face (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "envelope",
         "purpose": "Receives the station pipe on a 52.3 deg chute, rolls it down the 15.74 deg floor and holds it between two walls 10 mm clear of its ends.",
         "rationale": "A fixed path replaces the pan's moving receiver; the 15.74 deg floor keeps the seated pipe pressed toward the nip at 0.27 g and the walls square its 301.6 mm length."
       },
       "Hood (removable)": {
         "category": "guide",
         "material": "1/16 in polycarbonate (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Caps the pocket 10 mm above the pipe, turns a high bounce from the station drop down into the pocket with its flared lead-in, and carries the check-flap pin and the flap-closed switch.",
         "rationale": "Isolation: without the hood 4/4 receives still seat, and without the flare 4/4 (peak rise with it 7.93 mm), so the planar trials do not show either earning its place. They are kept as the flap carrier and as a bound on a yawed or end-on bounce the trials cannot model; the hood lifts off for the pit unload path."
       },
       "Check flap": {
         "category": "mechanism",
         "material": "1/16 in polycarbonate, steel pin and torsion spring (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Lets the arriving pipe in and closes behind it: the pipe is then captive and the robot may leave the station.",
         "rationale": "Isolation: leaving the station without it loses the pipe rearward (0/2 retained); with it 24/24 receive-and-go runs are retained and seated, and every powered sled case is retained (72/72)."
       },
       "Pocket landing shelf port": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Carries the port floor post and side-plate foot inboard from the port upper stringer.",
         "rationale": "The stringer has material only outboard of Y 232; the post and the plate stand 60-90 mm inboard of it, so they need a shelf to land on."
       },
       "Pocket landing shelf starboard": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Carries the starboard floor post and side-plate foot inboard from the starboard upper stringer.",
         "rationale": "Paired landing shelf."
       },
       "Port nip side plate": {
         "category": "plate",
         "material": "1/4 in 6061-T6, pocketed (proposal)",
+        "subsystem": "Roller nip",
+        "volumeType": "material",
         "purpose": "Carries the port bearings of both rollers, the drive, the beam emitter and the lip hinge, and lands the cassette on the port stringer.",
         "rationale": "The nip is the pocket's front stop and must hold its 12 mm squeeze: up to 457 N per roller on receive and 968 N in the eject squeeze at 160 N/mm (structure-checks.json P1-P3)."
       },
       "Starboard nip side plate": {
         "category": "plate",
         "material": "1/4 in 6061-T6, pocketed (proposal)",
+        "subsystem": "Roller nip",
+        "volumeType": "material",
         "purpose": "Carries the starboard bearings, the coupling belt and idler, the beam receiver, the reef range sensor and the lip hinge.",
         "rationale": "Paired with the port plate it makes the nip a removable cassette."
       },
       "Lower nip roller": {
         "category": "roller",
         "material": "2 in compliant wheels (AndyMark am-3462 class) on a 1/2 in steel hex shaft; count and durometer set on the bench",
+        "subsystem": "Roller nip",
+        "volumeType": "envelope",
         "purpose": "Lower half of the nip: front stop on receive, driven eject roller, and the roller the pipe rolls over onto the lip.",
         "rationale": "With the upper roller it replaces the evaluation's fence, which no nip could lift the pipe over (finding PD1)."
       },
       "Upper nip roller": {
         "category": "roller",
         "material": "2 in compliant wheels (AndyMark am-3462 class) on a 1/2 in steel hex shaft; count and durometer set on the bench",
+        "subsystem": "Roller nip",
+        "volumeType": "envelope",
         "purpose": "Upper half of the nip: clamps the pipe in the bite and drives it through the throat.",
         "rationale": "A two-sided squeeze moves the pipe without spin and holds it in the bite under the powered hold."
       },
       "Nip drive (NEO 550 and MAXPlanetary 36:1)": {
         "category": "actuator",
         "material": "REV NEO 550 (REV-21-1651) and REV MAXPlanetary 4:1 x 3:1 x 3:1",
+        "subsystem": "Roller nip",
+        "volumeType": "envelope",
         "purpose": "Holds the nip against the arriving pipe with a powered position hold, then drives the pipe through the squeeze to eject it.",
         "rationale": "Replaces the first draft's unselected self-locking worm. Comparison: the worm stalls on treads of 110 N/mm and above (0/4 at 110, 0/4 at 160) while this drive ejects 480/480 over 40-160 N/mm, slowest 0.35 m/s in the nip. The lock is not needed: with the robot disabled the back-drivable nip still seats 4/4 receives and holds 18/18 sled pulses."
       },
       "Nip coupling belt": {
         "category": "transmission",
         "material": "Timing belt, pulleys and idler (article not selected)",
+        "subsystem": "Roller nip",
+        "volumeType": "envelope",
         "purpose": "Counter-rotates the upper roller from the lower shaft.",
         "rationale": "Both rollers must turn so the pipe leaves the throat without spin and one drive holds both."
       },
       "Seated-pipe beam emitter (port)": {
         "category": "sensor",
         "material": "Adafruit 2168 5 mm IR break-beam pair",
+        "subsystem": "Sensing",
+        "volumeType": "envelope",
         "purpose": "Sends the break beam along the pocket just under the top of a seated pipe.",
         "rationale": "The eject interlock needs the pipe in the bite, and the narrative requires detecting displacement or loss: the beam is blocked for pipe centres X 296-333 mm and clears when the pipe is 10 mm back or gone (gate G5)."
       },
       "Seated-pipe beam receiver (starboard)": {
         "category": "sensor",
         "material": "Adafruit 2168 5 mm IR break-beam pair",
+        "subsystem": "Sensing",
+        "volumeType": "envelope",
         "purpose": "Receives the break beam; a blocked beam is the seated signal.",
         "rationale": "Paired with the emitter through windows in both side plates."
       },
       "Flap-closed switch": {
         "category": "sensor",
         "material": "REV magnetic limit switch REV-31-1462",
+        "subsystem": "Sensing",
+        "volumeType": "envelope",
         "purpose": "Reports that the check flap has closed again behind the pipe: the captive signal.",
         "rationale": "The robot leaves on this signal instead of waiting for the pipe to settle: captive 0.097-0.195 s after the flap against a seat time of up to 1.351 s."
       },
       "Lip-deployed switch": {
         "category": "sensor",
         "material": "REV magnetic limit switch REV-31-1462",
+        "subsystem": "Sensing",
+        "volumeType": "envelope",
         "purpose": "Reports that the lip reached its deployed stop.",
         "rationale": "The eject interlock must not run the nip into a stowed lip (latch-failed control)."
       },
       "Reef range sensor (CANrange)": {
         "category": "sensor",
         "material": "CTRE CANrange time-of-flight sensor",
+        "subsystem": "Sensing",
+        "volumeType": "envelope",
         "purpose": "Measures the distance to the trough face under the lip; the eject runs only at 100 mm stand-off or less.",
         "rationale": "One measurement holds the eject inside the stand-off the trials capture at and puts the bumper at least 255.6 mm inside the reef zone tape for G412."
       },
       "Lip latch servo": {
         "category": "actuator",
         "material": "REV Smart Robot Servo and steel pin",
+        "subsystem": "Exit lip",
+        "volumeType": "envelope",
         "purpose": "Holds the upright stowed lip for the starting configuration and releases it once at match start.",
         "rationale": "R102 needs the lip inside the perimeter at the start; the deploy happens on the field."
       },
       "Deployable exit lip": {
         "category": "mechanism",
         "material": "1/8 in polycarbonate, hinge pins, deploy torsion spring and sprung stop (proposal)",
+        "subsystem": "Exit lip",
+        "volumeType": "envelope",
         "purpose": "Rolls the ejected pipe off a tip 100 mm beyond the frame line at 0.55 m so it drops into the trough.",
         "rationale": "Isolation: with the lip removed the 12 V eject is captured only bumper-to-trough (4/4 at 0 mm, 0/4 at 50 mm); a lip pulled inside the bumper face loses 5 of 8 at 100 mm. Deployed to 100 mm, 480/480 ejects over 0-100 mm are captured and supported after withdrawal. A latch failure (lip still up) blocks the exit. Its sprung stop lets a frontal hit fold it behind the bumper face."
       },
       "Rear inlet upright port": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Carries the inlet walls at the station face from the rear perimeter.",
         "rationale": "The 0.8 m inlet lip is far above any chassis member."
       },
       "Floor post port": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Supports the pocket floor from the port upper stringer.",
         "rationale": "The floor spans 650 mm between the inlet and the nip and needs a mid support."
       },
       "Rear inlet upright starboard": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Carries the inlet walls at the station face from the rear perimeter.",
         "rationale": "Paired rear support."
       },
       "Floor post starboard": {
         "category": "structure",
         "material": "1 x 1 x 1/16 in 6061-T6 tube (proposal)",
+        "subsystem": "Pocket",
+        "volumeType": "material",
         "purpose": "Supports the pocket floor from the starboard upper stringer.",
         "rationale": "Paired floor support."
       },
       "CORAL pipe": {
         "category": "game-piece",
         "material": "PVC CORAL pipe (field element)",
+        "subsystem": "Game piece",
+        "volumeType": "material",
         "purpose": "The finite game piece followed from the station chute through receive, carry, eject, the lip and the trough.",
         "rationale": "The role scores two station pipes in the L1 trough; every clearance and trial uses its actual diameter and length."
       },
       "Station lower barrier (GE-25007)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25007: lower barrier below the station wall panels, the face the rear bumper meets at the receive dock.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station lower panel (GE-25008)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25008: station wall panel below the 196 mm opening the pipe leaves through.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station upper panel (GE-25009)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25009: station wall panel above the opening.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station upper guard (GE-25017)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25017: upper guard over the chute, 124 mm above its surface: it caps a bounce on the ramp.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station frame upright, port (GE-25001-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25001-01: port frame upright, floor to top, that carries the panels and the side plate.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station frame upright, starboard (GE-25001-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25001-01: starboard frame upright, floor to top, that carries the panels and the side plate.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef trough floor, docked sector (GE-25313)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25313: trough floor panel of the docked sector, rising 15 deg toward the riser.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef trough floor, next sector (GE-25313)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25313: trough floor panel of the next sector toward -Y, where the first pipe rests.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef trough riser, docked sector (GE-25315)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25315: inner riser of the docked sector: it stops the pipe at the back of the trough.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef trough riser, next sector (GE-25315)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25315: inner riser of the next sector.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef branch column, docked sector (GE-25301-02)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-02: branch column of the docked sector, rising through the trough floor to the L4 tip.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef branch column, next sector (GE-25301-02)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-02: branch column of the next sector.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef L2 branch arm, docked sector (GE-25301-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-01: L2 branch arm over the docked trough.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef L3 branch arm, docked sector (GE-25301-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-01: L3 branch arm over the docked trough.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef L2 branch arm, next sector (GE-25301-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-01: L2 branch arm over the next sector.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef L3 branch arm, next sector (GE-25301-01)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25301-01: L3 branch arm over the next sector.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: coral station",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25014, GE-25004, GE-25005: chute plate the pipe rolls down (35 deg, 12.7 mm, with 32 mm slots every 203 mm that the pipe bridges) and the two side plates that carry it.",
         "rationale": "The receive is checked and trialled against the official station at the shown dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "Reef trough lip and base plates (GE-25302, GE-25311)": {
         "category": "field",
         "material": "FIRST official field part (field element, not robot)",
+        "subsystem": "Field: REEF",
+        "volumeType": "material",
         "purpose": "FIRST official field part GE-25302, GE-25311: trough lip panel of the docked REEF face, the wall the pipe must clear, with the two base plates it stands in.",
         "rationale": "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so."
       },
       "First scored pipe in sector A (field)": {
         "category": "game-piece",
         "material": "First scored CORAL, resting in the trough (field element for the second trip)",
+        "subsystem": "Game piece",
+        "volumeType": "envelope",
         "purpose": "Field fixture: the first pipe at rest in sector A during the second delivery at sector B.",
         "rationale": "The second trip must clear it; in the same section it blocks the delivery (second-trip.json)."
       }

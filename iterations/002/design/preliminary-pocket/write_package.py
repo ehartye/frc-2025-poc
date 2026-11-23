@@ -540,11 +540,49 @@ operating_basis = ("2.0 mm reserve between distinct reserves: fabrication and wo
                    "bound to evidence/interfaces; every other pair keeps the reserve along the trial path")
 service_basis = "2.0 mm clearance for hand, tool and withdrawal paths around conservative envelopes; mated faces partitioned at 2.1 mm"
 park_basis = "2.0 mm packaging reserve between parked reserves, the same partition as operation"
+# One animation per mission phase: the cases of a phase are the consecutive segments of one motion.
+PHASES = dict([
+    ("deploy-lip", dict(title="Deploy the exit lip at match start", headline=True)),
+    ("receive", dict(title="Receive a CORAL from the station", headline=True)),
+    ("leave-station", dict(title="Leave the station and seat the CORAL", headline=True)),
+    ("carry-hit", dict(title="Carry through a hit with the main power off", headline=True)),
+    ("eject", dict(title="Eject into the L1 trough", headline=True)),
+    ("park", dict(title="Back away and park", headline=False)),
+    ("service-hood-withdrawal", dict(title="Service: withdraw the hood from the scene", headline=False)),
+    ("service-hood-lift", dict(title="Service: lift the hood off", headline=False)),
+    ("service-unload-pipe", dict(title="Service: unload an unscored CORAL", headline=False)),
+    ("service-nip-cassette-lift", dict(title="Service: lift out the nip cassette", headline=False)),
+    ("service-lip-restow", dict(title="Service: fold the lip back for the next match", headline=False)),
+    ("service-lip-over-travel", dict(title="Lip pushed past its sprung stop by a frontal hit", headline=False)),
+    ("service-battery-lift", dict(title="Service: lift the battery", headline=False)),
+    ("service-battery-rear-carry", dict(title="Service: carry the battery out to the rear", headline=False)),
+    ("service-plug-disconnect", dict(title="Service: reach the battery plug", headline=False)),
+    ("service-breaker-reset", dict(title="Service: reach the main breaker", headline=False))])
+RETAIN_TAGS = ("-drive-away", "-brake", "-seat")
+
+
+def phase_of(cid):
+    if cid == "lip-deploy":
+        return "deploy-lip"
+    if cid.startswith("receive-"):
+        return "leave-station" if cid.endswith(RETAIN_TAGS) else "receive"
+    if cid.startswith("carry-"):
+        return "carry-hit"
+    if cid.startswith("eject-"):
+        return "eject"
+    if cid == "withdraw-park":
+        return "park"
+    assert cid in PHASES, cid
+    return cid
+
+
 stages = {}
 for c in cases:
     moving = sorted({g for g, m in by_group.items() if set(m) & set(c["moves"])})
     basis = {"operating": operating_basis, "park": park_basis, "service": service_basis}[c["stage"]]
-    stages[c["id"]] = dict(purpose=c["stage"], movingGroups=moving, carriedWith={}, allowanceBasis=basis)
+    # A prescribed case (hinge rotation, straight lift, reach or drive) is swept exactly; it declares the coarse whole-cycle tolerance.
+    stages[c["id"]] = dict(purpose=c["stage"], phase=phase_of(c["id"]), movingGroups=moving, carriedWith={}, allowanceBasis=basis,
+                           pathToleranceMm=CHORD_TOL)
     if c["id"] in case_meta:
         spec = case_meta[c["id"]]["spec"]
         stages[c["id"]]["pathToleranceMm"] = case_meta[c["id"]]["tolMm"]
@@ -1000,6 +1038,25 @@ CATEGORY = {"structure": ("frame", "6061-T6 aluminium tube and plate (taps-02 bo
 ELEC = {"Power distribution hub": ("power", "REV PDH (supplier)"), "Main 120 A breaker": ("power", "Eaton CB185 120 A breaker (supplier)"),
         "roboRIO 2": ("compute", "NI roboRIO 2 (supplier)"), "VH-109 radio": ("compute", "VH-109 radio (supplier)"),
         "Chassis battery plug and bracket": ("power", "Anderson SB50 and bracket reserve")}
+# Subsystem: the function a solid serves. Volume type: material (the part at its drawn size), envelope (a box, sweep or
+# reserve around a part) or gauge (a clearance tool with no robot material).
+SUBSYSTEM = {"structure": "Chassis", "steer sweeps": "Drivetrain", "module housings": "Drivetrain", "bumpers": "Bumpers",
+             "electronics": "Electrical", "wiring": "Electrical", "battery": "Electrical", "battery retention": "Electrical",
+             "pocket tray": "Pocket", "hood": "Pocket", "check flap": "Pocket", "tray supports": "Pocket",
+             "nip side plates": "Roller nip", "lower nip roller": "Roller nip", "upper nip roller": "Roller nip", "nip drive": "Roller nip",
+             "nip coupling": "Roller nip", "exit lip": "Exit lip", "lip latch": "Exit lip",
+             "pipe sensor": "Sensing", "flap sensor": "Sensing", "lip sensor": "Sensing", "reef sensor": "Sensing",
+             "pipe": "Game piece", "field first pipe": "Game piece", "field station": "Field: coral station", "field reef": "Field: REEF",
+             "breaker service hand": "Service access", "plug service hand": "Service access"}
+MATERIAL_GROUPS = {"hood", "check flap", "nip side plates", "pipe", "field station", "field reef", "tray supports"}
+
+
+def volume_type(b):
+    if b["role"] == "service":
+        return "gauge"
+    return "material" if b["group"] in MATERIAL_GROUPS else "envelope"
+
+
 components = {}
 for b in blocks["blocks"]:
     if b["name"] in ELEC:
@@ -1008,7 +1065,7 @@ for b in blocks["blocks"]:
         cat, mat = "electrical", "REV SPARK MAX (supplier)"
     else:
         cat, mat = CATEGORY[b["group"]]
-    components[b["name"]] = dict(category=cat, material=mat)
+    components[b["name"]] = dict(category=cat, material=mat, subsystem=SUBSYSTEM[b["group"]], volumeType=volume_type(b))
 
 CARRIED_NOTE = " Carried forward from the iteration 002 baseline as a revisable premise."
 
@@ -1517,7 +1574,7 @@ replay_path.write_text(json.dumps(replay_set, separators=(",", ":"), allow_nan=F
 replays_pin = pin(REPLAYS)
 
 presentation = dict(
-    replays=[replays_pin], alliance="red",
+    replays=[replays_pin], alliance="red", phases=PHASES,
     title="Fixed pocket, held roller nip and exit lip", context="Red 2 · Iteration 002 · B′x preliminary design",
     architecture="Red 2 B′x · fixed pocket, two-roller nip on a powered-hold planetary drive and deploy-once exit lip on four-module swerve",
     focus="CORAL pipe: the receive and eject cases follow two solved trials, from the station chute to the trough. Start with receive-01 and step through, "
