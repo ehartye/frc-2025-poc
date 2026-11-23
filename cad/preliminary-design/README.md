@@ -13,8 +13,9 @@ This folder holds the inputs of the robot's preliminary design and the script th
 | Architecture | Fixed pocket on four-module swerve. A station CORAL drops into a fixed pocket, a two-roller nip (NEO 550, MAXPlanetary 36:1, powered hold) stops and holds it, and a deploy-once exit lip rolls it off into the L1 trough. |
 | Review page | <https://ehartye.github.io/frc-2025-poc/preliminary-design/> |
 | Inputs | [`releases/1.0/`](releases/1.0/): `package.step`, `layout.json`, `paths.json`, `budgets.json`, `missions.json`, the trial records under `evidence/` and the saved `receipt.json` |
+| Handoff | [`releases/1.0/HANDOFF.md`](releases/1.0/HANDOFF.md): datums, envelopes, interfaces, operating windows, budgets, bench tests and first work items for detailed design |
 | Builders | [`iterations/002/design/preliminary-pocket/`](../../iterations/002/design/preliminary-pocket/) |
-| Field | Official FIRST field parts under [`cad/field/official/`](../field/official/) |
+| Field | FIRST's official station and reef parts, placed at the two docks: [`releases/1.0/field/`](releases/1.0/field/), from [`cad/field/official/`](../field/official/) |
 
 The design is in progress until the owner marks it effective. Print the readiness report with `node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/1.0 --design "Fixed pocket 1.0"`.
 
