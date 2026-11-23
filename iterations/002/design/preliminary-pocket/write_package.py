@@ -6,9 +6,9 @@ VIEW is the review page the layout check writes, project-relative (the plugin cu
 root; omit it to check without a page).
 
 PROJECT_ROOT is the repository root (the project root of the layout check). RELEASE_DIR, project-relative, defaults to
-cad/preliminary-design/releases/1.0 and already holds design.json, package.step, field-fixtures.step,
-layout-blocks.json (build_layout.py), evidence/field-trials.json (field_trials.py) and evidence/structure-checks.json
-(structure_checks.py). Every pin is project-relative.
+cad/preliminary-design/releases/1.0 and already holds field/*.step and evidence/official-fixtures.json
+(cad/field/official/checked_fixtures.py), design.json, package.step, scored-pipe.step, layout-blocks.json (build_layout.py),
+evidence/field-trials.json (field_trials.py) and evidence/structure-checks.json (structure_checks.py). Every pin is project-relative.
 
 Every mission case's pipe and flap motion is a chord of a solved trial trace (receive-mission, custody-power-off-hit and
 eject-nominal in field-trials.json): the trace is reduced to straight strokes that stay within CHORD_TOL of it, split at each change of
@@ -80,7 +80,11 @@ EJ, RC, SL = trials["eject"], trials["receive"], trials["sled"]
 BAND = S["acceptanceBandNmm"]
 design = pin(f"{REL}/design.json")
 step = pin(f"{REL}/package.step")
-fixture_step = pin(f"{REL}/field-fixtures.step")
+pipe_step = pin(f"{REL}/scored-pipe.step")
+official_pin = pin(f"{REL}/evidence/official-fixtures.json")
+OFFICIAL = read(official_pin["file"])
+OFF_ROLE = {r["role"]: r["name"] for r in OFFICIAL["parts"]}
+OFFICIAL_SOURCE = f"FIRST official field model ({OFFICIAL['source']['url']}; {OFFICIAL['source']['edition']})"
 datum = dict(name="Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), "
                   "+X toward the reef (delivery) face, +Y port, +Z up, millimetres",
              robotToStepMm=[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -167,26 +171,25 @@ def tr3(v):
 
 
 pipe, lip, flap, hood, lower = "CORAL pipe", "Deployable exit lip", "Check flap", "Hood (removable)", "Lower nip roller"
-trough, station, first_pipe = "L1 trough sector A (field)", "Coral station chute (field)", "First scored pipe in sector A (field)"
+first_pipe = "First scored pipe in sector A (field)"
+# The official parts the pipe touches: the chute plate at the station, and the lip, floor and riser of the docked trough.
+station = OFF_ROLE["chute"]
+TROUGH_PARTS = [OFF_ROLE["lip"], OFF_ROLE["floor"], OFF_ROLE["riser"]]
+trough = OFF_ROLE["lip"]
 FLAP_SW = "Flap-closed switch"
 FL = (pg.FLAP_HINGE[0], pg.FLAP_HINGE[1])
 HINGE = pg.LIP_HINGE
-FIX = {
-    station: dict(id=station, file=fixture_step, solid=station,
-                  basis="Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate "
-                        f"(field_trials.py STATION: exit sill {ft.STATION['sillZ']} mm, {ft.STATION['slopeDeg']:.0f} deg from horizontal, "
-                        f"{ft.STATION['rampMm']} mm ramp; wall {ft.NOMINAL_DOCK_GAP:.0f} mm behind the rear bumper face). Sources: V0 manual 5.6 "
-                        "(37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official "
-                        "field model; the opening's upper guard and side guides are not placed."),
-    trough: dict(id=trough, file=fixture_step, solid=trough,
-                 basis="Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json "
-                       "section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. "
-                       f"Planning solid, not the official field model. Lip face {pg.NOMINAL_STANDOFF:.0f} mm ahead of the bumper face, the shown dock."),
-    first_pipe: dict(id=first_pipe, file=fixture_step, solid=first_pipe,
-                     basis="Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while "
-                           "the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in "
-                           "them; on the first trip it is absent."),
-}
+STATION_SET, REEF_SET = list(by_group["field station"]), list(by_group["field reef"])
+FIELD_SET = STATION_SET + REEF_SET + [first_pipe]
+FIX = {n: dict(id=n, file=pin(f"{REL}/{by_name[n]['fixtureFile']}"), solid=n,
+               basis=f"Field fixture: {by_name[n]['function']}. {OFFICIAL_SOURCE}. The official solid, placed at the "
+                     + (f"receive dock with the lower barrier {ft.NOMINAL_DOCK_GAP:.0f} mm behind the rear bumper face."
+                        if n in STATION_SET else f"delivery dock with the trough lip face {pg.NOMINAL_STANDOFF:.0f} mm ahead of the front bumper face."))
+       for n in STATION_SET + REEF_SET}
+FIX[first_pipe] = dict(id=first_pipe, file=pipe_step, solid=first_pipe,
+                       basis="Field fixture for the second trip: the first pipe at its trial rest pose in the next sector, one 471 mm sector pitch toward -Y, while "
+                             "the robot delivers at the docked sector. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in "
+                             "them; on the first trip it is absent.")
 cases, timelines, case_meta = [], {}, {}
 state = {pipe: None, flap: 0.0, lip: pg.LIP_STOW_DEG, trough: 0.0}     # pipe centre (mm), flap open deg, lip deg, trough X offset
 
@@ -200,7 +203,8 @@ def initial_pose():
     if state[lip]:
         init[lip] = [rot(HINGE, state[lip])]
     if state[trough]:
-        init[trough] = [tr3([state[trough], 0, 0])]
+        for n in REEF_SET:
+            init[n] = [tr3([state[trough], 0, 0])]
     return init
 
 
@@ -210,12 +214,11 @@ def case(id_, stage, basis, moves, fixtures=(), maxDepth=None, **extra):
         c["maxDepth"] = maxDepth
     init = initial_pose()
     if not any(f == trough for f in fixtures):
-        init.pop(trough, None)
+        for n in REEF_SET:
+            init.pop(n, None)
     if init:
         c["initialPose"] = init
     c["moves"] = moves
-    if fixtures:
-        c["fixtures"] = [FIX[f] for f in fixtures]
     c.update(extra)
     cases.append(c)
     return c
@@ -308,9 +311,9 @@ SPEC = dict(
              drive={"lower nip roller": "NEO 550 through the MAXPlanetary 36:1 at 12 V open loop", "exit lip": "Gravity on the deployed 30 deg ramp and land"},
              what="The pipe rolls over the driven lower roller onto the deployed lip and down its ramp to the tip.",
              basis="The driven lower roller hands the pipe to the deployed lip, which it rolls down"),
-    flight=dict(kind="free", label="Off the tip toward the trough", contacts=[lip, trough], what="The pipe leaves the lip tip and drops toward the trough.",
+    flight=dict(kind="free", label="Off the tip toward the trough", contacts=[lip, *TROUGH_PARTS], what="The pipe leaves the lip tip and drops toward the trough.",
                 basis="The pipe has left the lip and falls free"),
-    trough=dict(kind="free", label="Landing and coming to rest in the trough", contacts=[trough],
+    trough=dict(kind="free", label="Landing and coming to rest in the trough", contacts=TROUGH_PARTS,
                 what="The pipe lands in the trough, runs to the riser and rolls back to rest against the outer lip.",
                 basis="The pipe is in the field's trough: no robot mechanism touches it"),
 )
@@ -354,7 +357,7 @@ n_ej = trace_cases("eject", "eject-nominal", ej_pts,
 REST = state[pipe]
 case("withdraw-park", "park", "Prescribed robot drive, not a mechanism trial: the robot backs 300 mm away and parks with the lip deployed and the pocket empty; in the "
      "robot frame the scored pipe and the trough recede together. The eject trials withdraw the first 120 mm at 0.3 m/s and assess the pipe 2 s after "
-     "it is again at rest", {pipe: [tr3([300, 0, 0])], trough: [tr3([300, 0, 0])], first_pipe: [tr3([300, 0, 0])]}, fixtures=(trough, first_pipe))
+     "it is again at rest", {n: [tr3([300, 0, 0])] for n in [pipe, *REEF_SET, first_pipe]}, fixtures=(trough, first_pipe))
 cycle = [c["id"] for c in cases]
 TS_ = {s_["id"]: s_ for s_ in trials["timestepSensitivity"]}
 QUAL = {
@@ -397,41 +400,51 @@ MISSION = dict(acquired=next(c for c in RECEIVE_IDS if c.endswith("-seat") and c
                ejectLoaded=next(c for c in EJECT_IDS if "-lip" in c))
 
 # service cases start from the installed (carry-configuration) assembly: pipe at its carry seat, lip deployed.
-# An extraction ends clear of the box around everything left in the scene. The three field fixtures are in every
-# case's roster, so that box reaches the top of the station chute and each lift goes above it.
-SCENE_TOP = max(by_name[n]["boundsMm"][5] for n in by_name)
-lift_clear = lambda names: math.ceil((SCENE_TOP - min(by_name[n]["boundsMm"][2] for n in names) + 20.0) / 10.0) * 10.0
+# Service lifts are checked to clear the robot. They are not registered as extractions: an extraction must leave the box
+# around everything else in the scene, the field fixtures are in every case's roster and reach 1.83 m, and an extraction
+# case may not declare the official field's own joints. So each lifted group rises clear of the robot, and the cases after
+# it start with that group set down on the floor beside the robot.
 PIV = (SEAT[0] + 250.0 * math.sin(math.radians(pg.FLOOR_DEG)), SEAT[1] + 250.0 * math.cos(math.radians(pg.FLOOR_DEG)))
 HOOD_SET = [hood, flap, FLAP_SW]
-HOOD_LIFT = lift_clear(HOOD_SET)
-_pz = ft.rot_xz(SEAT, PIV, 110.0)[1]
-PIPE_LIFT = math.ceil((SCENE_TOP - (_pz - R) + 20.0) / 10.0) * 10.0
-hood_removed = {n: "service-hood-lift" for n in HOOD_SET}
+HOOD_LIFT, PIPE_LIFT, CASSETTE_LIFT = 400.0, 150.0, 520.0
+low = lambda names: min(by_name[n]["boundsMm"][2] for n in names)
+ASIDE_Y = 900.0          # beside the robot: outside the bumpers, between the station behind and the reef ahead
+hood_aside = {n: [tr3([0, ASIDE_Y, 10.0 - low(HOOD_SET)])] for n in HOOD_SET}
+pipe_aside = {pipe: [tr3([0, -ASIDE_Y, 10.0 - low([pipe])])]}
+# The check needs one full service withdrawal: a group that ends clear of the box around everything else in the scene. An
+# extraction case may declare no intended interface, and the official field parts sit closer to each other than the 2.0 mm
+# reserve where FIRST joins them, so this one case is checked for interference only (0 mm). The field fixtures are in every
+# case's roster and the reef branch reaches 1.83 m, so the hood is drawn straight up to above it. service-hood-lift checks
+# the first 400 mm of the same lift with the 2.0 mm reserve.
+HOOD_OUT = math.ceil((max(by_name[n]["boundsMm"][5] for n in by_name) - low(HOOD_SET) + 20.0) / 10.0) * 10.0
+cases.append(dict(id="service-hood-withdrawal", stage="service", minGapMm=0.0,
+                  basis=f"Full service withdrawal: the hood, check flap and flap-closed switch lifted straight up {HOOD_OUT:.0f} mm, above everything in the "
+                        "checked scene (the official reef branch reaches 1.83 m). Interference only (0 mm reserve): the official field parts are closer to each "
+                        "other than 2.0 mm where FIRST joins them and an extraction case may declare no interface. service-hood-lift checks the first "
+                        f"{HOOD_LIFT:.0f} mm of the same lift with the 2.0 mm reserve",
+                  moves={n: [tr3([0, 0, HOOD_OUT])] for n in HOOD_SET}, extract=HOOD_SET))
 cases.append(dict(id="service-hood-lift", stage="service", minGapMm=GAP,
                   basis=f"Pit unload, step 1: release the thumb screws and lift the hood, with the check flap on its pin and the flap-closed switch on its top, {HOOD_LIFT:.0f} mm: "
-                        "clear of the whole robot after 320 mm and of the checked scene's box, which includes the station chute fixture, at the end",
-                  moves={n: [tr3([0, 0, HOOD_LIFT])] for n in HOOD_SET}, extract=HOOD_SET))
+                        "clear of the whole robot after 320 mm. It is then set down beside the robot, where the later service cases show it",
+                  moves={n: [tr3([0, 0, HOOD_LIFT])] for n in HOOD_SET}))
 cases.append(dict(id="service-unload-pipe", stage="service", minGapMm=GAP,
-                  basis="Pit unload, step 2: roll the unscored pipe back up the floor and lift it out on one hand arc "
-                        f"(110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot, then {PIPE_LIFT:.0f} mm straight up "
-                        "out of the checked scene's box",
-                  removed=dict(hood_removed), moves={pipe: [rot(PIV, 110.0), tr3([0, 0, PIPE_LIFT])]}, extract=[pipe], maxDepth=11))
+                  basis="Pit unload, step 2, with the hood set down beside the robot: roll the unscored pipe back up the floor and lift it out on one hand arc "
+                        f"(110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot, then {PIPE_LIFT:.0f} mm straight up",
+                  initialPose=dict(hood_aside), moves={pipe: [rot(PIV, 110.0), tr3([0, 0, PIPE_LIFT])]}, maxDepth=11))
 cassette = by_group["nip side plates"] + by_group["lower nip roller"] + by_group["upper nip roller"] + by_group["nip drive"] + \
     by_group["nip coupling"] + by_group["lip latch"] + by_group["exit lip"] + by_group["lip sensor"] + by_group["pipe sensor"] + by_group["reef sensor"]
-CASSETTE_LIFT = lift_clear(cassette)
 cases.append(dict(id="service-nip-cassette-lift", stage="service", minGapMm=GAP,
-                  basis="With the hood and pipe out, unbolt the two side plates from the upper stringers and lift the nip "
-                        f"cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) {CASSETTE_LIFT:.0f} mm: clear of the inlet walls after 480 mm "
-                        "and of the checked scene's box at the end",
-                  removed=dict(hood_removed, **{pipe: "service-unload-pipe"}),
-                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette, maxDepth=12))
+                  basis="With the hood and pipe out and set down beside the robot, unbolt the two side plates from the upper stringers and lift the nip "
+                        f"cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) {CASSETTE_LIFT:.0f} mm: clear of the inlet walls after 480 mm",
+                  initialPose=dict(hood_aside, **pipe_aside),
+                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, maxDepth=12))
 cases.append(dict(id="service-lip-restow", stage="service", minGapMm=GAP,
-                  basis="Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
-                  removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, pg.LIP_STOW_DEG)]}, maxDepth=11))
+                  basis="Between matches, with the pocket emptied (hood and pipe set down beside the robot): fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
+                  initialPose=dict(hood_aside, **pipe_aside), moves={lip: [rot(HINGE, pg.LIP_STOW_DEG)]}, maxDepth=11))
 cases.append(dict(id="service-lip-over-travel", stage="service", minGapMm=GAP,
                   basis=f"Sprung-stop over-travel: a frontal hit turns the deployed lip a further {struct['stop']['overTravelDeg']} deg down against its stop springs "
                         "until the bumper carries the load (structure-checks.json L5); the empty lip must clear every neighbour through that swing",
-                  removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, struct["stop"]["overTravelDeg"])]}, maxDepth=11))
+                  initialPose=dict(hood_aside, **pipe_aside), moves={lip: [rot(HINGE, struct["stop"]["overTravelDeg"])]}, maxDepth=11))
 # The hand gauges are drawn at the end of their reach (build_layout.py), so they rest on what they operate in every other case.
 # Their own cases start them raised by the reach and bring them down. The plug hand keeps hold of the battery-side plug and
 # leaves with the battery.
@@ -450,16 +463,25 @@ cases.append(dict(id="service-plug-disconnect", stage="service", minGapMm=GAP, b
                   initialPose={PLUG_HAND: [tr3([0, 0, PLUG_REACH])]}, moves={PLUG_HAND: [tr3([0, 0, -PLUG_REACH])]}))
 cases.append(dict(id="service-breaker-reset", stage="service", minGapMm=GAP, basis="A hand reaches the CB185 reset button outboard of the pocket walls",
                   initialPose={BREAKER_HAND: [tr3([0, 0, BREAKER_REACH])]}, moves={BREAKER_HAND: [tr3([0, 0, -BREAKER_REACH])]}))
-# The checker needs one fixture roster in every case of a package, so all three fixtures are registered everywhere. Each is
-# physically present only at its own dock: the station chute behind the robot at the receive, the trough and first pipe
-# ahead of it at the reef. They are 950 mm apart in the robot frame and never interact.
+# The checker needs one fixture roster in every case of a package, so every field fixture is registered everywhere. Each is
+# physically present only at its own dock: the station behind the robot at the receive, the reef and first pipe ahead of
+# it at the delivery. They are 950 mm apart in the robot frame and never interact.
 for c in cases:
-    c["fixtures"] = [FIX[f] for f in (station, trough, first_pipe)]
+    c["fixtures"] = [FIX[f] for f in FIELD_SET]
     if c["id"] in PIT_CASES:
         # In the pit there is no station behind the robot. The roster must still list it, so it starts 1500 mm away.
-        c["initialPose"] = dict(c.get("initialPose", {}), **{station: [tr3([-1500.0, 0, 0])]})
-        c["basis"] += ". In the pit no station stands behind the robot: the station fixture, which every case must list, starts 1500 mm rearward"
+        c["initialPose"] = dict(c.get("initialPose", {}), **{n: [tr3([-1500.0, 0, 0])] for n in STATION_SET})
+        c["basis"] += ". In the pit no station stands behind the robot: the station fixtures, which every case must list, start 1500 mm rearward"
 by_case = {c["id"]: c for c in cases}
+# The official parts touch each other where FIRST joins them (welds, slots, bolted faces). Those joints are the field's own
+# and are declared once, as intended interfaces of every case, so the check spends nothing on the field against itself.
+JOINTS = [j["pair"] for j in OFFICIAL["officialJoints"]]
+joint_ev = write(f"{REL}/evidence/interfaces/official-field-joints.json", dict(
+    schema="red2/intended-contact@1", issue=ISSUE, status="pass", source=official_pin,
+    basis="Joints of the official field model: each pair is two official parts that FIRST joins or seats on each other, measured closer than "
+          "the 2.0 mm check reserve on the placed official solids (officialJoints in official-fixtures.json). They are field construction, not robot clearances.",
+    interfaces=[dict(case=c["id"], pair=pr, status="pass") for c in cases if not c.get("extract") for pr in JOINTS]))
+JOINT_INTERFACES = [dict(pair=pr, basis="Joint of the official field model: two official parts FIRST joins", qualifiedBy=joint_ev) for pr in JOINTS]
 
 # ------------------------------------------------------------------ evidence bound to each trial-driven case
 transport_evidence, interface_evidence = {}, {}
@@ -488,18 +510,23 @@ for cid, meta in case_meta.items():
                   "trial's qualified interface, not a clearance pair. Other pairs in the case keep the 2.0 mm reserve."))
         ints.append(dict(pair=[pipe, other], basis=f"Trial-solved contact of the pipe with {other} ({meta['playback']}, {meta['windowS'][0]:.3f}-{meta['windowS'][1]:.3f} s)",
                          qualifiedBy=ev))
-    if ints:
-        c["intendedInterfaces"] = ints
+    c["intendedInterfaces"] = ints + JOINT_INTERFACES
 # the pipe waits on the station chute while the lip deploys
-ev = write(f"{REL}/evidence/interfaces/lip-deploy--coral-station-chute.json", dict(
+ev = write(f"{REL}/evidence/interfaces/lip-deploy--station-chute-plate.json", dict(
     schema="red2/intended-contact@1", issue=ISSUE, case="lip-deploy", pair=[pipe, station], status="pass", fieldTrials=trials_pin,
-    playback="receive-mission", traceWindowS=[0.0, 0.0], basis="The pipe rests on the station chute at the receive trial's start pose"))
-by_case["lip-deploy"]["intendedInterfaces"] = [dict(pair=[pipe, station], basis="The pipe rests on the station chute before it is released", qualifiedBy=ev)]
-ev = write(f"{REL}/evidence/interfaces/withdraw-park--l1-trough-sector-a.json", dict(
-    schema="red2/intended-contact@1", issue=ISSUE, case="withdraw-park", pair=[pipe, trough], status="pass", fieldTrials=trials_pin,
+    playback="receive-mission", traceWindowS=[0.0, 0.0], basis="The pipe rests on the station chute plate at the receive trial's start pose"))
+by_case["lip-deploy"]["intendedInterfaces"] = [dict(pair=[pipe, station], basis="The pipe rests on the station chute plate before it is released", qualifiedBy=ev)] + JOINT_INTERFACES
+ev = write(f"{REL}/evidence/interfaces/withdraw-park--reef-trough.json", dict(
+    schema="red2/intended-contact@1", issue=ISSUE, status="pass", fieldTrials=trials_pin,
     playback="eject-nominal", traceWindowS=[ej_all[i_wd][0], ej_all[-1][0]],
-    basis="The scored pipe rests on the trough at the eject trial's rest pose and recedes with it; the trial assesses it 2 s after the withdrawal"))
-by_case["withdraw-park"]["intendedInterfaces"] = [dict(pair=[pipe, trough], basis="The scored pipe rests in the trough", qualifiedBy=ev)]
+    basis="The scored pipe rests in the trough at the eject trial's rest pose and recedes with it; the trial assesses it 2 s after the withdrawal",
+    interfaces=[dict(case="withdraw-park", pair=[pipe, n], status="pass") for n in TROUGH_PARTS]))
+by_case["withdraw-park"]["intendedInterfaces"] = [dict(pair=[pipe, n], basis="The scored pipe rests in the trough", qualifiedBy=ev) for n in TROUGH_PARTS] + JOINT_INTERFACES
+for c in cases:
+    if c.get("extract"):
+        c.pop("intendedInterfaces", None)
+    else:
+        c.setdefault("intendedInterfaces", JOINT_INTERFACES)
 motion = write(f"{REL}/paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step, layoutDatum=datum, cases=cases))
 
 operating_basis = ("2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and "
@@ -760,7 +787,7 @@ ruling = write(f"{REL}/rules-rulings.json", dict(
 
 # ------------------------------------------------------------------ second trip: lateral separation at sector B
 SECTOR_PITCH = blocks["sectorPitchMm"]
-fixtures_s, _ = load_solids(ROOT / fixture_step["file"])
+fixtures_s, _ = load_solids(ROOT / pipe_step["file"])
 first = fixtures_s[first_pipe]
 robot_bodies = [n for n in solids_ if groups_of(n) not in ("pipe", "breaker service hand", "plug service hand")]
 rows_b = sorted(((round(distance(first, solids_[n]), 2), n) for n in robot_bodies if box_gap(aabb(first), bb[n]) < 250.0))[:3]
@@ -768,7 +795,7 @@ SEC = [r for r in EJ if r["label"].startswith("second trip")]
 end_gap = SECTOR_PITCH - pg.PIPE_LENGTH
 LATERAL_LIMIT = 70.0
 second_trip = write(f"{REL}/evidence/second-trip.json", dict(
-    schema="red2/second-trip@1", issue=ISSUE, step=step, fixtures=fixture_step, fieldTrials=trials_pin, sectorPitchMm=SECTOR_PITCH,
+    schema="red2/second-trip@1", issue=ISSUE, step=step, fixtures=pipe_step, fieldTrials=trials_pin, sectorPitchMm=SECTOR_PITCH,
     pipeLengthMm=pg.PIPE_LENGTH, pipeEndGapAtNominalDocksMm=round(end_gap, 2), lateralDockErrorLimitMm=LATERAL_LIMIT,
     worstEndGapAtLimitMm=round(end_gap - 2 * LATERAL_LIMIT, 2),
     method="Three parts. (1) Clearance: the first pipe at its trial rest pose one sector pitch toward -Y is a fixture of every eject case, so the "
@@ -868,11 +895,11 @@ premise_specs = [
      "credit 15-14 L1 cycles and leave the two-delivery role unchanged, so a dwell up to 1.0 s costs it no score. The first draft held the robot "
      "until the pipe had seated (0.54 s model, 0.15-0.69 s with contact stiffness); the receive-and-go trials show it need not wait "
      f"({frac(S['go'])} retained and seated within {S['goSeatAfterStopS'][1]} s of the stop)"),
-    ("eject-capture-standoff", "conceptual-design", "mm", {"range": [100.0, 1000.0]}, ["exit lip"] + NIP + ["pipe", "field trough", "reef sensor"],
+    ("eject-capture-standoff", "conceptual-design", "mm", {"range": [100.0, 1000.0]}, ["exit lip"] + NIP + ["pipe", "field reef", "reef sensor"],
      "Sector A and B docks: bumper face to trough lip 0-100 mm (evaluation dock scatter); eject captured and supported 2 s at every stand-off",
      "ejectCaptureStandOffMaxMm", pin("iterations/002/design/evaluation/evaluation.json"),
      "The evaluation and G2 use 0-100 mm stand-off; the reef range sensor holds the eject inside it"),
-    ("lateral-dock-error", "preliminary-design", "mm", {"range": [0.0, round(end_gap / 2, 2)]}, ["pipe", "field trough", "field first pipe"],
+    ("lateral-dock-error", "preliminary-design", "mm", {"range": [0.0, round(end_gap / 2, 2)]}, ["pipe", "field reef", "field first pipe"],
      "Second trip: lateral dock error allowed at each reef sector so the second pipe lands beside the first, not on it", "lateralDockErrorLimitMm", second_trip,
      f"The pipe ends are {end_gap:.1f} mm apart at nominal docks one sector pitch apart; they meet when both docks err {end_gap / 2:.1f} mm toward "
      "each other. The control requirement is +/-70 mm, which leaves 29.4 mm"),
@@ -954,7 +981,7 @@ CATEGORY = {"structure": ("frame", "6061-T6 aluminium tube and plate (taps-02 bo
             "lip sensor": ("sensor", "REV magnetic limit switch REV-31-1462"),
             "flap sensor": ("sensor", "REV magnetic limit switch REV-31-1462"),
             "reef sensor": ("sensor", "CTRE CANrange time-of-flight sensor"),
-            "field station": ("field", "Coral station chute section (field element, not robot)"),
+            "field station": ("field", "FIRST official field part (field element, not robot)"),
             "field first pipe": ("game-piece", "First scored CORAL, resting in the trough (field element for the second trip)"),
             "exit lip": ("mechanism", "1/8 in polycarbonate, hinge pins, deploy torsion spring and sprung stop (proposal)"),
             "tray supports": ("structure", "1 x 1 x 1/16 in 6061-T6 tube (proposal)"),
@@ -962,7 +989,7 @@ CATEGORY = {"structure": ("frame", "6061-T6 aluminium tube and plate (taps-02 bo
             "battery retention": ("plate", "Aluminium tray and hangers (planning reserve)"),
             "battery": ("battery", "Sealed lead-acid FRC battery with leads (excluded by R103)"),
             "pipe": ("game-piece", "PVC CORAL pipe (field element)"),
-            "field trough": ("field", "Reef L1 trough section (field element, not robot)"),
+            "field reef": ("field", "FIRST official field part (field element, not robot)"),
             "breaker service hand": ("reserved-space", "Clearance gauge: no robot material"),
             "plug service hand": ("reserved-space", "Clearance gauge: no robot material")}
 ELEC = {"Power distribution hub": ("power", "REV PDH (supplier)"), "Main 120 A breaker": ("power", "Eaton CB185 120 A breaker (supplier)"),
@@ -1044,8 +1071,6 @@ def explain(name, group):
         "Reef range sensor (CANrange)": ("Measures the distance to the trough face under the lip; the eject runs only at 100 mm stand-off or less.",
                                          "One measurement holds the eject inside the stand-off the trials capture at and puts the bumper at least 255.6 mm inside the "
                                          "reef zone tape for G412."),
-        "Coral station chute (field)": ("Field fixture: the station chute the pipe is released on and the wall the robot docks to.",
-                                        "The receive trial starts on this chute, so the drop, landing and bounce into the robot are part of the checked path."),
         "First scored pipe in sector A (field)": ("Field fixture: the first pipe at rest in sector A during the second delivery at sector B.",
                                                   "The second trip must clear it; in the same section it blocks the delivery (second-trip.json)."),
         "Lip-deployed switch": ("Reports that the lip reached its deployed stop.", "The eject interlock must not run the nip into a stowed lip (latch-failed control)."),
@@ -1065,8 +1090,6 @@ def explain(name, group):
         "Rear inlet upright starboard": ("Carries the inlet walls at the station face from the rear perimeter.", "Paired rear support."),
         "CORAL pipe": ("The finite game piece followed from the station chute through receive, carry, eject, the lip and the trough.",
                        "The role scores two station pipes in the L1 trough; every clearance and trial uses its actual diameter and length."),
-        "L1 trough sector A (field)": ("Field fixture: the red L1 trough section the pipe must land in and stay supported in.",
-                                       "The delivery interaction is checked against the registered trough section at the shown 50 mm dock."),
         "Bumper ring": ("Protects the frame perimeter in contact with field elements and robots.", "Required bumpers; the ring follows the actual frame plan hull." + CARRIED_NOTE),
         "Power distribution hub": ("Distributes battery power to the controllers and the control system.", "Every load in the voltage budget draws through it." + CARRIED_NOTE),
         "roboRIO 2": ("Runs the robot program, the eject interlock and the drive control.", "A control computer is required." + CARRIED_NOTE),
@@ -1084,6 +1107,12 @@ def explain(name, group):
     }
     if name in fixed:
         return fixed[name]
+    if group in ("field station", "field reef"):
+        b_ = by_name[name]
+        return (b_["function"][0].upper() + b_["function"][1:] + ".",
+                ("The receive is checked and trialled against the official station at the shown dock. " if group == "field station" else
+                 "The delivery is checked and trialled against the official REEF at the shown 50 mm dock. ")
+                + "The official solid as FIRST drew it; the rest of the official assembly is left out of the check and says so.")
     if name.endswith("lead reserve"):
         return (f"Reserves the module {k} motor and CANcoder leads under the equipment sheet.", "Module leads must leave the housing clear of the steer sweep." + CARRIED_NOTE)
     if "controller" in name and name.startswith(("Port", "Starboard")):
@@ -1207,7 +1236,7 @@ retention = write(f"{REL}/retention-review.json", dict(
                                      firstOpening="rearward up the floor toward the inlet")),
     isolation=dict(
         drive=f"Powered hold: {frac(S['g1'])} receives seat over 40-160 N/mm. Robot disabled: {frac(S['receiveIso']['control: robot disabled (rollers back-drivable)'])} "
-              f"receives seat and {frac(S['g3Disabled'])} sled pulses are retained. The the first draft worm lock seats {frac(S['receiveIso']['comparison: layout-001 worm locked'])}: "
+              f"receives seat and {frac(S['g3Disabled'])} sled pulses are retained. The the first draft worm lock seats {frac(S['receiveIso']['comparison: first-draft worm locked'])}: "
               "the lock adds nothing the powered hold and the gearbox do not give.",
         flap="No flap from the received seat: " + gs(iso_gs["isolation: no check flap, received seat"]) + "; from a gently settled seat: "
              + gs(iso_gs["isolation: no check flap, gently settled seat"]) + f"; receive and go without it: {frac(S['goNoFlap'])} retained",
@@ -1216,7 +1245,7 @@ retention = write(f"{REL}/retention-review.json", dict(
         tread=f"10 N/mm: {frac(S['receiveStiffnessBracket']['10'])} receives seat; 20 N/mm {frac(S['receiveStiffnessBracket']['20'])}; 30 N/mm "
               f"{frac(S['receiveStiffnessBracket']['30'])}; 40-160 N/mm {frac(S['g1'])} with tread mu 0.3-1.0."),
     findings=[
-        dict(id="RR1", status="bench gate G0", text=f"Tread stiffness decides receive custody: fails at 10 N/mm, passes from 20 N/mm, accepted band {BAND[0]:.0f}-{BAND[1]:.0f} N/mm "
+        dict(id="RR1", status="bench gate G0", text=f"Tread stiffness decides receive custody: fails at 10 N/mm, {frac(S['receiveStiffnessBracket']['20'])} at 20 N/mm, all pass from 30 N/mm, accepted band {BAND[0]:.0f}-{BAND[1]:.0f} N/mm "
              "per roller. No supplier publishes it; G0 measures the installed stack and sets the wheel count."),
         dict(id="RR2", status="bench gate G3", text="Carry custody rests on the flap for rearward loads and the powered hold and squeeze for forward loads; "
              f"model: {frac(S['g3'])} powered and {frac(S['g3Disabled'])} disabled sled cases retained at 1-8 g."),
@@ -1300,7 +1329,7 @@ bench = write(f"{REL}/bench-gates.json", dict(
         gate("G0", "tread stiffness and friction", "Press a pipe 6 mm into each installed roller on a scale, three places along the roller; pull a pipe along a locked tread and along the UHMW floor",
              f"{BAND[0] * 6:.0f}-{BAND[1] * 6:.0f} N at 6 mm per roller ({BAND[0]:.0f}-{BAND[1]:.0f} N/mm); tread mu >= 0.3; floor mu 0.15-0.35. Adjust the wheel count or durometer until inside the band",
              "Below 120 N at 6 mm (20 N/mm) or above 1440 N (240 N/mm) with every available wheel option",
-             f"Receive passes from 20 N/mm and fails at 10; eject passes to 160 and stalls at 240; shafts deflect {next(r['value'] for r in struct['rows'] if r['id'].startswith('S2 (acceptance'))} mm at 120",
+             f"Receive passes from 30 N/mm, seats {frac(S['receiveStiffnessBracket']['20'])} at 20 and fails at 10; eject passes to 160 and stalls at 240; shafts deflect {next(r['value'] for r in struct['rows'] if r['id'].startswith('S2 (acceptance'))} mm at 120",
              "unknown: no stiffness data exists; the band is three times wide and the wheel count tunes it"),
         gate("G1", "station receive", "30 feeds released from rest on the station mock at dock gaps 0, 10 and 50 mm, nip on powered hold; 10 pushed at about 2 m/s; 10 with the robot disabled",
              f"40/40 powered feeds captive (flap switch closed) within 0.50 s of the pipe passing the flap (model {S['g1CaptiveS'][0]}-{max(S['g1CaptiveS'][1], S['pushedCaptiveS'][1])} s); none through the nip; none back out; "
@@ -1398,7 +1427,6 @@ uncovered = [dict(id="bench-" + g_["id"], condition=f"Bench gate {g_['id']} ({g_
                   reason=f"Physical verification, not required to accept the preliminary design. Pass: {g_['pass_']}") for g_ in read(bench["file"])["gates"]]
 uncovered.append(dict(id="second-trip-same-section", condition="Second delivery with the first pipe in the same trough section",
                       reason="Fails in the trials (control). Excluded by the lateral dock premise; G4 measures the scatter"))
-trough_b = by_name[trough]["boundsMm"]
 # ------------------------------------------------------------------ recorded trials in the one motion list
 # Each replay plays the solved trace itself (every recorded sample at its stride), in the robot frame the checked cases use.
 REPLAYS = f"{REL}/trial-replays.json"
@@ -1450,7 +1478,7 @@ replay_set = dict(schema="agent-frc/review-replays@1", replays=[
     replay("replay-receive", "Recorded trial: station receive and drive away", "receive-mission", 3, OBJ_RECEIVE,
            "The mission receive: the pipe is released from rest on the station chute, drops into the inlet, passes the check flap and is captive; the robot "
            "leaves 50 ms after the flap closes at 3 m/s2, brakes, and the pipe seats. " + MODEL_NOTE,
-           {pipe: "pipe", flap: "flap", station: "station"},
+           {pipe: "pipe", flap: "flap", **{n: "station" for n in STATION_SET}},
            lambda rec, q: dict(groups=dict(robot=I12, pipe=pipe_at(q[1], q[2]), flap=t_rot(FL, -q[4]), station=t_tr(-go_travel(rec, q[0]))),
                                measure=f"Trial time {q[0]:.3f} s · pipe centre X {q[1]:.0f}, Z {q[2]:.0f} mm · flap {q[4]:.0f} deg open · pipe speed {q[6]:.2f} m/s"),
            lambda rec: [("Released on the station chute", 0.0), ("Passes the check flap", rec["passedFlapS"]), ("Flap closed: captive", rec["flapClosedS"]),
@@ -1468,7 +1496,7 @@ replay_set = dict(schema="agent-frc/review-replays@1", replays=[
     replay("replay-eject", "Recorded trial: eject into the trough and withdraw", "eject-nominal", 4, OBJ_DELIVER,
            "The nominal eject at 12 V and 50 mm stand-off: the nip drives the pipe over the lower roller and down the deployed lip, it drops into the "
            "trough and comes to rest, and the robot withdraws 120 mm. " + MODEL_NOTE,
-           {pipe: "pipe", trough: "reef", first_pipe: "reef"},
+           {pipe: "pipe", **{n: "reef" for n in REEF_SET}, first_pipe: "reef"},
            lambda rec, q: dict(groups=dict(robot=I12, pipe=pipe_at(q[1] - q[5], q[2]), reef=t_tr(-q[5])),
                                measure=f"Trial time {q[0]:.3f} s · pipe centre X {q[1] - q[5]:.0f}, Z {q[2]:.0f} mm · pipe speed {q[6]:.2f} m/s"
                                        + (f" · robot withdrawn {-q[5]:.0f} mm" if q[5] else "")),
@@ -1500,11 +1528,14 @@ presentation = dict(
            "Attachment: every robot part is drawn within the 2 mm check reserve of the member that carries it, with three listed exceptions of under "
            "7 mm whose brackets are not drawn: the electronics stand 4-7 mm above the equipment sheets on standoffs, and the nip gearbox, latch servo and "
            "lip switch stand 4.5 mm off the side plates. The posts and side plates land on the two pocket landing shelves.",
-           "Not robot parts: the two orange hands are unmounted service allowances, drawn at the end of their reach. The sand-coloured station chute and "
-           "trough are field fixtures standing on the carpet, and the gold pipe in the trough is the first scored pipe. The checker lists every fixture "
-           "in every case, so the station and the reef appear together although the robot is at one of them at a time. Hide field parts removes them; "
-           "the three recorded-trial entries at the end of the motion list show only the fixture each trial used.",
-           "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand "
+           "Not robot parts: the two orange hands are unmounted service allowances, drawn at the end of their reach. The sand-coloured station and "
+           "reef are FIRST's official field parts standing on the carpet, and the gold pipe in the trough is the first scored pipe. The checker lists every "
+           "fixture in every case, so the station and the reef appear together although the robot is at one of them at a time; hide the field parts to see "
+           "the robot alone. The three recorded-trial entries at the end of the motion list show only the fixture each trial used.",
+           "Field: the station and reef solids are the official parts as FIRST drew them, placed at the two docks. The check uses the parts the mission "
+           "touches or passes (barrier, panels, chute plate, guard, side plates and uprights; trough lip, floors, risers and the two branches over the "
+           "trough); fasteners, ribs and the rest of both assemblies are left out. The trials use the same parts' section, measured on the solids.",
+           "Not modelled: pipe yaw and end contact, the chute plate's slots, lip and hood flex, peers. Sizing is by hand "
            "formula (structure-checks.json), not finite elements.",
            "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. "
            + BRAKE_REQUIREMENT,
@@ -1516,8 +1547,6 @@ presentation = dict(
                       dict(name="carried CORAL", kg=[0.816466, 0.816466], members=["CORAL pipe"])],
     runningBasis="Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg",
     caseKinds={c["id"]: "nominal" for c in cases}, uncoveredCases=uncovered, caseTimelines=timelines, openingCase=RECEIVE_IDS[0],
-    cutaway=dict(label="Hide field parts", hides=[trough, station, first_pipe],
-                 outline=[[xl, trough_b[1], t["lipTop"]], [xl, trough_b[4], t["lipTop"]], [xr, trough_b[4], t["riserTop"]], [xr, trough_b[1], t["riserTop"]]]),
     loadPathsSource=load_paths, selectedInterface=carry, retention=retention, findings=findings, rulings=ruling,
     benchGates=bench, iterationChoice=choice, fieldTrials=trials_pin, structureChecks=struct_pin, secondTrip=second_trip)
 CONTROL_CASE = next(c for c in RECEIVE_IDS if "-pocket" in c)
@@ -1526,12 +1555,13 @@ plan = dict(schema="agent-frc/preliminary-layout@1", issue=ISSUE, design=design,
             control=dict(case=CONTROL_CASE, displaced="Hood (removable)", moving=pipe, offsetMm=[0.0, 0.0, -12.0],
                          basis="The removable hood seated 12 mm low (a missing tab or a sagging 1/16 in sheet) over the 10 mm receive gap"),
             cycle=cycle, **({"view": VIEW} if VIEW else {}), budgets=budgets, premises=premises,
+            attachment=dict(gapMm=3.5),      # the official reef stands 3.175 mm above the carpet datum on its base plates
             presentation=presentation, narrativeReview=narrative)
 write(f"{REL}/layout.json", plan)
 has = lambda *keys: [c for c in cycle if any(k in c for k in keys)]
 bt = lambda measure, pass_, fail, unit=None: dict(benchTest=dict(measure=measure, **{"pass": pass_}, fail=fail, **({"unit": unit} if unit else {})))
 risks = [
-    dict(id="bench-G0", risk="Installed tread stiffness is unmeasured; receive fails below 20 N/mm and the drive stalls at 240 N/mm",
+    dict(id="bench-G0", risk="Installed tread stiffness is unmeasured; receive fails at 10 N/mm and is marginal at 20, and the drive stalls at 240 N/mm",
          **bt("Force to press a pipe 6 mm into each installed roller", f"{BAND[0] * 6:.0f} to {BAND[1] * 6:.0f}", "below 120 or above 1440", "N")),
     dict(id="bench-G1", risk="Station receive: captive time, pass-through and escape on the real article",
          **bt("Powered feeds captive within 0.50 s of passing the flap, out of 40; disabled feeds kept, out of 10", "40 and 10", "any pipe through the nip or out of the inlet")),

@@ -1,0 +1,272 @@
+{
+ "schema": "frc-2025-poc/official-field@1",
+ "source": {
+  "url": "https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025Field-STEP.zip",
+  "archive": "2025Field-STEP.zip",
+  "archiveBytes": 6833726,
+  "archiveSha256": "085bb016261bdc850986427f571f646f7f562641a5c6f0f4f6ff32a511084bb1",
+  "file": "FE-2025.STEP",
+  "bytes": 34901464,
+  "stepSha256": "19374bc5a48fda1b3ce0505ef604a47d227c904d1784b6514a2c7d654bf3d918",
+  "edition": "FE-2025 REEFSCAPE field, SolidWorks 2022 STEP AP214 export stamped 2025-01-09T21:33:18; archive Last-Modified 2025-01-10 23:08:31 GMT. It predates the later field drawing revisions.",
+  "rootProduct": "FE-2025",
+  "retrieved": "2026-11-22"
+ },
+ "units": "mm",
+ "officialFrame": "Inches in the file (millimetres once read), Y up, origin at the field centre on the carpet top, +X toward the red alliance wall, -Z toward the scoring table side the project calls field +Y.",
+ "fieldFrame": {
+  "name": "project field frame",
+  "units": "mm",
+  "basis": "experiments/six-wheel/mission/field-registration.json: 690.875 x 317 in field, origin at the blue-side corner, +X toward red, +Z up; field = (8774.1125 + x, 4025.9 - z, y)",
+  "matrix": [
+   [
+    1,
+    0,
+    0,
+    8774.1125
+   ],
+   [
+    0,
+    0,
+    -1,
+    4025.9
+   ],
+   [
+    0,
+    1,
+    0,
+    0
+   ]
+  ]
+ },
+ "tessellation": {
+  "linearDeflectionMm": 3.0,
+  "angularDeflectionRad": 0.8,
+  "roundedToMm": 0.01,
+  "displayMinMm": 150.0
+ },
+ "fixtures": [
+  {
+   "id": "red-coral-station",
+   "purpose": "Red coral station (Red 3 corner) whose chute the robot receives CORAL from",
+   "step": "red-coral-station.step",
+   "stepSha256": "41a6f10e84d94538fd13a907e847e387e1a3698fdf74f28c0ec56188d69c9dbd",
+   "stepBytes": 4166491,
+   "rootProduct": "FE-2025",
+   "products": [
+    {
+     "product": "GE-25000_Red 3 Corner",
+     "officialTransform": [
+      [
+       -0.809133846,
+       0.0,
+       0.587624386,
+       7927.199655676
+      ],
+      [
+       0.0,
+       1.0,
+       -0.0,
+       0.0
+      ],
+      [
+       -0.587624386,
+       -0.0,
+       -0.809133846,
+       -3376.335625337
+      ]
+     ]
+    }
+   ],
+   "parts": "red-coral-station.parts.json",
+   "meshes": "red-coral-station.meshes.json",
+   "leafParts": 152,
+   "solids": 176,
+   "faces": 3704,
+   "displayedParts": 37,
+   "partsReadEmpty": {
+    "pem_clinchnut_.25_20_.054": 16,
+    "FE-00082": 1
+   },
+   "displayBodies": {
+    "red-coral-station-tag": {
+     "color": "#f4f4f4",
+     "vertices": 176,
+     "triangles": 344
+    },
+    "red-coral-station-frame": {
+     "color": "#e5eaed",
+     "vertices": 1592,
+     "triangles": 3376
+    },
+    "red-coral-station-panels": {
+     "color": "#ffffff",
+     "vertices": 2560,
+     "triangles": 5324
+    },
+    "red-coral-station-chute": {
+     "color": "#e5eaed",
+     "vertices": 12541,
+     "triangles": 27406
+    }
+   },
+   "boundsOfficialMm": [
+    7065.788,
+    0.0,
+    -4328.603,
+    9006.197,
+    1699.314,
+    -2755.9
+   ],
+   "boundsFieldMm": [
+    15839.9,
+    6781.8,
+    0.0,
+    17780.31,
+    8354.503,
+    1699.314
+   ],
+   "dockFrames": [
+    {
+     "id": "receive-dock",
+     "basis": "Layout robot frame at the receive dock (field_trials.py STATION and NOMINAL_DOCK_GAP): robot -X faces the station, +Y port, +Z up. The station's upper-panel datum plane through the registered origin (field-registration.json redStation.nativeOriginIn) sits at X = -455.5, 10 mm behind the rear bumper face, and the origin is at Y = 0.",
+     "matrix": [
+      [
+       -0.5876243855652814,
+       0.0,
+       0.8091338464611559,
+       6934.623258
+      ],
+      [
+       0.8091338464611559,
+       0.0,
+       0.5876243855652814,
+       -4430.148402
+      ],
+      [
+       0.0,
+       1.0,
+       0.0,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "notes": [
+    "GE-25014 is the 16.50 in chute plate; GE-25007 the lower barrier, 9.525 mm proud of the upper-panel datum; GE-25008 and GE-25009 the panels below and above the 196.3 mm opening; GE-25015 the upper guard; GE-25020 and GE-25021 the human-side guides.",
+    "The display meshes leave out fasteners and parts under 150 mm; the STEP keeps them."
+   ]
+  },
+  {
+   "id": "red-reef",
+   "purpose": "Red REEF whose L1 trough the robot delivers CORAL into",
+   "step": "red-reef.step",
+   "stepSha256": "135319aec466fb2cbcc46b198b85883f4d025f855e7aa2ed1e56d3eb94dad626",
+   "stepBytes": 5609183,
+   "rootProduct": "FE-2025",
+   "products": [
+    {
+     "product": "GE-25300_Red",
+     "officialTransform": [
+      [
+       0.866025404,
+       0.0,
+       0.5,
+       3718.24439761
+      ],
+      [
+       0.0,
+       1.0,
+       -0.0,
+       -252.050527952
+      ],
+      [
+       -0.5,
+       0.0,
+       0.866025404,
+       137.940444993
+      ]
+     ]
+    }
+   ],
+   "parts": "red-reef.parts.json",
+   "meshes": "red-reef.meshes.json",
+   "leafParts": 1156,
+   "solids": 1216,
+   "faces": 19942,
+   "displayedParts": 152,
+   "partsReadEmpty": {
+    "pem_clinchnut_.25_20_.054": 126,
+    "FE-00082": 6
+   },
+   "displayBodies": {
+    "red-reef-tags": {
+     "color": "#f4f4f4",
+     "vertices": 1056,
+     "triangles": 2064
+    },
+    "red-reef-branches": {
+     "color": "#878c8c",
+     "vertices": 8916,
+     "triangles": 18024
+    },
+    "red-reef-base": {
+     "color": "#e5eaed",
+     "vertices": 38998,
+     "triangles": 91828
+    },
+    "red-reef-troughs": {
+     "color": "#e5eaed",
+     "vertices": 9428,
+     "triangles": 19560
+    }
+   },
+   "boundsOfficialMm": [
+    3449.914,
+    0.825,
+    -955.514,
+    5119.662,
+    1828.663,
+    955.56
+   ],
+   "boundsFieldMm": [
+    12224.027,
+    3070.34,
+    0.825,
+    13893.774,
+    4981.414,
+    1828.663
+   ],
+   "dockFrames": [
+    {
+     "id": "delivery-dock",
+     "basis": "Layout robot frame at the shown delivery dock (pocket_geometry.py TROUGH and NOMINAL_STANDOFF): robot +X toward the reef, +Y port, +Z up. The midfield-facing trough lip face (field-registration.json redReef.lipOriginNativeMm, x = 3453.051) sits at X = 495.5, 50 mm ahead of the bumper face. Y = 0 is the centre of one of that face's two trough panels, 235.7 mm from the face centreline, so the other panel is the neighbouring sector toward -Y.",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -2957.550981
+      ],
+      [
+       0,
+       0,
+       -1,
+       -235.7
+      ],
+      [
+       0,
+       1,
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "notes": [
+    "GE-25302 are the six trough lip panels, GE-25313 the trough floors, GE-25315 the inner risers, GE-25301 the twelve branch weldments, GE-25310 the base sections.",
+    "The display meshes leave out fasteners, parts under 150 mm and base parts under 450 mm; the STEP keeps them."
+   ]
+  }
+ ]
+}

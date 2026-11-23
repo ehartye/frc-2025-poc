@@ -13,7 +13,7 @@
       "objective": "Release into the intended L1 trough sector A, clear the wall and leave the pipe supported after withdrawal"
     },
     {
-      "case": "receive-15-seat",
+      "case": "receive-16-seat",
       "kind": "operating-case",
       "accomplishes": "acquired",
       "objective": "TELEOP: take one station-issued CORAL from the red station"
@@ -27,20 +27,21 @@
         "receive-03-drop",
         "receive-04-inlet",
         "receive-05-inlet",
-        "receive-06-pocket",
+        "receive-06-inlet",
         "receive-07-pocket",
         "receive-08-pocket",
-        "receive-09-captive"
+        "receive-09-pocket",
+        "receive-10-captive"
       ]
     },
     "retain": {
       "cases": [
-        "receive-10-drive-away",
         "receive-11-drive-away",
         "receive-12-drive-away",
-        "receive-13-brake",
-        "receive-14-seat",
+        "receive-13-drive-away",
+        "receive-14-brake",
         "receive-15-seat",
+        "receive-16-seat",
         "carry-01-power-off-hit",
         "carry-02-power-off-hit"
       ]
@@ -73,6 +74,7 @@
     },
     "service": {
       "cases": [
+        "service-hood-withdrawal",
         "service-hood-lift",
         "service-unload-pipe",
         "service-nip-cassette-lift",
@@ -88,7 +90,7 @@
   "risks": [
     {
       "id": "bench-G0",
-      "risk": "Installed tread stiffness is unmeasured; receive fails below 20 N/mm and the drive stalls at 240 N/mm",
+      "risk": "Installed tread stiffness is unmeasured; receive fails at 10 N/mm and is marginal at 20, and the drive stalls at 240 N/mm",
       "benchTest": {
         "measure": "Force to press a pipe 6 mm into each installed roller",
         "pass": "240 to 720",

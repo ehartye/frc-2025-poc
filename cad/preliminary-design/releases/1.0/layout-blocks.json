@@ -17,15 +17,15 @@
   "fieldTrials": {
    "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
   },
-  "trough": {
-   "file": "experiments/six-wheel/mission/target.json"
+  "officialField": {
+   "file": "cad/preliminary-design/releases/1.0/evidence/official-fixtures.json"
   }
  },
  "generator": {
   "file": "iterations/002/design/preliminary-pocket/build_layout.py"
  },
  "fixtureGroups": [
-  "field trough",
+  "field reef",
   "field station",
   "field first pipe"
  ],
@@ -41,17 +41,245 @@
  "stationChute": {
   "polylineMm": [
    [
-    -798.8066217615165,
-    1192.8858844747233
+    -811.5135355051295,
+    1191.1536611932736
    ],
    [
-    -455.5,
-    952.5
+    -468.51,
+    950.98
    ]
   ],
-  "dockGapMm": 10.0,
-  "halfWidthMm": 170.0
+  "guardUndersideMm": [
+   [
+    -688.55,
+    1256.216
+   ],
+   [
+    -527.45,
+    1143.412
+   ]
+  ],
+  "dockGapMm": 10.0
  },
+ "officialJoints": [
+  {
+   "pair": [
+    "Reef L2 branch arm, docked sector (GE-25301-01)",
+    "Reef branch column, docked sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L2 branch arm, next sector (GE-25301-01)",
+    "Reef branch column, next sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L3 branch arm, docked sector (GE-25301-01)",
+    "Reef branch column, docked sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L3 branch arm, next sector (GE-25301-01)",
+    "Reef branch column, next sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef trough floor, docked sector (GE-25313)",
+    "Reef trough riser, docked sector (GE-25315)"
+   ],
+   "gapMm": 1.497,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef trough floor, next sector (GE-25313)",
+    "Reef trough riser, next sector (GE-25315)"
+   ],
+   "gapMm": 1.484,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station frame upright, port (GE-25001-01)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station frame upright, starboard (GE-25001-01)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station upper guard (GE-25017)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, port (GE-25001-01)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, port (GE-25001-01)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, starboard (GE-25001-01)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, starboard (GE-25001-01)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station lower barrier (GE-25007)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.508,
+   "overlapMm3": 0.0
+  }
+ ],
+ "sectionCheck": [
+  {
+   "what": "dock gap",
+   "trialMm": 10.0,
+   "officialMm": 10.0
+  },
+  {
+   "what": "barrier face X",
+   "trialMm": -455.5,
+   "officialMm": -455.5
+  },
+  {
+   "what": "chute exit X",
+   "trialMm": -468.51,
+   "officialMm": -468.51
+  },
+  {
+   "what": "chute exit Z",
+   "trialMm": 950.98,
+   "officialMm": 950.98
+  },
+  {
+   "what": "chute slope deg",
+   "trialMm": 35.0,
+   "officialMm": 35.0
+  },
+  {
+   "what": "chute ramp",
+   "trialMm": 418.73,
+   "officialMm": 418.73
+  },
+  {
+   "what": "guard far X",
+   "trialMm": -688.55,
+   "officialMm": -688.55
+  },
+  {
+   "what": "guard far Z",
+   "trialMm": 1256.216,
+   "officialMm": 1256.216
+  },
+  {
+   "what": "guard near X",
+   "trialMm": -527.45,
+   "officialMm": -527.45
+  },
+  {
+   "what": "guard near Z",
+   "trialMm": 1143.412,
+   "officialMm": 1143.412
+  },
+  {
+   "what": "trough lip face X",
+   "trialMm": 495.5,
+   "officialMm": 495.5
+  },
+  {
+   "what": "stand-off",
+   "trialMm": 50.0,
+   "officialMm": 50.0
+  },
+  {
+   "what": "lip top",
+   "trialMm": 457.2,
+   "officialMm": 457.2
+  },
+  {
+   "what": "lip depth",
+   "trialMm": 12.7,
+   "officialMm": 12.7
+  },
+  {
+   "what": "floor Z at the lip face",
+   "trialMm": 404.9107,
+   "officialMm": 404.9182
+  },
+  {
+   "what": "floor rise over 250 mm",
+   "trialMm": 66.9873,
+   "officialMm": 66.98725
+  },
+  {
+   "what": "riser face X",
+   "trialMm": 743.3367,
+   "officialMm": 743.34
+  },
+  {
+   "what": "riser top",
+   "trialMm": 517.5255,
+   "officialMm": 517.52
+  },
+  {
+   "what": "riser thickness",
+   "trialMm": 6.35,
+   "officialMm": 6.35
+  }
+ ],
  "newBlockNeighbours": [
   {
    "block": "Flap-closed switch",
@@ -2689,7 +2917,7 @@
    "bounds": "54 x 54 x 92 mm gearbox envelope plus a 37 mm x 62 mm motor cylinder along +Y",
    "missing": [
     "Envelope is a planning reserve: confirm the three-stage length against REV's STEP in detailed design",
-    "Efficiency is assumed (0.9 per stage): the trials need >= 0.35 m/s rim speed through the squeeze at 9 V and hold 7.55 N m on receive",
+    "Efficiency is assumed (0.9 per stage): the trials need >= 0.35 m/s rim speed through the squeeze at 9 V and hold 7.51 N m on receive",
     "Motor encoder lead exit"
    ],
    "boundsMm": [
@@ -2986,53 +3214,424 @@
    "volumeMm3": 3094921.8
   },
   {
-   "name": "L1 trough sector A (field)",
-   "group": "field trough",
+   "name": "Station lower barrier (GE-25007)",
+   "group": "field station",
    "role": "other",
-   "function": "Red reef L1 trough section at the shown dock and the neighbouring sector that holds the first pipe: outer lip, 15 deg floor and inner riser, from the 2025 field model extraction; the two walls continue to the carpet as planning walls",
-   "parent": "field: lip outer face at X 495.5 mm (50 mm stand-off from the bumper face), Y -704.5 to 233.5",
-   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
-   "bounds": "experiments/six-wheel/mission/target.json section (lip top 457.2, lip 12.7, floor 0.4049 + 0.268 x, riser 247.8-254.2, top 517.5) extruded over sector A",
+   "officialRole": "barrier",
+   "fixtureFile": "field/station-barrier.step",
+   "function": "FIRST official field part GE-25007: lower barrier below the station wall panels, the face the rear bumper meets at the receive dock",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25007), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
    "missing": [
-    "The reef structure is not placed: below the trough the two walls are plain planning walls to the carpet, and the L2 branch above the riser is absent",
-    "Panel mounting holes and the sector divider"
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -468.2,
+    -1012.825,
+    0.0,
+    -455.5,
+    1012.825,
+    304.8
+   ],
+   "volumeMm3": 7819094.3
+  },
+  {
+   "name": "Station lower panel (GE-25008)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "lower-panel",
+   "fixtureFile": "field/station-lower-panel.step",
+   "function": "FIRST official field part GE-25008: station wall panel below the 196 mm opening the pipe leaves through",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25008), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -471.375,
+    -1012.825,
+    305.308,
+    -465.025,
+    1012.825,
+    933.958
+   ],
+   "volumeMm3": 8032678.7
+  },
+  {
+   "name": "Station upper panel (GE-25009)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "upper-panel",
+   "fixtureFile": "field/station-upper-panel.step",
+   "function": "FIRST official field part GE-25009: station wall panel above the opening",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25009), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -471.375,
+    -1012.825,
+    1130.3,
+    -465.025,
+    1012.825,
+    1695.45
+   ],
+   "volumeMm3": 7250478.5
+  },
+  {
+   "name": "Station upper guard (GE-25017)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "guard",
+   "fixtureFile": "field/station-guard.step",
+   "function": "FIRST official field part GE-25017: upper guard over the chute, 124 mm above its surface: it caps a bounce on the ramp",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25015 / GE-25017), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -688.549,
+    -965.111,
+    1144.618,
+    -527.453,
+    963.701,
+    1258.67
+   ],
+   "volumeMm3": 1122557.1
+  },
+  {
+   "name": "Station frame upright, port (GE-25001-01)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "upright-port",
+   "fixtureFile": "field/station-upright-port.step",
+   "function": "FIRST official field part GE-25001-01: port frame upright, floor to top, that carries the panels and the side plate",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25001 / GE-25001-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -515.825,
+    968.375,
+    0.0,
+    -471.375,
+    1012.825,
+    1625.6
+   ],
+   "volumeMm3": 851219.2
+  },
+  {
+   "name": "Station frame upright, starboard (GE-25001-01)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "upright-starboard",
+   "fixtureFile": "field/station-upright-starboard.step",
+   "function": "FIRST official field part GE-25001-01: starboard frame upright, floor to top, that carries the panels and the side plate",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25001 / GE-25001-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -515.825,
+    -1012.825,
+    0.0,
+    -471.375,
+    -968.375,
+    1625.6
+   ],
+   "volumeMm3": 851219.2
+  },
+  {
+   "name": "Reef trough floor, docked sector (GE-25313)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "floor",
+   "fixtureFile": "field/reef-floor.step",
+   "function": "FIRST official field part GE-25313: trough floor panel of the docked sector, rising 15 deg toward the riser",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25310 / GE-25313), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    511.199,
+    -233.373,
+    402.991,
+    742.925,
+    231.12,
+    470.775
+   ],
+   "volumeMm3": 604644.7
+  },
+  {
+   "name": "Reef trough floor, next sector (GE-25313)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "floor-next",
+   "fixtureFile": "field/reef-floor-next.step",
+   "function": "FIRST official field part GE-25313: trough floor panel of the next sector toward -Y, where the first pipe rests",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25310 / GE-25313), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    511.261,
+    -702.617,
+    403.0,
+    742.94,
+    -238.106,
+    470.772
+   ],
+   "volumeMm3": 604644.7
+  },
+  {
+   "name": "Reef trough riser, docked sector (GE-25315)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "riser",
+   "fixtureFile": "field/reef-riser.step",
+   "function": "FIRST official field part GE-25315: inner riser of the docked sector: it stops the pipe at the back of the trough",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25310 / GE-25315), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    743.337,
+    -233.339,
+    468.89,
+    749.687,
+    93.686,
+    517.525
+   ],
+   "volumeMm3": 99093.1
+  },
+  {
+   "name": "Reef trough riser, next sector (GE-25315)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "riser-next",
+   "fixtureFile": "field/reef-riser-next.step",
+   "function": "FIRST official field part GE-25315: inner riser of the next sector",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25310 / GE-25315), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    743.337,
+    -565.132,
+    468.89,
+    749.687,
+    -238.107,
+    517.525
+   ],
+   "volumeMm3": 99093.1
+  },
+  {
+   "name": "Reef branch column, docked sector (GE-25301-02)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "column",
+   "fixtureFile": "field/reef-column.step",
+   "function": "FIRST official field part GE-25301-02: branch column of the docked sector, rising through the trough floor to the L4 tip",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-02), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    526.548,
+    -92.497,
+    19.05,
+    822.712,
+    -50.333,
+    1825.625
+   ],
+   "volumeMm3": 828595.0
+  },
+  {
+   "name": "Reef branch column, next sector (GE-25301-02)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "column-next",
+   "fixtureFile": "field/reef-column-next.step",
+   "function": "FIRST official field part GE-25301-02: branch column of the next sector",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-02), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    525.405,
+    -421.114,
+    19.05,
+    821.569,
+    -378.95,
+    1825.625
+   ],
+   "volumeMm3": 828595.0
+  },
+  {
+   "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "arm-l2",
+   "fixtureFile": "field/reef-arm-l2.step",
+   "function": "FIRST official field part GE-25301-01: L2 branch arm over the docked trough",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    539.522,
+    -92.497,
+    605.173,
+    801.415,
+    -50.333,
+    808.48
+   ],
+   "volumeMm3": 123583.4
+  },
+  {
+   "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "arm-l3",
+   "fixtureFile": "field/reef-arm-l3.step",
+   "function": "FIRST official field part GE-25301-01: L3 branch arm over the docked trough",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    539.522,
+    -92.497,
+    1008.273,
+    801.415,
+    -50.333,
+    1211.58
+   ],
+   "volumeMm3": 123583.4
+  },
+  {
+   "name": "Reef L2 branch arm, next sector (GE-25301-01)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "arm-l2-next",
+   "fixtureFile": "field/reef-arm-l2-next.step",
+   "function": "FIRST official field part GE-25301-01: L2 branch arm over the next sector",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    538.379,
+    -421.114,
+    605.173,
+    800.272,
+    -378.95,
+    808.48
+   ],
+   "volumeMm3": 123583.4
+  },
+  {
+   "name": "Reef L3 branch arm, next sector (GE-25301-01)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "arm-l3-next",
+   "fixtureFile": "field/reef-arm-l3-next.step",
+   "function": "FIRST official field part GE-25301-01: L3 branch arm over the next sector",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25301 / GE-25301-01), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    538.379,
+    -421.114,
+    1008.273,
+    800.272,
+    -378.95,
+    1211.58
+   ],
+   "volumeMm3": 123583.4
+  },
+  {
+   "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+   "group": "field station",
+   "role": "other",
+   "officialRole": "chute",
+   "fixtureFile": "field/station-chute.step",
+   "function": "FIRST official field part GE-25014, GE-25004, GE-25005: chute plate the pipe rolls down (35 deg, 12.7 mm, with 32 mm slots every 203 mm that the pipe bridges) and the two side plates that carry it",
+   "parent": "field: red coral station at the receive dock, lower barrier 10 mm behind the rear bumper face",
+   "motion": "field (the robot is at this dock for the receive cases only)",
+   "bounds": "The official solid as drawn (GE-25000_Red 3 Corner / GE-25010 / GE-25014; GE-25000_Red 3 Corner / GE-25002 / GE-25004; GE-25000_Red 3 Corner / GE-25003 / GE-25005), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified; these official parts overlap each other in the official model and are united into one solid",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
+   ],
+   "boundsMm": [
+    -819.102,
+    -968.375,
+    939.8,
+    -468.511,
+    968.375,
+    1558.925
+   ],
+   "volumeMm3": 10378646.4
+  },
+  {
+   "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
+   "group": "field reef",
+   "role": "other",
+   "officialRole": "lip",
+   "fixtureFile": "field/reef-lip.step",
+   "function": "FIRST official field part GE-25302, GE-25311: trough lip panel of the docked REEF face, the wall the pipe must clear, with the two base plates it stands in",
+   "parent": "field: red REEF at the delivery dock, trough lip face 50 mm ahead of the front bumper face",
+   "motion": "field (recedes 300 mm in the robot frame during withdraw-park)",
+   "bounds": "The official solid as drawn (GE-25300_Red / GE-25302; GE-25300_Red / GE-25310 / GE-25311; GE-25300_Red / GE-25310 / GE-25311), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified; these official parts overlap each other in the official model and are united into one solid",
+   "missing": [
+    "The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"
    ],
    "boundsMm": [
     495.5,
-    -704.5,
-    0.0,
-    749.687,
-    233.5,
-    517.525
+    -943.479,
+    3.175,
+    1052.703,
+    472.041,
+    457.2
    ],
-   "volumeMm3": 9929522.1
-  },
-  {
-   "name": "Coral station chute (field)",
-   "group": "field station",
-   "role": "other",
-   "function": "Red coral station at the receive dock: the 35 deg chute the pipe is released on and the station wall below its exit sill",
-   "parent": "field: wall face at X -455.5 mm, 10 mm behind the rear bumper face; exit sill at Z 952.5",
-   "motion": "field (present for the receive cases only)",
-   "bounds": "Chute top surface on the trial polyline [(-798.8, 1192.9), (-455.5, 952.5)] (the true contact line, no reserve), 12.7 mm plate, wall to the floor, 340 mm of the 1930 mm opening width",
-   "missing": [
-    "Opening upper guard (7 in opening) and side guides (121.99 mm mouth in the field STEP) are not placed",
-    "Sill datum: the V0 manual gives the opening sill at 37.5 in; the chute exit is taken on the wall's field face"
-   ],
-   "boundsMm": [
-    -806.091,
-    -170.0,
-    0.0,
-    -455.5,
-    170.0,
-    1192.886
-   ],
-   "volumeMm3": 5893277.7
+   "volumeMm3": 11372141.9
   },
   {
    "name": "First scored pipe in sector A (field)",
    "group": "field first pipe",
    "role": "other",
+   "fixtureFile": "scored-pipe.step",
    "function": "The first pipe at its trial rest pose in sector A while the robot docks at sector B for the second delivery",
    "parent": "field: the nominal eject rest pose, 471 mm toward -Y (one sector pitch)",
    "motion": "field (second-trip cases only)",

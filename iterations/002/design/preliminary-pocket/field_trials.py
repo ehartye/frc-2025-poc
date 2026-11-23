@@ -1,4 +1,4 @@
-"""Free-piece field trials for the B'x pocket, layout-002: station receive, drive-away, carry sled and eject into the L1 trough.
+"""Free-piece field trials for the fixed pocket (Fixed pocket 1.0): station receive, drive-away, carry sled and eject into the L1 trough.
 
     python -I -B field_trials.py OUTPUT.json [--processes 8]
 
@@ -6,11 +6,11 @@ Planar (XZ) rigid pipe with spin against the pocket_geometry.py surfaces, in the
 compliant penalty contact: normal spring-damper with damping set from a restitution e, and stick-slip Coulomb
 friction through a tangential spring capped at mu x normal force, so a wedged or resting pipe can hold statically.
 
-Drive (layout-002): one NEO 550 (REV-21-1651: Kt 0.0097 N m/A, 11000 rpm free at 12 V, 30 A limit) through a REV
+Drive: one NEO 550 (REV-21-1651: Kt 0.0097 N m/A, 11000 rpm free at 12 V, 30 A limit) through a REV
 MAXPlanetary 4:1 x 3:1 x 3:1 (36:1, back-drivable, 0.9 per stage assumed) on the lower shaft, belted 1:1 to the upper.
 The tread contact reaction is fed back into the shaft speed. 'hold' is the powered position hold used on receive and
 carry (torque-limited at the same 30 A); busV None is the disabled robot (rollers free to back-drive through the
-reflected motor inertia). The layout-001 self-locking worm (30:1, 40 %) is kept only as the comparison drive.
+reflected motor inertia). The first draft's self-locking worm (30:1, 40 %) is kept only as the comparison drive.
 
 Custody with the power off (custody_trial): the seated pipe under a sustained deceleration or a 50 ms hit, with the nip
 in each state it can be in when the robot is not driving it. Main power off: the gearbox coasts and only its reflected
@@ -18,14 +18,18 @@ inertia resists, no gearbox drag is credited. Robot disabled with the controller
 windings (bus 0 V). Control: rollers decoupled from the drive, so only the tread squeeze holds. The powered hold is run
 on the same loads for comparison.
 
-Receive starts at rest (or pushed) on the registered station chute (35 deg from horizontal, 419.1 mm ramp, exit sill
-952.5 mm above the carpet), drops onto the robot inlet and runs to the nip. The released pipe continues through the
-trough section (target.json). When it comes to rest the robot withdraws 120 mm at 0.3 m/s; the trough is assessed 2 s
+Field section: FIRST's official field model, as measured on the placed official solids by
+cad/field/official/checked_fixtures.py (the release's evidence/official-fixtures.json; build_layout.py stops the build when
+these constants and that record disagree). Receive starts at rest (or pushed) on the official station chute plate
+GE-25014 (35.0 deg from horizontal, 418.7 mm flat ramp, exit edge 951.0 mm above the carpet and 13.0 mm behind the lower
+barrier face the bumper docks to), under the official upper guard GE-25017, drops onto the robot inlet and runs to the nip.
+The released pipe continues through the official trough section (lip GE-25302, floor GE-25313, riser GE-25315). When it comes to rest the robot withdraws 120 mm at 0.3 m/s; the trough is assessed 2 s
 after the pipe is again at rest, as the scoring observation.
 
 Not modelled: yaw and pipe-end contact, ovality and wear, the 3D trough panel holes, the sector divider, peers, tread
-hysteresis, lip and hood compliance (rigid), the station opening's upper guard, and measured e, mu, tread stiffness or
-motor inertia (all swept or estimated).
+hysteresis, lip and hood compliance (rigid), the chute plate's 32 mm slots (the pipe bridges them), the riser's extent
+along the pipe (it backs 245 of the pipe's 302 mm at the docked sector), and measured e, mu, tread stiffness or motor
+inertia (all swept or estimated).
 """
 import json
 import math
@@ -47,13 +51,16 @@ K_RIGID = 2.0e5                 # N/m: polycarbonate panel on its supports (abou
 KT_DEFAULT = 2.0e4              # N/m tangential (stick) stiffness
 MOTOR = dict(Kt=0.0097, Rm=0.12, Ke=12.0 / (11000 * 2 * math.pi / 60), Jm=1.5e-6)   # Jm: estimate, unsourced
 J_ROLLERS = 8.0e-5              # two shafts and eight 2 in wheels about their axes (estimate)
-WORM = dict(kind="worm", N=30.0, eta=0.40, ilim=30.0)                 # layout-001 comparison drive
+WORM = dict(kind="worm", N=30.0, eta=0.40, ilim=30.0)                 # first-draft comparison drive
 MAX36 = dict(kind="planetary", N=36.0, eta=0.729, ilim=30.0)           # selected: MAXPlanetary 4:1 x 3:1 x 3:1
 HOLD_RAD = 0.035                # position hold reaches its torque limit at 2 deg of shaft error
-# Registered station (red coral station at the dock): V0 manual 5.6 sill 37.5 in; chute 55 deg from vertical; GE-25014
-# sheet 80 ramp 16.50 in. The exit sill sits on the station wall's field face.
-STATION = dict(sillZ=952.5, slopeDeg=35.0, rampMm=419.1, rearBumperFaceX=g.FRAME_REAR - (g.BUMPER_FACE - g.FRAME_FRONT))
-NOMINAL_DOCK_GAP = 10.0         # rear bumper face to station wall (field-registration.json stand-off class)
+# Official red coral station at the receive dock, measured on the placed official solids (evidence/official-fixtures.json):
+# chute plate GE-25014 top surface and upper guard GE-25017 underside, as distances behind the lower barrier GE-25007,
+# the face the rear bumper meets.
+STATION = dict(sillZ=950.98, sillBehindBarrierMm=13.01, slopeDeg=35.0, rampMm=418.73,
+               guardBehindBarrierMm=((233.05, 1256.216), (71.95, 1143.412)),      # underside, far end then near end: (distance behind the barrier, Z)
+               rearBumperFaceX=g.FRAME_REAR - (g.BUMPER_FACE - g.FRAME_FRONT))
+NOMINAL_DOCK_GAP = 10.0         # rear bumper face to the station's lower barrier face
 
 
 def m(p):
@@ -76,8 +83,14 @@ def rot_xz(q, o, deg):
 def station_chute(gap):
     """Station chute polyline in the robot frame (mm): top of the ramp to the exit sill."""
     a = math.radians(STATION["slopeDeg"])
-    lip = (STATION["rearBumperFaceX"] - gap, STATION["sillZ"])
+    lip = (STATION["rearBumperFaceX"] - gap - STATION["sillBehindBarrierMm"], STATION["sillZ"])
     return [(lip[0] - STATION["rampMm"] * math.cos(a), lip[1] + STATION["rampMm"] * math.sin(a)), lip]
+
+
+def station_guard(gap):
+    """Underside of the official upper guard over the chute, in the robot frame (mm)."""
+    face = STATION["rearBumperFaceX"] - gap
+    return [(face - d, z) for d, z in STATION["guardBehindBarrierMm"]]
 
 
 def scene(p, lip="deployed", flap=True, hood=True, standoff=None, ramp_deg=g.LIP_RAMP_DEG, dock=None, lip_proj=None):
@@ -87,6 +100,8 @@ def scene(p, lip="deployed", flap=True, hood=True, standoff=None, ramp_deg=g.LIP
     if dock is not None:
         ch = station_chute(dock)
         robot.append((m(ch[0]), m(ch[1]), pc))
+        gd = station_guard(dock)
+        robot.append((m(gd[0]), m(gd[1]), pc))
     for a, b in zip(g.INLET, g.INLET[1:]):
         robot.append((m(a), m(b), pc))
     if hood:
@@ -670,7 +685,7 @@ def main(out, processes):
         ejects.append(("control: latch failed, lip stowed", E(), float(s), "stowed", {}, seats[8.0e4]))
     ejects.append(("control: robot disabled", P(busV=None, hold=False), 50.0, "deployed", {}, seats[8.0e4]))
     for k, V, s in product((4.0e4, 8.0e4, 1.1e5, 1.6e5), (9.0, 12.0), (0, 100)):
-        ejects.append(("comparison: layout-001 worm 30:1", P(e=0.5, mu=0.15, kTread=k, drive=WORM, busV=V, hold=False), float(s), "deployed", {}, seats[k]))
+        ejects.append(("comparison: first-draft worm 30:1", P(e=0.5, mu=0.15, kTread=k, drive=WORM, busV=V, hold=False), float(s), "deployed", {}, seats[k]))
     for k, V, s, mut in product((1.0e4, 2.0e4, 2.4e5, 3.2e5), (9.0, 12.0), (0, 100), (0.4, 1.0)):
         ejects.append(("bracket: tread stiffness", E(e=0.5, mu=0.15, muTread=mut, kTread=k, busV=V), float(s), "deployed", {}, seats[k]))
     for ramp, s in product((20.0, 40.0), (0, 50, 100)):
@@ -692,7 +707,7 @@ def main(out, processes):
         receives.append(("isolation: no flap", P(e=e, mu=mu), dict(flap=False)))
         receives.append(("isolation: no hood", P(e=e, mu=mu), dict(hood=False)))
         receives.append(("control: robot disabled (rollers back-drivable)", P(e=e, mu=mu, busV=None, hold=False), {}))
-        receives.append(("comparison: layout-001 worm locked", P(e=e, mu=mu, rollers="locked"), {}))
+        receives.append(("comparison: first-draft worm locked", P(e=e, mu=mu, rollers="locked"), {}))
         receives.append(("adverse: weak flap spring", P(e=e, mu=mu, flapTau0=0.01, flapK=0.015), {}))
         receives.append(("isolation: no hood flare", P(e=e, mu=mu, flare=False), {}))
     for sq in (4.0, 8.0):
@@ -797,7 +812,7 @@ def main(out, processes):
         ("eject-isolation-lip-removed", "Isolation: lip removed, 12 V (first failing stand-off)", first(ej, "isolation: lip removed")),
         ("eject-control-short-lip", "Control: lip tip pulled inside the bumper face (first failing stand-off)",
          first(ej, "control: lip tip 72 mm out (inside the bumper face)")),
-        ("eject-worm-comparison", "Comparison: the layout-001 worm drive on a stiff tread (first failing case)", first(ej, "comparison: layout-001 worm 30:1")),
+        ("eject-worm-comparison", "Comparison: the first-draft worm drive on a stiff tread (first failing case)", first(ej, "comparison: first-draft worm 30:1")),
         ("eject-stiff-tread", "Bracket: tread stiffer than the acceptance band (first failing case)", first(ej, "bracket: tread stiffness")),
         ("eject-second-trip", "Second trip, adverse: the first pipe rests in the same trough section, 12 V, 50 mm stand-off",
          pick(ej, label="second trip: first pipe in the same section", busV=12.0, standOffMm=50.0, firstDockMm=50.0, e=0.2, mu=0.35)),
@@ -896,7 +911,7 @@ def main(out, processes):
         lipRemoved={str(int(s)): tally(lab(ej, "isolation: lip removed"), standOffMm=float(s)) for s in (0, 50, 75, 100)},
         shortLip={str(int(s)): tally(lab(ej, "control: lip tip 72 mm out (inside the bumper face)"), standOffMm=float(s)) for s in (0, 50, 75, 100)},
         latchFailed=tally(lab(ej, "control: latch failed, lip stowed")), ejectDisabled=tally(lab(ej, "control: robot disabled")),
-        wormByStiffness={str(int(k)): tally(lab(ej, "comparison: layout-001 worm 30:1"), kTreadNmm=float(k)) for k in (40, 80, 110, 160)},
+        wormByStiffness={str(int(k)): tally(lab(ej, "comparison: first-draft worm 30:1"), kTreadNmm=float(k)) for k in (40, 80, 110, 160)},
         ejectStiffnessBracket={str(int(k)): tally(lab(ej, "bracket: tread stiffness"), kTreadNmm=float(k)) for k in (10, 20, 240, 320)},
         ramp={str(int(a)): tally(lab(ej, f"lip ramp {a:.0f} deg")) for a in (20.0, 40.0)},
         secondTrip=tally(SEC), secondTripDepartureMps=rng([r["departure"] for r in SEC if r["departure"]], "speed"),
@@ -910,7 +925,7 @@ def main(out, processes):
         pushedCaptiveS=rng(PUSH, "captiveAfterFlapS"), pushedSeatS=rng(PUSH, "seatedAfterFlapS"),
         receiveStiffnessBracket={str(int(k)): tally(lab(rc, "bracket: tread stiffness"), kTreadNmm=float(k)) for k in (10, 20, 30)},
         receiveIso={l: tally(lab(rc, l)) for l in ("baseline: powered hold", "isolation: no flap", "isolation: no hood",
-                                                   "control: robot disabled (rollers back-drivable)", "comparison: layout-001 worm locked",
+                                                   "control: robot disabled (rollers back-drivable)", "comparison: first-draft worm locked",
                                                    "adverse: weak flap spring", "isolation: no hood flare")},
         go=tally(GO), goByAccel={str(a): tally(GO, pred=lambda r, a=a: r["go"]["aMps2"] == a) for a in (3.0, 6.0)},
         goSeatAfterStopS=rng(GO, "seatedAfterStopS"), goMaxBackMm=rng(GO, "maxBackFromBiteMm", 1)[1],

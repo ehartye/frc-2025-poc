@@ -7,9 +7,9 @@ Run from any directory with the CAD Python (OCP installed) and node on PATH. PLU
 revision .github/workflows/design-publication.yml names as AGENT_FRC_REF: an installed copy or an archive of that
 commit, never a checkout another session can move.
 
-Default: regenerate every file of cad/preliminary-design/releases/1.0 in order (field trials, structure sizing, blocks
-and STEP files, design record, motion study, budgets, premises, records, layout plan, missions), run the layout check
-and write receipt.json and the review page. Each step stops the build on a non-zero exit code.
+Default: regenerate every file of cad/preliminary-design/releases/1.0 in order (field trials, the official field parts
+at the two docks, structure sizing, blocks and STEP files, design record, motion study, budgets, premises, records, layout
+plan, missions), run the layout check and write receipt.json and the review page. Each step stops the build on a non-zero exit code.
 
 --layout-only: keep the recorded field trials and rebuild everything after them. Use it for a layout revision that does
 not change a trial. --jobs N runs the layout check on N worker processes; --processes N does the same for the trials.
@@ -70,7 +70,9 @@ if "--check-only" in sys.argv:
     sys.exit(0 if same and new["status"] == "layout-checked" else 1)
 
 TRIALS = {"evidence/field-trials.json"}
-BUILT = TRIALS | {"evidence/structure-checks.json", "package.step", "field-fixtures.step", "layout-blocks.json", "design.json"}
+BUILT = TRIALS | {"evidence/structure-checks.json", "evidence/official-fixtures.json", "package.step", "scored-pipe.step", "layout-blocks.json",
+                  "design.json"}
+FIELD = "field/"        # one STEP per official field solid, written by cad/field/official/checked_fixtures.py
 # HANDOFF.md is written by hand from the files here; the page, scene and receipt are kept for a --view-only rebuild.
 HAND = {"HANDOFF.md"}
 VIEW_FILES = {"package-motion.html", "review-scene.json.gz", "receipt.json"}
@@ -78,7 +80,8 @@ VIEW_FILES = {"package-motion.html", "review-scene.json.gz", "receipt.json"}
 
 def clear(keep):
     for f in sorted(R.rglob("*"), reverse=True):
-        if f.is_file() and f.relative_to(R).as_posix() not in keep | HAND:
+        name = f.relative_to(R).as_posix()
+        if f.is_file() and name not in keep | HAND and not (name.startswith(FIELD) and BUILT <= keep):
             f.unlink()
         elif f.is_dir() and not any(f.iterdir()):
             f.rmdir()
@@ -94,6 +97,8 @@ else:
         clear(set())
         (R / "evidence").mkdir(parents=True, exist_ok=True)
         run(py, "-I", "-B", f"{SRC}/field_trials.py", f"{REL}/evidence/field-trials.json", "--processes", procs)
+    run(py, "-I", "-B", "cad/field/official/checked_fixtures.py", f"{REL}/field", f"{REL}/evidence/official-fixtures.json",
+        stdout=subprocess.DEVNULL)
     run(py, "-I", "-B", f"{SRC}/structure_checks.py", f"{REL}/evidence/field-trials.json", f"{REL}/evidence/structure-checks.json")
     run(py, "-B", f"{SRC}/build_layout.py", ".", REL, PLUGIN / "scripts", f"{REL}/evidence/field-trials.json", stdout=subprocess.DEVNULL)
     run("node", f"{SRC}/design-inputs/revise-002.mjs", PLUGIN, f"{SRC}/design.json", f"{REL}/design.json")
