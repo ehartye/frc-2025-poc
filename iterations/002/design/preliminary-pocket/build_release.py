@@ -75,7 +75,7 @@ BUILT = TRIALS | {"evidence/structure-checks.json", "evidence/official-fixtures.
 FIELD = "field/"        # one STEP per official field solid, written by cad/field/official/checked_fixtures.py
 # HANDOFF.md is written by hand from the files here; the page, scene and receipt are kept for a --view-only rebuild.
 HAND = {"HANDOFF.md"}
-VIEW_FILES = {"package-motion.html", "review-scene.json.gz", "receipt.json"}
+VIEW_FILES = {"review-scene.json.gz", "receipt.json"}      # the page itself is rewritten from the plugin's stock page
 
 
 def clear(keep):
