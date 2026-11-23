@@ -1,95 +1,95 @@
-"""The README checker features the current preliminary design release while no detailed design is current."""
-import hashlib
+"""The README checker links the still to the right design review and refuses a still block that misleads a reader."""
 import importlib.util
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-SPEC = importlib.util.spec_from_file_location(
-    "cad_readmes", Path(__file__).resolve().parents[1] / "scripts/cad-readmes.py")
+SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
+sys.path.insert(0, str(SCRIPTS))     # cad-readmes.py imports its neighbour atomic_file.py, as it does when run as a script
+SPEC = importlib.util.spec_from_file_location("cad_readmes", SCRIPTS / "cad-readmes.py")
 cad_readmes = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(cad_readmes)
 
-CONFIG = {"viewerUrl": "https://example.invalid/site/"}
 
+class ReviewTarget(unittest.TestCase):
+    """Where the still links when cad-showcase.json names no review: the current detailed design, else the preliminary one."""
 
-def sha(data):
-    return hashlib.sha256(data).hexdigest()
-
-
-class ReadmeModes(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp.name)
-        self.addCleanup(self.temp.cleanup)
-        self.files = {
-            "README.md": b"# Synthetic\n",
-            "docs/robot/preliminary-layout-900.png": b"synthetic still",
-            "docs/preliminary-design/releases.json": json.dumps(
-                {"releases": ["layout-900"], "designStatus": {"layout-900": "in-progress"}, "current": "layout-900"}).encode(),
-            "docs/preliminary-design/releases/layout-900/release.json": b"{}",
-            "docs/preliminary-design/releases/layout-900/receipt.json": b'{"receipt": 1}',
-            "docs/preliminary-design/releases/layout-900/review-scene.json.gz": b"scene",
-        }
-        release = "docs/preliminary-design/releases/layout-900/"
-        self.files["docs/robot/preliminary-layout-900.json"] = json.dumps({
-            "release": "layout-900", "imageSha256": sha(self.files["docs/robot/preliminary-layout-900.png"]),
-            "releaseRecordSha256": sha(self.files[release + "release.json"]),
-            "receiptSha256": sha(self.files[release + "receipt.json"]),
-            "sceneSha256": sha(self.files[release + "review-scene.json.gz"]),
-            "caption": {"title": "Synthetic layout", "alt": "Alt.", "pose": "Parked.", "scope": "Blocks only."}}).encode()
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name).resolve()
 
-    def index(self, status="withdrawn", current=None, designs=("draft-900",)):
-        return json.dumps({"current": current, "designs": list(designs),
-                           "designStatus": {d: status for d in designs}}).encode()
+    def write(self, name, data):
+        (self.root / name).parent.mkdir(parents=True, exist_ok=True)
+        (self.root / name).write_text(json.dumps(data) if not isinstance(data, str) else data, encoding="utf-8")
 
-    def feature(self, index=None, update=False):
-        for name, data in self.files.items():
-            (self.root / name).parent.mkdir(parents=True, exist_ok=True)
-            (self.root / name).write_bytes(data)
-        if index is not None:
-            (self.root / "docs/detailed-design").mkdir(parents=True, exist_ok=True)
-            (self.root / "docs/detailed-design/designs.json").write_bytes(index)
-        return cad_readmes.preliminary_feature(self.root, CONFIG, update)
+    def publish_preliminary(self):
+        self.write("docs/preliminary-design/releases.json", {"releases": ["9.0"], "current": "9.0"})
+        self.write("docs/preliminary-design/releases/9.0/index.html", "<!doctype html>")
 
-    def test_detailed_still_without_a_design_index(self):
-        self.assertIsNone(self.feature())
+    def test_no_detailed_design_links_the_current_preliminary_review(self):
+        """Catches a still that links nowhere, or to a withdrawn page, while only a preliminary design is published."""
+        self.publish_preliminary()
+        for index in (None, {"designs": [], "designStatus": {}, "current": None}):
+            if index is not None:
+                self.write("docs/detailed-design/designs.json", index)
+            target, _ = cad_readmes.review_of(self.root, {})
+            self.assertEqual(target, self.root / "docs/preliminary-design/releases/9.0/index.html")
 
-    def test_detailed_still_while_a_detailed_design_is_shown(self):
-        for status in ("effective", "in-progress"):
-            self.assertIsNone(self.feature(self.index(status, current="draft-900")))
-            self.assertIsNone(self.feature(self.index(status)))
+    def test_a_current_detailed_design_wins(self):
+        """Catches a still that keeps pointing at the preliminary review after a detailed design becomes current."""
+        self.publish_preliminary()
+        self.write("docs/detailed-design/designs.json", {"designs": ["9.1"], "current": "9.1"})
+        self.write("docs/detailed-design/designs/9.1/index.html", "<!doctype html>")
+        target, _ = cad_readmes.review_of(self.root, {})
+        self.assertEqual(target, self.root / "docs/detailed-design/designs/9.1/index.html")
 
-    def test_damaged_index_is_an_error_not_a_mode(self):
-        for damaged in (b"", b"{", b"[]", b"null", b'{"designs": ["draft-900"]}',
-                        b'{"designs": "draft-900", "designStatus": {"draft-900": "withdrawn"}}',
-                        b'{"designs": ["draft-900"], "designStatus": ["withdrawn"]}'):
-            with self.assertRaisesRegex(ValueError, "Unreadable detailed design index"):
-                self.feature(damaged)
+    def test_a_damaged_index_falls_back_rather_than_crashing(self):
+        """Catches a damaged detailed index stopping the check; control: the preliminary review is still found."""
+        self.publish_preliminary()
+        for damaged in ("", "{", "[]", "null"):
+            self.write("docs/detailed-design/designs.json", damaged)
+            target, _ = cad_readmes.review_of(self.root, {})
+            self.assertEqual(target, self.root / "docs/preliminary-design/releases/9.0/index.html")
 
-    def test_no_current_detailed_design_features_the_preliminary_still(self):
-        for index in (self.index(), self.index("superseded"), self.index(designs=())):
-            feature = self.feature(index)
-            self.assertEqual(feature["heading"], "Preliminary design · in progress · layout-900")
-            self.assertEqual(feature["image"], self.root / "docs/robot/preliminary-layout-900.png")
-            self.assertEqual(feature["review"], "https://example.invalid/site/preliminary-design/")
-            self.assertEqual(feature["text"], "Synthetic layout. Parked. Blocks only.")
+    def test_an_explicit_viewer_url_wins(self):
+        self.publish_preliminary()
+        target, _ = cad_readmes.review_of(self.root, {"viewerUrl": "https://example.invalid/site/"})
+        self.assertEqual(target, "https://example.invalid/site/")
 
-    def test_a_different_still_is_refused(self):
-        self.files["docs/robot/preliminary-layout-900.png"] = b"another still"
-        with self.assertRaisesRegex(ValueError, "differs from the current release"):
-            self.feature(self.index())
 
-    def test_a_still_of_another_release_state_is_refused(self):
-        self.files["docs/preliminary-design/releases/layout-900/receipt.json"] = b'{"receipt": 2}'
-        with self.assertRaisesRegex(ValueError, "differs from the current release"):
-            self.feature(self.index())
+class StillBlock(unittest.TestCase):
+    """The check refuses a block that is missing, misplaced, shows no image or names another design or status."""
 
-    def test_a_release_without_a_still_is_refused(self):
-        del self.files["docs/robot/preliminary-layout-900.json"]
-        with self.assertRaisesRegex(ValueError, "Render the README still"):
-            self.feature(self.index())
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name)
+        (self.root / "still.png").write_bytes(b"synthetic still")
+        self.file = self.root / "README.md"
+
+    def check(self, text):
+        cad_readmes.check_block(self.file, "README.md", text, "Synthetic layout 9.0", "in-progress")
+
+    def block(self, image="still.png", caption="**Project CAD · Synthetic layout 9.0 · in-progress.** Blocks only."):
+        return f"# Synthetic\n\n<!-- cad-still -->\n![Synthetic]({image})\n\n{caption}\n<!-- /cad-still -->\n\nText.\n"
+
+    def test_a_current_block_passes(self):
+        self.check(self.block())
+
+    def test_a_block_not_below_the_title_is_refused(self):
+        with self.assertRaisesRegex(ValueError, "directly below the title"):
+            self.check("# Synthetic\n\nIntro first.\n\n" + self.block().split("\n\n", 1)[1])
+
+    def test_a_missing_image_is_refused(self):
+        with self.assertRaisesRegex(ValueError, "no image file that exists"):
+            self.check(self.block(image="gone.png"))
+
+    def test_a_caption_of_another_status_is_refused(self):
+        with self.assertRaisesRegex(ValueError, "does not name the current design"):
+            self.check(self.block(caption="**Project CAD · Synthetic layout 9.0 · effective.** Blocks only."))
 
 
 if __name__ == "__main__":
