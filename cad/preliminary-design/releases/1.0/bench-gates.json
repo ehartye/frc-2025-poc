@@ -14,7 +14,7 @@
       "pass_": "240-720 N at 6 mm per roller (40-120 N/mm); tread mu >= 0.3; floor mu 0.15-0.35. Adjust the wheel count or durometer until inside the band",
       "kill": "Below 120 N at 6 mm (20 N/mm) or above 1440 N (240 N/mm) with every available wheel option",
       "prediction": {
-        "model": "Receive passes from 20 N/mm and fails at 10; eject passes to 160 and stalls at 240; shafts deflect 1.1974 mm at 120",
+        "model": "Receive passes from 30 N/mm, seats 11/12 at 20 and fails at 10; eject passes to 160 and stalls at 240; shafts deflect 1.1974 mm at 120",
         "predicted": "unknown: no stiffness data exists; the band is three times wide and the wheel count tunes it"
       },
       "status": "open"
@@ -23,10 +23,10 @@
       "id": "G1",
       "name": "station receive",
       "test": "30 feeds released from rest on the station mock at dock gaps 0, 10 and 50 mm, nip on powered hold; 10 pushed at about 2 m/s; 10 with the robot disabled",
-      "pass_": "40/40 powered feeds captive (flap switch closed) within 0.50 s of the pipe passing the flap (model 0.093-0.292 s); none through the nip; none back out; 10/10 disabled feeds stay in the pocket",
+      "pass_": "40/40 powered feeds captive (flap switch closed) within 0.50 s of the pipe passing the flap (model 0.097-0.259 s); none through the nip; none back out; 10/10 disabled feeds stay in the pocket",
       "kill": "Any pipe through the nip, or any pipe out of the inlet",
       "prediction": {
-        "model": "108/108 seated, captive 0.093-0.248 s, peak rise 4.49 mm; pushed 18/24; disabled 4/4",
+        "model": "108/108 seated, captive 0.097-0.195 s, peak rise 7.93 mm; pushed 18/24; disabled 4/4",
         "predicted": "pass inside the G0 band"
       },
       "status": "open"
@@ -50,7 +50,7 @@
       "pass_": "60/60 powered retained; 40/40 disabled retained; 10/10 receive-and-go seated (beam blocked) within 0.5 s of stopping",
       "kill": "Any loss at 3 g or below",
       "prediction": {
-        "model": "powered 72/72, disabled 18/18; receive and go 24/24, seated within 0.103 s; without the flap 0/2",
+        "model": "powered 72/72, disabled 18/18; receive and go 24/24, seated within 0.073 s; without the flap 0/2",
         "predicted": "pass with the flap"
       },
       "status": "open"

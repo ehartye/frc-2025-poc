@@ -1,0 +1,494 @@
+{
+ "schema": "frc-2025-poc/checked-fixtures@1",
+ "source": {
+  "record": "cad/field/official/official-field.json",
+  "selection": "cad/field/official/checked-fixtures.json",
+  "edition": "FE-2025 REEFSCAPE field, SolidWorks 2022 STEP AP214 export stamped 2025-01-09T21:33:18; archive Last-Modified 2025-01-10 23:08:31 GMT. It predates the later field drawing revisions.",
+  "url": "https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025Field-STEP.zip"
+ },
+ "units": "mm",
+ "frame": "robot datum: +X toward the reef, +Y port, +Z up, origin at the chassis centre on the floor",
+ "docks": [
+  {
+   "fixture": "station",
+   "official": "red-coral-station",
+   "dockFrame": "receive-dock",
+   "face": "Station lower barrier (GE-25007)",
+   "faceXMm": -455.5,
+   "shiftFromRecordedFrameXMm": -9.525
+  },
+  {
+   "fixture": "reef",
+   "official": "red-reef",
+   "dockFrame": "delivery-dock",
+   "face": "Reef trough lip (GE-25302)",
+   "faceXMm": 495.5,
+   "shiftFromRecordedFrameXMm": 0.0
+  }
+ ],
+ "parts": [
+  {
+   "name": "Station lower barrier (GE-25007)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25007",
+   "role": "barrier",
+   "boundsMm": [
+    -468.2,
+    -1012.83,
+    -0.0,
+    -455.5,
+    1012.83,
+    304.8
+   ],
+   "file": "station-barrier.step"
+  },
+  {
+   "name": "Station lower panel (GE-25008)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25008",
+   "role": "lower-panel",
+   "boundsMm": [
+    -471.38,
+    -1012.83,
+    305.31,
+    -465.02,
+    1012.83,
+    933.96
+   ],
+   "file": "station-lower-panel.step"
+  },
+  {
+   "name": "Station upper panel (GE-25009)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25009",
+   "role": "upper-panel",
+   "boundsMm": [
+    -471.38,
+    -1012.83,
+    1130.3,
+    -465.02,
+    1012.83,
+    1695.45
+   ],
+   "file": "station-upper-panel.step"
+  },
+  {
+   "name": "Station upper guard (GE-25017)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25015 / GE-25017",
+   "role": "guard",
+   "boundsMm": [
+    -688.55,
+    -965.11,
+    1144.62,
+    -527.45,
+    963.7,
+    1258.67
+   ],
+   "file": "station-guard.step"
+  },
+  {
+   "name": "Station frame upright, port (GE-25001-01)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25001 / GE-25001-01",
+   "role": "upright-port",
+   "boundsMm": [
+    -515.83,
+    968.38,
+    0.0,
+    -471.38,
+    1012.83,
+    1625.6
+   ],
+   "file": "station-upright-port.step"
+  },
+  {
+   "name": "Station frame upright, starboard (GE-25001-01)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25001 / GE-25001-01",
+   "role": "upright-starboard",
+   "boundsMm": [
+    -515.83,
+    -1012.83,
+    0.0,
+    -471.38,
+    -968.38,
+    1625.6
+   ],
+   "file": "station-upright-starboard.step"
+  },
+  {
+   "name": "Reef trough floor, docked sector (GE-25313)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25310 / GE-25313",
+   "role": "floor",
+   "boundsMm": [
+    511.2,
+    -233.37,
+    402.99,
+    742.92,
+    231.12,
+    470.77
+   ],
+   "file": "reef-floor.step"
+  },
+  {
+   "name": "Reef trough floor, next sector (GE-25313)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25310 / GE-25313",
+   "role": "floor-next",
+   "boundsMm": [
+    511.26,
+    -702.62,
+    403.0,
+    742.94,
+    -238.11,
+    470.77
+   ],
+   "file": "reef-floor-next.step"
+  },
+  {
+   "name": "Reef trough riser, docked sector (GE-25315)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25310 / GE-25315",
+   "role": "riser",
+   "boundsMm": [
+    743.34,
+    -233.34,
+    468.89,
+    749.69,
+    93.69,
+    517.52
+   ],
+   "file": "reef-riser.step"
+  },
+  {
+   "name": "Reef trough riser, next sector (GE-25315)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25310 / GE-25315",
+   "role": "riser-next",
+   "boundsMm": [
+    743.34,
+    -565.13,
+    468.89,
+    749.69,
+    -238.11,
+    517.52
+   ],
+   "file": "reef-riser-next.step"
+  },
+  {
+   "name": "Reef branch column, docked sector (GE-25301-02)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-02",
+   "role": "column",
+   "boundsMm": [
+    526.55,
+    -92.5,
+    19.05,
+    822.71,
+    -50.33,
+    1825.62
+   ],
+   "file": "reef-column.step"
+  },
+  {
+   "name": "Reef branch column, next sector (GE-25301-02)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-02",
+   "role": "column-next",
+   "boundsMm": [
+    525.4,
+    -421.11,
+    19.05,
+    821.57,
+    -378.95,
+    1825.62
+   ],
+   "file": "reef-column-next.step"
+  },
+  {
+   "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-01",
+   "role": "arm-l2",
+   "boundsMm": [
+    539.52,
+    -92.5,
+    605.17,
+    801.41,
+    -50.33,
+    808.48
+   ],
+   "file": "reef-arm-l2.step"
+  },
+  {
+   "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-01",
+   "role": "arm-l3",
+   "boundsMm": [
+    539.52,
+    -92.5,
+    1008.27,
+    801.41,
+    -50.33,
+    1211.58
+   ],
+   "file": "reef-arm-l3.step"
+  },
+  {
+   "name": "Reef L2 branch arm, next sector (GE-25301-01)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-01",
+   "role": "arm-l2-next",
+   "boundsMm": [
+    538.38,
+    -421.11,
+    605.17,
+    800.27,
+    -378.95,
+    808.48
+   ],
+   "file": "reef-arm-l2-next.step"
+  },
+  {
+   "name": "Reef L3 branch arm, next sector (GE-25301-01)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25301 / GE-25301-01",
+   "role": "arm-l3-next",
+   "boundsMm": [
+    538.38,
+    -421.11,
+    1008.27,
+    800.27,
+    -378.95,
+    1211.58
+   ],
+   "file": "reef-arm-l3-next.step"
+  },
+  {
+   "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+   "fixture": "station",
+   "official": "GE-25000_Red 3 Corner / GE-25010 / GE-25014; GE-25000_Red 3 Corner / GE-25002 / GE-25004; GE-25000_Red 3 Corner / GE-25003 / GE-25005",
+   "role": "chute",
+   "unitedFrom": [
+    "Station chute plate (GE-25014)",
+    "Station side plate, port (GE-25004)",
+    "Station side plate, starboard (GE-25005)"
+   ],
+   "overlapRemovedMm3": 891.1,
+   "boundsMm": [
+    -819.1,
+    -968.38,
+    939.8,
+    -468.51,
+    968.38,
+    1558.92
+   ],
+   "file": "station-chute.step"
+  },
+  {
+   "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
+   "fixture": "reef",
+   "official": "GE-25300_Red / GE-25302; GE-25300_Red / GE-25310 / GE-25311; GE-25300_Red / GE-25310 / GE-25311",
+   "role": "lip",
+   "unitedFrom": [
+    "Reef trough lip (GE-25302)",
+    "Reef base plate, docked sector (GE-25311)",
+    "Reef base plate, next sector (GE-25311)"
+   ],
+   "overlapRemovedMm3": 286.4,
+   "boundsMm": [
+    495.5,
+    -943.48,
+    3.17,
+    1052.7,
+    472.04,
+    457.2
+   ],
+   "file": "reef-lip.step"
+  }
+ ],
+ "officialJoints": [
+  {
+   "pair": [
+    "Reef L2 branch arm, docked sector (GE-25301-01)",
+    "Reef branch column, docked sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L2 branch arm, next sector (GE-25301-01)",
+    "Reef branch column, next sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L3 branch arm, docked sector (GE-25301-01)",
+    "Reef branch column, docked sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef L3 branch arm, next sector (GE-25301-01)",
+    "Reef branch column, next sector (GE-25301-02)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef trough floor, docked sector (GE-25313)",
+    "Reef trough riser, docked sector (GE-25315)"
+   ],
+   "gapMm": 1.497,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Reef trough floor, next sector (GE-25313)",
+    "Reef trough riser, next sector (GE-25315)"
+   ],
+   "gapMm": 1.484,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station frame upright, port (GE-25001-01)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station frame upright, starboard (GE-25001-01)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station upper guard (GE-25017)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, port (GE-25001-01)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, port (GE-25001-01)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, starboard (GE-25001-01)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station frame upright, starboard (GE-25001-01)",
+    "Station upper panel (GE-25009)"
+   ],
+   "gapMm": 0.0,
+   "overlapMm3": 0.0
+  },
+  {
+   "pair": [
+    "Station lower barrier (GE-25007)",
+    "Station lower panel (GE-25008)"
+   ],
+   "gapMm": 0.508,
+   "overlapMm3": 0.0
+  }
+ ],
+ "section": {
+  "basis": "Vertical rays on the placed official solids at Y -120, 0 and 120 mm (chute: -120, -60, 60 and 120, beside its centre slot); each line is a least-squares fit and residualMm its largest miss",
+  "station": {
+   "barrierFaceXMm": -455.5,
+   "dockGapMm": 10.0,
+   "chuteExitEdgeMm": [
+    -468.51,
+    950.98
+   ],
+   "chuteSlopeDeg": 35.0,
+   "chuteTopEndMm": [
+    -811.51,
+    1191.151
+   ],
+   "chuteRampMm": 418.73,
+   "chuteSlotOnCentreMm": "32 mm slot at Y -15 to 17, 7.75 mm deep; slots repeat every 203 mm",
+   "chuteResidualMm": 0.0,
+   "chuteSamples": 20,
+   "guardUndersideMm": [
+    [
+     -688.55,
+     1256.216
+    ],
+    [
+     -527.45,
+     1143.412
+    ]
+   ],
+   "guardResidualMm": 0.0,
+   "guardSamples": 12,
+   "openingMm": [
+    933.96,
+    1130.3
+   ]
+  },
+  "trough": {
+   "lipFaceXMm": 495.5,
+   "standOffMm": 50.0,
+   "lipTopMm": 457.2,
+   "lipDepthMm": 12.7,
+   "floorStartXMm": 511.2,
+   "floorEndXMm": 742.92,
+   "floorZ0AtLipFaceMm": 404.9182,
+   "floorSlope": 0.267949,
+   "floorResidualMm": 0.0,
+   "floorSamples": 14,
+   "riserFaceXMm": 743.34,
+   "riserTopMm": 517.52,
+   "riserThicknessMm": 6.35,
+   "riserYMm": [
+    -233.34,
+    93.69
+   ],
+   "floorYMm": [
+    -233.37,
+    231.12
+   ]
+  }
+ }
+}

@@ -2,8 +2,10 @@
 
     python -I -B build_layout.py PROJECT_ROOT RELEASE_DIR PLUGIN_SCRIPTS FIELD_TRIALS_JSON
 
-Writes RELEASE_DIR/package.step (the robot and the finite pipe), RELEASE_DIR/field-fixtures.step (the station chute,
-the L1 trough and the first scored pipe, as motion-study fixtures) and RELEASE_DIR/layout-blocks.json.
+Writes RELEASE_DIR/package.step (the robot and the finite pipe), RELEASE_DIR/scored-pipe.step (the first scored pipe, a
+motion-study fixture) and RELEASE_DIR/layout-blocks.json. The field is FIRST's official model: RELEASE_DIR/field/*.step
+and RELEASE_DIR/evidence/official-fixtures.json are written first by cad/field/official/checked_fixtures.py, and this
+builder lists those official solids as fixtures and stops when the trial section constants disagree with them.
 
 The chassis, modules, bumpers, electronics, wiring, battery and service gauges are rebuilt exactly as the
 iteration 002 pan baseline builds them (iterations/002/design/preliminary/build_layout.py), from the same pinned
@@ -40,7 +42,8 @@ CHASSIS_STEP = "iterations/artifacts/resume-20261121/screws-place-01/four-seated
 ELECTRICAL = "iterations/002/design/chassis/inset-electrical-package.json"
 SRC = "iterations/002/design/preliminary-pocket"            # this builder and pocket_geometry.py
 REL = OUT.relative_to(ROOT).as_posix()                       # the release folder, project-relative
-FIXTURE_GROUPS = ("field trough", "field station", "field first pipe")
+FIXTURE_GROUPS = ("field reef", "field station", "field first pipe")
+OFFICIAL = "evidence/official-fixtures.json"
 CONTACT_RESERVE = 2.5      # pipe-contact surfaces reserved below their contact line
 LIP_RESERVE = 3.5          # the lip, whose root corner the pipe pivots over, keeps 3.5 mm so that arc stays resolvable
 W_IN = 161.0               # pocket inner half-width (322 mm, the kept pan profile width)
@@ -471,50 +474,65 @@ add("CORAL pipe", pipe, group="pipe", role="payload",
     motion="station -> chute -> ramp -> flap -> seat -> carry -> throat -> over the lower roller -> lip -> tip -> trough",
     bounds="Cylinder of the 114.3 mm OD, 301.625 mm pipe (bore filled)", missing=["CORAL geometry is not registered in kickoff/rules-v0.json"])
 
-# ---------------------------------------------------------------- field: red L1 trough sector A at the shown dock
+# ---------------------------------------------------------------- field: FIRST's official station and reef at the two docks
+official = json.loads((OUT / OFFICIAL).read_text(encoding="utf-8"))
+official_solids = {row["name"]: load_solids(OUT / "field" / row["file"])[0][row["name"]] for row in official["parts"]}
+sec = official["section"]
 t = pg.TROUGH
 xl = pg.trough_x(pg.NOMINAL_STANDOFF)
-xr = xl + t["riserX"]
-fl = lambda x: t["floor0"] + t["slope"] * (x - xl)
 hw = t["sectorHalfWidth"]
-# Drawn so nothing field-side hangs in the air: the lip and riser walls run down to the carpet as plain planning walls, and the
-# section spans the docked sector and the neighbouring sector toward -Y, where the first scored pipe rests.
 SECTOR_PITCH = 471.0
-TROUGH_Y0 = -SECTOR_PITCH - hw
-trough = fuse([sec_y([(xl, 0.0), (xl + t["lipDepth"], 0.0), (xl + t["lipDepth"], t["lipTop"]), (xl, t["lipTop"])], TROUGH_Y0, hw),
-               sec_y([(xl + t["lipDepth"] - 0.5, fl(xl + t["lipDepth"])), (xr + 0.5, fl(xr)), (xr + 0.5, fl(xr) - 6.35),
-                      (xl + t["lipDepth"] - 0.5, fl(xl + t["lipDepth"]) - 6.35)], TROUGH_Y0, hw),
-               sec_y([(xr, 0.0), (xr + t["riserT"], 0.0), (xr + t["riserT"], t["riserTop"]), (xr, t["riserTop"])], TROUGH_Y0, hw)])
-add("L1 trough sector A (field)", sorted(solids(trough), key=volume, reverse=True)[0], group="field trough", role="other",
-    function="Red reef L1 trough section at the shown dock and the neighbouring sector that holds the first pipe: outer lip, 15 deg floor and inner riser, "
-             "from the 2025 field model extraction; the two walls continue to the carpet as planning walls",
-    parent=f"field: lip outer face at X {xl:.1f} mm ({pg.NOMINAL_STANDOFF:.0f} mm stand-off from the bumper face), Y {TROUGH_Y0:.1f} to {hw}",
-    motion="field (recedes 300 mm in the robot frame during withdraw-park)",
-    bounds="experiments/six-wheel/mission/target.json section (lip top 457.2, lip 12.7, floor 0.4049 + 0.268 x, riser 247.8-254.2, top 517.5) extruded over sector A",
-    missing=["The reef structure is not placed: below the trough the two walls are plain planning walls to the carpet, and the L2 branch above the riser is absent",
-             "Panel mounting holes and the sector divider"])
-
-# ---------------------------------------------------------------- field: red coral station chute at the receive dock
 ch = ft.station_chute(ft.NOMINAL_DOCK_GAP)
-sa = math.radians(ft.STATION["slopeDeg"])
-sn = (math.sin(sa), math.cos(sa))
-CHUTE_T = 12.7
-chute_quad = [ch[0], ch[1], (ch[1][0] - sn[0] * CHUTE_T, ch[1][1] - sn[1] * CHUTE_T), (ch[0][0] - sn[0] * CHUTE_T, ch[0][1] - sn[1] * CHUTE_T)]
-STATION_HW = 170.0
-station = fuse([sec_y(chute_quad, -STATION_HW, STATION_HW), box([ch[1][0] - CHUTE_T, -STATION_HW, 0.0], [ch[1][0], STATION_HW, ch[1][1] - 2.5])])
-station = sorted(solids(station), key=volume, reverse=True)
-assert len(station) == 1
-add("Coral station chute (field)", station[0], group="field station", role="other",
-    function="Red coral station at the receive dock: the 35 deg chute the pipe is released on and the station wall below its exit sill",
-    parent=f"field: wall face at X {ch[1][0]:.1f} mm, {ft.NOMINAL_DOCK_GAP:.0f} mm behind the rear bumper face; exit sill at Z {ch[1][1]:.1f}",
-    motion="field (present for the receive cases only)",
-    bounds=f"Chute top surface on the trial polyline {[tuple(round(v, 1) for v in p) for p in ch]} (the true contact line, no reserve), 12.7 mm plate, "
-           f"wall to the floor, {2 * STATION_HW:.0f} mm of the 1930 mm opening width",
-    missing=["Opening upper guard (7 in opening) and side guides (121.99 mm mouth in the field STEP) are not placed",
-             "Sill datum: the V0 manual gives the opening sill at 37.5 in; the chute exit is taken on the wall's field face"])
+gd = ft.station_guard(ft.NOMINAL_DOCK_GAP)
+# The planar trials and this layout must use the official section: each constant against its measurement, to 0.05 mm.
+st_, tr_ = sec["station"], sec["trough"]
+SECTION_CHECK = [
+    ("dock gap", ft.NOMINAL_DOCK_GAP, st_["dockGapMm"]), ("barrier face X", ft.STATION["rearBumperFaceX"] - ft.NOMINAL_DOCK_GAP, st_["barrierFaceXMm"]),
+    ("chute exit X", ch[1][0], st_["chuteExitEdgeMm"][0]), ("chute exit Z", ch[1][1], st_["chuteExitEdgeMm"][1]),
+    ("chute slope deg", ft.STATION["slopeDeg"], st_["chuteSlopeDeg"]), ("chute ramp", ft.STATION["rampMm"], st_["chuteRampMm"]),
+    ("guard far X", gd[0][0], st_["guardUndersideMm"][0][0]), ("guard far Z", gd[0][1], st_["guardUndersideMm"][0][1]),
+    ("guard near X", gd[1][0], st_["guardUndersideMm"][1][0]), ("guard near Z", gd[1][1], st_["guardUndersideMm"][1][1]),
+    ("trough lip face X", xl, tr_["lipFaceXMm"]), ("stand-off", pg.NOMINAL_STANDOFF, tr_["standOffMm"]), ("lip top", t["lipTop"], tr_["lipTopMm"]),
+    ("lip depth", t["lipDepth"], tr_["lipDepthMm"]), ("floor Z at the lip face", t["floor0"], tr_["floorZ0AtLipFaceMm"]),
+    ("floor rise over 250 mm", 250.0 * t["slope"], 250.0 * tr_["floorSlope"]), ("riser face X", xl + t["riserX"], tr_["riserFaceXMm"]),
+    ("riser top", t["riserTop"], tr_["riserTopMm"]), ("riser thickness", t["riserT"], tr_["riserThicknessMm"])]
+off = [(what, ours, theirs) for what, ours, theirs in SECTION_CHECK if abs(ours - theirs) > 0.05]
+assert not off, ("The trial section differs from the official field parts", off)
+ROLE_TEXT = {
+    "barrier": "lower barrier below the station wall panels, the face the rear bumper meets at the receive dock",
+    "lower-panel": "station wall panel below the 196 mm opening the pipe leaves through",
+    "upper-panel": "station wall panel above the opening",
+    "chute": "chute plate the pipe rolls down (35 deg, 12.7 mm, with 32 mm slots every 203 mm that the pipe bridges) and the two side plates that carry it",
+    "guard": "upper guard over the chute, 124 mm above its surface: it caps a bounce on the ramp",
+    "upright-port": "port frame upright, floor to top, that carries the panels and the side plate",
+    "upright-starboard": "starboard frame upright, floor to top, that carries the panels and the side plate",
+    "lip": "trough lip panel of the docked REEF face, the wall the pipe must clear, with the two base plates it stands in",
+    "floor": "trough floor panel of the docked sector, rising 15 deg toward the riser",
+    "floor-next": "trough floor panel of the next sector toward -Y, where the first pipe rests",
+    "riser": "inner riser of the docked sector: it stops the pipe at the back of the trough",
+    "riser-next": "inner riser of the next sector",
+    "column": "branch column of the docked sector, rising through the trough floor to the L4 tip",
+    "column-next": "branch column of the next sector",
+    "arm-l2": "L2 branch arm over the docked trough", "arm-l3": "L3 branch arm over the docked trough",
+    "arm-l2-next": "L2 branch arm over the next sector", "arm-l3-next": "L3 branch arm over the next sector"}
+for row in official["parts"]:
+    shape = official_solids[row["name"]]
+    station_part = row["fixture"] == "station"
+    assert row["name"] not in blocks and volume(shape) > 0, row["name"]
+    blocks[row["name"]] = dict(
+        shape=shape, group="field station" if station_part else "field reef", role="other", officialRole=row["role"], fixtureFile="field/" + row["file"],
+        function=f"FIRST official field part {row['name'].split('(')[-1].rstrip(')')}: {ROLE_TEXT[row['role']]}",
+        parent=(f"field: red coral station at the receive dock, lower barrier {ft.NOMINAL_DOCK_GAP:.0f} mm behind the rear bumper face" if station_part else
+                f"field: red REEF at the delivery dock, trough lip face {pg.NOMINAL_STANDOFF:.0f} mm ahead of the front bumper face"),
+        motion="field (the robot is at this dock for the receive cases only)" if station_part else "field (recedes 300 mm in the robot frame during withdraw-park)",
+        bounds=f"The official solid as drawn ({row['official']}), placed by cad/field/official/checked_fixtures.py; not redrawn or simplified"
+               + ("; these official parts overlap each other in the official model and are united into one solid" if row.get("unitedFrom") else ""),
+        missing=["The rest of the official assembly (fasteners, ribs, remaining frame and base parts) is left out of the check"])
+    order.append(row["name"])
+
 first = trials["eject"][next(p_["index"] for p_ in trials["playback"] if p_["id"] == "eject-nominal")]["finalFromLipMm"]
 fp = cylinder((xl + first[0], -SECTOR_PITCH - pg.PIPE_LENGTH / 2, first[1] + 0.0), (0, 1, 0), pg.R - 2.5, pg.PIPE_LENGTH)
-add("First scored pipe in sector A (field)", fp, group="field first pipe", role="other",
+add("First scored pipe in sector A (field)", fp, group="field first pipe", role="other", fixtureFile="scored-pipe.step",
     function="The first pipe at its trial rest pose in sector A while the robot docks at sector B for the second delivery",
     parent=f"field: the nominal eject rest pose, {SECTOR_PITCH:.0f} mm toward -Y (one sector pitch)", motion="field (second-trip cases only)",
     bounds="Pipe cylinder at the trial rest pose, radius reduced 2.5 mm so its resting contact with the trough keeps the check reserve and reads as resting on it",
@@ -532,7 +550,7 @@ from OCP.Interface import Interface_Static
 
 Interface_Static.SetCVal_s("write.step.unit", "MM")
 OUT.mkdir(parents=True, exist_ok=True)
-for fname, pick_ in (("package.step", lambda n: blocks[n]["group"] not in FIXTURE_GROUPS), ("field-fixtures.step", lambda n: blocks[n]["group"] in FIXTURE_GROUPS)):
+for fname, pick_ in (("package.step", lambda n: blocks[n]["group"] not in FIXTURE_GROUPS), ("scored-pipe.step", lambda n: blocks[n]["group"] == "field first pipe")):
     doc = TDocStd_Document(TCollection_ExtendedString("BinXCAF"))
     table = XCAFDoc_DocumentTool.ShapeTool_s(doc.Main())
     for name in order:
@@ -544,7 +562,7 @@ for fname, pick_ in (("package.step", lambda n: blocks[n]["group"] not in FIXTUR
     assert writer.Transfer(doc, STEPControl_AsIs) and writer.Write(str(step_path)) == IFSelect_RetDone
 # neighbours of every block new or moved since the first draft: exact distance to every other robot block
 NEW = ["Nip drive (NEO 550 and MAXPlanetary 36:1)", "Nip coupling belt", "Seated-pipe beam emitter (port)", "Seated-pipe beam receiver (starboard)",
-       "Flap-closed switch", "Reef range sensor (CANrange)", "Hood (removable)", "Coral station chute (field)"]
+       "Flap-closed switch", "Reef range sensor (CANrange)", "Hood (removable)"]
 new_rows = []
 for n in NEW:
     for o in order:
@@ -591,10 +609,11 @@ manifest = dict(
                                        bumperRecord="cad/rear-frame-facets/construction.json",
                                        pocketGeometry=f"{SRC}/pocket_geometry.py",
                                        fieldTrials=TRIALS.relative_to(ROOT).as_posix(),
-                                       trough="experiments/six-wheel/mission/target.json").items()},
+                                       officialField=f"{REL}/{OFFICIAL}").items()},
     generator={"file": f"{SRC}/build_layout.py"},
     fixtureGroups=list(FIXTURE_GROUPS), beamMm=list(BEAM), sectorPitchMm=SECTOR_PITCH, firstPipeFromLipMm=first,
-    stationChute=dict(polylineMm=[list(p) for p in ch], dockGapMm=ft.NOMINAL_DOCK_GAP, halfWidthMm=STATION_HW),
+    stationChute=dict(polylineMm=[list(p) for p in ch], guardUndersideMm=[list(p) for p in gd], dockGapMm=ft.NOMINAL_DOCK_GAP),
+    officialJoints=official["officialJoints"], sectionCheck=[dict(what=w, trialMm=round(o, 4), officialMm=th) for w, o, th in SECTION_CHECK],
     newBlockNeighbours=sorted(new_rows, key=lambda r: r["gapMm"])[:20],
     lipOverTravel=dict(deg=OVER_DEG, minGapMm=over_min, rows=sorted(over_rows, key=lambda r: r["gapMm"])[:8], boundsMm=[round(v, 2) for v in aabb(lip_over)]),
     frameOutlineMm=OUTLINE, rearCutbackMm=CUTBACK,

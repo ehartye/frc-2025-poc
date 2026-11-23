@@ -1,0 +1,76 @@
+{
+  "schema": "red2/trial-path@2",
+  "issue": "fixed-pocket-1.0",
+  "transport": {
+    "case": "receive-13-drive-away",
+    "payload": "pipe",
+    "mechanisms": [
+      "check flap",
+      "lower nip roller",
+      "pocket tray",
+      "upper nip roller"
+    ],
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            -12.28000000000003,
+            0.0,
+            2.8799999999999955
+          ]
+        }
+      ]
+    },
+    "initialPose": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            1.5500000000000114,
+            0.0,
+            0.12999999999999545
+          ]
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+  },
+  "playback": "receive-mission",
+  "traceWindowS": [
+    1.924,
+    2.064
+  ],
+  "maxDeviationFromTraceMm": 0.536,
+  "endSnapMm": 0.0,
+  "chordToleranceMm": 10.0,
+  "qualification": {
+    "result": "pass",
+    "control": {
+      "condition": "Check flap removed, same receive and go: 0/2 retained",
+      "rejected": true
+    },
+    "brackets": [
+      {
+        "input": "tread stiffness per roller",
+        "unit": "N/mm",
+        "passing": 20,
+        "failing": 10
+      },
+      {
+        "input": "check flap",
+        "unit": "present",
+        "passing": 1,
+        "failing": 0
+      }
+    ],
+    "timestep": {
+      "coarseS": 4e-05,
+      "fineS": 2e-05,
+      "sameOutcome": true
+    }
+  },
+  "basis": "Chassis acceleration presses the pipe on the flap's rear stop. The stroke joins two poses of the solved free-piece trace and stays within the recorded deviation of it; the trace, its control and its half-timestep repeat are in field-trials.json."
+}

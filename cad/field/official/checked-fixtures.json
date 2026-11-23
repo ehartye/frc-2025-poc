@@ -1,0 +1,338 @@
+{
+ "schema": "frc-2025-poc/checked-fixtures-selection@1",
+ "note": "The official parts the layout check and the trials use. boundsDockMm picks one placed occurrence of a part by its bounds in the dock frame of official-field.json, within 2 mm. unite lists official parts that overlap each other in the official model and are written as one solid.",
+ "fixtures": [
+  {
+   "id": "station",
+   "official": "red-coral-station",
+   "dockFrame": "receive-dock",
+   "dockFace": {
+    "name": "Station lower barrier (GE-25007)",
+    "bound": 3
+   },
+   "parts": [
+    {
+     "name": "Station lower barrier (GE-25007)",
+     "part": "GE-25007",
+     "boundsDockMm": [
+      -459,
+      -1013,
+      0,
+      -446,
+      1013,
+      305
+     ],
+     "role": "barrier"
+    },
+    {
+     "name": "Station lower panel (GE-25008)",
+     "part": "GE-25008",
+     "boundsDockMm": [
+      -462,
+      -1013,
+      305,
+      -456,
+      1013,
+      934
+     ],
+     "role": "lower-panel"
+    },
+    {
+     "name": "Station upper panel (GE-25009)",
+     "part": "GE-25009",
+     "boundsDockMm": [
+      -462,
+      -1013,
+      1130,
+      -456,
+      1013,
+      1695
+     ],
+     "role": "upper-panel"
+    },
+    {
+     "name": "Station chute plate (GE-25014)",
+     "part": "GE-25014",
+     "boundsDockMm": [
+      -810,
+      -965,
+      941,
+      -459,
+      965,
+      1191
+     ],
+     "role": "chute"
+    },
+    {
+     "name": "Station upper guard (GE-25017)",
+     "part": "GE-25017",
+     "boundsDockMm": [
+      -679,
+      -965,
+      1145,
+      -518,
+      964,
+      1259
+     ],
+     "role": "guard"
+    },
+    {
+     "name": "Station side plate, port (GE-25004)",
+     "part": "GE-25004",
+     "boundsDockMm": [
+      -805,
+      933,
+      940,
+      -462,
+      968,
+      1559
+     ],
+     "role": "side-plate-port"
+    },
+    {
+     "name": "Station side plate, starboard (GE-25005)",
+     "part": "GE-25005",
+     "boundsDockMm": [
+      -805,
+      -968,
+      940,
+      -462,
+      -933,
+      1559
+     ],
+     "role": "side-plate-starboard"
+    },
+    {
+     "name": "Station frame upright, port (GE-25001-01)",
+     "part": "GE-25001-01",
+     "boundsDockMm": [
+      -506,
+      968,
+      0,
+      -462,
+      1013,
+      1626
+     ],
+     "role": "upright-port"
+    },
+    {
+     "name": "Station frame upright, starboard (GE-25001-01)",
+     "part": "GE-25001-01",
+     "boundsDockMm": [
+      -506,
+      -1013,
+      0,
+      -462,
+      -968,
+      1626
+     ],
+     "role": "upright-starboard"
+    }
+   ],
+   "unite": [
+    {
+     "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+     "role": "chute",
+     "roles": [
+      "chute",
+      "side-plate-port",
+      "side-plate-starboard"
+     ],
+     "reason": "The chute plate's tabs pass into the side plates in the official model (0.9 cm3 of overlap)"
+    }
+   ]
+  },
+  {
+   "id": "reef",
+   "official": "red-reef",
+   "dockFrame": "delivery-dock",
+   "dockFace": {
+    "name": "Reef trough lip (GE-25302)",
+    "bound": 0
+   },
+   "parts": [
+    {
+     "name": "Reef trough lip (GE-25302)",
+     "part": "GE-25302",
+     "boundsDockMm": [
+      496,
+      -706,
+      3,
+      508,
+      235,
+      457
+     ],
+     "role": "lip"
+    },
+    {
+     "name": "Reef trough floor, docked sector (GE-25313)",
+     "part": "GE-25313",
+     "boundsDockMm": [
+      511,
+      -233,
+      403,
+      743,
+      231,
+      471
+     ],
+     "role": "floor"
+    },
+    {
+     "name": "Reef trough floor, next sector (GE-25313)",
+     "part": "GE-25313",
+     "boundsDockMm": [
+      511,
+      -703,
+      403,
+      743,
+      -238,
+      471
+     ],
+     "role": "floor-next"
+    },
+    {
+     "name": "Reef trough riser, docked sector (GE-25315)",
+     "part": "GE-25315",
+     "boundsDockMm": [
+      743,
+      -233,
+      469,
+      750,
+      94,
+      518
+     ],
+     "role": "riser"
+    },
+    {
+     "name": "Reef trough riser, next sector (GE-25315)",
+     "part": "GE-25315",
+     "boundsDockMm": [
+      743,
+      -565,
+      469,
+      750,
+      -238,
+      518
+     ],
+     "role": "riser-next"
+    },
+    {
+     "name": "Reef branch column, docked sector (GE-25301-02)",
+     "part": "GE-25301-02",
+     "boundsDockMm": [
+      527,
+      -92,
+      19,
+      823,
+      -50,
+      1826
+     ],
+     "role": "column"
+    },
+    {
+     "name": "Reef branch column, next sector (GE-25301-02)",
+     "part": "GE-25301-02",
+     "boundsDockMm": [
+      525,
+      -421,
+      19,
+      822,
+      -379,
+      1826
+     ],
+     "role": "column-next"
+    },
+    {
+     "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
+     "part": "GE-25301-01",
+     "boundsDockMm": [
+      540,
+      -92,
+      605,
+      801,
+      -50,
+      808
+     ],
+     "role": "arm-l2"
+    },
+    {
+     "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
+     "part": "GE-25301-01",
+     "boundsDockMm": [
+      540,
+      -92,
+      1008,
+      801,
+      -50,
+      1212
+     ],
+     "role": "arm-l3"
+    },
+    {
+     "name": "Reef L2 branch arm, next sector (GE-25301-01)",
+     "part": "GE-25301-01",
+     "boundsDockMm": [
+      538,
+      -421,
+      605,
+      800,
+      -379,
+      808
+     ],
+     "role": "arm-l2-next"
+    },
+    {
+     "name": "Reef L3 branch arm, next sector (GE-25301-01)",
+     "part": "GE-25301-01",
+     "boundsDockMm": [
+      538,
+      -421,
+      1008,
+      800,
+      -379,
+      1212
+     ],
+     "role": "arm-l3-next"
+    },
+    {
+     "name": "Reef base plate, docked sector (GE-25311)",
+     "part": "GE-25311",
+     "boundsDockMm": [
+      508,
+      -235,
+      3,
+      1053,
+      472,
+      16
+     ],
+     "role": "base"
+    },
+    {
+     "name": "Reef base plate, next sector (GE-25311)",
+     "part": "GE-25311",
+     "boundsDockMm": [
+      508,
+      -943,
+      3,
+      1053,
+      -237,
+      16
+     ],
+     "role": "base-next"
+    }
+   ],
+   "unite": [
+    {
+     "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
+     "role": "lip",
+     "roles": [
+      "lip",
+      "base",
+      "base-next"
+     ],
+     "reason": "The lip panel's tabs pass into the two base plates in the official model (0.3 cm3 of overlap)"
+    }
+   ]
+  }
+ ]
+}

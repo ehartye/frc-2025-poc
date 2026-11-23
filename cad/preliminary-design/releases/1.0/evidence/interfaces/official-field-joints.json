@@ -1,0 +1,4331 @@
+{
+  "schema": "red2/intended-contact@1",
+  "issue": "fixed-pocket-1.0",
+  "status": "pass",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/evidence/official-fixtures.json"
+  },
+  "basis": "Joints of the official field model: each pair is two official parts that FIRST joins or seats on each other, measured closer than the 2.0 mm check reserve on the placed official solids (officialJoints in official-fixtures.json). They are field construction, not robot clearances.",
+  "interfaces": [
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "lip-deploy",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-01-station-chute",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-02-drop",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-03-drop",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-04-inlet",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-05-inlet",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-06-inlet",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-07-pocket",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-08-pocket",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-09-pocket",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-10-captive",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-11-drive-away",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-12-drive-away",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-13-drive-away",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-14-brake",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-15-seat",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "receive-16-seat",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-01-power-off-hit",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "carry-02-power-off-hit",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-01-nip",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-02-lip",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-03-flight",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-04-flight",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-05-trough",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-06-trough",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "eject-07-trough",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "withdraw-park",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-hood-lift",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-unload-pipe",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-nip-cassette-lift",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-restow",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-lip-over-travel",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-lift",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-battery-rear-carry",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-plug-disconnect",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "service-breaker-reset",
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "status": "pass"
+    }
+  ]
+}

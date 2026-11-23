@@ -119,10 +119,12 @@ def lip_profile(ramp_deg=LIP_RAMP_DEG, land=LIP_LAND):
 LIP_STOW_DEG = -120.0               # rotation about +Y from deployed to stowed
 LIP_DEPLOY_DEG = -LIP_STOW_DEG
 
-# ---------------------------------------------------------------- field: red L1 trough (target.json section)
+# ---------------------------------------------------------------- field: red L1 trough section
+# FIRST's official trough at the docked sector (lip GE-25302, floor GE-25313, riser GE-25315). build_layout.py compares each
+# value with the measurement on the placed official solids (evidence/official-fixtures.json) and stops beyond 0.05 mm.
 TROUGH = dict(lipTop=457.2, lipDepth=12.7, floor0=404.9106592228664, slope=0.2679491924311204,
               riserX=247.8366565710712, riserTop=517.525461057565, riserT=6.35,
-              sectorHalfWidth=233.5)   # sector A panel, target.json panels[0] Y extent (~467 mm)
+              sectorHalfWidth=233.5)   # half the docked floor panel's Y extent
 NOMINAL_STANDOFF = 50.0               # bumper face to trough lip face at the shown dock (screen sweeps 0-100 mm)
 
 

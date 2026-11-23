@@ -1,6 +1,12 @@
 # Official 2025 field fixtures
 
-FIRST's official field model, trimmed to the two fixtures the layout-002 missions touch: the red coral station the robot receives from and the red REEF whose L1 trough it delivers into. They replace the project-drawn planning solids in `cad/preliminary-design/releases/layout-002/field-fixtures.step`.
+<!-- cad-still -->
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+<!-- /cad-still -->
+
+FIRST's official field model, trimmed to the two fixtures the preliminary design's missions touch: the red coral station the robot receives from and the red REEF whose L1 trough it delivers into. The preliminary design is checked, trialled and shown against these parts: `checked_fixtures.py` writes the official solids the layout check uses to `cad/preliminary-design/releases/1.0/field-fixtures.step`.
 
 | | |
 | --- | --- |
@@ -39,9 +45,19 @@ The docked robot frames come from the registration the layout already uses (`exp
 | `receive-dock` | Robot -X faces the station. The station's upper-panel datum plane through the registered origin is at X = -455.5, 10 mm behind the rear bumper face. The origin, the middle of the 1,930 mm chute, is at Y = 0. |
 | `delivery-dock` | Robot +X faces the REEF. The midfield-facing trough lip face is at X = 495.5, 50 mm ahead of the bumper face. Y = 0 is the centre of one of that face's two trough panels, so the other panel is the neighbouring sector toward -Y. |
 
-## Against the planning solids
+## Parts the layout check uses
 
-Stand-in values come from `iterations/002/design/preliminary-pocket/build_layout.py`, `field_trials.py` (`STATION`) and `pocket_geometry.py` (`TROUGH`). All values are millimetres in the docked robot frame.
+`checked-fixtures.json` picks 20 official solids: the station's lower barrier, two wall panels, chute plate, upper guard, two side plates and two frame uprights; the docked REEF face's trough lip, two floor panels, two risers and the two branches over the trough (column, L2 arm and L3 arm each). `checked_fixtures.py` places each solid as FIRST drew it at the robot's dock and records the official parts that touch each other and the section the planar trials use, measured on the solids.
+
+```sh
+python -I -B cad/field/official/checked_fixtures.py OUT.step OUT.json
+```
+
+The receive dock puts the lower barrier, the part the bumper meets, 10 mm behind the rear bumper face. The dock frame recorded in `official-field.json` is taken from the upper-panel datum 9.525 mm farther back, so the script moves the station parts by that difference.
+
+## Against the earlier planning solids
+
+The design first used project-drawn stand-ins. This table records how they compared, in the dock frames of `official-field.json`. All values are millimetres in the docked robot frame.
 
 ### Coral station, `receive-dock`
 
