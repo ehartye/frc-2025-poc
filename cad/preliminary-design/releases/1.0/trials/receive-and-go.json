@@ -1,0 +1,115 @@
+{
+  "note": "Mission receive (recorded as receive-mission): the robot leaves 50 ms after the flap closes, 3 m/s2 for 0.5 s, cruises 0.5 s and brakes.",
+  "assumes": [
+    {"id": "pipe-square", "text": "The pipe arrives square to the chute and stays square, its axis across the robot."},
+    {
+      "id": "contact-line",
+      "text": "The robot's pipe-contact surfaces are the contact lines of the pocket section (inlet, floor, hood, flare and lip), typed from the design's parameters; the drawn solids sit 2.5 mm (lip 3.5 mm) below them as the clearance reserve."
+    },
+    {
+      "id": "tread-circle",
+      "text": "Each roller is its 2 in tread circle on the axis the parameters place, with the tread's compliance as its contact spring; the drawn roller solid is only the rigid core, so the tread is typed."
+    },
+    {
+      "id": "plane-20",
+      "text": "The section is 20 mm off the pipe's centre plane, where the official station chute plate is solid; at the centre plane it is cut by one of its 32 mm slots, which the 302 mm pipe bridges."
+    },
+    {"id": "pulse-as-load", "text": "The robot's acceleration is a load on the pipe in the robot frame; the robot does not pitch."}
+  ],
+  "plane": {"normal": "y", "atMm": 20},
+  "stepS": 4e-05,
+  "durationS": 4.5,
+  "traceS": 0.002,
+  "fitToleranceMm": 10,
+  "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
+  "piece": {"use": "pipe", "start": {"atMm": ["=receive_start_x", "=receive_start_z"]}},
+  "surfaces": [
+    {"name": "station chute", "material": "panel", "solid": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"},
+    {"name": "station guard", "material": "panel", "solid": "Station upper guard (GE-25017)"},
+    {"name": "inlet", "material": "panel", "segmentsMm": [["=entry_x", "=entry_z"], ["=kink_x", "=kink_z"], ["=floor_end_x", "=floor_end_z"]]},
+    {"name": "hood", "material": "panel", "segmentsMm": [["=hood0_x", "=hood0_z"], ["=hood1_x", "=hood1_z"]]},
+    {"name": "hood flare", "material": "panel", "segmentsMm": [["=flare_x", "=flare_z"], ["=hood0_x", "=hood0_z"]]},
+    {"name": "lip", "material": "panel", "segmentsMm": [["=lip_root_x", "=lip_root_z"], ["=lip_knee_x", "=lip_tip_z"], ["=lip_tip_x", "=lip_tip_z"]]},
+    {
+      "name": "nip",
+      "material": "tread",
+      "drive": "nip",
+      "runs": "clockwise",
+      "circleMm": {"centreMm": ["=throat_x", "=lower_roller_z"], "radiusMm": "=roller_r"}
+    },
+    {"name": "nip", "material": "tread", "drive": "nip", "circleMm": {"centreMm": ["=throat_x", "=upper_roller_z"], "radiusMm": "=roller_r"}}
+  ],
+  "flaps": [
+    {
+      "name": "flap",
+      "material": "panel",
+      "hingeMm": ["=flap_x", "=flap_hinge_z"],
+      "lengthMm": "=flap_length",
+      "restDirection": [0, -1],
+      "inertiaKgM2": {"value": 0.00024, "assumed": [0.00012, 0.00048], "note": "1.6 mm polycarbonate plate about its pin: an estimate"},
+      "preloadNm": {"value": 0.04, "assumed": [0.01, 0.08], "note": "Torsion spring preload, set on assembly; the recorded campaign tried 0.01 as a weak spring"},
+      "springNmPerRad": {"value": 0.06, "assumed": [0.015, 0.12], "note": "Torsion spring rate: an estimate"},
+      "dampingNmSPerRad": {"value": 0.0002, "assumed": [0.0001, 0.0004], "note": "Pin friction as viscous damping: an estimate"},
+      "limitDeg": "=flap_open_deg",
+      "stopRestitution": {"value": 0.3, "assumed": [0.1, 0.5], "note": "Bounce off the open stop: an estimate"}
+    }
+  ],
+  "commands": {"nip": {"mode": "hold", "fullTorqueAtRad": 0.035, "busV": 12.0}},
+  "loads": [
+    {
+      "name": "go",
+      "along": [1, 0],
+      "accelerationMps2": 3.0,
+      "shape": "step",
+      "after": "flap closed",
+      "delayS": 0.05,
+      "durationS": 0.5,
+      "note": "The robot leaves 50 ms after the flap-closed switch and accelerates toward the reef"
+    },
+    {
+      "name": "stop",
+      "along": [1, 0],
+      "accelerationMps2": -3.0,
+      "shape": "step",
+      "after": "flap closed",
+      "delayS": 1.05,
+      "durationS": 0.5,
+      "note": "After 0.5 s of cruise it brakes to a stop"
+    }
+  ],
+  "events": [
+    {"name": "left the station", "when": {"signal": "xMm", "above": "=station_sill_x"}},
+    {"name": "passed flap", "when": {"signal": "xMm", "above": "=flap_x + 2 + pipe_r"}},
+    {"name": "flap closed", "when": {"all": [{"after": "passed flap"}, {"signal": "hinge.flap.angleDeg", "below": 2.0}]}},
+    {
+      "name": "rear escape",
+      "when": {"all": [{"after": "passed flap"}, {"signal": "xMm", "below": "=flap_x - 5 - pipe_r"}]},
+      "outcome": "rear escape past flap"
+    },
+    {"name": "entered throat", "when": {"signal": "xMm", "above": "=throat_x - 2"}},
+    {"name": "through", "when": {"signal": "xMm", "above": "=throat_x + 25"}, "outcome": "passed through the nip (lost forward)"},
+    {"name": "lost", "when": {"any": [{"signal": "zMm", "below": 300}, {"signal": "xMm", "below": "=station_sill_x - 600"}]}, "outcome": "lost"},
+    {"name": "late", "when": {"all": [{"signal": "tS", "above": 2.5}, {"notYet": "passed flap"}]}, "outcome": "did not reach the pocket"},
+    {"name": "seated", "when": {"all": [{"after": "passed flap"}, {"after": "flap closed", "delayS": 1.55}, {"restFor": 0.15}]}, "outcome": "seated"},
+    {"name": "not seated", "when": {"after": "flap closed", "delayS": 3.05}, "outcome": "not seated 1.5 s after the stop"}
+  ],
+  "measures": {
+    "stationExitS": {"timeOf": "left the station"},
+    "passedFlapS": {"timeOf": "passed flap"},
+    "flapClosedS": {"timeOf": "flap closed"},
+    "endXMm": {"final": "xMm"},
+    "endZMm": {"final": "zMm"},
+    "peakSpeedMps": {"peak": "speedMps"},
+    "maxFlapDeg": {"peak": "hinge.flap.angleDeg"},
+    "maxBiteN": {"peak": "contact.nip.forceN"},
+    "maxCurrentA": {"peak": "drive.nip.currentA"},
+    "mostBackMm": {"lowest": "xMm"}
+  },
+  "pass": {"outcomes": ["seated"]},
+  "control": {
+    "change": {"flaps.flap.lengthMm": 1.0},
+    "note": "The check flap cut to a 1 mm stub, as removed: the pipe must escape rearward when the robot leaves."
+  },
+  "brackets": [{"input": "loads.go.accelerationMps2", "unit": "m/s2", "values": [3.0, 4.5, 6.0, 9.0], "note": "The recorded campaign tried 3 and 6"}],
+  "adjustments": ["nip squeeze", "flap preload"]
+}

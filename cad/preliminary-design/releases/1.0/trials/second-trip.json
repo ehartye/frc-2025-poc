@@ -1,0 +1,84 @@
+{
+  "engine": "mujoco",
+  "note": "Adverse second trip (recorded as eject-second-trip): the second pipe leaves the lip as the planar eject leaves it and lands in the trough where the first rests.",
+  "assumes": [
+    {
+      "id": "hand-forward",
+      "text": "The second pipe starts at the state the planar eject-to-the-tip trial ends in: its place, speed and spin as it leaves the lip."
+    },
+    {
+      "id": "docked",
+      "text": "The robot stays docked; the withdrawal is tried in the planar eject trial. Only the lip and the official trough are surfaces."
+    },
+    {
+      "id": "first-pipe-rest",
+      "text": "The first pipe starts at rest where the nominal eject left it, in the same sector, square and centred with the second."
+    },
+    {
+      "id": "trough-section",
+      "text": "The official trough is cut at the section plane: its panel holes, the sector divider and the riser's 245 mm extent along the 302 mm pipe are not seen."
+    }
+  ],
+  "plane": {"normal": "y", "atMm": 20},
+  "stepS": 0.0001,
+  "durationS": 4.0,
+  "traceS": 0.004,
+  "fitToleranceMm": 10,
+  "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
+  "piece": {"use": "pipe", "start": {"after": "eject to the tip", "atRest": false}},
+  "others": [{"name": "first pipe", "use": "pipe", "atMm": ["=first_rest_x", "=first_pipe_z"]}],
+  "betweenPieces": "panel",
+  "surfaces": [
+    {"name": "lip", "material": "panel", "solid": "Deployable exit lip"},
+    {"name": "trough lip", "material": "panel", "solid": "Reef trough lip and base plates (GE-25302, GE-25311)"},
+    {"name": "trough floor", "material": "panel", "solid": "Reef trough floor, docked sector (GE-25313)"},
+    {"name": "trough riser", "material": "panel", "solid": "Reef trough riser, docked sector (GE-25315)"}
+  ],
+  "events": [
+    {
+      "name": "lost over riser",
+      "when": {
+        "any": [
+          {"all": [{"signal": "xMm", "above": "=trough_riser_x + 4"}, {"signal": "zMm", "above": "=trough_riser_top"}]},
+          {
+            "all": [{"signal": "other.first pipe.xMm", "above": "=trough_riser_x + 4"}, {"signal": "other.first pipe.zMm", "above": "=trough_riser_top"}]
+          }
+        ]
+      },
+      "outcome": "a pipe lost over the riser"
+    },
+    {
+      "name": "fell short",
+      "when": {"any": [{"signal": "zMm", "below": 380}, {"signal": "other.first pipe.zMm", "below": 380}]},
+      "outcome": "a pipe fell short or out over the lip"
+    },
+    {
+      "name": "both in the trough",
+      "when": {
+        "all": [
+          {"signal": "tS", "above": 0.3},
+          {"restFor": 2.0},
+          {"signal": "xMm", "above": "=trough_lip_x"},
+          {"signal": "xMm", "below": "=trough_riser_x"},
+          {"signal": "zMm", "below": "=trough_lip_top + pipe_r"},
+          {"signal": "other.first pipe.xMm", "above": "=trough_lip_x"},
+          {"signal": "other.first pipe.xMm", "below": "=trough_riser_x"},
+          {"signal": "other.first pipe.zMm", "below": "=trough_lip_top + pipe_r"}
+        ]
+      },
+      "outcome": "both pipes at rest in the trough for 2 s"
+    },
+    {"name": "at rest elsewhere", "when": {"all": [{"signal": "tS", "above": 0.3}, {"restFor": 2.0}]}, "outcome": "at rest, not both in the trough"}
+  ],
+  "measures": {
+    "endXMm": {"final": "xMm"},
+    "endZMm": {"final": "zMm"},
+    "firstEndXMm": {"final": "other.first pipe.xMm"},
+    "firstEndZMm": {"final": "other.first pipe.zMm"},
+    "mostOffPlaneMm": {"peak": "offPlaneMm"},
+    "mostTiltDeg": {"peak": "tiltDeg"},
+    "maxPipeOnPipeN": {"peak": "contact.piece first pipe.forceN"}
+  },
+  "pass": {"outcomes": ["both pipes at rest in the trough for 2 s"]},
+  "control": {"change": {"surfaces.trough riser": null}, "note": "The trough riser removed: the pipes must roll out of the back of the trough."}
+}

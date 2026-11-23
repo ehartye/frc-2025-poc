@@ -1,0 +1,80 @@
+{
+  "note": "The eject up to the lip tip, at 12 V and a 50 mm stand-off: the state it leaves the lip in starts the 3D second-trip trial.",
+  "assumes": [
+    {"id": "pipe-square", "text": "The pipe arrives square to the chute and stays square, its axis across the robot."},
+    {
+      "id": "contact-line",
+      "text": "The robot's pipe-contact surfaces are the contact lines of the pocket section (inlet, floor, hood, flare and lip), typed from the design's parameters; the drawn solids sit 2.5 mm (lip 3.5 mm) below them as the clearance reserve."
+    },
+    {
+      "id": "tread-circle",
+      "text": "Each roller is its 2 in tread circle on the axis the parameters place, with the tread's compliance as its contact spring; the drawn roller solid is only the rigid core, so the tread is typed."
+    },
+    {
+      "id": "plane-20",
+      "text": "The section is 20 mm off the pipe's centre plane, where the official station chute plate is solid; at the centre plane it is cut by one of its 32 mm slots, which the 302 mm pipe bridges."
+    },
+    {
+      "id": "nominal-seat",
+      "text": "The pipe starts at rest on the design's carry seat, the nominal receive's end state, whatever the tread stiffness; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
+    }
+  ],
+  "plane": {"normal": "y", "atMm": 20},
+  "stepS": 4e-05,
+  "durationS": 1.0,
+  "traceS": 0.002,
+  "fitToleranceMm": 10,
+  "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
+  "piece": {"use": "pipe", "start": {"atMm": ["=seat_x", "=seat_z"]}},
+  "surfaces": [
+    {"name": "inlet", "material": "panel", "segmentsMm": [["=entry_x", "=entry_z"], ["=kink_x", "=kink_z"], ["=floor_end_x", "=floor_end_z"]]},
+    {"name": "hood", "material": "panel", "segmentsMm": [["=hood0_x", "=hood0_z"], ["=hood1_x", "=hood1_z"]]},
+    {"name": "hood flare", "material": "panel", "segmentsMm": [["=flare_x", "=flare_z"], ["=hood0_x", "=hood0_z"]]},
+    {"name": "lip", "material": "panel", "segmentsMm": [["=lip_root_x", "=lip_root_z"], ["=lip_knee_x", "=lip_tip_z"], ["=lip_tip_x", "=lip_tip_z"]]},
+    {
+      "name": "nip",
+      "material": "tread",
+      "drive": "nip",
+      "runs": "clockwise",
+      "circleMm": {"centreMm": ["=throat_x", "=lower_roller_z"], "radiusMm": "=roller_r"}
+    },
+    {"name": "nip", "material": "tread", "drive": "nip", "circleMm": {"centreMm": ["=throat_x", "=upper_roller_z"], "radiusMm": "=roller_r"}}
+  ],
+  "flaps": [
+    {
+      "name": "flap",
+      "material": "panel",
+      "hingeMm": ["=flap_x", "=flap_hinge_z"],
+      "lengthMm": "=flap_length",
+      "restDirection": [0, -1],
+      "inertiaKgM2": {"value": 0.00024, "assumed": [0.00012, 0.00048], "note": "1.6 mm polycarbonate plate about its pin: an estimate"},
+      "preloadNm": {"value": 0.04, "assumed": [0.01, 0.08], "note": "Torsion spring preload, set on assembly; the recorded campaign tried 0.01 as a weak spring"},
+      "springNmPerRad": {"value": 0.06, "assumed": [0.015, 0.12], "note": "Torsion spring rate: an estimate"},
+      "dampingNmSPerRad": {"value": 0.0002, "assumed": [0.0001, 0.0004], "note": "Pin friction as viscous damping: an estimate"},
+      "limitDeg": "=flap_open_deg",
+      "stopRestitution": {"value": 0.3, "assumed": [0.1, 0.5], "note": "Bounce off the open stop: an estimate"}
+    }
+  ],
+  "commands": {"nip": {"mode": "voltage", "busV": 12.0}},
+  "events": [
+    {"name": "left the lip", "when": {"signal": "xMm", "above": "=lip_tip_x - 0.5"}, "outcome": "left the lip"},
+    {"name": "fell", "when": {"signal": "zMm", "below": 380}, "outcome": "fell"},
+    {
+      "name": "stalled",
+      "when": {
+        "any": [
+          {"all": [{"signal": "tS", "above": 0.5}, {"restFor": 0.2}, {"signal": "xMm", "below": "=throat_x + 25"}]},
+          {"all": [{"signal": "tS", "above": 6.0}, {"signal": "xMm", "below": "=throat_x + 25"}]}
+        ]
+      },
+      "outcome": "stalled in the nip"
+    }
+  ],
+  "measures": {"leftLipS": {"timeOf": "left the lip"}, "speedAtTipMps": {"final": "speedMps"}, "maxCurrentA": {"peak": "drive.nip.currentA"}},
+  "pass": {"outcomes": ["left the lip"]},
+  "control": {
+    "change": {"commands.nip.mode": "hold", "commands.nip.fullTorqueAtRad": 0.035},
+    "note": "The interlock withholds the eject: the nip stays on its hold and the pipe must not leave."
+  },
+  "adjustments": ["nip squeeze", "eject voltage"]
+}

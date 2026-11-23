@@ -1,0 +1,87 @@
+{
+  "note": "Main power off, hit while carrying (recorded as custody-power-off-hit, the draft's carry case): the gearbox coasts.",
+  "assumes": [
+    {"id": "pipe-square", "text": "The pipe arrives square to the chute and stays square, its axis across the robot."},
+    {
+      "id": "contact-line",
+      "text": "The robot's pipe-contact surfaces are the contact lines of the pocket section (inlet, floor, hood, flare and lip), typed from the design's parameters; the drawn solids sit 2.5 mm (lip 3.5 mm) below them as the clearance reserve."
+    },
+    {
+      "id": "tread-circle",
+      "text": "Each roller is its 2 in tread circle on the axis the parameters place, with the tread's compliance as its contact spring; the drawn roller solid is only the rigid core, so the tread is typed."
+    },
+    {
+      "id": "nominal-seat",
+      "text": "The pipe starts at rest on the design's carry seat, the nominal receive's end state, whatever the tread stiffness; the recorded campaign started each stiffness at its own receive seat (304.10 to 308.57 mm)."
+    },
+    {"id": "pulse-as-load", "text": "The robot's acceleration is a load on the pipe in the robot frame; the robot does not pitch."}
+  ],
+  "plane": {"normal": "y", "atMm": 0},
+  "stepS": 4e-05,
+  "durationS": 1.65,
+  "traceS": 0.002,
+  "fitToleranceMm": 10,
+  "planar": {"frictionLaw": "stick", "tangentStiffnessNPerM": 20000.0},
+  "piece": {"use": "pipe", "start": {"atMm": ["=seat_x", "=seat_z"]}},
+  "surfaces": [
+    {"name": "inlet", "material": "panel", "segmentsMm": [["=entry_x", "=entry_z"], ["=kink_x", "=kink_z"], ["=floor_end_x", "=floor_end_z"]]},
+    {"name": "hood", "material": "panel", "segmentsMm": [["=hood0_x", "=hood0_z"], ["=hood1_x", "=hood1_z"]]},
+    {"name": "hood flare", "material": "panel", "segmentsMm": [["=flare_x", "=flare_z"], ["=hood0_x", "=hood0_z"]]},
+    {"name": "lip", "material": "panel", "segmentsMm": [["=lip_root_x", "=lip_root_z"], ["=lip_knee_x", "=lip_tip_z"], ["=lip_tip_x", "=lip_tip_z"]]},
+    {
+      "name": "nip",
+      "material": "tread",
+      "drive": "nip",
+      "runs": "clockwise",
+      "circleMm": {"centreMm": ["=throat_x", "=lower_roller_z"], "radiusMm": "=roller_r"}
+    },
+    {"name": "nip", "material": "tread", "drive": "nip", "circleMm": {"centreMm": ["=throat_x", "=upper_roller_z"], "radiusMm": "=roller_r"}}
+  ],
+  "flaps": [
+    {
+      "name": "flap",
+      "material": "panel",
+      "hingeMm": ["=flap_x", "=flap_hinge_z"],
+      "lengthMm": "=flap_length",
+      "restDirection": [0, -1],
+      "inertiaKgM2": {"value": 0.00024, "assumed": [0.00012, 0.00048], "note": "1.6 mm polycarbonate plate about its pin: an estimate"},
+      "preloadNm": {"value": 0.04, "assumed": [0.01, 0.08], "note": "Torsion spring preload, set on assembly; the recorded campaign tried 0.01 as a weak spring"},
+      "springNmPerRad": {"value": 0.06, "assumed": [0.015, 0.12], "note": "Torsion spring rate: an estimate"},
+      "dampingNmSPerRad": {"value": 0.0002, "assumed": [0.0001, 0.0004], "note": "Pin friction as viscous damping: an estimate"},
+      "limitDeg": "=flap_open_deg",
+      "stopRestitution": {"value": 0.3, "assumed": [0.1, 0.5], "note": "Bounce off the open stop: an estimate"}
+    }
+  ],
+  "commands": {"nip": {"mode": "voltage", "busV": null}},
+  "loads": [
+    {
+      "name": "hit",
+      "along": [-1, 0],
+      "accelerationMps2": 78.4532,
+      "shape": "halfSine",
+      "startS": 0.05,
+      "durationS": 0.05,
+      "note": "A hit from another robot: 8 g for 50 ms, a half sine"
+    }
+  ],
+  "events": [
+    {"name": "through", "when": {"signal": "xMm", "above": "=throat_x + 25"}, "outcome": "passed the throat (lost forward)"},
+    {"name": "rear escape", "when": {"signal": "xMm", "below": "=flap_x - 5 - pipe_r"}, "outcome": "past the flap (lost rearward)"},
+    {"name": "retained", "when": {"signal": "tS", "above": 1.5999999999999999}, "outcome": "retained"}
+  ],
+  "measures": {"mostForwardXMm": {"peak": "xMm"}, "mostRearwardXMm": {"lowest": "xMm"}, "endXMm": {"final": "xMm"}, "maxBiteN": {"peak": "contact.nip.forceN"}},
+  "pass": {"outcomes": ["retained"]},
+  "control": {
+    "change": {"materials.tread.friction": 0.0, "materials.tread.stiffnessNPerM": 20000.0},
+    "note": "The rollers decoupled from the drive (no tread grip) and a tread below the band, 20 N/mm: the pipe must be pushed through."
+  },
+  "brackets": [
+    {
+      "input": "loads.hit.accelerationMps2",
+      "unit": "m/s2",
+      "values": [78.4532, 117.6798, 156.9064, 235.3596, 313.8128],
+      "note": "8, 12, 16, 24 and 32 g"
+    }
+  ],
+  "adjustments": ["nip squeeze"]
+}

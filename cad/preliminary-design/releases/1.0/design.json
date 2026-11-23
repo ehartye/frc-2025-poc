@@ -78,7 +78,10 @@
     "gearbox_length": 92.0,
     "motor_length": 62.0,
     "sector_pitch": 471.0,
-    "trough_lip_x": 495.5,
+    "bumper_face": "=frame_x + bumper_stack",
+    "dock_gap": 10.0,
+    "reef_standoff": 50.0,
+    "trough_lip_x": "=bumper_face + reef_standoff",
     "first_pipe_x": 64.5,
     "first_pipe_z": 481.32,
     "seat_x": 304.13,
@@ -101,7 +104,19 @@
     "lip_n1z": "=(lip_knee_x - lip_root_x) / (sqrt(((lip_knee_x - lip_root_x) ** 2) + ((lip_tip_z - lip_root_z) ** 2)))",
     "lip_n2x": "=(-(lip_tip_z - lip_tip_z)) / (sqrt(((lip_tip_x - lip_knee_x) ** 2) + ((lip_tip_z - lip_tip_z) ** 2)))",
     "lip_n2z": "=(lip_tip_x - lip_knee_x) / (sqrt(((lip_tip_x - lip_knee_x) ** 2) + ((lip_tip_z - lip_tip_z) ** 2)))",
-    "floor_post_top": "=((floor_pt_z - (floor_slope * (135 - floor_pt_x))) - ((contact_reserve + wall) / floor_cos)) - partition"
+    "floor_post_top": "=((floor_pt_z - (floor_slope * (135 - floor_pt_x))) - ((contact_reserve + wall) / floor_cos)) - partition",
+    "station_sill_behind": 13.01,
+    "station_sill_z": 950.98,
+    "station_slope_deg": 35.0,
+    "station_ramp": 418.73,
+    "station_sill_x": "=-bumper_face - dock_gap - station_sill_behind",
+    "receive_start_x": "=station_sill_x - (station_ramp - 10) * cos(radians(station_slope_deg)) + (pipe_r + 0.2) * sin(radians(station_slope_deg))",
+    "receive_start_z": "=station_sill_z + (station_ramp - 10) * sin(radians(station_slope_deg)) + (pipe_r + 0.2) * cos(radians(station_slope_deg))",
+    "trough_lip_top": 457.2,
+    "trough_lip_depth": 12.7,
+    "trough_riser_x": "=trough_lip_x + 247.8366565710712",
+    "trough_riser_top": 517.525461057565,
+    "first_rest_x": "=trough_lip_x + first_pipe_x"
   },
   "groups": {
     "structure": {"role": "structure"},
@@ -941,92 +956,110 @@
     {
       "name": "Station lower barrier (GE-25007)",
       "group": "field station",
-      "part": {"file": "field/station-barrier.step", "solid": "Station lower barrier (GE-25007)"}
+      "part": {"file": "field/station-barrier.step", "solid": "Station lower barrier (GE-25007)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Station lower panel (GE-25008)",
       "group": "field station",
-      "part": {"file": "field/station-lower-panel.step", "solid": "Station lower panel (GE-25008)"}
+      "part": {"file": "field/station-lower-panel.step", "solid": "Station lower panel (GE-25008)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Station upper panel (GE-25009)",
       "group": "field station",
-      "part": {"file": "field/station-upper-panel.step", "solid": "Station upper panel (GE-25009)"}
+      "part": {"file": "field/station-upper-panel.step", "solid": "Station upper panel (GE-25009)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Station upper guard (GE-25017)",
       "group": "field station",
-      "part": {"file": "field/station-guard.step", "solid": "Station upper guard (GE-25017)"}
+      "part": {"file": "field/station-guard.step", "solid": "Station upper guard (GE-25017)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Station frame upright, port (GE-25001-01)",
       "group": "field station",
-      "part": {"file": "field/station-upright-port.step", "solid": "Station frame upright, port (GE-25001-01)"}
+      "part": {"file": "field/station-upright-port.step", "solid": "Station frame upright, port (GE-25001-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Station frame upright, starboard (GE-25001-01)",
       "group": "field station",
-      "part": {"file": "field/station-upright-starboard.step", "solid": "Station frame upright, starboard (GE-25001-01)"}
+      "part": {"file": "field/station-upright-starboard.step", "solid": "Station frame upright, starboard (GE-25001-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Reef trough floor, docked sector (GE-25313)",
       "group": "field reef",
-      "part": {"file": "field/reef-floor.step", "solid": "Reef trough floor, docked sector (GE-25313)"}
+      "part": {"file": "field/reef-floor.step", "solid": "Reef trough floor, docked sector (GE-25313)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef trough floor, next sector (GE-25313)",
       "group": "field reef",
-      "part": {"file": "field/reef-floor-next.step", "solid": "Reef trough floor, next sector (GE-25313)"}
+      "part": {"file": "field/reef-floor-next.step", "solid": "Reef trough floor, next sector (GE-25313)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef trough riser, docked sector (GE-25315)",
       "group": "field reef",
-      "part": {"file": "field/reef-riser.step", "solid": "Reef trough riser, docked sector (GE-25315)"}
+      "part": {"file": "field/reef-riser.step", "solid": "Reef trough riser, docked sector (GE-25315)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef trough riser, next sector (GE-25315)",
       "group": "field reef",
-      "part": {"file": "field/reef-riser-next.step", "solid": "Reef trough riser, next sector (GE-25315)"}
+      "part": {"file": "field/reef-riser-next.step", "solid": "Reef trough riser, next sector (GE-25315)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef branch column, docked sector (GE-25301-02)",
       "group": "field reef",
-      "part": {"file": "field/reef-column.step", "solid": "Reef branch column, docked sector (GE-25301-02)"}
+      "part": {"file": "field/reef-column.step", "solid": "Reef branch column, docked sector (GE-25301-02)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef branch column, next sector (GE-25301-02)",
       "group": "field reef",
-      "part": {"file": "field/reef-column-next.step", "solid": "Reef branch column, next sector (GE-25301-02)"}
+      "part": {"file": "field/reef-column-next.step", "solid": "Reef branch column, next sector (GE-25301-02)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
       "group": "field reef",
-      "part": {"file": "field/reef-arm-l2.step", "solid": "Reef L2 branch arm, docked sector (GE-25301-01)"}
+      "part": {"file": "field/reef-arm-l2.step", "solid": "Reef L2 branch arm, docked sector (GE-25301-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
       "group": "field reef",
-      "part": {"file": "field/reef-arm-l3.step", "solid": "Reef L3 branch arm, docked sector (GE-25301-01)"}
+      "part": {"file": "field/reef-arm-l3.step", "solid": "Reef L3 branch arm, docked sector (GE-25301-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef L2 branch arm, next sector (GE-25301-01)",
       "group": "field reef",
-      "part": {"file": "field/reef-arm-l2-next.step", "solid": "Reef L2 branch arm, next sector (GE-25301-01)"}
+      "part": {"file": "field/reef-arm-l2-next.step", "solid": "Reef L2 branch arm, next sector (GE-25301-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Reef L3 branch arm, next sector (GE-25301-01)",
       "group": "field reef",
-      "part": {"file": "field/reef-arm-l3-next.step", "solid": "Reef L3 branch arm, next sector (GE-25301-01)"}
+      "part": {"file": "field/reef-arm-l3-next.step", "solid": "Reef L3 branch arm, next sector (GE-25301-01)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
       "group": "field station",
-      "part": {"file": "field/station-chute.step", "solid": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"}
+      "part": {"file": "field/station-chute.step", "solid": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"},
+      "place": [{"kind": "translation", "travelMm": ["=10 - dock_gap", 0.0, 0.0]}]
     },
     {
       "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
       "group": "field reef",
-      "part": {"file": "field/reef-lip.step", "solid": "Reef trough lip and base plates (GE-25302, GE-25311)"}
+      "part": {"file": "field/reef-lip.step", "solid": "Reef trough lip and base plates (GE-25302, GE-25311)"},
+      "place": [{"kind": "translation", "travelMm": ["=reef_standoff - 50", 0.0, 0.0]}]
     },
     {
       "name": "First scored pipe in sector A (field)",
@@ -1566,5 +1599,90 @@
     },
     "service-plug-disconnect": {"from": "service-plug-disconnect start", "moves": {"plug service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, -255.9]}]}},
     "service-breaker-reset": {"from": "service-breaker-reset start", "moves": {"breaker service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, -342.8]}]}}
+  },
+  "pieces": {
+    "pipe": {
+      "shape": {
+        "kind": "tube",
+        "section": "round",
+        "fromMm": [0, "=-pipe_length / 2", 0],
+        "toMm": [0, "=pipe_length / 2", 0],
+        "outerDiameterMm": "=2 * pipe_r",
+        "wallMm": "=pipe_r - 50.8"
+      },
+      "massKg": {
+        "value": 0.816466266,
+        "assumed": [0.68, 0.816466266],
+        "note": "1.8 lb, the upper bound the iteration 002 evaluation used; 1.5 lb is a guess for a light pipe"
+      }
+    }
+  },
+  "materials": {
+    "panel": {
+      "stiffnessNPerM": {
+        "value": 200000.0,
+        "assumed": [100000.0, 400000.0],
+        "note": "Polycarbonate or UHMW-faced panel on its supports, about 0.3 mm under the pipe at 8 g: an estimate"
+      },
+      "restitution": {"value": 0.2, "assumed": [0.2, 0.5], "note": "The recorded campaign swept 0.2 and 0.5"},
+      "friction": {"value": 0.35, "assumed": [0.15, 0.35], "note": "UHMW tape on the floor; the recorded campaign swept 0.15 and 0.35"}
+    },
+    "tread": {
+      "stiffnessNPerM": {
+        "value": 80000.0,
+        "assumed": [40000.0, 160000.0],
+        "note": "Per roller at the 6 mm squeeze; no supplier publishes it. Bench gate G0 sets the wheels to 40-120 N/mm"
+      },
+      "restitution": {"value": 0.3, "assumed": [0.1, 0.7], "note": "35A compliant wheel: an estimate; the recorded custody trials swept 0.1 and 0.7"},
+      "friction": {"value": 1.0, "assumed": [0.3, 1.0], "note": "Compliant tread on PVC; the recorded campaign swept 0.3 to 1.0"}
+    }
+  },
+  "motors": {
+    "NEO 550": {
+      "ktNmPerA": {"value": 0.0097, "measured": "REV-21-1651 data sheet"},
+      "ohm": {"value": 0.12, "measured": "REV-21-1651 data sheet: 12 V stall current"},
+      "keVsPerRad": {"value": 0.010417414456924061, "measured": "REV-21-1651 data sheet: 11000 rpm free at 12 V"}
+    }
+  },
+  "drives": {
+    "nip": {
+      "motor": "NEO 550",
+      "gear": 36.0,
+      "radiusMm": "=roller_r",
+      "statorLimitA": 30.0,
+      "efficiency": {"value": 0.729, "assumed": [0.6, 0.85], "note": "MAXPlanetary 4:1 x 3:1 x 3:1 at 0.9 per stage, assumed"},
+      "inertiaKgM2": {
+        "value": 0.002024,
+        "assumed": [0.001, 0.004],
+        "note": "NEO 550 rotor (1.5e-6 kg m2, unsourced estimate) times 36 squared, plus both shafts and eight wheels (8e-5)"
+      }
+    }
+  },
+  "adjustments": {
+    "nip squeeze": {
+      "input": "parameters.squeeze",
+      "kind": "mechanical",
+      "range": [4.0, 8.0],
+      "step": 1.0,
+      "note": "Slotted bearing blocks on both side plates move each roller 1 mm per step toward or away from the pipe centreline"
+    },
+    "flap preload": {
+      "input": "flaps.flap.preloadNm",
+      "kind": "spring",
+      "range": [0.01, 0.08],
+      "note": "Torsion-spring wind-up on the flap pin, set by the leg's notch"
+    },
+    "eject voltage": {"input": "commands.nip.busV", "kind": "setpoint", "range": [6.0, 12.0], "note": "Open-loop eject voltage in software, with voltage compensation"}
+  },
+  "trials": {
+    "receive": {"file": "trials/receive.json"},
+    "receive and go": {"file": "trials/receive-and-go.json"},
+    "eject": {"file": "trials/eject.json"},
+    "eject to the tip": {"file": "trials/eject-to-the-tip.json"},
+    "second trip": {"file": "trials/second-trip.json"},
+    "hold under a hit": {"file": "trials/hold-under-a-hit.json"},
+    "power off, hit": {"file": "trials/power-off-hit.json"},
+    "power off, stop": {"file": "trials/power-off-stop.json"},
+    "brake, hit": {"file": "trials/brake-hit.json"}
   }
 }
