@@ -7,7 +7,7 @@ The four outward normals and reading directions are registered in robot coordina
 The R4 exchange contains 975 solids. The public version includes 24 project-drawn module representations and three supplier envelopes. The straight-guide pose, physical bumper and other registered component bounds carry forward from R3. Its 352 previously positioned STEP leaves have been baked into robot coordinates to keep each physical solid connected to its identifier and appearance when imported in other CAD tools. [Previous assembly and sources](../full-swerve-r3/design.md) / [Student Fusion handoff](../FUSION.md)
 
 ```sh
-python cad/full-swerve-r4/markings.py <installed-agent-frc> <ignored-project-output>
+python cad/full-swerve-r4/markings.py <ignored-project-output>
 ```
 
 The command rebuilds the public STEP and its ordered appearance register, checks all sixteen text solids against the native cover shapes, and writes the locally importable project-only geometry and resolved appearance palette to the output directory. Manufacturer module geometry stays in the authorized local Fusion assembly.

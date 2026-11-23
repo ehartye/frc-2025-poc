@@ -21,7 +21,7 @@ The first trajectory's four fixed normal loads hid a rear-right tire deficit at 
 | 72 kg, positive calibration | 0.154 | 11.386 V | 12.086 A |
 | 72 kg, negative calibration | 0.154 | 11.386 V | 12.085 A |
 
-Each clock supplies four 5 ms samples of force, steer rate, motor rotation and signed drive/steer phase demands per tick. The independent screen checks both neighboring velocity differences, body-frame centripetal and angular-acceleration terms at the offset CG, different vertical tread rates and friction ellipses reduced here to circles. With all four static loads at least 22% of total and ±10% vertical rate variation, the minimum remaining tangential capacity is over 69 N on the issued clocks. The bound uses the actual row mass and the stated allocation for the remaining articles. A 1 mm diagonal height-error control loses one wheel. The wide, unrestricted remaining-mass case cannot guarantee four-point contact. [Load and CG assumptions](balance.json) · [Route calculation](route_grip.py)
+Each clock supplies four 5 ms samples of force, steer rate, motor rotation and signed drive/steer phase demands per tick. The independent screen checks both neighboring velocity differences, body-frame centripetal and angular-acceleration terms at the offset CG, different vertical tread rates and friction ellipses reduced here to circles. With all four static loads at least 22% of total and ±10% vertical rate variation, the minimum remaining tangential capacity is over 69 N on the issued clocks. The bound uses the actual row mass and the stated allocation for the remaining articles. A 1 mm diagonal height-error control loses one wheel. The wide, unrestricted remaining-mass case cannot guarantee four-point contact. [Load and CG assumptions](balance.json)
 
 ## What draws from the battery?
 
@@ -50,7 +50,7 @@ The final mount drawing charges 1.496 kg for the eight saddles, bolts, bosses, r
 | Complete longer harness, including all positive mount/fastener charges | 55.813 kg | −3.650 kg |
 | Shorter target, allocated tails and accepted individual leads | 54.792 kg | −2.629 kg |
 
-At the shorter endpoint, the inherited 2–5 kg reserve for unitemized routing, transmission, latches and hardware must stay at or below **2.371 kg** to fit the inspection cap. This is a break-even procurement requirement. The selected shared bill still keeps its full 5 kg upper allowance. With the longer wiring, full bumpers and the 6.17 kg battery, the upper field case is **69.483 kg empty**. Add 0.8165 kg for a pipe. The assembly tool also emits a wider, independently varying interval for the same item exchange. Direct matched source-row endpoints avoid crossing independent maxima and minima of a part with its own retirement. Physical weight, loaded four-pad distribution and mounting qualification remain open. [Mass solver](installed.py)
+At the shorter endpoint, the inherited 2–5 kg reserve for unitemized routing, transmission, latches and hardware must stay at or below **2.371 kg** to fit the inspection cap. This is a break-even procurement requirement. The selected shared bill still keeps its full 5 kg upper allowance. With the longer wiring, full bumpers and the 6.17 kg battery, the upper field case is **69.483 kg empty**. Add 0.8165 kg for a pipe. The assembly tool also emits a wider, independently varying interval for the same item exchange. Direct matched source-row endpoints avoid crossing independent maxima and minima of a part with its own retirement. Physical weight, loaded four-pad distribution and mounting qualification remain open.
 
 ## Reproduce
 
@@ -63,9 +63,6 @@ python envelopes.py
 python corners.py
 python harness.py
 python register_map.py PROJECT CAPTURED_MAP REBOUND_MAP_DIRECTORY
-python mass.py PLUGIN REBOUND_MAP_DIRECTORY/selected.json mass.json
-python balance.py
-python installed.py PLUGIN REBOUND_MAP_DIRECTORY/selected.json OUTPUT_MAPS installed.json
-python report.py clocks.json MOTION_RAW routes.json
-python ../../../tests/swerve_power_suite.py
 ```
+
+The mass, balance, installed-bill and route-report steps ran the Agent FRC assembly accounting. Those scripts (`mass.py`, `balance.py`, `route_grip.py`, `installed.py`, `report.py`) and their test suite were removed; `mass.json`, `balance.json`, `installed.json` and `routes.json` are their recorded results, and Git history keeps the scripts.

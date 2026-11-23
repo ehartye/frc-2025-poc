@@ -12,7 +12,7 @@ The registry binds the STEP bytes and records each solid's name, semantic color 
 
 The 2025 original station and competition assemblies establish colors for structural stock, drivetrain, sensors, receiver and electrical equipment. Red is the one requested cross-season appearance. In the 2024 issued native robot display, node `fixed-bumper` uses material 5, whose linear glTF RGB encodes sRGB **#D71920**. R3 applies that red to the front and rear 2025 cloth covers. Their foam, backing, sleeves and fasteners retain distinct material roles. The student model preserves the appearances of the four imported commercial module occurrences. Colors describe function or appearance. The separately sourced material, alloy, load and mass properties remain with each engineering study. [2025 original palette](../../experiments/six-wheel/design/station-l1/mechanical.py) / [Competition palette](../../experiments/six-wheel/design/competition-package/build.py) / [2024 display source](https://github.com/ehartye/frc-2024-poc/blob/main/docs/media/robot-native.json)
 
-Change a color in `cad/component-palette.json` and rebuild both editions to use the project setting. Removing an override restores the corresponding plugin role when one exists. The generator reads that file and writes the effective palette in ignored build output.
+Change a color in `cad/component-palette.json` and rebuild both editions to use the project setting. Removing an override restores the corresponding default role in `scripts/cad-color-convention.json` when one exists. The generator reads that file and writes the effective palette in ignored build output.
 
 ## Installed revisions
 
@@ -28,7 +28,7 @@ Use the project Python environment with Open Cascade and the authorized local pr
 
 ```sh
 python cad/full-swerve-r3/cache_registered.py <project-artifacts> <local-signal-light.step> <project-artifacts>/full-swerve-fusion/registered
-python cad/full-swerve-r3/build.py <project-artifacts> <installed-agent-frc>
+python cad/full-swerve-r3/build.py <project-artifacts>
 ```
 
 The Fusion operation script supports `create`, `supplier`, `super`, `color`, `export`, `reopen` and `inspect`. Supply a local manifest giving the operation as `stage`, the local output `directory`, the `r2` archive and `r2Sha256`, the resolved `palette` at `<project-artifacts>/full-swerve-fusion/effective-palette.json`, the ordered `appearances` JSON paths, and the configuration ID from the public register. Run each stage once against its named project document. Its checks include the four native tread centers, each original colored solid, both bumper extents and colors, the mast and shelf registration and the public supplier substitutions. [Fusion operations](fusion.py)

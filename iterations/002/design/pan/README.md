@@ -17,8 +17,8 @@ This package installs the selected scoring mechanism on the accepted taps-02 cha
 | `mass-plan.json` | The itemised R103 heavy estimate on the taps-02 issue. |
 | `fabrication-plan.json` | `frc-fabrication-plan/v1` routes for the two non-2D operations: the hand-brake root clip and the waterjet hex. |
 | `retained-from-001.md` | The retention decision, its evidence and the reason for each element. |
-| `native_pan_build.py`, `job-inputs.txt` | The fail-closed native recipe and its re-hashed inputs. |
-| `pan_geometry.py` → `pan_structure.py` → `pan_roster.py` → `pan_mass_plan.py` → `pan_intent.py` | Generators, run in that order. |
+| `job-inputs.txt` | The re-hashed inputs of the fail-closed native recipe. The recipe, `native_pan_build.py`, ran the agent's design tool and was removed; Git history keeps it. |
+| `pan_structure.py`, `pan_roster.py`, `pan_intent.py` | Generators kept here. `pan_geometry.py` and `pan_mass_plan.py` ran the agent's design tool and were removed; `geometry.json` and `mass-plan.json` are their recorded results, and Git history keeps the scripts. |
 
 ## Owner decisions recorded
 

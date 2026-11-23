@@ -72,11 +72,9 @@ def envelope(shapes):
     all_bounds=[cad.bounds(s) for s in shapes]
     return [min(row[i] for row in all_bounds) if i<3 else max(row[i] for row in all_bounds) for i in range(6)]
 
-def resolve_project_palette(root, plugin):
-    """Use the installed Agent FRC defaults and the student's read-only override."""
-    helper = plugin / "scripts" / "component_palette.py"
-    if not helper.is_file():
-        raise ValueError("Supply the Agent FRC 0.25.0 or compatible installation")
+def resolve_project_palette(root):
+    """Use the project's default component palette and the student's read-only override."""
+    helper = ROOT / "scripts" / "component_palette.py"
     command = [sys.executable, str(helper), str(root)]
     resolved = json.loads(subprocess.check_output(command, encoding="utf8"))
     if resolved.get("schema") != "agent-frc/component-palette@1":
@@ -110,7 +108,7 @@ def role(part, source, bumpers):
     if "motor" in s or "fork" in s or "gear" in s:return "drive"
     return "frame"
 
-def build(artifacts, local, plugin):
+def build(artifacts, local):
     local.mkdir(exist_ok=True,parents=True)
     raw=local/"registered"
     account=read(artifacts/"swerve-package/accounting-source.json")
@@ -211,7 +209,7 @@ def build(artifacts, local, plugin):
         put(key+"-display-drive-motor",tube([x,y,84],[0,0,1],30,59),f,"public-module-representation")
         put(key+"-display-steer-motor",tube([x+(-1 if x>0 else 1)*44,y,84],[0,0,1],17.5,46),f,"public-module-representation")
     bumpers={r["solid"]:r["material"] for r in csv.DictReader((SIX/"design/bumper-kit/mass.csv").open())}
-    resolved = resolve_project_palette(ROOT, plugin)
+    resolved = resolve_project_palette(ROOT)
     save(local / "effective-palette.json", resolved)
     colors = resolved["colors"]
     public=HERE/"full-robot.step"
@@ -259,7 +257,6 @@ def write_step(path,objects,colors,bumpers,paint=True):
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("artifacts",type=Path)
-    p.add_argument("plugin",type=Path,help="Installed Agent FRC with the component palette resolver")
     a=p.parse_args()
-    build(a.artifacts,a.artifacts/"full-swerve-fusion",a.plugin)
+    build(a.artifacts,a.artifacts/"full-swerve-fusion")
 

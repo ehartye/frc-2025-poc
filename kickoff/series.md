@@ -2,7 +2,7 @@
 
 The [live lab](field-lab.html#rehearsal) uses six fixed robot slots, a live Blue and Red scoreboard, and finite, individually tracked pieces. Each chute has one attendant who takes three TELEOP seconds to stage one pipe. Processor transfers go to the opposing human player. The model allows five seconds per net attempt and leaves its outcome unresolved. These service times and capture ranges are teaching assumptions. The project-registered starting marks coincide vertically in pairs. The top-down contact solver separates overlapping footprints during playback. Twelve reef-mounted ALGAE remain at their registered retrieval stations. [Live profiles and six match totals](live-publication.json)
 
-Run `python scripts/build-live-labs.py <agent-frc-checkout>` with Agent FRC 0.48.0 at `92ddf41933dd6026b26493c1d2c91505e9d15914` to reproduce both field views and the role comparison.
+Both field views and the role comparison are committed static pages, generated once with Agent FRC 0.48.0 at `92ddf41933dd6026b26493c1d2c91505e9d15914`. The generator script was removed with the project's other callers of that tool; Git history keeps it.
 
 ## Archived match evidence
 

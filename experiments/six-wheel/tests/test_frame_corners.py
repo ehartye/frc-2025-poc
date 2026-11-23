@@ -14,26 +14,6 @@ def read(name):
 
 
 class FrameCornersTest(unittest.TestCase):
-    def test_copying_a_map_cannot_mask_a_changed_checkout_source(self):
-        spec = importlib.util.spec_from_file_location("frame_account",STUDY/"account.py")
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        with TemporaryDirectory() as temp:
-            root = Path(temp)
-            current = root/"new"
-            old = root/"old"
-            relative = Path("design/installed-procurement/installed.csv")
-            for directory in (old,current):
-                (directory/relative).parent.mkdir(parents=True)
-                (directory/relative).write_text("registered",encoding="ascii")
-            receipt = {"id":"crosswalk","file":relative.as_posix(),"sha256":module.digest(old/relative)}
-            local = dict(receipt)
-            module.bind_sources([local],old/"map.json",current,root)
-            self.assertEqual(root/local["file"],current/relative)
-            (current/relative).write_text("changed",encoding="ascii")
-            with self.assertRaisesRegex(ValueError,"Checkout source has changed: crosswalk"):
-                module.bind_sources([dict(receipt)],old/"map.json",current,root)
-
     def test_registered_mirror_corners_and_bumper_control(self):
         fit = read("weld-fit.json")
         self.assertEqual(hashlib.sha256((STUDY/"frame-weldment.step").read_bytes()).hexdigest(),fit["stepSha256"])

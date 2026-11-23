@@ -49,4 +49,4 @@ python design/terminal-mounts/account.py --native-folder $out --plugin-root "$en
 python design/terminal-mounts/compatibility.py
 ```
 
-The accounting runner writes independently replayable red and blue maps under `artifacts/terminal-mounts`. The checked-in native receipts can also drive the mass replay by omitting `--native-folder`. [Accounting script](account.py)
+The accounting runner writes independently replayable red and blue maps under `artifacts/terminal-mounts`. The checked-in native receipts can also drive the mass replay by omitting `--native-folder`. The accounting script was removed and stays in Git history.

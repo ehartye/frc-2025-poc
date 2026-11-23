@@ -33,7 +33,7 @@ Both motor laws use the same issued position/velocity feedback demands. One maps
 
 The native study reopens all 545 robot solids. Along the centered catch it sweeps the finite pipe enclosure against the station and receiving assembly, retaining the starting ramp and ending shelf tangencies. At each registered target it checks the eight stereo sightlines and withdrawal sweep, including the two physically inward compliant cartridges. All 17 tight-pixel image phases give a visible, time-bracketed observation for each pipe. Every tested tight-budget integer withdrawal onset sustained support (48 for A and 49 for B). The carried pipes clear all 24 stationary January pieces by at least 33.79 and 52.99 mm. B clears the settled A by at least 77.85 mm. The full-field program still depends on fixed stock and scripted partners. No hardware permission or official score follows from this model. [Carried-stock bounds and tested onsets](field-timing.json)
 
-An instantaneous reset from chute-exit spin to zero would remove **0.07087 N·m·s and 1.052 J** without a declared impulse. The installed Agent FRC planar transition helper rejects that reset, accepts the modeled shelf impulse and rejects omission of its angular component. It checks an instantaneous declared momentum balance. It does not integrate this project’s contacts. [Executable controls](check_impulse.mjs)
+An instantaneous reset from chute-exit spin to zero would remove **0.07087 N·m·s and 1.052 J** without a declared impulse. The installed Agent FRC planar transition helper rejects that reset, accepts the modeled shelf impulse and rejects omission of its angular component. It checks an instantaneous declared momentum balance. It does not integrate this project’s contacts.
 
 ## Reproduce
 

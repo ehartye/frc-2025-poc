@@ -51,9 +51,9 @@
   - Mated reserves are partitioned at their mating plane. The lower-priority reserve is trimmed by the higher one inflated by 2.1 mm, or by 3.1 mm beside a moving reserve and 4.0 mm between each steer envelope and its housing.
   - The partition shell is the interface allowance. Seats, fasteners and contact inside it are detailed-design checks.
 - **Fixed geometry.** The fixed blocks come from the 658-solid `four-seated-screws.step` (per-body boxes, clipped to the actual frame plan hull). The pan, upper support and inlet come from the r3 section data in `pan/geometry.json`.
-- **Generators.** `build_layout.py` writes `layout.step` and `layout-blocks.json`. `write_package.py` writes `motion.json`, the budgets, premises, load paths, retention review, carry-forward record and `layout.json`. `make_review.py` builds `review/`.
+- **Generators.** `build_layout.py` wrote `layout.step` and `layout-blocks.json`. `write_package.py` wrote `motion.json`, the budgets, premises, load paths, retention review, carry-forward record and `layout.json`. Both ran the agent's design tool and were removed with `design-inputs/revise.mjs`; their outputs stay here and Git history keeps the scripts. `make_review.py` builds `review/`.
   - `design.json` came from the plugin's `design new` with `design-inputs/design-project.json`, followed by `design-inputs/revise.mjs` (revision 2).
-  - Rebuild order: `design new` starter → `revise.mjs` → `build_layout.py` → `write_package.py` → `preliminary-check --write-view` → `make_review.py`.
+  - The rebuild order was: `design new` starter → `revise.mjs` → `build_layout.py` → `write_package.py` → `preliminary-check --write-view` → `make_review.py`.
 - **`layout-blocks.json`.** For every block it lists the function, the fixed or moving parent, what it bounds and what is missing. The mount host and point for each group are in `layout.json` under `mounts`.
 
 ## Modelling corrections made during this issue

@@ -97,29 +97,6 @@ class AxleRetentionTests(unittest.TestCase):
         self.assertLess(account["representedMarginKg"][0] - 6 * (.55 - .30), 0)
 
 
-    def test_stale_upstream_map_is_rejected_before_accounting(self):
-        selected = [
-            "low-lock", "deck-lamp", "moving-camera", "no-match-air",
-            "four-welded-corners", "light", "shop-supplies",
-        ]
-        with tempfile.TemporaryDirectory() as directory:
-            base = Path(directory)
-            (base / "shop.json").write_text("{}", encoding="utf-8")
-            baseline = base / "map.json"
-            baseline.write_text(json.dumps({
-                "selected": selected, "changes": [],
-                "sources": [{"id": "selected-shop-mass", "file": "shop.json",
-                             "sha256": hashlib.sha256(b"old").hexdigest()}],
-            }), encoding="utf-8")
-            output = base / "generated"
-            attempt = subprocess.run(
-                [sys.executable, str(PACKAGE / "mass.py"), str(base), str(baseline), str(output)],
-                capture_output=True, text=True, check=False,
-            )
-            self.assertNotEqual(attempt.returncode, 0)
-            self.assertIn("Stale selected-shop input", attempt.stderr)
-            self.assertFalse((output / "selected-axles.json").exists())
-
     def test_wheel_removal_rejects_trapped_hub_screws(self):
         report = receipt("wheel-service/clearances.json")
         self.assertEqual(set(report["cases"]), WHEELS)
