@@ -77,7 +77,7 @@ def baked(shape):
     if max(abs(a-b) for a,b in zip(base.cad.bounds(shape),base.cad.bounds(solid)))>.0001:raise ValueError("Changed geometry")
     return solid
 
-def run(plugin,private):
+def run(private):
     old=ROOT/"cad/full-swerve-r3"
     source=old/"full-robot.step"
     previous=base.read(old/"appearances.json")
@@ -96,7 +96,7 @@ def run(plugin,private):
     for key,shape in ink.items():
         objects[key]=(shape,"cad/full-swerve-r4/markings.py","appearance-overlay",False)
         roster[key]="bumper-lettering"
-    resolved=base.resolve_project_palette(ROOT,plugin)
+    resolved=base.resolve_project_palette(ROOT)
     # The named writer accepts explicit per-solid roles before consulting source conventions.
     colors=resolved["colors"]
     output=HERE/"full-robot.step"
@@ -114,8 +114,7 @@ def run(plugin,private):
 
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("plugin",type=Path)
     p.add_argument("private",type=Path)
     a=p.parse_args()
-    run(a.plugin,a.private)
+    run(a.private)
 

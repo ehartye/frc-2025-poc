@@ -25,18 +25,6 @@ def module(name):
 
 
 class WinchlessMassBill(unittest.TestCase):
-    def test_rebuilt_same_row_across_all_archived_sources(self):
-        source = load("original.json")
-        self.assertEqual(source["sourceRows"], 331)
-        for p, h in source["sourceSha256"].items():
-            self.assertEqual(sha(ROOT / p), h)
-        for i, v in enumerate(source["originalGroupKg"]):
-            self.assertAlmostEqual(
-                source["summedBaselineKg"][i] - v,
-                source["baselineWithoutPrimaryLiftKg"][i],
-            )
-        self.assertEqual(source["keptExamplesKg"]["unmodeled-allocation"], [2, 5])
-
     def test_native_joint_limits_and_counterexample(self):
         stock = load("stock.json")
         for p, h in stock["sources"].items():

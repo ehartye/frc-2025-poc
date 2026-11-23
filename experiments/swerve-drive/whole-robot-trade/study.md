@@ -26,7 +26,7 @@ The selected role demands two deliveries in 135 s, or 0.89 per minute. One of th
 
 ## Use the other CORAL STATION
 
-The first matrix identified a deadlock between the lower station and the opponent-facing side of the red reef. Preserve the initial position and AUTO program. In TELEOP, send Red 1 to the other registered CORAL STATION and keep the same L1, wheel speed, pickup/release dwell, piece inventory, and five other robots. Each named supply owns separate finite pipes. The before-and-after clocks show a change in both the focal runner and the teammate that it releases from traffic. [New programs and controlled replay](replay.py) · [Event-by-event comparison](refinement-result.json)
+The first matrix identified a deadlock between the lower station and the opponent-facing side of the red reef. Preserve the initial position and AUTO program. In TELEOP, send Red 1 to the other registered CORAL STATION and keep the same L1, wheel speed, pickup/release dwell, piece inventory, and five other robots. Each named supply owns separate finite pipes. The before-and-after clocks show a change in both the focal runner and the teammate that it releases from traffic. [Event-by-event comparison](refinement-result.json)
 
 | Red 1 route | Qual 3 deliveries / wait | BARGE 3 deliveries / wait |
 | --- | ---: | ---: |
@@ -71,4 +71,4 @@ A selecting test would run the exact current rack, both jack drives and the corr
 
 ## Reproduce
 
-The field, design and hardening commands use [Agent FRC at immutable commit ba9241e7](https://github.com/ehartye/agent-frc/tree/ba9241e724d2425fcf007a9d125e8f87186d68bc). Run `python experiments/swerve-drive/whole-robot-trade/replay.py PATH_TO_AGENT_FRC_SCRIPTS` from the project checkout. Each input names the season-owned profile or a project receipt by SHA-256. The [field program](../../../kickoff/season-profile.json), [role comparison](alliance-study.json), [architecture constraints](design-study.json), [elevation inventory](elevation-study.json) and [two-piece demand](throughput-study.json) can be inspected independently.
+The field, design and hardening commands use [Agent FRC at immutable commit ba9241e7](https://github.com/ehartye/agent-frc/tree/ba9241e724d2425fcf007a9d125e8f87186d68bc). The replay script that ran them was removed and stays in Git history; its recorded results are the files below. Each input names the season-owned profile or a project receipt by SHA-256. The [field program](../../../kickoff/season-profile.json), [role comparison](alliance-study.json), [architecture constraints](design-study.json), [elevation inventory](elevation-study.json) and [two-piece demand](throughput-study.json) can be inspected independently.

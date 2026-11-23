@@ -45,10 +45,6 @@ Both routes pass within the model's corridor threshold of paths associated with 
 
 ## Reproduce the field exercise
 
-The saved rules model and browser draft came from Agent FRC 0.12.0. They preserve the baseline for the independent calculations above. To generate a page with the new timed rehearsal, run the portable plugin CLI from the POC root. The same season JSON is also the input to the occupancy, clock, queue and swept-footprint regression suite.
+The saved rules model and browser draft came from Agent FRC 0.12.0, and the [field lab](field-lab.html) is the committed page a later release of that tool generated from [the season profile](season-profile.json). Both are kept as static files; nothing in this repository regenerates them. The project's own `scripts/kickoff_*.py` calculations read the saved kickoff model.
 
-```sh
-node /path/to/agent-frc/scripts/kickoff.mjs --profile kickoff/season-profile.json --output field.html
-```
-
-Set `AGENT_FRC_PLUGIN_ROOT` to the compatible plugin directory and run `node --test tests/kickoff-field.test.mjs` for the season integration checks. In the lab, compare the default 30 × 30 × 30 in box with a 31 × 29 × 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Original 0.12.0 source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)
+In the lab, compare the default 30 × 30 × 30 in box with a 31 × 29 × 30 in box, then return to the default. Use TELEOP and the two targets in the table. Enter the trial window, stock allocations, service and speed from the project JSON. Leave incoming supply at zero. Capture both opportunities and export the draft. Keep trial geometry, rule facts and calculated feasibility distinct from actual field performance. [Original 0.12.0 source revision](https://github.com/ehartye/agent-frc/tree/1ff7845112276ad50bf4ee8a782c3dfaedca723d)

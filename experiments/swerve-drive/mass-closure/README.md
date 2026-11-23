@@ -23,7 +23,7 @@ A **500 g project working reserve** gives the inspection team a useful receiving
 
 The R4 controller and PDH placements also narrow where the wire budget is most exposed. For example, the 900 mm rear-right cut contains 438.8 mm of screened common route. The largest sum of straight tail distances from the two handoffs to points in the registered PDH and drive-controller boxes is 328.0 mm. At those box extremes, **133.2 mm** remain for terminal offset, bends, service and routing around hardware. Front-right drive has 134.7 mm under the same test. These are endpoint sensitivities. The CAD boxes do not establish connector pin locations, pigtail lengths or a collision-free routed tail. Preserve those separately when assigning the finished lengths. [All eight circuit screens](r4-receiving.json)
 
-Reproduce the public CAD check with `python experiments/swerve-drive/mass-closure/r4_receiving.py`. For the full replay, pass `--map PATH_TO_SELECTED_JSON --plugin AGENT_FRC_ROOT --archive PATH_TO_R4_F3D`. The private map and native archive are the same project-owned inputs used for the release receipt. The script reports whether each was supplied.
+The receiving check was produced by a script that ran the Agent FRC assembly checker on the selected map and the R4 archive. The script was removed; its recorded results stay here and its source stays in Git history.
 
 ## Build the selected drawing
 
@@ -45,7 +45,7 @@ The wire assembly upper is **1.492 kg** including the 460 g connector, sensor ad
 
 The rear steering motors intruded into both earlier backplates. Install the 23 mm elevated host bridge and machined backplates. The independent material check charges the full new plate, four aluminum risers, four screws, four washers and four nuts, a 10% positive material allowance and 80 g for the two longer data leads, terminations and finish. The 157.101 g upper gives zero credit for displaced aluminum. Five original pieces move, including the guide foot and four board posts. Both replacement struts retain the old aluminum stock and upper lug positions. Both camera data leads retain their functions with new lengths. Rear cabling must still clear the structure and support both cameras. [Repair STEP](../packaging/rear-electronics.step) · [Repair measurements](../packaging/rear-electronics.json)
 
-The accounting map exchanges seven earlier items for 24 revised or added items, leaving 944 modeled identities. Its independent calculation starts with the issued fixed-height baseline and subtracts the original wheel rows and outer-clamp charge there. It leaves all unrelated rows intact, removes the 36 hub screws from their own shop row, zeroes the three fully surrendered drive groups, and charges the complete module, frame, controller, harness, and host changes once. It separately emits the old independent-interval parent plus the rear repair as a control. Reuse the final matched map only with its entire frozen change list. [Physical exchange](rear_exchange.py) · [Matched material accounting](final_map.py)
+The accounting map exchanges seven earlier items for 24 revised or added items, leaving 944 modeled identities. Its independent calculation starts with the issued fixed-height baseline and subtracts the original wheel rows and outer-clamp charge there. It leaves all unrelated rows intact, removes the 36 hub screws from their own shop row, zeroes the three fully surrendered drive groups, and charges the complete module, frame, controller, harness, and host changes once. It separately emits the old independent-interval parent plus the rear repair as a control. Reuse the final matched map only with its entire frozen change list. [Physical exchange](rear_exchange.py)
 
 ## What changes the result?
 
@@ -63,12 +63,8 @@ The accounting map exchanges seven earlier items for 24 revised or added items, 
 
 The uniform break-even length is **0.9944 m** with the elevated host, under the same local motor and accessory budgets. The previous shorter wiring target uses a different drive gauge and shorter phase extensions. The prior longer and shorter bills remain available for comparison. Gross field mass with the repaired host at the selected upper is 65.663 kg empty and 66.480 kg with one pipe. The existing 65 and 72 kg opening trials retain their own CG, yaw inertia, contact, routing and empty-robot conditions. The calculated inspection margins are prebuild estimates. A scale reading and the actual four-pad load distribution remain open. [Prior four-module power cases](../power/routes.json)
 
-## Reproduce
+## How the results were produced
 
-Use the selected 927-item swerve map from the original [four-module accounting procedure](../power/README.md). Run from the repository root with Python/OCP and the installed Agent FRC assembly checker. The program verifies the original source map, checks the four-module inventory, reopens four project STEP files and calculates each wiring and stock variant from the registered inputs. The replay writes the matched 944-item selected.json to the specified output directory. The cuts command needs only the public receipt and supplied lengths in metres (FL, FR, RL, RR).
+The replay started from the selected 927-item swerve map of the original [four-module accounting procedure](../power/README.md) and ran with Python/OCP and the Agent FRC assembly checker. It verified the original source map, checked the four-module inventory, reopened four project STEP files and calculated each wiring and stock variant from the registered inputs, then wrote the matched 944-item map.
 
-```text
-python experiments/swerve-drive/mass-closure/inspection_recipe.py replay . PLUGIN_DIR SELECTED_SWERVE_MAP OUTPUT_MAP_DIRECTORY OUTPUT.json
-python experiments/swerve-drive/mass-closure/inspection_recipe.py cuts 0.80 0.95 0.55 0.90 --extra-kg 0.0
-python -m unittest discover -s tests -p test_swerve_mass_closure.py
-```
+The replay script `inspection_recipe.py` and its test were removed with the project's other callers of that checker. The recorded results stay here; the scripts stay in Git history.

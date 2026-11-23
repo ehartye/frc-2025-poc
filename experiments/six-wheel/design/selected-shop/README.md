@@ -10,7 +10,7 @@ With six accepted bare wheels at **300 g or less each**, the red robot has **0.9
 
 ## Pull list for one robot
 
-The selected map identifies 361 purchased instances spanning 67 supply rows, 317 fabricated instances and 98 with an open selection. The supply CSV lists the installed identities behind each row. The quoted pack count assumes an empty parts bin. Every actual order field is blank pending a stock count. A batch of replacement stock stays in the pit. [Source-bound reconstruction](reconcile.py)
+The selected map identifies 361 purchased instances spanning 67 supply rows, 317 fabricated instances and 98 with an open selection. The supply CSV lists the installed identities behind each row. The quoted pack count assumes an empty parts bin. Every actual order field is blank pending a stock count. A batch of replacement stock stays in the pit.
 
 | Assembly | Installed demand | What the shop should pull or quote |
 |---|---|---|

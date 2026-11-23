@@ -50,11 +50,7 @@ class FullSwerveR3(unittest.TestCase):
 
     def test_component_override_survives_resolution_and_step_writes(self):
         import importlib.util
-        import os
         import tempfile
-        plugin = os.environ.get("AGENT_FRC_PLUGIN_ROOT")
-        if not plugin or not (Path(plugin)/"scripts/component_palette.py").is_file():
-            self.skipTest("Set AGENT_FRC_PLUGIN_ROOT to run the installed palette regression")
         spec = importlib.util.spec_from_file_location("full_swerve_builder", DESIGN/"build.py")
         builder = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(builder)
@@ -65,7 +61,7 @@ class FullSwerveR3(unittest.TestCase):
             for colors,expected in [({"electrical":"#123456"},"#123456"),({},"#8263A9")]:
                 override.write_text(json.dumps({"schema":"agent-frc/component-palette@1","colors":colors}))
                 before = override.read_bytes()
-                resolved = builder.resolve_project_palette(root,Path(plugin))["colors"]
+                resolved = builder.resolve_project_palette(root)["colors"]
                 self.assertEqual(expected,resolved["electrical"])
                 original = builder.block([0,0,0,1,2,3])
                 parts = {"controller-fixture":(original,"fixture","project-cad",False)}

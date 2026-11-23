@@ -71,7 +71,6 @@ foreach ($case in 'plus','minus','heavy','upper-minus','blind','late','jam','mis
     python opening.py $artifacts "$raw/reciprocal" --case $case
 }
 python opening.py $artifacts "$raw/historical" --case plus --model historical
-python energy_review.py $raw $pluginRoot $outputJson
 ```
 
 [Open the eight-trial student replay](index.html) to see the achieved wheel directions, field path and competing reservations from kickoff through the 21.10 s first-feed slot. The 65 kg trials confirmed the station at 20.285 and 20.330 s. A 72 kg test with higher yaw inertia also reached the station on both signed calibration cases.

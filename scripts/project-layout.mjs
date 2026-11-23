@@ -7,7 +7,7 @@ export const folders = ['kickoff','cad','controls','sim','experiments','tests','
 const files = new Set(['README.md','LICENSE','LICENSE.md','AGENTS.md','.gitattributes','.gitignore',
   'run.ps1','cad-showcase.json','highlights.json','project-layout.json','package.json','package-lock.json','pyproject.toml',
   'requirements.txt','pytest.ini','settings.gradle','build.gradle','gradlew','gradlew.bat']);
-const toolFolders = new Set(['.github','.vscode','.wpilib','src','gradle','vendordeps']);
+const toolFolders = new Set(['iterations','.github','.vscode','.wpilib','src','gradle','vendordeps']);
 
 export function inspect(root) {
   const configFile = path.join(root,'project-layout.json');
