@@ -24,7 +24,7 @@ CI runs no design check. A coding agent checks a design with its own design tool
 
 ## Design status on the site and READMEs
 
-The current design is the preliminary design release Fixed pocket 1.0, in progress. `docs/preliminary-design/releases.json` holds its status. The rough-draft showcase model, `draft-001`, is withdrawn and no detailed design is current. `docs/detailed-design/designs.json` holds that status and the reason. The withdrawn pages are not archived on the site; Git keeps them at commit `33a2315`. `docs/index.html` is the site's front page and is edited by hand.
+The current design is the preliminary design release Fixed pocket 1.0, in progress. `docs/preliminary-design/releases.json` holds its status. No detailed design is published, so `docs/detailed-design/designs.json` lists none. The rough-draft showcase model published before the design-status process is withdrawn and is not on the site: its ID was not a design version, so the index no longer lists it, and Git keeps its pages at commit `33a2315`. `docs/index.html` is the site's front page and is edited by hand.
 
 Each README features the current preliminary design release. Its still is rendered from the release's published review scene, so it needs no STEP: author the title, pose and scope sentences under `caption` in `docs/robot/preliminary-RELEASE.json`, then run `python scripts/preliminary-still.py . RELEASE --update` (Python, OCP and VTK) and `python scripts/cad-readmes.py . --update`. The README caption names the release and its design status, so a new current release or a status change takes the same two commands in the same pull request. `cad-readmes.py` keeps the detailed still once the detailed design index shows an in-progress or effective design.
 

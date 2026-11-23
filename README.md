@@ -19,7 +19,7 @@ Start with the [release-day field lab and match opportunities](kickoff/README.md
 | Season design workflow | [Follow the Agent FRC skills, project documents and simulation evidence](docs/workflow.md) |
 | Preliminary design review | [Spin the layout, play the mission cases and trace the budgets](https://ehartye.github.io/frc-2025-poc/preliminary-design/) |
 | Rules, field and scoring windows | [Kickoff model](kickoff/rules-v0.json) and [interactive field lab](kickoff/field-lab.html) |
-| Withdrawn rough-draft showcase | [Status and reason](https://ehartye.github.io/frc-2025-poc/detailed-design/); the pages as last published are in [Git at `33a2315`](https://github.com/ehartye/frc-2025-poc/tree/33a2315/docs/detailed-design/archive/draft-001) |
+| Withdrawn rough-draft showcase | Published before the design-status process and withdrawn; the pages as last published are in [Git at `33a2315`](https://github.com/ehartye/frc-2025-poc/tree/33a2315/docs/detailed-design/archive/draft-001) |
 | Earlier CAD and student handoff | [Full-robot Fusion handoff of the withdrawn draft](cad/FUSION.md) and its [four-module swerve study](experiments/swerve-drive/README.md) |
 | Previous robot and replays | [Six-wheel campaign](experiments/six-wheel/README.md), including scoring studies, design iterations and checks |
 | Project conventions and commands | [Project structure](docs/project-layout.md) |
