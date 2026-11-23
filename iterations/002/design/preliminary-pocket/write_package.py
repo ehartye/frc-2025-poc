@@ -360,10 +360,15 @@ case("withdraw-park", "park", "Prescribed robot drive, not a mechanism trial: th
      "it is again at rest", {n: [tr3([300, 0, 0])] for n in [pipe, *REEF_SET, first_pipe]}, fixtures=(trough, first_pipe))
 cycle = [c["id"] for c in cases]
 TS_ = {s_["id"]: s_ for s_ in trials["timestepSensitivity"]}
+# Receive bracket on tread stiffness, read from the trials: the stiffest swept value below the band at which any receive
+# fails, and the softest above it at which every receive seats.
+_RSB = S["receiveStiffnessBracket"]
+RECEIVE_K_FAIL = max(int(k) for k, v in _RSB.items() if v["ok"] < v["n"])
+RECEIVE_K_PASS = min(int(k) for k, v in _RSB.items() if v["ok"] == v["n"] and int(k) > RECEIVE_K_FAIL)
 QUAL = {
     "receive-mission": dict(
         result="pass", control=dict(condition=f"Check flap removed, same receive and go: {frac(S['goNoFlap'])} retained", rejected=True),
-        brackets=[dict(input="tread stiffness per roller", unit="N/mm", passing=20, failing=10),
+        brackets=[dict(input="tread stiffness per roller", unit="N/mm", passing=RECEIVE_K_PASS, failing=RECEIVE_K_FAIL),
                   dict(input="check flap", unit="present", passing=1, failing=0)],
         timestep=dict(coarseS=trials["dtS"], fineS=TS_["receive-mission"]["dtS"], sameOutcome=TS_["receive-mission"]["sameOutcome"])),
     "eject-nominal": dict(
@@ -1578,6 +1583,13 @@ risks = [
     dict(id="bench-G7", risk="Custody with the power off rests on the installed tread squeeze, which is unmeasured",
          **bt("Force to push a seated pipe through the unpowered nip; pipes kept nose-down for 60 s out of 5; kept through 8 g, 50 ms pulses out of 20",
               f">= {PUSH_PASS_N}; 5; 20", f"< {PUSH_FAIL_N}, or any pipe lost", "N; count; count")),
+    dict(id="power-weak-pack", risk=f"Loaded bus voltage on a weak pack while driving away is {weak_min:.2f} V against the 9.0 V floor: "
+                                    f"{weak_min - 9.0:.2f} V of margin, on a lumped pack model",
+         **bt("Lowest bus voltage logged over ten 3 m/s2 launches with the nip on hold, on a pack at the weak-condition resistance",
+              ">= 9.0 on every launch", "below 9.0 on any launch", "V")),
+    dict(id="mass-headroom", risk=f"Heavy inspection estimate {total[1]:.2f} kg leaves {mass["rule"]["limitKg"] - total[1]:.2f} kg under the {mass["rule"]["limitKg"]:.2f} kg limit, "
+                                  "with 3.4 kg of joints and 5.5 kg of electrical parts carried as allowances",
+         **bt("Inspection weight of the finished robot without bumpers and battery", f"<= {mass['rule']['limitKg']:.2f}", f"> {mass['rule']['limitKg']:.2f}", "kg")),
     dict(id="PD17-power-off-custody", risk="With the worm removed nothing locks the nip when the robot is disabled or the main power is off",
          closedBy=f"Trials show the tread squeeze alone holds: {frac(CU['powerOffRequired'])} required stop and hit cases retained with the power off, checked case "
                   f"{CARRY_IDS[0]}, premise power-off-custody; brake idle mode is set (design-findings.json PD17). The installed squeeze is bench gate G7"),

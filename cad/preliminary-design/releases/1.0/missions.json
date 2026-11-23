@@ -166,6 +166,26 @@
       }
     },
     {
+      "id": "power-weak-pack",
+      "risk": "Loaded bus voltage on a weak pack while driving away is 9.12 V against the 9.0 V floor: 0.12 V of margin, on a lumped pack model",
+      "benchTest": {
+        "measure": "Lowest bus voltage logged over ten 3 m/s2 launches with the nip on hold, on a pack at the weak-condition resistance",
+        "pass": ">= 9.0 on every launch",
+        "fail": "below 9.0 on any launch",
+        "unit": "V"
+      }
+    },
+    {
+      "id": "mass-headroom",
+      "risk": "Heavy inspection estimate 49.78 kg leaves 2.39 kg under the 52.16 kg limit, with 3.4 kg of joints and 5.5 kg of electrical parts carried as allowances",
+      "benchTest": {
+        "measure": "Inspection weight of the finished robot without bumpers and battery",
+        "pass": "<= 52.16",
+        "fail": "> 52.16",
+        "unit": "kg"
+      }
+    },
+    {
       "id": "PD17-power-off-custody",
       "risk": "With the worm removed nothing locks the nip when the robot is disabled or the main power is off",
       "closedBy": "Trials show the tread squeeze alone holds: 24/24 required stop and hit cases retained with the power off, checked case carry-01-power-off-hit, premise power-off-custody; brake idle mode is set (design-findings.json PD17). The installed squeeze is bench gate G7"
