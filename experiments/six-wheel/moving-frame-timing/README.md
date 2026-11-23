@@ -1,9 +1,9 @@
 # How late can the two cameras deliver a release observation?
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 On the fixed-low robot, the controller must recognize the same pipe as it moves from the shelf-mounted stereo head into the fixed head's view. A valid image can still arrive too late to begin withdrawing the shelf. At a 5 ms service period, both pipes met the modeled command deadline at all 85 camera/service alignments per pipe for every constant integer delivery latency from 7 through 18 ms. Pipe A missed one alignment at 19 ms. At 24 ms all alignments failed. A physical installation would need a measured latency distribution, including tail events, and timestamps on both sides of the transport. [Registered 598-body geometry and travel](../moving-observer/README.md) · [Independent actuator-feedback study](https://github.com/ehartye/frc-2025-poc/pull/65)

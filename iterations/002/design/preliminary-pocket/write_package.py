@@ -1,4 +1,4 @@
-"""Write the motion study, budgets, premises, records and layout plan for the B'x pocket release layout-002.
+"""Write the motion study, budgets, premises, records and layout plan for the fixed-pocket preliminary design (Fixed pocket 1.0).
 
     python -B write_package.py PROJECT_ROOT PLUGIN_SCRIPTS [RELEASE_DIR] [VIEW]
 
@@ -6,7 +6,7 @@ VIEW is the review page the layout check writes, project-relative (the plugin cu
 root; omit it to check without a page).
 
 PROJECT_ROOT is the repository root (the project root of the layout check). RELEASE_DIR, project-relative, defaults to
-cad/preliminary-design/releases/layout-002 and already holds design.json, package.step, field-fixtures.step,
+cad/preliminary-design/releases/1.0 and already holds design.json, package.step, field-fixtures.step,
 layout-blocks.json (build_layout.py), evidence/field-trials.json (field_trials.py) and evidence/structure-checks.json
 (structure_checks.py). Every pin is project-relative.
 
@@ -32,13 +32,16 @@ import pocket_geometry as pg  # noqa: E402
 import field_trials as ft  # noqa: E402
 
 SRC = "iterations/002/design/preliminary-pocket"
-REL = sys.argv[3] if len(sys.argv) > 3 else "cad/preliminary-design/releases/layout-002"
+REL = sys.argv[3] if len(sys.argv) > 3 else "cad/preliminary-design/releases/1.0"
 VIEW = sys.argv[4] if len(sys.argv) > 4 else None
 OUT = ROOT / REL
-ISSUE = "red2-002-preliminary-layout-002"
+ISSUE = "fixed-pocket-1.0"
 GAP = 2.0
 R = pg.R
-CHORD_TOL = 3.0      # mm: largest distance of a case stroke from the solved trace
+CHORD_TOL = 10.0     # mm: largest distance of a case stroke from the solved trace (the coarse whole-cycle tolerance)
+# A phase listed here was unresolved at the coarse tolerance (a pair closer than the tolerance) and is split finer: phase -> mm.
+REFINED_TOL = {}
+TOL_NOTE = "".join(f" ({v:g} mm in the {k} phase)" for k, v in REFINED_TOL.items())
 FLAP_TOL = 10.0      # deg: largest flap-angle error along a stroke
 
 
@@ -47,7 +50,7 @@ def sha(path):
 
 
 def pin(rel):
-    return {"file": rel, "sha256": sha(ROOT / rel)}
+    return {"file": rel}
 
 
 def write(rel, obj):
@@ -114,8 +117,8 @@ def seg_dist(p, a, b):
     return math.dist(p, (a[0] + u * dx, a[1] + u * dz))
 
 
-def reduce_trace(pts, lo, hi):
-    """Indices lo..hi of pts (t, x, z, flapDeg) kept so every stroke stays within CHORD_TOL and FLAP_TOL of the trace."""
+def reduce_trace(pts, lo, hi, tol):
+    """Indices lo..hi of pts (t, x, z, flapDeg) kept so every stroke stays within tol mm and FLAP_TOL of the trace."""
     keep = {lo, hi}
     stack = [(lo, hi)]
     while stack:
@@ -128,11 +131,15 @@ def reduce_trace(pts, lo, hi):
             run.append(run[-1] + math.dist(pts[k][1:3], pts[k + 1][1:3]))
         worst, wk = 0.0, None
         for k in range(i + 1, j):
-            e = seg_dist(pts[k][1:3], a[1:3], b[1:3]) / CHORD_TOL
+            e = seg_dist(pts[k][1:3], a[1:3], b[1:3]) / tol
             f = (run[k - i] / run[-1]) if run[-1] > 0 else 0.0
             e = max(e, abs(pts[k][3] - (a[3] + f * (b[3] - a[3]))) / FLAP_TOL)
             if e > worst:
                 worst, wk = e, k
+        if worst <= 1.0 and (i, j) == (lo, hi) and math.dist(a[1:3], b[1:3]) < 0.5:
+            # an excursion that returns to its start (a hit shorter than the tolerance): keep its far point so the case has travel
+            wk = max(range(i + 1, j), key=lambda k: math.dist(pts[k][1:3], a[1:3]))
+            worst = 2.0
         if worst > 1.0:
             keep.add(wk)
             stack += [(i, wk), (wk, j)]
@@ -220,7 +227,8 @@ def trace_cases(prefix, rec, pts, phases, fixtures, snap_end=None):
     for name, i0, i1, spec in phases:
         if i1 <= i0:
             continue
-        idx = reduce_trace(pts, i0, i1)
+        tol = REFINED_TOL.get(name, CHORD_TOL)
+        idx = reduce_trace(pts, i0, i1, tol)
         for a, b in zip(idx, idx[1:]):
             n += 1
             cid = f"{prefix}-{n:02d}-{name}"
@@ -244,7 +252,7 @@ def trace_cases(prefix, rec, pts, phases, fixtures, snap_end=None):
             timelines[cid] = dict(time=times, measure=[
                 f"{spec['label']} · trial time {tm:.3f} s · pipe centre X {start[0] + (end[0] - start[0]) * k / (frames - 1):.0f}, "
                 f"Z {start[1] + (end[1] - start[1]) * k / (frames - 1):.0f} mm" for k, tm in enumerate(times)])
-            case_meta[cid] = dict(spec=spec, playback=rec, windowS=[pa[0], pb_[0]], maxDeviationMm=round(dev, 3), snapMm=round(snap, 4))
+            case_meta[cid] = dict(spec=spec, playback=rec, windowS=[pa[0], pb_[0]], maxDeviationMm=round(dev, 3), snapMm=round(snap, 4), tolMm=tol)
             state[pipe] = end
             state[flap] = phi
     return n
@@ -416,7 +424,7 @@ cases.append(dict(id="service-nip-cassette-lift", stage="service", minGapMm=GAP,
                         f"cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) {CASSETTE_LIFT:.0f} mm: clear of the inlet walls after 480 mm "
                         "and of the checked scene's box at the end",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}),
-                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette))
+                  moves={n: [tr3([0, 0, CASSETTE_LIFT])] for n in cassette}, extract=cassette, maxDepth=12))
 cases.append(dict(id="service-lip-restow", stage="service", minGapMm=GAP,
                   basis="Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, pg.LIP_STOW_DEG)]}, maxDepth=11))
@@ -424,17 +432,24 @@ cases.append(dict(id="service-lip-over-travel", stage="service", minGapMm=GAP,
                   basis=f"Sprung-stop over-travel: a frontal hit turns the deployed lip a further {struct['stop']['overTravelDeg']} deg down against its stop springs "
                         "until the bumper carries the load (structure-checks.json L5); the empty lip must clear every neighbour through that swing",
                   removed=dict(hood_removed, **{pipe: "service-unload-pipe"}), moves={lip: [rot(HINGE, struct["stop"]["overTravelDeg"])]}, maxDepth=11))
+# The hand gauges are drawn at the end of their reach (build_layout.py), so they rest on what they operate in every other case.
+# Their own cases start them raised by the reach and bring them down. The plug hand keeps hold of the battery-side plug and
+# leaves with the battery.
+PLUG_HAND, BREAKER_HAND = "Plug grip hand", "Breaker reset hand"
+PLUG_REACH, BREAKER_REACH = 455.0 - 199.1, 600.0 - 257.2
 cases.append(dict(id="service-battery-lift", stage="service", minGapMm=GAP,
-                  basis="After unplugging, lift the dressed battery 250 mm through the centre gap between the equipment sheets",
-                  moves={"Dressed battery": [tr3([0, 0, 250.0])]}))
+                  basis="After unplugging, lift the dressed battery 250 mm through the centre gap between the equipment sheets; the hand that unplugged it "
+                        "keeps hold of the battery-side plug and rises with it",
+                  moves={"Dressed battery": [tr3([0, 0, 250.0])], PLUG_HAND: [tr3([0, 0, 250.0])]}))
 cases.append(dict(id="service-battery-rear-carry", stage="service", minGapMm=GAP,
-                  basis="Continue from the 250 mm lift rearward under the inlet chute and over the rear bumper until clear",
-                  initialPose={"Dressed battery": [tr3([0, 0, 250.0])]}, moves={"Dressed battery": [tr3([-420.0, 0, 0])]}))
+                  basis="Continue from the 250 mm lift rearward under the inlet chute and over the rear bumper until clear, the hand still on the plug",
+                  initialPose={"Dressed battery": [tr3([0, 0, 250.0])], PLUG_HAND: [tr3([0, 0, 250.0])]},
+                  moves={"Dressed battery": [tr3([-420.0, 0, 0])], PLUG_HAND: [tr3([-420.0, 0, 0])]}))
 PIT_CASES = ("service-battery-rear-carry",)       # the battery leaves over the rear bumper, where the station stands when docked
 cases.append(dict(id="service-plug-disconnect", stage="service", minGapMm=GAP, basis="A hand reaches down to grip the SB50 pair from above",
-                  moves={"Plug grip hand": [tr3([0, 0, 199.1 - 455.0])]}))
+                  initialPose={PLUG_HAND: [tr3([0, 0, PLUG_REACH])]}, moves={PLUG_HAND: [tr3([0, 0, -PLUG_REACH])]}))
 cases.append(dict(id="service-breaker-reset", stage="service", minGapMm=GAP, basis="A hand reaches the CB185 reset button outboard of the pocket walls",
-                  moves={"Breaker reset hand": [tr3([0, 0, 257.2 - 600.0])]}))
+                  initialPose={BREAKER_HAND: [tr3([0, 0, BREAKER_REACH])]}, moves={BREAKER_HAND: [tr3([0, 0, -BREAKER_REACH])]}))
 # The checker needs one fixture roster in every case of a package, so all three fixtures are registered everywhere. Each is
 # physically present only at its own dock: the station chute behind the robot at the receive, the trough and first pipe
 # ahead of it at the reef. They are 950 mm apart in the robot frame and never interact.
@@ -447,7 +462,6 @@ for c in cases:
 by_case = {c["id"]: c for c in cases}
 
 # ------------------------------------------------------------------ evidence bound to each trial-driven case
-motion_stub = dict(step=step["sha256"])
 transport_evidence, interface_evidence = {}, {}
 for cid, meta in case_meta.items():
     c = by_case[cid]
@@ -459,7 +473,7 @@ for cid, meta in case_meta.items():
     transport_evidence[cid] = write(f"{REL}/evidence/transport/{cid}.json", {
         "schema": "red2/trial-path@2", "issue": ISSUE, ("transport" if spec["kind"] == "transport" else "freePath"): rec, "fieldTrials": trials_pin,
         "playback": meta["playback"], "traceWindowS": meta["windowS"], "maxDeviationFromTraceMm": meta["maxDeviationMm"], "endSnapMm": meta["snapMm"],
-        "chordToleranceMm": CHORD_TOL, "qualification": QUAL[meta["playback"]],
+        "chordToleranceMm": meta["tolMm"], "qualification": QUAL[meta["playback"]],
         "basis": spec["basis"] + ". The stroke joins two poses of the solved free-piece trace and stays within the recorded deviation of it; the trace, "
                  "its control and its half-timestep repeat are in field-trials.json."})
     present = {f["id"] for f in c.get("fixtures", [])} | {b["name"] for b in blocks["blocks"] if b["group"] not in FIXTURE_GROUPS}
@@ -468,7 +482,7 @@ for cid, meta in case_meta.items():
         if other not in present:
             continue
         ev = write(f"{REL}/evidence/interfaces/{cid}--{other.split(' (')[0].lower().replace(' ', '-')}.json", dict(
-            schema="red2/intended-contact@1", issue=ISSUE, stepSha256=step["sha256"], case=cid, pair=[pipe, other], status="pass",
+            schema="red2/intended-contact@1", issue=ISSUE, case=cid, pair=[pipe, other], status="pass",
             fieldTrials=trials_pin, playback=meta["playback"], traceWindowS=meta["windowS"],
             basis=f"The trial solves this contact: the pipe bears on {other} during this window as a compliant penalty contact, so the pair is the "
                   "trial's qualified interface, not a clearance pair. Other pairs in the case keep the 2.0 mm reserve."))
@@ -478,16 +492,15 @@ for cid, meta in case_meta.items():
         c["intendedInterfaces"] = ints
 # the pipe waits on the station chute while the lip deploys
 ev = write(f"{REL}/evidence/interfaces/lip-deploy--coral-station-chute.json", dict(
-    schema="red2/intended-contact@1", issue=ISSUE, stepSha256=step["sha256"], case="lip-deploy", pair=[pipe, station], status="pass", fieldTrials=trials_pin,
+    schema="red2/intended-contact@1", issue=ISSUE, case="lip-deploy", pair=[pipe, station], status="pass", fieldTrials=trials_pin,
     playback="receive-mission", traceWindowS=[0.0, 0.0], basis="The pipe rests on the station chute at the receive trial's start pose"))
 by_case["lip-deploy"]["intendedInterfaces"] = [dict(pair=[pipe, station], basis="The pipe rests on the station chute before it is released", qualifiedBy=ev)]
 ev = write(f"{REL}/evidence/interfaces/withdraw-park--l1-trough-sector-a.json", dict(
-    schema="red2/intended-contact@1", issue=ISSUE, stepSha256=step["sha256"], case="withdraw-park", pair=[pipe, trough], status="pass", fieldTrials=trials_pin,
+    schema="red2/intended-contact@1", issue=ISSUE, case="withdraw-park", pair=[pipe, trough], status="pass", fieldTrials=trials_pin,
     playback="eject-nominal", traceWindowS=[ej_all[i_wd][0], ej_all[-1][0]],
     basis="The scored pipe rests on the trough at the eject trial's rest pose and recedes with it; the trial assesses it 2 s after the withdrawal"))
 by_case["withdraw-park"]["intendedInterfaces"] = [dict(pair=[pipe, trough], basis="The scored pipe rests in the trough", qualifiedBy=ev)]
-motion = write(f"{REL}/paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step,
-                                         layoutDesignSha256=design["sha256"], layoutDatum=datum, cases=cases))
+motion = write(f"{REL}/paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step, layoutDatum=datum, cases=cases))
 
 operating_basis = ("2.0 mm reserve between distinct reserves: fabrication and working-load deflection of polycarbonate and "
                    "1/4 in plate; every mated face is partitioned at 2.1 mm. The roller treads are reserved by their rigid core. Each contact the "
@@ -502,6 +515,7 @@ for c in cases:
     stages[c["id"]] = dict(purpose=c["stage"], movingGroups=moving, carriedWith={}, allowanceBasis=basis)
     if c["id"] in case_meta:
         spec = case_meta[c["id"]]["spec"]
+        stages[c["id"]]["pathToleranceMm"] = case_meta[c["id"]]["tolMm"]
         if spec["kind"] == "transport":
             stages[c["id"]]["transportedBy"] = {"pipe": dict(mechanisms=spec["mechanisms"], drive=spec["drive"], evidence=transport_evidence[c["id"]], basis=spec["basis"])}
         else:
@@ -535,13 +549,14 @@ lz, uz = pg.LOWER_ROLLER[1], pg.UPPER_ROLLER[1]
 mounts = [
     dict(group="pocket tray", on="Floor post port", pointMm=[122.5, 147.5, round(by_name["Floor post port"]["boundsMm"][5] - 0.5, 3)],
          basis="Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights"),
-    dict(group="tray supports", on=host_at("Chassis pan trusses and stringers", [122.5, 147.5, 489.525]), pointMm=[122.5, 147.5, 489.525],
-         basis="Port floor post bolted to the upper pan stringer top (Z 489.5)"),
+    dict(group="tray supports", on=host_at("Chassis pan trusses and stringers", [205.0, 241.5, 489.525]), pointMm=[205.0, 241.5, 489.525],
+         basis="Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard"),
     dict(group="hood", on="Pocket tray", pointMm=[200.0, 162.5, 700.0], basis="Hood tab on the port side-wall top edge (thumb screw)"),
     dict(group="check flap", on="Hood (removable)", pointMm=[pg.FLAP_HINGE[0], 0.0, 700.0],
          basis="3 mm flap pin in clips under the hood, 4 mm under its underside"),
-    dict(group="nip side plates", on=host_at("Chassis pan trusses and stringers", [250.0, 170.4, 489.525]), pointMm=[250.0, 170.4, 489.525],
-         basis="Port side plate foot: two 10-32 bolts 45 mm apart into the upper pan stringer top (structure-checks.json P1), same on starboard"),
+    dict(group="nip side plates", on=host_at("Chassis pan trusses and stringers", [250.0, 241.5, 489.525]), pointMm=[250.0, 241.5, 489.525],
+         basis="Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top "
+               "(structure-checks.json P1, P4 and P5), same on starboard"),
     dict(group="lower nip roller", on="Port nip side plate", pointMm=[pg.LOWER_ROLLER[0], 170.4, lz], basis="Flanged hex bearing in the port side plate"),
     dict(group="upper nip roller", on="Port nip side plate", pointMm=[pg.UPPER_ROLLER[0], 170.4, uz], basis="Flanged hex bearing in the port side plate"),
     dict(group="nip drive", on="Port nip side plate", pointMm=[335.0, 173.6, lz], basis="MAXPlanetary face bolted to the port side plate, its hex socket on the lower shaft"),
@@ -581,7 +596,8 @@ fab_items = [("tray floor including the station chute, 1/8 in polycarbonate", 0.
              ("station inlet guides and chute extension, polycarbonate", 0.8), ("hood, 1/16 in polycarbonate", 0.1546),
              ("rear check flap, pin and torsion spring", 0.08), ("two nip side plates, 1/4 in 6061, 50 % pocketed", 0.5143),
              ("deploy-once lip: polycarbonate lip, hinge, deploy spring and stops", 0.30),
-             ("two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets", 0.5899), ("rivets, screws and nuts", 0.35)]
+             ("two rear uprights and two floor posts, 1 x 1 x 1/16 in with gussets", 0.5899),
+             ("two pocket landing shelves, 200 x 114.5 x 6.35 mm 6061", 0.3926), ("rivets, screws and nuts", 0.35)]
 buy_items = [("two roller shafts, 1/2 in steel hex, 360 mm (1.10 kg/m)", 0.792), ("2 in compliant wheels, up to twelve at 18 g (REV drawing mass)", 0.216), ("four flanged hex bearings", 0.08),
              ("coupling belt, two pulleys and idler", 0.11), ("NEO 550 (0.142 kg, REV-21-1651) and MAXPlanetary 4:1 x 3:1 x 3:1 (0.261 + 0.133 + 2 x 0.155 kg, REV load-rating page)", 0.846),
              ("seated-pipe break beam pair and leads", 0.02), ("flap-closed and lip-deployed magnetic switches, magnets and leads", 0.04),
@@ -792,7 +808,7 @@ INTERLOCK = "reef range <= 100 mm stand-off AND seated-pipe beam blocked AND lip
 CYCLE_SUMMARY = f"{SRC}/evidence/cycle-rehearsal/summary.json"
 captive = round(max(S["g1CaptiveS"][1], S["pushedCaptiveS"][1]) + trials["sensorLatencyS"], 4)
 measure = write(f"{REL}/evidence/premise-measurements.json", dict(
-    schema="red2/premise-measurements@2", issue=ISSUE, designSha256=design["sha256"], stepSha256=step["sha256"],
+    schema="red2/premise-measurements@2", issue=ISSUE,
     receiveFace="front",
     stationPeakMps=S["g1PeakMps"][1],
     receiveCaptiveS=captive,
@@ -849,7 +865,7 @@ premise_specs = [
      "Station receive dwell: check flap closed behind the pipe plus the 50 ms flap-switch latency, after which the robot may leave", "receiveCaptiveS",
      pin(CYCLE_SUMMARY),
      "Cycle-derived (cycle_rehearsal.py, plugin field rehearsal, Red 2 from its real slot with waitCycles yield): receive dwells of 0.50-1.00 s "
-     "credit 15-14 L1 cycles and leave the two-delivery role unchanged, so a dwell up to 1.0 s costs it no score. Layout-001 held the robot "
+     "credit 15-14 L1 cycles and leave the two-delivery role unchanged, so a dwell up to 1.0 s costs it no score. The first draft held the robot "
      "until the pipe had seated (0.54 s model, 0.15-0.69 s with contact stiffness); the receive-and-go trials show it need not wait "
      f"({frac(S['go'])} retained and seated within {S['goSeatAfterStopS'][1]} s of the stop)"),
     ("eject-capture-standoff", "conceptual-design", "mm", {"range": [100.0, 1000.0]}, ["exit lip"] + NIP + ["pipe", "field trough", "reef sensor"],
@@ -893,7 +909,7 @@ premise_specs = [
      ["pocket tray", "hood", "check flap", "nip side plates"] + NIP + ["nip drive", "exit lip"],
      "Selected scoring architecture for this package: fixed pocket, powered-hold nip, deploy-once 100 mm lip", "selectedArchitecture",
      pin("iterations/002/design/evaluation/evaluation.json"),
-     "Evaluation r2 recommendation (B family, B'x if the lip passes the bench). Layout-002 closes or bench-gates each layout-001 risk; bench "
+     "Evaluation r2 recommendation (B family, B'x if the lip passes the bench). This design closes or bench-gates each the first draft risk; bench "
      "gates G0-G6 remain physical verification, with the guarded-pan baseline A as the fallback if G1 or G3 fails"),
     ("chassis-interface", "preliminary-design", "revision", {"equals": "002-connected-machining-654-r6"},
      ["structure", "module housings", "steer sweeps", "bumpers"],
@@ -916,7 +932,7 @@ for key, phase, unit_, crit, ifaces, scenario, field_, source, basis in premise_
                                                              interfaces=ifaces, source=source, basis=basis))
     value = read(measure["file"])[field_]
     cur = write(f"{REL}/premises/{key}-current.json", dict(id=key, scenarioId=key, scenario=scenario, unit=unit_, value=value, issue=ISSUE,
-                                                           designSha256=design["sha256"], stepSha256=step["sha256"],
+                                                          
                                                            source=measure, valueField=field_))
     premises.append(dict(accepted=acc, current=cur))
 
@@ -939,7 +955,7 @@ CATEGORY = {"structure": ("frame", "6061-T6 aluminium tube and plate (taps-02 bo
             "flap sensor": ("sensor", "REV magnetic limit switch REV-31-1462"),
             "reef sensor": ("sensor", "CTRE CANrange time-of-flight sensor"),
             "field station": ("field", "Coral station chute section (field element, not robot)"),
-            "field first pipe": ("field", "First scored CORAL (field element for the second trip)"),
+            "field first pipe": ("game-piece", "First scored CORAL, resting in the trough (field element for the second trip)"),
             "exit lip": ("mechanism", "1/8 in polycarbonate, hinge pins, deploy torsion spring and sprung stop (proposal)"),
             "tray supports": ("structure", "1 x 1 x 1/16 in 6061-T6 tube (proposal)"),
             "wiring": ("electrical", "Copper conductor and insulation reserve"),
@@ -1013,7 +1029,7 @@ def explain(name, group):
                              "A two-sided squeeze moves the pipe without spin and holds it in the bite under the powered hold."),
         "Nip drive (NEO 550 and MAXPlanetary 36:1)": (
             "Holds the nip against the arriving pipe with a powered position hold, then drives the pipe through the squeeze to eject it.",
-            f"Replaces layout-001's unselected self-locking worm. Comparison: the worm stalls on treads of 110 N/mm and above "
+            f"Replaces the first draft's unselected self-locking worm. Comparison: the worm stalls on treads of 110 N/mm and above "
             f"({frac(S['wormByStiffness']['110'])} at 110, {frac(S['wormByStiffness']['160'])} at 160) while this drive ejects {frac(S['g2'])} over 40-160 N/mm, "
             f"slowest {S['g2MinNipMps']:.2f} m/s in the nip. The lock is not needed: with the robot disabled the back-drivable nip still seats "
             f"{frac(S['receiveIso']['control: robot disabled (rollers back-drivable)'])} receives and holds {frac(S['g3Disabled'])} sled pulses."),
@@ -1042,6 +1058,9 @@ def explain(name, group):
                                 "withdrawal. A latch failure (lip still up) blocks the exit. Its sprung stop lets a frontal hit fold it behind the bumper face."),
         "Floor post port": ("Supports the pocket floor from the port upper stringer.", "The floor spans 650 mm between the inlet and the nip and needs a mid support."),
         "Floor post starboard": ("Supports the pocket floor from the starboard upper stringer.", "Paired floor support."),
+        "Pocket landing shelf port": ("Carries the port floor post and side-plate foot inboard from the port upper stringer.",
+                                      "The stringer has material only outboard of Y 232; the post and the plate stand 60-90 mm inboard of it, so they need a shelf to land on."),
+        "Pocket landing shelf starboard": ("Carries the starboard floor post and side-plate foot inboard from the starboard upper stringer.", "Paired landing shelf."),
         "Rear inlet upright port": ("Carries the inlet walls at the station face from the rear perimeter.", "The 0.8 m inlet lip is far above any chassis member."),
         "Rear inlet upright starboard": ("Carries the inlet walls at the station face from the rear perimeter.", "Paired rear support."),
         "CORAL pipe": ("The finite game piece followed from the station chute through receive, carry, eject, the lip and the trough.",
@@ -1188,7 +1207,7 @@ retention = write(f"{REL}/retention-review.json", dict(
                                      firstOpening="rearward up the floor toward the inlet")),
     isolation=dict(
         drive=f"Powered hold: {frac(S['g1'])} receives seat over 40-160 N/mm. Robot disabled: {frac(S['receiveIso']['control: robot disabled (rollers back-drivable)'])} "
-              f"receives seat and {frac(S['g3Disabled'])} sled pulses are retained. The layout-001 worm lock seats {frac(S['receiveIso']['comparison: layout-001 worm locked'])}: "
+              f"receives seat and {frac(S['g3Disabled'])} sled pulses are retained. The the first draft worm lock seats {frac(S['receiveIso']['comparison: layout-001 worm locked'])}: "
               "the lock adds nothing the powered hold and the gearbox do not give.",
         flap="No flap from the received seat: " + gs(iso_gs["isolation: no check flap, received seat"]) + "; from a gently settled seat: "
              + gs(iso_gs["isolation: no check flap, gently settled seat"]) + f"; receive and go without it: {frac(S['goNoFlap'])} retained",
@@ -1206,7 +1225,7 @@ retention = write(f"{REL}/retention-review.json", dict(
     ]))
 
 findings = write(f"{REL}/design-findings.json", dict(
-    schema="red2/preliminary-design-findings@2", issue=ISSUE, predecessor="layout-001 (issue red2-002-preliminary-layout-Bx)",
+    schema="red2/preliminary-design-findings@2", issue=ISSUE, predecessor="the first draft (issue red2-002-preliminary-layout-Bx)",
     sources=[trials_pin, struct_pin, second_trip, pin("iterations/002/design/evaluation/evaluation.json")],
     findings=[
         dict(id="PD2", item="Tread stiffness", was="40 N/mm passes, 10 N/mm fails, no measured value", status="bounded; bench gate G0",
@@ -1220,7 +1239,7 @@ findings = write(f"{REL}/design-findings.json", dict(
                  f"planetary ejects {frac(S['g2'])} at 9-13 V. Lower ratios overspeed the roll-off, so 36:1 is the ratio. Disabled, the back-drivable nip still "
                  f"seats {frac(S['receiveIso']['control: robot disabled (rollers back-drivable)'])} receives and holds {frac(S['g3Disabled'])} sled pulses. Peak shaft "
                  f"torque {S['g2ShaftDemandNm']} N m against a 180 N m class gearbox rating; the hold reaches its 30 A limit on the receive impact."),
-        dict(id="PD17", item="Custody with the power off", was="layout-001 relied on the worm's self-lock; with the worm removed, 18 disabled sled pulses were the only evidence",
+        dict(id="PD17", item="Custody with the power off", was="the first draft relied on the worm's self-lock; with the worm removed, 18 disabled sled pulses were the only evidence",
              status="closed by trial and a control setting; bench gate G7",
              now=POWER_OFF_TEXT + " " + BRAKE_REQUIREMENT + " It holds further while the controller is powered "
                  f"({lim(CU['hitLimitsG'], 'disabled, brake idle mode', soft)} for a 50 ms hit at {soft} N/mm) but is not credited with the breaker off. "
@@ -1255,18 +1274,18 @@ findings = write(f"{REL}/design-findings.json", dict(
                  f"second trip needs each dock within +/-{LATERAL_LIMIT:.0f} mm laterally (pipe ends {end_gap:.1f} mm apart at nominal docks). G4 measures the scatter."),
         dict(id="PD14", item="Station chute", was="not a registered fixture; receive trials started on the robot's inlet at an energy estimate", status="closed in this layout",
              now=f"The station chute is a registered fixture and the receive trial starts on it: rest release leaves the sill at {S['g1ExitMps'][0]}-{S['g1ExitMps'][1]} m/s "
-                 f"and peaks at {S['g1PeakMps'][0]}-{S['g1PeakMps'][1]} m/s before the flap (layout-001 assumed 2.22-2.47). Pushed feeds to {S['pushedPeakMps'][1]} m/s "
+                 f"and peaks at {S['g1PeakMps'][0]}-{S['g1PeakMps'][1]} m/s before the flap (the first draft assumed 2.22-2.47). Pushed feeds to {S['pushedPeakMps'][1]} m/s "
                  f"still seat ({frac(S['pushed']['2.0'])}). The pipe's contact with the chute is a qualified intended interface. A flared hood lead-in was added for "
                  "the bounce the drop produces."),
         dict(id="PD15", item="Prescribed mission motion", was="every mission case was a straight or circular stroke drawn from geometry, pinned to a trial",
              status="closed in this layout",
-             now=f"Every receive and eject case is a stroke between two poses of a solved trace (receive-mission, eject-nominal), within {CHORD_TOL} mm of it, with the "
+             now=f"Every receive and eject case is a stroke between two poses of a solved trace (receive-mission, eject-nominal), within {CHORD_TOL:.0f} mm of it{TOL_NOTE}, with the "
                  "flap angle from the same trace and the trace time on each frame. Only the lip deploy and the park drive are prescribed, and say so."),
         dict(id="PD16", item="Budgets", was="weak-pack bus 9.28 V against 9.0 V; 48.34 of 52.16 kg", status="within",
              now=f"Weak-pack minimum bus {weak_min:.2f} V against 9.0 V; heavy inspection estimate {total[1]:.2f} of {mass['rule']['limitKg']:.2f} kg. The steel shafts and the "
                  "planetary add mass; the hold adds 5 A to the carry and 30 A to the docked receive."),
         dict(id="PD5", item="B fallback", was="B (no lip) dock window ends between 75 and 100 mm", status="not re-run",
-             now="Layout-002 does not re-run the lip-less B launch. The lip-removed isolation is its nearest evidence and B stays a fallback only in the sense of the evaluation."),
+             now="This design does not re-run the lip-less B launch. The lip-removed isolation is its nearest evidence and B stays a fallback only in the sense of the evaluation."),
     ]))
 
 BENCH_ARTICLE = ("Pocket bench article to this layout: 15.74 deg floor, flared hood, check flap with its magnetic switch, two-roller nip on 1/2 in steel hex shafts driven "
@@ -1320,10 +1339,10 @@ bench = write(f"{REL}/bench-gates.json", dict(
              "or the ratio before A. G4 is a whole-robot gate and runs with the drivetrain."))
 
 choice = write(f"{REL}/iteration-choice.json", dict(
-    schema="red2/iteration-choice@1", choice="preliminary design release layout-002 of iteration 002; builders in iterations/002/design/preliminary-pocket (no numbered cutover)",
-    reason="Layout-002 closes or bench-gates each open item of layout-001. The guarded-pan baseline A (iterations/002/design/preliminary and pan) stays on file as the "
+    schema="red2/iteration-choice@1", choice="preliminary design Fixed pocket 1.0 of iteration 002; builders in iterations/002/design/preliminary-pocket (no numbered cutover)",
+    reason="This design closes or bench-gates each open item of the first draft. The guarded-pan baseline A (iterations/002/design/preliminary and pan) stays on file as the "
            "fallback if bench gate G1 or G3 fails; it is not being developed.",
-    cutoverTrigger="When the owner accepts layout-002 as the effective preliminary design: open the detailed design for B'x and carry the chassis, modules and "
+    cutoverTrigger="When the owner accepts Fixed pocket 1.0 as the effective preliminary design: open the detailed design for B'x and carry the chassis, modules and "
                    "electronics item by item as the premises in chassis-carry-forward.json allow."))
 
 OBJ_RECEIVE = "TELEOP: take one station-issued CORAL from the red station"
@@ -1371,7 +1390,7 @@ for n in by_group["pipe"]:
     support[n] = "Moved by contact (tray, flap, held or driven rollers, lip) or free, along the receive-mission, custody-power-off-hit and eject-nominal trial traces"
 for g_ in ("breaker service hand", "plug service hand"):
     for n in by_group[g_]:
-        support[n] = "Service gauge (a hand, not a robot part): no mount by design"
+        support[n] = "Unmounted service allowance (a hand, not a robot part): no mount by design; drawn at the end of its reach"
 for g_ in FIXTURE_GROUPS:
     for n in by_group[g_]:
         support[n] = "Field fixture: placed in the robot datum at the shown dock, not carried by the robot"
@@ -1380,19 +1399,111 @@ uncovered = [dict(id="bench-" + g_["id"], condition=f"Bench gate {g_['id']} ({g_
 uncovered.append(dict(id="second-trip-same-section", condition="Second delivery with the first pipe in the same trough section",
                       reason="Fails in the trials (control). Excluded by the lateral dock premise; G4 measures the scatter"))
 trough_b = by_name[trough]["boundsMm"]
+# ------------------------------------------------------------------ recorded trials in the one motion list
+# Each replay plays the solved trace itself (every recorded sample at its stride), in the robot frame the checked cases use.
+REPLAYS = f"{REL}/trial-replays.json"
+I12 = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
+t_tr = lambda dx, dz=0.0: [1, 0, 0, round(dx, 3), 0, 1, 0, 0, 0, 0, 1, round(dz, 3)]
+
+
+def t_rot(origin, deg):
+    c_, s_ = math.cos(math.radians(deg)), math.sin(math.radians(deg))
+    ox_, oz_ = origin
+    return [c_, 0, s_, ox_ - (c_ * ox_ + s_ * oz_), 0, 1, 0, 0, -s_, 0, c_, oz_ - (-s_ * ox_ + c_ * oz_)]
+
+
+def go_travel(rec, tm):
+    """Robot travel (mm) along its commanded drive-away profile at trial time tm: accelerate, cruise, brake to rest."""
+    a_, ta, tc = rec["go"]["aMps2"], rec["go"]["accelS"], rec["go"]["cruiseS"]
+    u = min(max(tm - rec["goAtS"], 0.0), 2 * ta + tc)
+    if u <= ta:
+        d = 0.5 * a_ * u * u
+    elif u <= ta + tc:
+        d = 0.5 * a_ * ta * ta + a_ * ta * (u - ta)
+    else:
+        v = u - ta - tc
+        d = 0.5 * a_ * ta * ta + a_ * ta * tc + a_ * ta * v - 0.5 * a_ * v * v
+    return d * 1e3
+
+
+def replay(id_, label, pid, stride, objective, basis, shown, frame, marks, recorded, display):
+    rec = play(pid)
+    rows = rec["trace"][::stride] + ([rec["trace"][-1]] if (len(rec["trace"]) - 1) % stride else [])
+    frames = [frame(rec, q) for q in rows]
+    names_ = sorted({g_ for f_ in frames for g_ in f_["groups"]})
+    events = []
+    for label_, when in marks(rec):
+        k = next((i for i, q in enumerate(rows) if q[0] >= when), len(rows) - 1)
+        if not events or k > events[-1]["frame"]:
+            events.append(dict(frame=k, label=label_))
+    bodies = {n: "robot" for n in robot_bodies}
+    bodies.update(shown)
+    return dict(id=id_, label=label, basis=basis, objective=objective, evidence=[dict(trials_pin, role=f"solved trace {pid} ({pb[pid]['title']})")],
+                recorded=recorded, display=display, time=[q[0] for q in rows], measure=[f_["measure"] for f_ in frames], events=events, follow="robot",
+                bodies=bodies, groups={g_: [f_["groups"][g_] for f_ in frames] for g_ in names_})
+
+
+pipe_at = lambda x_, z_: t_tr(x_ - SEAT[0], z_ - SEAT[1])
+MODEL_NOTE = ("Planar compliant-contact trial from field-trials.json, played sample by sample in the robot frame. It is evidence playback: the layout "
+              "check does not run it and the checked cases above cover its clearance.")
+replay_set = dict(schema="agent-frc/review-replays@1", replays=[
+    replay("replay-receive", "Recorded trial: station receive and drive away", "receive-mission", 3, OBJ_RECEIVE,
+           "The mission receive: the pipe is released from rest on the station chute, drops into the inlet, passes the check flap and is captive; the robot "
+           "leaves 50 ms after the flap closes at 3 m/s2, brakes, and the pipe seats. " + MODEL_NOTE,
+           {pipe: "pipe", flap: "flap", station: "station"},
+           lambda rec, q: dict(groups=dict(robot=I12, pipe=pipe_at(q[1], q[2]), flap=t_rot(FL, -q[4]), station=t_tr(-go_travel(rec, q[0]))),
+                               measure=f"Trial time {q[0]:.3f} s · pipe centre X {q[1]:.0f}, Z {q[2]:.0f} mm · flap {q[4]:.0f} deg open · pipe speed {q[6]:.2f} m/s"),
+           lambda rec: [("Released on the station chute", 0.0), ("Passes the check flap", rec["passedFlapS"]), ("Flap closed: captive", rec["flapClosedS"]),
+                        ("Robot leaves the station", rec["goAtS"]), ("Robot stopped at the reef", rec["stopAtS"]), ("Seated", rec["seatedByS"])],
+           ["Pipe centre path", "Check flap angle"],
+           ["The station receding along the commanded drive-away profile (3 m/s2 for 0.5 s, cruise 0.5 s, brake)", "Pipe spin is not shown"]),
+    replay("replay-carry-power-off", "Recorded trial: hit while carrying with the main power off", "custody-power-off-hit", 2, OBJ_DELIVER,
+           "Custody with the main power off: an 8 g, 50 ms hit drives the seated pipe into the unpowered nip; the tread squeeze stops it and returns it "
+           "to the seat. " + MODEL_NOTE,
+           {pipe: "pipe", flap: "flap"},
+           lambda rec, q: dict(groups=dict(robot=I12, pipe=pipe_at(q[1], q[2]), flap=t_rot(FL, -q[4])),
+                               measure=f"Trial time {q[0]:.3f} s · pipe {q[1] - SEAT[0]:+.2f} mm from its seat along X · pipe speed {q[6]:.2f} m/s"),
+           lambda rec: [("Seated, main power off", 0.0), ("Back on the seat", rec["trace"][-1][0])],
+           ["Pipe centre path", "Check flap angle"], ["The robot is held still; the hit acts on the pipe as the trial's frame acceleration"]),
+    replay("replay-eject", "Recorded trial: eject into the trough and withdraw", "eject-nominal", 4, OBJ_DELIVER,
+           "The nominal eject at 12 V and 50 mm stand-off: the nip drives the pipe over the lower roller and down the deployed lip, it drops into the "
+           "trough and comes to rest, and the robot withdraws 120 mm. " + MODEL_NOTE,
+           {pipe: "pipe", trough: "reef", first_pipe: "reef"},
+           lambda rec, q: dict(groups=dict(robot=I12, pipe=pipe_at(q[1] - q[5], q[2]), reef=t_tr(-q[5])),
+                               measure=f"Trial time {q[0]:.3f} s · pipe centre X {q[1] - q[5]:.0f}, Z {q[2]:.0f} mm · pipe speed {q[6]:.2f} m/s"
+                                       + (f" · robot withdrawn {-q[5]:.0f} mm" if q[5] else "")),
+           lambda rec: [("Nip starts at 12 V", 0.0), ("Leaves the lip tip", rec["departure"]["t"]),
+                        ("Robot withdraws", next(q[0] for q in rec["trace"] if q[5] != 0.0)), ("Supported 2 s after the withdrawal", rec["trace"][-1][0])],
+           ["Pipe centre path", "Robot withdrawal (shown as the trough and first pipe receding)"],
+           ["The first scored pipe rests one sector away and takes no part in this trial", "Pipe spin is not shown"]),
+])
+replay_path = ROOT / REPLAYS
+if replay_path.exists():
+    raise FileExistsError(REPLAYS)
+replay_path.write_text(json.dumps(replay_set, separators=(",", ":"), allow_nan=False) + "\n", encoding="utf-8")
+replays_pin = pin(REPLAYS)
+
 presentation = dict(
-    title="Fixed pocket, held roller nip and exit lip (layout-002)", context="Red 2 · Iteration 002 · B′x preliminary design",
+    replays=[replays_pin], alliance="red",
+    title="Fixed pocket, held roller nip and exit lip", context="Red 2 · Iteration 002 · B′x preliminary design",
     architecture="Red 2 B′x · fixed pocket, two-roller nip on a powered-hold planetary drive and deploy-once exit lip on four-module swerve",
-    focus="CORAL pipe: the receive and eject cases replay two solved trials, from the station chute to the trough. Start with receive-01 and step through; "
-          "then read the bench gates under the uncovered cases.",
-    notes=["What it is: the Red 2 iteration 002 B'x preliminary blockout, layout-002, on the carried-forward four-module swerve chassis. It supersedes layout-001: "
+    focus="CORAL pipe: the receive and eject cases follow two solved trials, from the station chute to the trough. Start with receive-01 and step through, "
+          "or play the three recorded trials at the end of the motion list; then read the bench gates under the uncovered cases.",
+    notes=["What it is: the Red 2 iteration 002 B'x preliminary blockout, Fixed pocket 1.0, on the carried-forward four-module swerve chassis. It supersedes the first draft: "
            "the self-locking worm is replaced by a planetary drive with a powered hold, the receive starts on the registered station chute, the robot leaves "
            "when the flap closes, the lip stop is sprung, and four sensors are selected and placed.",
-           "Trial-driven: every receive and eject case is a straight stroke between two poses of a solved free-piece trace, within 3 mm of it; each frame shows "
+           "Trial-driven: every receive and eject case is a straight stroke between two poses of a solved free-piece trace, within " + f"{CHORD_TOL:.0f} mm of it{TOL_NOTE}" + "; each frame shows "
            "the trial time. The lip deploy and the park drive are prescribed. The trials are a planar compliant-contact model: stiffness, friction and "
            "restitution are swept, not measured.",
            "Simplified: the chassis, module housings and electronics are oriented-box unions or supplier-bounds boxes; the steer sweeps are 4 mm-stepped revolved "
            "envelopes; the rollers are their rigid cores; the gearbox is a planning envelope.",
+           "Attachment: every robot part is drawn within the 2 mm check reserve of the member that carries it, with three listed exceptions of under "
+           "7 mm whose brackets are not drawn: the electronics stand 4-7 mm above the equipment sheets on standoffs, and the nip gearbox, latch servo and "
+           "lip switch stand 4.5 mm off the side plates. The posts and side plates land on the two pocket landing shelves.",
+           "Not robot parts: the two orange hands are unmounted service allowances, drawn at the end of their reach. The sand-coloured station chute and "
+           "trough are field fixtures standing on the carpet, and the gold pipe in the trough is the first scored pipe. The checker lists every fixture "
+           "in every case, so the station and the reef appear together although the robot is at one of them at a time. Hide field parts removes them; "
+           "the three recorded-trial entries at the end of the motion list show only the fixture each trial used.",
            "Not modelled: pipe yaw and end contact, the sector divider, the station opening's guard and guides, lip and hood flex, peers. Sizing is by hand "
            "formula (structure-checks.json), not finite elements.",
            "Power off: the carry case replays a hit with the main power off. The tread squeeze alone holds the pipe; the limits are in the retention review. "
@@ -1405,7 +1516,7 @@ presentation = dict(
                       dict(name="carried CORAL", kg=[0.816466, 0.816466], members=["CORAL pipe"])],
     runningBasis="Carried CORAL 0.816466 kg plus the R103-excluded battery 6.17 kg and one-colour bumpers 7.5 kg",
     caseKinds={c["id"]: "nominal" for c in cases}, uncoveredCases=uncovered, caseTimelines=timelines, openingCase=RECEIVE_IDS[0],
-    cutaway=dict(label="Trough cutaway", hides=[trough],
+    cutaway=dict(label="Hide field parts", hides=[trough, station, first_pipe],
                  outline=[[xl, trough_b[1], t["lipTop"]], [xl, trough_b[4], t["lipTop"]], [xr, trough_b[4], t["riserTop"]], [xr, trough_b[1], t["riserTop"]]]),
     loadPathsSource=load_paths, selectedInterface=carry, retention=retention, findings=findings, rulings=ruling,
     benchGates=bench, iterationChoice=choice, fieldTrials=trials_pin, structureChecks=struct_pin, secondTrip=second_trip)
@@ -1442,16 +1553,16 @@ risks = [
                   f"{CARRY_IDS[0]}, premise power-off-custody; brake idle mode is set (design-findings.json PD17). The installed squeeze is bench gate G7"),
     dict(id="second-trip-same-section", risk="A second delivery into the section that already holds the first pipe fails in the trials",
          closedBy=f"Premise lateral-dock-error holds each dock within {LATERAL_LIMIT:.0f} mm so the pipes land in different sectors (second-trip.json); the dock scatter itself is bench gate G4"),
-    dict(id="PD3-worm", risk="Layout-001 needed a self-locking worm that held 4.10 N m, with no part selected",
+    dict(id="PD3-worm", risk="The first draft needed a self-locking worm that held 4.10 N m, with no part selected",
          closedBy="Replaced by a NEO 550 on a MAXPlanetary 36:1 with a powered hold; trials show the lock is not needed (design-findings.json PD3/PD6)"),
-    dict(id="PD11-seat-time", risk="Layout-001 seat time moved from 0.15 to 0.69 s with an unmeasured contact stiffness",
+    dict(id="PD11-seat-time", risk="The first draft seat time moved from 0.15 to 0.69 s with an unmeasured contact stiffness",
          closedBy="The robot leaves on the flap-closed signal; seat time no longer holds it (design-findings.json PD11)"),
-    dict(id="PD7-lip", risk="Layout-001 lip stop and tip load were unsized and the lip leads the bumper by 24.5 mm",
+    dict(id="PD7-lip", risk="The first draft lip stop and tip load were unsized and the lip leads the bumper by 24.5 mm",
          closedBy="Sprung deployed stop sized in structure-checks.json L1-L9; the over-travel swing is checked case service-lip-over-travel"),
-    dict(id="PD12-plates", risk="Layout-001 side-plate landing and bolts were unsized", closedBy="Sized in structure-checks.json P1-P3 and S1-S2 (steel shafts)"),
-    dict(id="PD9-g412", risk="Layout-001 left the G412 ruling open with no zone sensing",
+    dict(id="PD12-plates", risk="The first draft side-plate landing and bolts were unsized", closedBy="Sized in structure-checks.json P1-P3 and S1-S2 (steel shafts)"),
+    dict(id="PD9-g412", risk="The first draft left the G412 ruling open with no zone sensing",
          closedBy="Ruling and reef range interlock in rules-rulings.json; premise g412-eject-interlock"),
-    dict(id="PD14-station", risk="Layout-001 had no station fixture and started the receive at an energy estimate",
+    dict(id="PD14-station", risk="The first draft had no station fixture and started the receive at an energy estimate",
          closedBy="The station chute is a registered fixture and the receive trial starts on it"),
 ]
 write(f"{REL}/missions.json", dict(

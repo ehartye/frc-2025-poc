@@ -1,9 +1,9 @@
 # CB-1 · Windowed receiver carriage bridge
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 The 322 × 410 × 5 mm slide-base bridge is the heaviest individually identified part that travels with the lift. Its original 1.7823 kg budget exceeds the ported shelf's 1.578 kg. A 2–5 kg whole-robot miscellaneous allowance and a 1.8–3.9 kg grouped lift-drive allowance still have too little item-level evidence to reduce. CB-1 replaces a single verifiable body while keeping the overall outline and mating lands. The [545-body source assembly](../competition-package/shop-duplex/README.md) remains the registered field model.

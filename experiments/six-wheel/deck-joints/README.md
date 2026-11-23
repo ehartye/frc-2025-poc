@@ -1,9 +1,9 @@
 # Six removable ties capture the full-thickness deck
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 The installed 692 × 516 × 4 mm deck bears on two end tubes and both inner side rails. Previously it could lift away from all four supports. The proposed joint carries uplift from the plate through a steel washer and nut into a one-piece aluminum tie whose foot hooks both walls of each welded end tube. Two flats on an inboard lip stop the foot turning. The existing weld preparations and bumper screws survive. The receiver, battery tray and electronics still need their own attachment proofs. [Shop drawing](shop.svg) · [Named STEP](deck-through-ties.step) · [Native fit](fit.json)

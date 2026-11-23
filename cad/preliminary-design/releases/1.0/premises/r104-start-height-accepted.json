@@ -1,0 +1,42 @@
+{
+  "id": "r104-start-height",
+  "scenarioId": "r104-start-height",
+  "scenario": "R104: starting height of every robot reserve",
+  "unit": "mm",
+  "criterion": {
+    "range": [
+      0.0,
+      1066.8
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "battery",
+    "battery retention",
+    "bumpers",
+    "check flap",
+    "electronics",
+    "exit lip",
+    "flap sensor",
+    "hood",
+    "lip latch",
+    "lip sensor",
+    "lower nip roller",
+    "module housings",
+    "nip coupling",
+    "nip drive",
+    "nip side plates",
+    "pipe sensor",
+    "pocket tray",
+    "reef sensor",
+    "steer sweeps",
+    "structure",
+    "tray supports",
+    "upper nip roller",
+    "wiring"
+  ],
+  "source": {
+    "file": "experiments/six-wheel/kickoff/rule-register-v0.json"
+  },
+  "basis": "42 in start height (register 'start-height', modeled)"
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "red2/rules-rulings@1",
+  "issue": "fixed-pocket-1.0",
+  "register": {
+    "file": "experiments/six-wheel/kickoff/rule-register-v0.json"
+  },
+  "edition": "Register 'Kickoff V0' (2025-01-04 release-day packet, experiments/six-wheel/kickoff/rule-register-v0.json)",
+  "rulings": [
+    {
+      "rule": "R102 / R105 (register id 'extension': 'The starting projection and the 18-inch extension limit refer to the perimeter.')",
+      "verdict": "complies",
+      "facts": {
+        "deployedProjectionMm": 100.0,
+        "limitMm": 457.2,
+        "marginMm": 357.2,
+        "startProjectionMm": 0.0,
+        "stowedLipMaxXMm": 369.0,
+        "stowedLipInsideFrameMm": 1.0,
+        "deploySwingMaxProjectionMm": 108.989,
+        "startHeightMm": 886.708,
+        "startHeightLimitMm": 1066.8
+      },
+      "basis": "The deployed lip is the only member beyond the frame perimeter: its tip is 100.0 mm out (the swing passes 109.0 mm momentarily while deploying), inside the register's 18 in (457.2 mm) limit, in one direction. In the starting configuration the lip is folded up with its forward-most point 1.0 mm inside the frame face, so no robot reserve projects beyond the front face, and the start height is 886.7 mm against the register's 42 in (R104, modeled).",
+      "open": [
+        "The register marks 'extension' unmodeled (no numeric field); the 18 in figure is its statement text. Confirm the measurement datum against the event's manual revision and measure the as-built deployed tip at inspection."
+      ]
+    },
+    {
+      "rule": "G412 (register id 'launch': 'A launched CORAL requires a bumper partially in its own reef zone.')",
+      "verdict": "complies by interlock",
+      "facts": {
+        "reefZoneFaceToFaceMm": 2374.9,
+        "reefFaceToFaceMm": 1663.7,
+        "zoneTapeOutsideReefFaceMm": 355.6,
+        "acceptedStandOffMaxMm": 100.0,
+        "bumperInsideZoneAtMaxStandOffMm": 255.6,
+        "rollOffDepartureMps": [
+          0.495,
+          1.591
+        ],
+        "rangeSensor": "CTRE CANrange, 1 mm resolution, 100 Hz short-range mode",
+        "rangeAtMaxStandOffMm": 179.5,
+        "manualEditionRead": "final 2025 manual (HTML), sections 5.2, 5.3 and G412; the V0 archive would not download on 2026-11-22"
+      },
+      "basis": "Final-manual text: the REEF ZONE is 'an infinitely tall 6-sided, 7 ft. 9 1/2 in. wide (face to face)' volume around a '5 ft. 5 1/2 in.' hexagonal REEF and includes its tape, so the tape's outer edge is (93.5 - 65.5) / 2 = 14.0 in (355.6 mm) outside the reef face. G412: 'A ROBOT may not launch CORAL unless their BUMPERS are partially in their REEF ZONE'; a CORAL is launched if it is 'shot into the air, kicked across the floor ... or thrown in a forceful way'. The roll-off leaves the lip at 0.49-1.59 m/s and drops about 90 mm, so it is arguably a placement, but this package does not rely on that reading. It complies by interlock: the nip runs forward only when the reef range sensor reads a stand-off of 100 mm or less, the seated-pipe beam is blocked and the lip-deployed switch is closed. At 100 mm stand-off the front bumper face is at least 255.6 mm inside the zone tape, so a robot close enough to score is in the zone with 255 mm to spare for range error, bumper wear and the trough's offset from the reef face.",
+      "interlock": "reef range <= 100 mm stand-off AND seated-pipe beam blocked AND lip-deployed switch closed",
+      "open": [
+        "The trough lip's horizontal offset from the reef base face is not in the manual text; confirm it on the field STEP. It cannot exceed the 248 mm trough depth, and the margin is 255.6 mm",
+        "Confirm the V0 wording against the final edition when the V0 archive is reachable (the register's own statement matches)",
+        "Bench gate G5 measures the range sensor against the real trough face"
+      ]
+    }
+  ],
+  "consequence": "The lip complies with R102/R105 and the eject complies with G412 by interlock on three placed sensors. Sensor behaviour is bench gate G5."
+}

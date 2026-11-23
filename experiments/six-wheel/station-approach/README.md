@@ -1,9 +1,9 @@
 # Opening AUTO with wheel calibration error
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 **Select the reserved south-lane leave and park before the match if station alignment is unavailable.** In the desktop trial the red robot travels 543 mm, settles in 2.56 s and holds with its carriage stowed. This preserves a conditional opportunity for three LEAVE points and two PARK points. It gives up both station feeds and both L1 placements, worth four points on the earlier nine-point clock. A partial stop never authorizes a feed, continuation toward the station or automatic scoring. The earlier field replay shows the same lane and endpoints with its original 1.345 s drive. Select “Stop closer to the tape” to inspect the cages and partner positions. [Open the field replay](../leave-park/replay.html)

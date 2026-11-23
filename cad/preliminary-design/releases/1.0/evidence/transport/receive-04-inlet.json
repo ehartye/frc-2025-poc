@@ -1,0 +1,73 @@
+{
+  "schema": "red2/trial-path@2",
+  "issue": "fixed-pocket-1.0",
+  "transport": {
+    "case": "receive-04-inlet",
+    "payload": "pipe",
+    "mechanisms": [
+      "pocket tray"
+    ],
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            123.12,
+            0.0,
+            -12.550000000000068
+          ]
+        }
+      ]
+    },
+    "initialPose": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            -528.15,
+            0.0,
+            146.62
+          ]
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+  },
+  "playback": "receive-mission",
+  "traceWindowS": [
+    0.68,
+    0.748
+  ],
+  "maxDeviationFromTraceMm": 5.495,
+  "endSnapMm": 0.0,
+  "chordToleranceMm": 10.0,
+  "qualification": {
+    "result": "pass",
+    "control": {
+      "condition": "Check flap removed, same receive and go: 0/2 retained",
+      "rejected": true
+    },
+    "brackets": [
+      {
+        "input": "tread stiffness per roller",
+        "unit": "N/mm",
+        "passing": 20,
+        "failing": 10
+      },
+      {
+        "input": "check flap",
+        "unit": "present",
+        "passing": 1,
+        "failing": 0
+      }
+    ],
+    "timestep": {
+      "coarseS": 4e-05,
+      "fineS": 2e-05,
+      "sameOutcome": true
+    }
+  },
+  "basis": "The pipe lands and rolls on the fixed tray under gravity. The stroke joins two poses of the solved free-piece trace and stays within the recorded deviation of it; the trace, its control and its half-timestep repeat are in field-trials.json."
+}

@@ -1,9 +1,9 @@
 # Inspection mass for the fixed-height swerve build
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 The drawing build reaches **51.993 kg under R103** with the repaired rear electronics installed, leaving **170 g** of calculated headroom. Including the 7.5 kg bumper upper gives **59.493 kg under R408**, 1.742 kg below the project limit. Both keep the full original 2–5 kg unitemized allowance, all eight controllers, the isolated lift wiring, the longer motor phase extensions, purchased-module receiving ranges and every frame/weld allowance. The baseline four-module design with long supply wiring remains 3.650 kg overweight. [Source bill](../power/installed.json) · [Reopened CAD measurements and eleven comparisons](recipe.json)

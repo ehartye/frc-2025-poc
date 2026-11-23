@@ -1,9 +1,9 @@
 # Can the receiver tell whether both belts actually moved?
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 At 580 ms the receiver asks its two belts to help seat the pipe. On the original 850 mm guide, a good left feed and a completely stalled drive gave the same Entry and Seat readings until 1,100 ms. The two **passive front idlers** provide an earlier observation. Each turns when its own timing belt advances, even though neither sensor sees the pipe. On the desktop, both locked-belt trials went neutral at **640 ms**, 700 ms before the issued controller's timeout. [Original port evidence](../split-guide-acquisition/README.md) · [Replayed results](qualification.json)

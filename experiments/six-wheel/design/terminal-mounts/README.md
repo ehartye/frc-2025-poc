@@ -1,9 +1,9 @@
 # Lower lift stop mounts
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 **Retain the two-locknut bracket for a captive fixture. The proposed dampers fail two fault cases.** A single MC225EUM would absorb 43.92 J from the upper CB-1 load case, above its 41 J rating. At the normal 0.253 m/s approach, the balanced full-stroke calculation gives 28.40 kg effective mass per damper, above the 25 kg catalog limit. Placement also uses 10.2 mm of the 12.7 mm stroke before a fault starts. The robot still needs an independently qualified midtravel arrest and supported service. [Terminal cases](study.json) · [Earlier failure and service analysis](../lift-arrest/README.md)
