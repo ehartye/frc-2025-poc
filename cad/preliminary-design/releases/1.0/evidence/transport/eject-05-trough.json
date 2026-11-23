@@ -1,0 +1,76 @@
+{
+  "schema": "red2/trial-path@2",
+  "issue": "fixed-pocket-1.0",
+  "freePath": {
+    "case": "eject-05-trough",
+    "payload": "pipe",
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            38.91999999999996,
+            0.0,
+            -24.94999999999999
+          ]
+        }
+      ]
+    },
+    "initialPose": {
+      "CORAL pipe": [
+        {
+          "kind": "translation",
+          "travelMm": [
+            229.58000000000004,
+            0.0,
+            -91.10000000000002
+          ]
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+  },
+  "playback": "eject-nominal",
+  "traceWindowS": [
+    0.316,
+    0.368
+  ],
+  "maxDeviationFromTraceMm": 1.33,
+  "endSnapMm": 0.0,
+  "chordToleranceMm": 10.0,
+  "qualification": {
+    "result": "pass",
+    "control": {
+      "condition": "Latch failed, lip still stowed: 0/3 delivered; robot disabled: 0/1 delivered",
+      "rejected": true
+    },
+    "brackets": [
+      {
+        "input": "dock stand-off",
+        "unit": "mm",
+        "passing": 100,
+        "failing": 125
+      },
+      {
+        "input": "tread stiffness per roller",
+        "unit": "N/mm",
+        "passing": 160,
+        "failing": 240
+      },
+      {
+        "input": "lip tip beyond the frame line at 100 mm stand-off",
+        "unit": "mm",
+        "passing": 100,
+        "failing": 72
+      }
+    ],
+    "timestep": {
+      "coarseS": 4e-05,
+      "fineS": 2e-05,
+      "sameOutcome": true
+    }
+  },
+  "basis": "The pipe is in the field's trough: no robot mechanism touches it. The stroke joins two poses of the solved free-piece trace and stays within the recorded deviation of it; the trace, its control and its half-timestep repeat are in field-trials.json."
+}

@@ -1,36 +1,36 @@
-# Red 2 B′x preliminary design review inputs
+# Preliminary design: Fixed pocket
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
-This folder holds the inputs of each Red 2 B′x preliminary design release and the script that stages a release into the site. The repository is the project root of every layout check, so each pin is a path from the repository root.
+This folder holds the inputs of the robot's preliminary design and the script that publishes it to the site. One design, one folder, one review page: [Fixed pocket 1.0](releases/1.0/), in progress. An edit republishes the same version as its next draft.
 
-| Release | Status | What it is |
-| --- | --- | --- |
-| [layout-002](releases/layout-002/) | in progress | Fixed pocket, two-roller nip on a NEO 550 and MAXPlanetary 36:1 with a powered hold, deploy-once exit lip on a sprung stop, four placed sensors. 50 checked cases. |
-| [layout-001](releases/layout-001/) | superseded | The same pocket with a self-locking worm. Its build used scripts that were never committed, so it cannot be rebuilt; its inputs are kept here as issued. |
+| | |
+| --- | --- |
+| Architecture | Fixed pocket on four-module swerve. A station CORAL drops into a fixed pocket, a two-roller nip (NEO 550, MAXPlanetary 36:1, powered hold) stops and holds it, and a deploy-once exit lip rolls it off into the L1 trough. |
+| Review page | <https://ehartye.github.io/frc-2025-poc/preliminary-design/> |
+| Inputs | [`releases/1.0/`](releases/1.0/): `package.step`, `layout.json`, `paths.json`, `budgets.json`, `missions.json`, the trial records under `evidence/` and the saved `receipt.json` |
+| Builders | [`iterations/002/design/preliminary-pocket/`](../../iterations/002/design/preliminary-pocket/) |
+| Field | Official FIRST field parts under [`cad/field/official/`](../field/official/) |
 
-## Layout-002
+The design is in progress until the owner marks it effective. Print the readiness report with `node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/1.0 --design "Fixed pocket 1.0"`.
 
-- **Whole cycle.** The receive, carry and eject cases replay three solved free-piece trials: `receive-mission`, `custody-power-off-hit` and `eject-nominal` in [field-trials.json](releases/layout-002/evidence/field-trials.json). The lip deploy and the park drive are prescribed and say so.
-- **Custody with the power off.** The tread squeeze alone holds the seated pipe. With the main power off, the softest accepted tread (40 N/mm) keeps the pipe through 6 g sustained and a 16 g, 50 ms hit; it loses it at 8 g and 24 g. A robot that is not driving sees at most a 1.5 g stop and an 8 g hit. [Retention review](releases/layout-002/retention-review.json)
-- **Open risks.** Each is closed by a design change or carried as a bench test with pass and fail numbers: [bench gates G0 to G7](releases/layout-002/bench-gates.json), [design findings](releases/layout-002/design-findings.json). No bench article exists yet.
-- **Fallback.** The guarded-pan baseline A, if bench gate G1, G3 or G7 fails inside the tread band.
+## Rebuild, check and publish
 
-The design is in progress until the owner marks it effective. Print the checklist with `node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/layout-002`.
+`PLUGIN` is a copy of Agent FRC at the revision `.github/workflows/design-publication.yml` names as `AGENT_FRC_REF`. Use an installed copy or an archive of that commit, never a checkout another session can move. Use the CAD Python (OCP installed) with node on the path. Run every command from the repository root.
 
-## Rebuild, check and stage
+| Step | Command |
+| --- | --- |
+| Rebuild everything, check it and write the review page | `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN` |
+| Keep the recorded trials, rebuild the layout and check it | add `--layout-only` |
+| Keep the trials and STEP files, rewrite the records and check | add `--records-only` |
+| Rebuild the page after a presentation edit, no case rerun | add `--records-only --view-only` |
+| Publish the next draft | `python cad/preliminary-design/stage.py 1.0` |
+| Check what the repository publishes, as CI does | `node PLUGIN/scripts/design-publication.mjs check . --skip-rerun` |
+| Render the README still and refresh every README | `python scripts/preliminary-still.py .` then `python scripts/cad-readmes.py . --update` |
+| Review locally | `python cad/preliminary-design/serve.py`, then open `http://127.0.0.1:8000/` |
 
-The builders are in [`iterations/002/design/preliminary-pocket/`](../../iterations/002/design/preliminary-pocket/). `PLUGIN` is an Agent FRC checkout at the revision pinned as `AGENT_FRC_REF` in `.github/workflows/design-publication.yml`. Use the CAD Python (OCP installed) with node on the path.
-
-- Rebuild everything, check it and write the review view: `python iterations/002/design/preliminary-pocket/build_release.py PLUGIN --view cad/preliminary-design/releases/layout-002/package-motion.html`. A rebuilt STEP carries a new timestamp, so every pin after it changes.
-- Rewrite the records, receipt and view from the committed trials and STEP files: add `--records-only`.
-- Stage the checked release into the site: `python cad/preliminary-design/stage.py layout-002`.
-- Render the README still and refresh the READMEs: `python scripts/preliminary-still.py . layout-002 --update`, then `python scripts/cad-readmes.py . --template scripts/cad-orbit.html --update`.
-- Check what the repository publishes, as CI does: `node PLUGIN/scripts/design-publication.mjs check .`.
-- Review locally: `python cad/preliminary-design/serve.py`, then open `http://127.0.0.1:8000/`.
-
-The field parts in the review (station chute, trough sector and the first scored pipe) are motion-study fixtures in `field-fixtures.step`. They stay in the clearance checks and carry no robot mass. The stable index's link to the main robot page (`../`) resolves on the deployed site, where `preliminary-design/` sits under the season showcase.
+The builder caps the check and the trials at four workers; pass `--jobs N` or `--processes N` for another number.

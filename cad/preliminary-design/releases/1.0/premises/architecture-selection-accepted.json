@@ -1,0 +1,24 @@
+{
+  "id": "architecture-selection",
+  "scenarioId": "architecture-selection",
+  "scenario": "Selected scoring architecture for this package: fixed pocket, powered-hold nip, deploy-once 100 mm lip",
+  "unit": "architecture",
+  "criterion": {
+    "equals": "B'x"
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "pocket tray",
+    "hood",
+    "check flap",
+    "nip side plates",
+    "lower nip roller",
+    "upper nip roller",
+    "nip drive",
+    "exit lip"
+  ],
+  "source": {
+    "file": "iterations/002/design/evaluation/evaluation.json"
+  },
+  "basis": "Evaluation r2 recommendation (B family, B'x if the lip passes the bench). This design closes or bench-gates each the first draft risk; bench gates G0-G6 remain physical verification, with the guarded-pan baseline A as the fallback if G1 or G3 fails"
+}

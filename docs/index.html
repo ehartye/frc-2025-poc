@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 1780 · 2025 REEFSCAPE robot design</title>
+<style>
+:root{--paper:#f5f3eb;--card:#fffdf7;--ink:#152b30;--muted:#4d6165;--line:#b9c4c0;--link:#005b5a;--work:#7a4f00;--work-bg:#fff1c9;--old:#4f5b66;--old-bg:#e6e8e6}
+@media (prefers-color-scheme:dark){:root{--paper:#10191c;--card:#18242a;--ink:#e8eeec;--muted:#a6b5b5;--line:#34464c;--link:#7fd6cf;--work:#f3c665;--work-bg:#3a2e10;--old:#b3bec6;--old-bg:#27323a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.55 system-ui,sans-serif}
+header,main{max-width:62rem;margin:0 auto;padding:1.25rem clamp(1rem,4vw,3rem)}
+header{border-bottom:1px solid var(--line)}
+.eyebrow{margin:0;color:var(--muted);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h1{margin:.2rem 0 .8rem;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;text-wrap:balance}
+h2{margin:0 0 .4rem;font-size:1.3rem;line-height:1.2;text-wrap:balance}
+p{margin:.5rem 0;max-width:68ch;text-wrap:pretty}
+a{color:var(--link);text-underline-offset:.18em;overflow-wrap:anywhere}
+a:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:.2rem}
+nav{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem}
+section{margin:1.5rem 0;padding:1.25rem;border:1px solid var(--line);border-radius:.6rem;background:var(--card)}
+.status{display:inline-block;margin:0 0 .6rem;padding:.15rem .6rem;border-radius:1rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.work .status{background:var(--work-bg);color:var(--work)}
+.none .status{background:var(--old-bg);color:var(--old)}
+figure{margin:1rem 0 0}
+figure img{display:block;width:100%;height:auto;border-radius:.4rem;border:1px solid var(--line)}
+figcaption{margin-top:.6rem;color:var(--muted);font-size:.95rem;max-width:72ch}
+.open{display:inline-block;margin-top:.9rem;padding:.55rem 1rem;border-radius:.4rem;background:var(--link);color:var(--paper);font-weight:700;text-decoration:none}
+ul{margin:.5rem 0 0;padding-left:1.2rem}
+li{margin:.3rem 0}
+</style>
+</head>
+<body>
+<header>
+<p class="eyebrow">Team 1780 · 2025 REEFSCAPE</p>
+<h1>Robot design</h1>
+<nav aria-label="Project pages">
+<a href="preliminary-design/">Preliminary design review</a>
+<a href="detailed-design/">Detailed design status</a>
+<a href="field-lab.html">Earlier study: field lab</a>
+<a href="role-lab.html#roleLab">Earlier study: station routes</a>
+</nav>
+</header>
+<main>
+<section class="work" aria-labelledby="preliminary-title">
+<p class="status" id="preliminary-status">Preliminary design</p>
+<h2 id="preliminary-title">Fixed pocket: held roller nip and exit lip on four-module swerve</h2>
+<p>The current preliminary design is a whole-robot blockout that passed its layout check. It takes one CORAL from the station chute into a fixed pocket, holds it in a two-roller nip and rolls it off a deploy-once lip into the L1 trough. It is not a detailed design.</p>
+<figure>
+<a href="preliminary-design/"><img src="robot/fixed-pocket.png" width="1100" height="720" alt="Rendered three-quarter still of the Fixed pocket preliminary layout: a block-level swerve chassis carrying the empty fixed pocket, the roller nip with its planetary drive and the deployed exit lip."></a>
+<figcaption>Parked pose at the end of the withdraw-park case, lip deployed and pocket empty. Field parts, the delivered pipe and the two service hand gauges are hidden.</figcaption>
+</figure>
+<a class="open" href="preliminary-design/">Open the preliminary design review</a>
+</section>
+<section class="none" aria-labelledby="detailed-title">
+<p class="status">Detailed design</p>
+<h2 id="detailed-title">No detailed design is current</h2>
+<p>A detailed design will appear here when one is staged on an effective preliminary design. The earlier rough-draft showcase model is withdrawn.</p>
+<ul>
+<li><a href="detailed-design/">See the detailed design status</a></li>
+</ul>
+</section>
+</main>
+<script>
+// Name the current preliminary design from the release index, so this page never carries a stale version or status.
+fetch('preliminary-design/releases.json').then(r=>r.json()).then(index=>{
+  const id=index.current,status=index.designStatus?.[id];
+  if(!id||!status)return;
+  const name=index.designs?.[id.split('.')[0]]?.name,draft=index.revision?.[id]?.number;
+  const words={'in-progress':'in progress',effective:'effective',superseded:'superseded',withdrawn:'withdrawn'}[status]??status;
+  document.getElementById('preliminary-status').textContent=
+    ['Preliminary design',(name?name+' ':'')+id,status==='in-progress'&&draft?'draft '+draft:null,words].filter(Boolean).join(' · ');
+}).catch(()=>{});
+</script>
+</body>
+</html>

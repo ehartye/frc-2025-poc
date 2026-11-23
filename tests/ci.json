@@ -1,68 +1,15 @@
 {
   "schema": "agent-frc/project-checks@1",
+  "note": "The design publication check reruns the layout check of the published design. This is the one project check beside it. The archived six-wheel and swerve study tests under tests/ are kept as scripts and are no longer run in CI.",
   "checks": [
     {
-      "name": "CAD views and rendered README coverage",
+      "name": "README still: block below the title, image present, design and status named",
       "argv": [
         "python",
         "scripts/cad-readmes.py",
-        ".",
-        "--template",
-        "scripts/cad-orbit.html"
-      ],
-      "inputs": []
-    },
-    {
-      "name": "Preliminary design still and its published review scene",
-      "argv": [
-        "python",
-        "scripts/preliminary-still.py",
         "."
       ],
       "inputs": []
-    },
-    {
-      "name": "Matched field rules, series and live controls",
-      "argv": [
-        "node",
-        "--test",
-        "tests/kickoff-field.test.mjs",
-        "tests/reefscape-series.test.mjs",
-        "tests/live-field.test.mjs"
-      ],
-      "inputs": [
-        "kickoff/",
-        "experiments/six-wheel/",
-        "experiments/swerve-drive/",
-        "tests/",
-        "docs/robot/",
-        "scripts/",
-        "cad/"
-      ]
-    },
-    {
-      "name": "Season simulation and mechanical evidence regressions",
-      "argv": [
-        "python",
-        "-m",
-        "unittest",
-        "discover",
-        "-s",
-        "tests"
-      ],
-      "inputs": [
-        "tests/",
-        "experiments/",
-        "cad/",
-        "kickoff/",
-        "docs/",
-        "scripts/",
-        "controls/",
-        "sim/",
-        "project-layout.json",
-        "highlights.json",
-        "cad-showcase.json"
-      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-"""Build the B'x pocket preliminary package (layout-002): labeled reserves in the robot datum.
+"""Build the B'x pocket preliminary package (Fixed pocket 1.0): labeled reserves in the robot datum.
 
     python -I -B build_layout.py PROJECT_ROOT RELEASE_DIR PLUGIN_SCRIPTS FIELD_TRIALS_JSON
 
@@ -55,7 +55,7 @@ def sha(path):
 
 
 def pin(rel):
-    return {"file": rel, "sha256": sha(ROOT / rel)}
+    return {"file": rel}
 
 
 blocks, order = {}, []
@@ -337,7 +337,7 @@ add("Check flap", flap, group="check flap", role="mechanism",
 # --- pocket landing shelves
 # The upper pan stringers have material only outboard of Y 232 (top Z 489.5). The floor posts (Y 140-155) and the nip side
 # plates (Y 167-174) stand 60-90 mm inboard of them, so each side gets a 1/4 in shelf bolted on the stringer top that
-# reaches inboard under the post and the plate foot. Layout-002 first drew the posts and plates against the bounding box
+# reaches inboard under the post and the plate foot. An earlier draft drew the posts and plates against the bounding box
 # of the truss solid, where there is no member.
 STRINGER_TOP, STRINGER_INNER_Y, STRINGER_OUTER_Y = 489.5, 232.0, 251.5
 SHELF_Z0 = STRINGER_TOP + G
@@ -513,11 +513,11 @@ add("Coral station chute (field)", station[0], group="field station", role="othe
     missing=["Opening upper guard (7 in opening) and side guides (121.99 mm mouth in the field STEP) are not placed",
              "Sill datum: the V0 manual gives the opening sill at 37.5 in; the chute exit is taken on the wall's field face"])
 first = trials["eject"][next(p_["index"] for p_ in trials["playback"] if p_["id"] == "eject-nominal")]["finalFromLipMm"]
-fp = cylinder((xl + first[0], -SECTOR_PITCH - pg.PIPE_LENGTH / 2, first[1] + 0.0), (0, 1, 0), pg.R - 3.5, pg.PIPE_LENGTH)
+fp = cylinder((xl + first[0], -SECTOR_PITCH - pg.PIPE_LENGTH / 2, first[1] + 0.0), (0, 1, 0), pg.R - 2.5, pg.PIPE_LENGTH)
 add("First scored pipe in sector A (field)", fp, group="field first pipe", role="other",
     function="The first pipe at its trial rest pose in sector A while the robot docks at sector B for the second delivery",
     parent=f"field: the nominal eject rest pose, {SECTOR_PITCH:.0f} mm toward -Y (one sector pitch)", motion="field (second-trip cases only)",
-    bounds="Pipe cylinder at the trial rest pose, radius reduced 3.5 mm so its resting contact with the trough is not a clearance finding",
+    bounds="Pipe cylinder at the trial rest pose, radius reduced 2.5 mm so its resting contact with the trough keeps the check reserve and reads as resting on it",
     missing=["Sector divider between A and B", "Lateral dock error: the pipe ends are 169.4 mm apart at nominal docks (premise lateral-dock-error)"])
 
 # ================================================================ write STEP and manifest
@@ -542,7 +542,7 @@ for fname, pick_ in (("package.step", lambda n: blocks[n]["group"] not in FIXTUR
     step_path = OUT / fname
     assert not step_path.exists(), fname
     assert writer.Transfer(doc, STEPControl_AsIs) and writer.Write(str(step_path)) == IFSelect_RetDone
-# neighbours of every block new or moved in layout-002: exact distance to every other robot block
+# neighbours of every block new or moved since the first draft: exact distance to every other robot block
 NEW = ["Nip drive (NEO 550 and MAXPlanetary 36:1)", "Nip coupling belt", "Seated-pipe beam emitter (port)", "Seated-pipe beam receiver (starboard)",
        "Flap-closed switch", "Reef range sensor (CANrange)", "Hood (removable)", "Coral station chute (field)"]
 new_rows = []
@@ -592,7 +592,7 @@ manifest = dict(
                                        pocketGeometry=f"{SRC}/pocket_geometry.py",
                                        fieldTrials=TRIALS.relative_to(ROOT).as_posix(),
                                        trough="experiments/six-wheel/mission/target.json").items()},
-    generator={"file": f"{SRC}/build_layout.py", "sha256": sha(Path(__file__))},
+    generator={"file": f"{SRC}/build_layout.py"},
     fixtureGroups=list(FIXTURE_GROUPS), beamMm=list(BEAM), sectorPitchMm=SECTOR_PITCH, firstPipeFromLipMm=first,
     stationChute=dict(polylineMm=[list(p) for p in ch], dockGapMm=ft.NOMINAL_DOCK_GAP, halfWidthMm=STATION_HW),
     newBlockNeighbours=sorted(new_rows, key=lambda r: r["gapMm"])[:20],

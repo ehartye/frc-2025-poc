@@ -1,0 +1,22 @@
+{
+  "id": "lateral-dock-error",
+  "scenarioId": "lateral-dock-error",
+  "scenario": "Second trip: lateral dock error allowed at each reef sector so the second pipe lands beside the first, not on it",
+  "unit": "mm",
+  "criterion": {
+    "range": [
+      0.0,
+      84.69
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "pipe",
+    "field trough",
+    "field first pipe"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/evidence/second-trip.json"
+  },
+  "basis": "The pipe ends are 169.4 mm apart at nominal docks one sector pitch apart; they meet when both docks err 84.7 mm toward each other. The control requirement is +/-70 mm, which leaves 29.4 mm"
+}

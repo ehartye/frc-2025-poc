@@ -1,9 +1,9 @@
 # Fixed-height robot without match pneumatics
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 The fixed carriage uses two mast locks for vertical support. Wheel drive, slide motion and both grips are electric. The sole modeled air actuator released the former lift pawl. A dedicated fixed-height match build can omit the compressor, reservoir, two tank saddles, valve and regulator/gauge/dump assembly. The Pneumatic Hub stays on its original CAN and power branches. The ratchet, actuator reserve, ropes, drums, motor, wiring allocations and mechanical locks stay in the robot. The CAD and mass results assume a build with the air circuit absent. Disabling the compressor on a robot that still carries the kit saves no weight. [Fixed carriage](../fixed-height/README.md) · [Published power and isolation study](../../fixed-low-power/README.md)

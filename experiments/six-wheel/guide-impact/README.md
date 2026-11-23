@@ -1,9 +1,9 @@
 # Does the installed guide still seat the pipe?
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](../../../docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
+[![Fixed pocket 1.0, preliminary design](../../../docs/robot/fixed-pocket.png)](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** Red 2 B′x fixed pocket, held roller nip and exit lip on four-module swerve. Parked pose at the end of the withdraw-park case, with the exit lip deployed and the pocket empty. Whole-robot block-level layout from the layout-checked review scene: 67 representative solids, with the three field fixtures, the delivered pipe and two service hand gauges hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2025-poc/preliminary-design/) · [Layout-checked receipt · 83b3b9c7fe](../../../docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Fixed pocket 1.0, preliminary design · in-progress.** Whole-robot blockout on four-module swerve: fixed pocket, held two-roller nip and deploy-once exit lip. Parked pose at the end of the withdraw-park case, lip deployed and pocket empty; field parts, the delivered pipe and the two service hand gauges are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2025-poc/preliminary-design/)
 <!-- /cad-still -->
 
 **The nominal folded guides seat both signed arrivals on the machined shelf with fixed bilateral supports. Changing the carriage support changes the verdict.** On the joined two-stage carriage the original left approach faults at Java 1,020 ms, with the entry ray clear and only the seat ray returning. The recovery controller waits for the returning edge and probes again. At both 31.25 and 15.625 µs, the recovery program seats the left pipe at Java 1,340 ms and the right at 1,360 ms. Both hold through the scheduled 5,460 ms station check. The original and recovered programs produce the same complete right-hand trajectory at both clocks. [Matched mechanical and controller cases](results.json) · [Recovery controller and adverse inputs](../split-guide-acquisition/README.md)

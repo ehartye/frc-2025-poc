@@ -1,0 +1,137 @@
+{
+  "schema": "red2/premise-measurements@2",
+  "issue": "fixed-pocket-1.0",
+  "receiveFace": "front",
+  "stationPeakMps": 2.955,
+  "receiveCaptiveS": 0.342,
+  "ejectCaptureStandOffMaxMm": 100.0,
+  "lateralDockErrorLimitMm": 70.0,
+  "treadStiffnessNominalNmm": 80.0,
+  "powerOffSustainedG": 6.0,
+  "inspectionHeavyKg": 49.778035689654175,
+  "weakPackMinBusV": 9.118400000000001,
+  "electronicsMinClearanceMm": 2.089062399999989,
+  "deployedLipProjectionMm": 100.0,
+  "startProjectionMm": 0.0,
+  "startHeightMm": 886.708,
+  "ejectInterlock": "reef range <= 100 mm stand-off AND seated-pipe beam blocked AND lip-deployed switch closed",
+  "selectedArchitecture": "B'x",
+  "chassisInterface": "002-connected-machining-654-r6",
+  "seatedClampScrews": "four 91251A542 seated in UNC-2B taps",
+  "electronicsPlacements": "552-r5 prospective placements",
+  "provenance": {
+    "receiveFace": "The inlet mouth is on the robot -X face, the face that docks to the station (kickoff/selected-role.md).",
+    "stationPeakMps": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+      },
+      "field": "summary.g1PeakMps[1]",
+      "note": "largest pipe speed before the check flap over the 108 rest-release G1 receives (dock gap 0-50 mm)"
+    },
+    "receiveCaptiveS": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+      },
+      "field": "max(summary.g1CaptiveS[1], summary.pushedCaptiveS[1]) + sensorLatencyS",
+      "note": "flap closed behind the pipe, rest-release and pushed feeds, plus the 50 ms switch latency"
+    },
+    "ejectCaptureStandOffMaxMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+      },
+      "field": "largest stand-off s with every G2 eject at s and below captured and supported 2 s"
+    },
+    "lateralDockErrorLimitMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/second-trip.json"
+      },
+      "field": "lateralDockErrorLimitMm",
+      "note": "allocated control requirement, not a measurement"
+    },
+    "powerOffSustainedG": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+      },
+      "field": "summary.custody.sustainedLimitsG['main power off']['40'].largestRetainedG",
+      "note": "largest 0.5 s deceleration into the nip that every run at the softest trialled tread retains with the main power off"
+    },
+    "treadStiffnessNominalNmm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"
+      },
+      "field": "summary.nominalNmm",
+      "note": "design nominal; no supplier publishes it and bench gate G0 measures it"
+    },
+    "inspectionHeavyKg": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/budgets.json"
+      },
+      "field": "sum of masses[].kg upper"
+    },
+    "weakPackMinBusV": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/budgets.json"
+      },
+      "field": "min over cycle stages of weak Voc - sum(upper source A) x R"
+    },
+    "electronicsMinClearanceMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/package.step"
+      },
+      "pair": [
+        "Chassis battery plug and bracket",
+        "Main power loom"
+      ],
+      "note": "installed scene, every electrical reserve against every other reserve"
+    },
+    "deployedLipProjectionMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/layout-blocks.json"
+      },
+      "field": "rules.deployedProjectionBeyondFrameMm"
+    },
+    "startProjectionMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/layout-blocks.json"
+      },
+      "field": "rules.startProjectionBeyondFrontMm"
+    },
+    "startHeightMm": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/layout-blocks.json"
+      },
+      "field": "rules.startMaxZMm"
+    },
+    "ejectInterlock": {
+      "source": {
+        "file": "cad/preliminary-design/releases/1.0/rules-rulings.json"
+      },
+      "field": "rulings[1].interlock",
+      "note": "control requirement recorded by the G412 ruling"
+    },
+    "selectedArchitecture": {
+      "source": {
+        "file": "iterations/002/design/evaluation/evaluation.json"
+      },
+      "field": "recommendation.select"
+    },
+    "chassisInterface": {
+      "source": {
+        "file": "iterations/002/design/cad/fusion-authority.json"
+      },
+      "field": "registered revision"
+    },
+    "seatedClampScrews": {
+      "source": {
+        "file": "iterations/artifacts/resume-20261121/screws-place-01/native-receipt.json"
+      },
+      "field": "status"
+    },
+    "electronicsPlacements": {
+      "source": {
+        "file": "iterations/002/design/chassis/inset-electrical-package.json"
+      },
+      "field": "candidatePlacements"
+    }
+  }
+}

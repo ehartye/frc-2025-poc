@@ -1,0 +1,2737 @@
+{
+  "schema": "agent-frc/mechanical-motion@1",
+  "step": {
+    "file": "cad/preliminary-design/releases/1.0/package.step"
+  },
+  "layoutDatum": {
+    "name": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "id": "lip-deploy",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Prescribed hinge rotation, not a trial trace: at match start the servo pin releases the upright stowed lip and its torsion spring and gravity swing it 120 deg onto the sprung deployed stop in 0.17 s (structure-checks.json L8, a rigid-body integration); the pipe is still in the station",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1061.85,
+              0.0,
+              634.1600000000001
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      },
+      "moves": {
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Coral station chute (field)"
+          ],
+          "basis": "The pipe rests on the station chute before it is released",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/lip-deploy--coral-station-chute.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-01-station-chute",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The station-issued pipe, released from rest, rolls down the registered station chute. Trace receive-mission of field-trials.json, 0.000-0.500 s: one straight stroke between two solved poses, at most 0.27 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1061.85,
+              0.0,
+              634.1600000000001
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              304.04,
+              0.0,
+              -213.18000000000006
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Coral station chute (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with Coral station chute (field) (receive-mission, 0.000-0.500 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-01-station-chute--coral-station-chute.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-02-drop",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the station sill and falls toward the robot inlet. Trace receive-mission of field-trials.json, 0.500-0.588 s: one straight stroke between two solved poses, at most 5.99 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -757.81,
+              0.0,
+              420.98
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              111.48000000000002,
+              0.0,
+              -97.46000000000004
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Coral station chute (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with Coral station chute (field) (receive-mission, 0.500-0.588 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-02-drop--coral-station-chute.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.500-0.588 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-02-drop--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-03-drop",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the station sill and falls toward the robot inlet. Trace receive-mission of field-trials.json, 0.588-0.680 s: one straight stroke between two solved poses, at most 4.52 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -646.3299999999999,
+              0.0,
+              323.52
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              118.17999999999998,
+              0.0,
+              -176.89999999999998
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Coral station chute (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with Coral station chute (field) (receive-mission, 0.588-0.680 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-03-drop--coral-station-chute.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.588-0.680 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-03-drop--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-04-inlet",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe lands on the inlet and rolls down the 15.74 deg floor to the check flap. Trace receive-mission of field-trials.json, 0.680-0.748 s: one straight stroke between two solved poses, at most 5.49 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -528.15,
+              0.0,
+              146.62
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              123.12,
+              0.0,
+              -12.550000000000068
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.680-0.748 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-04-inlet--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-05-inlet",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe lands on the inlet and rolls down the 15.74 deg floor to the check flap. Trace receive-mission of field-trials.json, 0.748-0.856 s: one straight stroke between two solved poses, at most 7.99 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -405.03,
+              0.0,
+              134.06999999999994
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              199.17000000000002,
+              0.0,
+              -76.21999999999991
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.748-0.856 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-05-inlet--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-06-pocket",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe pushes the check flap open, meets the held nip and the flap closes behind it. Trace receive-mission of field-trials.json, 0.856-0.896 s: one straight stroke between two solved poses, at most 0.21 mm from the solved path; the flap turns with it from the same trace.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -205.86,
+              0.0,
+              57.85000000000002
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              69.7,
+              0.0,
+              -19.49000000000001
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.1
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.856-0.896 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-06-pocket--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 0.856-0.896 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-06-pocket--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-07-pocket",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe pushes the check flap open, meets the held nip and the flap closes behind it. Trace receive-mission of field-trials.json, 0.896-0.972 s: one straight stroke between two solved poses, at most 0.07 mm from the solved path; the flap turns with it from the same trace.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -136.16,
+              0.0,
+              38.360000000000014
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -74.1
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              134.59,
+              0.0,
+              -37.940000000000055
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 10.799999999999997
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.896-0.972 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-07-pocket--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 0.896-0.972 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-07-pocket--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-08-pocket",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe pushes the check flap open, meets the held nip and the flap closes behind it. Trace receive-mission of field-trials.json, 0.972-1.028 s: one straight stroke between two solved poses, at most 7.98 mm from the solved path; the flap turns with it from the same trace.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1.5699999999999932,
+              0.0,
+              0.4199999999999591
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -63.3
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -20.569999999999993,
+              0.0,
+              5.800000000000068
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.25339824511434,
+              0.0,
+              706.0269984015403
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 63.3
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 0.972-1.028 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-08-pocket--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 0.972-1.028 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-08-pocket--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-09-captive",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The flap is closed: the pipe is captive and the flap-closed switch releases the robot 50 ms later. Trace receive-mission of field-trials.json, 1.028-1.076 s: one straight stroke between two solved poses, at most 0.01 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -22.139999999999986,
+              0.0,
+              6.220000000000027
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -25.78000000000003,
+              0.0,
+              7.269999999999982
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 1.028-1.076 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-09-captive--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 1.028-1.076 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-09-captive--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-10-drive-away",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot accelerates toward the reef at 3 m/s2 and cruises; the pipe rides back against the closed flap. Trace receive-mission of field-trials.json, 1.076-1.152 s: one straight stroke between two solved poses, at most 0.24 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -47.920000000000016,
+              0.0,
+              13.490000000000009
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -38.389999999999986,
+              0.0,
+              11.069999999999936
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 1.076-1.152 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-10-drive-away--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 1.076-1.152 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-10-drive-away--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-11-drive-away",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot accelerates toward the reef at 3 m/s2 and cruises; the pipe rides back against the closed flap. Trace receive-mission of field-trials.json, 1.152-1.936 s: one straight stroke between two solved poses, at most 5.55 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -86.31,
+              0.0,
+              24.559999999999945
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              87.97000000000003,
+              0.0,
+              -24.539999999999964
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 1.152-1.936 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-11-drive-away--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 1.152-1.936 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-11-drive-away--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-12-drive-away",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot accelerates toward the reef at 3 m/s2 and cruises; the pipe rides back against the closed flap. Trace receive-mission of field-trials.json, 1.936-2.076 s: one straight stroke between two solved poses, at most 0.49 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              1.660000000000025,
+              0.0,
+              0.01999999999998181
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -12.410000000000025,
+              0.0,
+              2.990000000000009
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 1.936-2.076 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-12-drive-away--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 1.936-2.076 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-12-drive-away--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-13-brake",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot brakes at 3 m/s2; the pipe rolls forward into the held nip. Trace receive-mission of field-trials.json, 2.076-2.576 s: one straight stroke between two solved poses, at most 0.76 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -10.75,
+              0.0,
+              3.009999999999991
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              10.850000000000023,
+              0.0,
+              -3.0299999999999727
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 2.076-2.576 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-13-brake--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 2.076-2.576 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-13-brake--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-14-seat",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot is stopped; the pipe settles on its carry seat and the seated-pipe beam is blocked. Trace receive-mission of field-trials.json, 2.576-2.600 s: one straight stroke between two solved poses, at most 0.01 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.10000000000002274,
+              0.0,
+              -0.01999999999998181
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -0.1500000000000341,
+              0.0,
+              0.01999999999998181
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 2.576-2.600 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-14-seat--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 2.576-2.600 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-14-seat--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "receive-15-seat",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The robot is stopped; the pipe settles on its carry seat and the seated-pipe beam is blocked. Trace receive-mission of field-trials.json, 2.600-2.768 s: one straight stroke between two solved poses, at most 0.04 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -0.05000000000001137,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.05000000000001137,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (receive-mission, 2.600-2.768 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-15-seat--pocket-tray.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "Check flap"
+          ],
+          "basis": "Trial-solved contact of the pipe with Check flap (receive-mission, 2.600-2.768 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/receive-15-seat--check-flap.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "carry-01-power-off-hit",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Carrying with the main power off, the robot is hit: 8 g for 50 ms drives the pipe into the unpowered nip; the squeeze stops it and returns it to the seat. Trace custody-power-off-hit of field-trials.json, 0.000-0.096 s: one straight stroke between two solved poses, at most 0.03 mm from the solved path.",
+      "maxDepth": 11,
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              3.7800000000000296,
+              0.0,
+              -0.029999999999972715
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (custody-power-off-hit, 0.000-0.096 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/carry-01-power-off-hit--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "carry-02-power-off-hit",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Carrying with the main power off, the robot is hit: 8 g for 50 ms drives the pipe into the unpowered nip; the squeeze stops it and returns it to the seat. Trace custody-power-off-hit of field-trials.json, 0.096-1.600 s: one straight stroke between two solved poses, at most 3.46 mm from the solved path (end moved 0.010 mm onto the carry seat the eject trials start from).",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              3.7800000000000296,
+              0.0,
+              -0.029999999999972715
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -3.7800000000000296,
+              0.0,
+              0.029999999999972715
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (custody-power-off-hit, 0.096-1.600 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/carry-02-power-off-hit--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-01-nip",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "Docked at the reef, the interlock passes and the nip draws the pipe through the 12 mm squeeze (roller cores stay 3 mm clear). Trace eject-nominal of field-trials.json, 0.000-0.080 s: one straight stroke between two solved poses, at most 0.08 mm from the solved path.",
+      "maxDepth": 11,
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              58.81999999999999,
+              0.0,
+              -0.029999999999972715
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Pocket tray"
+          ],
+          "basis": "Trial-solved contact of the pipe with Pocket tray (eject-nominal, 0.000-0.080 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-01-nip--pocket-tray.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-02-lip",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe rolls over the driven lower roller onto the deployed lip and down its ramp to the tip. Trace eject-nominal of field-trials.json, 0.080-0.216 s: one straight stroke between two solved poses, at most 6.37 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              58.81999999999999,
+              0.0,
+              -0.029999999999972715
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              106.88,
+              0.0,
+              -49.190000000000055
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Deployable exit lip"
+          ],
+          "basis": "Trial-solved contact of the pipe with Deployable exit lip (eject-nominal, 0.080-0.216 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-02-lip--deployable-exit-lip.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-03-flight",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the lip tip and drops toward the trough. Trace eject-nominal of field-trials.json, 0.216-0.268 s: one straight stroke between two solved poses, at most 3.17 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              165.7,
+              0.0,
+              -49.22000000000003
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              33.22000000000003,
+              0.0,
+              -9.539999999999964
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Deployable exit lip"
+          ],
+          "basis": "Trial-solved contact of the pipe with Deployable exit lip (eject-nominal, 0.216-0.268 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-03-flight--deployable-exit-lip.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with L1 trough sector A (field) (eject-nominal, 0.216-0.268 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-03-flight--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-04-flight",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe leaves the lip tip and drops toward the trough. Trace eject-nominal of field-trials.json, 0.268-0.316 s: one straight stroke between two solved poses, at most 1.94 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              198.92000000000002,
+              0.0,
+              -58.75999999999999
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              30.660000000000025,
+              0.0,
+              -32.34000000000003
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "Deployable exit lip"
+          ],
+          "basis": "Trial-solved contact of the pipe with Deployable exit lip (eject-nominal, 0.268-0.316 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-04-flight--deployable-exit-lip.json"
+          }
+        },
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with L1 trough sector A (field) (eject-nominal, 0.268-0.316 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-04-flight--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-05-trough",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe lands in the trough, runs to the riser and rolls back to rest against the outer lip. Trace eject-nominal of field-trials.json, 0.316-0.368 s: one straight stroke between two solved poses, at most 1.33 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              229.58000000000004,
+              0.0,
+              -91.10000000000002
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              38.91999999999996,
+              0.0,
+              -24.94999999999999
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with L1 trough sector A (field) (eject-nominal, 0.316-0.368 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-05-trough--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-06-trough",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe lands in the trough, runs to the riser and rolls back to rest against the outer lip. Trace eject-nominal of field-trials.json, 0.368-0.624 s: one straight stroke between two solved poses, at most 4.37 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              268.5,
+              0.0,
+              -116.05000000000001
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              113.76999999999998,
+              0.0,
+              31.44999999999999
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with L1 trough sector A (field) (eject-nominal, 0.368-0.624 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-06-trough--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eject-07-trough",
+      "stage": "operating",
+      "minGapMm": 2.0,
+      "basis": "The pipe lands in the trough, runs to the riser and rolls back to rest against the outer lip. Trace eject-nominal of field-trials.json, 0.624-1.432 s: one straight stroke between two solved poses, at most 5.69 mm from the solved path.",
+      "maxDepth": 11,
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              382.27,
+              0.0,
+              -84.60000000000002
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -126.39999999999998,
+              0.0,
+              -34.05000000000001
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "Trial-solved contact of the pipe with L1 trough sector A (field) (eject-nominal, 0.624-1.432 s)",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/eject-07-trough--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "withdraw-park",
+      "stage": "park",
+      "minGapMm": 2.0,
+      "basis": "Prescribed robot drive, not a mechanism trial: the robot backs 300 mm away and parks with the lip deployed and the pocket empty; in the robot frame the scored pipe and the trough recede together. The eject trials withdraw the first 120 mm at 0.3 m/s and assess the pipe 2 s after it is again at rest",
+      "initialPose": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              255.87,
+              0.0,
+              -118.65000000000003
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "L1 trough sector A (field)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "First scored pipe in sector A (field)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ],
+      "intendedInterfaces": [
+        {
+          "pair": [
+            "CORAL pipe",
+            "L1 trough sector A (field)"
+          ],
+          "basis": "The scored pipe rests in the trough",
+          "qualifiedBy": {
+            "file": "cad/preliminary-design/releases/1.0/evidence/interfaces/withdraw-park--l1-trough-sector-a.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "service-hood-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Pit unload, step 1: release the thumb screws and lift the hood, with the check flap on its pin and the flap-closed switch on its top, 630 mm: clear of the whole robot after 320 mm and of the checked scene's box, which includes the station chute fixture, at the end",
+      "moves": {
+        "Hood (removable)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              630.0
+            ]
+          }
+        ],
+        "Check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              630.0
+            ]
+          }
+        ],
+        "Flap-closed switch": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              630.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "Hood (removable)",
+        "Check flap",
+        "Flap-closed switch"
+      ],
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-unload-pipe",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Pit unload, step 2: roll the unscored pipe back up the floor and lift it out on one hand arc (110 deg about an axis 250 mm along the seat normal), clear of the upper roller and above the robot, then 290 mm straight up out of the checked scene's box",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Flap-closed switch": "service-hood-lift"
+      },
+      "moves": {
+        "CORAL pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              371.9481164009652,
+              0.0,
+              840.595649272527
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 110.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              290.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "CORAL pipe"
+      ],
+      "maxDepth": 11,
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-nip-cassette-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "With the hood and pipe out, unbolt the two side plates from the upper stringers and lift the nip cassette (plates, rollers, drive, belt, latch, sensors and deployed lip) 790 mm: clear of the inlet walls after 480 mm and of the checked scene's box at the end",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Flap-closed switch": "service-hood-lift",
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Port nip side plate": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Starboard nip side plate": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Lower nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Upper nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Nip drive (NEO 550 and MAXPlanetary 36:1)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Nip coupling belt": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Lip latch servo": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Deployable exit lip": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Lip-deployed switch": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Seated-pipe beam emitter (port)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Seated-pipe beam receiver (starboard)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ],
+        "Reef range sensor (CANrange)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              790.0
+            ]
+          }
+        ]
+      },
+      "extract": [
+        "Port nip side plate",
+        "Starboard nip side plate",
+        "Lower nip roller",
+        "Upper nip roller",
+        "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+        "Nip coupling belt",
+        "Lip latch servo",
+        "Deployable exit lip",
+        "Lip-deployed switch",
+        "Seated-pipe beam emitter (port)",
+        "Seated-pipe beam receiver (starboard)",
+        "Reef range sensor (CANrange)"
+      ],
+      "maxDepth": 12,
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-lip-restow",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Between matches, with the pocket emptied: fold the deployed lip 120 deg up by hand and set the latch pin (the deploy-once reset)",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Flap-closed switch": "service-hood-lift",
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      },
+      "maxDepth": 11,
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-lip-over-travel",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Sprung-stop over-travel: a frontal hit turns the deployed lip a further 31.2 deg down against its stop springs until the bumper carries the load (structure-checks.json L5); the empty lip must clear every neighbour through that swing",
+      "removed": {
+        "Hood (removable)": "service-hood-lift",
+        "Check flap": "service-hood-lift",
+        "Flap-closed switch": "service-hood-lift",
+        "CORAL pipe": "service-unload-pipe"
+      },
+      "moves": {
+        "Deployable exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 31.2
+          }
+        ]
+      },
+      "maxDepth": 11,
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-battery-lift",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "After unplugging, lift the dressed battery 250 mm through the centre gap between the equipment sheets; the hand that unplugged it keeps hold of the battery-side plug and rises with it",
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-battery-rear-carry",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "Continue from the 250 mm lift rearward under the inlet chute and over the rear bumper until clear, the hand still on the plug. In the pit no station stands behind the robot: the station fixture, which every case must list, starts 1500 mm rearward",
+      "initialPose": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "Coral station chute (field)": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1500.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Dressed battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-plug-disconnect",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches down to grip the SB50 pair from above",
+      "initialPose": {
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              255.9
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Plug grip hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -255.9
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    },
+    {
+      "id": "service-breaker-reset",
+      "stage": "service",
+      "minGapMm": 2.0,
+      "basis": "A hand reaches the CB185 reset button outboard of the pocket walls",
+      "initialPose": {
+        "Breaker reset hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              342.8
+            ]
+          }
+        ]
+      },
+      "moves": {
+        "Breaker reset hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -342.8
+            ]
+          }
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "Coral station chute (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "Coral station chute (field)",
+          "basis": "Field fixture: red coral station chute at the receive dock, from the registration the receive trials integrate (field_trials.py STATION: exit sill 952.5 mm, 35 deg from horizontal, 419.1 mm ramp; wall 10 mm behind the rear bumper face). Sources: V0 manual 5.6 (37.5 in sill, 55 deg chute from vertical) and field drawing GE-25014 sheet 80 (16.50 in ramp). Planning solid, not the official field model; the opening's upper guard and side guides are not placed."
+        },
+        {
+          "id": "L1 trough sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "L1 trough sector A (field)",
+          "basis": "Field fixture: FRC 2025 red reef L1 trough sector from the 2025 field model extraction (experiments/six-wheel/mission/target.json section): outer lip top 457.2 mm, lip depth 12.7 mm, 15 deg floor from 404.9 mm and the inner riser, 467 mm sector width. Planning solid, not the official field model. Lip face 50 mm ahead of the bumper face, the shown dock."
+        },
+        {
+          "id": "First scored pipe in sector A (field)",
+          "file": {
+            "file": "cad/preliminary-design/releases/1.0/field-fixtures.step"
+          },
+          "solid": "First scored pipe in sector A (field)",
+          "basis": "Field fixture for the second trip: the first pipe at its trial rest pose in sector A, one 471 mm sector pitch toward -Y, while the robot delivers at sector B. The eject cases are the same robot-frame motion at either sector, so the fixture is shown in them; on the first trip it is absent."
+        }
+      ]
+    }
+  ]
+}

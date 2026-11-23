@@ -1,0 +1,698 @@
+{
+  "basis": "R103 115 lb (2025 kickoff V0 pp. 76/86/112 per the mass-01 ruleBasis) and the project 9 V branch floor, the same limits as the pan baseline",
+  "inspectionLimitKg": 52.163122550000004,
+  "operatingMinV": 9.0,
+  "massLines": [
+    "sds-modules",
+    "chassis-fabricated",
+    "chassis-purchased-hardware",
+    "pocket-package-fabricated",
+    "pocket-package-purchased",
+    "joining-allowance",
+    "electrical-allowance",
+    "battery-tray-retention",
+    "permanent-bumper-mounts",
+    "hardware-finish-remainder",
+    "bumpers-excluded",
+    "battery-excluded",
+    "field-fixtures-excluded"
+  ],
+  "electricalCases": {
+    "lip-deploy-nominal": {
+      "stage": "lip-deploy",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Release the lip latch at match start (servo stall 1.5 A, robot stationary)",
+      "requiredMotionMinV": 6.0
+    },
+    "lip-deploy-weak": {
+      "stage": "lip-deploy",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Release the lip latch at match start (servo stall 1.5 A, robot stationary)",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-01-station-chute-nominal": {
+      "stage": "receive-01-station-chute",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-01-station-chute-weak": {
+      "stage": "receive-01-station-chute",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-02-drop-nominal": {
+      "stage": "receive-02-drop",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-02-drop-weak": {
+      "stage": "receive-02-drop",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-03-drop-nominal": {
+      "stage": "receive-03-drop",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-03-drop-weak": {
+      "stage": "receive-03-drop",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-04-inlet-nominal": {
+      "stage": "receive-04-inlet",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-04-inlet-weak": {
+      "stage": "receive-04-inlet",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-05-inlet-nominal": {
+      "stage": "receive-05-inlet",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-05-inlet-weak": {
+      "stage": "receive-05-inlet",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-06-pocket-nominal": {
+      "stage": "receive-06-pocket",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-06-pocket-weak": {
+      "stage": "receive-06-pocket",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-07-pocket-nominal": {
+      "stage": "receive-07-pocket",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-07-pocket-weak": {
+      "stage": "receive-07-pocket",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-08-pocket-nominal": {
+      "stage": "receive-08-pocket",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-08-pocket-weak": {
+      "stage": "receive-08-pocket",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-09-captive-nominal": {
+      "stage": "receive-09-captive",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-09-captive-weak": {
+      "stage": "receive-09-captive",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-10-drive-away-nominal": {
+      "stage": "receive-10-drive-away",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-10-drive-away-weak": {
+      "stage": "receive-10-drive-away",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-11-drive-away-nominal": {
+      "stage": "receive-11-drive-away",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-11-drive-away-weak": {
+      "stage": "receive-11-drive-away",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-12-drive-away-nominal": {
+      "stage": "receive-12-drive-away",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-12-drive-away-weak": {
+      "stage": "receive-12-drive-away",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-13-brake-nominal": {
+      "stage": "receive-13-brake",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-13-brake-weak": {
+      "stage": "receive-13-brake",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-14-seat-nominal": {
+      "stage": "receive-14-seat",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-14-seat-weak": {
+      "stage": "receive-14-seat",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-15-seat-nominal": {
+      "stage": "receive-15-seat",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "receive-15-seat-weak": {
+      "stage": "receive-15-seat",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Docked at the station; the nip position hold may reach its 30 A limit for the receive impact",
+      "requiredMotionMinV": 6.0
+    },
+    "carry-01-power-off-hit-nominal": {
+      "stage": "carry-01-power-off-hit",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Carry a seated pipe with every motor output off: main power off (0 A) or disabled with only the controls drawing",
+      "requiredMotionMinV": 6.0
+    },
+    "carry-01-power-off-hit-weak": {
+      "stage": "carry-01-power-off-hit",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Carry a seated pipe with every motor output off: main power off (0 A) or disabled with only the controls drawing",
+      "requiredMotionMinV": 6.0
+    },
+    "carry-02-power-off-hit-nominal": {
+      "stage": "carry-02-power-off-hit",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Carry a seated pipe with every motor output off: main power off (0 A) or disabled with only the controls drawing",
+      "requiredMotionMinV": 6.0
+    },
+    "carry-02-power-off-hit-weak": {
+      "stage": "carry-02-power-off-hit",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Carry a seated pipe with every motor output off: main power off (0 A) or disabled with only the controls drawing",
+      "requiredMotionMinV": 6.0
+    },
+    "eject-01-nip-nominal": {
+      "stage": "eject-01-nip",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-01-nip-weak": {
+      "stage": "eject-01-nip",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-02-lip-nominal": {
+      "stage": "eject-02-lip",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-02-lip-weak": {
+      "stage": "eject-02-lip",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-03-flight-nominal": {
+      "stage": "eject-03-flight",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-03-flight-weak": {
+      "stage": "eject-03-flight",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-04-flight-nominal": {
+      "stage": "eject-04-flight",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-04-flight-weak": {
+      "stage": "eject-04-flight",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-05-trough-nominal": {
+      "stage": "eject-05-trough",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-05-trough-weak": {
+      "stage": "eject-05-trough",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-06-trough-nominal": {
+      "stage": "eject-06-trough",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-06-trough-weak": {
+      "stage": "eject-06-trough",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-07-trough-nominal": {
+      "stage": "eject-07-trough",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "eject-07-trough-weak": {
+      "stage": "eject-07-trough",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Run the nip under its 30 A limit while docked at the reef",
+      "requiredMotionMinV": 9.0
+    },
+    "withdraw-park-nominal": {
+      "stage": "withdraw-park",
+      "batteryCondition": "nominal",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    },
+    "withdraw-park-weak": {
+      "stage": "withdraw-park",
+      "batteryCondition": "weak",
+      "sources": [
+        "drive",
+        "steer",
+        "nip",
+        "latch",
+        "controls"
+      ],
+      "duty": "Drive the loaded robot at up to 1.70 m/s cruise with module re-azimuth; the nip position hold draws up to 5 A",
+      "requiredMotionMinV": 6.0
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "red2/selected-interface@1",
+  "issue": "fixed-pocket-1.0",
+  "decision": "revisable premise",
+  "ownerGuidance": "The preliminary design must find what will actually work and inform the Fusion design; existing Fusion CAD does not constrain it. Each carried item is a premise with its evidence and its replacement trigger.",
+  "premises": [
+    "chassis-interface",
+    "seated-clamp-screws",
+    "electronics-placements"
+  ],
+  "carried": [
+    "Battery tray and retention",
+    "Branch and CAN trunk",
+    "Breaker reset hand",
+    "Bumper ring",
+    "Chassis battery plug and bracket",
+    "Chassis cassettes and socket rails",
+    "Chassis cassettes and socket rails part 2",
+    "Chassis cassettes and socket rails part 3",
+    "Chassis cassettes and socket rails part 4",
+    "Chassis pan trusses and stringers",
+    "Chassis pan trusses and stringers part 2",
+    "Chassis perimeter",
+    "Chassis sills, decks and crossmembers",
+    "Chassis sills, decks and crossmembers part 2",
+    "Chassis sills, decks and crossmembers part 3",
+    "Chassis sills, decks and crossmembers part 4",
+    "Chassis sills, decks and crossmembers part 5",
+    "Chassis sills, decks and crossmembers part 6",
+    "Chassis sills, decks and crossmembers part 7",
+    "Chassis sills, decks and crossmembers part 8",
+    "Chassis sills, decks and crossmembers part 9",
+    "Dressed battery",
+    "Main 120 A breaker",
+    "Main power loom",
+    "Module 1 housing",
+    "Module 1 lead reserve",
+    "Module 1 steer sweep",
+    "Module 2 housing",
+    "Module 2 lead reserve",
+    "Module 2 steer sweep",
+    "Module 3 housing",
+    "Module 3 lead reserve",
+    "Module 3 steer sweep",
+    "Module 4 housing",
+    "Module 4 lead reserve",
+    "Module 4 steer sweep",
+    "Nip controller (SPARK MAX)",
+    "Plug grip hand",
+    "Port controller 1 (SPARK MAX)",
+    "Port controller 2 (SPARK MAX)",
+    "Port controller 3 (SPARK MAX)",
+    "Port controller 4 (SPARK MAX)",
+    "Power distribution hub",
+    "Starboard controller 1 (SPARK MAX)",
+    "Starboard controller 2 (SPARK MAX)",
+    "Starboard controller 3 (SPARK MAX)",
+    "Starboard controller 4 (SPARK MAX)",
+    "VH-109 radio",
+    "roboRIO 2"
+  ],
+  "notCarried": [
+    "Guarded pan, pan cassette, upper support, fixed inlet and the pan's controller role (A package)"
+  ],
+  "replaceIf": {
+    "chassis": "The pocket's stringer landings carry the nip load poorly, a lighter or simpler frame serves the pocket better, or the bumper outline must change",
+    "electronics": "The nip and sensor leads or a lighter deck need another arrangement",
+    "tapsAndScrews": "Replacement of the chassis, or a load and maintenance review that rejects the clamp"
+  },
+  "interface": "Iteration 002 chassis: 146 fabricated bodies, four SDS MK4i L2 NEO modules and four seated 91251A542 clamp screws; electronics at 552-r5",
+  "reason": "The pocket needs landings near Z 490 and a rear support; the existing upper stringers and rear perimeter provide them, and the chassis evidence (six issues, occupied-shape closeout, seated screws) is the deepest the project has. Carrying it lets this package test the scoring mechanism alone; it is not a constraint on the Fusion design.",
+  "evidence": [
+    {
+      "file": "iterations/002/design/cad/fusion-authority.json"
+    },
+    {
+      "file": "iterations/002/design/cad/issue-006/lineage.json"
+    },
+    {
+      "file": "iterations/artifacts/resume-20261121/screws-place-01/native-receipt.json"
+    },
+    {
+      "file": "iterations/artifacts/resume-20261121/screws-place-01/four-seated-screws.step"
+    }
+  ]
+}

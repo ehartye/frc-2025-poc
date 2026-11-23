@@ -5,7 +5,7 @@ reef (delivery) face, +Y port, +Z up. The pocket is a planar section in XZ extru
 along Y (axis-across). build_layout.py (solids) and field_trials.py (free-piece physics) both import this file,
 so the checked blocks and the physics trials use the same surfaces.
 
-Layout-002 keeps every layout-001 pocket surface and adds the flared hood lead-in (HOOD_FLARE). The drive, tread
+This design keeps every first-draft pocket surface and adds the flared hood lead-in (HOOD_FLARE). The drive, tread
 band, sensors and structure records changed; see field_trials.py and structure_checks.py.
 
 Revision of the evaluation's B geometry (evaluation/README.md, r2):
@@ -14,7 +14,7 @@ Revision of the evaluation's B geometry (evaluation/README.md, r2):
   a wall taller than the pipe radius, so the evaluated "nip lifts it over the fence" has no contact that can do
   it (finding PD1 in design-findings.json). This package instead seats the pipe in the bite of the nip: the
   throat is at the pocket-centre height (0.60 m), the two treads are the front stop and a self-locking worm
-  reducer held the rollers when unpowered (layout-001; layout-002 holds them with the powered drive). The 15.74 deg pocket floor, the 10 mm hood, the one-way check flap
+  reducer held the rollers when unpowered (the first draft; this design holds them with the powered drive). The 15.74 deg pocket floor, the 10 mm hood, the one-way check flap
   200 mm behind the stop and the 0.55 m roll-off tip of the deployed lip are kept from the evaluation.
 """
 import math
@@ -82,7 +82,7 @@ def hood_z(x):
 
 HOOD_END_X = UPPER_ROLLER[0] - ROLLER_R - 3.0
 HOOD = [(FLAP_X - 40.0, hood_z(FLAP_X - 40.0)), (HOOD_END_X, hood_z(HOOD_END_X))]
-# Layout-002: flared hood lead-in. The station drop bounces (trials: centre up to about 765 mm at e 0.5) and can meet
+# Flared hood lead-in. The station drop bounces (trials: centre up to about 765 mm at e 0.5) and can meet
 # the hood's leading edge; a 90 mm flare 30 deg above the hood line turns a high pipe down into the pocket.
 HOOD_FLARE_LEN = 90.0
 HOOD_FLARE_DEG = 30.0
