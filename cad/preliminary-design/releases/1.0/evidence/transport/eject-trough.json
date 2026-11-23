@@ -1,0 +1,41 @@
+{
+  "schema": "frc-2025-poc/trial-path@3",
+  "issue": "fixed-pocket-1.0",
+  "freePath": {
+    "case": "eject-trough",
+    "payload": "pipe",
+    "moves": {
+      "CORAL pipe": [
+        {
+          "kind": "path",
+          "curve": "straight",
+          "throughMm": [[469.83, 0.0, 550.75], [503.05, 0.0, 541.21], [533.71, 0.0, 508.87], [572.63, 0.0, 483.92], [686.4, 0.0, 515.37], [560.0, 0.0, 481.32]]
+        }
+      ]
+    },
+    "initialPose": {"CORAL pipe": [{"kind": "translation", "travelMm": [165.7, 0.0, -49.22000000000003]}]}
+  },
+  "fieldTrials": {"file": "cad/preliminary-design/releases/1.0/evidence/field-trials.json"},
+  "playback": "eject-nominal",
+  "traceWindowS": [0.216, 1.432],
+  "maxDeviationFromTraceMm": 5.689,
+  "chordToleranceMm": 10.0,
+  "poses": [
+    {"draft4Case": "eject-03-flight", "traceWindowS": [0.216, 0.268], "maxDeviationFromTraceMm": 3.169, "endSnapMm": 0.0},
+    {"draft4Case": "eject-04-flight", "traceWindowS": [0.268, 0.316], "maxDeviationFromTraceMm": 1.94, "endSnapMm": 0.0},
+    {"draft4Case": "eject-05-trough", "traceWindowS": [0.316, 0.368], "maxDeviationFromTraceMm": 1.33, "endSnapMm": 0.0},
+    {"draft4Case": "eject-06-trough", "traceWindowS": [0.368, 0.624], "maxDeviationFromTraceMm": 4.373, "endSnapMm": 0.0},
+    {"draft4Case": "eject-07-trough", "traceWindowS": [0.624, 1.432], "maxDeviationFromTraceMm": 5.689, "endSnapMm": 0.0}
+  ],
+  "qualification": {
+    "result": "pass",
+    "control": {"condition": "Latch failed, lip still stowed: 0/3 delivered; robot disabled: 0/1 delivered", "rejected": true},
+    "brackets": [
+      {"input": "dock stand-off", "unit": "mm", "passing": 100, "failing": 125},
+      {"input": "tread stiffness per roller", "unit": "N/mm", "passing": 160, "failing": 240},
+      {"input": "lip tip beyond the frame line at 100 mm stand-off", "unit": "mm", "passing": 100, "failing": 72}
+    ],
+    "timestep": {"coarseS": 4e-05, "fineS": 2e-05, "sameOutcome": true}
+  },
+  "basis": "One motion through the solved poses of the recorded trace, the same poses draft 4 checked as the straight cases listed under poses. The trace, its control and its half-timestep repeat are in field-trials.json."
+}

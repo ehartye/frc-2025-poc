@@ -1,254 +1,1570 @@
 {
-  "checks": [],
-  "constraints": [],
-  "design": {
-    "bumperConstruction": {
-      "backing": {
-        "fraction": 0.05405405405405406,
-        "material": "4 mm backer (project rear-facet record)"
-      },
-      "cover": {
-        "fraction": 0.006756756756756757,
-        "material": "0.5 mm continuous cover (project rear-facet record)"
-      },
-      "padding": {
-        "fraction": 0.9391891891891891,
-        "material": "69.5 mm PE foam (project rear-facet record)"
+  "schema": "frc-design-kernel/design@1",
+  "name": "Fixed pocket 1.0",
+  "units": {"length": "mm", "mass": "kg"},
+  "frame": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres",
+  "parameters": {
+    "frame_x": 370.0,
+    "frame_y": 365.0,
+    "rear_cutback": 17.25,
+    "partition": 2.1,
+    "partition_moving": 3.1,
+    "bumper_stack": 75.5,
+    "pipe_r": 57.15,
+    "pipe_length": 301.625,
+    "contact_reserve": 2.5,
+    "lip_reserve": 3.5,
+    "pocket_half_width": 161.0,
+    "wall": 3.175,
+    "plate_y0": "=(pocket_half_width + wall) + partition_moving",
+    "plate_y1": "=plate_y0 + 6.35",
+    "shaft_y": "=plate_y1 + 2.35",
+    "drive_y0": "=shaft_y + partition",
+    "floor_deg": 15.74,
+    "chute_deg": 52.31,
+    "entry_x": -340.0,
+    "entry_z": 795.0,
+    "pocket_z": 600.0,
+    "roller_r": 25.4,
+    "design_squeeze": 6.0,
+    "squeeze": 6.0,
+    "throat_x": 335.0,
+    "core_r": "=(roller_r - design_squeeze) - 3",
+    "shaft_r": 6.35,
+    "design_dz": "=(pipe_r + roller_r) - design_squeeze",
+    "roller_dz": "=(pipe_r + roller_r) - squeeze",
+    "lower_roller_z": "=pocket_z - roller_dz",
+    "upper_roller_z": "=pocket_z + roller_dz",
+    "bite_x": "=throat_x - (sqrt(((pipe_r + roller_r) ** 2) - (design_dz ** 2)))",
+    "floor_slope": "=tan(radians(floor_deg))",
+    "floor_cos": "=cos(radians(floor_deg))",
+    "floor_pt_x": "=bite_x - (pipe_r * (sin(radians(floor_deg))))",
+    "floor_pt_z": "=pocket_z - (pipe_r * floor_cos)",
+    "chute_slope": "=tan(radians(chute_deg))",
+    "kink_x": "=(((entry_z + (chute_slope * entry_x)) - floor_pt_z) - (floor_slope * floor_pt_x)) / (chute_slope - floor_slope)",
+    "kink_z": "=floor_pt_z - (floor_slope * (kink_x - floor_pt_x))",
+    "floor_end_x": "=(throat_x - roller_r) - 3",
+    "floor_end_z": "=floor_pt_z - (floor_slope * (floor_end_x - floor_pt_x))",
+    "hood_gap": 10.0,
+    "hood_offset": "=((2 * pipe_r) + hood_gap) / floor_cos",
+    "flap_x": "=(bite_x + pipe_r) - 200",
+    "hood0_x": "=flap_x - 40",
+    "hood0_z": "=(floor_pt_z - (floor_slope * (hood0_x - floor_pt_x))) + hood_offset",
+    "hood1_x": "=(throat_x - roller_r) - 3",
+    "hood1_z": "=(floor_pt_z - (floor_slope * (hood1_x - floor_pt_x))) + hood_offset",
+    "flare_angle": "=radians(floor_deg + 30)",
+    "flare_x": "=hood0_x - (90 * (cos(flare_angle)))",
+    "flare_z": "=hood0_z + (90 * (sin(flare_angle)))",
+    "flap_hinge_z": "=((floor_pt_z - (floor_slope * (flap_x - floor_pt_x))) + hood_offset) - 4",
+    "flap_length": "=(flap_hinge_z - (floor_pt_z - (floor_slope * (flap_x - floor_pt_x)))) - 6",
+    "flap_open_deg": "=90 - floor_deg",
+    "lip_hinge_x": 366.0,
+    "lip_hinge_z": 530.5,
+    "lip_root_x": 367.5,
+    "lip_ramp_deg": 30.0,
+    "lip_tip_x": "=frame_x + 100",
+    "lip_tip_z": "=550 - pipe_r",
+    "lip_knee_x": "=lip_tip_x - 25",
+    "lip_root_z": "=lip_tip_z + ((lip_knee_x - lip_root_x) * (tan(radians(lip_ramp_deg))))",
+    "lip_thickness": 3.175,
+    "lip_half_width": "=pocket_half_width - 3",
+    "lip_stow_deg": -120.0,
+    "stringer_top": 489.5,
+    "shelf_z0": "=stringer_top + partition",
+    "shelf_t": 6.35,
+    "landing_z": "=((shelf_z0 + shelf_t) + partition) + 0.4",
+    "beam_x": 314.7,
+    "beam_z": "=pocket_z + 54",
+    "gearbox_length": 92.0,
+    "motor_length": 62.0,
+    "sector_pitch": 471.0,
+    "trough_lip_x": 495.5,
+    "first_pipe_x": 64.5,
+    "first_pipe_z": 481.32,
+    "seat_x": 304.13,
+    "seat_z": 599.97,
+    "mitre": "=tan(radians(22.5))",
+    "floor_n1x": "=(-(kink_z - entry_z)) / (sqrt(((kink_x - entry_x) ** 2) + ((kink_z - entry_z) ** 2)))",
+    "floor_n1z": "=(kink_x - entry_x) / (sqrt(((kink_x - entry_x) ** 2) + ((kink_z - entry_z) ** 2)))",
+    "floor_n2x": "=(-(floor_end_z - kink_z)) / (sqrt(((floor_end_x - kink_x) ** 2) + ((floor_end_z - kink_z) ** 2)))",
+    "floor_n2z": "=(floor_end_x - kink_x) / (sqrt(((floor_end_x - kink_x) ** 2) + ((floor_end_z - kink_z) ** 2)))",
+    "wall_top": 150.0,
+    "wall_n1x": "=(-(kink_z - entry_z)) / (sqrt(((kink_x - entry_x) ** 2) + ((kink_z - entry_z) ** 2)))",
+    "wall_n1z": "=(kink_x - entry_x) / (sqrt(((kink_x - entry_x) ** 2) + ((kink_z - entry_z) ** 2)))",
+    "wall_n2x": "=(-(floor_end_z - kink_z)) / (sqrt(((floor_end_x - kink_x) ** 2) + ((floor_end_z - kink_z) ** 2)))",
+    "wall_n2z": "=(floor_end_x - kink_x) / (sqrt(((floor_end_x - kink_x) ** 2) + ((floor_end_z - kink_z) ** 2)))",
+    "hood_half_width": "=pocket_half_width - partition_moving",
+    "flap_half_width": 152.0,
+    "shaft_hole_r": "=(shaft_r + 0.65) + partition",
+    "flap_switch_z": "=(((floor_pt_z - (floor_slope * ((flap_x - 13) - floor_pt_x))) + hood_offset) + 1.6) + partition",
+    "lip_n1x": "=(-(lip_tip_z - lip_root_z)) / (sqrt(((lip_knee_x - lip_root_x) ** 2) + ((lip_tip_z - lip_root_z) ** 2)))",
+    "lip_n1z": "=(lip_knee_x - lip_root_x) / (sqrt(((lip_knee_x - lip_root_x) ** 2) + ((lip_tip_z - lip_root_z) ** 2)))",
+    "lip_n2x": "=(-(lip_tip_z - lip_tip_z)) / (sqrt(((lip_tip_x - lip_knee_x) ** 2) + ((lip_tip_z - lip_tip_z) ** 2)))",
+    "lip_n2z": "=(lip_tip_x - lip_knee_x) / (sqrt(((lip_tip_x - lip_knee_x) ** 2) + ((lip_tip_z - lip_tip_z) ** 2)))",
+    "floor_post_top": "=((floor_pt_z - (floor_slope * (135 - floor_pt_x))) - ((contact_reserve + wall) / floor_cos)) - partition"
+  },
+  "groups": {
+    "structure": {"role": "structure"},
+    "steer sweeps": {"role": "drive"},
+    "module housings": {"role": "drive"},
+    "bumpers": {"role": "bumper"},
+    "electronics": {"role": "other"},
+    "wiring": {"role": "other"},
+    "battery retention": {"role": "other"},
+    "battery": {"role": "battery"},
+    "breaker service hand": {"role": "service"},
+    "plug service hand": {"role": "service"},
+    "pocket tray": {"role": "mechanism"},
+    "hood": {"role": "mechanism"},
+    "check flap": {"role": "mechanism"},
+    "tray supports": {"role": "structure"},
+    "nip side plates": {"role": "mechanism"},
+    "lower nip roller": {"role": "mechanism"},
+    "upper nip roller": {"role": "mechanism"},
+    "nip drive": {"role": "mechanism"},
+    "nip coupling": {"role": "mechanism"},
+    "pipe sensor": {"role": "other"},
+    "flap sensor": {"role": "other"},
+    "lip sensor": {"role": "other"},
+    "reef sensor": {"role": "other"},
+    "lip latch": {"role": "mechanism"},
+    "exit lip": {"role": "mechanism"},
+    "pipe": {"role": "payload"},
+    "field station": {"role": "fixture"},
+    "field reef": {"role": "fixture"},
+    "field first pipe": {"role": "fixture"}
+  },
+  "solids": [
+    {"name": "Chassis perimeter", "group": "structure", "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis perimeter"}},
+    {
+      "name": "Chassis cassettes and socket rails",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis cassettes and socket rails"}
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 2",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis cassettes and socket rails part 2"}
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 3",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis cassettes and socket rails part 3"}
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 4",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis cassettes and socket rails part 4"}
+    },
+    {
+      "name": "Chassis pan trusses and stringers",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis pan trusses and stringers"}
+    },
+    {
+      "name": "Chassis pan trusses and stringers part 2",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis pan trusses and stringers part 2"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 2",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 2"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 3",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 3"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 4",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 4"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 5",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 5"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 6",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 6"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 7",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 7"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 8",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 8"}
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 9",
+      "group": "structure",
+      "part": {"file": "parts/chassis-envelopes.step", "solid": "Chassis sills, decks and crossmembers part 9"}
+    },
+    {"name": "Module 1 housing", "group": "module housings", "part": {"file": "parts/chassis-envelopes.step", "solid": "Module 1 housing"}},
+    {"name": "Module 2 housing", "group": "module housings", "part": {"file": "parts/chassis-envelopes.step", "solid": "Module 2 housing"}},
+    {"name": "Module 3 housing", "group": "module housings", "part": {"file": "parts/chassis-envelopes.step", "solid": "Module 3 housing"}},
+    {"name": "Module 4 housing", "group": "module housings", "part": {"file": "parts/chassis-envelopes.step", "solid": "Module 4 housing"}},
+    {
+      "name": "Module {k} steer sweep",
+      "group": "steer sweeps",
+      "each": [
+        {"k": "1", "cx": 269.3, "cy": 264.3},
+        {"k": "2", "cx": 269.3, "cy": -264.3},
+        {"k": "3", "cx": -269.3, "cy": -264.3},
+        {"k": "4", "cx": -269.3, "cy": 264.3}
+      ],
+      "note": "Full 360 deg steer swept volume of the SDS MK4i L2 turret: one coaxial cylinder per 4 mm slab, radius the largest meshed radius of the turret parts in that slab plus 0.5 mm",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 0.0], "toMm": ["=cx", "=cy", 4.0], "radiusMm": 27.888760505577164},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 4.0], "toMm": ["=cx", "=cy", 8.0], "radiusMm": 33.60396257340345},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 8.0], "toMm": ["=cx", "=cy", 12.0], "radiusMm": 37.973303733005736},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 12.0], "toMm": ["=cx", "=cy", 16.0], "radiusMm": 39.55835833061189},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 16.0], "toMm": ["=cx", "=cy", 20.0], "radiusMm": 44.29493561949873},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 20.0], "toMm": ["=cx", "=cy", 24.0], "radiusMm": 47.13050330123158},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 24.0], "toMm": ["=cx", "=cy", 28.0], "radiusMm": 48.26629374976499},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 28.0], "toMm": ["=cx", "=cy", 32.0], "radiusMm": 50.96645505806696},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 32.0], "toMm": ["=cx", "=cy", 36.0], "radiusMm": 51.30185780347405},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 36.0], "toMm": ["=cx", "=cy", 40.0], "radiusMm": 53.19087101432615},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 40.0], "toMm": ["=cx", "=cy", 44.0], "radiusMm": 53.28576934726701},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 44.0], "toMm": ["=cx", "=cy", 48.0], "radiusMm": 54.12627795643739},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 48.0], "toMm": ["=cx", "=cy", 52.0], "radiusMm": 54.14725775016337},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 52.0], "toMm": ["=cx", "=cy", 56.0], "radiusMm": 54.14725775016348},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 56.0], "toMm": ["=cx", "=cy", 60.0], "radiusMm": 53.85659168001679},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 60.0], "toMm": ["=cx", "=cy", 64.0], "radiusMm": 53.19087101432633},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 64.0], "toMm": ["=cx", "=cy", 68.0], "radiusMm": 51.30185780347448},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 68.0], "toMm": ["=cx", "=cy", 72.0], "radiusMm": 50.966455058067304},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 72.0], "toMm": ["=cx", "=cy", 76.0], "radiusMm": 48.2662937497654},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 76.0], "toMm": ["=cx", "=cy", 80.0], "radiusMm": 47.632444571123365},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 80.0], "toMm": ["=cx", "=cy", 84.0], "radiusMm": 44.29493561949931},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 84.0], "toMm": ["=cx", "=cy", 88.0], "radiusMm": 47.632444571123195},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 88.0], "toMm": ["=cx", "=cy", 92.0], "radiusMm": 51.30000000000009},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 92.0], "toMm": ["=cx", "=cy", 96.0], "radiusMm": 40.307394717130826},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 96.0], "toMm": ["=cx", "=cy", 100.0], "radiusMm": 51.300000000000054},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 100.0], "toMm": ["=cx", "=cy", 104.0], "radiusMm": 41.96421351931822},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 104.0], "toMm": ["=cx", "=cy", 108.0], "radiusMm": 43.680000000000234},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 108.0], "toMm": ["=cx", "=cy", 112.0], "radiusMm": 40.54790401582728},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 112.0], "toMm": ["=cx", "=cy", 116.0], "radiusMm": 14.546200000000072},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 116.0], "toMm": ["=cx", "=cy", 120.0], "radiusMm": 49.71250000000021},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 120.0], "toMm": ["=cx", "=cy", 124.0], "radiusMm": 40.54790401582724},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 124.0], "toMm": ["=cx", "=cy", 128.0], "radiusMm": 3.675004280266801},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 128.0], "toMm": ["=cx", "=cy", 132.0], "radiusMm": 1.0},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 132.0], "toMm": ["=cx", "=cy", 136.0], "radiusMm": 33.52000000000013},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 136.0], "toMm": ["=cx", "=cy", 140.0], "radiusMm": 28.64088319344398},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 140.0], "toMm": ["=cx", "=cy", 144.0], "radiusMm": 33.52000000000013},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 144.0], "toMm": ["=cx", "=cy", 148.0], "radiusMm": 12.50000000300008},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 148.0], "toMm": ["=cx", "=cy", 152.0], "radiusMm": 12.50000000300008},
+          {"kind": "cylinder", "fromMm": ["=cx", "=cy", 152.0], "toMm": ["=cx", "=cy", 152.78666305672976], "radiusMm": 5.262500000000211}
+        ]
       }
     },
-    "frameProfile": {
-      "cutbacksMm": [
-        17.25,
-        17.25
-      ],
-      "kind": "rear-chamfer"
-    },
-    "parameters": {
-      "bumperBottomM": 0.043,
-      "bumperDepthM": 0.075,
-      "bumperHeightM": 0.138,
-      "frameLengthM": 0.74,
-      "frameWidthM": 0.73,
-      "height": 0.8867,
-      "opening": 0.322,
-      "phase": "start",
-      "reach": 0.1,
-      "toolHeight": 0.6,
-      "trackM": 0.5386
-    },
-    "requirementLinks": {
-      "body-envelope": [
-        "acquire"
-      ],
-      "frame-plate": [
-        "acquire",
-        "reliability-pit"
-      ],
-      "tool": [
-        "acquire",
-        "deliver",
-        "piece-variation"
-      ]
-    }
-  },
-  "disciplinePlans": {
-    "fabrication": {
-      "materials": [],
-      "openQuestions": [
-        "Measure new and worn objects, assembly clearance and tool access.",
-        "Record replacement history and retest each repaired interface."
-      ],
-      "processes": [],
-      "toolCapabilities": []
-    },
-    "programming": {
-      "pseudocode": "Serialize conflicting actuators. Confirm ownership, sensor validity and recovery before release.",
-      "states": [
-        {
-          "action": "Grant exclusive ownership of the release actuator",
-          "entry": "Operator requests delivery",
-          "failure": "Inhibit release and retry after sensor recovery",
-          "id": "release",
-          "requirementIds": [
-            "deliver"
-          ],
-          "sensor": "Target pose and object present"
-        }
-      ],
-      "status": "pseudocode"
-    }
-  },
-  "frames": {
-    "robot": {
-      "basis": "Assumed starting pose",
-      "headingDeg": 0,
-      "x": 2,
-      "y": 0,
-      "z": 0
-    },
-    "target": {
-      "basis": "Target box center, provisional registration",
-      "headingDeg": 0,
-      "x": 5,
-      "y": 0,
-      "z": 0.8
-    },
-    "world": {
-      "axes": "x downfield, y across field, z up",
-      "basis": "Origin at the midpoint of the near field edge"
-    }
-  },
-  "id": "red2-002-preliminary-layout-pocket",
-  "operations": [
     {
-      "enabled": false,
-      "id": "floor-opening",
-      "requirementIds": [
-        "acquire"
-      ],
-      "targetIds": [
-        "frame-plate",
-        "body-envelope"
-      ],
-      "type": "intake-opening",
-      "unresolvedChecks": [
-        "Measure the remaining support strip and the object path across the front protection."
-      ]
+      "name": "Bumper ring",
+      "group": "bumpers",
+      "shape": {
+        "kind": "difference",
+        "from": {
+          "kind": "prism",
+          "plane": "xy",
+          "outlineMm": [
+            ["=frame_x + bumper_stack", "=(-frame_y) - bumper_stack"],
+            ["=frame_x + bumper_stack", "=frame_y + bumper_stack"],
+            ["=((-frame_x) + rear_cutback) - (bumper_stack * mitre)", "=frame_y + bumper_stack"],
+            ["=(-frame_x) - bumper_stack", "=(frame_y - rear_cutback) + (bumper_stack * mitre)"],
+            ["=(-frame_x) - bumper_stack", "=((-frame_y) + rear_cutback) - (bumper_stack * mitre)"],
+            ["=((-frame_x) + rear_cutback) - (bumper_stack * mitre)", "=(-frame_y) - bumper_stack"]
+          ],
+          "fromMm": 43.0,
+          "toMm": 181.0
+        },
+        "cut": [
+          {
+            "kind": "prism",
+            "plane": "xy",
+            "outlineMm": [
+              ["=frame_x + partition", "=(-frame_y) - partition"],
+              ["=frame_x + partition", "=frame_y + partition"],
+              ["=((-frame_x) + rear_cutback) - (partition * mitre)", "=frame_y + partition"],
+              ["=(-frame_x) - partition", "=(frame_y - rear_cutback) + (partition * mitre)"],
+              ["=(-frame_x) - partition", "=((-frame_y) + rear_cutback) - (partition * mitre)"],
+              ["=((-frame_x) + rear_cutback) - (partition * mitre)", "=(-frame_y) - partition"]
+            ],
+            "fromMm": 42.0,
+            "toMm": 182.0
+          }
+        ]
+      },
+      "note": "Backing, foam and cover around the chamfered frame: 1 mm gap, 4 mm backer, 69.5 mm foam, 0.5 mm cover, Z 43-181 mm"
+    },
+    {
+      "name": "Power distribution hub",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-258.5625012178653, 95.63742095204428, 212.0], "toMm": [-31.43749878213471, 208.36257904795573, 251.72179020000058]},
+      "note": "Bounds of the mounted PDH at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "roboRIO 2",
+      "group": "electronics",
+      "shape": {
+        "kind": "box",
+        "fromMm": [-215.0759074145411, -230.58990050303674, 212.0],
+        "toMm": [-68.92409258545888, -87.41009949696326, 246.70944324837927]
+      },
+      "note": "Bounds of the mounted roboRIO 2 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "VH-109 radio",
+      "group": "electronics",
+      "shape": {
+        "kind": "box",
+        "fromMm": [-200.6000000514475, -309.99476291739165, 212.0],
+        "toMm": [-83.39999994855248, -256.00523708260835, 242.1000001000011]
+      },
+      "note": "Bounds of the mounted VH-109 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Main 120 A breaker",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-120.13000010000059, 237.1485941900033, 212.0], "toMm": [-71.86999989999941, 310.85140580999666, 254.14903193016644]},
+      "note": "Bounds of the mounted CB185 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 1 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-2.624999999999993, -133.2500001, 212.0], "toMm": [78.625, -98.74999989999999, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 2 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-2.624999999999993, -213.2500001, 212.0], "toMm": [78.625, -178.74999989999998, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 3 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [153.375, -133.2500001, 212.0], "toMm": [234.625, -98.74999989999999, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 4 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [153.375, -213.2500001, 212.0], "toMm": [234.625, -178.74999989999998, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 1 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-2.624999999999993, 98.7499999, 212.0], "toMm": [78.625, 133.25000010000002, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 2 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-2.624999999999993, 178.7499999, 212.0], "toMm": [78.625, 213.25000010000002, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 3 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [153.375, 98.7499999, 212.0], "toMm": [234.625, 133.25000010000002, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 4 (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [153.375, 178.7499999, 212.0], "toMm": [234.625, 213.25000010000002, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Nip controller (SPARK MAX)",
+      "group": "electronics",
+      "shape": {"kind": "box", "fromMm": [-2.624999999999993, 255.7499999, 212.0], "toMm": [78.625, 290.2500001, 241.65000010000006]},
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Chassis battery plug and bracket",
+      "group": "electronics",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "box", "fromMm": [-317.2562501, 80.1, 180.0], "toMm": [-280.7437499, 119.0109376, 196.04756485203757]},
+          {"kind": "box", "fromMm": [-329.79999999999995, 80.1, 180.0], "toMm": [-317.2562501, 119.0109376, 196.0]}
+        ]
+      },
+      "note": "Robot-side SB50, partitioned at the mating plane, and its bracket reserve to the rear perimeter"
+    },
+    {
+      "name": "Main power loom",
+      "group": "wiring",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "box", "fromMm": [-317.0, 121.1, 180.0], "toMm": [-281.0, 140.0, 222.0]},
+          {"kind": "box", "fromMm": [-281.0, 121.1, 198.1], "toMm": [-270.2, 229.9, 222.0]},
+          {"kind": "box", "fromMm": [-270.2, 210.5, 210.2], "toMm": [-122.1, 234.9, 222.0]}
+        ]
+      },
+      "note": "6 AWG main leads as rectangular channels clear of the battery lift and the plug grip"
+    },
+    {
+      "name": "Branch and CAN trunk",
+      "group": "wiring",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "box", "fromMm": [-28.9, -20.0, 210.2], "toMm": [240.0, 20.0, 226.0]},
+          {"kind": "box", "fromMm": [20.0, -96.6, 210.2], "toMm": [56.0, 96.6, 226.0]},
+          {"kind": "box", "fromMm": [180.0, -96.6, 210.2], "toMm": [216.0, 96.6, 226.0]}
+        ]
+      },
+      "note": "15.8 mm high channels on the centreline with cross runs to the controllers"
+    },
+    {
+      "name": "Module {k} lead reserve",
+      "group": "wiring",
+      "each": [{"k": "1", "sx": 1, "sy": 1}, {"k": "2", "sx": 1, "sy": -1}, {"k": "3", "sx": -1, "sy": -1}, {"k": "4", "sx": -1, "sy": 1}],
+      "note": "55 x 55 x 26.7 mm reserve over the inboard motor ends, under the equipment sheet",
+      "shape": {"kind": "box", "fromMm": ["=150 * sx", "=145 * sy", 174.4], "toMm": ["=205 * sx", "=200 * sy", 201.1]}
+    },
+    {
+      "name": "Battery tray and retention",
+      "group": "battery retention",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "box", "fromMm": [-250.0, -100.5, 21.0], "toMm": [-50.0, 100.5, 29.9]},
+          {"kind": "box", "fromMm": [-220.0, 60.0, 29.9], "toMm": [-200.0, 100.5, 109.0]},
+          {"kind": "box", "fromMm": [-220.0, -100.5, 29.9], "toMm": [-200.0, -60.0, 109.0]},
+          {"kind": "box", "fromMm": [-100.0, 60.0, 29.9], "toMm": [-80.0, 100.5, 109.0]},
+          {"kind": "box", "fromMm": [-100.0, -100.5, 29.9], "toMm": [-80.0, -60.0, 109.0]},
+          {"kind": "box", "fromMm": [-248.7, -30.0, 29.9], "toMm": [-244.6, 30.0, 100.0]},
+          {"kind": "box", "fromMm": [-55.4, -30.0, 29.9], "toMm": [-51.3, 30.0, 100.0]}
+        ]
+      },
+      "note": "Planning reserve sized around the largest battery case: tray, four hangers, two end keepers"
+    },
+    {
+      "name": "Dressed battery",
+      "group": "battery",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {"kind": "box", "fromMm": [-241.5, -39.0, 33.0], "toMm": [-58.5, 39.0, 202.0]},
+          {"kind": "box", "fromMm": [-283.0, 10.0, 170.0], "toMm": [-241.5, 64.9, 201.0]},
+          {"kind": "box", "fromMm": [-317.0, 37.0, 180.0], "toMm": [-281.0, 77.0, 196.0]}
+        ]
+      },
+      "note": "Largest supported battery case, its leads and the battery-side SB50"
+    },
+    {
+      "name": "Breaker reset hand",
+      "group": "breaker service hand",
+      "shape": {"kind": "box", "fromMm": [-96.0, 258.0, 257.2], "toMm": [-64.0, 290.0, 417.2]},
+      "note": "Service allowance, not a robot part: a 32 x 32 mm hand column drawn at the end of its reach, 3.2 mm above the breaker"
+    },
+    {
+      "name": "Plug grip hand",
+      "group": "plug service hand",
+      "shape": {"kind": "box", "fromMm": [-321.0, 27.0, 199.1], "toMm": [-286.1, 115.0, 384.1]},
+      "note": "Service allowance, not a robot part: a hand gripping the SB50 pair from above, drawn at the end of its reach"
+    },
+    {
+      "name": "Pocket tray",
+      "group": "pocket tray",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=entry_x + (floor_n1x * (-contact_reserve))", "=entry_z + (floor_n1z * (-contact_reserve))"],
+              ["=kink_x + (floor_n1x * (-contact_reserve))", "=kink_z + (floor_n1z * (-contact_reserve))"],
+              ["=kink_x - (floor_n1x * (contact_reserve + wall))", "=kink_z - (floor_n1z * (contact_reserve + wall))"],
+              ["=entry_x - (floor_n1x * (contact_reserve + wall))", "=entry_z - (floor_n1z * (contact_reserve + wall))"]
+            ],
+            "fromMm": "=-(pocket_half_width + wall)",
+            "toMm": "=pocket_half_width + wall"
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=kink_x + (floor_n2x * (-contact_reserve))", "=kink_z + (floor_n2z * (-contact_reserve))"],
+              ["=floor_end_x + (floor_n2x * (-contact_reserve))", "=floor_end_z + (floor_n2z * (-contact_reserve))"],
+              ["=floor_end_x - (floor_n2x * (contact_reserve + wall))", "=floor_end_z - (floor_n2z * (contact_reserve + wall))"],
+              ["=kink_x - (floor_n2x * (contact_reserve + wall))", "=kink_z - (floor_n2z * (contact_reserve + wall))"]
+            ],
+            "fromMm": "=-(pocket_half_width + wall)",
+            "toMm": "=pocket_half_width + wall"
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=kink_x - (floor_n1x * (contact_reserve + wall))", "=kink_z - (floor_n1z * (contact_reserve + wall))"],
+              ["=kink_x - (floor_n2x * (contact_reserve + wall))", "=kink_z - (floor_n2z * (contact_reserve + wall))"],
+              ["=kink_x + (floor_n2x * (-contact_reserve))", "=kink_z + (floor_n2z * (-contact_reserve))"],
+              ["=kink_x + (floor_n1x * (-contact_reserve))", "=kink_z + (floor_n1z * (-contact_reserve))"]
+            ],
+            "fromMm": "=-(pocket_half_width + wall)",
+            "toMm": "=pocket_half_width + wall"
+          },
+          {
+            "kind": "intersection",
+            "of": [
+              {
+                "kind": "union",
+                "of": [
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=entry_x + (wall_n1x * wall_top)", "=entry_z + (wall_n1z * wall_top)"],
+                      ["=kink_x + (wall_n1x * wall_top)", "=kink_z + (wall_n1z * wall_top)"],
+                      ["=kink_x - (wall_n1x * (contact_reserve + wall))", "=kink_z - (wall_n1z * (contact_reserve + wall))"],
+                      ["=entry_x - (wall_n1x * (contact_reserve + wall))", "=entry_z - (wall_n1z * (contact_reserve + wall))"]
+                    ],
+                    "fromMm": "=pocket_half_width",
+                    "toMm": "=pocket_half_width + wall"
+                  },
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=kink_x + (wall_n2x * wall_top)", "=kink_z + (wall_n2z * wall_top)"],
+                      ["=floor_end_x + (wall_n2x * wall_top)", "=floor_end_z + (wall_n2z * wall_top)"],
+                      ["=floor_end_x - (wall_n2x * (contact_reserve + wall))", "=floor_end_z - (wall_n2z * (contact_reserve + wall))"],
+                      ["=kink_x - (wall_n2x * (contact_reserve + wall))", "=kink_z - (wall_n2z * (contact_reserve + wall))"]
+                    ],
+                    "fromMm": "=pocket_half_width",
+                    "toMm": "=pocket_half_width + wall"
+                  },
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=kink_x - (wall_n1x * (contact_reserve + wall))", "=kink_z - (wall_n1z * (contact_reserve + wall))"],
+                      ["=kink_x - (wall_n2x * (contact_reserve + wall))", "=kink_z - (wall_n2z * (contact_reserve + wall))"],
+                      ["=kink_x + (wall_n1x * wall_top)", "=kink_z + (wall_n1z * wall_top)"],
+                      ["=kink_x + (wall_n2x * wall_top)", "=kink_z + (wall_n2z * wall_top)"]
+                    ],
+                    "fromMm": "=pocket_half_width",
+                    "toMm": "=pocket_half_width + wall"
+                  }
+                ]
+              },
+              {"kind": "box", "fromMm": [-400.0, -400.0, 0.0], "toMm": [300.0, 400.0, 1200.0]}
+            ]
+          },
+          {
+            "kind": "intersection",
+            "of": [
+              {
+                "kind": "union",
+                "of": [
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=entry_x + (wall_n1x * wall_top)", "=entry_z + (wall_n1z * wall_top)"],
+                      ["=kink_x + (wall_n1x * wall_top)", "=kink_z + (wall_n1z * wall_top)"],
+                      ["=kink_x - (wall_n1x * (contact_reserve + wall))", "=kink_z - (wall_n1z * (contact_reserve + wall))"],
+                      ["=entry_x - (wall_n1x * (contact_reserve + wall))", "=entry_z - (wall_n1z * (contact_reserve + wall))"]
+                    ],
+                    "fromMm": "=-(pocket_half_width + wall)",
+                    "toMm": "=-pocket_half_width"
+                  },
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=kink_x + (wall_n2x * wall_top)", "=kink_z + (wall_n2z * wall_top)"],
+                      ["=floor_end_x + (wall_n2x * wall_top)", "=floor_end_z + (wall_n2z * wall_top)"],
+                      ["=floor_end_x - (wall_n2x * (contact_reserve + wall))", "=floor_end_z - (wall_n2z * (contact_reserve + wall))"],
+                      ["=kink_x - (wall_n2x * (contact_reserve + wall))", "=kink_z - (wall_n2z * (contact_reserve + wall))"]
+                    ],
+                    "fromMm": "=-(pocket_half_width + wall)",
+                    "toMm": "=-pocket_half_width"
+                  },
+                  {
+                    "kind": "prism",
+                    "plane": "xz",
+                    "outlineMm": [
+                      ["=kink_x - (wall_n1x * (contact_reserve + wall))", "=kink_z - (wall_n1z * (contact_reserve + wall))"],
+                      ["=kink_x - (wall_n2x * (contact_reserve + wall))", "=kink_z - (wall_n2z * (contact_reserve + wall))"],
+                      ["=kink_x + (wall_n1x * wall_top)", "=kink_z + (wall_n1z * wall_top)"],
+                      ["=kink_x + (wall_n2x * wall_top)", "=kink_z + (wall_n2z * wall_top)"]
+                    ],
+                    "fromMm": "=-(pocket_half_width + wall)",
+                    "toMm": "=-pocket_half_width"
+                  }
+                ]
+              },
+              {"kind": "box", "fromMm": [-400.0, -400.0, 0.0], "toMm": [300.0, 400.0, 1200.0]}
+            ]
+          }
+        ]
+      },
+      "note": "Inlet chute and pocket floor, 3.175 mm thick and reserved 2.5 mm below the pipe-contact line, and two side walls 150 mm above it to X 300"
+    },
+    {
+      "name": "Hood (removable)",
+      "group": "hood",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [["=hood0_x", "=hood0_z"], ["=hood1_x", "=hood1_z"], ["=hood1_x", "=hood1_z + 1.6"], ["=hood0_x", "=hood0_z + 1.6"]],
+            "fromMm": "=-hood_half_width",
+            "toMm": "=hood_half_width"
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=flare_x", "=flare_z"],
+              ["=hood0_x + 2", "=(floor_pt_z - (floor_slope * ((hood0_x + 2) - floor_pt_x))) + hood_offset"],
+              ["=hood0_x + 2", "=((floor_pt_z - (floor_slope * ((hood0_x + 2) - floor_pt_x))) + hood_offset) + 1.6"],
+              ["=flare_x", "=flare_z + 1.6"]
+            ],
+            "fromMm": "=-hood_half_width",
+            "toMm": "=hood_half_width"
+          }
+        ]
+      },
+      "note": "1/16 in polycarbonate hood 10 mm above the seated pipe, with a 90 mm lead-in flare 30 deg above the hood line"
+    },
+    {
+      "name": "Check flap",
+      "group": "check flap",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=flap_x - 0.8", "=flap_hinge_z"],
+              ["=flap_x + 0.8", "=flap_hinge_z"],
+              ["=flap_x + 0.8", "=flap_hinge_z - flap_length"],
+              ["=flap_x - 0.8", "=flap_hinge_z - flap_length"]
+            ],
+            "fromMm": "=-flap_half_width",
+            "toMm": "=flap_half_width"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=flap_x", "=-flap_half_width", "=flap_hinge_z"],
+            "toMm": ["=flap_x", "=flap_half_width", "=flap_hinge_z"],
+            "radiusMm": 1.5
+          }
+        ]
+      },
+      "note": "1.6 mm polycarbonate plate 304 mm wide hanging to 6 mm above the floor, on its 3 mm pin"
+    },
+    {
+      "name": "Pocket landing shelf {side}",
+      "group": "tray supports",
+      "each": [{"side": "port", "s": 1}, {"side": "starboard", "s": -1}],
+      "note": "1/4 in 6061 shelf on the upper pan stringer top, reaching inboard under the floor post and the nip side-plate foot",
+      "shape": {"kind": "box", "fromMm": [105.0, "=s * 137", "=shelf_z0"], "toMm": [305.0, "=s * 251.5", "=shelf_z0 + shelf_t"]}
+    },
+    {
+      "name": "Port nip side plate",
+      "group": "nip side plates",
+      "shape": {
+        "kind": "difference",
+        "from": {
+          "kind": "prism",
+          "plane": "xz",
+          "outlineMm": [[240.0, "=landing_z"], [307.5, "=landing_z"], [307.5, 425.0], [368.0, 425.0], [368.0, 722.0], [240.0, 722.0]],
+          "fromMm": "=plate_y0",
+          "toMm": "=plate_y1"
+        },
+        "cut": [
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -300.0, "=lower_roller_z"],
+            "toMm": ["=throat_x", 300.0, "=lower_roller_z"],
+            "radiusMm": "=shaft_hole_r"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -300.0, "=upper_roller_z"],
+            "toMm": ["=throat_x", 300.0, "=upper_roller_z"],
+            "radiusMm": "=shaft_hole_r"
+          },
+          {"kind": "cylinder", "fromMm": ["=beam_x", -300.0, "=beam_z"], "toMm": ["=beam_x", 300.0, "=beam_z"], "radiusMm": 8.5}
+        ]
+      },
+      "note": "1/4 in 6061 side plate carrying both roller bearings and the lip hinge; shaft holes partitioned 2.1 mm around the shafts, and the seated-pipe beam window"
+    },
+    {
+      "name": "Starboard nip side plate",
+      "group": "nip side plates",
+      "shape": {
+        "kind": "difference",
+        "from": {
+          "kind": "prism",
+          "plane": "xz",
+          "outlineMm": [[240.0, "=landing_z"], [307.5, "=landing_z"], [307.5, 425.0], [368.0, 425.0], [368.0, 722.0], [240.0, 722.0]],
+          "fromMm": "=-plate_y1",
+          "toMm": "=-plate_y0"
+        },
+        "cut": [
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -300.0, "=lower_roller_z"],
+            "toMm": ["=throat_x", 300.0, "=lower_roller_z"],
+            "radiusMm": "=shaft_hole_r"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -300.0, "=upper_roller_z"],
+            "toMm": ["=throat_x", 300.0, "=upper_roller_z"],
+            "radiusMm": "=shaft_hole_r"
+          },
+          {"kind": "cylinder", "fromMm": ["=beam_x", -300.0, "=beam_z"], "toMm": ["=beam_x", 300.0, "=beam_z"], "radiusMm": 8.5}
+        ]
+      },
+      "note": "1/4 in 6061 side plate carrying both roller bearings and the lip hinge; shaft holes partitioned 2.1 mm around the shafts, and the seated-pipe beam window"
+    },
+    {
+      "name": "Lower nip roller",
+      "group": "lower nip roller",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -160.0, "=lower_roller_z"],
+            "toMm": ["=throat_x", 160.0, "=lower_roller_z"],
+            "radiusMm": "=core_r"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", "=-shaft_y", "=lower_roller_z"],
+            "toMm": ["=throat_x", "=shaft_y", "=lower_roller_z"],
+            "radiusMm": "=shaft_r + 0.65"
+          }
+        ]
+      },
+      "note": "Rigid hub and core reserve, radius 16.4 mm over |Y| <= 160, plus the 1/2 in hex shaft; the outer 9 mm of the 2 in tread is the trial-qualified squeeze"
+    },
+    {
+      "name": "Upper nip roller",
+      "group": "upper nip roller",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", -160.0, "=upper_roller_z"],
+            "toMm": ["=throat_x", 160.0, "=upper_roller_z"],
+            "radiusMm": "=core_r"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", "=-shaft_y", "=upper_roller_z"],
+            "toMm": ["=throat_x", "=shaft_y", "=upper_roller_z"],
+            "radiusMm": "=shaft_r + 0.65"
+          }
+        ]
+      },
+      "note": "Rigid hub and core reserve, radius 16.4 mm over |Y| <= 160, plus the 1/2 in hex shaft; the outer 9 mm of the 2 in tread is the trial-qualified squeeze"
+    },
+    {
+      "name": "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+      "group": "nip drive",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "box",
+            "fromMm": ["=throat_x - 27", "=drive_y0", "=lower_roller_z - 27"],
+            "toMm": ["=throat_x + 27", "=drive_y0 + gearbox_length", "=lower_roller_z + 27"]
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=throat_x", "=(drive_y0 + gearbox_length) - 0.5", "=lower_roller_z"],
+            "toMm": ["=throat_x", "=(drive_y0 + gearbox_length) + motor_length", "=lower_roller_z"],
+            "radiusMm": 18.5
+          }
+        ]
+      },
+      "note": "54 x 54 x 92 mm gearbox envelope coaxial with the lower shaft on the port plate, plus the 37 mm NEO 550 cylinder"
+    },
+    {
+      "name": "Nip coupling belt",
+      "group": "nip coupling",
+      "shape": {"kind": "box", "fromMm": [322.0, -232.0, "=lower_roller_z - 26"], "toMm": [368.0, "=-drive_y0", "=upper_roller_z + 26"]},
+      "note": "Box over both pulleys, the idler and the belt run on the starboard plate"
+    },
+    {
+      "name": "Seated-pipe beam {label}",
+      "group": "pipe sensor",
+      "each": [{"label": "emitter (port)", "s": 1}, {"label": "receiver (starboard)", "s": -1}],
+      "note": "Adafruit 2168 break-beam body, 20 x 10 x 8 mm along Y through the side-plate window, just under the top of a seated pipe",
+      "shape": {"kind": "box", "fromMm": ["=beam_x - 5", "=s * 162", "=beam_z - 4"], "toMm": ["=beam_x + 5", "=s * 182", "=beam_z + 4"]}
+    },
+    {
+      "name": "Flap-closed switch",
+      "group": "flap sensor",
+      "shape": {"kind": "box", "fromMm": ["=flap_x - 13", 118.0, "=flap_switch_z"], "toMm": ["=flap_x + 13", 150.0, "=flap_switch_z + 10"]},
+      "note": "REV magnetic limit switch envelope on the hood top over the flap hinge"
+    },
+    {
+      "name": "Lip-deployed switch",
+      "group": "lip sensor",
+      "shape": {"kind": "box", "fromMm": [340.0, -232.0, 705.0], "toMm": [366.0, "=-drive_y0", 720.0]},
+      "note": "REV magnetic limit switch envelope on the starboard plate"
+    },
+    {
+      "name": "Reef range sensor (CANrange)",
+      "group": "reef sensor",
+      "shape": {"kind": "box", "fromMm": [329.0, "=-(plate_y0 - partition)", 427.2], "toMm": [366.0, "=-((plate_y0 - partition) - 18)", 461.7]},
+      "note": "CTRE CANrange envelope looking forward under the lip, on the starboard plate inside face"
+    },
+    {
+      "name": "Lip latch servo",
+      "group": "lip latch",
+      "shape": {"kind": "box", "fromMm": [330.0, "=drive_y0", 600.0], "toMm": [366.0, 232.0, 650.0]},
+      "note": "Servo and pin envelope on the port plate above the drive"
+    },
+    {
+      "name": "Deployable exit lip",
+      "group": "exit lip",
+      "shape": {
+        "kind": "union",
+        "of": [
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=lip_root_x + (lip_n1x * (-lip_reserve))", "=lip_root_z + (lip_n1z * (-lip_reserve))"],
+              ["=lip_knee_x + (lip_n1x * (-lip_reserve))", "=lip_tip_z + (lip_n1z * (-lip_reserve))"],
+              ["=lip_knee_x - (lip_n1x * (lip_reserve + lip_thickness))", "=lip_tip_z - (lip_n1z * (lip_reserve + lip_thickness))"],
+              ["=lip_root_x - (lip_n1x * (lip_reserve + lip_thickness))", "=lip_root_z - (lip_n1z * (lip_reserve + lip_thickness))"]
+            ],
+            "fromMm": "=-lip_half_width",
+            "toMm": "=lip_half_width"
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=lip_knee_x + (lip_n2x * (-lip_reserve))", "=lip_tip_z + (lip_n2z * (-lip_reserve))"],
+              ["=lip_tip_x + (lip_n2x * (-lip_reserve))", "=lip_tip_z + (lip_n2z * (-lip_reserve))"],
+              ["=lip_tip_x - (lip_n2x * (lip_reserve + lip_thickness))", "=lip_tip_z - (lip_n2z * (lip_reserve + lip_thickness))"],
+              ["=lip_knee_x - (lip_n2x * (lip_reserve + lip_thickness))", "=lip_tip_z - (lip_n2z * (lip_reserve + lip_thickness))"]
+            ],
+            "fromMm": "=-lip_half_width",
+            "toMm": "=lip_half_width"
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=lip_knee_x - (lip_n1x * (lip_reserve + lip_thickness))", "=lip_tip_z - (lip_n1z * (lip_reserve + lip_thickness))"],
+              ["=lip_knee_x - (lip_n2x * (lip_reserve + lip_thickness))", "=lip_tip_z - (lip_n2z * (lip_reserve + lip_thickness))"],
+              ["=lip_knee_x + (lip_n2x * (-lip_reserve))", "=lip_tip_z + (lip_n2z * (-lip_reserve))"],
+              ["=lip_knee_x + (lip_n1x * (-lip_reserve))", "=lip_tip_z + (lip_n1z * (-lip_reserve))"]
+            ],
+            "fromMm": "=-lip_half_width",
+            "toMm": "=lip_half_width"
+          },
+          {
+            "kind": "cylinder",
+            "fromMm": ["=lip_hinge_x", "=-(plate_y0 - partition)", "=lip_hinge_z"],
+            "toMm": ["=lip_hinge_x", "=plate_y0 - partition", "=lip_hinge_z"],
+            "radiusMm": 3.0
+          },
+          {
+            "kind": "prism",
+            "plane": "xz",
+            "outlineMm": [
+              ["=lip_hinge_x - 3", "=lip_hinge_z"],
+              ["=lip_hinge_x + 3", "=lip_hinge_z"],
+              ["=lip_hinge_x + 3", "=(lip_root_z - lip_reserve) - 1"],
+              ["=lip_hinge_x - 3", "=(lip_root_z - lip_reserve) - 1"]
+            ],
+            "fromMm": "=-lip_half_width",
+            "toMm": "=lip_half_width"
+          }
+        ]
+      },
+      "note": "1/8 in polycarbonate lip drawn deployed, reserved 3.5 mm under its profile, with its 6 mm hinge pin to both side plates and the knuckle"
+    },
+    {
+      "name": "Rear inlet upright {side}",
+      "group": "tray supports",
+      "each": [{"side": "port", "s": 1}, {"side": "starboard", "s": -1}],
+      "note": "1 x 1 in upright carrying the inlet walls at the station face",
+      "shape": {"kind": "box", "fromMm": [-368.0, "=s * 170", 205.6], "toMm": [-343.0, "=s * 195.4", 800.0]}
+    },
+    {
+      "name": "Floor post {side}",
+      "group": "tray supports",
+      "each": [{"side": "port", "s": 1}, {"side": "starboard", "s": -1}],
+      "note": "25 x 15 mm post from the pocket landing shelf to the pocket floor",
+      "shape": {"kind": "box", "fromMm": [110.0, "=s * 140", "=landing_z"], "toMm": [135.0, "=s * 155", "=floor_post_top"]}
+    },
+    {
+      "name": "CORAL pipe",
+      "group": "pipe",
+      "shape": {
+        "kind": "cylinder",
+        "fromMm": ["=seat_x", "=(-pipe_length) / 2", "=seat_z"],
+        "toMm": ["=seat_x", "=pipe_length / 2", "=seat_z"],
+        "radiusMm": "=pipe_r"
+      },
+      "note": "One station-issued CORAL (114.3 mm OD, 301.6 mm, bore filled), drawn at its carry seat: the end state of the nominal receive trial"
     }
   ],
-  "parentRevision": 2,
-  "provenance": {
-    "basis": "Original illustrative blockout with editable project inputs",
-    "limitations": [
-      "Robot and reference solids are reserved volumes. Confirm moving paths, interference and structural support separately.",
-      "A route budget uses declared motion and action times. Measure a complete cycle to validate it.",
-      "Confirm the datum and orientation of each reference against its project drawing.",
-      "Revision 2 sets the iteration 002 frame (740 x 730 mm, 17.25 mm rear cutback from the actual frame plan hull), the 538.6 mm steer-axis track and the 75 mm bumper stack at Z 43-181 mm, carried from the pan baseline as revisable premises. The B'x pocket gives an 886.7 mm stowed height (inlet walls), a 0.60 m nip throat (tool height), a 322 mm pocket width (opening) and the deploy-once lip's 100 mm reach beyond the frame. The registered package geometry is iterations/002/design/preliminary-pocket/layout.step.",
-      "Revision 3 is Fixed pocket 1.0: no envelope parameter changes. The nip drive is a NEO 550 on a 36:1 planetary with a powered hold (the self-locking worm is removed), the hood gains a flared lead-in, the deployed lip stop is sprung, and the seated-pipe beam, flap-closed switch, lip-deployed switch and reef range sensor are placed. The registered package geometry is cad/preliminary-design/releases/1.0/package.step, with the station chute, trough and first scored pipe in field-fixtures.step."
-    ]
-  },
-  "rehearsal": {
-    "actionDurations": {
-      "deliver": 1,
-      "pickup": 2
+  "fixtures": [
+    {
+      "name": "Station lower barrier (GE-25007)",
+      "group": "field station",
+      "part": {"file": "field/station-barrier.step", "solid": "Station lower barrier (GE-25007)"}
     },
-    "basis": "assumed",
-    "driveSpeedMps": 1,
-    "opponent": {
-      "enabled": false,
-      "footprintM": 0.8,
-      "periodS": 4,
-      "x": 2,
-      "yMax": 0.5,
-      "yMin": -0.5
+    {
+      "name": "Station lower panel (GE-25008)",
+      "group": "field station",
+      "part": {"file": "field/station-lower-panel.step", "solid": "Station lower panel (GE-25008)"}
     },
-    "route": [
-      {
-        "action": "none",
-        "headingDeg": 0,
-        "id": "start",
-        "x": 2,
-        "y": 0
+    {
+      "name": "Station upper panel (GE-25009)",
+      "group": "field station",
+      "part": {"file": "field/station-upper-panel.step", "solid": "Station upper panel (GE-25009)"}
+    },
+    {
+      "name": "Station upper guard (GE-25017)",
+      "group": "field station",
+      "part": {"file": "field/station-guard.step", "solid": "Station upper guard (GE-25017)"}
+    },
+    {
+      "name": "Station frame upright, port (GE-25001-01)",
+      "group": "field station",
+      "part": {"file": "field/station-upright-port.step", "solid": "Station frame upright, port (GE-25001-01)"}
+    },
+    {
+      "name": "Station frame upright, starboard (GE-25001-01)",
+      "group": "field station",
+      "part": {"file": "field/station-upright-starboard.step", "solid": "Station frame upright, starboard (GE-25001-01)"}
+    },
+    {
+      "name": "Reef trough floor, docked sector (GE-25313)",
+      "group": "field reef",
+      "part": {"file": "field/reef-floor.step", "solid": "Reef trough floor, docked sector (GE-25313)"}
+    },
+    {
+      "name": "Reef trough floor, next sector (GE-25313)",
+      "group": "field reef",
+      "part": {"file": "field/reef-floor-next.step", "solid": "Reef trough floor, next sector (GE-25313)"}
+    },
+    {
+      "name": "Reef trough riser, docked sector (GE-25315)",
+      "group": "field reef",
+      "part": {"file": "field/reef-riser.step", "solid": "Reef trough riser, docked sector (GE-25315)"}
+    },
+    {
+      "name": "Reef trough riser, next sector (GE-25315)",
+      "group": "field reef",
+      "part": {"file": "field/reef-riser-next.step", "solid": "Reef trough riser, next sector (GE-25315)"}
+    },
+    {
+      "name": "Reef branch column, docked sector (GE-25301-02)",
+      "group": "field reef",
+      "part": {"file": "field/reef-column.step", "solid": "Reef branch column, docked sector (GE-25301-02)"}
+    },
+    {
+      "name": "Reef branch column, next sector (GE-25301-02)",
+      "group": "field reef",
+      "part": {"file": "field/reef-column-next.step", "solid": "Reef branch column, next sector (GE-25301-02)"}
+    },
+    {
+      "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
+      "group": "field reef",
+      "part": {"file": "field/reef-arm-l2.step", "solid": "Reef L2 branch arm, docked sector (GE-25301-01)"}
+    },
+    {
+      "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
+      "group": "field reef",
+      "part": {"file": "field/reef-arm-l3.step", "solid": "Reef L3 branch arm, docked sector (GE-25301-01)"}
+    },
+    {
+      "name": "Reef L2 branch arm, next sector (GE-25301-01)",
+      "group": "field reef",
+      "part": {"file": "field/reef-arm-l2-next.step", "solid": "Reef L2 branch arm, next sector (GE-25301-01)"}
+    },
+    {
+      "name": "Reef L3 branch arm, next sector (GE-25301-01)",
+      "group": "field reef",
+      "part": {"file": "field/reef-arm-l3-next.step", "solid": "Reef L3 branch arm, next sector (GE-25301-01)"}
+    },
+    {
+      "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+      "group": "field station",
+      "part": {"file": "field/station-chute.step", "solid": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"}
+    },
+    {
+      "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
+      "group": "field reef",
+      "part": {"file": "field/reef-lip.step", "solid": "Reef trough lip and base plates (GE-25302, GE-25311)"}
+    },
+    {
+      "name": "First scored pipe in sector A (field)",
+      "group": "field first pipe",
+      "shape": {
+        "kind": "cylinder",
+        "fromMm": ["=trough_lip_x + first_pipe_x", "=(-sector_pitch) - (pipe_length / 2)", "=first_pipe_z"],
+        "toMm": ["=trough_lip_x + first_pipe_x", "=(-sector_pitch) + (pipe_length / 2)", "=first_pipe_z"],
+        "radiusMm": "=pipe_r - 2.5"
       },
-      {
-        "action": "pickup",
-        "headingDeg": 90,
-        "id": "collect",
-        "x": 1,
-        "y": 0.5
-      },
-      {
-        "action": "deliver",
-        "headingDeg": 0,
-        "id": "finish",
-        "x": 4,
-        "y": 0
-      }
-    ],
-    "turnSpeedDegps": 60
+      "note": "The first pipe at the nominal eject rest pose, one sector pitch toward -Y; radius 2.5 mm under the pipe's so its rest on the trough keeps the check reserve"
+    }
+  ],
+  "mounts": [
+    {
+      "group": "pocket tray",
+      "on": "Floor post port",
+      "atMm": [122.5, 147.5, 579.788],
+      "note": "Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights"
+    },
+    {
+      "group": "tray supports",
+      "on": "Chassis pan trusses and stringers",
+      "atMm": [205.0, 241.5, 489.525],
+      "note": "Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard"
+    },
+    {"group": "hood", "on": "Pocket tray", "atMm": [200.0, 162.5, 700.0], "note": "Hood tab on the port side-wall top edge (thumb screw)"},
+    {
+      "group": "check flap",
+      "on": "Hood (removable)",
+      "atMm": [161.25339824511434, 0.0, 700.0],
+      "note": "3 mm flap pin in clips under the hood, 4 mm under its underside"
+    },
+    {
+      "group": "nip side plates",
+      "on": "Chassis pan trusses and stringers",
+      "atMm": [250.0, 241.5, 489.525],
+      "note": "Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top (structure-checks.json P1, P4 and P5), same on starboard"
+    },
+    {
+      "group": "lower nip roller",
+      "on": "Port nip side plate",
+      "atMm": [335.0, 170.4, "=lower_roller_z"],
+      "note": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "upper nip roller",
+      "on": "Port nip side plate",
+      "atMm": [335.0, 170.4, "=upper_roller_z"],
+      "note": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "nip drive",
+      "on": "Port nip side plate",
+      "atMm": [335.0, 173.6, "=lower_roller_z"],
+      "note": "MAXPlanetary face bolted to the port side plate, its hex socket on the lower shaft"
+    },
+    {
+      "group": "pipe sensor",
+      "on": "Port nip side plate",
+      "atMm": [314.7, 170.4, 654.0],
+      "note": "Break-beam emitter clipped in its window in the port side plate",
+      "member": "Seated-pipe beam emitter (port)"
+    },
+    {
+      "group": "pipe sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [314.7, -170.4, 654.0],
+      "note": "Break-beam receiver clipped in its window in the starboard side plate",
+      "member": "Seated-pipe beam receiver (starboard)"
+    },
+    {
+      "group": "flap sensor",
+      "on": "Hood (removable)",
+      "atMm": [161.25339824511434, 134.0, 714.891],
+      "note": "Magnetic switch on the hood top over the flap hinge"
+    },
+    {
+      "group": "lip sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [353.0, -173.6, 712.0],
+      "note": "Magnetic switch on the starboard side plate outside face"
+    },
+    {
+      "group": "reef sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [347.0, -167.3, 444.0],
+      "note": "CANrange bracket on the starboard side plate inside face"
+    },
+    {"group": "nip coupling", "on": "Starboard nip side plate", "atMm": [335.0, -170.4, 600.0], "note": "Idler post on the starboard side plate"},
+    {
+      "group": "lip latch",
+      "on": "Starboard nip side plate",
+      "atMm": [348.0, -170.4, 455.0],
+      "note": "Servo bracket on the starboard side plate extension"
+    },
+    {"group": "exit lip", "on": "Port nip side plate", "atMm": [366.0, 170.4, 530.5], "note": "Lip hinge pin in brackets on both side plates"},
+    {"group": "battery", "on": "Battery tray and retention", "atMm": [-150.0, 0.0, 29.9], "note": "Battery case bottom on the tray"},
+    {
+      "group": "battery retention",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-210.0, 110.0, 111.13],
+      "note": "Port rear hanger under inboard sill 1"
+    },
+    {
+      "group": "bumpers",
+      "on": "Chassis perimeter",
+      "atMm": [370.0, 0.0, 150.0],
+      "note": "Front bumper backer on the front perimeter face (mount undesigned)"
+    },
+    {"group": "steer sweeps", "on": "Module 1 housing", "atMm": [269.3, 264.3, 100.0], "note": "Steer axis through the A035XPO turret bearing"},
+    {"group": "steer sweeps", "on": "Module 2 housing", "atMm": [269.3, -264.3, 100.0], "note": "Steer axis through the A035XPO turret bearing"},
+    {"group": "steer sweeps", "on": "Module 3 housing", "atMm": [-269.3, -264.3, 100.0], "note": "Steer axis through the A035XPO turret bearing"},
+    {"group": "steer sweeps", "on": "Module 4 housing", "atMm": [-269.3, 264.3, 100.0], "note": "Steer axis through the A035XPO turret bearing"},
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 2",
+      "atMm": [238.826, 233.803, 94.633],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 3",
+      "atMm": [238.803, -233.826, 94.633],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 4",
+      "atMm": [-238.826, -233.803, 94.633],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails",
+      "atMm": [-238.803, 233.826, 94.633],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-145.0, 152.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-142.0, -159.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-142.0, -283.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-96.0, 274.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [38.0, -116.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [38.0, -196.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [194.0, -116.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [194.0, -196.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [38.0, 116.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [38.0, 196.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [194.0, 116.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [194.0, 196.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [38.0, 273.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-305.272, 99.555, 188.024],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-219.55, 178.0, 201.0],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [105.55, 0.0, 208.407],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [177.5, 172.5, 187.75],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [177.5, -172.5, 187.75],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-177.5, -172.5, 187.75],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [-177.5, 172.5, 187.75],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    }
+  ],
+  "contacts": [
+    {
+      "pair": ["CORAL pipe", "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"],
+      "during": ["lip-deploy", "receive-chute"],
+      "note": "The pipe rests on and rolls down the station chute plate"
+    },
+    {
+      "pair": ["Reef L2 branch arm, docked sector (GE-25301-01)", "Reef branch column, docked sector (GE-25301-02)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Reef L2 branch arm, next sector (GE-25301-01)", "Reef branch column, next sector (GE-25301-02)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Reef L3 branch arm, docked sector (GE-25301-01)", "Reef branch column, docked sector (GE-25301-02)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Reef L3 branch arm, next sector (GE-25301-01)", "Reef branch column, next sector (GE-25301-02)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Reef trough floor, docked sector (GE-25313)", "Reef trough riser, docked sector (GE-25315)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Reef trough floor, next sector (GE-25313)", "Reef trough riser, next sector (GE-25315)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station chute plate and side plates (GE-25014, GE-25004, GE-25005)", "Station frame upright, port (GE-25001-01)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station chute plate and side plates (GE-25014, GE-25004, GE-25005)", "Station frame upright, starboard (GE-25001-01)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station chute plate and side plates (GE-25014, GE-25004, GE-25005)", "Station upper guard (GE-25017)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station chute plate and side plates (GE-25014, GE-25004, GE-25005)", "Station upper panel (GE-25009)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station frame upright, port (GE-25001-01)", "Station lower panel (GE-25008)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station frame upright, port (GE-25001-01)", "Station upper panel (GE-25009)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station frame upright, starboard (GE-25001-01)", "Station lower panel (GE-25008)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station frame upright, starboard (GE-25001-01)", "Station upper panel (GE-25009)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["Station lower barrier (GE-25007)", "Station lower panel (GE-25008)"],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": ["CORAL pipe", "Pocket tray"],
+      "during": ["receive-chute", "receive-pocket", "leave-station", "seat-pipe", "carry-power-off-hit", "eject-nip"],
+      "note": "The pipe lands on, rolls down and sits on the pocket floor: the rolling and seated contact the receive and eject trials solve"
+    },
+    {
+      "pair": ["CORAL pipe", "Check flap"],
+      "during": ["receive-pocket", "leave-station", "seat-pipe"],
+      "note": "The pipe pushes the check flap open and rests against it once it has closed: the flap contact the receive trial solves"
+    },
+    {
+      "pair": ["CORAL pipe", "Deployable exit lip"],
+      "during": ["eject-nip", "eject-trough"],
+      "note": "The pipe rolls down the deployed lip ramp and land: the contact the eject trial solves"
+    },
+    {
+      "pair": ["CORAL pipe", "Reef trough lip and base plates (GE-25302, GE-25311)"],
+      "during": ["eject-trough", "withdraw-park"],
+      "note": "The pipe lands in and rests against the official trough lip"
+    },
+    {
+      "pair": ["CORAL pipe", "Reef trough floor, docked sector (GE-25313)"],
+      "during": ["eject-trough", "withdraw-park"],
+      "note": "The pipe rolls on and rests on the official trough floor"
+    },
+    {
+      "pair": ["CORAL pipe", "Reef trough riser, docked sector (GE-25315)"],
+      "during": ["eject-trough", "withdraw-park"],
+      "note": "The pipe runs to and rests against the official trough riser"
+    }
+  ],
+  "poses": {
+    "lip-deploy start": {
+      "pipe": [{"kind": "translation", "travelMm": [-1074.56, 0.0, 632.4300000000001]}],
+      "exit lip": [{"kind": "rotation", "originMm": ["=lip_hinge_x", 0.0, "=lip_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": -120.0}]
+    },
+    "receive-chute start": {"pipe": [{"kind": "translation", "travelMm": [-1074.56, 0.0, 632.4300000000001]}]},
+    "receive-pocket 0": {"pipe": [{"kind": "translation", "travelMm": [-572.35, 0.0, 196.15999999999997]}]},
+    "receive-pocket 1": {"pipe": [{"kind": "translation", "travelMm": [-536.01, 0.0, 150.01]}]},
+    "receive-pocket 2": {"pipe": [{"kind": "translation", "travelMm": [-427.89, 0.0, 132.39]}]},
+    "receive-pocket 3": {"pipe": [{"kind": "translation", "travelMm": [-206.21999999999997, 0.0, 58.10000000000002]}]},
+    "receive-pocket 4": {
+      "pipe": [{"kind": "translation", "travelMm": [-138.67, 0.0, 39.069999999999936]}],
+      "check flap": [{"kind": "rotation", "originMm": ["=flap_x", 0.0, "=flap_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": -73.3}]
+    },
+    "receive-pocket 5": {
+      "pipe": [{"kind": "translation", "travelMm": [4.720000000000027, 0.0, -0.57000000000005]}],
+      "check flap": [{"kind": "rotation", "originMm": ["=flap_x", 0.0, "=flap_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": -62.0}]
+    },
+    "receive-pocket 6": {"pipe": [{"kind": "translation", "travelMm": [-23.25, 0.0, 6.529999999999973]}]},
+    "receive-pocket 7": {"pipe": [{"kind": "translation", "travelMm": [-53.01999999999998, 0.0, 14.919999999999959]}]},
+    "leave-station start": {"pipe": [{"kind": "translation", "travelMm": [-53.01999999999998, 0.0, 14.919999999999959]}]},
+    "seat-pipe start": {"pipe": [{"kind": "translation", "travelMm": [0.09000000000003183, 0.0, -0.009999999999990905]}]},
+    "eject-trough start": {"pipe": [{"kind": "translation", "travelMm": [165.7, 0.0, -49.22000000000003]}]},
+    "withdraw-park start": {"pipe": [{"kind": "translation", "travelMm": [255.87, 0.0, -118.65000000000003]}]},
+    "service-unload-pipe start": {
+      "hood": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "check flap": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "flap sensor": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}]
+    },
+    "service-nip-cassette-lift start": {
+      "hood": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "check flap": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "flap sensor": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "pipe": [{"kind": "translation", "travelMm": [0.0, -900.0, -532.82]}]
+    },
+    "service-lip-restow start": {
+      "hood": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "check flap": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "flap sensor": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "pipe": [{"kind": "translation", "travelMm": [0.0, -900.0, -532.82]}]
+    },
+    "service-lip-over-travel start": {
+      "hood": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "check flap": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "flap sensor": [{"kind": "translation", "travelMm": [0.0, 900.0, -576.884]}],
+      "pipe": [{"kind": "translation", "travelMm": [0.0, -900.0, -532.82]}]
+    },
+    "service-battery-rear-carry start": {
+      "battery": [{"kind": "translation", "travelMm": [0.0, 0.0, 250.0]}],
+      "plug service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, 250.0]}],
+      "field station": [{"kind": "translation", "travelMm": [-1500.0, 0.0, 0.0]}]
+    },
+    "service-plug-disconnect start": {"plug service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, 255.9]}]},
+    "service-breaker-reset start": {"breaker service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, 342.8]}]}
   },
-  "revision": 3,
-  "rules": [],
-  "schema": "agent-frc/design-artifact@2",
-  "sources": [],
-  "strategy": {
-    "activeNarrativeId": "transfer",
-    "decisions": [
-      {
-        "basis": "Track occupied spaces, throughput and recovery access for each option.",
-        "id": "architecture-options",
-        "narrativeIds": [
-          "transfer"
-        ],
-        "text": "Compare shared and dedicated transport paths."
+  "motions": {
+    "lip-deploy": {
+      "from": "lip-deploy start",
+      "moves": {"exit lip": [{"kind": "rotation", "originMm": ["=lip_hinge_x", 0.0, "=lip_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": 120.0}]}
+    },
+    "receive-chute": {
+      "from": "receive-chute start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [[-770.43, 0.0, 1232.4], [-466.39, 0.0, 1019.22], [-365.15, 0.0, 933.42], [-268.22, 0.0, 796.13]]
+          }
+        ]
       }
-    ],
-    "narratives": [
-      {
-        "id": "transfer",
-        "narrative": "Acquire an object, transport it and deliver it to a target.",
-        "status": "exploring",
-        "title": "Transfer cycle"
+    },
+    "receive-pocket": {
+      "through": [
+        "receive-pocket 0",
+        "receive-pocket 1",
+        "receive-pocket 2",
+        "receive-pocket 3",
+        "receive-pocket 4",
+        "receive-pocket 5",
+        "receive-pocket 6",
+        "receive-pocket 7"
+      ]
+    },
+    "leave-station": {
+      "from": "leave-station start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [[251.11, 0.0, 614.89], [217.92, 0.0, 625.12], [305.68, 0.0, 600.1], [293.4, 0.0, 602.98], [304.22, 0.0, 599.96]]
+          }
+        ]
       }
-    ],
-    "requirements": [
-      {
-        "id": "acquire",
-        "narrativeIds": [
-          "transfer"
-        ],
-        "outcome": "Accept an object at the intended approach angle.",
-        "screen": "Measure entrance clearance during a full approach.",
-        "status": "unknown"
-      },
-      {
-        "id": "deliver",
-        "narrativeIds": [
-          "transfer"
-        ],
-        "outcome": "Release at the required pose.",
-        "screen": "Establish release and recovery conditions from measured trials.",
-        "status": "unknown"
-      },
-      {
-        "id": "piece-variation",
-        "narrativeIds": [
-          "transfer"
-        ],
-        "outcome": "Accept dimensional and condition variation.",
-        "screen": "Measure new and worn samples before setting tolerances.",
-        "status": "unknown"
-      },
-      {
-        "id": "reliability-pit",
-        "narrativeIds": [
-          "transfer"
-        ],
-        "outcome": "Restore operation after a component swap.",
-        "screen": "Record fault evidence and retest after replacement.",
-        "status": "unknown"
+    },
+    "seat-pipe": {
+      "from": "seat-pipe start",
+      "moves": {"pipe": [{"kind": "path", "curve": "straight", "throughMm": [[304.22, 0.0, 599.96], [304.08, 0.0, 599.97], [304.13, 0.0, 599.97]]}]}
+    },
+    "carry-power-off-hit": {"moves": {"pipe": [{"kind": "path", "curve": "straight", "throughMm": [[304.13, 0.0, 599.97], [307.91, 0.0, 599.94], [304.13, 0.0, 599.97]]}]}},
+    "eject-nip": {"moves": {"pipe": [{"kind": "path", "curve": "straight", "throughMm": [[304.13, 0.0, 599.97], [362.95, 0.0, 599.94], [469.83, 0.0, 550.75]]}]}},
+    "eject-trough": {
+      "from": "eject-trough start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [[469.83, 0.0, 550.75], [503.05, 0.0, 541.21], [533.71, 0.0, 508.87], [572.63, 0.0, 483.92], [686.4, 0.0, 515.37], [560.0, 0.0, 481.32]]
+          }
+        ]
       }
-    ]
-  },
-  "units": "m",
-  "workspace": {
-    "basis": "Illustrative workspace and reference boxes",
-    "lengthM": 8,
-    "pieceCenterM": [
-      1,
-      0.5,
-      0.04
-    ],
-    "pieceSizeM": [
-      0.12,
-      0.1,
-      0.08
-    ],
-    "targetSizeM": [
-      0.15,
-      0.5,
-      0.4
-    ],
-    "widthM": 5
+    },
+    "withdraw-park": {
+      "from": "withdraw-park start",
+      "moves": {
+        "pipe": [{"kind": "translation", "travelMm": [300.0, 0.0, 0.0]}],
+        "field reef": [{"kind": "translation", "travelMm": [300.0, 0.0, 0.0]}],
+        "field first pipe": [{"kind": "translation", "travelMm": [300.0, 0.0, 0.0]}]
+      }
+    },
+    "service-hood-withdrawal": {
+      "moves": {
+        "hood": [{"kind": "translation", "travelMm": [0.0, 0.0, 1260.0]}],
+        "check flap": [{"kind": "translation", "travelMm": [0.0, 0.0, 1260.0]}],
+        "flap sensor": [{"kind": "translation", "travelMm": [0.0, 0.0, 1260.0]}]
+      }
+    },
+    "service-hood-lift": {
+      "moves": {
+        "hood": [{"kind": "translation", "travelMm": [0.0, 0.0, 400.0]}],
+        "check flap": [{"kind": "translation", "travelMm": [0.0, 0.0, 400.0]}],
+        "flap sensor": [{"kind": "translation", "travelMm": [0.0, 0.0, 400.0]}]
+      }
+    },
+    "service-unload-pipe": {
+      "from": "service-unload-pipe start",
+      "moves": {
+        "pipe": [
+          {"kind": "rotation", "originMm": [371.9481164009652, 0.0, 840.595649272527], "axis": [0.0, 1.0, 0.0], "travelDeg": 110.0},
+          {"kind": "translation", "travelMm": [0.0, 0.0, 150.0]}
+        ]
+      }
+    },
+    "service-nip-cassette-lift": {
+      "from": "service-nip-cassette-lift start",
+      "moves": {
+        "nip side plates": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "lower nip roller": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "upper nip roller": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "nip drive": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "nip coupling": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "lip latch": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "exit lip": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "lip sensor": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "pipe sensor": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}],
+        "reef sensor": [{"kind": "translation", "travelMm": [0.0, 0.0, 520.0]}]
+      }
+    },
+    "service-lip-restow": {
+      "from": "service-lip-restow start",
+      "moves": {"exit lip": [{"kind": "rotation", "originMm": ["=lip_hinge_x", 0.0, "=lip_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": -120.0}]}
+    },
+    "service-lip-over-travel": {
+      "from": "service-lip-over-travel start",
+      "moves": {"exit lip": [{"kind": "rotation", "originMm": ["=lip_hinge_x", 0.0, "=lip_hinge_z"], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.2}]}
+    },
+    "service-battery-lift": {
+      "moves": {
+        "battery": [{"kind": "translation", "travelMm": [0.0, 0.0, 250.0]}],
+        "plug service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, 250.0]}]
+      }
+    },
+    "service-battery-rear-carry": {
+      "from": "service-battery-rear-carry start",
+      "moves": {
+        "battery": [{"kind": "translation", "travelMm": [-420.0, 0.0, 0.0]}],
+        "plug service hand": [{"kind": "translation", "travelMm": [-420.0, 0.0, 0.0]}]
+      }
+    },
+    "service-plug-disconnect": {"from": "service-plug-disconnect start", "moves": {"plug service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, -255.9]}]}},
+    "service-breaker-reset": {"from": "service-breaker-reset start", "moves": {"breaker service hand": [{"kind": "translation", "travelMm": [0.0, 0.0, -342.8]}]}}
   }
 }

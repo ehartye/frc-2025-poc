@@ -1,0 +1,4216 @@
+{
+  "schema": "frc-design-kernel/manifest@1",
+  "design": {
+    "name": "Fixed pocket 1.0",
+    "source": "design.json",
+    "sourceSha256": "a8d8cded722ea47e0b50df3485b850b45eaa2af588d9cce666d1b774f4f1a44e",
+    "frame": "Iteration 002 robot frame = taps-02 root: chassis centre on the factory-tire floor (Z = 0), +X toward the reef (delivery) face, +Y port, +Z up, millimetres"
+  },
+  "units": {
+    "length": "mm",
+    "mass": "kg"
+  },
+  "generator": {
+    "library": "frc-design-kernel",
+    "version": "0.1.0",
+    "commit": null
+  },
+  "pose": null,
+  "files": {
+    "design": "design.step",
+    "fixtures": "fixtures.step"
+  },
+  "robotBoundsMm": [
+    -445.5,
+    -440.5,
+    0.0,
+    470.0,
+    440.5,
+    886.70834
+  ],
+  "mass": {
+    "totalKg": 0.0,
+    "unweighed": [
+      "Chassis perimeter",
+      "Chassis cassettes and socket rails",
+      "Chassis cassettes and socket rails part 2",
+      "Chassis cassettes and socket rails part 3",
+      "Chassis cassettes and socket rails part 4",
+      "Chassis pan trusses and stringers",
+      "Chassis pan trusses and stringers part 2",
+      "Chassis sills, decks and crossmembers",
+      "Chassis sills, decks and crossmembers part 2",
+      "Chassis sills, decks and crossmembers part 3",
+      "Chassis sills, decks and crossmembers part 4",
+      "Chassis sills, decks and crossmembers part 5",
+      "Chassis sills, decks and crossmembers part 6",
+      "Chassis sills, decks and crossmembers part 7",
+      "Chassis sills, decks and crossmembers part 8",
+      "Chassis sills, decks and crossmembers part 9",
+      "Module 1 housing",
+      "Module 2 housing",
+      "Module 3 housing",
+      "Module 4 housing",
+      "Module 1 steer sweep",
+      "Module 2 steer sweep",
+      "Module 3 steer sweep",
+      "Module 4 steer sweep",
+      "Bumper ring",
+      "Power distribution hub",
+      "roboRIO 2",
+      "VH-109 radio",
+      "Main 120 A breaker",
+      "Starboard controller 1 (SPARK MAX)",
+      "Starboard controller 2 (SPARK MAX)",
+      "Starboard controller 3 (SPARK MAX)",
+      "Starboard controller 4 (SPARK MAX)",
+      "Port controller 1 (SPARK MAX)",
+      "Port controller 2 (SPARK MAX)",
+      "Port controller 3 (SPARK MAX)",
+      "Port controller 4 (SPARK MAX)",
+      "Nip controller (SPARK MAX)",
+      "Chassis battery plug and bracket",
+      "Main power loom",
+      "Branch and CAN trunk",
+      "Module 1 lead reserve",
+      "Module 2 lead reserve",
+      "Module 3 lead reserve",
+      "Module 4 lead reserve",
+      "Battery tray and retention",
+      "Dressed battery",
+      "Breaker reset hand",
+      "Plug grip hand",
+      "Pocket tray",
+      "Hood (removable)",
+      "Check flap",
+      "Pocket landing shelf port",
+      "Pocket landing shelf starboard",
+      "Port nip side plate",
+      "Starboard nip side plate",
+      "Lower nip roller",
+      "Upper nip roller",
+      "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+      "Nip coupling belt",
+      "Seated-pipe beam emitter (port)",
+      "Seated-pipe beam receiver (starboard)",
+      "Flap-closed switch",
+      "Lip-deployed switch",
+      "Reef range sensor (CANrange)",
+      "Lip latch servo",
+      "Deployable exit lip",
+      "Rear inlet upright port",
+      "Rear inlet upright starboard",
+      "Floor post port",
+      "Floor post starboard",
+      "CORAL pipe"
+    ]
+  },
+  "solids": [
+    {
+      "name": "Chassis perimeter",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 11939434.869471,
+      "boundsMm": [
+        -370.0,
+        -365.0,
+        55.0,
+        370.0,
+        365.0,
+        203.45
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis cassettes and socket rails",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 731964.289963,
+      "boundsMm": [
+        -361.375,
+        94.0,
+        43.833363,
+        -94.0,
+        356.375,
+        94.633363
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 2",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 731964.289963,
+      "boundsMm": [
+        94.0,
+        94.0,
+        43.833363,
+        361.375,
+        356.375,
+        94.633363
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 3",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 731964.289963,
+      "boundsMm": [
+        94.0,
+        -356.375,
+        43.833363,
+        361.375,
+        -94.0,
+        94.633363
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis cassettes and socket rails part 4",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 731964.289963,
+      "boundsMm": [
+        -361.375,
+        -356.375,
+        43.833363,
+        -94.0,
+        -94.0,
+        94.633363
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis pan trusses and stringers",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 582550.466455,
+      "boundsMm": [
+        100.225,
+        135.489581,
+        180.143325,
+        260.235688,
+        251.525,
+        489.525
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis pan trusses and stringers part 2",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 582550.466455,
+      "boundsMm": [
+        100.225,
+        -251.525,
+        180.143325,
+        260.235688,
+        -135.489581,
+        489.525
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 3974362.482249,
+      "boundsMm": [
+        -311.55,
+        -324.8,
+        111.125,
+        311.55,
+        324.8,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 2",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        -260.25,
+        -357.95,
+        205.3,
+        -198.25,
+        -333.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 3",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        -141.25,
+        333.95,
+        205.3,
+        -79.25,
+        357.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 4",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        -141.25,
+        -357.95,
+        205.3,
+        -79.25,
+        -333.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 5",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        79.25,
+        -357.95,
+        205.3,
+        141.25,
+        -333.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 6",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        79.25,
+        333.95,
+        205.3,
+        141.25,
+        357.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 7",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        190.3,
+        333.95,
+        205.3,
+        252.3,
+        357.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 8",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        190.3,
+        -357.95,
+        205.3,
+        252.3,
+        -333.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Chassis sills, decks and crossmembers part 9",
+      "group": "structure",
+      "kind": "part",
+      "volumeMm3": 4623.216,
+      "boundsMm": [
+        -260.25,
+        333.95,
+        205.3,
+        -198.25,
+        357.95,
+        208.407
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Module 1 housing",
+      "group": "module housings",
+      "kind": "part",
+      "volumeMm3": 1214665.787647,
+      "boundsMm": [
+        141.675735,
+        136.629768,
+        35.895863,
+        335.975,
+        330.975,
+        172.249413
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Module 2 housing",
+      "group": "module housings",
+      "kind": "part",
+      "volumeMm3": 1214613.601651,
+      "boundsMm": [
+        141.629768,
+        -330.975,
+        35.895863,
+        335.975,
+        -136.675735,
+        172.249413
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Module 3 housing",
+      "group": "module housings",
+      "kind": "part",
+      "volumeMm3": 1214790.61219,
+      "boundsMm": [
+        -335.975,
+        -330.975,
+        35.895863,
+        -141.675735,
+        -136.629768,
+        172.249413
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Module 4 housing",
+      "group": "module housings",
+      "kind": "part",
+      "volumeMm3": 1214738.425983,
+      "boundsMm": [
+        -335.975,
+        136.675735,
+        35.895863,
+        -141.629768,
+        330.975,
+        172.249413
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Module 1 steer sweep",
+      "group": "steer sweeps",
+      "kind": "union",
+      "volumeMm3": 890141.079939,
+      "boundsMm": [
+        215.152742,
+        210.152742,
+        0.0,
+        323.447258,
+        318.447258,
+        152.786663
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Full 360 deg steer swept volume of the SDS MK4i L2 turret: one coaxial cylinder per 4 mm slab, radius the largest meshed radius of the turret parts in that slab plus 0.5 mm"
+    },
+    {
+      "name": "Module 2 steer sweep",
+      "group": "steer sweeps",
+      "kind": "union",
+      "volumeMm3": 890141.079939,
+      "boundsMm": [
+        215.152742,
+        -318.447258,
+        0.0,
+        323.447258,
+        -210.152742,
+        152.786663
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Full 360 deg steer swept volume of the SDS MK4i L2 turret: one coaxial cylinder per 4 mm slab, radius the largest meshed radius of the turret parts in that slab plus 0.5 mm"
+    },
+    {
+      "name": "Module 3 steer sweep",
+      "group": "steer sweeps",
+      "kind": "union",
+      "volumeMm3": 890141.079939,
+      "boundsMm": [
+        -323.447258,
+        -318.447258,
+        0.0,
+        -215.152742,
+        -210.152742,
+        152.786663
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Full 360 deg steer swept volume of the SDS MK4i L2 turret: one coaxial cylinder per 4 mm slab, radius the largest meshed radius of the turret parts in that slab plus 0.5 mm"
+    },
+    {
+      "name": "Module 4 steer sweep",
+      "group": "steer sweeps",
+      "kind": "union",
+      "volumeMm3": 890141.079939,
+      "boundsMm": [
+        -323.447258,
+        210.152742,
+        0.0,
+        -215.152742,
+        318.447258,
+        152.786663
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Full 360 deg steer swept volume of the SDS MK4i L2 turret: one coaxial cylinder per 4 mm slab, radius the largest meshed radius of the turret parts in that slab plus 0.5 mm"
+    },
+    {
+      "name": "Bumper ring",
+      "group": "bumpers",
+      "kind": "difference",
+      "volumeMm3": 32449522.820315,
+      "boundsMm": [
+        -445.5,
+        -440.5,
+        43.0,
+        445.5,
+        440.5,
+        181.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Backing, foam and cover around the chamfered frame: 1 mm gap, 4 mm backer, 69.5 mm foam, 0.5 mm cover, Z 43-181 mm"
+    },
+    {
+      "name": "Power distribution hub",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 1016985.149735,
+      "boundsMm": [
+        -258.562501,
+        95.637421,
+        212.0,
+        -31.437499,
+        208.362579,
+        251.72179
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted PDH at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "roboRIO 2",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 726329.384708,
+      "boundsMm": [
+        -215.075907,
+        -230.589901,
+        212.0,
+        -68.924093,
+        -87.410099,
+        246.709443
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted roboRIO 2 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "VH-109 radio",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 190459.930878,
+      "boundsMm": [
+        -200.6,
+        -309.994763,
+        212.0,
+        -83.4,
+        -256.005237,
+        242.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted VH-109 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Main 120 A breaker",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 149919.794878,
+      "boundsMm": [
+        -120.13,
+        237.148594,
+        212.0,
+        -71.87,
+        310.851406,
+        254.149032
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted CB185 at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 1 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        -2.625,
+        -133.25,
+        212.0,
+        78.625,
+        -98.75,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 2 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        -2.625,
+        -213.25,
+        212.0,
+        78.625,
+        -178.75,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 3 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        153.375,
+        -133.25,
+        212.0,
+        234.625,
+        -98.75,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Starboard controller 4 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        153.375,
+        -213.25,
+        212.0,
+        234.625,
+        -178.75,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 1 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        -2.625,
+        98.75,
+        212.0,
+        78.625,
+        133.25,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 2 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        -2.625,
+        178.75,
+        212.0,
+        78.625,
+        213.25,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 3 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        153.375,
+        98.75,
+        212.0,
+        234.625,
+        133.25,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Port controller 4 (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        153.375,
+        178.75,
+        212.0,
+        234.625,
+        213.25,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Nip controller (SPARK MAX)",
+      "group": "electronics",
+      "kind": "box",
+      "volumeMm3": 83112.657012,
+      "boundsMm": [
+        -2.625,
+        255.75,
+        212.0,
+        78.625,
+        290.25,
+        241.65
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Bounds of the mounted SPARK MAX at its 552-r5 placement on the equipment sheet"
+    },
+    {
+      "name": "Chassis battery plug and bracket",
+      "group": "electronics",
+      "kind": "union",
+      "volumeMm3": 30608.772064,
+      "boundsMm": [
+        -329.8,
+        80.1,
+        180.0,
+        -280.74375,
+        119.010938,
+        196.047565
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Robot-side SB50, partitioned at the mating plane, and its bracket reserve to the rear perimeter"
+    },
+    {
+      "name": "Main power loom",
+      "group": "wiring",
+      "kind": "union",
+      "volumeMm3": 99301.208,
+      "boundsMm": [
+        -317.0,
+        121.1,
+        180.0,
+        -122.1,
+        234.9,
+        222.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "6 AWG main leads as rectangular channels clear of the battery lift and the plug grip"
+    },
+    {
+      "name": "Branch and CAN trunk",
+      "group": "wiring",
+      "kind": "union",
+      "volumeMm3": 344225.12,
+      "boundsMm": [
+        -28.9,
+        -96.6,
+        210.2,
+        240.0,
+        96.6,
+        226.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "15.8 mm high channels on the centreline with cross runs to the controllers"
+    },
+    {
+      "name": "Module 1 lead reserve",
+      "group": "wiring",
+      "kind": "box",
+      "volumeMm3": 80767.5,
+      "boundsMm": [
+        150.0,
+        145.0,
+        174.4,
+        205.0,
+        200.0,
+        201.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "55 x 55 x 26.7 mm reserve over the inboard motor ends, under the equipment sheet"
+    },
+    {
+      "name": "Module 2 lead reserve",
+      "group": "wiring",
+      "kind": "box",
+      "volumeMm3": 80767.5,
+      "boundsMm": [
+        150.0,
+        -200.0,
+        174.4,
+        205.0,
+        -145.0,
+        201.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "55 x 55 x 26.7 mm reserve over the inboard motor ends, under the equipment sheet"
+    },
+    {
+      "name": "Module 3 lead reserve",
+      "group": "wiring",
+      "kind": "box",
+      "volumeMm3": 80767.5,
+      "boundsMm": [
+        -205.0,
+        -200.0,
+        174.4,
+        -150.0,
+        -145.0,
+        201.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "55 x 55 x 26.7 mm reserve over the inboard motor ends, under the equipment sheet"
+    },
+    {
+      "name": "Module 4 lead reserve",
+      "group": "wiring",
+      "kind": "box",
+      "volumeMm3": 80767.5,
+      "boundsMm": [
+        -205.0,
+        145.0,
+        174.4,
+        -150.0,
+        200.0,
+        201.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "55 x 55 x 26.7 mm reserve over the inboard motor ends, under the equipment sheet"
+    },
+    {
+      "name": "Battery tray and retention",
+      "group": "battery retention",
+      "kind": "union",
+      "volumeMm3": 648553.2,
+      "boundsMm": [
+        -250.0,
+        -100.5,
+        21.0,
+        -50.0,
+        100.5,
+        109.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Planning reserve sized around the largest battery case: tray, four hangers, two end keepers"
+    },
+    {
+      "name": "Dressed battery",
+      "group": "battery",
+      "kind": "union",
+      "volumeMm3": 2505082.05,
+      "boundsMm": [
+        -317.0,
+        -39.0,
+        33.0,
+        -58.5,
+        77.0,
+        202.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Largest supported battery case, its leads and the battery-side SB50"
+    },
+    {
+      "name": "Breaker reset hand",
+      "group": "breaker service hand",
+      "kind": "box",
+      "volumeMm3": 163840.0,
+      "boundsMm": [
+        -96.0,
+        258.0,
+        257.2,
+        -64.0,
+        290.0,
+        417.2
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Service allowance, not a robot part: a 32 x 32 mm hand column drawn at the end of its reach, 3.2 mm above the breaker"
+    },
+    {
+      "name": "Plug grip hand",
+      "group": "plug service hand",
+      "kind": "box",
+      "volumeMm3": 568172.0,
+      "boundsMm": [
+        -321.0,
+        27.0,
+        199.1,
+        -286.1,
+        115.0,
+        384.1
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Service allowance, not a robot part: a hand gripping the SB50 pair from above, drawn at the end of its reach"
+    },
+    {
+      "name": "Pocket tray",
+      "group": "pocket tray",
+      "kind": "union",
+      "volumeMm3": 1365786.430381,
+      "boundsMm": [
+        -344.490799,
+        -164.175,
+        534.45769,
+        305.921819,
+        164.175,
+        886.70834
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Inlet chute and pocket floor, 3.175 mm thick and reserved 2.5 mm below the pipe-contact line, and two side walls 150 mm above it to X 300"
+    },
+    {
+      "name": "Hood (removable)",
+      "group": "hood",
+      "kind": "union",
+      "volumeMm3": 125845.387899,
+      "boundsMm": [
+        58.441006,
+        -157.9,
+        669.062401,
+        306.6,
+        157.9,
+        787.356842
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/16 in polycarbonate hood 10 mm above the seated pipe, with a 90 mm lead-in flare 30 deg above the hood line"
+    },
+    {
+      "name": "Check flap",
+      "group": "check flap",
+      "kind": "union",
+      "volumeMm3": 59406.4046,
+      "boundsMm": [
+        159.753398,
+        -152.0,
+        586.88449,
+        162.753398,
+        152.0,
+        707.526998
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1.6 mm polycarbonate plate 304 mm wide hanging to 6 mm above the floor, on its 3 mm pin"
+    },
+    {
+      "name": "Pocket landing shelf port",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 145415.0,
+      "boundsMm": [
+        105.0,
+        137.0,
+        491.6,
+        305.0,
+        251.5,
+        497.95
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/4 in 6061 shelf on the upper pan stringer top, reaching inboard under the floor post and the nip side-plate foot"
+    },
+    {
+      "name": "Pocket landing shelf starboard",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 145415.0,
+      "boundsMm": [
+        105.0,
+        -251.5,
+        491.6,
+        305.0,
+        -137.0,
+        497.95
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/4 in 6061 shelf on the upper pan stringer top, reaching inboard under the floor post and the nip side-plate foot"
+    },
+    {
+      "name": "Port nip side plate",
+      "group": "nip side plates",
+      "kind": "difference",
+      "volumeMm3": 204316.548157,
+      "boundsMm": [
+        240.0,
+        167.275,
+        425.0,
+        368.0,
+        173.625,
+        722.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/4 in 6061 side plate carrying both roller bearings and the lip hinge; shaft holes partitioned 2.1 mm around the shafts, and the seated-pipe beam window"
+    },
+    {
+      "name": "Starboard nip side plate",
+      "group": "nip side plates",
+      "kind": "difference",
+      "volumeMm3": 204316.548157,
+      "boundsMm": [
+        240.0,
+        -173.625,
+        425.0,
+        368.0,
+        -167.275,
+        722.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/4 in 6061 side plate carrying both roller bearings and the lip hinge; shaft holes partitioned 2.1 mm around the shafts, and the seated-pipe beam window"
+    },
+    {
+      "name": "Lower nip roller",
+      "group": "lower nip roller",
+      "kind": "union",
+      "volumeMm3": 275306.403614,
+      "boundsMm": [
+        318.6,
+        -175.975,
+        507.05,
+        351.4,
+        175.975,
+        539.85
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Rigid hub and core reserve, radius 16.4 mm over |Y| <= 160, plus the 1/2 in hex shaft; the outer 9 mm of the 2 in tread is the trial-qualified squeeze"
+    },
+    {
+      "name": "Upper nip roller",
+      "group": "upper nip roller",
+      "kind": "union",
+      "volumeMm3": 275306.403614,
+      "boundsMm": [
+        318.6,
+        -175.975,
+        660.15,
+        351.4,
+        175.975,
+        692.95
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Rigid hub and core reserve, radius 16.4 mm over |Y| <= 160, plus the 1/2 in hex shaft; the outer 9 mm of the 2 in tread is the trial-qualified squeeze"
+    },
+    {
+      "name": "Nip drive (NEO 550 and MAXPlanetary 36:1)",
+      "group": "nip drive",
+      "kind": "union",
+      "volumeMm3": 334935.025313,
+      "boundsMm": [
+        308.0,
+        178.075,
+        496.45,
+        362.0,
+        332.075,
+        550.45
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "54 x 54 x 92 mm gearbox envelope coaxial with the lower shaft on the port plate, plus the 37 mm NEO 550 cylinder"
+    },
+    {
+      "name": "Nip coupling belt",
+      "group": "nip coupling",
+      "kind": "box",
+      "volumeMm3": 508760.805,
+      "boundsMm": [
+        322.0,
+        -232.0,
+        497.45,
+        368.0,
+        -178.075,
+        702.55
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Box over both pulleys, the idler and the belt run on the starboard plate"
+    },
+    {
+      "name": "Seated-pipe beam emitter (port)",
+      "group": "pipe sensor",
+      "kind": "box",
+      "volumeMm3": 1600.0,
+      "boundsMm": [
+        309.7,
+        162.0,
+        650.0,
+        319.7,
+        182.0,
+        658.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Adafruit 2168 break-beam body, 20 x 10 x 8 mm along Y through the side-plate window, just under the top of a seated pipe"
+    },
+    {
+      "name": "Seated-pipe beam receiver (starboard)",
+      "group": "pipe sensor",
+      "kind": "box",
+      "volumeMm3": 1600.0,
+      "boundsMm": [
+        309.7,
+        -182.0,
+        650.0,
+        319.7,
+        -162.0,
+        658.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Adafruit 2168 break-beam body, 20 x 10 x 8 mm along Y through the side-plate window, just under the top of a seated pipe"
+    },
+    {
+      "name": "Flap-closed switch",
+      "group": "flap sensor",
+      "kind": "box",
+      "volumeMm3": 8320.0,
+      "boundsMm": [
+        148.253398,
+        118.0,
+        717.390928,
+        174.253398,
+        150.0,
+        727.390928
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "REV magnetic limit switch envelope on the hood top over the flap hinge"
+    },
+    {
+      "name": "Lip-deployed switch",
+      "group": "lip sensor",
+      "kind": "box",
+      "volumeMm3": 21030.75,
+      "boundsMm": [
+        340.0,
+        -232.0,
+        705.0,
+        366.0,
+        -178.075,
+        720.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "REV magnetic limit switch envelope on the starboard plate"
+    },
+    {
+      "name": "Reef range sensor (CANrange)",
+      "group": "reef sensor",
+      "kind": "box",
+      "volumeMm3": 22977.0,
+      "boundsMm": [
+        329.0,
+        -165.175,
+        427.2,
+        366.0,
+        -147.175,
+        461.7
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "CTRE CANrange envelope looking forward under the lip, on the starboard plate inside face"
+    },
+    {
+      "name": "Lip latch servo",
+      "group": "lip latch",
+      "kind": "box",
+      "volumeMm3": 97065.0,
+      "boundsMm": [
+        330.0,
+        178.075,
+        600.0,
+        366.0,
+        232.0,
+        650.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "Servo and pin envelope on the port plate above the drive"
+    },
+    {
+      "name": "Deployable exit lip",
+      "group": "exit lip",
+      "kind": "union",
+      "volumeMm3": 123380.901399,
+      "boundsMm": [
+        363.0,
+        -165.175,
+        486.175,
+        470.0,
+        165.175,
+        534.563557
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1/8 in polycarbonate lip drawn deployed, reserved 3.5 mm under its profile, with its 6 mm hinge pin to both side plates and the knuckle"
+    },
+    {
+      "name": "Rear inlet upright port",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 377444.0,
+      "boundsMm": [
+        -368.0,
+        170.0,
+        205.6,
+        -343.0,
+        195.4,
+        800.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1 x 1 in upright carrying the inlet walls at the station face"
+    },
+    {
+      "name": "Rear inlet upright starboard",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 377444.0,
+      "boundsMm": [
+        -368.0,
+        -195.4,
+        205.6,
+        -343.0,
+        -170.0,
+        800.0
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "1 x 1 in upright carrying the inlet walls at the station face"
+    },
+    {
+      "name": "Floor post port",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 29939.129815,
+      "boundsMm": [
+        110.0,
+        140.0,
+        500.45,
+        135.0,
+        155.0,
+        580.28768
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "25 x 15 mm post from the pocket landing shelf to the pocket floor"
+    },
+    {
+      "name": "Floor post starboard",
+      "group": "tray supports",
+      "kind": "box",
+      "volumeMm3": 29939.129815,
+      "boundsMm": [
+        110.0,
+        -155.0,
+        500.45,
+        135.0,
+        -140.0,
+        580.28768
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "25 x 15 mm post from the pocket landing shelf to the pocket floor"
+    },
+    {
+      "name": "CORAL pipe",
+      "group": "pipe",
+      "kind": "cylinder",
+      "volumeMm3": 3094921.778501,
+      "boundsMm": [
+        246.98,
+        -150.8125,
+        542.82,
+        361.28,
+        150.8125,
+        657.12
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "One station-issued CORAL (114.3 mm OD, 301.6 mm, bore filled), drawn at its carry seat: the end state of the nominal receive trial"
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "Station lower barrier (GE-25007)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 7819094.270958,
+      "boundsMm": [
+        -468.2,
+        -1012.825,
+        0.0,
+        -455.5,
+        1012.825,
+        304.8
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station lower panel (GE-25008)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 8032678.705021,
+      "boundsMm": [
+        -471.375,
+        -1012.825,
+        305.308,
+        -465.025,
+        1012.825,
+        933.958
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station upper panel (GE-25009)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 7250478.460711,
+      "boundsMm": [
+        -471.375,
+        -1012.825,
+        1130.3,
+        -465.025,
+        1012.825,
+        1695.45
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station upper guard (GE-25017)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 1122557.05792,
+      "boundsMm": [
+        -688.549313,
+        -965.1111,
+        1144.617886,
+        -527.452692,
+        963.7014,
+        1258.670375
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station frame upright, port (GE-25001-01)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 851219.237937,
+      "boundsMm": [
+        -515.825,
+        968.375,
+        0.0,
+        -471.375,
+        1012.825,
+        1625.6
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station frame upright, starboard (GE-25001-01)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 851219.237937,
+      "boundsMm": [
+        -515.825,
+        -1012.825,
+        0.0,
+        -471.375,
+        -968.375,
+        1625.6
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef trough floor, docked sector (GE-25313)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 604644.740037,
+      "boundsMm": [
+        511.199076,
+        -233.373498,
+        402.991098,
+        742.924999,
+        231.120246,
+        470.775126
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef trough floor, next sector (GE-25313)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 604644.740028,
+      "boundsMm": [
+        511.26137,
+        -702.617147,
+        403.000277,
+        742.940154,
+        -238.105744,
+        470.771674
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef trough riser, docked sector (GE-25315)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 99093.084641,
+      "boundsMm": [
+        743.336657,
+        -233.338981,
+        468.889541,
+        749.686657,
+        93.686019,
+        517.525461
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef trough riser, next sector (GE-25315)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 99093.084641,
+      "boundsMm": [
+        743.336657,
+        -565.132089,
+        468.889541,
+        749.686657,
+        -238.107089,
+        517.525461
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef branch column, docked sector (GE-25301-02)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 828594.964853,
+      "boundsMm": [
+        526.547657,
+        -92.496897,
+        19.05,
+        822.711657,
+        -50.332897,
+        1825.625
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef branch column, next sector (GE-25301-02)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 828594.964852,
+      "boundsMm": [
+        525.404657,
+        -421.113903,
+        19.05,
+        821.568657,
+        -378.949903,
+        1825.625
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef L2 branch arm, docked sector (GE-25301-01)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 123583.3969,
+      "boundsMm": [
+        539.522051,
+        -92.496897,
+        605.173152,
+        801.414908,
+        -50.332897,
+        808.479825
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef L3 branch arm, docked sector (GE-25301-01)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 123583.3969,
+      "boundsMm": [
+        539.522051,
+        -92.496897,
+        1008.272921,
+        801.414908,
+        -50.332897,
+        1211.579594
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef L2 branch arm, next sector (GE-25301-01)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 123583.3969,
+      "boundsMm": [
+        538.379051,
+        -421.113903,
+        605.173152,
+        800.271908,
+        -378.949903,
+        808.479825
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef L3 branch arm, next sector (GE-25301-01)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 123583.3969,
+      "boundsMm": [
+        538.379051,
+        -421.113903,
+        1008.272921,
+        800.271908,
+        -378.949903,
+        1211.579594
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+      "group": "field station",
+      "kind": "part",
+      "volumeMm3": 10378646.414221,
+      "boundsMm": [
+        -819.102358,
+        -968.375063,
+        939.8,
+        -468.511316,
+        968.375061,
+        1558.925
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "Reef trough lip and base plates (GE-25302, GE-25311)",
+      "group": "field reef",
+      "kind": "part",
+      "volumeMm3": 11372141.897363,
+      "boundsMm": [
+        495.5,
+        -943.479036,
+        3.175,
+        1052.703485,
+        472.040573,
+        457.2
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    {
+      "name": "First scored pipe in sector A (field)",
+      "group": "field first pipe",
+      "kind": "cylinder",
+      "volumeMm3": 2830072.362384,
+      "boundsMm": [
+        505.35,
+        -621.8125,
+        426.67,
+        614.65,
+        -320.1875,
+        535.97
+      ],
+      "massKg": null,
+      "massFrom": null,
+      "note": "The first pipe at the nominal eject rest pose, one sector pitch toward -Y; radius 2.5 mm under the pipe's so its rest on the trough keeps the check reserve"
+    }
+  ],
+  "groups": {
+    "structure": {
+      "role": "structure",
+      "carriedBy": null,
+      "members": [
+        "Chassis perimeter",
+        "Chassis cassettes and socket rails",
+        "Chassis cassettes and socket rails part 2",
+        "Chassis cassettes and socket rails part 3",
+        "Chassis cassettes and socket rails part 4",
+        "Chassis pan trusses and stringers",
+        "Chassis pan trusses and stringers part 2",
+        "Chassis sills, decks and crossmembers",
+        "Chassis sills, decks and crossmembers part 2",
+        "Chassis sills, decks and crossmembers part 3",
+        "Chassis sills, decks and crossmembers part 4",
+        "Chassis sills, decks and crossmembers part 5",
+        "Chassis sills, decks and crossmembers part 6",
+        "Chassis sills, decks and crossmembers part 7",
+        "Chassis sills, decks and crossmembers part 8",
+        "Chassis sills, decks and crossmembers part 9"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "steer sweeps": {
+      "role": "drive",
+      "carriedBy": null,
+      "members": [
+        "Module 1 steer sweep",
+        "Module 2 steer sweep",
+        "Module 3 steer sweep",
+        "Module 4 steer sweep"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "module housings": {
+      "role": "drive",
+      "carriedBy": null,
+      "members": [
+        "Module 1 housing",
+        "Module 2 housing",
+        "Module 3 housing",
+        "Module 4 housing"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "bumpers": {
+      "role": "bumper",
+      "carriedBy": null,
+      "members": [
+        "Bumper ring"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "electronics": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Power distribution hub",
+        "roboRIO 2",
+        "VH-109 radio",
+        "Main 120 A breaker",
+        "Starboard controller 1 (SPARK MAX)",
+        "Starboard controller 2 (SPARK MAX)",
+        "Starboard controller 3 (SPARK MAX)",
+        "Starboard controller 4 (SPARK MAX)",
+        "Port controller 1 (SPARK MAX)",
+        "Port controller 2 (SPARK MAX)",
+        "Port controller 3 (SPARK MAX)",
+        "Port controller 4 (SPARK MAX)",
+        "Nip controller (SPARK MAX)",
+        "Chassis battery plug and bracket"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "wiring": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Main power loom",
+        "Branch and CAN trunk",
+        "Module 1 lead reserve",
+        "Module 2 lead reserve",
+        "Module 3 lead reserve",
+        "Module 4 lead reserve"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "battery retention": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Battery tray and retention"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "battery": {
+      "role": "battery",
+      "carriedBy": null,
+      "members": [
+        "Dressed battery"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "breaker service hand": {
+      "role": "service",
+      "carriedBy": null,
+      "members": [
+        "Breaker reset hand"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "plug service hand": {
+      "role": "service",
+      "carriedBy": null,
+      "members": [
+        "Plug grip hand"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "pocket tray": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Pocket tray"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "hood": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Hood (removable)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "check flap": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Check flap"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "tray supports": {
+      "role": "structure",
+      "carriedBy": null,
+      "members": [
+        "Pocket landing shelf port",
+        "Pocket landing shelf starboard",
+        "Rear inlet upright port",
+        "Rear inlet upright starboard",
+        "Floor post port",
+        "Floor post starboard"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "nip side plates": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Port nip side plate",
+        "Starboard nip side plate"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "lower nip roller": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Lower nip roller"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "upper nip roller": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Upper nip roller"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "nip drive": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Nip drive (NEO 550 and MAXPlanetary 36:1)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "nip coupling": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Nip coupling belt"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "pipe sensor": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Seated-pipe beam emitter (port)",
+        "Seated-pipe beam receiver (starboard)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "flap sensor": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Flap-closed switch"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "lip sensor": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Lip-deployed switch"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "reef sensor": {
+      "role": "other",
+      "carriedBy": null,
+      "members": [
+        "Reef range sensor (CANrange)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "lip latch": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Lip latch servo"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "exit lip": {
+      "role": "mechanism",
+      "carriedBy": null,
+      "members": [
+        "Deployable exit lip"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "pipe": {
+      "role": "payload",
+      "carriedBy": null,
+      "members": [
+        "CORAL pipe"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "field station": {
+      "role": "fixture",
+      "carriedBy": null,
+      "members": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)",
+        "Station upper panel (GE-25009)",
+        "Station upper guard (GE-25017)",
+        "Station frame upright, port (GE-25001-01)",
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "field reef": {
+      "role": "fixture",
+      "carriedBy": null,
+      "members": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)",
+        "Reef trough riser, next sector (GE-25315)",
+        "Reef branch column, docked sector (GE-25301-02)",
+        "Reef branch column, next sector (GE-25301-02)",
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef trough lip and base plates (GE-25302, GE-25311)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "field first pipe": {
+      "role": "fixture",
+      "carriedBy": null,
+      "members": [
+        "First scored pipe in sector A (field)"
+      ],
+      "massKg": null,
+      "massFrom": null
+    },
+    "fixtures": {
+      "role": "fixture",
+      "carriedBy": null,
+      "members": [],
+      "massKg": null,
+      "massFrom": null
+    }
+  },
+  "mounts": [
+    {
+      "group": "pocket tray",
+      "on": "Floor post port",
+      "atMm": [
+        122.5,
+        147.5,
+        579.788
+      ],
+      "note": "Floor clip on the port floor post top (post to stringer below); rear end on the inlet uprights"
+    },
+    {
+      "group": "tray supports",
+      "on": "Chassis pan trusses and stringers",
+      "atMm": [
+        205.0,
+        241.5,
+        489.525
+      ],
+      "note": "Port pocket landing shelf bolted to the upper pan stringer top (Z 489.5, material outboard of Y 232); the floor post stands on the shelf; same on starboard"
+    },
+    {
+      "group": "hood",
+      "on": "Pocket tray",
+      "atMm": [
+        200.0,
+        162.5,
+        700.0
+      ],
+      "note": "Hood tab on the port side-wall top edge (thumb screw)"
+    },
+    {
+      "group": "check flap",
+      "on": "Hood (removable)",
+      "atMm": [
+        161.253398,
+        0.0,
+        700.0
+      ],
+      "note": "3 mm flap pin in clips under the hood, 4 mm under its underside"
+    },
+    {
+      "group": "nip side plates",
+      "on": "Chassis pan trusses and stringers",
+      "atMm": [
+        250.0,
+        241.5,
+        489.525
+      ],
+      "note": "Port side plate foot: two 10-32 bolts 45 mm apart into the pocket landing shelf, which bolts to the upper pan stringer top (structure-checks.json P1, P4 and P5), same on starboard"
+    },
+    {
+      "group": "lower nip roller",
+      "on": "Port nip side plate",
+      "atMm": [
+        335.0,
+        170.4,
+        523.45
+      ],
+      "note": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "upper nip roller",
+      "on": "Port nip side plate",
+      "atMm": [
+        335.0,
+        170.4,
+        676.55
+      ],
+      "note": "Flanged hex bearing in the port side plate"
+    },
+    {
+      "group": "nip drive",
+      "on": "Port nip side plate",
+      "atMm": [
+        335.0,
+        173.6,
+        523.45
+      ],
+      "note": "MAXPlanetary face bolted to the port side plate, its hex socket on the lower shaft"
+    },
+    {
+      "group": "pipe sensor",
+      "on": "Port nip side plate",
+      "atMm": [
+        314.7,
+        170.4,
+        654.0
+      ],
+      "note": "Break-beam emitter clipped in its window in the port side plate",
+      "member": "Seated-pipe beam emitter (port)"
+    },
+    {
+      "group": "pipe sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [
+        314.7,
+        -170.4,
+        654.0
+      ],
+      "note": "Break-beam receiver clipped in its window in the starboard side plate",
+      "member": "Seated-pipe beam receiver (starboard)"
+    },
+    {
+      "group": "flap sensor",
+      "on": "Hood (removable)",
+      "atMm": [
+        161.253398,
+        134.0,
+        714.891
+      ],
+      "note": "Magnetic switch on the hood top over the flap hinge"
+    },
+    {
+      "group": "lip sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [
+        353.0,
+        -173.6,
+        712.0
+      ],
+      "note": "Magnetic switch on the starboard side plate outside face"
+    },
+    {
+      "group": "reef sensor",
+      "on": "Starboard nip side plate",
+      "atMm": [
+        347.0,
+        -167.3,
+        444.0
+      ],
+      "note": "CANrange bracket on the starboard side plate inside face"
+    },
+    {
+      "group": "nip coupling",
+      "on": "Starboard nip side plate",
+      "atMm": [
+        335.0,
+        -170.4,
+        600.0
+      ],
+      "note": "Idler post on the starboard side plate"
+    },
+    {
+      "group": "lip latch",
+      "on": "Starboard nip side plate",
+      "atMm": [
+        348.0,
+        -170.4,
+        455.0
+      ],
+      "note": "Servo bracket on the starboard side plate extension"
+    },
+    {
+      "group": "exit lip",
+      "on": "Port nip side plate",
+      "atMm": [
+        366.0,
+        170.4,
+        530.5
+      ],
+      "note": "Lip hinge pin in brackets on both side plates"
+    },
+    {
+      "group": "battery",
+      "on": "Battery tray and retention",
+      "atMm": [
+        -150.0,
+        0.0,
+        29.9
+      ],
+      "note": "Battery case bottom on the tray"
+    },
+    {
+      "group": "battery retention",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -210.0,
+        110.0,
+        111.13
+      ],
+      "note": "Port rear hanger under inboard sill 1"
+    },
+    {
+      "group": "bumpers",
+      "on": "Chassis perimeter",
+      "atMm": [
+        370.0,
+        0.0,
+        150.0
+      ],
+      "note": "Front bumper backer on the front perimeter face (mount undesigned)"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 1 housing",
+      "atMm": [
+        269.3,
+        264.3,
+        100.0
+      ],
+      "note": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 2 housing",
+      "atMm": [
+        269.3,
+        -264.3,
+        100.0
+      ],
+      "note": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 3 housing",
+      "atMm": [
+        -269.3,
+        -264.3,
+        100.0
+      ],
+      "note": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "steer sweeps",
+      "on": "Module 4 housing",
+      "atMm": [
+        -269.3,
+        264.3,
+        100.0
+      ],
+      "note": "Steer axis through the A035XPO turret bearing"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 2",
+      "atMm": [
+        238.826,
+        233.803,
+        94.633
+      ],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 3",
+      "atMm": [
+        238.803,
+        -233.826,
+        94.633
+      ],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails part 4",
+      "atMm": [
+        -238.826,
+        -233.803,
+        94.633
+      ],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "module housings",
+      "on": "Chassis cassettes and socket rails",
+      "atMm": [
+        -238.803,
+        233.826,
+        94.633
+      ],
+      "note": "Six 10-32 frame screws clamping the socket rail (nearest host point)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -145.0,
+        152.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -142.0,
+        -159.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -142.0,
+        -283.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -96.0,
+        274.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        38.0,
+        -116.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        38.0,
+        -196.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        194.0,
+        -116.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        194.0,
+        -196.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        38.0,
+        116.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        38.0,
+        196.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        194.0,
+        116.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        194.0,
+        196.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        38.0,
+        273.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "electronics",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -305.272,
+        99.555,
+        188.024
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -219.55,
+        178.0,
+        201.0
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        105.55,
+        0.0,
+        208.407
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        177.5,
+        172.5,
+        187.75
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        177.5,
+        -172.5,
+        187.75
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -177.5,
+        -172.5,
+        187.75
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    },
+    {
+      "group": "wiring",
+      "on": "Chassis sills, decks and crossmembers",
+      "atMm": [
+        -177.5,
+        172.5,
+        187.75
+      ],
+      "note": "Proposed attachment: host-envelope point nearest the reserve centre (bracket undesigned)"
+    }
+  ],
+  "contacts": [
+    {
+      "pair": [
+        "CORAL pipe",
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"
+      ],
+      "during": [
+        "lip-deploy",
+        "receive-chute"
+      ],
+      "note": "The pipe rests on and rolls down the station chute plate"
+    },
+    {
+      "pair": [
+        "Reef L2 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Reef L2 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Reef L3 branch arm, docked sector (GE-25301-01)",
+        "Reef branch column, docked sector (GE-25301-02)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Reef L3 branch arm, next sector (GE-25301-01)",
+        "Reef branch column, next sector (GE-25301-02)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Reef trough floor, docked sector (GE-25313)",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Reef trough floor, next sector (GE-25313)",
+        "Reef trough riser, next sector (GE-25315)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, port (GE-25001-01)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station frame upright, starboard (GE-25001-01)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper guard (GE-25017)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+        "Station upper panel (GE-25009)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station frame upright, port (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station lower panel (GE-25008)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station frame upright, starboard (GE-25001-01)",
+        "Station upper panel (GE-25009)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "Station lower barrier (GE-25007)",
+        "Station lower panel (GE-25008)"
+      ],
+      "note": "Two parts of the official field assembly that FIRST builds against each other"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Pocket tray"
+      ],
+      "during": [
+        "receive-chute",
+        "receive-pocket",
+        "leave-station",
+        "seat-pipe",
+        "carry-power-off-hit",
+        "eject-nip"
+      ],
+      "note": "The pipe lands on, rolls down and sits on the pocket floor: the rolling and seated contact the receive and eject trials solve"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Check flap"
+      ],
+      "during": [
+        "receive-pocket",
+        "leave-station",
+        "seat-pipe"
+      ],
+      "note": "The pipe pushes the check flap open and rests against it once it has closed: the flap contact the receive trial solves"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Deployable exit lip"
+      ],
+      "during": [
+        "eject-nip",
+        "eject-trough"
+      ],
+      "note": "The pipe rolls down the deployed lip ramp and land: the contact the eject trial solves"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Reef trough lip and base plates (GE-25302, GE-25311)"
+      ],
+      "during": [
+        "eject-trough",
+        "withdraw-park"
+      ],
+      "note": "The pipe lands in and rests against the official trough lip"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Reef trough floor, docked sector (GE-25313)"
+      ],
+      "during": [
+        "eject-trough",
+        "withdraw-park"
+      ],
+      "note": "The pipe rolls on and rests on the official trough floor"
+    },
+    {
+      "pair": [
+        "CORAL pipe",
+        "Reef trough riser, docked sector (GE-25315)"
+      ],
+      "during": [
+        "eject-trough",
+        "withdraw-park"
+      ],
+      "note": "The pipe runs to and rests against the official trough riser"
+    }
+  ],
+  "poses": {
+    "lip-deploy start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1074.56,
+              0.0,
+              632.43
+            ]
+          }
+        ],
+        "exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -827.58,
+        -440.5,
+        0.0,
+        445.5,
+        440.5,
+        1289.55
+      ]
+    },
+    "receive-chute start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1074.56,
+              0.0,
+              632.43
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -827.58,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        1289.55
+      ]
+    },
+    "receive-pocket 0": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -572.35,
+              0.0,
+              196.16
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 1": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -536.01,
+              0.0,
+              150.01
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 2": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -427.89,
+              0.0,
+              132.39
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 3": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -206.22,
+              0.0,
+              58.1
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 4": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -138.67,
+              0.0,
+              39.07
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.253398,
+              0.0,
+              706.026998
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -73.3
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 5": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              4.72,
+              0.0,
+              -0.57
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              161.253398,
+              0.0,
+              706.026998
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -62.0
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 6": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -23.25,
+              0.0,
+              6.53
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "receive-pocket 7": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -53.02,
+              0.0,
+              14.92
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "leave-station start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -53.02,
+              0.0,
+              14.92
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "seat-pipe start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.09,
+              0.0,
+              -0.01
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "eject-trough start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              165.7,
+              0.0,
+              -49.22
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        526.98,
+        440.5,
+        886.70834
+      ]
+    },
+    "withdraw-park start": {
+      "groups": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              255.87,
+              0.0,
+              -118.65
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        617.15,
+        440.5,
+        886.70834
+      ]
+    },
+    "service-unload-pipe start": {
+      "groups": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        1057.9,
+        886.70834
+      ]
+    },
+    "service-nip-cassette-lift start": {
+      "groups": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              -900.0,
+              -532.82
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -1050.8125,
+        0.0,
+        470.0,
+        1057.9,
+        886.70834
+      ]
+    },
+    "service-lip-restow start": {
+      "groups": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              -900.0,
+              -532.82
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -1050.8125,
+        0.0,
+        470.0,
+        1057.9,
+        886.70834
+      ]
+    },
+    "service-lip-over-travel start": {
+      "groups": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              900.0,
+              -576.884
+            ]
+          }
+        ],
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              -900.0,
+              -532.82
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -1050.8125,
+        0.0,
+        470.0,
+        1057.9,
+        886.70834
+      ]
+    },
+    "service-battery-rear-carry start": {
+      "groups": {
+        "battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "plug service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "field station": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -1500.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "service-plug-disconnect start": {
+      "groups": {
+        "plug service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              255.9
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    },
+    "service-breaker-reset start": {
+      "groups": {
+        "breaker service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              342.8
+            ]
+          }
+        ]
+      },
+      "robotBoundsMm": [
+        -445.5,
+        -440.5,
+        0.0,
+        470.0,
+        440.5,
+        886.70834
+      ]
+    }
+  },
+  "motions": {
+    "lip-deploy": {
+      "from": "lip-deploy start",
+      "moves": {
+        "exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 120.0
+          }
+        ]
+      }
+    },
+    "receive-chute": {
+      "from": "receive-chute start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -770.43,
+                0.0,
+                1232.4
+              ],
+              [
+                -466.39,
+                0.0,
+                1019.22
+              ],
+              [
+                -365.15,
+                0.0,
+                933.42
+              ],
+              [
+                -268.22,
+                0.0,
+                796.13
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "receive-pocket": {
+      "through": [
+        "receive-pocket 0",
+        "receive-pocket 1",
+        "receive-pocket 2",
+        "receive-pocket 3",
+        "receive-pocket 4",
+        "receive-pocket 5",
+        "receive-pocket 6",
+        "receive-pocket 7"
+      ]
+    },
+    "leave-station": {
+      "from": "leave-station start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                251.11,
+                0.0,
+                614.89
+              ],
+              [
+                217.92,
+                0.0,
+                625.12
+              ],
+              [
+                305.68,
+                0.0,
+                600.1
+              ],
+              [
+                293.4,
+                0.0,
+                602.98
+              ],
+              [
+                304.22,
+                0.0,
+                599.96
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "seat-pipe": {
+      "from": "seat-pipe start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                304.22,
+                0.0,
+                599.96
+              ],
+              [
+                304.08,
+                0.0,
+                599.97
+              ],
+              [
+                304.13,
+                0.0,
+                599.97
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "carry-power-off-hit": {
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                304.13,
+                0.0,
+                599.97
+              ],
+              [
+                307.91,
+                0.0,
+                599.94
+              ],
+              [
+                304.13,
+                0.0,
+                599.97
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "eject-nip": {
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                304.13,
+                0.0,
+                599.97
+              ],
+              [
+                362.95,
+                0.0,
+                599.94
+              ],
+              [
+                469.83,
+                0.0,
+                550.75
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "eject-trough": {
+      "from": "eject-trough start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                469.83,
+                0.0,
+                550.75
+              ],
+              [
+                503.05,
+                0.0,
+                541.21
+              ],
+              [
+                533.71,
+                0.0,
+                508.87
+              ],
+              [
+                572.63,
+                0.0,
+                483.92
+              ],
+              [
+                686.4,
+                0.0,
+                515.37
+              ],
+              [
+                560.0,
+                0.0,
+                481.32
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "withdraw-park": {
+      "from": "withdraw-park start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "field reef": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "field first pipe": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-hood-withdrawal": {
+      "moves": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              1260.0
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              1260.0
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              1260.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-hood-lift": {
+      "moves": {
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              400.0
+            ]
+          }
+        ],
+        "check flap": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              400.0
+            ]
+          }
+        ],
+        "flap sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              400.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-unload-pipe": {
+      "from": "service-unload-pipe start",
+      "moves": {
+        "pipe": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              371.948116,
+              0.0,
+              840.595649
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 110.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              150.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-nip-cassette-lift": {
+      "from": "service-nip-cassette-lift start",
+      "moves": {
+        "nip side plates": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "lower nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "upper nip roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "nip drive": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "nip coupling": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "lip latch": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "exit lip": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "lip sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "pipe sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ],
+        "reef sensor": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              520.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-lip-restow": {
+      "from": "service-lip-restow start",
+      "moves": {
+        "exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -120.0
+          }
+        ]
+      }
+    },
+    "service-lip-over-travel": {
+      "from": "service-lip-over-travel start",
+      "moves": {
+        "exit lip": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              366.0,
+              0.0,
+              530.5
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 31.2
+          }
+        ]
+      }
+    },
+    "service-battery-lift": {
+      "moves": {
+        "battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ],
+        "plug service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              250.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-battery-rear-carry": {
+      "from": "service-battery-rear-carry start",
+      "moves": {
+        "battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "plug service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -420.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    "service-plug-disconnect": {
+      "from": "service-plug-disconnect start",
+      "moves": {
+        "plug service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -255.9
+            ]
+          }
+        ]
+      }
+    },
+    "service-breaker-reset": {
+      "from": "service-breaker-reset start",
+      "moves": {
+        "breaker service hand": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -342.8
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "frame_x": 370.0,
+    "frame_y": 365.0,
+    "rear_cutback": 17.25,
+    "partition": 2.1,
+    "partition_moving": 3.1,
+    "bumper_stack": 75.5,
+    "pipe_r": 57.15,
+    "pipe_length": 301.625,
+    "contact_reserve": 2.5,
+    "lip_reserve": 3.5,
+    "pocket_half_width": 161.0,
+    "wall": 3.175,
+    "plate_y0": 167.275,
+    "plate_y1": 173.625,
+    "shaft_y": 175.975,
+    "drive_y0": 178.075,
+    "floor_deg": 15.74,
+    "chute_deg": 52.31,
+    "entry_x": -340.0,
+    "entry_z": 795.0,
+    "pocket_z": 600.0,
+    "roller_r": 25.4,
+    "design_squeeze": 6.0,
+    "squeeze": 6.0,
+    "throat_x": 335.0,
+    "core_r": 16.4,
+    "shaft_r": 6.35,
+    "design_dz": 76.55,
+    "roller_dz": 76.55,
+    "lower_roller_z": 523.45,
+    "upper_roller_z": 676.55,
+    "bite_x": 304.103398,
+    "floor_slope": 0.281841,
+    "floor_cos": 0.962503,
+    "floor_pt_x": 288.600177,
+    "floor_pt_z": 544.992977,
+    "chute_slope": 1.294316,
+    "kink_x": -268.055626,
+    "kink_z": 701.881272,
+    "floor_end_x": 306.6,
+    "floor_end_z": 539.919893,
+    "hood_gap": 10.0,
+    "hood_offset": 129.142509,
+    "flap_x": 161.253398,
+    "hood0_x": 121.253398,
+    "hood0_z": 721.300629,
+    "hood1_x": 306.6,
+    "hood1_z": 669.062401,
+    "flare_angle": 0.798314,
+    "flare_x": 58.441006,
+    "flare_z": 785.756842,
+    "flap_hinge_z": 706.026998,
+    "flap_length": 119.142509,
+    "flap_open_deg": 74.26,
+    "lip_hinge_x": 366.0,
+    "lip_hinge_z": 530.5,
+    "lip_root_x": 367.5,
+    "lip_ramp_deg": 30.0,
+    "lip_tip_x": 470.0,
+    "lip_tip_z": 492.85,
+    "lip_knee_x": 445.0,
+    "lip_root_z": 537.594646,
+    "lip_thickness": 3.175,
+    "lip_half_width": 158.0,
+    "lip_stow_deg": -120.0,
+    "stringer_top": 489.5,
+    "shelf_z0": 491.6,
+    "shelf_t": 6.35,
+    "landing_z": 500.45,
+    "beam_x": 314.7,
+    "beam_z": 654.0,
+    "gearbox_length": 92.0,
+    "motor_length": 62.0,
+    "sector_pitch": 471.0,
+    "trough_lip_x": 495.5,
+    "first_pipe_x": 64.5,
+    "first_pipe_z": 481.32,
+    "seat_x": 304.13,
+    "seat_z": 599.97,
+    "mitre": 0.414214,
+    "floor_n1x": 0.79133,
+    "floor_n1z": 0.611389,
+    "floor_n2x": 0.271272,
+    "floor_n2z": 0.962503,
+    "wall_top": 150.0,
+    "wall_n1x": 0.79133,
+    "wall_n1z": 0.611389,
+    "wall_n2x": 0.271272,
+    "wall_n2z": 0.962503,
+    "hood_half_width": 157.9,
+    "flap_half_width": 152.0,
+    "shaft_hole_r": 9.1,
+    "flap_switch_z": 717.390928,
+    "lip_n1x": 0.5,
+    "lip_n1z": 0.866025,
+    "lip_n2x": 0.0,
+    "lip_n2z": 1.0,
+    "floor_post_top": 580.28768
+  },
+  "parts": [
+    {
+      "file": "field/reef-arm-l2-next.step",
+      "sha256": "24e853601cae331b4e8a8f9b168d8f6c541cf96b3dbb7f68fa9b2df6c7d65a55",
+      "solids": [
+        {
+          "solid": "Reef L2 branch arm, next sector (GE-25301-01)",
+          "as": "Reef L2 branch arm, next sector (GE-25301-01)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-arm-l2.step",
+      "sha256": "fbb19b7dbde92eda8f585c697b77d6e4b1c2bdcc9c4c9cbc48f5c048696a7a25",
+      "solids": [
+        {
+          "solid": "Reef L2 branch arm, docked sector (GE-25301-01)",
+          "as": "Reef L2 branch arm, docked sector (GE-25301-01)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-arm-l3-next.step",
+      "sha256": "277a3a23a1b59c6abfb4721e1a8cd12517bc4e115d0bbeed2ddb7a36e7b43371",
+      "solids": [
+        {
+          "solid": "Reef L3 branch arm, next sector (GE-25301-01)",
+          "as": "Reef L3 branch arm, next sector (GE-25301-01)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-arm-l3.step",
+      "sha256": "f16531f30a7845ee747e0e7c76076d56a60d9b60acc9f1b376028e26ff534a97",
+      "solids": [
+        {
+          "solid": "Reef L3 branch arm, docked sector (GE-25301-01)",
+          "as": "Reef L3 branch arm, docked sector (GE-25301-01)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-column-next.step",
+      "sha256": "ef20c0f27ac5fe6ae7e9367b3a98d749ef5959d20f1f7f11d557eff1a4e2d637",
+      "solids": [
+        {
+          "solid": "Reef branch column, next sector (GE-25301-02)",
+          "as": "Reef branch column, next sector (GE-25301-02)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-column.step",
+      "sha256": "796ca6d0fb850e959c1580b84791381189b498e90f249fc1cede91ce71a6eb26",
+      "solids": [
+        {
+          "solid": "Reef branch column, docked sector (GE-25301-02)",
+          "as": "Reef branch column, docked sector (GE-25301-02)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-floor-next.step",
+      "sha256": "168bd4c35f2506afad0bb780d2b6dacb65cf06cbd4cce2392942304186bdc961",
+      "solids": [
+        {
+          "solid": "Reef trough floor, next sector (GE-25313)",
+          "as": "Reef trough floor, next sector (GE-25313)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-floor.step",
+      "sha256": "5ef2cbcbf5236f67aeb99ce966ae995ef081417f731be6074cb6bd0b095fc3ea",
+      "solids": [
+        {
+          "solid": "Reef trough floor, docked sector (GE-25313)",
+          "as": "Reef trough floor, docked sector (GE-25313)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-lip.step",
+      "sha256": "0f155b76e097cb68bcf0b482a6b3f7b5060bbfab1b615b0b34dde8a215aaa4bd",
+      "solids": [
+        {
+          "solid": "Reef trough lip and base plates (GE-25302, GE-25311)",
+          "as": "Reef trough lip and base plates (GE-25302, GE-25311)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-riser-next.step",
+      "sha256": "c1d978b2c5bbcd110b8a0b5891c9d69d862e77129b7f50a9f0bb7a3e08b42601",
+      "solids": [
+        {
+          "solid": "Reef trough riser, next sector (GE-25315)",
+          "as": "Reef trough riser, next sector (GE-25315)"
+        }
+      ]
+    },
+    {
+      "file": "field/reef-riser.step",
+      "sha256": "f6afd48429c05b4d195a3be2c6c784f9bdb6655db1b19396d1dd21083431063d",
+      "solids": [
+        {
+          "solid": "Reef trough riser, docked sector (GE-25315)",
+          "as": "Reef trough riser, docked sector (GE-25315)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-barrier.step",
+      "sha256": "614245b08a3bd4b60f84870bf3b97a47dafadec3482c2ad5ba28b77e05bad1c9",
+      "solids": [
+        {
+          "solid": "Station lower barrier (GE-25007)",
+          "as": "Station lower barrier (GE-25007)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-chute.step",
+      "sha256": "ea324acb07fc87d757b6fe24236f1c4f46b2599120c8c7c55de36e87d1b39e52",
+      "solids": [
+        {
+          "solid": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)",
+          "as": "Station chute plate and side plates (GE-25014, GE-25004, GE-25005)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-guard.step",
+      "sha256": "1107c1cafcbe7fb7adc226dd3e5574b58b79dbe5a239c5932a14a23a148e9537",
+      "solids": [
+        {
+          "solid": "Station upper guard (GE-25017)",
+          "as": "Station upper guard (GE-25017)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-lower-panel.step",
+      "sha256": "66611ad93af324a57ce623da24e389b54ec2f3d8508b4aad753713312029104f",
+      "solids": [
+        {
+          "solid": "Station lower panel (GE-25008)",
+          "as": "Station lower panel (GE-25008)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-upper-panel.step",
+      "sha256": "f9a1b6428a9612a593bcae9ce372ae0e5fb3346792adf56d73701be0cf553ce5",
+      "solids": [
+        {
+          "solid": "Station upper panel (GE-25009)",
+          "as": "Station upper panel (GE-25009)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-upright-port.step",
+      "sha256": "bc10ec683078e0101d47084ccf83fe1a5f31b2205dbb32ecba0c173e256e287d",
+      "solids": [
+        {
+          "solid": "Station frame upright, port (GE-25001-01)",
+          "as": "Station frame upright, port (GE-25001-01)"
+        }
+      ]
+    },
+    {
+      "file": "field/station-upright-starboard.step",
+      "sha256": "be5982af6ac3d271280f4c3249b193003045d299b5fe41ebbd6cfa18bd023b5f",
+      "solids": [
+        {
+          "solid": "Station frame upright, starboard (GE-25001-01)",
+          "as": "Station frame upright, starboard (GE-25001-01)"
+        }
+      ]
+    },
+    {
+      "file": "parts/chassis-envelopes.step",
+      "sha256": "7d175139641babb90a4e3b8b630c1ce31d2e11eb48cbccc5b7fce0a94bc4da44",
+      "solids": [
+        {
+          "solid": "Chassis cassettes and socket rails",
+          "as": "Chassis cassettes and socket rails"
+        },
+        {
+          "solid": "Chassis cassettes and socket rails part 2",
+          "as": "Chassis cassettes and socket rails part 2"
+        },
+        {
+          "solid": "Chassis cassettes and socket rails part 3",
+          "as": "Chassis cassettes and socket rails part 3"
+        },
+        {
+          "solid": "Chassis cassettes and socket rails part 4",
+          "as": "Chassis cassettes and socket rails part 4"
+        },
+        {
+          "solid": "Chassis pan trusses and stringers",
+          "as": "Chassis pan trusses and stringers"
+        },
+        {
+          "solid": "Chassis pan trusses and stringers part 2",
+          "as": "Chassis pan trusses and stringers part 2"
+        },
+        {
+          "solid": "Chassis perimeter",
+          "as": "Chassis perimeter"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers",
+          "as": "Chassis sills, decks and crossmembers"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 2",
+          "as": "Chassis sills, decks and crossmembers part 2"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 3",
+          "as": "Chassis sills, decks and crossmembers part 3"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 4",
+          "as": "Chassis sills, decks and crossmembers part 4"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 5",
+          "as": "Chassis sills, decks and crossmembers part 5"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 6",
+          "as": "Chassis sills, decks and crossmembers part 6"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 7",
+          "as": "Chassis sills, decks and crossmembers part 7"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 8",
+          "as": "Chassis sills, decks and crossmembers part 8"
+        },
+        {
+          "solid": "Chassis sills, decks and crossmembers part 9",
+          "as": "Chassis sills, decks and crossmembers part 9"
+        },
+        {
+          "solid": "Module 1 housing",
+          "as": "Module 1 housing"
+        },
+        {
+          "solid": "Module 2 housing",
+          "as": "Module 2 housing"
+        },
+        {
+          "solid": "Module 3 housing",
+          "as": "Module 3 housing"
+        },
+        {
+          "solid": "Module 4 housing",
+          "as": "Module 4 housing"
+        }
+      ]
+    }
+  ],
+  "custom": []
+}
