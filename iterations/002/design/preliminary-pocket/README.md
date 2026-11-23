@@ -7,9 +7,10 @@
 <!-- /cad-still -->
 
 > **This page records the first draft of the design** (self-locking worm, issue `red2-002-preliminary-layout-Bx`), kept as history.
-> The builders in this folder now write the current design, Fixed pocket 1.0, to `cad/preliminary-design/releases/1.0/`:
-> planetary drive with a powered hold, station-fed receive, sprung lip stop, placed sensors and custody proven with the power off.
-> The build commands are in [`cad/preliminary-design/README.md`](../../../../cad/preliminary-design/README.md).
+> The current design, Fixed pocket 1.0, is data in [`cad/preliminary-design/releases/1.0/`](../../../../cad/preliminary-design/releases/1.0/):
+> a design source the design library builds, with its trials written as data. The builder and trial solver that used to live here
+> called the agent's design tool and were removed on 2026-11-23; Git keeps them at commit `BASE`, the last commit before the removal.
+> The records, premises and pages below stay as they were recorded.
 
 ![B'x package player at eject-ramp, 50 % stroke: pocket, nip, deployed lip, trough and pipe](package-still.png)
 
@@ -94,17 +95,7 @@ These are recorded in `design-findings.json`, `bench-gates.json` and `retention-
 
 ## Reproduce
 
-Use the CAD Python with the Agent FRC 0.84.0 scripts. The plugin scripts need their own directory on `sys.path`, so do not run them under `-I`. Set `PYTHON` for the design CLI.
-
-```text
-python -I -B field_trials.py evidence/field-trials.json --processes 8
-python -I -B build_layout.py PROJECT iterations/002/design/preliminary-pocket PLUGIN/scripts iterations/002/design/preliminary-pocket/evidence/field-trials.json
-node PLUGIN/scripts/design.mjs new design-inputs/design-base.json design-inputs/design-project.json   (then design-inputs/revise.mjs)
-python -I -B write_package.py PROJECT PLUGIN/scripts
-PYTHON=<cad python> node PLUGIN/scripts/design.mjs preliminary-check PROJECT iterations/002/design/preliminary-pocket/layout.json --require-checked --write-view
-python -I -B field_playback.py PROJECT
-python -I -B make_review.py PROJECT
-```
+Not from this folder any more. The scripts listed in the records here (`field_trials.py`, `build_layout.py`, `write_package.py`, `field_playback.py`, `make_review.py`, `structure_checks.py`, `cycle_rehearsal.py` and the `layout-001-build-reference` scratch scripts) are in Git at commit `BASE`. They called the agent's design tool, which project code no longer runs.
 
 `layout.step` is the shared top-down blockout. It is installed in the carry configuration: lip deployed, pipe seated. It carries the 002 chassis, modules, bumpers, electronics and battery from the A baseline as revisable premises (`chassis-carry-forward.json`). The A pan, cassette, upper support and inlet are not carried.
 
