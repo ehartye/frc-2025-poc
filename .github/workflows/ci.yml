@@ -32,7 +32,7 @@ jobs:
       # the design and its status. The script needs Python's standard library and Git, nothing else.
       - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c
         with:
-          python-version: '3.13'
+          python-version: '3.14'
       - name: Check the README stills
         run: python scripts/cad-readmes.py .
       # GitHub Pages is set to publish from GitHub Actions, so the default branch uploads docs for the deploy job.

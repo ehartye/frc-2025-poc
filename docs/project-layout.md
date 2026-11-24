@@ -6,7 +6,7 @@ The [six-wheel campaign](../experiments/six-wheel/README.md) preserves the earli
 
 From the checkout root, run `node scripts/project-layout.mjs check .` and `python scripts/cad-readmes.py .`. Open `docs/robot/cad/index.html` locally to rotate and zoom the offline model of the withdrawn draft.
 
-Use `python -m unittest discover -s tests` for Python regression discovery (Python 3.13 with the packages in `tests/requirements-ci.txt`), and the original `run.ps1 -JavaHome … -GradleHome …` for the historical simulator.
+Use `python -m unittest discover -s tests` for Python regression discovery (Python 3.14 with the packages in `tests/requirements-ci.txt`), and the original `run.ps1 -JavaHome … -GradleHome …` for the historical simulator.
 
 ## The project's CI
 
